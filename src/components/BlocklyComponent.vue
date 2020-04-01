@@ -9,7 +9,7 @@
 
 <script>
 
-import Blockly from 'blockly';
+import Blockly from "blockly";
 
 export default {
     name: "BlocklyComponent",
