@@ -18,6 +18,15 @@ import "./blocks/discord/message";
 import "./blocks/discord/roles";
 import "./prompt";
 
+import * as en from "blockly/msg/en";
+import * as es from "blockly/msg/es";
+import * as ru from "blockly/msg/ru";
+import * as fr from "blockly/msg/fr";
+import * as enCustom from "./locales/en";
+import * as esCustom from "./locales/es";
+import * as ruCustom from "./locales/ru";
+import * as frCustom from "./locales/fr";
+
 export default {
     name: "app",
     components: {
@@ -35,6 +44,29 @@ export default {
                 workspace: newWorkspace
             });
             return workspace;
+        },
+        changeLanguage(locale, reloadWorkspace = true){
+            switch (locale) {
+                case "en":
+                    Blockly.setLocale(en);
+                    enCustom(Blockly);
+                    break;
+                case "es":
+                    Blockly.setLocale(es);
+                    esCustom(Blockly);
+                    break;
+                case "ru":
+                    Blockly.setLocale(ru);
+                    ruCustom(Blockly);
+                    break;
+                case "fr":
+                    Blockly.setLocale(fr);
+                    frCustom(Blockly);
+                    break;
+                default:
+                    break;
+            }
+            if(reloadWorkspace) this.reloadWorkspace();
         }
     },
     data() {
@@ -54,7 +86,8 @@ export default {
 }
 
 function getXML() {
-    return `<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+    return `
+    <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
     <category name="Logic" colour="#5b80a5">
         <block type="controls_if" />
         <block type="logic_compare">
@@ -430,7 +463,7 @@ function getXML() {
         <block type="discord4stratch_get_role"></block>
         <block type="discord4stratch_add_role"></block>
     </category>
-</xml>`;
+    </xml>`;
 }
 </script>
 

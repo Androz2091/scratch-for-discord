@@ -9,37 +9,17 @@
 
 <script>
 import Blockly from "blockly";
-import * as enCustom from "../locales/en";
-import * as esCustom from "../locales/es";
-import * as ruCustom from "../locales/ru";
-import * as frCustom from "../locales/fr";
 
 export default {
     name: "BlocklyComponent",
     props: ["options"],
     data() {
         return {
-            workspace: this.$store.workspace
+            workspace: this.$store.state.workspace
         }
     },
     mounted() {
-        switch (this.$store.state.locale) {
-            case "en":
-                enCustom(Blockly);
-                break;
-            case "es":
-                esCustom(Blockly);
-                break;
-            case "ru":
-                ruCustom(Blockly);
-                break;
-            case "fr":
-                frCustom(Blockly);
-                break;
-            default:
-                enCustom(Blockly);
-                break;
-        }
+        this.$parent.changeLanguage(this.$store.state.blocklyLocale, false);
         const options = this.$props.options || {};
         if (!options.toolbox) {
             options.toolbox = this.$refs["blocklyToolbox"];

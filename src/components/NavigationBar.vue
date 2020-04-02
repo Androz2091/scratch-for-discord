@@ -30,17 +30,7 @@
 </template>
 
 <script>
-import Blockly from "blockly";
 import BlocklyJS from "blockly/javascript";
-
-import * as en from "blockly/msg/en";
-import * as es from "blockly/msg/es";
-import * as ru from "blockly/msg/ru";
-import * as fr from "blockly/msg/fr";
-import * as enCustom from "../locales/en";
-import * as esCustom from "../locales/es";
-import * as ruCustom from "../locales/ru";
-import * as frCustom from "../locales/fr";
 
 export default {
     name: "navbar",
@@ -68,27 +58,10 @@ export default {
             });*/
         },
         changeLanguage(locale){
-            switch (locale) {
-                case "en":
-                    Blockly.setLocale(en);
-                    enCustom(Blockly);
-                    break;
-                case "es":
-                    Blockly.setLocale(es);
-                    esCustom(Blockly);
-                    break;
-                case "ru":
-                    Blockly.setLocale(ru);
-                    ruCustom(Blockly);
-                    break;
-                case "fr":
-                    Blockly.setLocale(fr);
-                    frCustom(Blockly);
-                    break;
-                default:
-                    break;
-            }
-            this.$parent.reloadWorkspace();
+            this.$store.commit("setLocale", {
+                newLocale: locale
+            });
+            this.$parent.changeLanguage(locale);
         }
     }
 }
