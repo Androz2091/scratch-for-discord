@@ -14,6 +14,7 @@ import "./blocks/discord/base";
 import "./blocks/discord/client";
 import "./blocks/discord/events";
 import "./blocks/discord/guilds";
+import "./blocks/discord/members";
 import "./blocks/discord/message";
 import "./blocks/discord/roles";
 import "./prompt";
@@ -453,8 +454,9 @@ function getXML() {
         <block type="discord4stratch_on_connected"></block>
         <label text="Messages"></label>
         <block type="discord4stratch_message_content"></block>
-        <block type="discord4stratch_message_author_id"></block>
-        <block type="discord4stratch_message_author_username"></block>
+        <block type="discord4stratch_message_author"></block>
+        <block type="discord4stratch_message_guild"></block>
+        <block type="discord4stratch_message_channel"></block>
         <label text="Bot"></label>
         <block type="discord4stratch_client_set_game"></block>
         <label text="Servers"></label>
@@ -462,6 +464,8 @@ function getXML() {
         <label text="Roles"></label>
         <block type="discord4stratch_get_role"></block>
         <block type="discord4stratch_add_role"></block>
+        <label text="Members"></label>
+        <block type="discord4stratch_get_member"></block>
     </category>
     </xml>`;
 }

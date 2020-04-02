@@ -1,20 +1,37 @@
 import * as Blockly from "blockly";
 
+const get_guild = {
+    "message0": "%{BKY_GET_GUILD}",
+    "args0": [
+        {
+            "type": "input_value",
+            "name": "VALUE",
+            "check": "String"
+        },
+        {
+            "type": "field_dropdown",
+            "name": "SEARCH_TYPE",
+            "options": [
+                [
+                    "id",
+                    "ID"
+                ],
+                [
+                    "%{BKY_NAME}",
+                    "NAME"
+                ]
+            ]
+        }
+    ],
+    "output": "Server",
+    "colour": 230,
+    "tooltip": "",
+    "helpUrl": ""
+};
+
 Blockly.Blocks["discord4stratch_get_guild"] = {
     init: function() {
-        this.appendValueInput("VALUE")
-        .appendField("Find server");
-        this.appendDummyInput()
-        .appendField("by")
-        .appendField(new Blockly.FieldDropdown([
-            ["name", "name"],
-            ["id", "id"]
-        ]), "SEARCH_TYPE")
-        this.setInputsInline(true);
-        this.setOutput(true, "Guild");
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.jsonInit(get_guild);
     }
 };
 

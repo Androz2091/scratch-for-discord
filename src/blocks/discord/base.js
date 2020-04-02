@@ -1,12 +1,15 @@
 import * as Blockly from "blockly/core";
 
+const init = {
+    "message0": "%{BKY_INIT}",
+    "colour": 230,
+    "tooltip": "%{BKY_INIT_TOOLTIP}",
+    "helpUrl": ""
+};
+
 Blockly.Blocks["discord4stratch_init"] = {
     init: function() {
-        this.appendDummyInput()
-            .appendField("%{BKY_HUMM}");
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.jsonInit(init);
     }
 };
 
@@ -27,14 +30,24 @@ Blockly.JavaScript["discord4stratch_init"] = function() {
     return code;
 };
 
+const client_login = {
+    "type": "block_type",
+    "message0": "%{BKY_CLIENT_LOGIN}",
+    "args0": [
+        {
+            "type": "input_value",
+            "name": "token",
+            "check": "String"
+        }
+    ],
+    "colour": 230,
+    "tooltip": "",
+    "helpUrl": ""
+};
+
 Blockly.Blocks["discord4stratch_client_login"] = {
     init: function() {
-        this.appendValueInput("token")
-            .setCheck("String")
-            .appendField("connect with token");
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.jsonInit(client_login);
     }
 };
 

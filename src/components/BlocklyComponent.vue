@@ -35,8 +35,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .blocklyDiv {
-  height: 100%;
-  width: 100%;
-  text-align: left;
+    height: 100%;
+    width: 100%;
+    text-align: left;
 }
 </style>
