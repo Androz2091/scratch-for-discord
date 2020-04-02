@@ -17,10 +17,10 @@
                     <b-dropdown-item @click="clear">Clear {{blockCount}} blocks</b-dropdown-item>
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown text="Lang" right>
-                    <b-dropdown-item @click="changeLanguage">EN</b-dropdown-item>
-                    <b-dropdown-item href="#">ES</b-dropdown-item>
-                    <b-dropdown-item href="#">RU</b-dropdown-item>
-                    <b-dropdown-item href="#">FA</b-dropdown-item>
+                    <b-dropdown-item @click="changeLanguage('en')">English (EN)</b-dropdown-item>
+                    <b-dropdown-item @click="changeLanguage('es')">Español (ES)</b-dropdown-item>
+                    <b-dropdown-item @click="changeLanguage('ru')">Русь (RU)</b-dropdown-item>
+                    <b-dropdown-item @click="changeLanguage('fr')">Français (FR)</b-dropdown-item>
                 </b-nav-item-dropdown>
             </b-navbar-nav>
 
@@ -30,7 +30,17 @@
 </template>
 
 <script>
+import Blockly from "blockly";
 import BlocklyJS from "blockly/javascript";
+
+import * as en from "blockly/msg/en";
+import * as es from "blockly/msg/es";
+import * as ru from "blockly/msg/ru";
+import * as fr from "blockly/msg/fr";
+import * as enCustom from "../locales/en";
+import * as esCustom from "../locales/es";
+import * as ruCustom from "../locales/ru";
+import * as frCustom from "../locales/fr";
 
 export default {
     name: "navbar",
@@ -57,8 +67,28 @@ export default {
                 content: textarea
             });*/
         },
-        changeLanguage(){
-            this.$loadScript("msg/js/fr.js");
+        changeLanguage(locale){
+            switch (locale) {
+                case "en":
+                    Blockly.setLocale(en);
+                    enCustom(Blockly);
+                    break;
+                case "es":
+                    Blockly.setLocale(es);
+                    esCustom(Blockly);
+                    break;
+                case "ru":
+                    Blockly.setLocale(ru);
+                    ruCustom(Blockly);
+                    break;
+                case "fr":
+                    Blockly.setLocale(fr);
+                    frCustom(Blockly);
+                    break;
+                default:
+                    break;
+            }
+            this.$parent.reloadWorkspace();
         }
     }
 }

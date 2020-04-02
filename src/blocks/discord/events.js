@@ -21,12 +21,12 @@ Blockly.JavaScript["discord4stratch_on_message"] = function(block) {
 Blockly.Blocks["discord4stratch_on_connected"] = {
     init: function() {
         this.appendDummyInput()
-              .appendField("on connected");
-          this.appendStatementInput("statements")
-              .setCheck(null);
-          this.setColour(230);
-          this.setTooltip("");
-          this.setHelpUrl("");
+            .appendField("on connected");
+        this.appendStatementInput("statements")
+            .setCheck(null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
     }
 };
 

@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 Blockly.Blocks["discord4stratch_init"] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("import Discord");
+            .appendField("%{BKY_HUMM}");
         this.setColour(230);
         this.setTooltip("");
         this.setHelpUrl("");
@@ -32,14 +32,14 @@ Blockly.Blocks["discord4stratch_client_login"] = {
         this.appendValueInput("token")
             .setCheck("String")
             .appendField("connect with token");
-          this.setColour(230);
-          this.setTooltip("");
-          this.setHelpUrl("");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
     }
 };
 
 Blockly.JavaScript["discord4stratch_client_login"] = function(block) {
-    const value_name = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `discord4stratch.client.login(${value_name});\n`;
+    const value = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `discord4stratch.client.login(${value});\n`;
     return code;
 };

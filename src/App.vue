@@ -7,11 +7,15 @@
 
 <script>
 
+import Blockly from "blockly";
 import NavBarComponent from "./components/NavigationBar.vue";
 import BlocklyComponent from "./components/BlocklyComponent.vue";
 import "./blocks/discord/base";
+import "./blocks/discord/client";
 import "./blocks/discord/events";
+import "./blocks/discord/guilds";
 import "./blocks/discord/message";
+import "./blocks/discord/roles";
 import "./prompt";
 
 export default {
@@ -20,13 +24,27 @@ export default {
         BlocklyComponent,
         NavBarComponent
     },
+    methods: {
+        reloadWorkspace(){
+            const workspace = this.$store.state.workspace;
+            const dom = Blockly.Xml.workspaceToDom(workspace);
+            workspace.dispose();
+            const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), this.options);
+            Blockly.Xml.domToWorkspace(dom, newWorkspace);
+            this.$store.commit("setWorkspace", {
+                workspace: newWorkspace
+            });
+            return workspace;
+        }
+    },
     data() {
         return {
             options: {
+                renderer: "zelos",
                 grid: {
                     spacing: 25,
                     length: 3,
-                    colour: '#ccc',
+                    colour: "#ccc",
                     snap: true
                 },
                 toolbox: getXML()
@@ -400,10 +418,17 @@ function getXML() {
         <label text="Events"></label>
         <block type="discord4stratch_on_message"></block>
         <block type="discord4stratch_on_connected"></block>
-        <label text="Message Properties"></label>
+        <label text="Messages"></label>
         <block type="discord4stratch_message_content"></block>
         <block type="discord4stratch_message_author_id"></block>
         <block type="discord4stratch_message_author_username"></block>
+        <label text="Bot"></label>
+        <block type="discord4stratch_client_set_game"></block>
+        <label text="Servers"></label>
+        <block type="discord4stratch_get_guild"></block>
+        <label text="Roles"></label>
+        <block type="discord4stratch_get_role"></block>
+        <block type="discord4stratch_add_role"></block>
     </category>
 </xml>`;
 }
