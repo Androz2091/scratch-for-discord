@@ -1,5 +1,5 @@
 <template>
-    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar toggleable="lg" type="dark" variant="info" id="navbar">
         <b-navbar-brand>Scratch4Discord</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -23,8 +23,11 @@
                     <b-dropdown-item @click="changeLanguage('fr')">Français (FR)</b-dropdown-item>
                 </b-nav-item-dropdown>
             </b-navbar-nav>
-
-            <b-navbar-nav class="ml-auto"></b-navbar-nav>
+            <b-navbar-nav class="ml-auto">
+            <b-button>
+                <span contenteditable="true" id="docName" @change="onDocumentNameChange">Untitled document</span>
+            </b-button>
+            </b-navbar-nav>
         </b-collapse>
     </b-navbar>
 </template>
@@ -38,6 +41,12 @@ export default {
         blockCount: function() {
             return this.$store.state.workspace ? this.$store.state.workspace.getAllBlocks().length : 0;
         }
+    },
+    mounted(){
+        const element = document.getElementById("docName");
+        element.spellcheck = false;
+        element.focus();
+        element.blur();
     },
     methods: {
         undo() {
@@ -62,7 +71,17 @@ export default {
                 newLocale: locale
             });
             this.$parent.changeLanguage(locale);
+        },
+        onDocumentNameChange() {
+            console.log("s")
         }
     }
 }
 </script>
+
+<style scoped>
+.workspace-name {
+    background-color: #F17F29 !important;
+    border-color: #F96900 !important;
+}
+</style>
