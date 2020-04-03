@@ -1,8 +1,36 @@
 import * as Blockly from "blockly";
 
+const reply_message = {
+    "message0": "%{BKY_REPLY}",
+    "args0": [
+        {
+            "type": "input_value",
+            "name": "CONTENT",
+            "check": "String"
+        },
+    ],
+    "colour": "#9966FF",
+    "previousStatement": null,
+    "nextStatement": null,
+    "tooltip": "",
+    "helpUrl": ""
+};
+
+Blockly.Blocks["discord4stratch_reply_message"] = {
+    init: function() {
+        this.jsonInit(reply_message);
+    }
+};
+
+Blockly.JavaScript["discord4stratch_reply_message"] = function(block) {
+    const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`discord4stratch.message.reply(${content});\n`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+
 const message_content = {
     "message0": "%{BKY_MESSAGE_CONTENT}",
-    "colour": 230,
+    "colour": "#9966FF",
     "tooltip": "",
     "output": "String",
     "helpUrl": ""
@@ -27,22 +55,22 @@ const message_author = {
             "name": "SEARCH_TYPE",
             "options": [
                 [
-                    "id",
-                    "ID"
-                ],
-                [
                     "%{BKY_USERNAME}",
                     "USERNAME"
                 ],
                 [
                     "%{BKY_NICKNAME}",
                     "NICKNAME"
+                ],
+                [
+                    "id",
+                    "ID"
                 ]
             ]
         }
     ],
     "output": "String",
-    "colour": 230,
+    "colour": "#9966FF",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -75,18 +103,18 @@ const message_guild = {
             "name": "SEARCH_TYPE",
             "options": [
                 [
-                    "id",
-                    "ID"
-                ],
-                [
                     "%{BKY_NAME}",
                     "NAME"
+                ],
+                [
+                    "id",
+                    "ID"
                 ]
             ]
         }
     ],
     "output": "String",
-    "colour": 230,
+    "colour": "#9966FF",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -116,18 +144,18 @@ const message_channel = {
             "name": "SEARCH_TYPE",
             "options": [
                 [
-                    "id",
-                    "ID"
-                ],
-                [
                     "%{BKY_NAME}",
                     "NAME"
+                ],
+                [
+                    "id",
+                    "ID"
                 ]
             ]
         }
     ],
     "output": "String",
-    "colour": 230,
+    "colour": "#9966FF",
     "tooltip": "",
     "helpUrl": ""
 };
