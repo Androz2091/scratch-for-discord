@@ -7,15 +7,17 @@
         <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
                 <b-nav-item-dropdown :text="$t('file.title')" right>
-                    <b-dropdown-item @click="askForFile">Open File...</b-dropdown-item>
+                    <b-dropdown-item @click="askForFile">{{ $t('file.open') }}</b-dropdown-item>
                     <input hidden @change="load" id="load-code" type="file">
-                    <b-dropdown-item @click="viewCode">View javascript code</b-dropdown-item>
-                    <b-dropdown-item @click="save">Save</b-dropdown-item>
+                    <b-dropdown-item @click="viewCode">{{ $t('file.javascript') }}</b-dropdown-item>
+                    <b-dropdown-item @click="save">{{ $t('file.save') }}</b-dropdown-item>
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown :text="$t('edit.title')" right>
-                    <b-dropdown-item @click="undo">Undo</b-dropdown-item>
-                    <b-dropdown-item @click="redo">Redo</b-dropdown-item>
-                    <b-dropdown-item @click="clear">Clear {{blockCount}} blocks</b-dropdown-item>
+                    <b-dropdown-item @click="undo">{{ $t('edit.undo') }}</b-dropdown-item>
+                    <b-dropdown-item @click="redo">{{ $t('edit.redo') }}</b-dropdown-item>
+                    <b-dropdown-item @click="clear">{{ $t('edit.clear', {
+                        blockCount
+                    }) }}</b-dropdown-item>
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown :text="$t('lang.title')" right>
                     <b-dropdown-item @click="changeLanguage('en')">English (EN)</b-dropdown-item>
@@ -26,7 +28,7 @@
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
             <b-button>
-                <span contenteditable="true" ref="docName">Untitled document</span>
+                <span contenteditable="true" ref="docName">{{ $t("untitled") }}</span>
             </b-button>
             </b-navbar-nav>
         </b-collapse>

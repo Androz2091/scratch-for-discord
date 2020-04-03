@@ -24,11 +24,18 @@ export default (Blockly) => {
 	}
 
 	const messages = {
+		untitled: "Untitled document",
 		file: {
-			title: "File"
+			title: "File",
+			javascript: "Export to Javascript",
+			open: "Open file...",
+			save: "Save"
 		},
 		edit: {
-			title: "Edit"
+			title: "Edit",
+			undo: "Undo",
+			redo: "Redo",
+			clear: "Clear {blockCount} blocks"
 		},
 		lang: {
 			title: "Language"
