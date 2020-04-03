@@ -2,7 +2,7 @@ import * as Blockly from "blockly/core";
 
 const init = {
     "message0": "%{BKY_INIT}",
-    "colour": 230,
+    "colour": "#F46580",
     "tooltip": "%{BKY_INIT_TOOLTIP}",
     "helpUrl": ""
 };
@@ -40,7 +40,7 @@ const client_login = {
             "check": "String"
         }
     ],
-    "colour": 230,
+    "colour": "#F46580",
     "tooltip": "",
     "helpUrl": ""
 };

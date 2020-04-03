@@ -23,10 +23,10 @@ import * as en from "blockly/msg/en";
 import * as es from "blockly/msg/es";
 import * as ru from "blockly/msg/ru";
 import * as fr from "blockly/msg/fr";
-import * as enCustom from "./locales/en";
-import * as esCustom from "./locales/es";
-import * as ruCustom from "./locales/ru";
-import * as frCustom from "./locales/fr";
+import enCustom from "./locales/en";
+//import * as esCustom from "./locales/es";
+//import * as ruCustom from "./locales/ru";
+import frCustom from "./locales/fr";
 
 export default {
     name: "app",
@@ -50,18 +50,20 @@ export default {
             switch (locale) {
                 case "en":
                     Blockly.setLocale(en);
+                    this.$root.$i18n.locale = "en";
                     enCustom(Blockly);
                     break;
                 case "es":
                     Blockly.setLocale(es);
-                    esCustom(Blockly);
+                    //esCustom(Blockly);
                     break;
                 case "ru":
                     Blockly.setLocale(ru);
-                    ruCustom(Blockly);
+                    //ruCustom(Blockly);
                     break;
                 case "fr":
                     Blockly.setLocale(fr);
+                    this.$root.$i18n.locale = "fr";
                     frCustom(Blockly);
                     break;
                 default:
@@ -446,26 +448,32 @@ function getXML() {
     <category name="Variables" colour="#a55b80" custom="VARIABLE" />
     <category name="Functions" colour="#995ba5" custom="PROCEDURE" />
     <sep />
-    <category name="Discord" colour="#7289DA">
+    <category name="Discord">
+        <label text="%{BKY_BASE_BLOCKS}"></label>
         <block type="discord4stratch_init"></block>
         <block type="discord4stratch_client_login"></block>
-        <label text="Events"></label>
-        <block type="discord4stratch_on_message"></block>
         <block type="discord4stratch_on_connected"></block>
-        <label text="Messages"></label>
-        <block type="discord4stratch_message_content"></block>
-        <block type="discord4stratch_message_author"></block>
-        <block type="discord4stratch_message_guild"></block>
-        <block type="discord4stratch_message_channel"></block>
-        <label text="Bot"></label>
-        <block type="discord4stratch_client_set_game"></block>
-        <label text="Servers"></label>
-        <block type="discord4stratch_get_guild"></block>
-        <label text="Roles"></label>
-        <block type="discord4stratch_get_role"></block>
-        <block type="discord4stratch_add_role"></block>
-        <label text="Members"></label>
-        <block type="discord4stratch_get_member"></block>
+        <category name="Messages">
+            <label text="%{BKY_MESSAGE_RELATED_BLOCKS}"></label>
+            <block type="discord4stratch_on_message"></block>
+            <block type="discord4stratch_message_content"></block>
+            <block type="discord4stratch_reply_message"></block>
+            <label text="%{BKY_MESSAGE_RELATED_BLOCKS}"></label>
+            <block type="discord4stratch_message_author"></block>
+            <block type="discord4stratch_message_guild"></block>
+            <block type="discord4stratch_message_channel"></block>
+        </category>
+        <category name="Discord" colour="#7289DA">
+            <label text="Roles"></label>
+            <block type="discord4stratch_get_role"></block>
+            <block type="discord4stratch_add_role"></block>
+            <label text="Members"></label>
+            <block type="discord4stratch_get_member"></block>
+            <label text="Bot"></label>
+            <block type="discord4stratch_client_set_game"></block>
+            <label text="Servers"></label>
+            <block type="discord4stratch_get_guild"></block>
+        </category>
     </category>
     </xml>`;
 }

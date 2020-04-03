@@ -3,20 +3,21 @@
         <b-navbar-brand>Scratch4Discord</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
+        
         <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
-                <b-nav-item-dropdown text="File" right>
-                    <b-dropdown-item href="#">Open File...</b-dropdown-item>
+                <b-nav-item-dropdown :text="$t('file.title')" right>
+                    <b-dropdown-item @click="askForFile">Open File...</b-dropdown-item>
+                    <input hidden @change="load" id="load-code" type="file">
                     <b-dropdown-item @click="viewCode">View javascript code</b-dropdown-item>
-                    <b-dropdown-item href="#">Save</b-dropdown-item>
+                    <b-dropdown-item @click="save">Save</b-dropdown-item>
                 </b-nav-item-dropdown>
-                <b-nav-item-dropdown text="Edit" right>
+                <b-nav-item-dropdown :text="$t('edit.title')" right>
                     <b-dropdown-item @click="undo">Undo</b-dropdown-item>
                     <b-dropdown-item @click="redo">Redo</b-dropdown-item>
                     <b-dropdown-item @click="clear">Clear {{blockCount}} blocks</b-dropdown-item>
                 </b-nav-item-dropdown>
-                <b-nav-item-dropdown text="Lang" right>
+                <b-nav-item-dropdown :text="$t('lang.title')" right>
                     <b-dropdown-item @click="changeLanguage('en')">English (EN)</b-dropdown-item>
                     <b-dropdown-item @click="changeLanguage('es')">Español (ES)</b-dropdown-item>
                     <b-dropdown-item @click="changeLanguage('ru')">Русь (RU)</b-dropdown-item>
@@ -25,7 +26,7 @@
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
             <b-button>
-                <span contenteditable="true" id="docName" @change="onDocumentNameChange">Untitled document</span>
+                <span contenteditable="true" ref="docName">Untitled document</span>
             </b-button>
             </b-navbar-nav>
         </b-collapse>
@@ -33,7 +34,9 @@
 </template>
 
 <script>
+import Blockly from "blockly";
 import BlocklyJS from "blockly/javascript";
+import JSZip from 'jszip'
 
 export default {
     name: "navbar",
@@ -72,8 +75,53 @@ export default {
             });
             this.$parent.changeLanguage(locale);
         },
-        onDocumentNameChange() {
-            console.log("s")
+        load(){
+            const file = document.getElementById("load-code").files[0];
+            const documentName = file.name.split(".").slice(0, file.name.split(".").length-1);
+            this.$refs.docName.textContent = documentName;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                // Open the zip file
+                JSZip.loadAsync(e.target.result)
+                    .then((data) => {
+                    // If there is a blocks.xml file, open it
+                    if (data.file('blocks.xml')) {
+                        return data.file("blocks.xml").async("string")
+                    }
+                })
+                .then((text) => {
+                    // With the blocks.xml file, import it to Blockly.
+                    const xml = Blockly.Xml.textToDom(text);
+                    Blockly.Xml.domToWorkspace(xml, this.$store.state.workspace);
+                });
+            };
+            if (file) {
+                reader.readAsArrayBuffer(file);
+                document.getElementById("load-code").setAttribute("value", "");
+            }
+        },
+        save(){
+            const zip = new JSZip();
+            const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
+            const fileName = `${encodeURIComponent(this.$refs.docName.textContent).replace(/%20/g, ' ')}.s4d`;
+            zip.file("blocks.xml", xmlContent);
+            zip.generateAsync({
+                type: "blob"
+            })
+            .then((blob) => {
+                const a = document.createElement("a");
+                a.style = "display: none";
+                document.body.appendChild(a);
+                const url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = fileName;
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+            });
+        },
+        askForFile(){
+            document.querySelector("#load-code").click();
         }
     }
 }
@@ -83,5 +131,24 @@ export default {
 .workspace-name {
     background-color: #F17F29 !important;
     border-color: #F96900 !important;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }
 </style>

@@ -2,7 +2,7 @@ import * as Blockly from "blockly";
 
 const on_message = {
     "message0": "%{BKY_ON_MESSAGE} %1 %2",
-    "colour": 230,
+    "colour": "#F5AB1A",
     "args0": [
         {
             "type": "input_dummy"
@@ -28,7 +28,7 @@ Blockly.JavaScript["discord4stratch_on_message"] = function(block) {
 
 const on_connected = {
     "message0": "%{BKY_ON_CONNECTED} %1 %2",
-    "colour": 230,
+    "colour": "#F5AB1A",
     "args0": [
         {
             "type": "input_dummy"
