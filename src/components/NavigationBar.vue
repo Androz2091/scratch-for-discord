@@ -38,7 +38,7 @@
 <script>
 import Blockly from "blockly";
 import BlocklyJS from "blockly/javascript";
-import JSZip from 'jszip'
+import JSZip from "jszip";
 
 export default {
     name: "navbar",
@@ -48,7 +48,7 @@ export default {
         }
     },
     mounted(){
-        const element = document.getElementById("docName");
+        const element = this.$refs.docName;
         element.spellcheck = false;
         element.focus();
         element.blur();

@@ -10,13 +10,13 @@
 import Blockly from "blockly";
 import NavBarComponent from "./components/NavigationBar.vue";
 import BlocklyComponent from "./components/BlocklyComponent.vue";
-import "./blocks/discord/base";
-import "./blocks/discord/client";
-import "./blocks/discord/events";
-import "./blocks/discord/guilds";
-import "./blocks/discord/members";
-import "./blocks/discord/message";
-import "./blocks/discord/roles";
+
+Blockly.Tooltip.HOVER_MS = 100;
+
+// Load blocks
+import "./blocks/discord/base/";
+import "./blocks/discord/message/";
+import "./blocks/discord/actions/";
 import "./prompt";
 
 import * as en from "blockly/msg/en";
@@ -450,29 +450,34 @@ function getXML() {
     <sep />
     <category name="Discord">
         <label text="%{BKY_BASE_BLOCKS}"></label>
-        <block type="discord4stratch_init"></block>
-        <block type="discord4stratch_client_login"></block>
-        <block type="discord4stratch_on_connected"></block>
-        <category name="Messages">
-            <label text="%{BKY_MESSAGE_RELATED_BLOCKS}"></label>
-            <block type="discord4stratch_on_message"></block>
-            <block type="discord4stratch_message_content"></block>
-            <block type="discord4stratch_reply_message"></block>
-            <label text="%{BKY_MESSAGE_RELATED_BLOCKS}"></label>
-            <block type="discord4stratch_message_author"></block>
-            <block type="discord4stratch_message_guild"></block>
-            <block type="discord4stratch_message_channel"></block>
+        <block type="s4d_import"></block>
+        <block type="s4d_login">
+            <value name="TOKEN">
+                <block type="text">
+                    <field name="TEXT">Your bot token</field>
+                </block>
+            </value>
+        </block>
+        <block type="s4d_on_connected"></block>
+        <category name="Message">
+            <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
+            <label text="%{BKY_DETECT_MESSAGES}"></label>
+            <block type="s4d_on_message"></block>
+            <label text="%{BKY_MESSAGE_ACTIONS}"></label>
+            <block type="s4d_reply"></block>
+            <block type="s4d_delete"></block>
+            <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
+            <block type="s4d_message_content"></block>
+            <block type="s4d_message_author"></block>
+            <block type="s4d_mentioned_member"></block>
+            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
+            <block type="s4d_message_author_raw"></block>
+            <block type="s4d_message_channel"></block>
+            <block type="s4d_message_guild"></block>
         </category>
-        <category name="Discord" colour="#7289DA">
+        <category name="Actions" colour="#7289DA">
             <label text="Roles"></label>
-            <block type="discord4stratch_get_role"></block>
-            <block type="discord4stratch_add_role"></block>
-            <label text="Members"></label>
-            <block type="discord4stratch_get_member"></block>
-            <label text="Bot"></label>
-            <block type="discord4stratch_client_set_game"></block>
-            <label text="Servers"></label>
-            <block type="discord4stratch_get_guild"></block>
+            <block type="s4d_add_role"></block>
         </category>
     </category>
     </xml>`;
@@ -491,5 +496,13 @@ function getXML() {
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+.boldtext {
+    font-weight: bolder;
+}
+
+.testopa {
+    opacity: 0.1;
 }
 </style>

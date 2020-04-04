@@ -5,13 +5,14 @@ export default (Blockly) => {
 		Blockly.Msg["MESSAGE_RELATED_BLOCKS"] = "Blocks relatifs aux messages";
 		Blockly.Msg["REPLY"] = "répondre %1";
 	
-		Blockly.Msg["INIT"] = "Importer Discord";
+		Blockly.Msg["IMPORT"] = "Importer Discord";
 		Blockly.Msg["INIT_TOOLTIP"] = "Vous permet d'utiliser les blocks Discord!";
-		Blockly.Msg["CLIENT_LOGIN"] = "Connexion avec le token %1";
+		Blockly.Msg["LOGIN"] = "Connexion avec le token %1";
 		Blockly.Msg["ON_MESSAGE"] = "Quand un message est reçu";
 		Blockly.Msg["ON_CONNECTED"] = "Quand le bot est connecté";
 		Blockly.Msg["MESSAGE_CONTENT"] = "contenu du message";
-		Blockly.Msg["MESSAGE_AUTHOR"] = "%1 de l'auteur du message";
+		Blockly.Msg["MESSAGE_AUTHOR"] = "auteur du message";
+		Blockly.Msg["MESSAGE_AUTHOR_RAW"] = "%1 de l'auteur du message";
 		Blockly.Msg["USERNAME"] = "nom d'utilisateur";
 		Blockly.Msg["NICKNAME"] = "pseudo";
 		Blockly.Msg["GET_GUILD"] = "trouver le serveur %1 via %2";
@@ -21,6 +22,15 @@ export default (Blockly) => {
 		Blockly.Msg["ADD_ROLE"] = "ajouter le rôle %1 au membre %2";
 		Blockly.Msg["MESSAGE_GUILD"] = "%1 du serveur du message";
 		Blockly.Msg["MESSAGE_CHANNEL"] = "%1 du salon du message";
+		Blockly.Msg["BASIC_BLOCKS"] = "Blocks basics";
+		Blockly.Msg["ADVANCED_BLOCKS"] = "Blocks avancés";
+		Blockly.Msg["MENTIONED_MEMBER"] = "membre mentionné";
+		Blockly.Msg["ADMINISTRATOR"] = "Administrateur";
+		Blockly.Msg["DETECT_MESSAGES"] = "Détecter les messages";
+		Blockly.Msg["MESSAGE_ACTIONS"] = "Actions sur le message";
+		Blockly.Msg["MESSAGE_INFORMATIONS"] = "Informations sur le message";
+		Blockly.Msg["RELATED_TO_MESSAGE_STRINGS"] = "Chaînes relatives au message";
+		Blockly.Msg["DELETE_MESSAGE"] = "supprimer le message";
 	}
 
 	const messages = {
