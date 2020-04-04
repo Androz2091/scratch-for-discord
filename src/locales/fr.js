@@ -49,6 +49,17 @@ export default (Blockly) => {
 		},
 		lang: {
 			title: "Langue"
+		},
+		download: {
+			title: "Télécharger votre bot",
+			content: {
+				title: "Comment lancer votre bot une fois le bot téléchargé ?",
+				unzipFile: "Dézippez le fichier obtenu.",
+				start: "Cliquez sur start.bat (ou start.sh si vous utilisez MacOS ou Linux)",
+				done: "Votre bot est lancé!"
+			},
+			cancel: "Annuler",
+			confirm: "Télécharger"
 		}
 	};
 
