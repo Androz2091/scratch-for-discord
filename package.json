@@ -11,6 +11,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@blockly/field-date": "^3.20200313.0",
     "blockly": "^3.20200123.1",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.9.0",
