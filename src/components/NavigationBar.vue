@@ -18,6 +18,7 @@
                     <b-dropdown-item @click="clear">{{ $t('edit.clear', {
                         blockCount
                     }) }}</b-dropdown-item>
+                    <b-dropdown-item @click="cleanUp">{{ $t('edit.cleanup') }}</b-dropdown-item>
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown :text="$t('lang.title')" right>
                     <b-dropdown-item @click="changeLanguage('en')">English (EN)</b-dropdown-item>
@@ -175,6 +176,9 @@ export default {
                     });
                 }
             });
+        },
+        cleanUp(){
+            this.$store.state.workspace.cleanUp();
         }
     }
 }

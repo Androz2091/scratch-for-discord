@@ -59,7 +59,8 @@ export default (Blockly) => {
 			title: "Modifier",
 			undo: "Annuler",
 			redo: "Rétablir",
-			clear: "Nettoyer {blockCount} blocks"
+			clear: "Nettoyer {blockCount} blocks",
+			cleanup: "Réorganiser les blocks"
 		},
 		lang: {
 			title: "Langue"
