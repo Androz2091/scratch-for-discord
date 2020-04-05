@@ -24,6 +24,6 @@ Blockly.Blocks["s4d_reply"] = {
 
 Blockly.JavaScript["s4d_reply"] = function(block){
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [ `s4d.message.channel.send(${content});\n`, Blockly.JavaScript.ORDER_NONE ];
+    const code = `s4d.message.channel.send(${content});\n`;
     return code;
 };
