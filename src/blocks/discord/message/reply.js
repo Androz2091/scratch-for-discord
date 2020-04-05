@@ -6,7 +6,7 @@ const s4d_reply = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": "String"
+            "check": [ "String", "MessageEmbed" ]
         },
     ],
     "colour": "#4C97FF",

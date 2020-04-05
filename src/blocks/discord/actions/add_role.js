@@ -5,7 +5,8 @@ const s4d_add_role = {
     "args0": [
         {
             "type": "input_value",
-            "name": "ROLE"
+            "name": "ROLE",
+            "check": [ "String", "Role" ]
         },
         {
             "type": "input_value",
