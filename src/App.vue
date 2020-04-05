@@ -474,10 +474,16 @@ function getXML() {
             <block type="s4d_message_author_raw"></block>
             <block type="s4d_message_channel"></block>
             <block type="s4d_message_guild"></block>
+            <label text="%{BKY_TOOLS}"></label>
+            <block type="s4d_message_embed"></block>
         </category>
         <category name="Actions" colour="#7289DA">
             <label text="Roles"></label>
             <block type="s4d_add_role"></block>
+            <block type="s4d_remove_role"></block>
+            <label text="Members"></label>
+            <block type="s4d_kick_member"></block>
+            <block type="s4d_ban_member"></block>
         </category>
     </category>
     </xml>`;
