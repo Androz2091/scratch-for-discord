@@ -1,36 +1,50 @@
 export default (Blockly) => {
 	
+	const keys = {
+		BASE_BLOCKS: "Blocks de base",
+		MESSAGE_RELATED_BLOCKS: "Blocks relatifs aux messages",
+		REPLY: "répondre %1",
+		IMPORT: "Importer Discord",
+		INIT_TOOLTIP: "Vous permet d'utiliser les blocks Discord!",
+		LOGIN: "Connexion avec le token %1",
+		ON_MESSAGE: "Quand un message est reçu",
+		ON_CONNECTED: "Quand le bot est connecté",
+		MESSAGE_CONTENT: "contenu du message",
+		MESSAGE_AUTHOR: "auteur du message",
+		MESSAGE_AUTHOR_RAW: "%1 de l'auteur du message",
+		USERNAME: "nom d'utilisateur",
+		NICKNAME: "pseudo",
+		GET_GUILD: "trouver le serveur %1 via %2",
+		NAME: "nom",
+		GET_ROLE: "trouver le rôle %1 du serveur %2 via %3",
+		GET_MEMBER: "trouver le membre %1 du serveur %2 via %3",
+		ADD_ROLE: "ajouter le rôle %1 au membre %2",
+		REMOVE_ROLE: "enlever le rôle %1 au membre %2",
+		BAN_MEMBER: "bannir le membre %1",
+		KICK_MEMBER: "expulser le membre %1",
+		MESSAGE_GUILD: "%1 du serveur du message",
+		MESSAGE_CHANNEL: "%1 du salon du message",
+		BASIC_BLOCKS: "Blocks basics",
+		ADVANCED_BLOCKS: "Blocks avancés",
+		MENTIONED_MEMBER: "membre mentionné",
+		ADMINISTRATOR: "Administrateur",
+		DETECT_MESSAGES: "Détecter les messages",
+		MESSAGE_ACTIONS: "Actions sur le message",
+		MESSAGE_INFORMATIONS: "Informations sur le message",
+		RELATED_TO_MESSAGE_STRINGS: "Chaînes relatives au message",
+		DELETE_MESSAGE: "supprimer le message",
+		MESSAGE_EMBED: "Message Embed",
+		COLOUR: "couleur",
+		TITLE: "titre",
+		MESSAGE: "message",
+		IMAGE: "image",
+		TOOLS: "Outils"
+	};
+
 	if(Blockly){
-		Blockly.Msg["BASE_BLOCKS"] = "Blocks de base";
-		Blockly.Msg["MESSAGE_RELATED_BLOCKS"] = "Blocks relatifs aux messages";
-		Blockly.Msg["REPLY"] = "répondre %1";
-	
-		Blockly.Msg["IMPORT"] = "Importer Discord";
-		Blockly.Msg["INIT_TOOLTIP"] = "Vous permet d'utiliser les blocks Discord!";
-		Blockly.Msg["LOGIN"] = "Connexion avec le token %1";
-		Blockly.Msg["ON_MESSAGE"] = "Quand un message est reçu";
-		Blockly.Msg["ON_CONNECTED"] = "Quand le bot est connecté";
-		Blockly.Msg["MESSAGE_CONTENT"] = "contenu du message";
-		Blockly.Msg["MESSAGE_AUTHOR"] = "auteur du message";
-		Blockly.Msg["MESSAGE_AUTHOR_RAW"] = "%1 de l'auteur du message";
-		Blockly.Msg["USERNAME"] = "nom d'utilisateur";
-		Blockly.Msg["NICKNAME"] = "pseudo";
-		Blockly.Msg["GET_GUILD"] = "trouver le serveur %1 via %2";
-		Blockly.Msg["NAME"] = "nom";
-		Blockly.Msg["GET_ROLE"] = "trouver le rôle %1 du serveur %2 via %3";
-		Blockly.Msg["GET_MEMBER"] = "trouver le membre %1 du serveur %2 via %3";
-		Blockly.Msg["ADD_ROLE"] = "ajouter le rôle %1 au membre %2";
-		Blockly.Msg["MESSAGE_GUILD"] = "%1 du serveur du message";
-		Blockly.Msg["MESSAGE_CHANNEL"] = "%1 du salon du message";
-		Blockly.Msg["BASIC_BLOCKS"] = "Blocks basics";
-		Blockly.Msg["ADVANCED_BLOCKS"] = "Blocks avancés";
-		Blockly.Msg["MENTIONED_MEMBER"] = "membre mentionné";
-		Blockly.Msg["ADMINISTRATOR"] = "Administrateur";
-		Blockly.Msg["DETECT_MESSAGES"] = "Détecter les messages";
-		Blockly.Msg["MESSAGE_ACTIONS"] = "Actions sur le message";
-		Blockly.Msg["MESSAGE_INFORMATIONS"] = "Informations sur le message";
-		Blockly.Msg["RELATED_TO_MESSAGE_STRINGS"] = "Chaînes relatives au message";
-		Blockly.Msg["DELETE_MESSAGE"] = "supprimer le message";
+		for(let key in keys){
+			Blockly.Msg[key] = keys[key];
+		}
 	}
 
 	const messages = {
