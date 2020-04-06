@@ -34,7 +34,7 @@ export default (Blockly) => {
 		RELATED_TO_MESSAGE_STRINGS: "Chaînes relatives au message",
 		DELETE_MESSAGE: "supprimer le message",
 		MESSAGE_EMBED: "Message Embed",
-		COLOUR: "couleur",
+		COLOR: "couleur",
 		TITLE: "titre",
 		MESSAGE: "message",
 		IMAGE: "image",

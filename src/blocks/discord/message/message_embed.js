@@ -1,7 +1,7 @@
 import BaseBlockly from "blockly";
 import Blockly from "blockly/core";
 
-const BORDER_FIELDS = [ "MESSAGE", "COLOUR", "TITLE", "IMAGE" ];
+const BORDER_FIELDS = [ "MESSAGE", "COLOR", "TITLE", "IMAGE" ];
 
 const BORDER_TYPES = [ "String", "Colour", "String", "String" ];
 
@@ -31,11 +31,6 @@ Blockly.Blocks["s4d_message_embed_mutator"] = {
 const BORDER_MUTATOR_MIXIN = {
     inputs_: [ true, false, false, false ],
 
-    /**
-     * Create XML to represent the number inputs.
-     * @return {Element} XML storage element.
-     * @this Blockly.Block
-     */
     mutationToDom: function() {
         if (!this.inputs_) {
             return null;
@@ -46,12 +41,7 @@ const BORDER_MUTATOR_MIXIN = {
         }
         return container;
     },
-
-    /**
-     * Parse XML to restore the inputs.
-     * @param {!Element} xmlElement XML storage element.
-     * @this Blockly.Block
-     */
+    
     domToMutation: function(xmlElement) {
         for (let i = 0; i < this.inputs_.length; i++) {
             this.inputs_[i] = xmlElement.getAttribute(BaseBlockly.Msg[BORDER_FIELDS[i]]) == "true";
@@ -59,14 +49,8 @@ const BORDER_MUTATOR_MIXIN = {
         this.updateShape_();
     },
 
-    /**
-     * Populate the mutator's dialog with this block's components.
-     * @param {!Blockly.Workspace} workspace Mutator's workspace.
-     * @return {!Blockly.Block} Root block in mutator.
-     * @this Blockly.Block
-     */
     decompose: function(workspace) {
-        var containerBlock = workspace.newBlock("s4d_message_embed_mutator");
+        const containerBlock = workspace.newBlock("s4d_message_embed_mutator");
         for (let i = 0; i < this.inputs_.length; i++) {
         containerBlock.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -77,11 +61,6 @@ const BORDER_MUTATOR_MIXIN = {
         return containerBlock;
     },
 
-    /**
-     * Reconfigure this block based on the mutator dialog's components.
-     * @param {!Blockly.Block} containerBlock Root block in mutator.
-     * @this Blockly.Block
-     */
     compose: function(containerBlock) {
         // Set states
         for (let i = 0; i < this.inputs_.length; i++) {
@@ -90,17 +69,10 @@ const BORDER_MUTATOR_MIXIN = {
         this.updateShape_();
     },
 
-    /**
-     * Modify this block to have the correct number of inputs.
-     * @this Blockly.Block
-     * @private
-     */
     updateShape_: function() {
-        // Delete everything.
         for (let i = 0; i < this.inputs_.length; i++) {
-        if (this.getInput(BaseBlockly.Msg[BORDER_FIELDS[i]].toUpperCase())) this.removeInput(BaseBlockly.Msg[BORDER_FIELDS[i]].toUpperCase());
+            if (this.getInput(BaseBlockly.Msg[BORDER_FIELDS[i]].toUpperCase())) this.removeInput(BaseBlockly.Msg[BORDER_FIELDS[i]].toUpperCase());
         }
-        // Rebuild block.
         for (let i = 0; i < this.inputs_.length; i++) {
             if (this.inputs_[i]) {
                 this.appendValueInput(BaseBlockly.Msg[BORDER_FIELDS[i]].toUpperCase())
@@ -112,4 +84,14 @@ const BORDER_MUTATOR_MIXIN = {
     }
 };
 
-Blockly.Extensions.registerMutator("s4d_message_embed_mutator", BORDER_MUTATOR_MIXIN, null, [""])
+Blockly.Extensions.registerMutator("s4d_message_embed_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
+
+Blockly.JavaScript["s4d_message_embed"] = function(block){
+    let embed = {
+        title: Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC) || null,
+        color: Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC) || null,
+        image: Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC) || null,
+        description: Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC) || null
+    };
+    return [ JSON.stringify(embed), Blockly.JavaScript.ORDER_ATOMIC ];
+};

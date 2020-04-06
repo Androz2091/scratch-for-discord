@@ -24,6 +24,12 @@ Blockly.Blocks["s4d_reply"] = {
 
 Blockly.JavaScript["s4d_reply"] = function(block){
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `s4d.message.channel.send(${content});\n`;
-    return code;
+    const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().type;
+    if(contentType === "s4d_message_embed"){
+        const code = `s4d.message.channel.send({ embed: ${content} });\n`;
+        return code;
+    } else {
+        const code = `s4d.message.channel.send(${content});\n`;
+        return code;
+    }
 };
