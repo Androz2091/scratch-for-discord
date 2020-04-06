@@ -357,7 +357,7 @@ export default `
         <category name="Variables" colour="#a55b80" custom="VARIABLE" />
         <category name="Functions" colour="#995ba5" custom="PROCEDURE" />
         <sep />
-        <category name="Discord">
+        <category name="Base">
             <label text="%{BKY_BASE_BLOCKS}"></label>
             <block type="s4d_import"></block>
             <block type="s4d_login">
@@ -368,44 +368,44 @@ export default `
                 </value>
             </block>
             <block type="s4d_on_connected"></block>
-            <category name="Message">
-                <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
-                <label text="%{BKY_DETECT_MESSAGES}"></label>
-                <block type="s4d_on_message"></block>
-                <label text="%{BKY_MESSAGE_ACTIONS}"></label>
-                <block type="s4d_reply"></block>
-                <block type="s4d_delete"></block>
-                <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
-                <block type="s4d_message_content"></block>
-                <block type="s4d_message_author"></block>
-                <block type="s4d_mentioned_member"></block>
-                <label text="%{BKY_CHECK_PERMISSIONS}"></label>
-                <block type="s4d_member_has_permission"></block>
-                <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
-                <block type="s4d_message_author_raw"></block>
-                <block type="s4d_message_channel"></block>
-                <block type="s4d_message_guild"></block>
-                <label text="%{BKY_TOOLS}"></label>
-                <block type="s4d_message_embed"></block>
-            </category>
-            <category name="Actions">
-                <label text="Roles"></label>
-                <block type="s4d_add_role"></block>
-                <block type="s4d_remove_role"></block>
-                <label text="Members"></label>
-                <block type="s4d_kick_member"></block>
-                <block type="s4d_ban_member"></block>
-            </category>
-            <category name="Joins">
-                <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
-                <label text="%{BKY_DETECT_JOINS}"></label>
-                <block type="s4d_on_member_join"></block>
-                <label text="%{BKY_JOINING_MEMBER_INFORMATIONS}"></label>
-                <block type="s4d_joining_member"></block>
-                <label text="%{BKY_RELATED_TO_JOIN_STRINGS}"></label>
-                <block type="s4d_joining_member_raw"></block>
-                <block type="s4d_joining_guild"></block>
-            </category>
+        </category>
+        <category name="Message">
+            <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
+            <label text="%{BKY_DETECT_MESSAGES}"></label>
+            <block type="s4d_on_message"></block>
+            <label text="%{BKY_MESSAGE_ACTIONS}"></label>
+            <block type="s4d_reply"></block>
+            <block type="s4d_delete"></block>
+            <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
+            <block type="s4d_message_content"></block>
+            <block type="s4d_message_author"></block>
+            <block type="s4d_mentioned_member"></block>
+            <label text="%{BKY_CHECK_PERMISSIONS}"></label>
+            <block type="s4d_member_has_permission"></block>
+            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
+            <block type="s4d_message_author_raw"></block>
+            <block type="s4d_message_channel"></block>
+            <block type="s4d_message_guild"></block>
+            <label text="%{BKY_TOOLS}"></label>
+            <block type="s4d_message_embed"></block>
+        </category>
+        <category name="Actions">
+            <label text="Roles"></label>
+            <block type="s4d_add_role"></block>
+            <block type="s4d_remove_role"></block>
+            <label text="Members"></label>
+            <block type="s4d_kick_member"></block>
+            <block type="s4d_ban_member"></block>
+        </category>
+        <category name="Joins">
+            <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
+            <label text="%{BKY_DETECT_JOINS}"></label>
+            <block type="s4d_on_member_join"></block>
+            <label text="%{BKY_JOINING_MEMBER_INFORMATIONS}"></label>
+            <block type="s4d_joining_member"></block>
+            <label text="%{BKY_RELATED_TO_JOIN_STRINGS}"></label>
+            <block type="s4d_joining_member_raw"></block>
+            <block type="s4d_joining_guild"></block>
         </category>
     </xml>
 `;
