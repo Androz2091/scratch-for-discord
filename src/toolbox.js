@@ -396,6 +396,16 @@ export default `
                 <block type="s4d_kick_member"></block>
                 <block type="s4d_ban_member"></block>
             </category>
+            <category name="Joins">
+                <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
+                <label text="%{BKY_DETECT_JOINS}"></label>
+                <block type="s4d_on_member_join"></block>
+                <label text="%{BKY_JOINING_MEMBER_INFORMATIONS}"></label>
+                <block type="s4d_joining_member"></block>
+                <label text="%{BKY_RELATED_TO_JOIN_STRINGS}"></label>
+                <block type="s4d_joining_member_raw"></block>
+                <block type="s4d_joining_guild"></block>
+            </category>
         </category>
     </xml>
 `;

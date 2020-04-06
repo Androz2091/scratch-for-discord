@@ -16,9 +16,10 @@ import toolbox from "./toolbox";
 Blockly.Tooltip.HOVER_MS = 100;
 
 // Load blocks
-import "./blocks/discord/base/";
-import "./blocks/discord/message/";
 import "./blocks/discord/actions/";
+import "./blocks/discord/base/";
+import "./blocks/discord/joins";
+import "./blocks/discord/message/";
 import "./prompt";
 
 import * as en from "blockly/msg/en";

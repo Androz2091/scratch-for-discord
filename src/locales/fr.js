@@ -71,7 +71,15 @@ export default (Blockly) => {
 		PERM_MANAGE_NICKNAMES: "gérer les pseudos",
 		PERM_MANAGE_ROLES: "gérer les rôles",
 		PERM_MANAGE_WEBHOOKS: "gérer les webhooks",
-		PERM_MANAGE_EMOJIS: "gérer les émojis"
+		PERM_MANAGE_EMOJIS: "gérer les émojis",
+		JOINS_RELATED_BLOCKS: "Blocks relatifs aux arrivées de membre",
+		DETECT_JOINS: "Détecter les arrivées",
+		ON_MEMBER_JOIN: "Quand un membre rejoint le serveur",
+		JOINING_MEMBER_INFORMATIONS: "Informations sur l'arrivant",
+		JOINING_MEMBER: "membre arrivant",
+		RELATED_TO_JOIN_STRINGS: "Chaînes relatives à l'arrivée",
+		JOINING_MEMBER_RAW: "%1 du membre arrivant",
+		JOINING_GUILD: "%1 du serveur du membre arrivant"
 	};
 
 	if(Blockly){
