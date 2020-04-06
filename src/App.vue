@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <NavBarComponent></NavBarComponent>
-        <BlocklyComponent id="blocklySpace" :options="options" ref="foo"></BlocklyComponent>
+        <BlocklyComponent id="blocklySpace" :options="options"></BlocklyComponent>
     </div>
 </template>
 
