@@ -139,7 +139,7 @@ const s4d_member_has_permission = {
             ]
         }
     ],
-    "colour": "#9966FF",
+    "colour": "#5B80A5",
     "tooltip": "",
     "output": "Boolean",
     "helpUrl": ""
