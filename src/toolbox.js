@@ -379,6 +379,7 @@ export default `
                 <block type="s4d_message_content"></block>
                 <block type="s4d_message_author"></block>
                 <block type="s4d_mentioned_member"></block>
+                <label text="%{BKY_CHECK_PERMISSIONS}"></label>
                 <block type="s4d_member_has_permission"></block>
                 <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
                 <block type="s4d_message_author_raw"></block>
@@ -387,7 +388,7 @@ export default `
                 <label text="%{BKY_TOOLS}"></label>
                 <block type="s4d_message_embed"></block>
             </category>
-            <category name="Actions" colour="#7289DA">
+            <category name="Actions">
                 <label text="Roles"></label>
                 <block type="s4d_add_role"></block>
                 <block type="s4d_remove_role"></block>
