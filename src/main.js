@@ -17,8 +17,8 @@ import enCustom from './locales/en';
 import frCustom from './locales/fr';
 
 const messages = {
-    en: enCustom(),
-    fr: frCustom()
+    en: enCustom.websiteMessages,
+    fr: frCustom.websiteMessages
 };
 
 const i18n = new Vuei18n({

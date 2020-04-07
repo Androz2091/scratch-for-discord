@@ -1,47 +1,129 @@
-export default (Blockly) => {
+import Blockly from "blockly";
 
-	if(Blockly){
-		Blockly.Msg["BASE_BLOCKS"] = "Base blocks";
-		Blockly.Msg["MESSAGE_RELATED_BLOCKS"] = "Message related blocks";
-		Blockly.Msg["REPLY"] = "reply %1";
-	
-		Blockly.Msg["INIT"] = "Import Discord";
-		Blockly.Msg["INIT_TOOLTIP"] = "Allows you to use Discord blocks!";
-		Blockly.Msg["CLIENT_LOGIN"] = "Connect with token %1";
-		Blockly.Msg["ON_MESSAGE"] = "When a message is received";
-		Blockly.Msg["ON_CONNECTED"] = "When the bot is connected";
-		Blockly.Msg["MESSAGE_CONTENT"] = "message content";
-		Blockly.Msg["MESSAGE_AUTHOR"] = "%1 of message author";
-		Blockly.Msg["USERNAME"] = "username";
-		Blockly.Msg["NICKNAME"] = "nickname";
-		Blockly.Msg["GET_GUILD"] = "find server %1 using %2";
-		Blockly.Msg["NAME"] = "name";
-		Blockly.Msg["GET_ROLE"] = "find role %1 from server %2 using %3";
-		Blockly.Msg["GET_MEMBER"] = "find member %1 from server %2 using %3";
-		Blockly.Msg["ADD_ROLE"] = "add role %1 to member %2";
-		Blockly.Msg["MESSAGE_GUILD"] = "%1 of the server of the message";
-		Blockly.Msg["MESSAGE_CHANNEL"] = "%1 of the channel of the message";
-	}
+const blocklyMessages = {
+    BASE_BLOCKS: "Blocks de base",
+    MESSAGE_RELATED_BLOCKS: "Blocks relatifs aux messages",
+    REPLY: "répondre %1",
+    IMPORT: "Importer Discord",
+    INIT_TOOLTIP: "Vous permet d'utiliser les blocks Discord!",
+    LOGIN: "Connexion avec le token %1",
+    ON_MESSAGE: "Quand un message est reçu",
+    ON_CONNECTED: "Quand le bot est connecté",
+    MESSAGE_CONTENT: "contenu du message",
+    MESSAGE_AUTHOR: "auteur du message",
+    MESSAGE_AUTHOR_RAW: "%1 de l'auteur du message",
+    USERNAME: "nom d'utilisateur",
+    NICKNAME: "pseudo",
+    GET_GUILD: "trouver le serveur %1 via %2",
+    NAME: "nom",
+    GET_ROLE: "trouver le rôle %1 du serveur %2 via %3",
+    GET_MEMBER: "trouver le membre %1 du serveur %2 via %3",
+    ADD_ROLE: "ajouter le rôle %1 au membre %2",
+    REMOVE_ROLE: "enlever le rôle %1 au membre %2",
+    BAN_MEMBER: "bannir le membre %1",
+    KICK_MEMBER: "expulser le membre %1",
+    MESSAGE_GUILD: "%1 du serveur du message",
+    MESSAGE_CHANNEL: "%1 du salon du message",
+    BASIC_BLOCKS: "Blocks basics",
+    ADVANCED_BLOCKS: "Blocks avancés",
+    MENTIONED_MEMBER: "membre mentionné",
+    ADMINISTRATOR: "Administrateur",
+    DETECT_MESSAGES: "Détecter les messages",
+    MESSAGE_ACTIONS: "Actions sur le message",
+    MESSAGE_INFORMATIONS: "Informations sur le message",
+    RELATED_TO_MESSAGE_STRINGS: "Chaînes relatives au message",
+    DELETE_MESSAGE: "supprimer le message",
+    MESSAGE_EMBED: "Message Embed",
+    COLOR: "couleur",
+    TITLE: "titre",
+    MESSAGE: "message",
+    IMAGE: "image",
+    TOOLS: "Outils",
+    CHECK_PERMISSIONS: "Vérifier les permissions d'un membre",
+    MEMBER_HAS_PERMISSION: "le membre %1 a la permission %2",
+    PERM_CREATE_INSTANT_INVITE: "créer une invitation instantanée",
+    PERM_KICK_MEMBERS: "expulser des membres",
+    PERM_BAN_MEMBERS: "bannir des membres",
+    PERM_ADMINISTRATOR: "administrateur",
+    PERM_MANAGE_CHANNELS: "gérer les salons",
+    PERM_MANAGE_GUILD: "gérer le serveur",
+    PERM_ADD_REACTIONS: "ajouter des réactions",
+    PERM_VIEW_AUDIT_LOG: "voir les logs du serveur",
+    PERM_PRIORITY_SPEAKER: "voix prioritaire",
+    PERM_VIEW_CHANNEL: "voir le salon",
+    PERM_READ_MESSAGES: "lire les messages",
+    PERM_SEND_MESSAGES: "envoyer des messages",
+    PERM_SEND_TTS_MESSAGES: "envoyer des messages TTS",
+    PERM_MANAGE_MESSAGES: "gérer les messages",
+    PERM_EMBED_LINKS: "intégrer des liens",
+    PERM_ATTACH_FILES: "attacher des fichiers",
+    PERM_READ_MESSAGE_HISTORY: "voir l'historique des messages",
+    PERM_MENTION_EVERYONE: "mentionner @everyone",
+    PERM_EXTERNAL_EMOJIS: "voir les émojis externes",
+    PERM_USE_EXTERNAL_EMOJIS: "utiliser des émojis externes",
+    PERM_CONNECT: "se connecter",
+    PERM_SPEAK: "parler",
+    PERM_MUTE_MEMBERS: "couper le micro des membres",
+    PERM_DEAFEN_MEMBERS: "mettre en sourdine des membres",
+    PERM_MOVE_MEMBERS: "déplacer des membres",
+    PERM_USE_VAD: "utiliser la détection de la voix",
+    PERM_CHANGE_NICKNAME: "changer de pseudo",
+    PERM_MANAGE_NICKNAMES: "gérer les pseudos",
+    PERM_MANAGE_ROLES: "gérer les rôles",
+    PERM_MANAGE_WEBHOOKS: "gérer les webhooks",
+    PERM_MANAGE_EMOJIS: "gérer les émojis",
+    JOINS_RELATED_BLOCKS: "Blocks relatifs aux arrivées de membre",
+    DETECT_JOINS: "Détecter les arrivées",
+    ON_MEMBER_JOIN: "Quand un membre rejoint le serveur",
+    JOINING_MEMBER_INFORMATIONS: "Informations sur l'arrivant",
+    JOINING_MEMBER: "membre arrivant",
+    RELATED_TO_JOIN_STRINGS: "Chaînes relatives à l'arrivée",
+    JOINING_MEMBER_RAW: "%1 du membre arrivant",
+    JOINING_GUILD: "%1 du serveur du membre arrivant",
+    HOURS: "heures",
+    REASON: "raison",
+    DURING_HOURS: "durant",
+    WITH_REASON: "pour la raison"
+};
 
-	const messages = {
-		untitled: "Untitled document",
-		file: {
-			title: "File",
-			javascript: "Export to Javascript",
-			open: "Open file...",
-			save: "Save"
-		},
-		edit: {
-			title: "Edit",
-			undo: "Undo",
-			redo: "Redo",
-			clear: "Clear {blockCount} blocks"
-		},
-		lang: {
-			title: "Language"
-		}
-	};
+export const applyBlocklyLocale = () => {
+    for(let key in blocklyMessages){
+        Blockly.Msg[key] = blocklyMessages[key];
+    }
+};
 
-	return messages;
-	
+export const websiteMessages = {
+    untitled: "Document sans titre",
+    file: {
+        title: "Fichier",
+        javascript: "Exporter vers Javascript",
+        open: "Ouvrir un fichier...",
+        save: "Sauvegarder"
+    },
+    edit: {
+        title: "Modifier",
+        undo: "Annuler",
+        redo: "Rétablir",
+        clear: "Nettoyer {blockCount} blocks",
+        cleanup: "Réorganiser les blocks"
+    },
+    lang: {
+        title: "Langue"
+    },
+    download: {
+        title: "Télécharger votre bot",
+        content: {
+            title: "Comment lancer votre bot une fois le bot téléchargé ?",
+            unzipFile: "Dézippez le fichier obtenu.",
+            start: "Cliquez sur start.bat (ou start.sh si vous utilisez MacOS ou Linux)",
+            done: "Votre bot est lancé!"
+        },
+        cancel: "Annuler",
+        confirm: "Télécharger"
+    }
+};
+
+export default {
+	applyBlocklyLocale,
+	websiteMessages
 };

@@ -33,10 +33,10 @@ Blockly.Blocks["s4d_message_channel"] = {
 Blockly.JavaScript["s4d_message_channel"] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "ID"){
-        const code = ["(discord4stratch.message.channel || {}).id", Blockly.JavaScript.ORDER_NONE];
+        const code = ["(s4d.message.channel || {}).id", Blockly.JavaScript.ORDER_NONE];
         return code;
     } else if(searchType === "NAME"){
-        const code = ["(discord4stratch.message.channel || {}).name", Blockly.JavaScript.ORDER_NONE];
+        const code = ["(s4d.message.channel || {}).name", Blockly.JavaScript.ORDER_NONE];
         return code;
     }
 };

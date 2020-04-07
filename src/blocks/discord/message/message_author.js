@@ -15,6 +15,6 @@ Blockly.Blocks["s4d_message_author"] = {
 };
 
 Blockly.JavaScript["s4d_message_author"] = function() {
-    const code = ["discord4stratch.message.member", Blockly.JavaScript.ORDER_NONE];
+    const code = ["s4d.message.member", Blockly.JavaScript.ORDER_NONE];
     return code;
 };

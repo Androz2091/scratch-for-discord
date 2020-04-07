@@ -22,14 +22,12 @@ import "./blocks/discord/joins";
 import "./blocks/discord/message/";
 import "./prompt";
 
+// Load Blockly locales
 import * as en from "blockly/msg/en";
-import * as es from "blockly/msg/es";
-import * as ru from "blockly/msg/ru";
 import * as fr from "blockly/msg/fr";
-import enCustom from "./locales/en";
-//import * as esCustom from "./locales/es";
-//import * as ruCustom from "./locales/ru";
-import frCustom from "./locales/fr";
+// Load custom locales
+import * as enLocale from "./locales/fr";
+import * as frLocale from "./locales/en";
 
 export default {
     name: "app",
@@ -39,14 +37,21 @@ export default {
     },
     methods: {
         reloadWorkspace(){
+            // Get current workspace
             const workspace = this.$store.state.workspace;
+            // Convert it to a dom string
             const dom = Blockly.Xml.workspaceToDom(workspace);
+            // Delete the current workspace
             workspace.dispose();
+            // Create a new workspace (with the good language)
             const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), this.options);
+            // And restore the blocks
             Blockly.Xml.domToWorkspace(dom, newWorkspace);
+            // Update the workspace in the vuex store
             this.$store.commit("setWorkspace", {
                 workspace: newWorkspace
             });
+            // Return the workspace
             return workspace;
         },
         changeLanguage(locale, reloadWorkspace = true){
@@ -54,20 +59,12 @@ export default {
                 case "en":
                     Blockly.setLocale(en);
                     this.$root.$i18n.locale = "en";
-                    enCustom(Blockly);
-                    break;
-                case "es":
-                    Blockly.setLocale(es);
-                    //esCustom(Blockly);
-                    break;
-                case "ru":
-                    Blockly.setLocale(ru);
-                    //ruCustom(Blockly);
+                    enLocale.applyBlocklyLocale();
                     break;
                 case "fr":
                     Blockly.setLocale(fr);
                     this.$root.$i18n.locale = "fr";
-                    frCustom(Blockly);
+                    frLocale.applyBlocklyLocale();
                     break;
                 default:
                     break;

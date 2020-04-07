@@ -22,6 +22,6 @@ Blockly.Blocks["s4d_on_message"] = {
 
 Blockly.JavaScript["s4d_on_message"] = function(block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.client.on('message', async (param1) => {\ndiscord4stratch.message = param1;\n${statements}discord4stratch.message = null\n});\n`;
+    const code = `s4d.client.on('message', async (param1) => {\ns4d.message = param1;\n${statements}s4d.message = null\n});\n`;
     return code;
 };
