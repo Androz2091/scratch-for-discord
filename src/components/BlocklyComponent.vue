@@ -20,7 +20,7 @@ export default {
         }
     },
     mounted() {
-        this.$parent.changeLanguage(this.$store.state.blocklyLocale, false);
+        this.setLanguage(this.$store.state.blocklyLocale);
         const options = this.$props.options || {};
         if (!options.toolbox) {
             options.toolbox = this.$refs["blocklyToolbox"];

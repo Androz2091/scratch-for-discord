@@ -8,7 +8,7 @@
 <script>
 
 import Blockly from "blockly";
-import NavBarComponent from "./components/NavigationBar.vue";
+import NavBarComponent from "./components/NavigationBar/NavigationBar.vue";
 import BlocklyComponent from "./components/BlocklyComponent.vue";
 
 import toolbox from "./toolbox";
@@ -22,55 +22,11 @@ import "./blocks/discord/joins";
 import "./blocks/discord/message/";
 import "./prompt";
 
-// Load Blockly locales
-import * as en from "blockly/msg/en";
-import * as fr from "blockly/msg/fr";
-// Load custom locales
-import * as enLocale from "./locales/fr";
-import * as frLocale from "./locales/en";
-
 export default {
     name: "app",
     components: {
         BlocklyComponent,
         NavBarComponent
-    },
-    methods: {
-        reloadWorkspace(){
-            // Get current workspace
-            const workspace = this.$store.state.workspace;
-            // Convert it to a dom string
-            const dom = Blockly.Xml.workspaceToDom(workspace);
-            // Delete the current workspace
-            workspace.dispose();
-            // Create a new workspace (with the good language)
-            const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), this.options);
-            // And restore the blocks
-            Blockly.Xml.domToWorkspace(dom, newWorkspace);
-            // Update the workspace in the vuex store
-            this.$store.commit("setWorkspace", {
-                workspace: newWorkspace
-            });
-            // Return the workspace
-            return workspace;
-        },
-        changeLanguage(locale, reloadWorkspace = true){
-            switch (locale) {
-                case "en":
-                    Blockly.setLocale(en);
-                    this.$root.$i18n.locale = "en";
-                    enLocale.applyBlocklyLocale();
-                    break;
-                case "fr":
-                    Blockly.setLocale(fr);
-                    this.$root.$i18n.locale = "fr";
-                    frLocale.applyBlocklyLocale();
-                    break;
-                default:
-                    break;
-            }
-            if(reloadWorkspace) this.reloadWorkspace();
-        }
     },
     data() {
         return {
