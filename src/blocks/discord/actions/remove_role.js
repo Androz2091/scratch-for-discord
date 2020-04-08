@@ -1,4 +1,5 @@
 import Blockly from "blockly/core";
+import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_remove_role";
 
@@ -41,3 +42,20 @@ Blockly.JavaScript[blockName] = function(block) {
         return code;
     }
 };
+
+registerRestrictions(blockName, [
+    {
+        type: "notempty",
+        message: "RES_REMOVE_ROLE_MISSING_ROLE",
+        types: [
+            "ROLE"
+        ]
+    },
+    {
+        type: "notempty",
+        message: "RES_REMOVE_ROLE_MISSING_MEMBER",
+        types: [
+            "MEMBER"
+        ]
+    }
+]);

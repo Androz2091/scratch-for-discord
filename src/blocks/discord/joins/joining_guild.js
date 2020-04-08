@@ -1,4 +1,5 @@
 import * as Blockly from "blockly";
+import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_joining_guild";
 
@@ -42,3 +43,13 @@ Blockly.JavaScript[blockName] = function(block) {
         return code;
     }
 };
+
+registerRestrictions(blockName, [
+    {
+        type: "toplevelparent",
+        message: "RES_MUST_BE_IN_ON_MEMBER_JOIN",
+        types: [
+            "s4d_on_member_join"
+        ]
+    }
+]);

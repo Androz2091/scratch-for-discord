@@ -86,7 +86,13 @@ const blocklyMessages = {
     WITH_REASON: "pour la raison",
     RES_MUST_BE_IN_ON_MESSAGE: "Ce block ne peut être utilisé que dans un évènement \"Quand un message est reçu\"",
     RES_MISSING_CONTENT: "Vous devez préciser un contenu valide à répondre !",
-    RES_MISSING_MEMBER_HAS_PERMISSION: "Vous devez préciser un membre valide à qui vérifier les permissions !"
+    RES_MISSING_MEMBER_HAS_PERMISSION: "Vous devez préciser un membre valide à qui vérifier les permissions !",
+    RES_MUST_BE_IN_ON_MEMBER_JOIN: "Ce block ne peut être utilisé que dans un évènement \"Quand un membre rejoint le serveur\"",
+    RES_ADD_ROLE_MISSING_ROLE: "Vous devez préciser un nom ou un identifiant de rôle valide à ajouter !",
+    RES_ADD_ROLE_MISSING_MEMBER: "Vous devez préciser un membre valide à qui ajouter le rôle !",
+    RES_REMOVE_ROLE_MISSING_ROLE: "Vous devez préciser un nom ou un identifiant de rôle valide à enlever !",
+    RES_REMOVE_ROLE_MISSING_MEMBER: "Vous devez préciser un membre valide à qui enlever le rôle !",
+    RES_KICK_MEMBER_MISSING_MEMBER: "Vous devez préciser un membre valide à expulser !"
 };
 
 export const applyBlocklyLocale = () => {

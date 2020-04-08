@@ -1,4 +1,5 @@
 import Blockly from "blockly/core";
+import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_kick_member";
 
@@ -29,3 +30,13 @@ Blockly.JavaScript[blockName] = function(block) {
     const code = `${member}.kick();\n`;
     return code;
 };
+
+registerRestrictions(blockName, [
+    {
+        type: "notempty",
+        message: "RES_KICK_MEMBER_MISSING_MEMBER",
+        types: [
+            "MEMBER"
+        ]
+    }
+]);
