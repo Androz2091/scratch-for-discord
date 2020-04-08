@@ -96,13 +96,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.workspace-name {
-    background-color: #F17F29 !important;
-    border-color: #F96900 !important;
-}
-.not-rounded {
-    border-radius: 0em;
-}
-</style>
