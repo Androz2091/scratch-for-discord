@@ -9,6 +9,7 @@
 
 <script>
 import Blockly from "blockly";
+import { disableUnapplicable } from "../restrictions";
 
 export default {
     name: "BlocklyComponent",
@@ -27,6 +28,11 @@ export default {
         const workspace = Blockly.inject(this.$refs["blocklyDiv"], options);
         this.$store.commit("setWorkspace", {
             workspace
+        });
+        this.$nextTick(() => {
+            window.setInterval(() => {
+                disableUnapplicable(this.$store.state.workspace);
+            }, 100);
         });
     }
 }
