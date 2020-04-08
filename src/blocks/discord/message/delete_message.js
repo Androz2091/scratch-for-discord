@@ -1,6 +1,9 @@
 import * as Blockly from "blockly/core";
+import { registerRestriction } from "../../../restrictions";
 
-const s4d_delete = {
+const blockName = "s4d_delete";
+
+const blockData = {
     "message0": "%{BKY_DELETE_MESSAGE}",
     "colour": "#4C97FF",
     "previousStatement": null,
@@ -9,13 +12,21 @@ const s4d_delete = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_delete"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_delete);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_delete"] = function(){
+Blockly.JavaScript[blockName] = function(){
     const code = `s4d.message.delete();\n`;
     return code;
 };
+
+registerRestriction(blockName, {
+    type: "toplevelparent",
+    message: "RES_MUST_BE_IN_ON_MESSAGE",
+    types: [
+        "s4d_on_message"
+    ]
+});

@@ -1,6 +1,9 @@
 import * as Blockly from "blockly";
+import { registerRestriction } from "../../../restrictions";
 
-const s4d_message_author_raw = {
+const blockName = "s4d_message_author_raw";
+
+const blockData = {
     "message0": "%{BKY_MESSAGE_AUTHOR_RAW}",
     "args0": [
         {
@@ -28,13 +31,13 @@ const s4d_message_author_raw = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_message_author_raw"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_message_author_raw);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_message_author_raw"] = function(block) {
+Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "ID"){
         const code = ["s4d.message.author.id", Blockly.JavaScript.ORDER_NONE];
@@ -47,3 +50,11 @@ Blockly.JavaScript["s4d_message_author_raw"] = function(block) {
         return code;
     }
 };
+
+registerRestriction(blockName, {
+    type: "toplevelparent",
+    message: "RES_MUST_BE_IN_ON_MESSAGE",
+    types: [
+        "s4d_on_message"
+    ]
+});

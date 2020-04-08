@@ -83,7 +83,8 @@ const blocklyMessages = {
     HOURS: "heures",
     REASON: "raison",
     DURING_HOURS: "durant",
-    WITH_REASON: "pour la raison"
+    WITH_REASON: "pour la raison",
+    RES_MUST_BE_IN_ON_MESSAGE: "Ce block ne peut être utilisé que dans un évènement \"Quand un message est reçu\""
 };
 
 export const applyBlocklyLocale = () => {

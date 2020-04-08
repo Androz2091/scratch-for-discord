@@ -1,6 +1,9 @@
-import * as Blockly from "blockly";
+import * as Blockly from "blockly/core";
+import { registerRestriction } from "../../../restrictions";
 
-const s4d_message_content = {
+const blockName = "s4d_message_content";
+
+const blockData = {
     "message0": "%{BKY_MESSAGE_CONTENT}",
     "colour": "#9966FF",
     "tooltip": "",
@@ -8,13 +11,21 @@ const s4d_message_content = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_message_content"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_message_content);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_message_content"] = function() {
+Blockly.JavaScript[blockName] = function() {
     const code = ["s4d.message.content", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+
+registerRestriction(blockName, {
+    type: "toplevelparent",
+    message: "RES_MUST_BE_IN_ON_MESSAGE",
+    types: [
+        "s4d_on_message"
+    ]
+});

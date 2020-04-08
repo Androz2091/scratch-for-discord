@@ -1,6 +1,9 @@
 import Blockly from "blockly/core";
+import { registerRestriction } from "../../../restrictions";
 
-const s4d_message_channel = {
+const blockName = "s4d_message_channel";
+
+const blockData = {
     "message0": "%{BKY_MESSAGE_CHANNEL}",
     "args0": [
         {
@@ -24,13 +27,13 @@ const s4d_message_channel = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_message_channel"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_message_channel);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_message_channel"] = function(block) {
+Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "ID"){
         const code = ["(s4d.message.channel || {}).id", Blockly.JavaScript.ORDER_NONE];
@@ -40,3 +43,11 @@ Blockly.JavaScript["s4d_message_channel"] = function(block) {
         return code;
     }
 };
+
+registerRestriction(blockName, {
+    type: "toplevelparent",
+    message: "RES_MUST_BE_IN_ON_MESSAGE",
+    types: [
+        "s4d_on_message"
+    ]
+});

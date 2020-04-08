@@ -1,6 +1,8 @@
 import Blockly from "blockly/core";
 
-const s4d_member_has_permission = {
+const blockName = "s4d_member_has_permission";
+
+const blockData = {
     "message0": "%{BKY_MEMBER_HAS_PERMISSION}",
     "args0": [
         {
@@ -145,13 +147,13 @@ const s4d_member_has_permission = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_member_has_permission"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_member_has_permission);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_member_has_permission"] = function(block) {
+Blockly.JavaScript[blockName] = function(block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
     const permission = Blockly.JavaScript.valueToCode(block, "PERMISSION", Blockly.JavaScript.ORDER_ATOMIC);
     const code = [`${member}.hasPermission(${permission})`, Blockly.JavaScript.ORDER_NONE];

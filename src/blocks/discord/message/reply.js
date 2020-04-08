@@ -1,6 +1,9 @@
 import * as Blockly from "blockly/core";
+import { registerRestriction } from "../../../restrictions";
 
-const s4d_reply = {
+const blockName = "s4d_reply";
+
+const blockData = {
     "message0": "%{BKY_REPLY}",
     "args0": [
         {
@@ -16,13 +19,13 @@ const s4d_reply = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_reply"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_reply);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_reply"] = function(block){
+Blockly.JavaScript[blockName] = function(block){
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
     const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().type;
     if(contentType === "s4d_message_embed"){
@@ -33,3 +36,11 @@ Blockly.JavaScript["s4d_reply"] = function(block){
         return code;
     }
 };
+
+registerRestriction(blockName, {
+    type: "toplevelparent",
+    message: "RES_MUST_BE_IN_ON_MESSAGE",
+    types: [
+        "s4d_on_message"
+    ]
+});
