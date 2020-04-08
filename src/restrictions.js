@@ -2,11 +2,10 @@ import Blockly from "blockly";
 
 export const restrictions = {};
 
-export const registerRestriction = (blockName, restriction) => {
-    if(!restrictions[blockName]) restrictions[blockName] = [];
-    restrictions[blockName].push(restriction);
+export function registerRestrictions (blockName, blockRestrictions) {
+    restrictions[blockName] = blockRestrictions;
     return;
-};
+}
 
 const decode = (html) => {
     const txt = document.createElement("textarea");

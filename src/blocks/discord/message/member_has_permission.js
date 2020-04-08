@@ -1,4 +1,5 @@
 import Blockly from "blockly/core";
+import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_member_has_permission";
 
@@ -159,3 +160,13 @@ Blockly.JavaScript[blockName] = function(block) {
     const code = [`${member}.hasPermission(${permission})`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+
+registerRestrictions(blockName, [
+    {
+        type: "notempty",
+        message: "RES_MISSING_MEMBER_HAS_PERMISSION",
+        types: [
+            "MEMBER"
+        ]
+    }
+]);

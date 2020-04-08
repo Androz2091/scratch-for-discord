@@ -1,5 +1,5 @@
 import * as Blockly from "blockly/core";
-import { registerRestriction } from "../../../restrictions";
+import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_reply";
 
@@ -37,10 +37,19 @@ Blockly.JavaScript[blockName] = function(block){
     }
 };
 
-registerRestriction(blockName, {
-    type: "toplevelparent",
-    message: "RES_MUST_BE_IN_ON_MESSAGE",
-    types: [
-        "s4d_on_message"
-    ]
-});
+registerRestrictions(blockName, [
+    {
+        type: "notempty",
+        message: "RES_MISSING_CONTENT",
+        types: [
+          "CONTENT"
+        ]
+    },
+    {
+        type: "toplevelparent",
+        message: "RES_MUST_BE_IN_ON_MESSAGE",
+        types: [
+            "s4d_on_message"
+        ]
+    }
+]);
