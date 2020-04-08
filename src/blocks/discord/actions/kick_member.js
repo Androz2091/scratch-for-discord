@@ -1,6 +1,8 @@
 import Blockly from "blockly/core";
 
-const s4d_kick_member = {
+const blockName = "s4d_kick_member";
+
+const blockData = {
     "message0": "%{BKY_KICK_MEMBER}",
     "args0": [
         {
@@ -16,13 +18,13 @@ const s4d_kick_member = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_kick_member"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_kick_member);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_kick_member"] = function(block) {
+Blockly.JavaScript[blockName] = function(block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `${member}.kick();\n`;
     return code;

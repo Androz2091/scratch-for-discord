@@ -1,6 +1,8 @@
 import Blockly from "blockly/core";
 
-const s4d_joining_member = {
+const blockName = "s4d_joining_member";
+
+const blockData = {
     "message0": "%{BKY_JOINING_MEMBER}",
     "colour": "#9966FF",
     "output": "Member",
@@ -8,13 +10,13 @@ const s4d_joining_member = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_joining_member"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_joining_member);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_joining_member"] = function() {
+Blockly.JavaScript[blockName] = function() {
     const code = ["s4d.memberJoining", Blockly.JavaScript.ORDER_NONE];
     return code;
 };

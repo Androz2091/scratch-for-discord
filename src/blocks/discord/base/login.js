@@ -1,6 +1,8 @@
 import * as Blockly from "blockly/core";
 
-const s4d_login = {
+const blockName = "s4d_login";
+
+const blockData = {
     "type": "block_type",
     "message0": "%{BKY_LOGIN}",
     "args0": [
@@ -15,13 +17,13 @@ const s4d_login = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_login"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_login);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_login"] = function(block) {
+Blockly.JavaScript[blockName] = function(block) {
     const value = Blockly.JavaScript.valueToCode(block, "TOKEN", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `s4d.client.login(${value});\n`;
     return code;

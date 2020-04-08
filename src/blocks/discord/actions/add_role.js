@@ -1,6 +1,8 @@
 import Blockly from "blockly/core";
 
-const s4d_add_role = {
+const blockName = "s4d_add_role";
+
+const blockData = {
     "message0": "%{BKY_ADD_ROLE}",
     "args0": [
         {
@@ -21,13 +23,13 @@ const s4d_add_role = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_add_role"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_add_role);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_add_role"] = function(block) {
+Blockly.JavaScript[blockName] = function(block) {
     const role = Blockly.JavaScript.valueToCode(block, "ROLE", Blockly.JavaScript.ORDER_ATOMIC);
     const roleType = block.getInput("ROLE").connection.targetConnection.getSourceBlock().type;
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);

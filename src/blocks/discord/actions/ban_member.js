@@ -1,12 +1,14 @@
 import Blockly from "blockly/core";
 import BaseBlockly from "blockly";
 
+const blockName = "s4d_ban_member";
+
 const BORDER_FIELDS = [ "HOURS", "REASON" ];
 //const BORDER_FIELDS_ADDED = [ "DURING_HOURS", "WITH_REASON" ];
 
 const BORDER_TYPES = [ "Number", "String" ];
 
-let s4d_ban_member = {
+const blockData = {
     "message0": "%{BKY_BAN_MEMBER}",
     "args0": [
         {
@@ -23,9 +25,9 @@ let s4d_ban_member = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_ban_member"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_ban_member);
+        this.jsonInit(blockData);
     }
 };
 
@@ -88,12 +90,12 @@ const BORDER_MUTATOR_MIXIN = {
                 .setCheck(BORDER_TYPES[i])
                 .appendField("coucou %1 h")
                 .appendField("ok");
-                /*if(i === 0){
+                if(i === 0){
                     this.setInputsInline(false);
                     this.appendDummyInput("h")
                     .setAlign(Blockly.ALIGN_RIGHT)
                     .appendField("heures");
-                }*/
+                }
             }
         }
     }
@@ -101,7 +103,7 @@ const BORDER_MUTATOR_MIXIN = {
 
 Blockly.Extensions.registerMutator("s4d_ban_member_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
 
-Blockly.JavaScript["s4d_ban_member"] = function(block) {
+Blockly.JavaScript[blockName] = function(block) {
     const hours = Blockly.JavaScript.valueToCode(block, "HOURS", Blockly.JavaScript.ORDER_ATOMIC) || null;
     const reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC) || null;
     console.log(hours, reason);

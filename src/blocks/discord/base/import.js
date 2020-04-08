@@ -1,19 +1,21 @@
 import * as Blockly from "blockly/core";
 
-const s4d_import = {
+const blockName = "s4d_import";
+
+const blockData = {
     "message0": "%{BKY_IMPORT}",
     "colour": "#F46580",
     "tooltip": "",
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_import"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_import);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_import"] = function() {
+Blockly.JavaScript[blockName] = function() {
     const code = `
     const delay = (seconds) => new Promise((resolve) => setTimeout(() => resolve, seconds*1000));
     const s4d = {

@@ -1,6 +1,8 @@
 import * as Blockly from "blockly";
 
-const s4d_joining_guild = {
+const blockName = "s4d_joining_guild";
+
+const blockData = {
     "message0": "%{BKY_JOINING_GUILD}",
     "args0": [
         {
@@ -24,13 +26,13 @@ const s4d_joining_guild = {
     "helpUrl": ""
 };
 
-Blockly.Blocks["s4d_joining_guild"] = {
+Blockly.Blocks[blockName] = {
     init: function() {
-        this.jsonInit(s4d_joining_guild);
+        this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript["s4d_joining_guild"] = function(block) {
+Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "ID"){
         const code = ["s4d.joiningMember.guild.id", Blockly.JavaScript.ORDER_NONE];
