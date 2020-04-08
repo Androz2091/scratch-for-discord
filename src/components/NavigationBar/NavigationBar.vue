@@ -11,10 +11,14 @@
                 <LanguageMenu></LanguageMenu>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
+                <RunModal></RunModal>
                 <b-button style="border-right-color: #3DA2B8; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
-                    <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
+                <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
                 </b-button>
-                <b-button style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
+                <b-button :disabled="configurationValidated" style="border-right-color: #3DA2B8; border-radius: 0em;" v-b-modal.run-modal>
+                    <b-icon-play></b-icon-play>
+                </b-button>
+                <b-button :disabled="configurationValidated" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
                     <b-icon-download></b-icon-download>
                 </b-button>
             </b-navbar-nav>
@@ -29,13 +33,20 @@ import JSZip from "jszip";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
 import LanguageMenu from "./LanguageMenu.vue";
+import RunModal from "./RunModal.vue";
 
 export default {
     name: "navbar",
     components: {
         FileMenu,
         EditMenu,
-        LanguageMenu
+        LanguageMenu,
+        RunModal
+    },
+    computed: {
+        configurationValidated: function () {
+            return this.$store.state.workspace ? this.$store.state.workspace.getAllBlocks().length === 0 : true;
+        }
     },
     mounted(){
         const element = document.querySelector("#docName");
@@ -44,6 +55,10 @@ export default {
         element.blur();
     },
     methods: {
+        showModal() {
+            console.log(document.querySelector("#run-modal"))
+            document.querySelector("#run-modal").show();
+        },
         exportToCode(){
             const wrapper = document.createElement('div');
             wrapper.innerHTML = `<h6>${this.$t('download.content.title')}</h6><ul><li style='text-align:left'>${this.$t('download.content.unzipFile')}</li><li style='text-align:left'>${this.$t('download.content.start')}</li><li style='text-align:left'>${this.$t('download.content.done')}</li></ul>`;
@@ -91,8 +106,7 @@ export default {
                     });
                 }
             });
-        },
-        
+        }
     }
 }
 </script>
