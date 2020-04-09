@@ -357,8 +357,8 @@ export default `
         <category name="Variables" colour="#a55b80" custom="VARIABLE" />
         <category name="Functions" colour="#995ba5" custom="PROCEDURE" />
         <sep />
-        <category name="Base">
-            <label text="%{BKY_BASE_BLOCKS}"></label>
+        <category name="Base" colour="#F46580">
+        <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
             <block type="s4d_login">
                 <value name="TOKEN">
                     <block type="text">
@@ -366,9 +366,10 @@ export default `
                     </block>
                 </value>
             </block>
+            <label text="%{BKY_BASE_BLOCKS}"></label>
             <block type="s4d_on_connected"></block>
         </category>
-        <category name="Message">
+        <category name="Message" colour="#9966FF">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
@@ -388,7 +389,7 @@ export default `
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
-        <category name="Actions">
+        <category name="Actions" colour="#4C97FF">
             <label text="Roles"></label>
             <block type="s4d_add_role"></block>
             <block type="s4d_remove_role"></block>
@@ -396,7 +397,7 @@ export default `
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
         </category>
-        <category name="Joins">
+        <category name="Joins" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
             <block type="s4d_on_member_join"></block>
