@@ -32,9 +32,9 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const role = Blockly.JavaScript.valueToCode(block, "ROLE", Blockly.JavaScript.ORDER_ATOMIC);
-    const roleType = block.getInput("ROLE").connection.targetConnection.getSourceBlock().type;
+    const roleType = block.getInput("ROLE").connection.targetConnection.getSourceBlock().ouputConnection.check_[0];
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    if(roleType === "text"){
+    if(roleType === "String"){
         const code = `${member}.roles.remove(${member}.guild.roles.find((role) => role.id === ${role} || role.name === ${role} || '@'+role.name === ${role})):\n`;
         return code;
     } else {
