@@ -16,6 +16,7 @@ export default {
     props: ["options"],
     data() {
         return {
+            toastLogin: false,
             workspace: this.$store.state.workspace
         }
     },
@@ -32,6 +33,21 @@ export default {
         this.$nextTick(() => {
             window.setInterval(() => {
                 disableUnapplicable(this.$store.state.workspace);
+                const loginBlock = this.$store.state.workspace.getAllBlocks().some((block) => block.type === "s4d_login");
+                if(!loginBlock){
+                    if(!this.toastLogin){
+                        this.toastLogin = true;
+                        this.$toast.open({
+                            message: "Le block \"Connexion à Discord\" de la catégorie \"Base\" est obligatoire !",
+                            type: "warning",
+                            dismissible: false,
+                            duration: 1000000000
+                        });
+                    }
+                } else if(this.toastLogin){
+                    this.toastLogin = false;
+                    this.$toast.clear();
+                }
             }, 100);
         });
     }
