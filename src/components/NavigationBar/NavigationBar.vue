@@ -9,6 +9,7 @@
                 <FileMenu></FileMenu>
                 <EditMenu></EditMenu>
                 <LanguageMenu></LanguageMenu>
+                <ExamplesMenu></ExamplesMenu>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <RunModal></RunModal>
@@ -34,6 +35,7 @@ import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
 import LanguageMenu from "./LanguageMenu.vue";
 import RunModal from "./RunModal.vue";
+import ExamplesMenu from "./ExamplesMenu.vue";
 
 export default {
     name: "navbar",
@@ -41,7 +43,8 @@ export default {
         FileMenu,
         EditMenu,
         LanguageMenu,
-        RunModal
+        RunModal,
+        ExamplesMenu
     },
     computed: {
         configurationValidated: function () {

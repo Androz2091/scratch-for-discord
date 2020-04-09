@@ -121,6 +121,18 @@ export const websiteMessages = {
     lang: {
         title: "Langue"
     },
+    examples: {
+        title: "Exemples",
+        confirm: {
+            title: "Supprimer les blocks",
+            text: "Souhaitez-vous supprimer les blocks du projet actuel avant d'importer l'exemple ?",
+            cancel: "Annuler",
+            yes: "Oui",
+            no: "Non"
+        },
+        loaded: "Exemple {example} importé avec succès !",
+        ping_pong: "Commande ping-pong"
+    },
     download: {
         title: "Télécharger votre bot",
         content: {
