@@ -5,7 +5,7 @@ const blocklyMessages = {
     MESSAGE_RELATED_BLOCKS: "Blocks relatifs aux messages",
     REPLY: "répondre %1",
     INIT_TOOLTIP: "Vous permet d'utiliser les blocks Discord!",
-    LOGIN: "Connexion avec le token %1",
+    LOGIN: "Connexion à Discord avec le token %1",
     LOGIN_TOOLTIP: "Connecte votre bot à Discord. Pour trouver le token de votre bot, rendez-vous sur https://discordapp.com/developers/.",
     ON_MESSAGE: "Quand un message est reçu",
     ON_CONNECTED: "Quand le bot est connecté",
