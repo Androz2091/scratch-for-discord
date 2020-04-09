@@ -359,7 +359,6 @@ export default `
         <sep />
         <category name="Base">
             <label text="%{BKY_BASE_BLOCKS}"></label>
-            <block type="s4d_import"></block>
             <block type="s4d_login">
                 <value name="TOKEN">
                     <block type="text">
