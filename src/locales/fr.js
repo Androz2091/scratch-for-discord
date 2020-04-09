@@ -143,6 +143,11 @@ export const websiteMessages = {
         },
         cancel: "Annuler",
         confirm: "Télécharger"
+    },
+    steps: {
+        load_examples: "Importer des exemples pour découvrir Scratch4Discord!",
+        run_test: "Testez le fonctionnement de votre bot ici!",
+        export_code: "Exportez votre code ici!"
     }
 };
 

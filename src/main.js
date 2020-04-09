@@ -6,7 +6,9 @@ import VueSwal from 'vue-swal';
 import Vuei18n from 'vue-i18n';
 import Blockly from "blockly";
 import VueToast from 'vue-toast-notification';
+import VueTour from 'vue-tour';
 
+Vue.use(VueTour);
 Vue.use(VueToast);
 Vue.use(Vuei18n);
 Vue.use(VueSwal);
@@ -29,7 +31,7 @@ const messages = {
 
 const i18n = new Vuei18n({
     locale: 'en',
-    messages
+    messages: messages
 });
 
 Vue.mixin({
@@ -112,3 +114,4 @@ new Vue({
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'vue-toast-notification/dist/theme-default.css';
+import 'vue-tour/dist/vue-tour.css';

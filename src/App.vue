@@ -2,6 +2,7 @@
     <div id="app">
         <NavBarComponent></NavBarComponent>
         <BlocklyComponent id="blocklySpace" :options="options"></BlocklyComponent>
+        <v-tour name="start-tour" :steps="vueTourOptions.steps" :options="vueTourOptions"></v-tour>
     </div>
 </template>
 
@@ -28,6 +29,12 @@ export default {
         BlocklyComponent,
         NavBarComponent
     },
+    beforeCreate(){
+        this.$root.$i18n.locale = this.$store.state.blocklyLocale;
+    },
+    mounted(){
+        this.$tours['start-tour'].start();
+    },
     data() {
         return {
             options: {
@@ -46,6 +53,37 @@ export default {
                     scaleSpeed: 1.2
                 },
                 toolbox
+            },
+            vueTourOptions: {
+                labels: {
+                    buttonSkip: 'Skip tour',
+                    buttonPrevious: 'Previous',
+                    buttonNext: 'Next',
+                    buttonStop: 'Finish'
+                },
+                steps: [
+                    {
+                        target: '#v-step-0',
+                        content: this.$t('steps.load_examples'),
+                        params: {
+                            enableScrolling: false
+                        }
+                    },
+                    {
+                        target: '#v-step-1',
+                        content: this.$t('steps.run_test'),
+                        params: {
+                            enableScrolling: false
+                        }
+                    },
+                    {
+                        target: '#v-step-2',
+                        content: this.$t('steps.export_code'),
+                        params: {
+                            enableScrolling: false
+                        }
+                    }
+                ]
             }
         }
     }

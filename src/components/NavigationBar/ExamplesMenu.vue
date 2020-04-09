@@ -1,5 +1,5 @@
 <template>
-    <b-nav-item-dropdown :text="$t('examples.title')" right>
+    <b-nav-item-dropdown id="v-step-0" :text="$t('examples.title')" right>
         <b-dropdown-item @click="load('ping-pong')">{{ $t('examples.ping_pong') }}</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
