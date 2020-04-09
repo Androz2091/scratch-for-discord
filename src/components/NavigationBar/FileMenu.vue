@@ -9,14 +9,13 @@
 
 <script>
 import Blockly from "blockly";
-import BlocklyJS from "blockly/javascript";
 import JSZip from "jszip";
 
 export default {
     name: "filemenu",
     methods: {
         viewCode() {
-			alert(BlocklyJS.workspaceToCode(this.$store.state.workspace));
+			alert(this.getWorkspaceCode());
         },
         askForFile(){
             document.querySelector("#load-code").click();

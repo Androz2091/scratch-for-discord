@@ -5,7 +5,9 @@ import store from './store';
 import VueSwal from 'vue-swal';
 import Vuei18n from 'vue-i18n';
 import Blockly from "blockly";
+import VueToast from 'vue-toast-notification';
 
+Vue.use(VueToast);
 Vue.use(Vuei18n);
 Vue.use(VueSwal);
 Vue.use(BootstrapVue);
@@ -71,6 +73,32 @@ Vue.mixin({
                 default:
                     break;
             }
+        },
+        getWorkspaceCode(){
+            return `
+                let Discord;
+                try {
+                    Discord = DiscordJS;
+                } catch(e){
+                    console.log(e);
+                    Discord = require("discord.js");
+                }
+                const delay = (seconds) => new Promise((resolve) => setTimeout(() => resolve, seconds*1000));
+                const s4d = {
+                    Discord,
+                    message: null,
+                    client: null,
+                    tokenInvalid: false,
+                    checkMessageExists() {
+                        if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
+                        if (!s4d.message) throw new Error('You cannot perform message operations outside an "on message" block')
+                        if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
+                    }
+                };
+                s4d.client = new s4d.Discord.Client();
+                ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
+                s4d;
+            `;
         }
     }
 });
@@ -83,3 +111,4 @@ new Vue({
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import 'vue-toast-notification/dist/theme-default.css';

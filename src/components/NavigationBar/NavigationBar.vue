@@ -75,7 +75,7 @@ export default {
                     const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
                     const fileName = `${encodeURIComponent(this.$refs.docName.textContent).replace(/%20/g, " ")}.zip`;
                     zip.file("blocks.xml", xmlContent);
-                    const javascriptContent = Blockly.JavaScript.workspaceToCode(this.$store.state.workspace);
+                    const javascriptContent = this.getWorkspaceCode();
                     zip.file("bot.js", javascriptContent);
                     zip.file("start.sh", `
                         if [ "$(npm list -g | grep yarn)" ]
