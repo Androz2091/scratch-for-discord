@@ -1,5 +1,5 @@
 <template>
-    <b-modal id="run-modal" hide-footer title="Lancez votre bot depuis Scratch4Discord!">
+    <b-modal id="run-modal" hide-footer title="Appuyez sur démarrer pour tester votre bot!">
         <div class="d-block text-center">
             <b-container class="bv-example-row">
             <b-row>
@@ -52,7 +52,6 @@
 
 <script>
 
-import Blockly from "blockly";
 import DiscordJs from "discord.js";
 
 export default {
@@ -76,17 +75,45 @@ export default {
             /* eslint-disable no-undef */
             const DiscordJS = DiscordJs;
             this.botStarting = true;
-            let s4d = eval(Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)+"\ns4d;");
-            s4d.client.on('ready', () => {
-                this.botStarting = false;
-                this.botStarted = true;
-                this.botRawAvatar = s4d.client.user.displayAvatarURL();
+            const result = new Promise(resolve => resolve(eval(this.getWorkspaceCode())));
+            result.then((s4d) => {
+                setTimeout(() => {
+                    if(s4d.tokenInvalid){
+                        this.botStarting = false;
+                        this.botStarted = false;
+                        this.$toast.open({
+                            message: "Impossible de se connecter à Discord... Peut-être que le token du bot n'est pas valide !",
+                            type: "error",
+                            dismissible: true,
+                            duration: 10000,
+                            position: "top-right"
+                        });
+                        this.$bvModal.hide("run-modal");
+                    } else {
+                        this.botStarting = false;
+                        this.botStarted = false;
+                        this.$toast.open({
+                            message: "Impossible de se connecter à Discord... Réessayez plus tard!",
+                            type: "error",
+                            dismissible: true,
+                            duration: 10000,
+                            position: "top-right"
+                        });
+                        this.$bvModal.hide("run-modal");
+                    }
+                    return;
+                }, (5000));
+                s4d.client.on('ready', () => {
+                    this.botStarting = false;
+                    this.botStarted = true;
+                    this.botRawAvatar = s4d.client.user.displayAvatarURL();
+                });
+                s4d.client.on('shardDisconnect', () => {
+                    this.botStarted = false;
+                    this.s4d = null;
+                });
+                this.s4d = s4d;
             });
-            s4d.client.on('shardDisconnect', () => {
-                this.botStarted = false;
-                this.s4d = null;
-            });
-            this.s4d = s4d;
         },
         stop(){
             this.s4d.client.destroy();
