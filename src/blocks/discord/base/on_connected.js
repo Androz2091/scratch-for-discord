@@ -13,7 +13,8 @@ const blockData = {
             "type": "input_statement",
             "name": "STATEMENTS"
         }
-    ]
+    ],
+    "tooltip": "%{BKY_ON_CONNECTED_TOOLTIP}"
 };
 
 Blockly.Blocks[blockName] = {
