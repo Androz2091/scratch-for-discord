@@ -81,7 +81,7 @@ export default {
                 if(result){
                     const zip = new JSZip();
                     const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
-                    const fileName = `${encodeURIComponent(this.$refs.docName.textContent).replace(/%20/g, " ")}.zip`;
+                    const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, " ")}.zip`;
                     zip.file("blocks.xml", xmlContent);
                     const javascriptContent = this.getWorkspaceCode();
                     zip.file("bot.js", javascriptContent);

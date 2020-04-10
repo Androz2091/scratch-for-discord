@@ -23,7 +23,7 @@ export default {
         load(){
             const file = document.getElementById("load-code").files[0];
             const documentName = file.name.split(".").slice(0, file.name.split(".").length-1);
-            this.$refs.docName.textContent = documentName;
+            document.querySelector("#docName").textContent = documentName;
             const reader = new FileReader();
             reader.onload = (e) => {
                 JSZip.loadAsync(e.target.result)
