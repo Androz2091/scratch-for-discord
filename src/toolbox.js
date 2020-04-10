@@ -155,6 +155,18 @@ export default `
             <block type="text">
                 <field name="TEXT" />
             </block>
+            <block type="s4d_starts_with">
+                <value name="STRING">
+                    <shadow type="text">
+                        <field name="TEXT" />
+                    </shadow>
+                </value>
+                <value name="SUBSTRING">
+                    <shadow type="text">
+                        <field name="TEXT" />
+                    </shadow>
+                </value>
+            </block>
             <block type="text_join">
                 <mutation items="2" />
             </block>

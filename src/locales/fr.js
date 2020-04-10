@@ -96,7 +96,8 @@ const blocklyMessages = {
     RES_REMOVE_ROLE_MISSING_MEMBER: "Vous devez préciser un membre valide à qui enlever le rôle !",
     RES_KICK_MEMBER_MISSING_MEMBER: "Vous devez préciser un membre valide à expulser !",
     RES_BAN_MEMBER_MISSING_MEMBER: "Vous devez préciser un membre valide à expulser !",
-    MANDATORY_BLOCKS: "Blocks obligatoires"
+    MANDATORY_BLOCKS: "Blocks obligatoires",
+    STARTS_WITH: "%1 commence par %2",
 };
 
 export const applyBlocklyLocale = () => {
