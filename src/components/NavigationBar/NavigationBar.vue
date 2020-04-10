@@ -1,6 +1,9 @@
 <template>
     <b-navbar toggleable="lg" type="dark" variant="info" id="navbar">
-        <b-navbar-brand>Scratch4Discord</b-navbar-brand>
+        <b-navbar-brand>
+            <img src="scratch.png" width="40">
+            Scratch For Discord
+        </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         
