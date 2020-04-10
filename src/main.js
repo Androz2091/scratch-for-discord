@@ -51,6 +51,7 @@ Vue.mixin({
             this.$store.commit("setWorkspace", {
                 workspace: newWorkspace
             });
+            workspace.addChangeListener(Blockly.Events.disableOrphans);
             // Return the workspace
             return workspace;
         },

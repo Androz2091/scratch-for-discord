@@ -30,6 +30,7 @@ export default {
         this.$store.commit("setWorkspace", {
             workspace
         });
+        workspace.addChangeListener(Blockly.Events.disableOrphans);
         this.$nextTick(() => {
             window.setInterval(() => {
                 disableUnapplicable(this.$store.state.workspace);
