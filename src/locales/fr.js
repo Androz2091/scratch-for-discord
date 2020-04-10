@@ -94,6 +94,7 @@ const blocklyMessages = {
     RES_REMOVE_ROLE_MISSING_ROLE: "Vous devez préciser un nom ou un identifiant de rôle valide à enlever !",
     RES_REMOVE_ROLE_MISSING_MEMBER: "Vous devez préciser un membre valide à qui enlever le rôle !",
     RES_KICK_MEMBER_MISSING_MEMBER: "Vous devez préciser un membre valide à expulser !",
+    RES_BAN_MEMBER_MISSING_MEMBER: "Vous devez préciser un membre valide à expulser !",
     MANDATORY_BLOCKS: "Blocks obligatoires"
 };
 
