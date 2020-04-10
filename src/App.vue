@@ -19,8 +19,9 @@ Blockly.Tooltip.HOVER_MS = 100;
 // Load blocks
 import "./blocks/discord/actions/";
 import "./blocks/discord/base/";
-import "./blocks/discord/joins";
+import "./blocks/discord/joins/";
 import "./blocks/discord/message/";
+import "./blocks/text/";
 import "./prompt";
 
 export default {
