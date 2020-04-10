@@ -56,29 +56,29 @@ export default {
             },
             vueTourOptions: {
                 labels: {
-                    buttonSkip: 'Skip tour',
-                    buttonPrevious: 'Previous',
-                    buttonNext: 'Next',
-                    buttonStop: 'Finish'
+                    buttonSkip: this.$t('tour.skip'),
+                    buttonPrevious: this.$t('tour.previous'),
+                    buttonNext: this.$t('tour.next'),
+                    buttonStop: this.$t('tour.finish')
                 },
                 steps: [
                     {
                         target: '#v-step-0',
-                        content: this.$t('steps.load_examples'),
+                        content: this.$t('tour.steps.load_examples'),
                         params: {
                             enableScrolling: false
                         }
                     },
                     {
                         target: '#v-step-1',
-                        content: this.$t('steps.run_test'),
+                        content: this.$t('tour.steps.run_test'),
                         params: {
                             enableScrolling: false
                         }
                     },
                     {
                         target: '#v-step-2',
-                        content: this.$t('steps.export_code'),
+                        content: this.$t('tour.steps.export_code'),
                         params: {
                             enableScrolling: false
                         }

@@ -81,6 +81,7 @@ const blocklyMessages = {
     RELATED_TO_JOIN_STRINGS: "Chaînes relatives à l'arrivée",
     JOINING_MEMBER_RAW: "%1 du membre arrivant",
     JOINING_GUILD: "%1 du serveur du membre arrivant",
+    TEMPORARILY: "Temporairement",
     HOURS: "heures",
     REASON: "raison",
     DURING_HOURS: "durant",
@@ -145,10 +146,16 @@ export const websiteMessages = {
         cancel: "Annuler",
         confirm: "Télécharger"
     },
-    steps: {
-        load_examples: "Importer des exemples pour découvrir Scratch4Discord!",
-        run_test: "Testez le fonctionnement de votre bot ici!",
-        export_code: "Exportez votre code ici!"
+    tour: {
+        skip: 'Sauter la visite',
+        previous: 'Précédent',
+        next: 'Suivant',
+        finish: 'Finir',
+        steps: {
+            load_examples: "Importer des exemples pour découvrir Scratch4Discord!",
+            run_test: "Testez le fonctionnement de votre bot ici!",
+            export_code: "Exportez votre code ici!"
+        }
     }
 };
 
