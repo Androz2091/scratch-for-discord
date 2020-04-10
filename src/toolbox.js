@@ -155,18 +155,6 @@ export default `
             <block type="text">
                 <field name="TEXT" />
             </block>
-            <block type="s4d_starts_with">
-                <value name="STRING">
-                    <shadow type="text">
-                        <field name="TEXT" />
-                    </shadow>
-                </value>
-                <value name="SUBSTRING">
-                    <shadow type="text">
-                        <field name="TEXT" />
-                    </shadow>
-                </value>
-            </block>
             <block type="text_join">
                 <mutation items="2" />
             </block>
@@ -182,6 +170,18 @@ export default `
                 <value name="VALUE">
                     <shadow type="text">
                         <field name="TEXT">abc</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_starts_with">
+                <value name="STRING">
+                    <shadow type="text">
+                        <field name="TEXT" />
+                    </shadow>
+                </value>
+                <value name="SUBSTRING">
+                    <shadow type="text">
+                        <field name="TEXT" />
                     </shadow>
                 </value>
             </block>
@@ -234,22 +234,6 @@ export default `
             </block>
             <block type="text_trim">
                 <field name="MODE">BOTH</field>
-                <value name="TEXT">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="text_print">
-                <value name="TEXT">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="text_prompt_ext">
-                <mutation type="TEXT" />
-                <field name="TYPE">TEXT</field>
                 <value name="TEXT">
                     <shadow type="text">
                         <field name="TEXT">abc</field>
