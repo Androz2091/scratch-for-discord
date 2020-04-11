@@ -35,7 +35,7 @@ export default {
     },
     mounted(){
         if(!this.$store.state.tourDone){
-            this.$tours['start-tour'].start();
+            this.$tours["start-tour"].start();
             this.$store.commit('setTour', {
                 status: true
             });
