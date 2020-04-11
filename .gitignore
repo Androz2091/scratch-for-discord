@@ -1,7 +1,5 @@
 # Node
-package-lock.json
 node_modules
-yarn.lock
 
 # Compiled files
 dist/
