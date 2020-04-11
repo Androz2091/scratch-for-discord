@@ -30,7 +30,7 @@ const messages = {
 };
 
 const i18n = new Vuei18n({
-    locale: 'en',
+    locale: navigator.language.split("-")[0],
     messages: messages
 });
 
