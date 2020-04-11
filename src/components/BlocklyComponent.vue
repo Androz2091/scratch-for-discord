@@ -39,7 +39,7 @@ export default {
                     if(!this.toastLogin){
                         this.toastLogin = true;
                         this.$toast.open({
-                            message: "Le block \"Connexion à Discord\" de la catégorie \"Base\" est obligatoire !",
+                            message: this.$t('warnings.login_block'),
                             type: "warning",
                             dismissible: false,
                             duration: 1000000000

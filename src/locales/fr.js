@@ -157,6 +157,16 @@ export const websiteMessages = {
             run_test: "Testez le fonctionnement de votre bot ici!",
             export_code: "Exportez votre code ici!"
         }
+    },
+    warnings: {
+        login_block: "Le block \"Connexion à Discord\" de la catégorie \"Base\" est obligatoire !"
+    },
+    run_modal: {
+        title: "Appuyez sur démarrer pour tester votre bot!",
+        start: "Démarrer le bot",
+        stop: "Arrêter le bot",
+        invalid_token: "Impossible de se connecter à Discord... Peut-être que le token du bot n'est pas valide !",
+        error: "Impossible de se connecter à Discord... Réessayez plus tard!"
     }
 };
 

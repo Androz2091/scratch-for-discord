@@ -1,52 +1,25 @@
 <template>
-    <b-modal id="run-modal" hide-footer title="Appuyez sur démarrer pour tester votre bot!">
+    <b-modal id="run-modal" hide-footer :title="$t('run_modal.title')">
         <div class="d-block text-center">
-            <b-container class="bv-example-row">
-            <b-row>
-                <b-col>
-                    <b-overlay :show="botStarting" class="d-inline-block" rounded="circle">
-                        <b-img thumbnail rounded="circle" fluid :src="botAvatar" alt="Image 1"></b-img>
-                    </b-overlay>
-                </b-col>
-                <b-col cols="8">
-                    <span><strong></strong></span>
-                    <hr>
-                    <span><strong>Découvrez comment héberger votre bot H24 7/7j sur un serveur!</strong></span>
-                </b-col>
-            </b-row>
+            <b-container>
+                <b-row>
+                    <b-col>
+                        <b-overlay :show="botStarting" class="d-inline-block" rounded="circle">
+                            <b-img thumbnail  width="125" height="125" rounded="circle" fluid :src="botAvatar"></b-img>
+                        </b-overlay>
+                    </b-col>
+                    <b-col>
+                        <b-overlay :show="botStarting" rounded opacity="0.6" spinner-small spinner-variant="primary" class="d-inline-block" @hidden="onHidden">
+                            <b-button ref="button" class="btn btn-success btn-block" :disabled="botStarted" @click="start">{{ $t('run_modal.start') }}</b-button>
+                        </b-overlay>
+                        <b-overlay :show="botStarting" rounded opacity="0.6" spinner-small spinner-variant="primary" class="d-inline-block" @hidden="onHidden">
+                            <b-button class="btn btn-danger btn-block" :disabled="!botStarted" @click="stop">{{ $t('run_modal.stop') }}</b-button>
+                        </b-overlay>
+                    </b-col>
+                </b-row>
             </b-container>
-            
-            <br>
         </div>
         <hr>
-        <div class="btn-toolbar">
-            <div class="btn-space">
-                <b-overlay
-                    :show="botStarting"
-                    rounded
-                    opacity="0.6"
-                    spinner-small
-                    spinner-variant="primary"
-                    class="d-inline-block"
-                    @hidden="onHidden"
-                >
-                    <b-button ref="button" class="btn btn-success btn-block" :disabled="botStarted" @click="start">Démarrer le bot</b-button>
-                </b-overlay>
-            </div>
-            <div class="btn-space">
-                <b-overlay
-                    :show="botStarting"
-                    rounded
-                    opacity="0.6"
-                    spinner-small
-                    spinner-variant="primary"
-                    class="d-inline-block"
-                    @hidden="onHidden"
-                >
-                <b-button class="btn btn-danger btn-space btn-block" :disabled="!botStarted" @click="stop">Arrêter le bot</b-button>
-                </b-overlay>
-            </div>
-        </div>
     </b-modal>
 </template>
 
@@ -82,7 +55,7 @@ export default {
                         this.botStarting = false;
                         this.botStarted = false;
                         this.$toast.open({
-                            message: "Impossible de se connecter à Discord... Peut-être que le token du bot n'est pas valide !",
+                            message: this.$t('run_modal.invalid_token'),
                             type: "error",
                             dismissible: true,
                             duration: 10000,
@@ -93,7 +66,7 @@ export default {
                         this.botStarting = false;
                         this.botStarted = false;
                         this.$toast.open({
-                            message: "Impossible de se connecter à Discord... Réessayez plus tard!",
+                            message: this.$t('run_modal.error'),
                             type: "error",
                             dismissible: true,
                             duration: 10000,
@@ -130,6 +103,12 @@ export default {
 
 .btn-space {
     margin-right: 5px;
+}
+
+.test {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 </style>
