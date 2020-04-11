@@ -62,7 +62,7 @@ export default {
                             position: "top-right"
                         });
                         this.$bvModal.hide("run-modal");
-                    } else {
+                    } else if(!s4d.client.readyTimestamp){
                         this.botStarting = false;
                         this.botStarted = false;
                         this.$toast.open({
@@ -92,7 +92,6 @@ export default {
             this.s4d.client.destroy();
         },
         onHidden() {
-            // Return focus to the button once hidden
             this.$refs.button.focus()
         }
     }
