@@ -34,7 +34,12 @@ export default {
         this.$root.$i18n.locale = this.$store.state.blocklyLocale;
     },
     mounted(){
-        this.$tours['start-tour'].start();
+        if(!this.$store.state.tourDone){
+            this.$tours['start-tour'].start();
+            this.$store.commit('setTour', {
+                status: true
+            });
+        }
     },
     data() {
         return {

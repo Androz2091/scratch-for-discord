@@ -7,7 +7,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         workspace: 0,
-        blocklyLocale: "en"
+        blocklyLocale: "en",
+        tourDone: false
     },
     mutations: {
         setWorkspace (state, { workspace }) {
@@ -15,9 +16,12 @@ export default new Vuex.Store({
         },
         setLocale (state, { newLocale }) {
             state.blocklyLocale = newLocale;
+        },
+        setTour (state, { status }){
+            state.tourDone = status;
         }
     },
     plugins: [createPersistedState({
-        paths: ["blocklyLocale"]
+        paths: ["blocklyLocale","tourDone"]
     })]
 });
