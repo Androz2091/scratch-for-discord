@@ -34,6 +34,8 @@ const i18n = new Vuei18n({
     messages: messages
 });
 
+import toolbox from "./toolbox";
+
 Vue.mixin({
     methods: {
         reloadWorkspace(){
@@ -44,7 +46,23 @@ Vue.mixin({
             // Delete the current workspace
             workspace.dispose();
             // Create a new workspace (with the good language)
-            const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), this.options);
+            const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), {
+                renderer: "zelos",
+                grid: {
+                    spacing: 25,
+                    length: 3,
+                    colour: "#ccc",
+                    snap: true
+                },
+                zoom: {
+                    controls: true,
+                    startScale: 0.9,
+                    maxScale: 3,
+                    minScale: 0.3,
+                    scaleSpeed: 1.2
+                },
+                toolbox
+            });
             // And restore the blocks
             Blockly.Xml.domToWorkspace(dom, newWorkspace);
             // Update the workspace in the vuex store
