@@ -96,6 +96,7 @@ Vue.mixin({
             }
         },
         getWorkspaceCode(){
+            if(!this.$store.state.workspace) return "";
             return `
                 let Discord;
                 try {
