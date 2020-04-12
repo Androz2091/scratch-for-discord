@@ -98,6 +98,7 @@ const blocklyMessages = {
     RES_BAN_MEMBER_MISSING_MEMBER: "Vous devez préciser un membre valide à bannir !",
     MANDATORY_BLOCKS: "Blocks obligatoires",
     STARTS_WITH: "%1 commence par %2",
+    NEWLINE: "nouvelle ligne"
 };
 
 export const applyBlocklyLocale = () => {

@@ -158,6 +158,7 @@ export default `
             <block type="text_join">
                 <mutation items="2" />
             </block>
+            <block type="s4d_newline"></block>
             <block type="text_append">
                 <field name="VAR" id="X4zy!98/2$-ur;|L{NlX">item</field>
                 <value name="TEXT">
