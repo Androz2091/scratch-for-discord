@@ -166,6 +166,9 @@ export const websiteMessages = {
         stop: "Stop the bot",
         invalid_token: "Unable to connect to Discord... Maybe the bot's token isn't valid!",
         error: "Unable to connect to Discord... Try again later!"
+    },
+    code_modal: {
+        title: "JavaScript code of your bot"
     }
 };
 

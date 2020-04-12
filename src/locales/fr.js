@@ -167,6 +167,9 @@ export const websiteMessages = {
         stop: "Arrêter le bot",
         invalid_token: "Impossible de se connecter à Discord... Peut-être que le token du bot n'est pas valide !",
         error: "Impossible de se connecter à Discord... Réessayez plus tard!"
+    },
+    code_modal: {
+        title: "Code JavaScript de votre bot"
     }
 };
 

@@ -9,6 +9,7 @@
         
         <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
+                <CodeModal></CodeModal>
                 <FileMenu></FileMenu>
                 <EditMenu></EditMenu>
                 <LanguageMenu></LanguageMenu>
@@ -39,6 +40,7 @@ import EditMenu from "./EditMenu.vue";
 import LanguageMenu from "./LanguageMenu.vue";
 import RunModal from "./RunModal.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
+import CodeModal from "./CodeModal";
 
 export default {
     name: "navbar",
@@ -47,7 +49,8 @@ export default {
         EditMenu,
         LanguageMenu,
         RunModal,
-        ExamplesMenu
+        ExamplesMenu,
+        CodeModal
     },
     computed: {
         configurationValidated: function () {
@@ -63,10 +66,6 @@ export default {
         element.blur();
     },
     methods: {
-        showModal() {
-            console.log(document.querySelector("#run-modal"))
-            document.querySelector("#run-modal").show();
-        },
         exportToCode(){
             const wrapper = document.createElement('div');
             wrapper.innerHTML = `<h6>${this.$t('download.content.title')}</h6><ul><li style='text-align:left'>${this.$t('download.content.unzipFile')}</li><li style='text-align:left'>${this.$t('download.content.start')}</li><li style='text-align:left'>${this.$t('download.content.done')}</li></ul>`;
