@@ -115,6 +115,9 @@ const blocklyMessages = {
     FIND_SERVER: "Trouver un serveur",
     GET_SERVER: "obtenir le serveur dont le %2 est %1",
     RES_GET_SERVER_SERVER: "Vous devez préciser un nom ou un identifiant de serveur valide !",
+    LABEL_SERVER_INFOS: "Informations sur le serveur",
+    MEMBER_COUNT: "nombre de membres du serveur %1",
+    RES_MEMBER_COUNT_SERVER: "Vous devez préciser un serveur valide !"
 };
 
 export const applyBlocklyLocale = () => {
