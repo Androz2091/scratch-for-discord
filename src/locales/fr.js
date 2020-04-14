@@ -17,8 +17,6 @@ const blocklyMessages = {
     NICKNAME: "pseudo",
     GET_GUILD: "trouver le serveur %1 via %2",
     NAME: "nom",
-    GET_ROLE: "trouver le rôle %1 du serveur %2 via %3",
-    GET_MEMBER: "trouver le membre %1 du serveur %2 via %3",
     ADD_ROLE: "ajouter le rôle %1 au membre %2",
     REMOVE_ROLE: "enlever le rôle %1 au membre %2",
     BAN_MEMBER: "bannir le membre %1",
@@ -120,6 +118,7 @@ const blocklyMessages = {
     TOOLBOX_MESSAGES: "Messages",
     TOOLBOX_BASE: "Base",
     TOOLBOX_SERVER: "Serveurs",
+    TOOLBOX_ROLES: "Rôles",
     FIND_SERVER: "Trouver un serveur",
     GET_SERVER: "obtenir le serveur dont le %2 est %1",
     RES_GET_SERVER_SERVER: "Vous devez préciser un nom ou un identifiant de serveur valide !",
@@ -132,6 +131,12 @@ const blocklyMessages = {
     RES_SET_SERVER_NAME_NEW_NAME: "Vous devez préciser un nouveau nom valide pour le serveur !",
     LABEL_MODIFY_SERVER: "Modifier le serveur",
     SET_SERVER_NAME: "changer le nom du serveur %1 nouveau nom %2",
+    GET_ROLE_SERVER: "sur le serveur",
+    GET_ROLE: "obtenir le rôle dont le %2 est %1",
+    RES_GET_ROLE_VALUE: "Vous devez préciser un nom ou un identifiant de rôle valide !",
+    RES_GET_SERVER_VALUE: "Vous devez préciser un nom ou un identifiant de serveur valide !",
+    FIND_ROLE: "Trouver un rôle",
+    ROLE_ASSIGNMENT: "Affectation des rôles"
 };
 
 export const applyBlocklyLocale = () => {

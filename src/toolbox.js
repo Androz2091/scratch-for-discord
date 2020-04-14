@@ -386,9 +386,6 @@ export default (Blockly) => {
             <block type="s4d_message_embed"></block>
         </category>
         <category name="{{ TOOLBOX_ACTIONS }}" colour="#4C97FF">
-            <label text="Roles"></label>
-            <block type="s4d_add_role"></block>
-            <block type="s4d_remove_role"></block>
             <label text="Members"></label>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
@@ -418,6 +415,13 @@ export default (Blockly) => {
             <block type="s4d_get_channel"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
             <block type="s4d_send_channel"></block>
+        </category>
+        <category name="{{ TOOLBOX_ROLES }}" colour="#003F91">
+            <label text="%{BKY_FIND_ROLE}"></label>
+            <block type="s4d_get_role"></block>
+            <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
+            <block type="s4d_add_role"></block>
+            <block type="s4d_remove_role"></block>
         </category>
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {

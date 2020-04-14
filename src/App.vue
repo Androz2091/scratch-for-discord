@@ -21,6 +21,7 @@ import "./blocks/discord/joins/";
 import "./blocks/discord/message/";
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";
+import "./blocks/discord/roles/";
 import "./blocks/text/";
 import "./prompt";
 

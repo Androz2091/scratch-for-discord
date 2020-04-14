@@ -36,6 +36,7 @@ export const disableUnapplicable = (workspace) => {
                     if(Blockly.Msg[restriction.message]){
                         messages.push(Blockly.Msg[restriction.message]);
                     } else {
+                        window.alert("KEY NOT FOUND: "+restriction.message);
                         messages.push(decode(restriction.message));
                     }
                 }

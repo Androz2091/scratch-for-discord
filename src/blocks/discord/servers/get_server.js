@@ -51,7 +51,7 @@ Blockly.JavaScript[blockName] = function(block){
 registerRestrictions(blockName, [
     {
         type: "notempty",
-        message: "RES_MISSING_SERVER_VALUE",
+        message: "RES_GET_SERVER_VALUE",
         types: [
             "VALUE"
         ]
