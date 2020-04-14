@@ -9,7 +9,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "String", "MessageEmbed" ]
+            "check": [ "Number", "String", "MessageEmbed" ]
         },
     ],
     "colour": "#4C97FF",
@@ -33,11 +33,11 @@ Blockly.JavaScript[blockName] = function(block){
             const code = `s4d.message.channel.send({ embed: ${content} });\n`;
             return code;
         } else {
-            const code = `s4d.message.channel.send(${content});\n`;
+            const code = `s4d.message.channel.send(String(${content}));\n`;
             return code;
         }
     } else {
-        const code = `s4d.message.channel.send(${content});\n`;
+        const code = `s4d.message.channel.send(String(${content}));\n`;
         return code;
     }
 };
