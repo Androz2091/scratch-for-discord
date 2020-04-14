@@ -113,10 +113,19 @@ Blockly.Extensions.registerMutator("s4d_get_role_mutator", BORDER_MUTATOR_MIXIN,
 Blockly.JavaScript[blockName] = function(block){
     const value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_ATOMIC);
     const searchType = block.getFieldValue("SEARCH_TYPE");
+    const server = block.getFieldValue("GET_ROLE_SERVER");
     if(searchType === "NAME"){
-        return [ `s4d.client.guilds.cache.find((guild) => guild.name === ${value}`, Blockly.JavaScript.ORDER_NONE ];
+        if(server){
+            return [ `${server}.roles.cache.find((role) => role.name === ${value})`, Blockly.JavaScript.ORDER_NONE ];
+        } else {
+            return [ `Array.prototype.concat.apply([], s4d.client.guilds.cache.array().map((g) => g.roles.cache.array())).find((role) => role.name === ${value})`, Blockly.JavaScript.ORDER_NONE ];
+        }
     } else {
-        return [ `s4d.client.guilds.cache.get(${value})`, Blockly.JavaScript.ORDER_NONE ];
+        if(server){
+            return [ `${server}.roles.get(${value})`, Blockly.JavaScript.ORDER_NONE ];
+        } else {
+            return [ `Array.prototype.concat.apply([], s4d.client.guilds.cache.array().map((g) => g.roles.cache.array())).get(${value})`, Blockly.JavaScript.ORDER_NONE ];
+        }
     }
 };
 
