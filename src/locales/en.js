@@ -109,7 +109,11 @@ const blocklyMessages = {
     TOOLBOX_JOINS: "Joins",
     TOOLBOX_ACTIONS: "Actions",
     TOOLBOX_MESSAGES: "Messages",
-    TOOLBOX_BASE: "Base"
+    TOOLBOX_BASE: "Base",
+    TOOLBOX_SERVER: "Servers",
+    FIND_SERVER: "Find a server",
+    GET_SERVER: "get the server with %2 equal to %1",
+    RES_GET_SERVER_SERVER: "You must specify a valid server name or ID!",
 };
 
 export const applyBlocklyLocale = () => {

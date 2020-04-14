@@ -403,6 +403,10 @@ export default (Blockly) => {
             <block type="s4d_joining_member_raw"></block>
             <block type="s4d_joining_guild"></block>
         </category>
+        <category name="{{ TOOLBOX_SERVER }}" colour="#547AA5">
+            <label text="%{BKY_FIND_SERVER}"></label>
+            <block type="s4d_get_server"></block>
+        </category>
         <category name="{{ TOOLBOX_CHANNELS }}" colour="#40BF4A">
             <label text="%{BKY_FIND_CHANNEL}"></label>
             <block type="s4d_get_channel"></block>
