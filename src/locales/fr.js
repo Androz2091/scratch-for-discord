@@ -98,7 +98,15 @@ const blocklyMessages = {
     RES_BAN_MEMBER_MISSING_MEMBER: "Vous devez préciser un membre valide à bannir !",
     MANDATORY_BLOCKS: "Blocks obligatoires",
     STARTS_WITH: "%1 commence par %2",
-    NEWLINE: "nouvelle ligne"
+    NEWLINE: "nouvelle ligne",
+    FIND_CHANNEL: "Trouver un salon",
+    SEND_CHANNEL_LABEL: "Envoyer un message dans le salon trouvé",
+    GET_CHANNEL: "obtenir le salon dont le %2 est %1",
+    RES_MISSING_CHANNEL_VALUE: "Vous devez préciser un nom ou un identifiant de salon valide !",
+    RES_SEND_CHANNEL_CONTENT: "Vous devez préciser un contenu à envoyer !",
+    RES_SEND_CHANNEL_CHANNEL: "Vous devez préciser un salon dans lequel envoyer le contenu !",
+    SEND_CHANNEL: "envoyer %1 dans le salon %2",
+    TOOLBOX_CHANNELS: "Salons"
 };
 
 export const applyBlocklyLocale = () => {

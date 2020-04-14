@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NavBarComponent></NavBarComponent>
+        <NavBarComponent id="navSpace"></NavBarComponent>
         <BlocklyComponent id="blocklySpace" :options="options"></BlocklyComponent>
         <v-tour name="start-tour" :steps="vueTourOptions.steps" :options="vueTourOptions"></v-tour>
     </div>
@@ -12,8 +12,6 @@ import Blockly from "blockly";
 import NavBarComponent from "./components/NavigationBar/NavigationBar.vue";
 import BlocklyComponent from "./components/BlocklyComponent.vue";
 
-import toolbox from "./toolbox";
-
 Blockly.Tooltip.HOVER_MS = 100;
 
 // Load blocks
@@ -21,6 +19,7 @@ import "./blocks/discord/actions/";
 import "./blocks/discord/base/";
 import "./blocks/discord/joins/";
 import "./blocks/discord/message/";
+import "./blocks/discord/channels/";
 import "./blocks/text/";
 import "./prompt";
 
@@ -57,8 +56,7 @@ export default {
                     maxScale: 3,
                     minScale: 0.3,
                     scaleSpeed: 1.2
-                },
-                toolbox
+                }
             },
             vueTourOptions: {
                 labels: {

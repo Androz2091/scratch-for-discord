@@ -1,4 +1,5 @@
-export default `
+export default (Blockly) => {
+    return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
         <category name="Logic" colour="#5b80a5">
             <block type="controls_if" />
@@ -370,19 +371,17 @@ export default `
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
-            <label text="%{BKY_MESSAGE_ACTIONS}"></label>
-            <block type="s4d_reply"></block>
-            <block type="s4d_delete"></block>
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
             <block type="s4d_message_content"></block>
             <block type="s4d_message_author"></block>
             <block type="s4d_mentioned_member"></block>
-            <label text="%{BKY_CHECK_PERMISSIONS}"></label>
-            <block type="s4d_member_has_permission"></block>
             <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
             <block type="s4d_message_author_raw"></block>
             <block type="s4d_message_channel"></block>
             <block type="s4d_message_guild"></block>
+            <label text="%{BKY_MESSAGE_ACTIONS}"></label>
+            <block type="s4d_reply"></block>
+            <block type="s4d_delete"></block>
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
@@ -404,5 +403,13 @@ export default `
             <block type="s4d_joining_member_raw"></block>
             <block type="s4d_joining_guild"></block>
         </category>
+        <category name="{{ TOOLBOX_CHANNELS }}" colour="#40BF4A">
+            <label text="%{BKY_FIND_CHANNEL}"></label>
+            <block type="s4d_get_channel"></block>
+            <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
+            <block type="s4d_send_channel"></block>
+        </category>
     </xml>
-`;
+`.replace(/{{\s([A-z]{3,})\s}}/, (x) => {
+    return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
+}))};
