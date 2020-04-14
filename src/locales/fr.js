@@ -106,7 +106,11 @@ const blocklyMessages = {
     RES_SEND_CHANNEL_CONTENT: "Vous devez préciser un contenu à envoyer !",
     RES_SEND_CHANNEL_CHANNEL: "Vous devez préciser un salon dans lequel envoyer le contenu !",
     SEND_CHANNEL: "envoyer %1 dans le salon %2",
-    TOOLBOX_CHANNELS: "Salons"
+    TOOLBOX_CHANNELS: "Salons",
+    TOOLBOX_JOINS: "Arrivées",
+    TOOLBOX_ACTIONS: "Actions",
+    TOOLBOX_MESSAGES: "Messages",
+    TOOLBOX_BASE: "Base"
 };
 
 export const applyBlocklyLocale = () => {
