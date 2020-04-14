@@ -106,6 +106,14 @@ const blocklyMessages = {
     RES_SEND_CHANNEL_CONTENT: "Vous devez préciser un contenu à envoyer !",
     RES_SEND_CHANNEL_CHANNEL: "Vous devez préciser un salon dans lequel envoyer le contenu !",
     SEND_CHANNEL: "envoyer %1 dans le salon %2",
+    TOOLBOX_LOGIC: "Logique",
+    TOOLBOX_LOOPS: "Boucles",
+    TOOLBOX_MATH: "Math",
+    TOOLBOX_TEXT: "Texte",
+    TOOLBOX_LISTS: "Listes",
+    TOOLBOX_COLORS: "Couleurs",
+    TOOLBOX_VARIABLES: "Variables",
+    TOOLBOX_FUNCTIONS: "Fonctions",
     TOOLBOX_CHANNELS: "Salons",
     TOOLBOX_JOINS: "Arrivées",
     TOOLBOX_ACTIONS: "Actions",
@@ -123,7 +131,7 @@ const blocklyMessages = {
     RES_SET_SERVER_NAME_SERVER: "Vous devez préciser un serveur valide à qui changer le nom !",
     RES_SET_SERVER_NAME_NEW_NAME: "Vous devez préciser un nouveau nom valide pour le serveur !",
     LABEL_MODIFY_SERVER: "Modifier le serveur",
-    SET_SERVER_NAME: "changer le nom du serveur %1 nouveau nom %2"
+    SET_SERVER_NAME: "changer le nom du serveur %1 nouveau nom %2",
 };
 
 export const applyBlocklyLocale = () => {

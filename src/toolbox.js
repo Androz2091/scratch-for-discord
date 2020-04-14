@@ -1,7 +1,7 @@
 export default (Blockly) => {
     return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-        <category name="Logic" colour="#5b80a5">
+        <category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
             <block type="controls_if" />
             <block type="logic_compare">
                 <field name="OP">EQ</field>
@@ -16,7 +16,7 @@ export default (Blockly) => {
             <block type="logic_null" />
             <block type="logic_ternary" />
         </category>
-        <category name="Loops" colour="#5ba55b">
+        <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
             <block type="controls_repeat_ext">
                 <value name="TIMES">
                     <shadow type="math_number">
@@ -52,7 +52,7 @@ export default (Blockly) => {
                 <field name="FLOW">BREAK</field>
             </block>
         </category>
-        <category name="Math" colour="#5b67a5">
+        <category name="{{ TOOLBOX_MATH }}" colour="#5b67a5">
             <block type="math_number">
                 <field name="NUM">0</field>
             </block>
@@ -152,7 +152,7 @@ export default (Blockly) => {
             </block>
             <block type="math_random_float" />
         </category>
-        <category name="Text" colour="#5ba58c">
+        <category name="{{ TOOLBOX_TEXT }}" colour="#5ba58c">
             <block type="text">
                 <field name="TEXT" />
             </block>
@@ -243,7 +243,7 @@ export default (Blockly) => {
                 </value>
             </block>
         </category>
-        <category name="Lists" colour="#745ba5">
+        <category name="{{ TOOLBOX_LISTS }}" colour="#745ba5">
             <block type="lists_create_with">
                 <mutation items="0" />
             </block>
@@ -311,7 +311,7 @@ export default (Blockly) => {
                 <field name="DIRECTION">1</field>
             </block>
         </category>
-        <category name="Colour" colour="#a5745b">
+        <category name="{{ TOOLBOX_COLORS }}" colour="#a5745b">
             <block type="colour_picker">
                 <field name="COLOUR">#ff0000</field>
             </block>
@@ -352,8 +352,8 @@ export default (Blockly) => {
             </block>
         </category>
         <sep />
-        <category name="Variables" colour="#a55b80" custom="VARIABLE" />
-        <category name="Functions" colour="#995ba5" custom="PROCEDURE" />
+        <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
+        <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
         <sep />
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
         <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
