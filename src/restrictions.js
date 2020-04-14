@@ -69,7 +69,11 @@ function validateRestriction(block, blocks, restriction) {
             return (restriction.types.includes(block.getParent().type)) !== reverse;
         case "notempty":
             for (let type of restriction.types){
-                if (!block.getInput(type).connection.targetBlock()) return false;
+                try {
+                    if (!block.getInput(type).connection.targetBlock()) return false;
+                } catch(e){
+                    console.log(block.type);
+                }
             }
             return true;
         default:

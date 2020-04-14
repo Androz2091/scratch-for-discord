@@ -408,6 +408,7 @@ export default (Blockly) => {
             <block type="s4d_get_server"></block>
             <label text="%{BKY_LABEL_SERVER_INFOS}"></label>
             <block type="s4d_member_count"></block>
+            <block type="s4d_icon_url"></block>
         </category>
         <category name="{{ TOOLBOX_CHANNELS }}" colour="#40BF4A">
             <label text="%{BKY_FIND_CHANNEL}"></label>
