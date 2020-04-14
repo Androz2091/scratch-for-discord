@@ -118,7 +118,11 @@ const blocklyMessages = {
     MEMBER_COUNT: "number of members of server %1",
     RES_VALID_SERVER: "You must specify a valid server!",
     ICON_URL: "icon url of server %1",
-    SERVER_NAME: "name of server %1"
+    SERVER_NAME: "name of server %1",
+    RES_SET_SERVER_NAME_SERVER: "You must specify a valid server to change the name!",
+    RES_SET_SERVER_NAME_NEW_NAME: "You must specify a new valid name for the server!",
+    LABEL_MODIFY_SERVER: "Modify the server",
+    SET_SERVER_NAME: "change name of server %1 new name %2"
 };
 
 export const applyBlocklyLocale = () => {
