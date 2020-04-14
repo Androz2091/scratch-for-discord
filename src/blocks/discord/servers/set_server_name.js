@@ -42,7 +42,7 @@ registerRestrictions(blockName, [
         type: "notempty",
         message: "RES_SET_SERVER_NAME_SERVER",
         types: [
-            "MEMBER"
+            "SERVER"
         ]
     },
     {
