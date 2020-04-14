@@ -32,7 +32,7 @@ Blockly.JavaScript[blockName] = function(block){
 registerRestrictions(blockName, [
     {
         type: "notempty",
-        message: "RES_MEMBER_COUNT_SERVER",
+        message: "RES_VALID_SERVER",
         types: [
             "SERVER"
         ]
