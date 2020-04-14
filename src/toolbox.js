@@ -407,6 +407,7 @@ export default (Blockly) => {
             <label text="%{BKY_FIND_SERVER}"></label>
             <block type="s4d_get_server"></block>
             <label text="%{BKY_LABEL_SERVER_INFOS}"></label>
+            <block type="s4d_server_name"></block>
             <block type="s4d_member_count"></block>
             <block type="s4d_icon_url"></block>
         </category>

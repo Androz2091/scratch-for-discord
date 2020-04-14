@@ -117,7 +117,8 @@ const blocklyMessages = {
     LABEL_SERVER_INFOS: "Informations about the server",
     MEMBER_COUNT: "number of members of server %1",
     RES_VALID_SERVER: "You must specify a valid server!",
-    ICON_URL: "icon url of server %1"
+    ICON_URL: "icon url of server %1",
+    SERVER_NAME: "name of server %1"
 };
 
 export const applyBlocklyLocale = () => {
