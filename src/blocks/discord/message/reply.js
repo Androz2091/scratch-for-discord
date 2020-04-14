@@ -27,10 +27,15 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0];
-    if(contentType === "MessageEmbed"){
-        const code = `s4d.message.channel.send({ embed: ${content} });\n`;
-        return code;
+    if(block.getInput("CONTENT").connection.targetConnection){
+        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0];
+        if(contentType === "MessageEmbed"){
+            const code = `s4d.message.channel.send({ embed: ${content} });\n`;
+            return code;
+        } else {
+            const code = `s4d.message.channel.send(${content});\n`;
+            return code;
+        }
     } else {
         const code = `s4d.message.channel.send(${content});\n`;
         return code;
