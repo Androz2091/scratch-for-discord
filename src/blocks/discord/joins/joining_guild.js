@@ -5,7 +5,7 @@ const blockName = "s4d_joining_guild";
 
 const blockData = {
     "message0": "%{BKY_JOINING_GUILD}",
-    "colour": "#9966FF",
+    "colour": "#D85E47",
     "output": "Server",
     "tooltip": "",
     "helpUrl": ""

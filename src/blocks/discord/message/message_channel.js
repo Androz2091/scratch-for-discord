@@ -5,7 +5,7 @@ const blockName = "s4d_message_channel";
 
 const blockData = {
     "message0": "%{BKY_MESSAGE_CHANNEL}",
-    "colour": "#9966FF",
+    "colour": "#a55b80",
     "output": "Channel",
     "tooltip": "",
     "helpUrl": ""

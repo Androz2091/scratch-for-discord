@@ -145,7 +145,8 @@ const blocklyMessages = {
     RES_GET_MEMBER_SERVER: "Vous devez préciser un serveur valide sur lequel chercher le membre !",
     GET_MEMBER: "obtenir le membre dont le %2 est %1 sur le serveur %3",
     FIND_MEMBER: "Trouver un membre",
-    LABEL_MEMBER_ACTIONS: "Actions sur le membre"
+    LABEL_MEMBER_ACTIONS: "Actions sur le membre",
+    LABEL_MESSAGE_CONTEXT: "Contexte du message"
 };
 
 export const applyBlocklyLocale = () => {

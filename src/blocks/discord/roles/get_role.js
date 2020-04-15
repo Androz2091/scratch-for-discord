@@ -31,7 +31,7 @@ const blockData = {
             ]
         }
     ],
-    "colour": "#F56476",
+    "colour": "#2EB66B",
     "output": "Role",
     "mutator": "s4d_get_role_mutator",
     "tooltip": "",

@@ -26,7 +26,7 @@ const blockData = {
             ]
         }
     ],
-    "colour": "#F56476",
+    "colour": "#D85E47",
     "output": "Server",
     "tooltip": "",
     "helpUrl": ""

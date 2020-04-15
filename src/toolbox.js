@@ -367,7 +367,7 @@ export default (Blockly) => {
             <label text="%{BKY_BASE_BLOCKS}"></label>
             <block type="s4d_on_connected"></block>
         </category>
-        <category name="{{ TOOLBOX_MESSAGES }}" colour="#9966FF">
+        <category name="{{ TOOLBOX_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
@@ -375,6 +375,7 @@ export default (Blockly) => {
             <block type="s4d_message_content"></block>
             <block type="s4d_message_author"></block>
             <block type="s4d_mentioned_member"></block>
+            <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
             <block type="s4d_message_channel"></block>
             <block type="s4d_message_guild"></block>
             <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
@@ -399,7 +400,7 @@ export default (Blockly) => {
             <block type="s4d_joining_guild_raw"></block>
         </category>
         <sep />
-        <category name="{{ TOOLBOX_SERVER }}" colour="#547AA5">
+        <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>
             <block type="s4d_get_server"></block>
             <label text="%{BKY_LABEL_SERVER_INFOS}"></label>
@@ -409,20 +410,20 @@ export default (Blockly) => {
             <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
             <block type="s4d_set_server_name"></block>
         </category>
-        <category name="{{ TOOLBOX_CHANNELS }}" colour="#40BF4A">
+        <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
             <label text="%{BKY_FIND_CHANNEL}"></label>
             <block type="s4d_get_channel"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
             <block type="s4d_send_channel"></block>
         </category>
-        <category name="{{ TOOLBOX_ROLES }}" colour="#003F91">
+        <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
             <label text="%{BKY_FIND_ROLE}"></label>
             <block type="s4d_get_role"></block>
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
             <block type="s4d_add_role"></block>
             <block type="s4d_remove_role"></block>
         </category>
-        <category name="{{ TOOLBOX_MEMBERS }}" colour="#419D78">
+        <category name="{{ TOOLBOX_MEMBERS }}" colour="#745BA5">
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
