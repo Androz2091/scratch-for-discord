@@ -133,5 +133,16 @@
   "RES_GET_ROLE_VALUE": "You must specify a valid name or role ID!",
   "RES_GET_SERVER_VALUE": "You must specify a valid server name or ID!",
   "FIND_ROLE": "Find a role",
-  "ROLE_ASSIGNMENT": "Roles assignment"
+  "ROLE_ASSIGNMENT": "Roles assignment",
+  "FIND_MEMBER": "Find a member",
+  "GET_MEMBER": "get member with %2 equal to %1 on server %",
+  "INIT_TOOLTIP": "Allows you to use Discord blocks!",
+  "JOINING_GUILD_RAW": "%1 of the server of the joining member",
+  "LABEL_MEMBER_ACTIONS": "Actions on the member",
+  "LABEL_MESSAGE_CONTEXT": "Message context",
+  "MESSAGE_CHANNEL_RAW": "%1 of the channel of the message",
+  "MESSAGE_GUILD_RAW": "%1 of the server of the message",
+  "RES_GET_MEMBER_SERVER": "You must specify a valid server on which the member is!",
+  "RES_GET_MEMBER_VALUE": "You must specify a valid member ID or member name!",
+  "TOOLBOX_MEMBERS": "Member"
 }
