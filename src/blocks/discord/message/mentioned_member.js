@@ -5,7 +5,7 @@ const blockName = "s4d_mentioned_member";
 
 const blockData = {
     "message0": "%{BKY_MENTIONED_MEMBER}",
-    "colour": "#745BA5",
+    "colour": "#187795",
     "tooltip": "",
     "output": "Member",
     "helpUrl": ""
