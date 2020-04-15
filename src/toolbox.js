@@ -391,9 +391,10 @@ export default (Blockly) => {
             <block type="s4d_on_member_join"></block>
             <label text="%{BKY_JOINING_MEMBER_INFORMATIONS}"></label>
             <block type="s4d_joining_member"></block>
+            <block type="s4d_joining_guild"></block>
             <label text="%{BKY_RELATED_TO_JOIN_STRINGS}"></label>
             <block type="s4d_joining_member_raw"></block>
-            <block type="s4d_joining_guild"></block>
+            <block type="s4d_joining_guild_raw"></block>
         </category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#547AA5">
