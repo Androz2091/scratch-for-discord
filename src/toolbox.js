@@ -423,6 +423,10 @@ export default (Blockly) => {
             <block type="s4d_add_role"></block>
             <block type="s4d_remove_role"></block>
         </category>
+        <category name="{{ TOOLBOX_MEMBERS }}" colour="#003F91">
+            <label text="%{BKY_FIND_MEMBER}"></label>
+            <block type="s4d_get_member"></block>
+        </category>
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
     return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
