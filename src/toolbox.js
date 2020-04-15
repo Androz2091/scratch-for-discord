@@ -385,11 +385,6 @@ export default (Blockly) => {
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
-        <category name="{{ TOOLBOX_ACTIONS }}" colour="#4C97FF">
-            <label text="Members"></label>
-            <block type="s4d_kick_member"></block>
-            <block type="s4d_ban_member"></block>
-        </category>
         <category name="{{ TOOLBOX_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
@@ -400,6 +395,7 @@ export default (Blockly) => {
             <block type="s4d_joining_member_raw"></block>
             <block type="s4d_joining_guild"></block>
         </category>
+        <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#547AA5">
             <label text="%{BKY_FIND_SERVER}"></label>
             <block type="s4d_get_server"></block>
@@ -423,9 +419,12 @@ export default (Blockly) => {
             <block type="s4d_add_role"></block>
             <block type="s4d_remove_role"></block>
         </category>
-        <category name="{{ TOOLBOX_MEMBERS }}" colour="#003F91">
+        <category name="{{ TOOLBOX_MEMBERS }}" colour="#419D78">
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
+            <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
+            <block type="s4d_kick_member"></block>
+            <block type="s4d_ban_member"></block>
         </category>
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
