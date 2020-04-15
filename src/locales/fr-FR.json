@@ -144,5 +144,8 @@
   "GET_MEMBER": "obtenir le membre dont le %2 est %1 sur le serveur %3",
   "FIND_MEMBER": "Trouver un membre",
   "LABEL_MEMBER_ACTIONS": "Actions sur le membre",
-  "LABEL_MESSAGE_CONTEXT": "Contexte du message"
+  "LABEL_MESSAGE_CONTEXT": "Contexte du message",
+  "SET_MEMBER_NICKNAME": "changer le surnom du membre %1 nouveau surnom %2",
+  "RES_SET_MEMBER_NICKNAME_MEMBER": "Vous devez préciser un membre valide à qui changer le surnom !",
+  "RES_SET_MEMBER_NICKNAME_NEW_NAME": "Vous devez préciser un nouveau surnom valide pour le membre !"
 }

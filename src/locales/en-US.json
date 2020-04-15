@@ -144,5 +144,8 @@
   "MESSAGE_GUILD_RAW": "%1 of the server of the message",
   "RES_GET_MEMBER_SERVER": "You must specify a valid server on which the member is!",
   "RES_GET_MEMBER_VALUE": "You must specify a valid member ID or member name!",
-  "TOOLBOX_MEMBERS": "Member"
+  "TOOLBOX_MEMBERS": "Member",
+  "SET_MEMBER_NICKNAME": "change nickname of member %1 new nickname %2",
+  "RES_SET_MEMBER_NICKNAME_MEMBER": "You must specify a valid member to change nicknam",
+  "RES_SET_MEMBER_NICKNAME_NEW_NAME": "You must specify a valid new nickname for the member!"
 }
