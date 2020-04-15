@@ -1,15 +1,20 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_reply";
+const blockName = "s4d_send_channel";
 
 const blockData = {
-    "message0": "%{BKY_REPLY}",
+    "message0": "%{BKY_SEND_CHANNEL}",
     "args0": [
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "Number", "String", "MessageEmbed" ]
+            "check": [ "MessageEmbed", "String", "Number" ]
+        },
+        {
+            "type": "input_value",
+            "name": "CHANNEL",
+            "check": "Channel"
         },
     ],
     "colour": "#4C97FF",
@@ -26,18 +31,19 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
+    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
     if(block.getInput("CONTENT").connection.targetConnection){
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0];
         if(contentType === "MessageEmbed"){
-            const code = `s4d.message.channel.send({ embed: ${content} });\n`;
+            const code = `${channel}.send({ embed: ${content} });\n`;
             return code;
         } else {
-            const code = `s4d.message.channel.send(String(${content}));\n`;
+            const code = `${channel}.send(String(${content}));\n`;
             return code;
         }
     } else {
-        const code = `s4d.message.channel.send(String(${content}));\n`;
+        const code = `${channel}.send(String(${content}));\n`;
         return code;
     }
 };
@@ -45,16 +51,16 @@ Blockly.JavaScript[blockName] = function(block){
 registerRestrictions(blockName, [
     {
         type: "notempty",
-        message: "RES_MISSING_CONTENT",
+        message: "RES_SEND_CHANNEL_CONTENT",
         types: [
-          "CONTENT"
+            "CONTENT"
         ]
     },
     {
-        type: "toplevelparent",
-        message: "RES_MUST_BE_IN_ON_MESSAGE",
+        type: "notempty",
+        message: "RES_SEND_CHANNEL_CHANNEL",
         types: [
-            "s4d_on_message"
+            "CHANNEL"
         ]
     }
 ]);

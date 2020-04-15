@@ -1,22 +1,18 @@
 import * as Blockly from "blockly";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_joining_member_raw";
+const blockName = "s4d_joining_guild_raw";
 
 const blockData = {
-    "message0": "%{BKY_JOINING_MEMBER_RAW}",
+    "message0": "%{BKY_JOINING_GUILD_RAW}",
     "args0": [
         {
             "type": "field_dropdown",
             "name": "SEARCH_TYPE",
             "options": [
                 [
-                    "%{BKY_USERNAME}",
-                    "USERNAME"
-                ],
-                [
-                    "%{BKY_NICKNAME}",
-                    "NICKNAME"
+                    "%{BKY_NAME}",
+                    "NAME"
                 ],
                 [
                     "id",
@@ -40,13 +36,10 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "ID"){
-        const code = ["s4d.joiningMember.id", Blockly.JavaScript.ORDER_NONE];
+        const code = ["s4d.joiningMember.guild.id", Blockly.JavaScript.ORDER_NONE];
         return code;
-    } else if(searchType === "USERNAME"){
-        const code = ["s4d.joiningMember.user.username", Blockly.JavaScript.ORDER_NONE];
-        return code;
-    } else if(searchType === "NICKNAME"){
-        const code = ["s4d.joiningMember.nickname", Blockly.JavaScript.ORDER_NONE];
+    } else if(searchType === "NAME"){
+        const code = ["s4d.joiningMember.guild.name", Blockly.JavaScript.ORDER_NONE];
         return code;
     }
 };

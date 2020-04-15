@@ -5,7 +5,7 @@ const blockName = "s4d_joining_member";
 
 const blockData = {
     "message0": "%{BKY_JOINING_MEMBER}",
-    "colour": "#9966FF",
+    "colour": "#187795",
     "output": "Member",
     "tooltip": "",
     "helpUrl": ""

@@ -61,7 +61,7 @@ Vue.mixin({
                     minScale: 0.3,
                     scaleSpeed: 1.2
                 },
-                toolbox
+                toolbox: toolbox(Blockly)
             });
             // And restore the blocks
             Blockly.Xml.domToWorkspace(dom, newWorkspace);

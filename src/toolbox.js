@@ -1,6 +1,7 @@
-export default `
+export default (Blockly) => {
+    return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-        <category name="Logic" colour="#5b80a5">
+        <category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
             <block type="controls_if" />
             <block type="logic_compare">
                 <field name="OP">EQ</field>
@@ -15,7 +16,7 @@ export default `
             <block type="logic_null" />
             <block type="logic_ternary" />
         </category>
-        <category name="Loops" colour="#5ba55b">
+        <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
             <block type="controls_repeat_ext">
                 <value name="TIMES">
                     <shadow type="math_number">
@@ -51,7 +52,7 @@ export default `
                 <field name="FLOW">BREAK</field>
             </block>
         </category>
-        <category name="Math" colour="#5b67a5">
+        <category name="{{ TOOLBOX_MATH }}" colour="#5b67a5">
             <block type="math_number">
                 <field name="NUM">0</field>
             </block>
@@ -151,7 +152,7 @@ export default `
             </block>
             <block type="math_random_float" />
         </category>
-        <category name="Text" colour="#5ba58c">
+        <category name="{{ TOOLBOX_TEXT }}" colour="#5ba58c">
             <block type="text">
                 <field name="TEXT" />
             </block>
@@ -242,7 +243,7 @@ export default `
                 </value>
             </block>
         </category>
-        <category name="Lists" colour="#745ba5">
+        <category name="{{ TOOLBOX_LISTS }}" colour="#745ba5">
             <block type="lists_create_with">
                 <mutation items="0" />
             </block>
@@ -310,7 +311,7 @@ export default `
                 <field name="DIRECTION">1</field>
             </block>
         </category>
-        <category name="Colour" colour="#a5745b">
+        <category name="{{ TOOLBOX_COLORS }}" colour="#a5745b">
             <block type="colour_picker">
                 <field name="COLOUR">#ff0000</field>
             </block>
@@ -351,10 +352,10 @@ export default `
             </block>
         </category>
         <sep />
-        <category name="Variables" colour="#a55b80" custom="VARIABLE" />
-        <category name="Functions" colour="#995ba5" custom="PROCEDURE" />
+        <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
+        <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
         <sep />
-        <category name="Base" colour="#F46580">
+        <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
         <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
             <block type="s4d_login">
                 <value name="TOKEN">
@@ -366,43 +367,71 @@ export default `
             <label text="%{BKY_BASE_BLOCKS}"></label>
             <block type="s4d_on_connected"></block>
         </category>
-        <category name="Message" colour="#9966FF">
+        <category name="{{ TOOLBOX_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
-            <label text="%{BKY_MESSAGE_ACTIONS}"></label>
-            <block type="s4d_reply"></block>
-            <block type="s4d_delete"></block>
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
             <block type="s4d_message_content"></block>
             <block type="s4d_message_author"></block>
             <block type="s4d_mentioned_member"></block>
-            <label text="%{BKY_CHECK_PERMISSIONS}"></label>
-            <block type="s4d_member_has_permission"></block>
-            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
-            <block type="s4d_message_author_raw"></block>
+            <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
             <block type="s4d_message_channel"></block>
             <block type="s4d_message_guild"></block>
+            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
+            <block type="s4d_message_author_raw"></block>
+            <block type="s4d_message_channel_raw"></block>
+            <block type="s4d_message_guild_raw"></block>
+            <label text="%{BKY_MESSAGE_ACTIONS}"></label>
+            <block type="s4d_reply"></block>
+            <block type="s4d_delete"></block>
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
-        <category name="Actions" colour="#4C97FF">
-            <label text="Roles"></label>
-            <block type="s4d_add_role"></block>
-            <block type="s4d_remove_role"></block>
-            <label text="Members"></label>
-            <block type="s4d_kick_member"></block>
-            <block type="s4d_ban_member"></block>
-        </category>
-        <category name="Joins" colour="#EABB11">
+        <category name="{{ TOOLBOX_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
             <block type="s4d_on_member_join"></block>
             <label text="%{BKY_JOINING_MEMBER_INFORMATIONS}"></label>
             <block type="s4d_joining_member"></block>
+            <block type="s4d_joining_guild"></block>
             <label text="%{BKY_RELATED_TO_JOIN_STRINGS}"></label>
             <block type="s4d_joining_member_raw"></block>
-            <block type="s4d_joining_guild"></block>
+            <block type="s4d_joining_guild_raw"></block>
+        </category>
+        <sep />
+        <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
+            <label text="%{BKY_FIND_SERVER}"></label>
+            <block type="s4d_get_server"></block>
+            <label text="%{BKY_LABEL_SERVER_INFOS}"></label>
+            <block type="s4d_server_name"></block>
+            <block type="s4d_member_count"></block>
+            <block type="s4d_icon_url"></block>
+            <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
+            <block type="s4d_set_server_name"></block>
+        </category>
+        <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
+            <label text="%{BKY_FIND_CHANNEL}"></label>
+            <block type="s4d_get_channel"></block>
+            <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
+            <block type="s4d_send_channel"></block>
+        </category>
+        <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
+            <label text="%{BKY_FIND_ROLE}"></label>
+            <block type="s4d_get_role"></block>
+            <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
+            <block type="s4d_add_role"></block>
+            <block type="s4d_remove_role"></block>
+        </category>
+        <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
+            <label text="%{BKY_FIND_MEMBER}"></label>
+            <block type="s4d_get_member"></block>
+            <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
+            <block type="s4d_kick_member"></block>
+            <block type="s4d_ban_member"></block>
+            <block type="s4d_set_member_nickname"></block>
         </category>
     </xml>
-`;
+`.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
+    return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
+}))};

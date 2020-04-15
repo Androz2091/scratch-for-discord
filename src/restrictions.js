@@ -36,6 +36,7 @@ export const disableUnapplicable = (workspace) => {
                     if(Blockly.Msg[restriction.message]){
                         messages.push(Blockly.Msg[restriction.message]);
                     } else {
+                        window.alert("KEY NOT FOUND: "+restriction.message);
                         messages.push(decode(restriction.message));
                     }
                 }
@@ -69,7 +70,11 @@ function validateRestriction(block, blocks, restriction) {
             return (restriction.types.includes(block.getParent().type)) !== reverse;
         case "notempty":
             for (let type of restriction.types){
-                if (!block.getInput(type).connection.targetBlock()) return false;
+                try {
+                    if (!block.getInput(type).connection.targetBlock()) return false;
+                } catch(e){
+                    console.log(block.type);
+                }
             }
             return true;
         default:

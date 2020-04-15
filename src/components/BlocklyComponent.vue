@@ -10,6 +10,7 @@
 <script>
 import Blockly from "blockly";
 import { disableUnapplicable } from "../restrictions";
+import toolbox from "../toolbox";
 
 export default {
     name: "BlocklyComponent",
@@ -23,10 +24,13 @@ export default {
     mounted() {
         this.setLanguage(this.$store.state.blocklyLocale);
         const options = this.$props.options || {};
-        if (!options.toolbox) {
-            options.toolbox = this.$refs["blocklyToolbox"];
-        }
-        const workspace = Blockly.inject(this.$refs["blocklyDiv"], options);
+        options.toolbox = this.$refs["blocklyToolbox"];
+        const workspace = Blockly.inject(this.$refs["blocklyDiv"], {
+            ...options,
+            ...{
+                toolbox: toolbox(Blockly)
+            }
+        });
         this.$store.commit("setWorkspace", {
             workspace
         });
