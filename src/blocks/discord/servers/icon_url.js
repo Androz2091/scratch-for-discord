@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${server}.iconURL()`, Blockly.JavaScript.ORDER_NONE ];
+    return [ `${server}.iconURL({ dynamic: true })`, Blockly.JavaScript.ORDER_NONE ];
 };
 
 registerRestrictions(blockName, [
