@@ -1,10 +1,10 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_server_premiumSubscriptionCount";
+const blockName = "s4d_boost_count";
 
 const blockData = {
-    "message0": "%{BKY_SERVER_PREMIUM_SUBSCRIPTION_COUNT}",
+    "message0": "%{BKY_SERVER_BOOST_COUNT}",
     "args0": [
         {
             "type": "input_value",
