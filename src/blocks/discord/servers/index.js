@@ -1,3 +1,4 @@
+import "./boost_count.js";
 import "./get_server";
 import "./icon_url";
 import "./member_count";
