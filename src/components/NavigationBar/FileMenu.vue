@@ -1,7 +1,7 @@
 <template>
      <b-nav-item-dropdown :text="$t('file.title')" right>
         <b-dropdown-item @click="askForFile">{{ $t('file.open') }}</b-dropdown-item>
-        <input hidden @change="load" id="load-code" type="file">
+        <input hidden @change="load" id="load-code" type="file" accept=".s4d">
         <b-dropdown-item v-b-modal.code-modal>{{ $t('file.javascript') }}</b-dropdown-item>
         <b-dropdown-item @click="save">{{ $t('file.save') }}</b-dropdown-item>
     </b-nav-item-dropdown>
