@@ -27,7 +27,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${member}.user.discriminator;\n`;
+    const code = [`${member}.user.discriminator`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 
