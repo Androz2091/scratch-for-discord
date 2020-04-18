@@ -66,7 +66,7 @@ Blockly.JavaScript[blockName] = function(block){
     } else {
         code = `${channel}.send(String(${content}));\n`;
     }
-    code += `${channel}.awaitMessages((m) => m.author.id === ${member}.id, { time: (${time}*60*1000) }).then((m) => { s4d.reply = m.content; \n ${statementThen} }).catch(() => { ${statementCatch} });`;
+    code += `${channel}.awaitMessages((m) => m.author.id === ${member}.id, { time: (${time}*60*1000), max: 1 }).then((collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch((e) => { console.error(e); ${statementCatch} });`;
     return code;
 };
 
