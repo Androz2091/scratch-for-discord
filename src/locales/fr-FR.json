@@ -149,7 +149,7 @@
   "RES_SET_MEMBER_NICKNAME_MEMBER": "Vous devez préciser un membre valide à qui changer le surnom !",
   "RES_SET_MEMBER_NICKNAME_NEW_NAME": "Vous devez préciser un nouveau surnom valide pour le membre !",
   "SERVER_BOOST_COUNT": "nombre de boosts du serveur %1",
-  "SEVER_BOOST_LEVEL": "niveau de boost du serveur %1",
+  "SERVER_BOOST_LEVEL": "niveau de boost du serveur %1",
   "SEND_WAIT_REPLY": "envoyer %1 dans le salon %2 et attendre une réponse du membre %3 pendant (minutes) %4 quand une réponse est reçue %5 si aucune réponse n'est reçue %6",
   "RES_SEND_WAIT_REPLY_VALUE_PARENT": "Ce block ne peut être utilisé que dans un block \"Attendre une réponse\" !",
   "SEND_WAIT_REPLY_VALUE": "réponse du membre",
