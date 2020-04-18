@@ -414,6 +414,7 @@ export default (Blockly) => {
             <block type="s4d_member_count"></block>
             <block type="s4d_icon_url"></block>
             <block type="s4d_boost_count"></block>
+            <block type="s4d_server_owner"></block>
             <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
             <block type="s4d_set_server_name"></block>
         </category>

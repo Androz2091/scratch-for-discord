@@ -124,6 +124,7 @@
   "RES_VALID_SERVER": "You must specify a valid server!",
   "ICON_URL": "icon url of server %1",
   "SERVER_NAME": "name of server %1",
+  "SERVER_OWNER": "owner of server %1",
   "RES_SET_SERVER_NAME_SERVER": "You must specify a valid server to change the name!",
   "RES_SET_SERVER_NAME_NEW_NAME": "You must specify a new valid name for the server!",
   "LABEL_MODIFY_SERVER": "Modify the server",
