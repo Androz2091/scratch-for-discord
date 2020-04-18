@@ -17,6 +17,7 @@
     "bootstrap-vue": "^2.9.0",
     "core-js": "^3.6.4",
     "discord.js": "^12.2.0",
+    "js-beautify": "^1.11.0",
     "jszip": "^3.3.0",
     "sweetalert2": "^9.10.12",
     "vue": "^2.6.11",
