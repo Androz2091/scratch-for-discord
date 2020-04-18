@@ -30,14 +30,14 @@ Blockly.JavaScript[blockName] = function(block){
     if(block.getInput("CONTENT").connection.targetConnection){
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0];
         if(contentType === "MessageEmbed"){
-            const code = `s4d.message.channel.send({ embed: ${content} });\n`;
+            const code = `s4dmessage.channel.send({ embed: ${content} });\n`;
             return code;
         } else {
-            const code = `s4d.message.channel.send(String(${content}));\n`;
+            const code = `s4dmessage.channel.send(String(${content}));\n`;
             return code;
         }
     } else {
-        const code = `s4d.message.channel.send(String(${content}));\n`;
+        const code = `s4dmessage.channel.send(String(${content}));\n`;
         return code;
     }
 };

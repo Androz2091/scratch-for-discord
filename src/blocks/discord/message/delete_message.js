@@ -19,7 +19,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(){
-    const code = `s4d.message.delete();\n`;
+    const code = `s4dmessage.delete();\n`;
     return code;
 };
 

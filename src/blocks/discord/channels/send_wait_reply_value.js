@@ -1,13 +1,13 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_message_content";
+const blockName = "s4d_send_wait_reply_value";
 
 const blockData = {
-    "message0": "%{BKY_MESSAGE_CONTENT}",
+    "message0": "%{BKY_SEND_WAIT_REPLY_VALUE}",
     "colour": "#5BA58C",
-    "tooltip": "",
     "output": "String",
+    "tooltip": "",
     "helpUrl": ""
 };
 
@@ -17,17 +17,17 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
-    const code = ["s4dmessage.content", Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript[blockName] = function(){
+    const code = ["s4d.reply", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 
 registerRestrictions(blockName, [
     {
-        type: "toplevelparent",
-        message: "RES_MUST_BE_IN_ON_MESSAGE",
+        type: "hasparent",
+        message: "RES_SEND_WAIT_REPLY_VALUE_PARENT",
         types: [
-            "s4d_on_message"
+            "s4d_send_wait_reply"
         ]
     }
 ]);

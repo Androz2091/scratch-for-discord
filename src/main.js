@@ -108,12 +108,12 @@ Vue.mixin({
                 const delay = (seconds) => new Promise((resolve) => setTimeout(() => resolve, seconds*1000));
                 const s4d = {
                     Discord,
-                    message: null,
                     client: null,
                     tokenInvalid: false,
+                    reply: null,
+                    joiningMember: null,
                     checkMessageExists() {
                         if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
-                        if (!s4d.message) throw new Error('You cannot perform message operations outside an "on message" block')
                         if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
                     }
                 };

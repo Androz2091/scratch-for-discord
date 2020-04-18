@@ -6,12 +6,16 @@
 </template>
 
 <script>
+import beautify from "js-beautify";
 
 export default {
     name: "editmenu",
     computed: {
         content: function(){
-            return this.getWorkspaceCode();
+            return beautify.js(this.getWorkspaceCode(), {
+                indent_size: 4,
+                space_in_empty_paren: true
+            });
         }
     }
 }
