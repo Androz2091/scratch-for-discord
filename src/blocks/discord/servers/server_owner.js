@@ -1,7 +1,7 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_boost_owner";
+const blockName = "s4d_server_owner";
 
 const blockData = {
     "message0": "%{BKY_SERVER_OWNER}",
