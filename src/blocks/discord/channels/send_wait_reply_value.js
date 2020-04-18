@@ -24,7 +24,7 @@ Blockly.JavaScript[blockName] = function(){
 
 registerRestrictions(blockName, [
     {
-        type: "parent",
+        type: "hasparent",
         message: "RES_SEND_WAIT_REPLY_VALUE_PARENT",
         types: [
             "s4d_send_wait_reply"

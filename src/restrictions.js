@@ -68,6 +68,8 @@ function validateRestriction(block, blocks, restriction) {
             return (blocks.filter(b => restriction.types.includes(b.type) && !b.disabled).length > 0) !== reverse;
         case "parent":
             return (restriction.types.includes(block.getParent().type)) !== reverse;
+        case "hasparent":
+            return (hasParentOfType(block, restriction.types)) !== reverse;
         case "notempty":
             for (let type of restriction.types){
                 try {
@@ -93,6 +95,7 @@ function validateConfiguration(block, restriction) {
         case "parent":
         case "!parent":
             return block.getParent() && !block.getParent().disabled;
+        case "hasparent":
         case "custom":
         case "notempty":
             return true;
@@ -100,7 +103,18 @@ function validateConfiguration(block, restriction) {
             return false;
     }
 }
-  
+
+function hasParentOfType(block, types){
+    let hasParent = false;
+    while(block.getParent()){
+        if(types.includes(block.getParent().type)){
+            hasParent = true;
+        }
+        block = block.getParent();
+    }
+    return hasParent;
+}
+
 function getTopLevelParent(block) {
     if (!block) return null;
     if (!block.getParent()) return block;
