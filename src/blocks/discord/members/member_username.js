@@ -1,10 +1,10 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_member_tag";
+const blockName = "s4d_member_username";
 
 const blockData = {
-    "message0": "%{BKY_MEMBER_TAG}",
+    "message0": "%{BKY_MEMBER_USERNAME}",
     "args0": [
         {
             "type": "input_value",
@@ -27,7 +27,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${member}.user.tag;\n`;
+    const code = `${member}.user.username;\n`;
     return code;
 };
 
