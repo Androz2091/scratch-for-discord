@@ -417,7 +417,18 @@ export default (Blockly) => {
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
             <block type="s4d_send_channel"></block>
             <label text="%{BKY_FORMS}"></label>
-            <block type="s4d_send_wait_reply"></block>
+            <block type="s4d_send_wait_reply">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ SEND_WAIT_REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">5</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="s4d_send_wait_reply_value"></block>
         </category>
         <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
