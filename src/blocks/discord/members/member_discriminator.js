@@ -1,7 +1,7 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_member_discriminator
+const blockName = "s4d_member_discriminator"
 
 const blockData = {
     "message0": "%{BKY_MEMBER_DISCRIMINATOR}"
