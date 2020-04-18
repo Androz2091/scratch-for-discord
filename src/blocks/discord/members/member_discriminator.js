@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_member_discriminator";
 
 const blockData = {
-    "message0": "%{BKY_MEMBER_DISCRIMINATOR}"
+    "message0": "%{BKY_MEMBER_DISCRIMINATOR}",
     "args0": [
         {
             "type": "input_value",
