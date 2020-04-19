@@ -141,6 +141,7 @@
   "ROLE_ASSIGNMENT": "Affectation des rôles",
   "RES_GET_MEMBER_VALUE": "Vous devez préciser un nom ou un identifiant de membre valide !",
   "RES_GET_MEMBER_SERVER": "Vous devez préciser un serveur valide sur lequel chercher le membre !",
+  "MEMBER_INFORMATIONS": "Informations des membres",
   "RES_VALID_MEMBER": "Vous devez préciser un membre valide !",
   "MEMBER_DISCIRMINATOR": "disciminateur du membre %1",  
   "MEMBER_ID": "id du membre %1",
