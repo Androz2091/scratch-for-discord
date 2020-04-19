@@ -463,6 +463,11 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
+            <label text="%{BKY_MEMBER_INFORMATIONS}"></label>
+            <block type="s4d_member_id"></block>
+            <block type="s4d_member_discriminator"></block>
+            <block type="s4d_member_tag"></block>
+            <block type="s4d_member_username"></block>
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
