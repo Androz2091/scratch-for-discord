@@ -1,4 +1,4 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_member_discriminator";
@@ -12,9 +12,8 @@ const blockData = {
             "check": "Member"
         }
     ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#4C97FF",
+    "colour": "#2bf",
+    "output": "String",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -25,16 +24,15 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`${member}.user.discriminator`, Blockly.JavaScript.ORDER_NONE];
-    return code;
+Blockly.JavaScript[blockName] = function(block){
+    const server = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    return [ `${member}.user.discriminator`, Blockly.JavaScript.ORDER_NONE ];
 };
 
 registerRestrictions(blockName, [
     {
         type: "notempty",
-        message: "RES_MEMBER_DISCRIMINATOR_MISSING_MEMBER",
+        message: "RES_VALID_MEMBER",
         types: [
             "MEMBER"
         ]
