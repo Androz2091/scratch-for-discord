@@ -26,4 +26,4 @@ To run Scratch For Discord, follow these steps:
 
 * Discord.js ([discordjs/discord.js](https://github.com/discordjs/discord.js))
 * Blockly ([google/blockly](https://github.com/google/blockly))
-* And, of course, Discordblocks ([7coil/discordblocks](https://github.com/7coil/discordblocks))
+* And, of course, Discordblocks ([7coil/discordblocks](https://github.com/7coil/discord-blocks))
