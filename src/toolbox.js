@@ -366,6 +366,11 @@ export default (Blockly) => {
             </block>
             <label text="%{BKY_BASE_BLOCKS}"></label>
             <block type="s4d_on_connected"></block>
+            <label text="%{BKY_BOT_INFORMATIONS}"></label>
+            <block type="s4d_bot_ping"></block>
+            <block type="s4d_bot_server_count"></block>
+            <label text="%{BKY_BOT_ACTIONS}"></label>
+            <block type="s4d_set_bot_game"></block>
         </category>
         <category name="{{ TOOLBOX_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
