@@ -147,7 +147,7 @@
   "TOOLBOX_MEMBERS": "Member",
   "MEMBER_INFORMATIONS": "Members informations",
   "RES_VALID_MEMBER": "You must specify a valid member !",
-  "MEMBER_DISCIRMINATOR": "discriminator of member %1",  
+  "MEMBER_DISCRIMINATOR": "discriminator of member %1",  
   "MEMBER_ID": "id of member %1",
   "MEMBER_TAG": "tag of member %1",
   "MEMBER_USERNAME": "username of member %1",
