@@ -143,7 +143,7 @@
   "RES_GET_MEMBER_SERVER": "Vous devez préciser un serveur valide sur lequel chercher le membre !",
   "MEMBER_INFORMATIONS": "Informations des membres",
   "RES_VALID_MEMBER": "Vous devez préciser un membre valide !",
-  "MEMBER_DISCIRMINATOR": "disciminateur du membre %1",  
+  "MEMBER_DISCRIMINATOR": "disciminateur du membre %1",  
   "MEMBER_ID": "id du membre %1",
   "MEMBER_TAG": "tag du membre %1",
   "MEMBER_USERNAME": "pseudo du membre %1",
