@@ -12,7 +12,7 @@ const blockData = {
             "check": "Member"
         }
     ],
-    "colour": "#2bfafa",
+    "colour": "#2bf",
     "output": "String",
     "tooltip": "",
     "helpUrl": ""
