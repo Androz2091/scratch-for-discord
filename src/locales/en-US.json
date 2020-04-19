@@ -19,7 +19,7 @@
   "BAN_MEMBER": "ban member %1",
   "KICK_MEMBER": "kick member %1",
   "MESSAGE_GUILD": "%1 of the message server",
-  "MESSAGE_CHANNEL": "%1 of the message channel",
+  "MESSAGE_CHANNEL": "message channel",
   "BASIC_BLOCKS": "Basic blocks",
   "ADVANCED_BLOCKS": "Advanced blocks",
   "MENTIONED_MEMBER": "mentioned member",
