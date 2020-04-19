@@ -448,7 +448,6 @@ export default (Blockly) => {
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
             <label text="%{BKY_MEMBER_INFORMATIONS}"></label>
-            <block type="s4d_member_id"></block>
             <block type="s4d_member_username"></block>
             <block type="s4d_member_discriminator"></block>
             <block type="s4d_member_tag"></block>
