@@ -405,6 +405,16 @@ export default (Blockly) => {
             <block type="s4d_joining_member_raw"></block>
             <block type="s4d_joining_guild_raw"></block>
         </category>
+        <category name="{{ TOOLBOX_REACTIONS }}" colour="#89674A">
+            <label text="%{BKY_REACT_RELATED_BLOCKS}" web-class="boldtext"></label>
+            <label text="%{BKY_DETECT_REACT}"></label>
+            <block type="s4d_on_react_added"></block>
+            <block type="s4d_on_react_removed"></block>
+            <label text="%{BKY_REACT_INFORMATIONS}"></label>
+            <block type="s4d_react_message_id"></block>
+            <block type="s4d_react_emoji"></block>
+            <block type="s4d_react_member"></block>
+        </category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>

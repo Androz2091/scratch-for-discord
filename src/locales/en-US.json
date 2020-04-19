@@ -156,5 +156,15 @@
   "SEND_WAIT_REPLY_VALUE": "answer of member",
   "FORMS": "Forms",
   "SEND_WAIT_REPLY_EXAMPLE": "What is your name?",
-  "REPLY_EXAMPLE": "Hey!"
+  "REPLY_EXAMPLE": "Hey!",
+  "ON_REACT_ADDED": "When a reaction is added",
+  "REACT_RELATED_BLOCKS": "Blocks related to reactions",
+  "DETECT_REACT": "I'm writigni'm writign",
+  "TOOLBOX_REACTIONS": "Reactions",
+  "REACT_INFORMATIONS": "Informations about the added/removed reaction",
+  "MESSAGE_ID": "message ID",
+  "RES_MUST_BE_IN_ON_REACT": "This block can only be used in a \"reaction added\" block or a \"reaction removed\" block!",
+  "REACT_EMOJI": "emoji of the reaction",
+  "REACT_MEMBER": "reacting member",
+  "ON_REACT_REMOVED": "When a reaction is removed"
 }
