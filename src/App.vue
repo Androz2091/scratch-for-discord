@@ -22,6 +22,7 @@ import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";
 import "./blocks/discord/roles/";
 import "./blocks/discord/members/";
+import "./blocks/discord/reactions/";
 import "./blocks/text/";
 import "./prompt";
 

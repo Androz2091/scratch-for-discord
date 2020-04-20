@@ -118,6 +118,19 @@ Vue.mixin({
                     }
                 };
                 s4d.client = new s4d.Discord.Client();
+                s4d.client.on('raw', async (packet) => {
+                    if(['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)){
+                        const guild = s4d.client.guilds.cache.get(packet.d.guild_id);
+                        if(!guild) return;
+                        const member = guild.members.cache.get(packet.d.user_id) || guild.members.fetch(d.user_id).catch(() => {});
+                        if(!member) return;
+                        const channel = s4d.client.channels.cache.get(packet.d.channel_id);
+                        if(!channel) return;
+                        const message = channel.messages.cache.get(packet.d.message_id) || await channel.messages.fetch(packet.d.message_id).catch(() => {});
+                        if(!message) return;
+                        s4d.client.emit(packet.t, guild, channel, message, member, packet.d.emoji.name);
+                    }
+                });
                 ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
                 s4d;
             `;
