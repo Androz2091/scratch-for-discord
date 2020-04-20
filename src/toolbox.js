@@ -388,6 +388,7 @@ export default (Blockly) => {
             <block type="s4d_message_channel_raw"></block>
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
+            <block type="s4d_add_reaction"></block>
             <block type="s4d_reply">
                 <value name="CONTENT">
                     <shadow type="text">
