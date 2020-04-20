@@ -9,7 +9,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "Reaction",
-            "check": "Reaction"
+            "check": "String"
         }
     ],
     "previousStatement": null,
