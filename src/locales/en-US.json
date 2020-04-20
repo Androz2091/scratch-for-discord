@@ -29,6 +29,8 @@
   "MESSAGE_INFORMATIONS": "Informations about the message",
   "RELATED_TO_MESSAGE_STRINGS": "Strings related to the message",
   "DELETE_MESSAGE": "delete the message",
+  "RES_ADD_REACTION_MISSING_REACTION": "You must specify a valid emoji !",
+  "ADD_REACTION": "add the reaction %1",
   "MESSAGE_EMBED": "Message Embed",
   "COLOR": "color",
   "TITLE": "title",
