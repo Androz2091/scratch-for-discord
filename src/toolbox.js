@@ -366,6 +366,11 @@ export default (Blockly) => {
             </block>
             <label text="%{BKY_BASE_BLOCKS}"></label>
             <block type="s4d_on_connected"></block>
+            <label text="%{BKY_BOT_INFORMATIONS}"></label>
+            <block type="s4d_bot_ping"></block>
+            <block type="s4d_bot_server_count"></block>
+            <label text="%{BKY_BOT_ACTIONS}"></label>
+            <block type="s4d_set_bot_game"></block>
         </category>
         <category name="{{ TOOLBOX_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -406,6 +411,16 @@ export default (Blockly) => {
             <block type="s4d_joining_member_raw"></block>
             <block type="s4d_joining_guild_raw"></block>
         </category>
+        <category name="{{ TOOLBOX_REACTIONS }}" colour="#89674A">
+            <label text="%{BKY_REACT_RELATED_BLOCKS}" web-class="boldtext"></label>
+            <label text="%{BKY_DETECT_REACT}"></label>
+            <block type="s4d_on_react_added"></block>
+            <block type="s4d_on_react_removed"></block>
+            <label text="%{BKY_REACT_INFORMATIONS}"></label>
+            <block type="s4d_react_message_id"></block>
+            <block type="s4d_react_emoji"></block>
+            <block type="s4d_react_member"></block>
+        </category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>
@@ -415,6 +430,7 @@ export default (Blockly) => {
             <block type="s4d_member_count"></block>
             <block type="s4d_icon_url"></block>
             <block type="s4d_boost_count"></block>
+            <block type="s4d_server_owner"></block>
             <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
             <block type="s4d_set_server_name"></block>
         </category>
@@ -448,6 +464,11 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
+            <label text="%{BKY_MEMBER_INFORMATIONS}"></label>
+            <block type="s4d_member_id"></block>
+            <block type="s4d_member_discriminator"></block>
+            <block type="s4d_member_tag"></block>
+            <block type="s4d_member_username"></block>
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
