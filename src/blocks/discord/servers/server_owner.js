@@ -13,7 +13,7 @@ const blockData = {
         }
     ],
     "colour": "#e07e6c",
-    "output": "Number",
+    "output": "Member",
     "tooltip": "",
     "helpUrl": ""
 };
