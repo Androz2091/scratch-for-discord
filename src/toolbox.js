@@ -388,7 +388,6 @@ export default (Blockly) => {
             <block type="s4d_message_channel_raw"></block>
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
-            <block type="s4d_add_reaction"></block>
             <block type="s4d_reply">
                 <value name="CONTENT">
                     <shadow type="text">
@@ -397,6 +396,13 @@ export default (Blockly) => {
                 </value>
             </block>
             <block type="s4d_delete"></block>
+            <block type="s4d_add_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>

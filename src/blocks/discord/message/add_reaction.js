@@ -8,7 +8,7 @@ const blockData = {
     "args0": [
         {
             "type": "input_value",
-            "name": "Reaction",
+            "name": "REACTION",
             "check": "String"
         }
     ],

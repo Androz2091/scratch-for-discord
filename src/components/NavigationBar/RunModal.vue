@@ -24,9 +24,6 @@
 </template>
 
 <script>
-
-import DiscordJs from "discord.js";
-
 export default {
     name: "editmenu",
     data: function () {
@@ -46,7 +43,7 @@ export default {
         start(){
             /* eslint-disable no-unused-vars */
             /* eslint-disable no-undef */
-            const DiscordJS = DiscordJs;
+            const DiscordJS = Discord;
             this.botStarting = true;
             const result = new Promise(resolve => resolve(eval(this.getWorkspaceCode())));
             result.then((s4d) => {
