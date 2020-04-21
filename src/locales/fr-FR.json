@@ -150,6 +150,7 @@
   "MEMBER_ID": "id du membre %1",
   "MEMBER_TAG": "tag du membre %1",
   "MEMBER_USERNAME": "pseudo du membre %1",
+  "MEMBER_IS_BOT":"le membre %1 est un robot",
   "GET_MEMBER": "obtenir le membre dont le %2 est %1 sur le serveur %3",
   "FIND_MEMBER": "Trouver un membre",
   "LABEL_MEMBER_ACTIONS": "Actions sur le membre",

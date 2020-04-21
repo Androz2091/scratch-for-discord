@@ -154,6 +154,7 @@
   "MEMBER_ID": "id of member %1",
   "MEMBER_TAG": "tag of member %1",
   "MEMBER_USERNAME": "username of member %1",
+  "MEMBER_IS_BOT":"member %1 is a bot",
   "SET_MEMBER_NICKNAME": "change nickname of member %1 new nickname %2",
   "RES_SET_MEMBER_NICKNAME_MEMBER": "You must specify a valid member to change nicknam",
   "RES_SET_MEMBER_NICKNAME_NEW_NAME": "You must specify a valid new nickname for the member!",
