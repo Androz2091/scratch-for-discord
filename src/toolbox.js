@@ -372,7 +372,7 @@ export default (Blockly) => {
             <label text="%{BKY_BOT_ACTIONS}"></label>
             <block type="s4d_set_bot_game"></block>
         </category>
-        <category name="{{ TOOLBOX_MESSAGES }}" colour="#41AAC0">
+        <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
@@ -406,7 +406,7 @@ export default (Blockly) => {
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
-        <category name="{{ TOOLBOX_JOINS }}" colour="#EABB11">
+        <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
             <block type="s4d_on_member_join"></block>
@@ -417,7 +417,7 @@ export default (Blockly) => {
             <block type="s4d_joining_member_raw"></block>
             <block type="s4d_joining_guild_raw"></block>
         </category>
-        <category name="{{ TOOLBOX_REACTIONS }}" colour="#89674A">
+        <category name="{{ TOOLBOX_E_REACTIONS }}" colour="#89674A">
             <label text="%{BKY_REACT_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_REACT}"></label>
             <block type="s4d_on_react_added"></block>
