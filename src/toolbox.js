@@ -178,12 +178,12 @@ export default (Blockly) => {
             <block type="s4d_starts_with">
                 <value name="STRING">
                     <shadow type="text">
-                        <field name="TEXT" />
+                        <field name="TEXT">abc</field>
                     </shadow>
                 </value>
                 <value name="SUBSTRING">
                     <shadow type="text">
-                        <field name="TEXT" />
+                        <field name="TEXT">a</field>
                     </shadow>
                 </value>
             </block>
