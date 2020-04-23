@@ -181,5 +181,12 @@
   "BOT_SERVER_COUNT": "nombre de serveurs du bot",
   "TOOLBOX_E_JOINS": "Arrivées",
   "TOOLBOX_E_MESSAGES": "Messages",
-  "TOOLBOX_E_REACTIONS": "Réactions"
+  "TOOLBOX_E_REACTIONS": "Réactions",
+  "TOOLBOX_DATABASE": "Base de données",
+  "GET_DATA": "obtenir %1 dans la base de données",
+  "LABEL_READ_DB": "Lire la base de données",
+  "LABEL_UPDATE_DB": "Modifier la base de données",
+  "SET_DATA": "définir %1 à %2 dans la base de données",
+  "DELETE_DATA": "supprimer %1 de la base de données",
+  "HAS_DATA": "%1 existe dans la base de données"
 }

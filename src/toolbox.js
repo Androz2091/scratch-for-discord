@@ -482,6 +482,44 @@ export default (Blockly) => {
             <block type="s4d_ban_member"></block>
             <block type="s4d_set_member_nickname"></block>
         </category>
+        <sep />
+        <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
+            <label text="%{BKY_LABEL_READ_DB}"></label>
+            <block type="s4d_get_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_has_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
+            <block type="s4d_set_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_delete_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
     return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];

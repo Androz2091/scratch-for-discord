@@ -88,9 +88,11 @@ export default {
                         if [ "$(npm list -g | grep yarn)" ]
                         then
                             yarn list | grep discord.js || yarn add discord.js --no-lockfile
+                            yarn list | grep easy-json-database || yarn add easy-json-database --no-lockfile
                             node bot.js
                         else
                             npm list | grep discord.js || npm install discord.js --no-shrinkwrap
+                            npm list | grep easy-json-database || npm install easy-json-database --no-shrinkwrap
                             node bot.js
                         fi
                     `);

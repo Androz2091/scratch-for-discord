@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import Database from "easy-json-database-browser";
+
 export default {
     name: "editmenu",
     data: function () {
@@ -44,6 +46,7 @@ export default {
             /* eslint-disable no-unused-vars */
             /* eslint-disable no-undef */
             const DiscordJS = Discord;
+            const EasyDatabase = Database;
             this.botStarting = true;
             const result = new Promise(resolve => resolve(eval(this.getWorkspaceCode())));
             result.then((s4d) => {
