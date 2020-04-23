@@ -36,7 +36,8 @@ export const websiteMessages = {
             no: "Non"
         },
         loaded: "Exemple {example} importé avec succès !",
-        ping_pong: "Commande ping-pong"
+        ping_pong: "Commande ping-pong",
+        command_parsing: "Traitement des commandes"
     },
     download: {
         title: "Télécharger votre bot",
