@@ -30,5 +30,5 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const key = Blockly.JavaScript.valueToCode(block, "KEY", Blockly.JavaScript.ORDER_ATOMIC);
     const value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_ATOMIC);
-    return 's4d.database.set(String('+key+'), '+value+');';
+    return `s4d.database.set(String(${key}), ${value});\n`;
 };

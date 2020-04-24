@@ -31,5 +31,5 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const key = Blockly.JavaScript.valueToCode(block, "KEY", Blockly.JavaScript.ORDER_ATOMIC);
     const count = Blockly.JavaScript.valueToCode(block, "COUNT", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ 's4d.database.subtract(String('+key+'), parseInt('+count+'))', Blockly.JavaScript.ORDER_ATOMIC ];
+    return `s4d.database.subtract(String(${key}), parseInt(${count}));\n`;
 };

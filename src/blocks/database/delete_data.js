@@ -25,5 +25,5 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const key = Blockly.JavaScript.valueToCode(block, "KEY", Blockly.JavaScript.ORDER_ATOMIC);
-    return 's4d.database.delete(String('+key+');\n';
+    return `s4d.database.delete(String(${key});\n`;
 };
