@@ -519,6 +519,30 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_add_data">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_subtract_data">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+            </block>
         </category>
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {

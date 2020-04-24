@@ -18,7 +18,7 @@
   "REMOVE_ROLE": "remove role %1 from member %2",
   "BAN_MEMBER": "ban member %1",
   "KICK_MEMBER": "kick member %1",
-  "MESSAGE_GUILD": "%1 of the message server",
+  "MESSAGE_GUILD": "message server",
   "MESSAGE_CHANNEL": "message channel",
   "BASIC_BLOCKS": "Basic blocks",
   "ADVANCED_BLOCKS": "Advanced blocks",
@@ -189,5 +189,7 @@
   "LABEL_UPDATE_DB": "Update database",
   "SET_DATA": "set %1 to %2 in database",
   "DELETE_DATA": "delete %1 from database",
-  "HAS_DATA": "%1 exists in database"
+  "HAS_DATA": "%1 exists in database",
+  "ADD_DATA": "add %1 to %2",
+  "SUBTRACT_DATA": "subtract %1 from %2"
 }

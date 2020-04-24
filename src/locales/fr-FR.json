@@ -188,5 +188,7 @@
   "LABEL_UPDATE_DB": "Modifier la base de données",
   "SET_DATA": "définir %1 à %2 dans la base de données",
   "DELETE_DATA": "supprimer %1 de la base de données",
-  "HAS_DATA": "%1 existe dans la base de données"
+  "HAS_DATA": "%1 existe dans la base de données",
+  "ADD_DATA": "ajouter %1 à %2",
+  "SUBTRACT_DATA": "soustraire %1 à %2"
 }

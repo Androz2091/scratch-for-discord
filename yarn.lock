@@ -3065,10 +3065,10 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-easy-json-database-browser@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/easy-json-database-browser/-/easy-json-database-browser-1.0.0.tgz#95777b611327165075b41b36f9921557fd862652"
-  integrity sha512-k6t0zUUIsx+3MEWvgnOfjUMdCL3sl37HpFLZTLH2HeINvU3nN3PIjIjUSuvYsIgRQbcaDnVwk4UIG1c7x7CzPg==
+easy-json-database-browser@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/easy-json-database-browser/-/easy-json-database-browser-1.1.0.tgz#4e6a168d04ce4936287e0bfa845a6d958f71e6a3"
+  integrity sha512-tPmHwtjok0cWbduTghBDM2NQk5uYR1vKHQG+zoqcFS/CEjgw9N14/qgLwNr+2bMqCx9cXuamfFHiRzSlFgATsg==
 
 easy-stack@^1.0.0:
   version "1.0.0"
