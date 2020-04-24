@@ -417,7 +417,7 @@ export default (Blockly) => {
             <block type="s4d_joining_member_raw"></block>
             <block type="s4d_joining_guild_raw"></block>
         </category>
-        <category name="{{ TOOLBOX_E_LEAVES }}" colour="#00000">
+        <category name="{{ TOOLBOX_E_LEAVES }}" colour="#778899">
             <label text="%{BKY_LEAVES_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_LEAVES}"></label>
             <block type="s4d_on_member_leave"></block>
