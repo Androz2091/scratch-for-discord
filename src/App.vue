@@ -17,6 +17,7 @@ Blockly.Tooltip.HOVER_MS = 100;
 // Load blocks
 import "./blocks/discord/base/";
 import "./blocks/discord/joins/";
+import "./blocks/discord/leaves/";
 import "./blocks/discord/message/";
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";

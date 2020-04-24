@@ -190,5 +190,15 @@
   "DELETE_DATA": "supprimer %1 de la base de données",
   "HAS_DATA": "%1 existe dans la base de données",
   "ADD_DATA": "ajouter %1 à %2",
-  "SUBTRACT_DATA": "soustraire %1 à %2"
+  "SUBTRACT_DATA": "soustraire %1 à %2",
+  "DETECT_LEAVES": "Détecter les départs",
+  "LEAVING_GUILD": "serveur du membre partant",
+  "LEAVING_GUILD_RAW": "%1 du serveur du membre partant",
+  "LEAVING_MEMBER_INFORMATIONS": "Informations sur le membre",
+  "LEAVES_RELATED_BLOCKS": "Blocks relatifs aux départs de membre",
+  "ON_MEMBER_LEAVE": "Quand un membre part d'un serveur",
+  "RELATED_TO_LEAVE_STRINGS": "Chaînes relatives au départ",
+  "TOOLBOX_E_LEAVES": "Départs",
+  "RES_MUST_BE_IN_ON_MEMBER_LEAVE": "Ce block ne peut être utilisé que dans un évènement \"Quand un membre part d'un serveur\"",
+  "LEAVING_MEMBER_RAW": "%1 du membre partant"
 }
