@@ -26,6 +26,7 @@ import "./blocks/discord/members/";
 import "./blocks/discord/reactions/";
 import "./blocks/database/";
 import "./blocks/text/";
+import "./blocks/loops/";
 import "./prompt";
 
 export default {

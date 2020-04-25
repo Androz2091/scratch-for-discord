@@ -200,5 +200,6 @@
   "RELATED_TO_LEAVE_STRINGS": "Chaînes relatives au départ",
   "TOOLBOX_E_LEAVES": "Départs",
   "RES_MUST_BE_IN_ON_MEMBER_LEAVE": "Ce block ne peut être utilisé que dans un évènement \"Quand un membre part d'un serveur\"",
-  "LEAVING_MEMBER_RAW": "%1 du membre partant"
+  "LEAVING_MEMBER_RAW": "%1 du membre partant",
+  "WAIT_SECONDS": "attendre %1 secondes"
 }
