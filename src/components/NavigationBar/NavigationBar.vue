@@ -14,6 +14,7 @@
                 <EditMenu></EditMenu>
                 <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
+                <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <RunModal></RunModal>

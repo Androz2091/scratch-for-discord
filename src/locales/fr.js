@@ -10,6 +10,7 @@ export const applyBlocklyLocale = () => {
 
 export const websiteMessages = {
     untitled: "Document sans titre",
+    help: "Aide",
     file: {
         title: "Fichier",
         javascript: "Exporter vers Javascript",
