@@ -100,11 +100,10 @@ Vue.mixin({
             return `
                 let Discord;
                 let Database;
-                try {
+                if(typeof window !== "undefined"){
                     Discord = DiscordJS;
                     Database = EasyDatabase;
-                } catch(e){
-                    console.log(e);
+                } else {
                     Discord = require("discord.js");
                     Database = require("easy-json-database");
                 }
