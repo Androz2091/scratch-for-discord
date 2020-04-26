@@ -17,13 +17,16 @@ Blockly.Tooltip.HOVER_MS = 100;
 // Load blocks
 import "./blocks/discord/base/";
 import "./blocks/discord/joins/";
+import "./blocks/discord/leaves/";
 import "./blocks/discord/message/";
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";
 import "./blocks/discord/roles/";
 import "./blocks/discord/members/";
 import "./blocks/discord/reactions/";
+import "./blocks/database/";
 import "./blocks/text/";
+import "./blocks/loops/";
 import "./prompt";
 
 export default {

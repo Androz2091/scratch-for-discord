@@ -803,10 +803,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@blockly/field-date@^3.20200313.0":
-  version "3.20200313.0"
-  resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-3.20200313.0.tgz#d67f1a2d19b4bc119d59802c8c2bf012c69bba80"
-  integrity sha512-UPFFHMxRCMJcY5iThZVHivh+MrbZtVQl0a9/cVTV98jykHOvk9q66zK/8jCQLFBt1OsxiJlJVRKEc8YWGj5C3A==
+"@blockly/field-date@^3.20200313.2":
+  version "3.20200313.2"
+  resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-3.20200313.2.tgz#8bbca3c6b1bf2152f0a984bc39e7e1b32c166878"
+  integrity sha512-fhi9tFNvxGdsD9eT9cTVHW69v/NCqg1qD4O3eKK+r7qeng2m8F70iB1+YsjWknmy/KlSIEtsSMkJhdr1CCzXAg==
 
 "@hapi/address@2.x.x":
   version "2.1.4"
@@ -3064,6 +3064,11 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
+
+easy-json-database-browser@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/easy-json-database-browser/-/easy-json-database-browser-1.1.0.tgz#4e6a168d04ce4936287e0bfa845a6d958f71e6a3"
+  integrity sha512-tPmHwtjok0cWbduTghBDM2NQk5uYR1vKHQG+zoqcFS/CEjgw9N14/qgLwNr+2bMqCx9cXuamfFHiRzSlFgATsg==
 
 easy-stack@^1.0.0:
   version "1.0.0"

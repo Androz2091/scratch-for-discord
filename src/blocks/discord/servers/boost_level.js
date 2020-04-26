@@ -1,10 +1,10 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_boost_count";
+const blockName = "s4d_boost_level";
 
 const blockData = {
-    "message0": "%{BKY_SERVER_BOOST_COUNT}",
+    "message0": "%{BKY_SERVER_BOOST_LEVEL}",
     "args0": [
         {
             "type": "input_value",
@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${server}.premiumSubscriptionCount`, Blockly.JavaScript.ORDER_NONE ];
+    return [ `${server}.premiumTier`, Blockly.JavaScript.ORDER_NONE ];
 };
 
 registerRestrictions(blockName, [

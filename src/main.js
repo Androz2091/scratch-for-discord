@@ -99,11 +99,14 @@ Vue.mixin({
             if(!this.$store.state.workspace) return "";
             return `
                 let Discord;
+                let Database;
                 try {
                     Discord = DiscordJS;
+                    Database = EasyDatabase;
                 } catch(e){
                     console.log(e);
                     Discord = require("discord.js");
+                    Database = require("easy-json-database");
                 }
                 const delay = (seconds) => new Promise((resolve) => setTimeout(() => resolve, seconds*1000));
                 const s4d = {
@@ -112,6 +115,7 @@ Vue.mixin({
                     tokenInvalid: false,
                     reply: null,
                     joiningMember: null,
+                    database: new Database("./db.json"),
                     checkMessageExists() {
                         if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                         if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')

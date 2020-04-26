@@ -1,6 +1,5 @@
 import "./add_reaction";
 import "./delete_message";
-import "./member_has_permission";
 import "./mentioned_member";
 import "./message_author";
 import "./message_author_raw";

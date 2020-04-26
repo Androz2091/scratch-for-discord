@@ -17,6 +17,13 @@ export default (Blockly) => {
             <block type="logic_ternary" />
         </category>
         <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
+            <block type="s4d_wait_seconds">
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">2</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="controls_repeat_ext">
                 <value name="TIMES">
                     <shadow type="math_number">
@@ -178,12 +185,12 @@ export default (Blockly) => {
             <block type="s4d_starts_with">
                 <value name="STRING">
                     <shadow type="text">
-                        <field name="TEXT" />
+                        <field name="TEXT">abc</field>
                     </shadow>
                 </value>
                 <value name="SUBSTRING">
                     <shadow type="text">
-                        <field name="TEXT" />
+                        <field name="TEXT">a</field>
                     </shadow>
                 </value>
             </block>
@@ -372,7 +379,7 @@ export default (Blockly) => {
             <label text="%{BKY_BOT_ACTIONS}"></label>
             <block type="s4d_set_bot_game"></block>
         </category>
-        <category name="{{ TOOLBOX_MESSAGES }}" colour="#41AAC0">
+        <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
@@ -406,7 +413,7 @@ export default (Blockly) => {
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
-        <category name="{{ TOOLBOX_JOINS }}" colour="#EABB11">
+        <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
             <block type="s4d_on_member_join"></block>
@@ -417,7 +424,17 @@ export default (Blockly) => {
             <block type="s4d_joining_member_raw"></block>
             <block type="s4d_joining_guild_raw"></block>
         </category>
-        <category name="{{ TOOLBOX_REACTIONS }}" colour="#89674A">
+        <category name="{{ TOOLBOX_E_LEAVES }}" colour="#778899">
+            <label text="%{BKY_LEAVES_RELATED_BLOCKS}" web-class="boldtext"></label>
+            <label text="%{BKY_DETECT_LEAVES}"></label>
+            <block type="s4d_on_member_leave"></block>
+            <label text="%{BKY_LEAVING_MEMBER_INFORMATIONS}"></label>
+            <block type="s4d_leaving_guild"></block>
+            <label text="%{BKY_RELATED_TO_LEAVE_STRINGS}"></label>
+            <block type="s4d_leaving_member_raw"></block>
+            <block type="s4d_leaving_guild_raw"></block>
+        </category>
+        <category name="{{ TOOLBOX_E_REACTIONS }}" colour="#89674A">
             <label text="%{BKY_REACT_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_REACT}"></label>
             <block type="s4d_on_react_added"></block>
@@ -435,7 +452,7 @@ export default (Blockly) => {
             <block type="s4d_server_name"></block>
             <block type="s4d_member_count"></block>
             <block type="s4d_icon_url"></block>
-            <block type="s4d_boost_count"></block>
+            <block type="s4d_boost_level"></block>
             <block type="s4d_server_owner"></block>
             <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
             <block type="s4d_set_server_name"></block>
@@ -475,10 +492,74 @@ export default (Blockly) => {
             <block type="s4d_member_discriminator"></block>
             <block type="s4d_member_tag"></block>
             <block type="s4d_member_username"></block>
+            <block type="s4d_member_has_permission"></block>
+            <block type="s4d_member_is_bot"></block>
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
             <block type="s4d_set_member_nickname"></block>
+        </category>
+        <sep />
+        <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
+            <label text="%{BKY_LABEL_READ_DB}"></label>
+            <block type="s4d_get_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_has_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
+            <block type="s4d_set_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_delete_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_add_data">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_subtract_data">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+            </block>
         </category>
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {

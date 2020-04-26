@@ -10,6 +10,7 @@ export const applyBlocklyLocale = () => {
 
 export const websiteMessages = {
     untitled: "Untitled document",
+    help: "Help",
     file: {
         title: "File",
         javascript: "Export to Javascript",
@@ -36,7 +37,9 @@ export const websiteMessages = {
             no: "No"
         },
         loaded: "Example {example} successfully imported!",
-        ping_pong: "ping-pong command"
+        ping_pong: "ping-pong command",
+        command_parsing: "Traitement des commandes",
+        leveling: "XP and levels system"
     },
     download: {
         title: "Download your bot",

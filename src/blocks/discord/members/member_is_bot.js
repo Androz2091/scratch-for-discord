@@ -1,20 +1,19 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_set_bot_game";
+const blockName = "s4d_member_is_bot";
 
 const blockData = {
-    "message0": "%{BKY_SET_BOT_GAME}",
+    "message0": "%{BKY_MEMBER_IS_BOT}",
     "args0": [
         {
             "type": "input_value",
-            "name": "GAME",
-            "check": [ "Number", "String" ]
-        },
+            "name": "MEMBER",
+            "check": "Member"
+        }
     ],
-    "colour": "#4C97FF",
-    "previousStatement": null,
-    "nextStatement": null,
+    "colour": "#5B80A5",
+    "output": "Boolean",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -26,17 +25,16 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
-    const game = Blockly.JavaScript.valueToCode(block, "GAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `s4d.client.user.setActivity(String(${game}));\n`;
-    return code;
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    return [ `${member}.user.bot`, Blockly.JavaScript.ORDER_NONE ];
 };
 
 registerRestrictions(blockName, [
     {
         type: "notempty",
-        message: "RES_MISSING_GAME",
+        message: "RES_VALID_MEMBER",
         types: [
-            "GAME"
+            "MEMBER"
         ]
     }
 ]);

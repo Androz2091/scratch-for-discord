@@ -1,6 +1,8 @@
 <template>
     <b-nav-item-dropdown id="v-step-0" :text="$t('examples.title')" right>
         <b-dropdown-item @click="load('ping-pong')">{{ $t('examples.ping_pong') }}</b-dropdown-item>
+        <b-dropdown-item @click="load('command-parsing')">{{ $t('examples.command_parsing') }}</b-dropdown-item>
+        <b-dropdown-item @click="load('leveling')">{{ $t('examples.leveling') }}</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
 
@@ -8,9 +10,13 @@
 import Blockly from "blockly";
 
 import PingPongExample from "../../examples/ping-pong";
+import CommandParsingExample from "../../examples/command-parsing";
+import LevelingExample from "../../examples/leveling";
 
 const examples = {
-    "ping-pong": PingPongExample
+    "ping-pong": PingPongExample,
+    "command-parsing": CommandParsingExample,
+    "leveling": LevelingExample
 };
 
 export default {

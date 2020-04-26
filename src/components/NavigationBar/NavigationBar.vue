@@ -14,6 +14,7 @@
                 <EditMenu></EditMenu>
                 <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
+                <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <RunModal></RunModal>
@@ -88,9 +89,11 @@ export default {
                         if [ "$(npm list -g | grep yarn)" ]
                         then
                             yarn list | grep discord.js || yarn add discord.js --no-lockfile
+                            yarn list | grep easy-json-database || yarn add easy-json-database --no-lockfile
                             node bot.js
                         else
                             npm list | grep discord.js || npm install discord.js --no-shrinkwrap
+                            npm list | grep easy-json-database || npm install easy-json-database --no-shrinkwrap
                             node bot.js
                         fi
                     `);

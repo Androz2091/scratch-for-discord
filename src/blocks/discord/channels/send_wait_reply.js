@@ -57,7 +57,9 @@ Blockly.JavaScript[blockName] = function(block){
     const statementCatch = Blockly.JavaScript.statementToCode(block, "CATCH");
     let code = "";
     if(block.getInput("CONTENT").connection.targetConnection){
-        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0];
+        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection._check ?
+        block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
+        null;
         if(contentType === "MessageEmbed"){
             code = `${channel}.send({ embed: ${content} });\n`;
         } else {
@@ -66,7 +68,7 @@ Blockly.JavaScript[blockName] = function(block){
     } else {
         code = `${channel}.send(String(${content}));\n`;
     }
-    code += `${channel}.awaitMessages((m) => m.author.id === ${member}.id, { time: (${time}*60*1000), max: 1 }).then((collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch((e) => { console.error(e); ${statementCatch} });`;
+    code += `${channel}.awaitMessages((m) => m.author.id === ${member}.id, { time: (${time}*60*1000), max: 1 }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} });`;
     return code;
 };
 

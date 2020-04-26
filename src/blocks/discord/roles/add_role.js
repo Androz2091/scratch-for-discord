@@ -34,7 +34,9 @@ Blockly.JavaScript[blockName] = function(block) {
     const role = Blockly.JavaScript.valueToCode(block, "ROLE", Blockly.JavaScript.ORDER_ATOMIC);
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
     if(block.getInput("ROLE").connection.targetConnection){
-        const roleType = block.getInput("ROLE").connection.targetConnection.getSourceBlock().outputConnection.check_[0];
+        const roleType = block.getInput("ROLE").connection.targetConnection.getSourceBlock().outputConnection._check ?
+        block.getInput("ROLE").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
+        null;
         if(roleType === "String"){
             const code = `${member}.roles.add(${member}.guild.roles.find((role) => role.id === ${role} || role.name === ${role} || '@'+role.name === ${role})):\n`;
             return code;
