@@ -36,7 +36,7 @@ Blockly.JavaScript[blockName] = function(block) {
     if(block.getInput("ROLE").connection.targetConnection){
         const roleType = block.getInput("ROLE").connection.targetConnection.getSourceBlock().ouputConnection.check_[0];
         if(roleType === "String"){
-            const code = `${member}.roles.remove(${member}.guild.roles.find((role) => role.id === ${role} || role.name === ${role} || '@'+role.name === ${role})):\n`;
+            const code = `${member}.roles.remove(${member}.guild.roles.cache.find((role) => role.id === ${role} || role.name === ${role} || '@'+role.name === ${role})):\n`;
             return code;
         } else {
             const code = `${member}.roles.remove(${role});\n`;
