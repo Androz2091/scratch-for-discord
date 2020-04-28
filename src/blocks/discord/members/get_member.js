@@ -32,7 +32,7 @@ const blockData = {
         }
     ],
     "colour": "#187795",
-    "output": "Role",
+    "output": "Member",
     "tooltip": "",
     "helpUrl": ""
 };
