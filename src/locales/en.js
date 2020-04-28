@@ -11,6 +11,9 @@ export const applyBlocklyLocale = () => {
 export const websiteMessages = {
     untitled: "Untitled document",
     help: "Help",
+    load: {
+        error: "The uploaded file is corrupted and cannot be loaded by Scratch For Discord..."
+    },
     file: {
         title: "File",
         javascript: "Export to Javascript",
