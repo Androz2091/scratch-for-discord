@@ -37,14 +37,14 @@ const BORDER_MUTATOR_MIXIN = {
         }
         const container = document.createElement("mutation");
         for (let i = 0; i < this.inputs_.length; i++) {
-            if (this.inputs_[i]) container.setAttribute(BaseBlockly.Msg[BORDER_FIELDS[i]], this.inputs_[i])
+            if (this.inputs_[i]) container.setAttribute(BORDER_FIELDS[i], this.inputs_[i])
         }
         return container;
     },
     
     domToMutation: function(xmlElement) {
         for (let i = 0; i < this.inputs_.length; i++) {
-            this.inputs_[i] = xmlElement.getAttribute(BaseBlockly.Msg[BORDER_FIELDS[i]]) == "true";
+            this.inputs_[i] = xmlElement.getAttribute(BORDER_FIELDS[i]) == "true";
         }
         this.updateShape_();
     },
@@ -55,7 +55,7 @@ const BORDER_MUTATOR_MIXIN = {
         containerBlock.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(BaseBlockly.Msg[BORDER_FIELDS[i]])
-            .appendField(new Blockly.FieldCheckbox(this.inputs_[i] ? "TRUE" : "FALSE"), BaseBlockly.Msg[BORDER_FIELDS[i]].toUpperCase());
+            .appendField(new Blockly.FieldCheckbox(this.inputs_[i] ? "TRUE" : "FALSE"), BORDER_FIELDS[i].toUpperCase());
         }
         containerBlock.initSvg();
         return containerBlock;
@@ -64,18 +64,18 @@ const BORDER_MUTATOR_MIXIN = {
     compose: function(containerBlock) {
         // Set states
         for (let i = 0; i < this.inputs_.length; i++) {
-        this.inputs_[i] = (containerBlock.getFieldValue(BaseBlockly.Msg[BORDER_FIELDS[i]].toUpperCase()) == "TRUE"); 
+        this.inputs_[i] = (containerBlock.getFieldValue(BORDER_FIELDS[i].toUpperCase()) == "TRUE"); 
         }
         this.updateShape_();
     },
 
     updateShape_: function() {
         for (let i = 0; i < this.inputs_.length; i++) {
-            if (this.getInput(BaseBlockly.Msg[BORDER_FIELDS[i]].toUpperCase())) this.removeInput(BaseBlockly.Msg[BORDER_FIELDS[i]].toUpperCase());
+            if (this.getInput(BORDER_FIELDS[i].toUpperCase())) this.removeInput(BORDER_FIELDS[i].toUpperCase());
         }
         for (let i = 0; i < this.inputs_.length; i++) {
             if (this.inputs_[i]) {
-                this.appendValueInput(BaseBlockly.Msg[BORDER_FIELDS[i]].toUpperCase())
+                this.appendValueInput(BORDER_FIELDS[i].toUpperCase())
                 .setCheck(BORDER_TYPES[i])
                 .setAlign(Blockly.ALIGN_RIGHT)
                 .appendField(BaseBlockly.Msg[BORDER_FIELDS[i]]);
@@ -87,6 +87,8 @@ const BORDER_MUTATOR_MIXIN = {
 Blockly.Extensions.registerMutator("s4d_message_embed_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
 
 Blockly.JavaScript["s4d_message_embed"] = function(block){
+    console.log("t: "+Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC))
+    console.log("m: "+Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC))
     return [ `
         {
             title: ${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC) || null},
