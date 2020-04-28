@@ -42,7 +42,7 @@ export default {
                         dismissible: true,
                         duration: 10000
                     });
-            });
+                });
             };
             if (file) {
                 reader.readAsArrayBuffer(file);
