@@ -44,7 +44,7 @@ const BORDER_MUTATOR_MIXIN = {
     
     domToMutation: function(xmlElement) {
         for (let i = 0; i < this.inputs_.length; i++) {
-            this.inputs_[i] = xmlElement.getAttribute(BORDER_FIELDS[i]) == "true";
+            this.inputs_[i] = xmlElement.getAttribute(BORDER_FIELDS[i].toLowerCase()) == "true";
         }
         this.updateShape_();
     },
@@ -87,8 +87,6 @@ const BORDER_MUTATOR_MIXIN = {
 Blockly.Extensions.registerMutator("s4d_message_embed_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
 
 Blockly.JavaScript["s4d_message_embed"] = function(block){
-    console.log("t: "+Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC))
-    console.log("m: "+Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC))
     return [ `
         {
             title: ${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC) || null},

@@ -28,11 +28,20 @@ export default {
             reader.onload = (e) => {
                 JSZip.loadAsync(e.target.result)
                     .then((data) => {
-                    if (data.file("blocks.xml"))  return data.file("blocks.xml").async("string")
+                    if (data.file("blocks.xml")) {
+                        return data.file("blocks.xml").async("string")
+                    }
                 })
                 .then((text) => {
                     const xml = Blockly.Xml.textToDom(text);
                     Blockly.Xml.domToWorkspace(xml, this.$store.state.workspace);
+                }).catch(() => {
+                    this.$toast.open({
+                        message: this.$t('load.error'),
+                        type: "error",
+                        dismissible: true,
+                        duration: 10000
+                    });
                 });
             };
             if (file) {

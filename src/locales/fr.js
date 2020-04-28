@@ -11,6 +11,9 @@ export const applyBlocklyLocale = () => {
 export const websiteMessages = {
     untitled: "Document sans titre",
     help: "Aide",
+    load: {
+        error: "Le fichier téléversé est corrompu et ne peut pas être chargé par Scratch For Discord..."
+    },
     file: {
         title: "Fichier",
         javascript: "Exporter vers Javascript",
