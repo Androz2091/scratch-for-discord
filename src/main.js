@@ -35,6 +35,7 @@ const i18n = new Vuei18n({
 });
 
 import toolbox from "./toolbox";
+import Theme from '@blockly/theme-modern';
 
 Vue.mixin({
     methods: {
@@ -48,6 +49,7 @@ Vue.mixin({
             // Create a new workspace (with the good language)
             const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), {
                 renderer: "zelos",
+                theme: Theme,
                 grid: {
                     spacing: 25,
                     length: 3,

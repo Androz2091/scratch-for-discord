@@ -32,6 +32,8 @@ import "./blocks/text/";
 import "./blocks/loops/";
 import "./prompt";
 
+import Theme from '@blockly/theme-modern';
+
 export default {
     name: "app",
     components: {
@@ -53,6 +55,7 @@ export default {
         return {
             options: {
                 renderer: "zelos",
+                theme: Theme,
                 zoom: {
                     controls: true,
                     startScale: 0.9,
