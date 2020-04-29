@@ -46,7 +46,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_ATOMIC);
     const searchType = block.getFieldValue("SEARCH_TYPE");
-    const server = block.getFieldValue("SERVER");
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     if(searchType === "USERNAME"){
         return [ `${server}.members.cache.find((m) => m.user.username === ${value})`, Blockly.JavaScript.ORDER_NONE ];
     } else {
