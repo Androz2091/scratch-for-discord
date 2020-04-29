@@ -57,7 +57,7 @@ export const disableUnapplicable = (workspace) => {
 function validateRestriction(block, blocks, restriction) {
     let reverse = false;
     let type = restriction.type;
-    if (type.startsWith("!")) {
+    if (type !== "custom" && type.startsWith("!")) {
         type = type.substring(1);
         reverse = true;
     }

@@ -203,5 +203,7 @@
   "TOOLBOX_E_LEAVES": "Leaves",
   "RES_MUST_BE_IN_ON_MEMBER_LEAVE": "This block may only be used in a \"When a member leaves a server\" event",
   "LEAVING_MEMBER_RAW": "%1 of the leaving member",
-  "WAIT_SECONDS": "wait %1 seconds"
+  "WAIT_SECONDS": "wait %1 seconds",
+  "TOOLBOX_OTHER": "Other",
+  "RUN_SAVE_OUTPUT": "do %1 and save output in %2"
 }

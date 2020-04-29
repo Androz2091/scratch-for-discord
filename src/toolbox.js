@@ -17,13 +17,6 @@ export default (Blockly) => {
             <block type="logic_ternary" />
         </category>
         <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
-            <block type="s4d_wait_seconds">
-                <value name="TIME">
-                    <shadow type="math_number">
-                        <field name="NUM">2</field>
-                    </shadow>
-                </value>
-            </block>
             <block type="controls_repeat_ext">
                 <value name="TIMES">
                     <shadow type="math_number">
@@ -361,6 +354,16 @@ export default (Blockly) => {
         <sep />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
+        <category name="{{ TOOLBOX_OTHER }}" colour="#D14081">
+            <block type="s4d_run_save_output"></block>
+            <block type="s4d_wait_seconds">
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">2</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
         <sep />
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
         <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
