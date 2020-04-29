@@ -170,7 +170,7 @@
   "REACT_RELATED_BLOCKS": "Blocks related to reactions",
   "DETECT_REACT": "I'm writigni'm writign",
   "REACT_INFORMATIONS": "Informations about the added/removed reaction",
-  "REACT_MESSAGE_ID": "Reaction message ID",
+  "REACT_MESSAGE_ID": "message ID",
   "RES_MUST_BE_IN_ON_REACT": "This block can only be used in a \"reaction added\" block or a \"reaction removed\" block!",
   "REACT_EMOJI": "emoji of the reaction",
   "REACT_MEMBER": "reacting member",
