@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_react_message_id";
 
 const blockData = {
-    "message0": "%{BKY_MESSAGE_ID}",
+    "message0": "%{BKY_REACT_MESSAGE_ID}",
     "colour": "#5BA58C",
     "output": "String"
 };
