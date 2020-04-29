@@ -7,7 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         workspace: 0,
-        blocklyLocale: navigator.language.split("-")[0],
+        blocklyLocale: (["en", "fr"].includes(navigator.language.split("-")[0]) ? navigator.language.split("-")[0] : "en"),
         tourDone: false
     },
     mutations: {
