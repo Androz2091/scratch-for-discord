@@ -1,6 +1,7 @@
 import "./add_reaction";
 import "./delete_message";
 import "./mentioned_member";
+import "./message_id";
 import "./message_author";
 import "./message_author_raw";
 import "./message_channel";
