@@ -8,6 +8,7 @@
   "ON_MESSAGE": "Quand un message est reçu",
   "ON_CONNECTED": "Quand le bot est connecté",
   "ON_CONNECTED_TOOLTIP": "Évènement émis lorsque votre bot est connecté à Discord.",
+  "MESSAGE_ID": "ID du message"
   "MESSAGE_CONTENT": "contenu du message",
   "MESSAGE_AUTHOR": "auteur du message",
   "MESSAGE_AUTHOR_RAW": "%1 de l'auteur du message",
@@ -168,7 +169,7 @@
   "REACT_RELATED_BLOCKS": "Blocks relatifs aux réactions",
   "DETECT_REACT": "Détecter les réactions",
   "REACT_INFORMATIONS": "Information sur la réaction ajoutée/enlevée",
-  "MESSAGE_ID": "ID du message",
+  "REACT_MESSAGE_ID": "ID du message",
   "RES_MUST_BE_IN_ON_REACT": "Ce block ne peut être utilisé que dans un block \"réaction ajoutée\" ou \"réaction enlevée\" !",
   "REACT_EMOJI": "émoji de la réaction",
   "REACT_MEMBER": "membre réagissant",
