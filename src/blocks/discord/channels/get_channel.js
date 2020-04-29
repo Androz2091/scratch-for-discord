@@ -42,9 +42,9 @@ Blockly.JavaScript[blockName] = function(block){
     const value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_ATOMIC);
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "NAME"){
-        return [ `s4d.client.channels.cache.find((channel) => channel.name === ${value}`, Blockly.JavaScript.ORDER_NONE ];
+        return [ `s4d.client.channels.cache.find((channel) => channel.name === ${value})`, Blockly.JavaScript.ORDER_ATOMIC ];
     } else {
-        return [ `s4d.client.channels.cache.get(${value})`, Blockly.JavaScript.ORDER_NONE ];
+        return [ `s4d.client.channels.cache.get(${value})`, Blockly.JavaScript.ORDER_ATOMIC ];
     }
 };
 
