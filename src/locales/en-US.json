@@ -27,7 +27,6 @@
   "ADMINISTRATOR": "Administrator",
   "DETECT_MESSAGES": "Detect messages",
   "MESSAGE_ACTIONS": "Actions on the message",
-  "MESSAGE_INFORMATIONS": "Informations about the message",
   "RELATED_TO_MESSAGE_STRINGS": "Strings related to the message",
   "DELETE_MESSAGE": "delete the message",
   "RES_ADD_REACTION_MISSING_REACTION": "You must specify a valid emoji !",
@@ -205,5 +204,18 @@
   "LEAVING_MEMBER_RAW": "%1 of the leaving member",
   "WAIT_SECONDS": "wait %1 seconds",
   "TOOLBOX_OTHER": "Other",
-  "RUN_SAVE_OUTPUT": "do %1 and save output in %2"
+  "RUN_SAVE_OUTPUT": "do %1 and save output in %2",
+  "TOOLBOX_MESSAGES": "Messages",
+  "GET_MESSAGE": "get message with ID equal to %1 in channel %2",
+  "RES_GET_MESSAGE_CHANNEL": "You must specify a valid channel on which the message is!",
+  "RES_GET_MESSAGE_VALUE": "You must specify a valid message ID!",
+  "FIND_MESSAGE": "Find the message",
+  "MESSAGE_INFORMATIONS": "Informations about the message",
+  "CURRENT": "current %1",
+  "HOUR": "hour",
+  "MINUTE": "minute",
+  "MONTH": "month",
+  "DAY_OF_WEEK": "day of week",
+  "SECOND": "second",
+  "DATE": "date"
 }

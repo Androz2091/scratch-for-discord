@@ -30,7 +30,6 @@
   "ADMINISTRATOR": "Administrateur",
   "DETECT_MESSAGES": "Détecter les messages",
   "MESSAGE_ACTIONS": "Actions sur le message",
-  "MESSAGE_INFORMATIONS": "Informations sur le message",
   "RELATED_TO_MESSAGE_STRINGS": "Chaînes relatives au message",
   "DELETE_MESSAGE": "supprimer le message",
   "RES_ADD_REACTION_MISSING_REACTION": "Vous devez spécifier un émoji valide !",
@@ -204,5 +203,18 @@
   "LEAVING_MEMBER_RAW": "%1 du membre partant",
   "WAIT_SECONDS": "attendre %1 secondes",
   "TOOLBOX_OTHER": "Autre",
-  "RUN_SAVE_OUTPUT": "faire %1 et sauvegarder le résultat dans %2"
+  "RUN_SAVE_OUTPUT": "faire %1 et sauvegarder le résultat dans %2",
+  "TOOLBOX_MESSAGES": "Messages",
+  "GET_MESSAGE": "obtenir le message dont l'ID est %1 dans le salon %2",
+  "RES_GET_MESSAGE_CHANNEL": "Vous devez préciser un salon valide sur lequel chercher le message!",
+  "RES_GET_MESSAGE_VALUE": "Vous devez préciser un identifiant de message valide!",
+  "FIND_MESSAGE": "Trouver le message",
+  "MESSAGE_INFORMATIONS": "Informations sur le message",
+  "CURRENT": "%1 actuelle",
+  "HOUR": "heure",
+  "MINUTE": "minute",
+  "MONTH": "mois",
+  "DAY_OF_WEEK": "jour de la semaine",
+  "SECOND": "seconde",
+  "DATE": "date"
 }
