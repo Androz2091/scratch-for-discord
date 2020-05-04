@@ -47,14 +47,14 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const dataType = block.getFieldValue("DATA_TYPE");
     if(dataType === "SECOND"){
-        return ["(Date.now().getSeconds())", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().getSeconds())", Blockly.JavaScript.ORDER_NONE];
     } else if(dataType === "MINUTE"){
-        return ["(Date.now().getMinutes())", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().getMinutes())", Blockly.JavaScript.ORDER_NONE];
     } else if(dataType === "HOUR"){
-        return ["(Date.now().getHours())", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().getHours())", Blockly.JavaScript.ORDER_NONE];
     } else if(dataType === "DATE"){
-        return ["(Date.now().getDate())", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().getDate())", Blockly.JavaScript.ORDER_NONE];
     } else if(dataType === "DAY_OF_WEEK"){
-        return ["(Date.now().getDay())", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().getDay())", Blockly.JavaScript.ORDER_NONE];
     }
 };
