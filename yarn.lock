@@ -808,10 +808,10 @@
   resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-3.20200313.2.tgz#8bbca3c6b1bf2152f0a984bc39e7e1b32c166878"
   integrity sha512-fhi9tFNvxGdsD9eT9cTVHW69v/NCqg1qD4O3eKK+r7qeng2m8F70iB1+YsjWknmy/KlSIEtsSMkJhdr1CCzXAg==
 
-"@blockly/theme-modern@^1.20200417.4":
-  version "1.20200417.4"
-  resolved "https://registry.yarnpkg.com/@blockly/theme-modern/-/theme-modern-1.20200417.4.tgz#66c4929ab9ab84c549e8131faf8a985685b38b3e"
-  integrity sha512-IWKd3a+/HtN+wA3TyvdXJlje1FFeWBXEiKq8FjWKjwlOLhaZ4Jb0ctAqw27RXjVR4f5wVzsRXk+qZsOZv0R4FA==
+"@blockly/theme-modern@^1.20200417.5":
+  version "1.20200417.5"
+  resolved "https://registry.yarnpkg.com/@blockly/theme-modern/-/theme-modern-1.20200417.5.tgz#e4a7937b0426d965a48a8779b7a99a9367d59e0c"
+  integrity sha512-A7Hgkts1cEvwHJ08M+Fkhh3DEXznlDJ6+7vG89GUAFrdfTz2orvUWUGYYo45KiEgNhnz2GumSWywblQ8Jy4m5Q==
 
 "@hapi/address@2.x.x":
   version "2.1.4"
@@ -8307,10 +8307,10 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue-toast-notification@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-0.2.0.tgz#c6bc41f23187c78b84d21b420155a897639d2033"
-  integrity sha512-CtShZp20qzDF957DcMi/OBX/fzoIRHJU1tcDPIMNgW+VVWmIehBxRdLthjZeHkEvWpc6ObpH7IgUGDDNWz2pUw==
+vue-toast-notification@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-0.3.0.tgz#675bc8a076945a63e35a8a9e09e1a54693e2bd72"
+  integrity sha512-7B/8W8zXtSVp9/Q+o1DbM2P0w0bBxuVV4s3/SueJg7Z/pFBZQW9zmfClcRlPxoFV0QBQpXrZx18wkY65ZckLjQ==
 
 vue-tour@^1.3.0:
   version "1.3.0"
