@@ -216,5 +216,6 @@
   "MONTH": "mois",
   "DAY_OF_WEEK": "jour de la semaine",
   "SECOND": "seconde",
-  "DATE": "date"
+  "DATE": "date",
+  "FOREVER": "répéter indéfiniement %1 faire %2"
 }

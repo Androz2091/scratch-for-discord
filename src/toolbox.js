@@ -17,6 +17,8 @@ export default (Blockly) => {
             <block type="logic_ternary" />
         </category>
         <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
+            <block type="s4d_forever">
+            </block>
             <block type="controls_repeat_ext">
                 <value name="TIMES">
                     <shadow type="math_number">

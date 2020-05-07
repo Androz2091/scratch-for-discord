@@ -217,5 +217,6 @@
   "MONTH": "month",
   "DAY_OF_WEEK": "day of week",
   "SECOND": "second",
-  "DATE": "date"
+  "DATE": "date",
+  "FOREVER": "repeat forever %1 do %2"
 }
