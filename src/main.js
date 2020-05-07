@@ -109,7 +109,7 @@ Vue.mixin({
                     Discord = require("discord.js");
                     Database = require("easy-json-database");
                 }
-                const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve, ms));
+                const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
                     Discord,
                     client: null,
