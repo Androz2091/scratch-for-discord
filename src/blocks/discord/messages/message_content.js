@@ -5,6 +5,13 @@ const blockName = "s4d_message_content";
 
 const blockData = {
     "message0": "%{BKY_MESSAGE_CONTENT}",
+    "args0": [
+        {
+            "type": "input_value",
+            "name": "MESSAGE",
+            "check": "Message"
+        }
+    ],
     "colour": "#5BA58C",
     "tooltip": "",
     "output": "String",
@@ -17,8 +24,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
-    const code = ["s4dmessage.content", Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript[blockName] = function(block) {
+    const message = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [message+".content", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 

@@ -506,6 +506,12 @@ export default (Blockly) => {
             <block type="s4d_ban_member"></block>
             <block type="s4d_set_member_nickname"></block>
         </category>
+        <category name="{{ TOOLBOX_MESSAGES }}" colour="#41AAC0">
+            <label text="%{BKY_FIND_MESSAGE}"></label>
+            <block type="s4d_get_message"></block>
+            <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
+            <label text="%{BKY_MESSAGE_ACTIONS}"></label>
+        </category>
         <sep />
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>

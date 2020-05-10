@@ -6,7 +6,6 @@ import "./message_author";
 import "./message_author_raw";
 import "./message_channel";
 import "./message_channel_raw";
-import "./message_content";
 import "./message_embed";
 import "./message_guild";
 import "./message_guild_raw";
