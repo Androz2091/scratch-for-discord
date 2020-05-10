@@ -483,6 +483,8 @@ export default (Blockly) => {
                 </value>
             </block>
             <block type="s4d_send_wait_reply_value"></block>
+            <label text="%{BKY_CHANNEL_ACTIONS}"></label>
+            <block type="s4d_create_channel"></block>
         </category>
         <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
             <label text="%{BKY_FIND_ROLE}"></label>

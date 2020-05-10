@@ -217,5 +217,12 @@
   "DAY_OF_WEEK": "jour de la semaine",
   "SECOND": "seconde",
   "DATE": "date",
-  "FOREVER": "répéter indéfiniement %1 faire %2"
+  "FOREVER": "répéter indéfiniement %1 faire %2",
+  "YES": "oui",
+  "NO": "non",
+  "CREATE_CHANNEL": "créer un salon avec comme nom %1 sur le serveur %2 de type %3",
+  "CHANNEL_ACTIONS": "Actions sur le salon",
+  "TEXT": "textuel",
+  "VOICE": "vocal",
+  "CATEGORY": "catégorie"
 }
