@@ -53,7 +53,7 @@ Blockly.JavaScript[blockName] = function(block){
     const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `${server}.channels.create(${name}, {
-        type: ${type.toLowerCase()}
+        type: '${type.toLowerCase()}'
     });\n`;
     return code;
 };
