@@ -57,4 +57,3 @@ Blockly.JavaScript[blockName] = function(block){
     });\n`;
     return code;
 };
-
