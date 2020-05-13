@@ -14,7 +14,7 @@
     "@blockly/field-date": "^3.20200313.2",
     "@blockly/theme-modern": "^1.20200417.5",
     "blockly": "^3.20200123.1",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.14.0",
     "core-js": "^3.6.4",
     "easy-json-database-browser": "^1.1.0",
