@@ -983,10 +983,10 @@
   resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.0.0.tgz#f67054f98842168e02086a866c20cc46f37ec149"
   integrity sha512-dWdn0uZ0lPWqOv8Ilnp7bVeoGEvLkwBlJfKiOLacZztYvSE7Z5QxukZ5i7r7ui5Lv7UUbVcV9LDh860TDcdlUg==
 
-"@blockly/theme-modern@^1.20200417.8":
-  version "1.20200417.8"
-  resolved "https://registry.yarnpkg.com/@blockly/theme-modern/-/theme-modern-1.20200417.8.tgz#5f3f88f5da993f776935a74fd47ba5c3080fa0be"
-  integrity sha512-5arnfQ0O8LGLBGvycQgrWcq3/RqwRen8EC1tQ4BABdxzcW1dZPMtGRyarXh5SYIsmY38LaqP1djNgAxXB9Q0uw==
+"@blockly/theme-modern@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@blockly/theme-modern/-/theme-modern-2.0.0.tgz#bbcf4f1d8c452d3a40bd671a3fda47b1ac45782e"
+  integrity sha512-XgRJjQ1LiZTNr5uScaByQurmaSYm9b3DywJdu+Wqh3HXo5or7KUhrVyTqQXOkgpafRxOqEwMT/ORz9V9yhTMmA==
 
 "@hapi/address@2.x.x":
   version "2.1.4"
