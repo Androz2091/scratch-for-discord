@@ -978,10 +978,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@blockly/field-date@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.0.0.tgz#f67054f98842168e02086a866c20cc46f37ec149"
-  integrity sha512-dWdn0uZ0lPWqOv8Ilnp7bVeoGEvLkwBlJfKiOLacZztYvSE7Z5QxukZ5i7r7ui5Lv7UUbVcV9LDh860TDcdlUg==
+"@blockly/field-date@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.0.2.tgz#5906a75c0a47f375fe7f467234698c1ca5fca4c5"
+  integrity sha512-6rhnzkrCxVn4ERq66vRLPi8NwTR2IcQd2GrMGRdDOo4IKwekDdEebgdZ7lJibm7HXAz6D48+sirtEIqUFOue8Q==
 
 "@blockly/theme-modern@^2.0.0":
   version "2.0.0"
@@ -1289,7 +1289,7 @@
     webpack-dev-server "^3.11.0"
     webpack-merge "^4.2.2"
 
-"@vue/cli-shared-utils@^4.4.1", "@vue/cli-shared-utils@^4.4.4":
+"@vue/cli-shared-utils@^4.4.4":
   version "4.4.4"
   resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.4.4.tgz#b9685b73a604c8a7ee82d6fc3319fe7bb2cdb274"
   integrity sha512-ccMZtTMSutR35V5nrU/eyj+zRMomTRGBTLwJPmaJ2sRiW/93MTggQGXDWC8JRAA8yiU1N8xza8mjBxS0O2wIAA==
