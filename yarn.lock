@@ -1383,7 +1383,7 @@
     webpack-dev-server "^3.11.0"
     webpack-merge "^4.2.2"
 
-"@vue/cli-shared-utils@^4.4.4", "@vue/cli-shared-utils@^4.4.5":
+"@vue/cli-shared-utils@^4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.4.5.tgz#fe5025a28043fec9d6a301107325433a63eafccc"
   integrity sha512-DChYSjidHZmHtxROIp1WHlvhp06AkUzNBdkw0+uJ6FWHSQmkeRpsCU9XYTdsyRbatHzO0wnJ6GO+20yl3ZzLPw==
@@ -7951,10 +7951,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-sweetalert2@^9.15.1:
-  version "9.15.1"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-9.15.1.tgz#d0c2da861a1945626c9c145b48611c1bf0f68ba9"
-  integrity sha512-RQiw9kPSyH2VUx+B6ShdFwJBeyztLZd66d8QhhdgSnqm1KO2gGy81fTkVYY5JSYvZSt+KwG0fAxmCwfyW82RZQ==
+sweetalert2@^9.15.2:
+  version "9.15.2"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-9.15.2.tgz#d26f1e6dee91d9ff57b3b98b3d92a0d6c3fa6fc1"
+  integrity sha512-evJfoa49s5ZzSmVc62tslNkzlQoCg2GHjB3MQxawfESppvY5AlXKLGQ3nNKxHXKdodKmIHbkl39DgUhcOK7LgQ==
 
 sweetalert@^2.1.2:
   version "2.1.2"
