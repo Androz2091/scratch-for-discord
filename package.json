@@ -13,7 +13,7 @@
   "dependencies": {
     "@blockly/field-date": "^4.0.2",
     "@blockly/theme-modern": "^2.0.0",
-    "blockly": "^3.20200123.1",
+    "blockly": "^3.20200625.0",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.4",
