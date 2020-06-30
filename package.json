@@ -26,7 +26,7 @@
     "vue-swal": "^1.0.0",
     "vue-toast-notification": "^0.4.1",
     "vue-tour": "^1.4.0",
-    "vuex": "^3.4.0",
+    "vuex": "^3.5.1",
     "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
