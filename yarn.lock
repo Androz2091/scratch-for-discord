@@ -2002,10 +2002,10 @@ bindings@^1.5.0:
   dependencies:
     file-uri-to-path "1.0.0"
 
-blockly@^3.20200625.0:
-  version "3.20200625.0"
-  resolved "https://registry.yarnpkg.com/blockly/-/blockly-3.20200625.0.tgz#a14256dff4eb41bd8ee260d71937c9bf31153810"
-  integrity sha512-MrDij5TU4F9LSHsDxXU4wnl3ZTjb9i9pCWyPNOqABH+sLw1pvjx6YjcEJrC16IydpnSGmYISREL3OrLyZ21p6w==
+blockly@^3.20200625.1:
+  version "3.20200625.1"
+  resolved "https://registry.yarnpkg.com/blockly/-/blockly-3.20200625.1.tgz#e1fa6aae63653b181bb212a636e96603bd1757de"
+  integrity sha512-HrFftmzX4mPBfUq99Oc1atdBal0tMW1ECN4LCFGFS2tKrGzwnahftEJTFcQZMRpx0q5iQV74FrR4YPOekA9KYQ==
   dependencies:
     jsdom "^15.2.1"
 
