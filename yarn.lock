@@ -1088,10 +1088,10 @@
   resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.0.2.tgz#5906a75c0a47f375fe7f467234698c1ca5fca4c5"
   integrity sha512-6rhnzkrCxVn4ERq66vRLPi8NwTR2IcQd2GrMGRdDOo4IKwekDdEebgdZ7lJibm7HXAz6D48+sirtEIqUFOue8Q==
 
-"@blockly/theme-modern@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@blockly/theme-modern/-/theme-modern-2.0.0.tgz#bbcf4f1d8c452d3a40bd671a3fda47b1ac45782e"
-  integrity sha512-XgRJjQ1LiZTNr5uScaByQurmaSYm9b3DywJdu+Wqh3HXo5or7KUhrVyTqQXOkgpafRxOqEwMT/ORz9V9yhTMmA==
+"@blockly/theme-modern@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@blockly/theme-modern/-/theme-modern-2.0.2.tgz#6bb71679a6f25f73a964c9fdf635d9cedc4fbbff"
+  integrity sha512-8EabeYx4e39tHmBIja3iDQlHc9Op2aQsyGCCl9n3Slv9mRXezRmwc20H7qXBGlspOMCy6Ol9hSzPmO/e9ksH6A==
 
 "@hapi/address@2.x.x":
   version "2.1.4"
