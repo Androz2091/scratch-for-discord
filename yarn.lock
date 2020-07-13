@@ -8544,10 +8544,10 @@ vue-toast-notification@^0.4.1:
   resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-0.4.1.tgz#7f38a38c0479eb1b5f0f40d88e0e1674dd1edcc8"
   integrity sha512-bcp5deqeIeSiDeTOg8zxhTXGx5ZMiPwNYa6eLosVqG1dKxo4VlJGcmDMxplpu9lZq5VX2aT8ros7hj1ev/6GIw==
 
-vue-tour@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/vue-tour/-/vue-tour-1.4.0.tgz#e8ef0656e98f87e55659f00c3dd64ec5853945b1"
-  integrity sha512-vsuxNLsSSKBOJpDme1ZkcY744LYk+l4TSfQz39xJZ4BE1GrioyTzS4+PT3D1nKhT/3vOZurNM66cZgzgRNZ/wA==
+vue-tour@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/vue-tour/-/vue-tour-1.5.0.tgz#4dbbbc03ea6932a1ae3ccd819c219304f3a30109"
+  integrity sha512-T92vetsw4iLO+31kQ7Q5DIKVbgqEE7SmLmfkUEgIznMn59tCELfsklxyUP9irAcRqrZdlV8zT0HgFgzGXeZemg==
   dependencies:
     hash-sum "^2.0.0"
     jump.js "^1.0.2"
