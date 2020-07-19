@@ -1,25 +1,26 @@
 <template>
     <b-modal id="run-modal" hide-footer :title="$t('run_modal.title')">
-        <div class="d-block text-center">
+        <div class="d-block">
             <b-container>
                 <b-row>
-                    <b-col>
-                        <b-overlay :show="botStarting" class="d-inline-block" rounded="circle">
-                            <b-img thumbnail  width="125" height="125" rounded="circle" fluid :src="botAvatar"></b-img>
-                        </b-overlay>
+                    <b-col sm="12" lg="8">
+                        <div class="botinfos">
+                            <b-overlay :show="botStarting" class="d-inline-block" rounded="circle">
+                                <div :style="getBotImageStyle()"></div>
+                            </b-overlay>
+                            <span class="botname">Logged in as {{ botTag || "Unknown#0000" }}</span>
+                        </div>
                     </b-col>
                     <b-col>
-                        <b-overlay :show="botStarting" rounded opacity="0.6" spinner-small spinner-variant="primary" class="d-inline-block" @hidden="onHidden">
-                            <b-button ref="button" class="btn btn-success btn-block" :disabled="botStarted" @click="start">{{ $t('run_modal.start') }}</b-button>
-                        </b-overlay>
-                        <b-overlay :show="botStarting" rounded opacity="0.6" spinner-small spinner-variant="primary" class="d-inline-block" @hidden="onHidden">
-                            <b-button class="btn btn-danger btn-block" :disabled="!botStarted" @click="stop">{{ $t('run_modal.stop') }}</b-button>
-                        </b-overlay>
+                        <div class="handlebuttondiv">
+                            <b-overlay :show="botStarting" rounded opacity="0.6" spinner-small spinner-variant="primary" class="d-inline-block" ref="button" @hidden="onHidden">
+                                <b-button :class="getHandleButtonClass()" @click="handle()" v-b-tooltip.hover :title="getTooltipContent()"><font-awesome-icon icon="power-off" /></b-button>
+                            </b-overlay>
+                        </div>
                     </b-col>
                 </b-row>
             </b-container>
         </div>
-        <hr>
     </b-modal>
 </template>
 
@@ -33,6 +34,7 @@ export default {
             botStarted: false,
             botStarting: false,
             botRawAvatar: null,
+            botTag: null,
             s4d: null
         };
     },
@@ -42,6 +44,29 @@ export default {
         }
     },
     methods: {
+        getBotImageStyle(){
+            return {
+                'background-size': '50px',
+                'background-image': `url(${this.botAvatar})`,
+                width: '50px',
+                height: '50px',
+                'min-height': '50px',
+                'min-width': '50px',
+                'border-radius': '50%'
+            }
+        },
+        getTooltipContent(){
+            return this.botStarted ? this.$t('run_modal.stop') : this.$t('run_modal.start');
+        },
+        getHandleButtonClass(){
+            return {
+                'btn': true,
+                'btn-block': true,
+                'handlebutton': true,
+                'btn-danger': this.botStarted,
+                'btn-success': !this.botStarted
+            }
+        },
         start(){
             /* eslint-disable no-unused-vars */
             /* eslint-disable no-undef */
@@ -80,6 +105,7 @@ export default {
                     this.botStarting = false;
                     this.botStarted = true;
                     this.botRawAvatar = s4d.client.user.displayAvatarURL();
+                    this.botTag = s4d.client.user.tag;
                 });
                 s4d.client.on('shardDisconnect', () => {
                     this.botStarted = false;
@@ -90,6 +116,15 @@ export default {
         },
         stop(){
             this.s4d.client.destroy();
+            this.botRawAvatar = null;
+            this.botTag = null;
+        },
+        handle(){
+            if(this.botStarted){
+                this.stop();
+            } else {
+                this.start();
+            }
         },
         onHidden() {
             this.$refs.button.focus()
@@ -98,16 +133,41 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 .btn-space {
     margin-right: 5px;
 }
 
-.test {
+.botinfos {
+    border-width: 10px;
+    border-color: grey;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.botname {
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: grey;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.handlebuttondiv {
+    margin-right: 0%;
+    margin-left: 40%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+
+}
+
+.handlebutton {
+    width:100px;
 }
 
 </style>
