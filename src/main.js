@@ -7,6 +7,13 @@ import Vuei18n from 'vue-i18n';
 import Blockly from "blockly";
 import VueToast from 'vue-toast-notification';
 import VueTour from 'vue-tour';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faPowerOff } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faPowerOff)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(VueTour);
 Vue.use(VueToast);
