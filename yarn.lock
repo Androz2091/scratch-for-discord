@@ -1041,10 +1041,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@blockly/field-date@^4.0.4":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.0.4.tgz#b8c727e68dc00493c83e8ca6591625304eb23f1f"
-  integrity sha512-Jna64P0yJZN6125MxBWgBqV6S3drl06SrjLDgka1ScOaqP0Qq/z3N2o50XyMZCxi5gem4goW9l5TNFPYV0lMKg==
+"@blockly/field-date@^4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.0.5.tgz#e280fd5a89ae426842102aafdc8d2b2e06a2a25d"
+  integrity sha512-63ZwBFr94z/YC2M6pQ2PXwmf0xSI3uJgRbcLDB05vT7t+9eKDEic+io02DK3hnmui8OKPtpIhLWMkbrfJMSy7w==
 
 "@blockly/theme-modern@^2.0.4":
   version "2.0.4"
