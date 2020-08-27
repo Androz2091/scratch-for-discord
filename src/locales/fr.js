@@ -25,7 +25,8 @@ export const websiteMessages = {
         undo: "Annuler",
         redo: "Rétablir",
         clear: "Nettoyer {blockCount} blocks",
-        cleanup: "Réorganiser les blocks"
+        cleanup: "Réorganiser les blocks",
+        cleardb: "Effacer la base de données"
     },
     lang: {
         title: "Langue"
