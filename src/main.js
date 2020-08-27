@@ -7,6 +7,13 @@ import Vuei18n from 'vue-i18n';
 import Blockly from "blockly";
 import VueToast from 'vue-toast-notification';
 import VueTour from 'vue-tour';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faPowerOff } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faPowerOff)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(VueTour);
 Vue.use(VueToast);
@@ -35,6 +42,7 @@ const i18n = new Vuei18n({
 });
 
 import toolbox from "./toolbox";
+import Theme from '@blockly/theme-modern';
 
 Vue.mixin({
     methods: {
@@ -48,6 +56,7 @@ Vue.mixin({
             // Create a new workspace (with the good language)
             const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), {
                 renderer: "zelos",
+                theme: Theme,
                 grid: {
                     spacing: 25,
                     length: 3,
@@ -107,7 +116,7 @@ Vue.mixin({
                     Discord = require("discord.js");
                     Database = require("easy-json-database");
                 }
-                const delay = (seconds) => new Promise((resolve) => setTimeout(() => resolve, seconds*1000));
+                const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
                     Discord,
                     client: null,

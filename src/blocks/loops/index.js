@@ -1,1 +1,1 @@
-import "./wait";
+import "./forever";

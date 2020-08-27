@@ -15,19 +15,25 @@ import BlocklyComponent from "./components/BlocklyComponent.vue";
 Blockly.Tooltip.HOVER_MS = 100;
 
 // Load blocks
+
 import "./blocks/discord/base/";
-import "./blocks/discord/joins/";
-import "./blocks/discord/leaves/";
-import "./blocks/discord/message/";
+import "./blocks/discord/message-event/";
+import "./blocks/discord/join-event/";
+import "./blocks/discord/leave-event/";
+import "./blocks/discord/reaction-event/";
+
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";
 import "./blocks/discord/roles/";
 import "./blocks/discord/members/";
-import "./blocks/discord/reactions/";
+
 import "./blocks/database/";
 import "./blocks/text/";
 import "./blocks/loops/";
+import "./blocks/other/";
 import "./prompt";
+
+import Theme from '@blockly/theme-modern';
 
 export default {
     name: "app",
@@ -50,6 +56,7 @@ export default {
         return {
             options: {
                 renderer: "zelos",
+                theme: Theme,
                 zoom: {
                     controls: true,
                     startScale: 0.9,

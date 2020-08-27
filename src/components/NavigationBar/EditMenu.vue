@@ -6,6 +6,7 @@
             blockCount
         }) }}</b-dropdown-item>
         <b-dropdown-item @click="cleanUp">{{ $t('edit.cleanup') }}</b-dropdown-item>
+        <b-dropdown-item @click="clearDB">{{ $t('edit.cleardb') }}</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
 
@@ -30,6 +31,9 @@ export default {
         },
         cleanUp(){
             this.$store.state.workspace.cleanUp();
+        },
+        clearDB(){
+            localStorage.setItem('easyjsondatabase', '{}');
         }
     }
 }
