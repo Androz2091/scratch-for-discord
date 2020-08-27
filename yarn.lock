@@ -2055,10 +2055,10 @@ bootstrap-vue@^2.16.0:
     portal-vue "^2.1.7"
     vue-functional-data-merge "^3.1.0"
 
-"bootstrap@>=4.5.0 <5.0.0", bootstrap@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.5.0.tgz#97d9dbcb5a8972f8722c9962483543b907d9b9ec"
-  integrity sha512-Z93QoXvodoVslA+PWNdk23Hze4RBYIkpb5h8I2HY2Tu2h7A0LpAgLcyrhrSUyo2/Oxm2l1fRZPs1e5hnxnliXA==
+"bootstrap@>=4.5.0 <5.0.0", bootstrap@^4.5.2:
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.5.2.tgz#a85c4eda59155f0d71186b6e6ad9b875813779ab"
+  integrity sha512-vlGn0bcySYl/iV+BGA544JkkZP5LB3jsmkeKLFQakCOwCM3AOk7VkldBz4jrzSe+Z0Ezn99NVXa1o45cQY4R6A==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -3350,10 +3350,10 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-easy-json-database-browser@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/easy-json-database-browser/-/easy-json-database-browser-1.1.0.tgz#4e6a168d04ce4936287e0bfa845a6d958f71e6a3"
-  integrity sha512-tPmHwtjok0cWbduTghBDM2NQk5uYR1vKHQG+zoqcFS/CEjgw9N14/qgLwNr+2bMqCx9cXuamfFHiRzSlFgATsg==
+easy-json-database-browser@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/easy-json-database-browser/-/easy-json-database-browser-2.1.0.tgz#6f74c3f88189de1fe53000616d96be22f17ab002"
+  integrity sha512-zxmxTtDyFF/WREQjNl6fVH5WthBezxmoj/6mAYPcdwU+atqLPtJATwdwxFbMP5b6h+oqlexRxWau95t+15gOlA==
 
 easy-stack@^1.0.0:
   version "1.0.0"
