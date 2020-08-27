@@ -20,7 +20,7 @@
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.16.0",
     "core-js": "^3.6.4",
-    "easy-json-database-browser": "^1.1.0",
+    "easy-json-database-browser": "^2.1.0",
     "js-beautify": "^1.11.0",
     "jszip": "^3.5.0",
     "sweetalert2": "^9.17.1",
