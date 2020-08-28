@@ -11,7 +11,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@blockly/field-date": "^4.0.4",
+    "@blockly/field-date": "^4.0.6",
     "@blockly/theme-modern": "^2.0.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
