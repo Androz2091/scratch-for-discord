@@ -3350,10 +3350,10 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-easy-json-database-browser@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/easy-json-database-browser/-/easy-json-database-browser-1.1.0.tgz#4e6a168d04ce4936287e0bfa845a6d958f71e6a3"
-  integrity sha512-tPmHwtjok0cWbduTghBDM2NQk5uYR1vKHQG+zoqcFS/CEjgw9N14/qgLwNr+2bMqCx9cXuamfFHiRzSlFgATsg==
+easy-json-database-browser@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/easy-json-database-browser/-/easy-json-database-browser-2.1.0.tgz#6f74c3f88189de1fe53000616d96be22f17ab002"
+  integrity sha512-zxmxTtDyFF/WREQjNl6fVH5WthBezxmoj/6mAYPcdwU+atqLPtJATwdwxFbMP5b6h+oqlexRxWau95t+15gOlA==
 
 easy-stack@^1.0.0:
   version "1.0.0"
@@ -8591,10 +8591,10 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue-toast-notification@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-0.4.1.tgz#7f38a38c0479eb1b5f0f40d88e0e1674dd1edcc8"
-  integrity sha512-bcp5deqeIeSiDeTOg8zxhTXGx5ZMiPwNYa6eLosVqG1dKxo4VlJGcmDMxplpu9lZq5VX2aT8ros7hj1ev/6GIw==
+vue-toast-notification@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-0.5.3.tgz#aa2304c9723874edfc07fb189a7291840d506369"
+  integrity sha512-ee1TRaXJjc22Rds8tmBl6XzY4wybqPjJf410KGpTa73cltwKd5K5YS5H1Qm0sXOMLHz+D49wwqOUApSnNdz7Qg==
 
 vue-tour@^1.5.0:
   version "1.5.0"
