@@ -27,7 +27,7 @@
     "vue": "^2.6.11",
     "vue-i18n": "^8.20.0",
     "vue-swal": "^1.0.0",
-    "vue-toast-notification": "^0.4.1",
+    "vue-toast-notification": "^0.5.4",
     "vue-tour": "^1.5.0",
     "vuex": "^3.5.1",
     "vuex-persistedstate": "^3.0.1"
