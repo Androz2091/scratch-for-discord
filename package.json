@@ -35,7 +35,7 @@
   "devDependencies": {
     "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
-    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-babel": "^4.5.8",
     "@vue/cli-plugin-eslint": "^4.4.6",
     "@vue/cli-service": "^4.4.6",
     "babel-eslint": "^10.1.0",
