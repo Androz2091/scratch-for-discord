@@ -4,7 +4,7 @@
   "MESSAGE_RELATED_BLOCKS": "Blocks relatifs aux messages",
   "INIT_TOOLTIP": "Vous permet d'utiliser les blocks Discord!",
   "LOGIN": "Connexion à Discord avec le token %1",
-  "LOGIN_TOOLTIP": "Connecte votre bot à Discord. Pour trouver le token de votre bot, rendez-vous sur https://discordapp.com/developers/.",
+  "LOGIN_TOOLTIP": "Connecte votre bot à Discord. Pour trouver le token de votre bot, rendez-vous sur https://discord.com/developers/.",
   "ON_MESSAGE": "Quand un message est reçu",
   "ON_CONNECTED": "Quand le bot est connecté",
   "ON_CONNECTED_TOOLTIP": "Évènement émis lorsque votre bot est connecté à Discord.",

@@ -3,7 +3,7 @@
   "MESSAGE_RELATED_BLOCKS": "Blocks related to messages",
   "REPLY": "reply %1",
   "LOGIN": "Connect to Discord with the token %1",
-  "LOGIN_TOOLTIP": "Connect your bot to Discord. To get your bot token, go to https://discordapp.com/developers/.",
+  "LOGIN_TOOLTIP": "Connect your bot to Discord. To get your bot token, go to https://discord.com/developers/.",
   "ON_MESSAGE": "When a message is received",
   "ON_CONNECTED": "When the bot is connected",
   "ON_CONNECTED_TOOLTIP": "Event emitted when your bot is connected to Discord.",
