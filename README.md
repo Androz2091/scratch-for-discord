@@ -22,6 +22,10 @@ To run Scratch For Discord, follow these steps:
 * Run `yarn start` to start the development server.
 * Go to `http://localhost:3000`!
 
+## How to set up your bot
+
+The discord.js guide has [instructions for setting up a bot application](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot). Once you've followed the instructions you can paste the bot token into the "Connect to Discord with token..." block. The next page in the guide shows how to invite the bot to a server.
+
 ## Credits
 
 * Discord.js ([discordjs/discord.js](https://github.com/discordjs/discord.js))
