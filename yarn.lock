@@ -1046,10 +1046,10 @@
   resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.0.4.tgz#b8c727e68dc00493c83e8ca6591625304eb23f1f"
   integrity sha512-Jna64P0yJZN6125MxBWgBqV6S3drl06SrjLDgka1ScOaqP0Qq/z3N2o50XyMZCxi5gem4goW9l5TNFPYV0lMKg==
 
-"@blockly/theme-modern@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@blockly/theme-modern/-/theme-modern-2.0.4.tgz#8dc5669842ea1b03a2add1f430dc5a4afbfaa3c0"
-  integrity sha512-X7DFNu1Bf5gcGSwB3849taPg0us6xqjMyr8rQRvVWOqtQddJILDtZMMegGONkO7rBGmxNyhbvLS4gl4ccZxZ3g==
+"@blockly/theme-modern@^2.1.7":
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/@blockly/theme-modern/-/theme-modern-2.1.7.tgz#d7ad23732a141c01e0a02a394cd6e50d39c88c89"
+  integrity sha512-ssf2EfEMZeY/2mmJffrNTOjkzdiiwMwHgSDmWSLJkZ9/krGtMRbd9+SjgLTxRJiNjfJgN9PvMpg63LsYe0P2SQ==
 
 "@fortawesome/fontawesome-common-types@^0.2.30":
   version "0.2.30"
@@ -3350,10 +3350,10 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-easy-json-database-browser@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/easy-json-database-browser/-/easy-json-database-browser-1.1.0.tgz#4e6a168d04ce4936287e0bfa845a6d958f71e6a3"
-  integrity sha512-tPmHwtjok0cWbduTghBDM2NQk5uYR1vKHQG+zoqcFS/CEjgw9N14/qgLwNr+2bMqCx9cXuamfFHiRzSlFgATsg==
+easy-json-database-browser@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/easy-json-database-browser/-/easy-json-database-browser-2.1.0.tgz#6f74c3f88189de1fe53000616d96be22f17ab002"
+  integrity sha512-zxmxTtDyFF/WREQjNl6fVH5WthBezxmoj/6mAYPcdwU+atqLPtJATwdwxFbMP5b6h+oqlexRxWau95t+15gOlA==
 
 easy-stack@^1.0.0:
   version "1.0.0"
