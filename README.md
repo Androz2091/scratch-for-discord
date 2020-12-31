@@ -25,6 +25,9 @@ To run Scratch For Discord, follow these steps:
 ## Desktop App
 **[Click Here](https://github.com/DevSnowflake/scratch-for-discord)** to download desktop version of **scratch-for-discord**.
 
+### Preview
+![preview](https://i.imgur.com/UJ2SKlc.png)
+
 ## Credits
 
 * Discord.js ([discordjs/discord.js](https://github.com/discordjs/discord.js))
