@@ -22,6 +22,9 @@ To run Scratch For Discord, follow these steps:
 * Run `yarn start` to start the development server.
 * Go to `http://localhost:3000`!
 
+## Desktop App
+**[Click Here](https://github.com/DevSnowflake/scratch-for-discord)** to download desktop version of **scratch-for-discord**.
+
 ## Credits
 
 * Discord.js ([discordjs/discord.js](https://github.com/discordjs/discord.js))
