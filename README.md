@@ -23,7 +23,7 @@ To run Scratch For Discord, follow these steps:
 * Go to `http://localhost:3000`!
 
 ## Desktop App
-**[Click Here](https://github.com/DevSnowflake/scratch-for-discord)** to download desktop version of **scratch-for-discord**.
+**[Click Here](https://github.com/DevSnowflake/scratch-for-discord-app)** to download desktop version of **scratch-for-discord**.
 
 ### Preview
 ![preview](https://i.imgur.com/UJ2SKlc.png)
