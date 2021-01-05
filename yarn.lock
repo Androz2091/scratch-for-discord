@@ -887,10 +887,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@blockly/field-date@^4.0.5":
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.0.5.tgz#e280fd5a89ae426842102aafdc8d2b2e06a2a25d"
-  integrity sha512-63ZwBFr94z/YC2M6pQ2PXwmf0xSI3uJgRbcLDB05vT7t+9eKDEic+io02DK3hnmui8OKPtpIhLWMkbrfJMSy7w==
+"@blockly/field-date@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.1.1.tgz#222b88915e1c8bacf513f80e725696421d056e3c"
+  integrity sha512-83LQk9V5O1B5vD24xIcDIJOce2Sf3y7SM+tb1e1NluzPUMc865xYVPUIrObo2RU6twb/EgDZ2rGxyO5/RdUVMw==
 
 "@blockly/theme-modern@^2.0.5":
   version "2.0.5"
