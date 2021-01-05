@@ -26,6 +26,12 @@ To run Scratch For Discord, follow these steps:
 
 The discord.js guide has [instructions for setting up a bot application](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot). Once you've followed the instructions you can paste the bot token into the "Connect to Discord with token..." block. The next page in the guide shows how to invite the bot to a server.
 
+## Desktop App
+**[Click Here](https://github.com/DevSnowflake/scratch-for-discord-app)** to download desktop version of **scratch-for-discord**.
+
+### Preview
+![preview](https://i.imgur.com/UJ2SKlc.png)
+
 ## Credits
 
 * Discord.js ([discordjs/discord.js](https://github.com/discordjs/discord.js))

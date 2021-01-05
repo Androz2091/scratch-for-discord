@@ -75,7 +75,9 @@ export const websiteMessages = {
         start: "Démarrer le bot",
         stop: "Arrêter le bot",
         invalid_token: "Impossible de se connecter à Discord... Peut-être que le token du bot n'est pas valide !",
-        error: "Impossible de se connecter à Discord... Réessayez plus tard!"
+        error: "Impossible de se connecter à Discord... Réessayez plus tard!",
+        disabled: "⚠️ Cette fonction n'est disponible qu'avec l'application Scratch For Discord (obtenez la {here})",
+        here: "ici"
     },
     code_modal: {
         title: "Code JavaScript de votre bot"

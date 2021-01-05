@@ -3,18 +3,26 @@
         <div class="d-block">
             <b-container>
                 <b-row>
+                    <i18n path="run_modal.disabled" tag="h5" v-if="!electronApp">
+                        <template v-slot:here>
+                            <a href="https://github.com/Androz2091/scratch-for-discord/releases/latest">{{ $t('run_modal.here') }}</a>
+                        </template>
+                    </i18n>
+                </b-row>
+                <hr>
+                <b-row>
                     <b-col sm="12" lg="8">
                         <div class="botinfos">
                             <b-overlay :show="botStarting" class="d-inline-block" rounded="circle">
                                 <div :style="getBotImageStyle()"></div>
                             </b-overlay>
-                            <span class="botname">Logged in as {{ botTag || "Unknown#0000" }}</span>
+                            <span :class="getUsernameSpanClass()">Logged in as {{ botTag || "Unknown#0000" }}</span>
                         </div>
                     </b-col>
                     <b-col>
                         <div class="handlebuttondiv">
                             <b-overlay :show="botStarting" rounded opacity="0.6" spinner-small spinner-variant="primary" class="d-inline-block" ref="button" @hidden="onHidden">
-                                <b-button :class="getHandleButtonClass()" @click="handle()" v-b-tooltip.hover :title="getTooltipContent()"><font-awesome-icon icon="power-off" /></b-button>
+                                <b-button :class="getHandleButtonClass()" @click="handle()" v-b-tooltip.hover :title="getTooltipContent()" :disabled="!electronApp"><font-awesome-icon icon="power-off" /></b-button>
                             </b-overlay>
                         </div>
                     </b-col>
@@ -41,6 +49,9 @@ export default {
     computed: {
         botAvatar: function(){
             return this.botRawAvatar || "https://cdn.discordapp.com/embed/avatars/2.png";
+        },
+        electronApp: function(){
+            return typeof navigator === 'object' && typeof navigator.userAgent === 'string' && navigator.userAgent.indexOf('Electron') >= 0;
         }
     },
     methods: {
@@ -54,6 +65,9 @@ export default {
                 'min-width': '50px',
                 'border-radius': '50%'
             }
+        },
+        getUsernameSpanClass(){
+            return `botname ${!this.electronApp ? 'unselectable' : ''}`
         },
         getTooltipContent(){
             return this.botStarted ? this.$t('run_modal.stop') : this.$t('run_modal.start');
@@ -168,6 +182,26 @@ export default {
 
 .handlebutton {
     width:100px;
+}
+
+#run-container:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: 5; /* Make sure this value is higher than the .form class  */
+    top: 0;
+    left: 0;
+    background-color: rgb(169, 169, 169, 0.5)
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 </style>

@@ -61,6 +61,9 @@ export default {
         }
     },
     mounted(){
+        document.getElementById("docName").addEventListener("input", function() {
+            document.title = `Scratch For Discord - ${document.querySelector("#docName").textContent}`;
+        }, false);
         const element = document.querySelector("#docName");
         element.spellcheck = false;
         element.focus();
