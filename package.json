@@ -16,7 +16,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/vue-fontawesome": "^0.1.10",
-    "blockly": "^3.20200625.2",
+    "blockly": "^4.20201217.0",
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.16.0",
     "core-js": "^3.6.5",
