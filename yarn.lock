@@ -978,10 +978,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@blockly/field-date@^4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.1.1.tgz#222b88915e1c8bacf513f80e725696421d056e3c"
-  integrity sha512-83LQk9V5O1B5vD24xIcDIJOce2Sf3y7SM+tb1e1NluzPUMc865xYVPUIrObo2RU6twb/EgDZ2rGxyO5/RdUVMw==
+"@blockly/field-date@^4.2.5":
+  version "4.2.5"
+  resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.2.5.tgz#5701e6ccd1eed9baf8283fdd4540e2144637744c"
+  integrity sha512-9sxGCDPO5RYjBJweF6ihC4uzKN9EPzXhdDaIy8opQLL6PncZZh6ObcKQDWQ86XxLj++043hXc2jfQecDYkaxyg==
 
 "@blockly/theme-modern@^2.1.9":
   version "2.1.9"
