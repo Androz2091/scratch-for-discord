@@ -8,6 +8,7 @@
 * ⏩ Make a bot in less than 2 minutes!  
 * 🧪 Start and test your bot directly on the site!
 * 🇫🇷 French is supported!
+* 📦 MacOS, Windows and Linux apps
 
 ## Example
 
@@ -34,6 +35,7 @@ The discord.js guide has [instructions for setting up a bot application](https:/
 
 ## Credits
 
+* Snowflake107 ([snowflake107](https://github.com/Snowflake107))
 * Discord.js ([discordjs/discord.js](https://github.com/discordjs/discord.js))
 * Blockly ([google/blockly](https://github.com/google/blockly))
 * And, of course, Discordblocks ([7coil/discordblocks](https://github.com/7coil/discord-blocks))
