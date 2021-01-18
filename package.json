@@ -39,7 +39,7 @@
     "@vue/cli-plugin-eslint": "^4.5.7",
     "@vue/cli-service": "^4.5.9",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.17.0",
+    "eslint": "^7.18.0",
     "eslint-plugin-vue": "^7.4.1",
     "vue-template-compiler": "^2.6.12"
   },
