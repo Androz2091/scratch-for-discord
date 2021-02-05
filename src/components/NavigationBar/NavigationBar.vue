@@ -15,6 +15,9 @@
                 <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
                 <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
+                <b-button class="download-button">
+                    Get the {{ os }} app to access all features!
+                </b-button>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <RunModal></RunModal>
@@ -58,6 +61,9 @@ export default {
             return  this.$store.state.workspace &&
                     this.$store.state.workspace.getAllBlocks().some((block) => block.type === "s4d_login") &&
                     this.$store.state.workspace.getAllBlocks().every((block) => !block.disabled && !block.warning);
+        },
+        os: function () {
+            return navigator.platform.indexOf('Mac') > -1 ? 'MacOS' : navigator.platform.indexOf('Win') > -1 ? 'Windows' : '';
         }
     },
     mounted(){
@@ -123,3 +129,17 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.download-button {
+    margin-left: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    color: black;
+    background-color: rgb(234, 187, 17);
+}
+</style>
