@@ -6,7 +6,6 @@
 
 * 🖥️ No code knowledge required!  
 * ⏩ Make a bot in less than 2 minutes!  
-* 🧪 Start and test your bot directly on the site!
 * 🇫🇷 French is supported!
 * 📦 MacOS, Windows and Linux apps
 
