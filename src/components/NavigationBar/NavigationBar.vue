@@ -72,7 +72,7 @@ export default {
     methods: {
         exportToCode(){
             const wrapper = document.createElement('div');
-            wrapper.innerHTML = `<h6>${this.$t('download.content.title')}</h6><ul><li style='text-align:left'>${this.$t('download.content.unzipFile')}</li><li style='text-align:left'>${this.$t('download.content.start')}</li><li style='text-align:left'>${this.$t('download.content.done')}</li></ul>`;
+            wrapper.innerHTML = `<h6>${this.$t('download.content.title')}</h6><ul><li style='text-align:left'>${this.$t('download.content.unzipFile')}</li><li style='text-align:left'>${this.$t('download.content.node')}</li><li style='text-align:left'>${this.$t('download.content.start')}</li><li style='text-align:left'>${this.$t('download.content.done')}</li></ul>`;
             this.$swal({
                 title: this.$t('download.title'),
                 content: wrapper,
@@ -100,21 +100,6 @@ export default {
                             'easy-json-database': '^1.3.0'
                         }
                     }));
-                    zip.file("start.sh", `
-                        if [ "$(npm list -g | grep yarn)" ]
-                        then
-                            yarn list | grep discord.js || yarn install
-                            yarn list | grep easy-json-database || yarn install
-                            node bot.js
-                        else
-                            npm list | grep discord.js || yarn install
-                            npm list | grep easy-json-database || yarn install
-                            node bot.js
-                        fi
-                    `);
-                    zip.file("start.bat", `
-                        REM UNKNOWN: {"type":"If","clause":{"type":"CompoundList","commands":[{"type":"Command","name":{"text":"[","type":"Word"},"suffix":[{"text":"\\"$(npm list -g | grep yarn)\\"","expansion":[{"loc":{"start":1,"end":26},"command":"npm list -g | grep yarn","type":"CommandExpansion","commandAST":{"type":"Script","commands":[{"type":"Pipeline","commands":[{"type":"Command","name":{"text":"npm","type":"Word"},"suffix":[{"text":"list","type":"Word"},{"text":"-g","type":"Word"}]},{"type":"Command","name":{"text":"grep","type":"Word"},"suffix":[{"text":"yarn","type":"Word"}]}]}]}}],"type":"Word"},{"text":"]","type":"Word"}]}]},"then":{"type":"CompoundList","commands":[{"type":"LogicalExpression","op":"or","left":{"type":"Pipeline","commands":[{"type":"Command","name":{"text":"yarn","type":"Word"},"suffix":[{"text":"list","type":"Word"}]},{"type":"Command","name":{"text":"grep","type":"Word"},"suffix":[{"text":"discord.js","type":"Word"}]}]},"right":{"type":"Command","name":{"text":"yarn","type":"Word"},"suffix":[{"text":"add","type":"Word"},{"text":"discord.js","type":"Word"},{"text":"--no-lockfile","type":"Word"}]}},{"type":"Command","name":{"text":"node","type":"Word"},"suffix":[{"text":"bot.js","type":"Word"}]}]},"else":{"type":"CompoundList","commands":[{"type":"LogicalExpression","op":"or","left":{"type":"Pipeline","commands":[{"type":"Command","name":{"text":"npm","type":"Word"},"suffix":[{"text":"list","type":"Word"}]},{"type":"Command","name":{"text":"grep","type":"Word"},"suffix":[{"text":"discord.js","type":"Word"}]}]},"right":{"type":"Command","name":{"text":"npm","type":"Word"},"suffix":[{"text":"install","type":"Word"},{"text":"discord.js","type":"Word"},{"text":"--no-shrinkwrap","type":"Word"}]}},{"type":"Command","name":{"text":"node","type":"Word"},"suffix":[{"text":"bot.js","type":"Word"}]}]}}
-                    `);
                     zip.generateAsync({
                         type: "blob"
                     })

@@ -50,7 +50,8 @@ export const websiteMessages = {
         content: {
             title: "How to start your bot once downloaded?",
             unzipFile: "Unzip the downloaded file.",
-            start: "Click start.bat (or start.sh if you're using MacOS or Linux)",
+            node: "Install NPM and Node.js (search for tutorials on Google)",
+            start: "Run 'npm install' and 'npm start' in a terminal",
             done: "Your bot is started!"
         },
         cancel: "Cancel",
