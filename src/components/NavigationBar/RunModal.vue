@@ -2,8 +2,8 @@
     <b-modal id="run-modal" hide-footer :title="$t('run_modal.title')">
         <div class="d-block">
             <b-container>
-                <b-row>
-                    <i18n path="run_modal.disabled" tag="h5" v-if="!electronApp">
+                <b-row v-if="!electronApp">
+                    <i18n path="run_modal.disabled" tag="h5">
                         <template v-slot:here>
                             <a href="https://androz2091.github.io/scratch-for-discord/download/index.html" target="_blank">{{ $t('run_modal.here') }}</a>
                         </template>
