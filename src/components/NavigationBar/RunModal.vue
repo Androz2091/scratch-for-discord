@@ -5,7 +5,7 @@
                 <b-row>
                     <i18n path="run_modal.disabled" tag="h5" v-if="!electronApp">
                         <template v-slot:here>
-                            <a href="https://github.com/Androz2091/scratch-for-discord/releases/latest">{{ $t('run_modal.here') }}</a>
+                            <a href="https://github.com/DevSnowflake/scratch-for-discord-app/releases/latest">{{ $t('run_modal.here') }}</a>
                         </template>
                     </i18n>
                 </b-row>

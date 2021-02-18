@@ -88,15 +88,27 @@ export default {
                     zip.file("blocks.xml", xmlContent);
                     const javascriptContent = this.getWorkspaceCode();
                     zip.file("bot.js", javascriptContent);
+                    zip.file("package.json", JSON.stringify({
+                        name: 'scratch-for-discord-bot',
+                        version: '1.0.0',
+                        main: 'bot.js',
+                        scripts: {
+                            start: 'node .'
+                        },
+                        dependencies: {
+                            'discord.js': '^12.5.1',
+                            'easy-json-database': '^1.3.0'
+                        }
+                    }));
                     zip.file("start.sh", `
                         if [ "$(npm list -g | grep yarn)" ]
                         then
-                            yarn list | grep discord.js || yarn add discord.js --no-lockfile
-                            yarn list | grep easy-json-database || yarn add easy-json-database --no-lockfile
+                            yarn list | grep discord.js || yarn install
+                            yarn list | grep easy-json-database || yarn install
                             node bot.js
                         else
-                            npm list | grep discord.js || npm install discord.js --no-shrinkwrap
-                            npm list | grep easy-json-database || npm install easy-json-database --no-shrinkwrap
+                            npm list | grep discord.js || yarn install
+                            npm list | grep easy-json-database || yarn install
                             node bot.js
                         fi
                     `);
