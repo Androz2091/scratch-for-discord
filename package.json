@@ -22,7 +22,7 @@
     "core-js": "^3.8.3",
     "easy-json-database-browser": "^2.1.0",
     "js-beautify": "^1.13.5",
-    "jszip": "^3.5.0",
+    "jszip": "^3.6.0",
     "sweetalert2": "^10.15.2",
     "vue": "^2.6.12",
     "vue-i18n": "^8.22.4",
