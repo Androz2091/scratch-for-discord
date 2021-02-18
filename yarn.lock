@@ -8163,10 +8163,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-sweetalert2@^10.13.0:
-  version "10.13.0"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-10.13.0.tgz#fd3c25ae511c36608d205aa020214508641ebd45"
-  integrity sha512-kF6Pnr7s7GDqVYRqqgyfxvG5vlUqfP+j+JF7oZ7DOs0/35jg6sTu8hyi6oD6Rb3fIKWIf1S9mCU7wR8iKa7dAA==
+sweetalert2@^10.15.2:
+  version "10.15.2"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-10.15.2.tgz#7d99a168c2a84460a4f457f5817ab02192a1d259"
+  integrity sha512-PQyFnkfURWyDRXeSmk0bojvdxnhqGj0xbjtecAPtzDMAHSuJeVd8jr0/AdR/nkyzGV9HNEjRXk8b5hyWinhf9w==
 
 sweetalert@^2.1.2:
   version "2.1.2"
