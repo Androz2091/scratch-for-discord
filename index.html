@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans" />
+    <style>
+        body {
+            font-family: "PT Sans";
+        }
+        table {
+            width: 100%;
+        }
+        th,
+        td {
+            width: 33%;
+        }
+        thead,
+        tfoot {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+    <title>Scratch For Discord App</title>
+</head>
+<body>
+    <h1>Scratch For Discord Apps</h1>
+    <h2>The official website to download latest Scratch For Discord Apps</h2>
+    <p>The source code of the apps is available on <a href="https://github.com/Androz2091/scratch-for-discord">GitHub</a></p>
+    <h2>Windows</h2>
+    <a id="win32">Download latest (win32)</a>
+    <h2>MacOS</h2>
+    <a id="macos-x64">Download latest (x64)</a><br>
+    <a id="macos-arm64">Download latest (arm64 m1 version)</a>
+    <h2>Linux</h2>
+    <a id="linux-x64">Download latest</a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script>
+        axios('https://api.github.com/repos/DevSnowflake/scratch-for-discord-app/releases').then((response) => {
+            const latestRelease = response.data[0];
+            const windowsFile = latestRelease.assets.find((a) => a.name.includes('win32')).browser_download_url;
+            const macOS = latestRelease.assets.find((a) => a.name.includes('macos-x64')).browser_download_url;
+            const macOSM1 = latestRelease.assets.find((a) => a.name.includes('macos-arm64')).browser_download_url;
+            const linux = latestRelease.assets.find((a) => a.name.includes('linux-x64')).browser_download_url;
+            document.querySelector('#win32').href = windowsFile;
+            document.querySelector('#macos-x64').href = macOS;
+            document.querySelector('#macos-arm64').href = macOSM1;
+            document.querySelector('#linux-x64').href = linux;
+        });
+    </script>
+</body>
+</html>
