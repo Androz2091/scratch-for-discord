@@ -18,7 +18,7 @@
 
 You can run your bot on repl.it. To do so, click the download link at the top right corner of the website. Import these files in your repl.it project, and run the following commands in the "SHELL" tab:
 - `npm install`
-- `node bot.js`
+- `node bot.js` (or hit the Run button)
 
 And you're done!
 
