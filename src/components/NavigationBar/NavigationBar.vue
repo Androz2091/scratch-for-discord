@@ -88,6 +88,7 @@ export default {
                     zip.file("blocks.xml", xmlContent);
                     const javascriptContent = this.getWorkspaceCode();
                     zip.file("bot.js", javascriptContent);
+                    zip.file(".replit", 'run = "node bot.js"');
                     zip.file("package.json", JSON.stringify({
                         name: 'scratch-for-discord-bot',
                         version: '1.0.0',
