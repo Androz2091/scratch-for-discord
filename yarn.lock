@@ -1003,10 +1003,10 @@
   resolved "https://registry.yarnpkg.com/@blockly/field-date/-/field-date-4.2.5.tgz#5701e6ccd1eed9baf8283fdd4540e2144637744c"
   integrity sha512-9sxGCDPO5RYjBJweF6ihC4uzKN9EPzXhdDaIy8opQLL6PncZZh6ObcKQDWQ86XxLj++043hXc2jfQecDYkaxyg==
 
-"@blockly/theme-modern@^2.1.9":
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/@blockly/theme-modern/-/theme-modern-2.1.9.tgz#b047014397bc02811314397a340de1724a30240c"
-  integrity sha512-8pVMqkk1AFyCrsTgjBtyXuoo9mUeEY282F5poYiOcjODiEMOMsfqVZ9y8+ieOP8mTzZOVaj9GnCDPT5pSNPOlA==
+"@blockly/theme-modern@^2.1.10":
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/@blockly/theme-modern/-/theme-modern-2.1.10.tgz#deae67e47d030b2a64061fd95c6967bd16332aa2"
+  integrity sha512-evY72cDvzhHT5m8O0LBT5wRf5Hnziqwpsg6PpX8pDUq1Qyf4pBtPukwfkYALUhMWic+3dx6boaitxcryNKjFsQ==
 
 "@eslint/eslintrc@^0.3.0":
   version "0.3.0"
