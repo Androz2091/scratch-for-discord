@@ -174,7 +174,7 @@
   "REACT_MEMBER": "reacting member",
   "ON_REACT_REMOVED": "When a reaction is removed",
   "BOT_PING": "bot ping",
-  "BOT_INFORMATIONS": "Informations sur le bot",
+  "BOT_INFORMATIONS": "Bot Informations",
   "BOT_ACTIONS": "Actions on the bot",
   "RES_MISSING_GAME": "You must specify a game for the bot!",
   "SET_BOT_GAME": "set bot game to %1",
