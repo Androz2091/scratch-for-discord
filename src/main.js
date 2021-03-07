@@ -129,7 +129,9 @@ Vue.mixin({
                         if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
                     }
                 };
-                s4d.client = new s4d.Discord.Client();
+                s4d.client = new s4d.Discord.Client({
+                    fetchAllMembers: true
+                });
                 s4d.client.on('raw', async (packet) => {
                     if(['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)){
                         const guild = s4d.client.guilds.cache.get(packet.d.guild_id);
