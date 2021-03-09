@@ -200,6 +200,7 @@
   "LEAVING_MEMBER_RAW": "%1 do membro que saiu do servidor",
   "WAIT_SECONDS": "espere %1 segundos",
   "TOOLBOX_OTHER": "Outros",
+  "STARTS_WITH":"%1 começa com %2",
   "RUN_SAVE_OUTPUT": "faça %1 e salve a saída em %2",
   "TOOLBOX_MESSAGES": "mensagens",
   "GET_MESSAGE": "obter mensagem com ID igual a %1 no canal %2",
