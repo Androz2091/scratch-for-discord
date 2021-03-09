@@ -221,5 +221,6 @@
   "CHANNEL_ACTIONS": "Ações para o canal",
   "TEXT": "texto",
   "VOICE": "voz",
-  "CATEGORY": "categoria"
+  "CATEGORY": "categoria",
+  "JOINS_RELATED_BLOCKS": "Blocos relacionados a entrada de membros" 
 }
