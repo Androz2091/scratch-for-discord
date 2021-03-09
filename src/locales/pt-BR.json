@@ -222,5 +222,6 @@
   "TEXT": "texto",
   "VOICE": "voz",
   "CATEGORY": "categoria",
-  "NEWLINE":"linha nova"
+  "NEWLINE":"linha nova",
+  "STARTS_WITH":"%1 começa com %2"
 }
