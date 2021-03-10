@@ -7,4 +7,5 @@ import "./member_id";
 import "./member_is_bot";
 import "./member_tag";
 import "./member_username";
+import "./send_message";
 import "./set_member_nickname";

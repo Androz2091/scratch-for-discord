@@ -42,7 +42,7 @@ Blockly.JavaScript[blockName] = function(block){
     const value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_ATOMIC);
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "NAME"){
-        return [ `s4d.client.guilds.cache.find((guild) => guild.name === ${value}`, Blockly.JavaScript.ORDER_NONE ];
+        return [ `s4d.client.guilds.cache.find((guild) => guild.name === ${value})`, Blockly.JavaScript.ORDER_NONE ];
     } else {
         return [ `s4d.client.guilds.cache.get(${value})`, Blockly.JavaScript.ORDER_NONE ];
     }
