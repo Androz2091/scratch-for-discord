@@ -224,5 +224,5 @@
   "CATEGORY": "categoria",
   "NEWLINE":"linha nova",
   "STARTS_WITH":"%1 começa com %2",
-   "JOINS_RELATED_BLOCKS": "Blocos relacionados a entrada de membros" 
+  "JOINS_RELATED_BLOCKS": "Blocos relacionados a entrada de membros" 
 }
