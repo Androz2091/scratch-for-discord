@@ -18,6 +18,7 @@
   "ADD_ROLE": "adicione cargo %1 do membro %2",
   "BAN_MEMBER": "banir membro %1",
   "KICK_MEMBER": "kicka membro %1",
+  "SEND_MEMBER": "send %1 to member %2",
   "MESSAGE_GUILD": "servidor da mensagem",
   "MESSAGE_CHANNEL": "canal da mensagem",
   "BASIC_BLOCKS": "blocos basicos",
@@ -91,8 +92,8 @@
   "RES_REMOVE_ROLE_MISSING_MEMBER": "você teve especifica um membro valido para remove o cargo nele!",
   "RES_KICK_MEMBER_MISSING_MEMBER": "você teve especifica um membro valido para ser kickado!",
   "RES_BAN_MEMBER_MISSING_MEMBER": "você teve especifica um membro valido para ser banido!",
+  "RES_SEND_MEMBER_MISSING_MEMBER": "You must specify a valid member to send the message to!",
   "MANDATORY_BLOCKS": "Blocos obrigatorios",
-  "STARTS_WITH":"começa com",
   "FIND_CHANNEL": "Encontre um canal",
   "SEND_CHANNEL_LABEL": "Envie uma mensagem no canal encontrado",
   "GET_CHANNEL": "pegue o salão com %2 igual a %1",
@@ -200,7 +201,7 @@
   "LEAVING_MEMBER_RAW": "%1 do membro que saiu do servidor",
   "WAIT_SECONDS": "espere %1 segundos",
   "TOOLBOX_OTHER": "Outros",
-  "STARTS_WITH":"%1 começa com %2",
+  "STARTS_WITH": "%1 começa com %2",
   "RUN_SAVE_OUTPUT": "faça %1 e salve a saída em %2",
   "TOOLBOX_MESSAGES": "mensagens",
   "GET_MESSAGE": "obter mensagem com ID igual a %1 no canal %2",
@@ -224,6 +225,5 @@
   "VOICE": "voz",
   "CATEGORY": "categoria",
   "NEWLINE":"linha nova",
-  "STARTS_WITH":"%1 começa com %2",
   "JOINS_RELATED_BLOCKS": "Blocos relacionados a entrada de membros" 
 }

@@ -506,6 +506,7 @@ export default (Blockly) => {
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
+            <block type="s4d_send_member"></block>
             <block type="s4d_set_member_nickname"></block>
         </category>
         <sep />

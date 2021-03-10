@@ -22,7 +22,7 @@
                     <b-col>
                         <div class="handlebuttondiv">
                             <b-overlay :show="botStarting" rounded opacity="0.6" spinner-small spinner-variant="primary" class="d-inline-block" ref="button" @hidden="onHidden">
-                                <b-button :class="getHandleButtonClass()" @click="handle()" v-b-tooltip.hover :title="getTooltipContent()" :disabled="!electronApp"><font-awesome-icon icon="power-off" /></b-button>
+                                <b-button :class="getHandleButtonClass()" @click="handle()" v-b-tooltip.hover :title="getTooltipContent()" ><font-awesome-icon icon="power-off" /></b-button>
                             </b-overlay>
                         </div>
                     </b-col>
