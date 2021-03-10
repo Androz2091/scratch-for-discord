@@ -100,7 +100,7 @@
   "NEWLINE": "new line",
   "FIND_CHANNEL": "Find a channel",
   "SEND_CHANNEL_LABEL": "Send a message in the found channel",
-  "GET_CHANNEL": "get the salon with %2 equal to %1",
+  "GET_CHANNEL": "get the channel with %2 equal to %1",
   "RES_MISSING_CHANNEL_VALUE": "You must specify a valid channel name or ID!",
   "RES_SEND_CHANNEL_CONTENT": "You must specify a content to send!",
   "RES_SEND_CHANNEL_CHANNEL": "You must specify a channel in which to send the content!",
