@@ -45,6 +45,18 @@ export default {
         this.$root.$i18n.locale = this.$store.state.blocklyLocale;
     },
     mounted(){
+        const tourDone = localStorage.getItem('tourDone');
+        if (tourDone !== null) this.$store.commit('setTour', {
+            status: tourDone
+        });
+        const blocklyLocale = localStorage.getItem('blocklyLocale');
+        if (blocklyLocale !== null) {
+            this.$store.commit('setLocale', {
+                newLocale: blocklyLocale
+            });
+            this.setLanguage(blocklyLocale);
+        }
+
         if(!this.$store.state.tourDone){
             this.$tours["start-tour"].start();
             this.$store.commit('setTour', {

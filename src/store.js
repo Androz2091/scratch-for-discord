@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import createPersistedState from 'vuex-persistedstate';
 
 Vue.use(Vuex);
 
@@ -16,12 +15,11 @@ export default new Vuex.Store({
         },
         setLocale (state, { newLocale }) {
             state.blocklyLocale = newLocale;
+            localStorage.setItem('blocklyLocale', newLocale);
         },
         setTour (state, { status }){
             state.tourDone = status;
+            localStorage.setItem('tourDone', status);
         }
-    },
-    plugins: [createPersistedState({
-        paths: ["blocklyLocale","tourDone"]
-    })]
+    }
 });
