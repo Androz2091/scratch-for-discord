@@ -19,7 +19,6 @@
     "blockly": "^4.20201217.0",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
-    "core-js": "^3.9.1",
     "easy-json-database-browser": "^2.1.0",
     "js-beautify": "^1.13.5",
     "jszip": "^3.6.0",
