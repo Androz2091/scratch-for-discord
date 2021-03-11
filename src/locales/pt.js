@@ -44,7 +44,8 @@ export const websiteMessages = {
         ping_pong: "comando ping-pong",
         command_parsing: "handler de comandos",
         leveling: "XP e sistema de níveis",
-	better_handler: "Handler Melhorado"
+	better_handler: "Handler Melhorado",
+	moderation_commands:"comandos de moderação"
     },
     download: {
         title: "Instale o seu bot",
