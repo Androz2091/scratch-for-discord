@@ -159,7 +159,7 @@ export default `
                               <block type="s4d_reply" id="1j-H8TV18|1|2[OX7W7r">
                                 <value name="CONTENT">
                                   <shadow type="text" id="@hipt/sKPMX-j+p{\`n4(">
-                                    <field name="TEXT">pong!</field>
+                                    <field name="TEXT">pong!!</field>
                                   </shadow>
                                 </value>
                               </block>
