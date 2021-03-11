@@ -225,5 +225,7 @@
   "VOICE": "voz",
   "CATEGORY": "categoria",
   "NEWLINE":"linha nova",
+  "SEND_MEMBER": "envia %1 para o membro %2",
+  "REMOVE_ROLE": "tira o cargo %1 do membro %2",
   "JOINS_RELATED_BLOCKS": "Blocos relacionados a entrada de membros" 
 }
