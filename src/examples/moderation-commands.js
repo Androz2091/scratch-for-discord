@@ -313,7 +313,7 @@ export default `
                                                           </block>
                                                         </value>
                                                         <value name="ADD2">
-                                                          <block type="s4d_newline" id="F)b9U(xz[-t?;xlnWy${"></block>
+                                                          <block type="s4d_newline" id="F)b9U(xz[-t?;xlnWy$\{"></block>
                                                         </value>
                                                         <value name="ADD3">
                                                           <block type="text" id=";jzS9ikoh}_piHw{~p44">
@@ -1092,7 +1092,7 @@ export default `
                                                               </block>
                                                             </value>
                                                             <value name="VALUE">
-                                                              <shadow type="text" id=",0P8${UqD38pV5!TkoX4">
+                                                              <shadow type="text" id=",0P8$\{UqD38pV5!TkoX4">
                                                                 <field name="TEXT">world</field>
                                                               </shadow>
                                                               <block type="variables_get" id="Fjy?k6.2mDTm+w?ev)W?">
@@ -1184,7 +1184,7 @@ export default `
                                                       </block>
                                                     </statement>
                                                     <next>
-                                                      <block type="s4d_reply" id=";AzW${_UXJeFrP9[lPEM">
+                                                      <block type="s4d_reply" id=";AzW$\{_UXJeFrP9[lPEM">
                                                         <value name="CONTENT">
                                                           <shadow type="text" id="g-h$AIa)pO9-.ei)^Fa!">
                                                             <field name="TEXT">sucessfuly warned that member!</field>
