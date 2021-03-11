@@ -19,7 +19,7 @@ const examples = {
     "ping-pong": PingPongExample,
     "command-parsing": CommandParsingExample,
     "leveling": LevelingExample,
-    "better_handler":BetterHandlerExample
+    "better-handler":BetterHandlerExample
 };
 
 export default {
