@@ -29,7 +29,7 @@ export default `
     <statement name="STATEMENTS">
       <block type="controls_if" id="P@EUH)~gVEBH8I37Qsy?">
         <value name="IF0">
-          <block type="logic_negate" id="c;n[?`1XtWSD5O1CU;ub">
+          <block type="logic_negate" id="c;n[?\`1XtWSD5O1CU;ub">
             <value name="BOOL">
               <block type="s4d_member_is_bot" id="YpeVf|k0L0Nna=7eMJSD">
                 <value name="MEMBER">
