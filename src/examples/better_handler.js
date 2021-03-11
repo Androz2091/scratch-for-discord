@@ -3,7 +3,7 @@ export default `
   <variables>
     <variable id="K0^jd-$jg$=dzRu1m*Z.">prefix</variable>
     <variable id="OZ0l|^XRQH?T?s;b$B%X">arguments</variable>
-    <variable id="/x;AZt|`Va:Hb020-{-I">commandwithprefix</variable>
+   <variable id="/x;AZt|\`Va:Hb020-{-I">commandwithprefix</variable>
     <variable id="dN-GQox{6nqmX%so5NT^">command</variable>
   </variables>
   <block type="s4d_login" id="Img~hF9iVsFa/X%ttZYH" x="-759" y="-358">
