@@ -13,13 +13,13 @@ import Blockly from "blockly";
 import PingPongExample from "../../examples/ping-pong";
 import CommandParsingExample from "../../examples/command-parsing";
 import LevelingExample from "../../examples/leveling";
-import BetterHandler from "../../examples/better-handler";
+import BetterHandlerExample from "../../examples/better-handler";
 
 const examples = {
     "ping-pong": PingPongExample,
     "command-parsing": CommandParsingExample,
     "leveling": LevelingExample,
-    "handler":BetterHandler
+    "handler":BetterHandlerExample
 };
 
 export default {
