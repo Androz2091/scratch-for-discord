@@ -60,7 +60,7 @@ export default `
               <block type="variables_set" id="U^i0Ox!/+F6x[NrTqTpR">
                 <field name="VAR" id="/x;AZt|\`Va:Hb020-{-I">commandwithprefix</field>
                 <value name="VALUE">
-                  <block type="lists_getIndex" id="9ul#e70.^`!G^_~-BlK~">
+                  <block type="lists_getIndex" id="9ul#e70.^\`!G^_~-BlK~">
                     <mutation statement="false" at="true"></mutation>
                     <field name="MODE">GET_REMOVE</field>
                     <field name="WHERE">FROM_START</field>
@@ -77,7 +77,7 @@ export default `
                   </block>
                 </value>
                 <next>
-                  <block type="controls_if" id="-7|3|KZj``w]ghh@9K`g">
+                  <block type="controls_if" id="-7|3|KZj\`\`w]ghh@9K\`g">
                     <value name="IF0">
                       <block type="s4d_starts_with" id="MYf|s6^xDFq$Ghc+j5,:">
                         <value name="STRING">
@@ -85,7 +85,7 @@ export default `
                             <field name="TEXT">abc</field>
                           </shadow>
                           <block type="variables_get" id=".+K+2yJ--xY!eALP6cQA">
-                            <field name="VAR" id="/x;AZt|`Va:Hb020-{-I">commandwithprefix</field>
+                            <field name="VAR" id="/x;AZt|\`Va:Hb020-{-I">commandwithprefix</field>
                           </block>
                         </value>
                         <value name="SUBSTRING">
@@ -108,7 +108,7 @@ export default `
                             <field name="WHERE2">LAST</field>
                             <value name="STRING">
                               <block type="variables_get" id="1eH@3GJsHf:G=4KZIQ#1">
-                                <field name="VAR" id="/x;AZt|`Va:Hb020-{-I">commandwithprefix</field>
+                                <field name="VAR" id="/x;AZt|\`Va:Hb020-{-I">commandwithprefix</field>
                               </block>
                             </value>
                             <value name="AT1">
@@ -158,7 +158,7 @@ export default `
                             <statement name="DO0">
                               <block type="s4d_reply" id="1j-H8TV18|1|2[OX7W7r">
                                 <value name="CONTENT">
-                                  <shadow type="text" id="@hipt/sKPMX-j+p{`n4(">
+                                  <shadow type="text" id="@hipt/sKPMX-j+p{\`n4(">
                                     <field name="TEXT">pong!</field>
                                   </shadow>
                                 </value>
