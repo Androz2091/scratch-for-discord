@@ -3,7 +3,7 @@
         <b-dropdown-item @click="load('ping-pong')">{{ $t('examples.ping_pong') }}</b-dropdown-item>
         <b-dropdown-item @click="load('command-parsing')">{{ $t('examples.command_parsing') }}</b-dropdown-item>
         <b-dropdown-item @click="load('leveling')">{{ $t('examples.leveling') }}</b-dropdown-item>
-        <b-dropdown-item @click="load('better-handler')">{{ $t('examples.handler') }}</b-dropdown-item>
+        <b-dropdown-item @click="load('better-handler')">{{ $t('examples.better-handler') }}</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
 
@@ -19,7 +19,7 @@ const examples = {
     "ping-pong": PingPongExample,
     "command-parsing": CommandParsingExample,
     "leveling": LevelingExample,
-    "handler":BetterHandlerExample
+    "better-handler":BetterHandlerExample
 };
 
 export default {
