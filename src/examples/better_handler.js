@@ -58,7 +58,7 @@ export default `
             </value>
             <next>
               <block type="variables_set" id="U^i0Ox!/+F6x[NrTqTpR">
-                <field name="VAR" id="/x;AZt|`Va:Hb020-{-I">commandwithprefix</field>
+                <field name="VAR" id="/x;AZt|\`Va:Hb020-{-I">commandwithprefix</field>
                 <value name="VALUE">
                   <block type="lists_getIndex" id="9ul#e70.^`!G^_~-BlK~">
                     <mutation statement="false" at="true"></mutation>
