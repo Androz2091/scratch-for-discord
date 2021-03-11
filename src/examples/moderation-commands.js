@@ -134,7 +134,7 @@ export default `
                               <block type="logic_compare" id="YFOT0py[V5352]X5#@%w">
                                 <field name="OP">EQ</field>
                                 <value name="A">
-                                  <block type="variables_get" id="I.}1|W*-Z9;/!gw{M${u">
+                                  <block type="variables_get" id="I.}1|W*-Z9;/!gw{M$\{u">
                                     <field name="VAR" id="dN-GQox{6nqmX%so5NT^">command</field>
                                   </block>
                                 </value>
