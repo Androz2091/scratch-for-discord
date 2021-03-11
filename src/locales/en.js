@@ -44,7 +44,7 @@ export const websiteMessages = {
         ping_pong: "ping-pong command",
         command_parsing: "commands handler",
         leveling: "XP and levels system",
-	handler:"better commands handler"
+	better_handler:"better commands handler"
     },
     download: {
         title: "Download your bot",
