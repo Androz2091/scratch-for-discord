@@ -91,6 +91,7 @@ export default {
             result.then((s4d) => {
                 setTimeout(() => {
                     if(s4d.tokenInvalid){
+                        console.error(s4d.tokenError);
                         this.botStarting = false;
                         this.botStarted = false;
                         this.$toast.open({
