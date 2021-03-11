@@ -45,7 +45,7 @@ export const websiteMessages = {
         command_parsing: "commands handler",
         leveling: "XP and levels system",
 	better_handler:"better commands handler",
-	 moderation_commands:"moderation commands"   
+        moderation_commands:"moderation commands"       
     },
     download: {
         title: "Download your bot",
