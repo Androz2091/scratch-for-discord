@@ -28,15 +28,18 @@ Vue.config.ignoredElements = ["field","block","category","xml","mutation","value
 import blocklyLocaleEN from "blockly/msg/en";
 import blocklyLocaleFR from "blockly/msg/fr";
 import blocklyLocalePT from "blockly/msg/pt";
+import blocklyLocaleLT from "blockly/msg/lt";
 
 import customLocaleEN from './locales/en';
 import customLocaleFR from './locales/fr';
 import customLocalePT from './locales/pt';
+import customLocaleLT from "blockly/msg/lt";
 
 const messages = {
     en: customLocaleEN.websiteMessages,
     fr: customLocaleFR.websiteMessages,
-    pt: customLocalePT.websiteMessages
+    pt: customLocalePT.websiteMessages,
+    lt: customLocaleLT.websiteMessages
 };
 
 const i18n = new Vuei18n({
@@ -110,6 +113,14 @@ Vue.mixin({
                     customLocalePT.applyBlocklyLocale();
                     // Change website languages (navbar, etc...)
                     this.$root.$i18n.locale = "pt";
+                    break;
+                case "lt":
+                    // Change Blockly language for default blocks
+                    Blockly.setLocale(blocklyLocaleLT);
+                    // Change Blockly language for custom blocks
+                    customLocaleLT.applyBlocklyLocale();
+                    // Change website languages (navbar, etc...)
+                    this.$root.$i18n.locale = "lt";
                     break;
                 default:
                     break;
