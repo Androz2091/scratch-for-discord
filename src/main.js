@@ -141,7 +141,10 @@ Vue.mixin({
                     }
                 };
                 s4d.client = new s4d.Discord.Client({
-                    fetchAllMembers: true
+                    fetchAllMembers: true,
+                    http: {
+                        api: 'http://localhost:3000/api',
+                    },
                 });
                 s4d.client.on('raw', async (packet) => {
                     if(['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)){
