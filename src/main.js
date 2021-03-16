@@ -143,7 +143,7 @@ Vue.mixin({
                 s4d.client = new s4d.Discord.Client({
                     fetchAllMembers: true,
                     http: {
-                        api: typeof window != 'undefined' ? window.location.origin : '/api',
+                        api: typeof window != 'undefined' ? window.location.origin + '/api' : '/api',
                     },
                 });
                 s4d.client.on('raw', async (packet) => {
