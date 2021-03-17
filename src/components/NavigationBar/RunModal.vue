@@ -116,6 +116,9 @@ export default {
                     return;
                 }, (5000));
                 s4d.client.on('ready', () => {
+                    console.log(s4d.emitReady);
+                    if (s4d.emitReady) return;
+                    s4d.emitReady = true;
                     this.botStarting = false;
                     this.botStarted = true;
                     this.botRawAvatar = s4d.client.user.displayAvatarURL();

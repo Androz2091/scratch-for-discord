@@ -134,6 +134,7 @@ Vue.mixin({
                     tokenInvalid: false,
                     reply: null,
                     joiningMember: null,
+                    emitReady: false,
                     database: new Database("./db.json"),
                     checkMessageExists() {
                         if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
