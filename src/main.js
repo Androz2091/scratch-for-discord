@@ -134,6 +134,7 @@ Vue.mixin({
                     tokenInvalid: false,
                     reply: null,
                     joiningMember: null,
+                    emitReady: false,
                     database: new Database("./db.json"),
                     checkMessageExists() {
                         if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
@@ -141,7 +142,10 @@ Vue.mixin({
                     }
                 };
                 s4d.client = new s4d.Discord.Client({
-                    fetchAllMembers: true
+                    fetchAllMembers: true,
+                    http: {
+                        api: typeof window != 'undefined' ? window.location.origin + '/api' : '/api',
+                    },
                 });
                 s4d.client.on('raw', async (packet) => {
                     if(['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)){
