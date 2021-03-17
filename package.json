@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@blockly/theme-modern": "^2.1.10",
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "blockly": "^4.20201217.0",
