@@ -3,6 +3,8 @@
         <b-dropdown-item @click="load('ping-pong')">{{ $t('examples.ping_pong') }}</b-dropdown-item>
         <b-dropdown-item @click="load('command-parsing')">{{ $t('examples.command_parsing') }}</b-dropdown-item>
         <b-dropdown-item @click="load('leveling')">{{ $t('examples.leveling') }}</b-dropdown-item>
+        <b-dropdown-item @click="load('better-handler')">{{ $t('examples.better_handler') }}</b-dropdown-item>
+        <b-dropdown-item @click="load('moderation-commands')">{{ $t('examples.moderation_commands') }}</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
 
@@ -12,11 +14,15 @@ import Blockly from "blockly";
 import PingPongExample from "../../examples/ping-pong";
 import CommandParsingExample from "../../examples/command-parsing";
 import LevelingExample from "../../examples/leveling";
+import BetterHandlerExample from "../../examples/better-handler";
+import ModerationCommandsExample from "../../examples/moderation-commands";
 
 const examples = {
     "ping-pong": PingPongExample,
     "command-parsing": CommandParsingExample,
-    "leveling": LevelingExample
+    "leveling": LevelingExample,
+    "better-handler":BetterHandlerExample,
+    "moderation-commands":ModerationCommandsExample
 };
 
 export default {
