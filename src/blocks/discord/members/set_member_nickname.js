@@ -13,7 +13,7 @@ const blockData = {
         },
         {
             "type": "input_value",
-            "name": "NEW_NICKNAME",
+            "name": "NEW_NAME",
             "check": [ "Number", "String" ]
         }
     ],
