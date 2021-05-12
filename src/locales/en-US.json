@@ -203,6 +203,7 @@
   "RES_MISSING_GAME": "You must specify a custom status for the bot!",
   "SET_BOT_GAME": "set bot custom status to %1 type %2",
   "SET_BOT_STATUS":"set bot status to %1",
+  "MEMBER_ICON":"member profile picture %1",
   "BOT_SERVER_COUNT": "bot server count",
   "TOOLBOX_E_JOINS": "Joins",
   "TOOLBOX_E_MESSAGES": "Messages",

@@ -195,6 +195,7 @@
   "ONLINE":"ONLINE",
   "OFFLINE":"OFFLINE",
   "IDLE":"IDLE",
+  "MEMBER_ICON":"foto de perfil do membro %1",
   "DND":"NÃO PERTUBE",
   "PLAYING":"TOCANDO",
   "TOOLBOX_E_MESSAGES": "Mensagems",
