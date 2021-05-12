@@ -29,6 +29,28 @@ const blockData = {
                 ]
             ]
         },
+        {
+            "type": "field_dropdown",
+            "name": "OIFD",
+            "options": [
+                [
+                    "%{BKY_ONLINE}",
+                    "online"
+                ],
+                [
+                    "%{BKY_OFFLINE}",
+                    "offline"
+                ],
+                [
+                    "%{BKY_IDLE}",
+                    "idle"
+                ],
+                [
+                    "%{BKY_DND}",
+                    "dnd"
+                ]
+            ]
+        },
     ],
     "colour": "#4C97FF",
     "previousStatement": null,
@@ -46,7 +68,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const type = block.getFieldValue("TYPE");
     const game = Blockly.JavaScript.valueToCode(block, "GAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `s4d.client.user.setActivity(String(${game}),{type: '${type}' });\n`;
+    const code = `s4d.client.user.setActivity(String(${game}),{status: '${type}', type: '${type}' });\n`;
     return code;
 };
 

@@ -417,7 +417,6 @@ export default (Blockly) => {
             <block type="s4d_bot_server_count"></block>
             <label text="%{BKY_BOT_ACTIONS}"></label>
             <block type="s4d_set_bot_game"></block>
-            <block type="s4d_set_bot_status"></block>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
