@@ -17,15 +17,19 @@ const blockData = {
             "options": [
                 [
                     "%{BKY_LISTENING}",
-                    "listening"
+                    "LISTENING"
                 ],
                 [
                     "%{BKY_WATCHING}",
-                    "watching"
+                    "WATCHING"
                 ],
                 [
                     "%{BKY_STREAMING}",
-                    "streaming"
+                    "STREAMING"
+                ],
+                [
+                    "%{BKY_PLAYING}",
+                    "PLAYING"
                 ]
             ]
         },
@@ -67,8 +71,9 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const type = block.getFieldValue("TYPE");
+    const OIFD = block.getFieldValue("OIFD");
     const game = Blockly.JavaScript.valueToCode(block, "GAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `s4d.client.user.setActivity(String(${game}),{status: '${type}', type: '${type}' });\n`;
+    const code = `s4d.client.user.setActivity(String(${game}),{status: '${type}', type: '${OIFD}' });\n`;
     return code;
 };
 

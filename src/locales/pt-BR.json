@@ -195,6 +195,7 @@
   "OFFLINE":"OFFLINE",
   "IDLE":"IDLE",
   "DND":"NÃO PERTUBE",
+  "PLAYING":"TOCANDO",
   "TOOLBOX_E_MESSAGES": "Mensagems",
   "TOOLBOX_E_REACTIONS": "Reações",
   "TOOLBOX_DATABASE": "Banco de dados",
