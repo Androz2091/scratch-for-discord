@@ -13,7 +13,7 @@ const blockData = {
         },
         {
             "type": "input_value",
-            "name": "NEW_NAME",
+            "name": "NEW_NICKNAME",
             "check": [ "Number", "String" ]
         }
     ],
@@ -32,7 +32,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    const newName = Blockly.JavaScript.valueToCode(block, "NEW_NAME", Blockly.JavaScript.ORDER_ATOMIC);
+    const newName = Blockly.JavaScript.valueToCode(block, "NEW_NICKNAME", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `${member}.setNickname(${newName});\n`;
     return code;
 };
@@ -47,9 +47,9 @@ registerRestrictions(blockName, [
     },
     {
         type: "notempty",
-        message: "RES_SET_MEMBER_NICKNAME_NEW_NAME",
+        message: "RES_SET_MEMBER_NICKNAME_NEW_NICKNAME",
         types: [
-            "NEW_NAME"
+            "NEW_NICKNAME"
         ]
     }
 ]);
