@@ -12,3 +12,4 @@ import "./message_guild";
 import "./message_guild_raw";
 import "./on_message";
 import "./reply";
+import "./purge";
