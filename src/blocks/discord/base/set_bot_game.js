@@ -50,7 +50,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const type = block.getFieldValue("TYPE");
     const game = Blockly.JavaScript.valueToCode(block, "GAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `s4d.client.user.setActivity(String(${game}),{status: '${type}');\n`;
+    const code = `s4d.client.user.setActivity(String(${game}),{status: '${type}'}); \n`;
     return code;
 };
 

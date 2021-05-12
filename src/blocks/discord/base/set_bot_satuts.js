@@ -43,6 +43,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const OIFD = block.getFieldValue("OIFD");
-    const code = `s4d.client.user.setPresence({status: '${OIFD}'});\n`;
+    const code = `s4d.client.user.setPresence({status: '${OIFD}'}); \n`;
     return code;
 };
