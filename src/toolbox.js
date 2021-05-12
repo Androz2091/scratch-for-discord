@@ -161,6 +161,25 @@ export default (Blockly) => {
             <block type="text_join">
                 <mutation items="2" />
             </block>
+
+            <block type="s4d_replace">
+                <value name="TEXT">
+                    <shadow type="text">
+                        <field name="TEXT">abc</field>
+                    </shadow>
+                </value>
+                <value name="REPLACE">
+                    <shadow type="text">
+                        <field name="TEXT">a</field>
+                    </shadow>
+                </value>
+                <value name="WITH">
+                    <shadow type="text">
+                        <field name="TEXT">b</field>
+                    </shadow>
+                </value>                
+            </block>
+
             <block type="s4d_newline"></block>
             <block type="text_append">
                 <field name="VAR" id="X4zy!98/2$-ur;|L{NlX">item</field>
@@ -189,6 +208,20 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+
+            <block type="s4d_includes">
+                <value name="TEXT">
+                    <shadow type="text">
+                        <field name="TEXT">abc</field>
+                    </shadow>
+                </value>
+                <value name="INCLUDES">
+                    <shadow type="text">
+                        <field name="TEXT">a</field>
+                    </shadow>
+                </value>
+            </block>
+
             <block type="text_isEmpty">
                 <value name="VALUE">
                     <shadow type="text">
@@ -483,6 +516,16 @@ export default (Blockly) => {
                 </value>
             </block>
             <block type="s4d_send_wait_reply_value"></block>
+
+            <label text="%{BKY_CHANNEL_MESSAGE_ACTIONS}"></label>
+             <block type="s4d_purge">
+                <value name="AMOUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">2</field>
+                    </shadow>
+                </value> 
+            </block>
+
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
             <block type="s4d_create_channel"></block>
         </category>
@@ -506,7 +549,9 @@ export default (Blockly) => {
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
+
             <block type="s4d_send_member"></block>
+
             <block type="s4d_set_member_nickname"></block>
         </category>
         <sep />
