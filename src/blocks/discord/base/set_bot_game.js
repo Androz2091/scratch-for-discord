@@ -11,6 +11,24 @@ const blockData = {
             "name": "GAME",
             "check": [ "Number", "String" ]
         },
+        {
+            "type": "field_dropdown",
+            "name": "TYPE",
+            "options": [
+                [
+                    "%{BKY_LISTENING}",
+                    "listening"
+                ],
+                [
+                    "%{BKY_WATCHING}",
+                    "watching"
+                ],
+                [
+                    "%{BKY_STREAMING}",
+                    "streaming"
+                ]
+            ]
+        },
     ],
     "colour": "#4C97FF",
     "previousStatement": null,
@@ -26,8 +44,9 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
+    const type = block.getFieldValue("TYPE");
     const game = Blockly.JavaScript.valueToCode(block, "GAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `s4d.client.user.setActivity(String(${game}));\n`;
+    const code = `s4d.client.user.setActivity(String(${game}),{type: '${type}' });\n`;
     return code;
 };
 
