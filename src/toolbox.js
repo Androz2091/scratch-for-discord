@@ -484,6 +484,16 @@ export default (Blockly) => {
             <block type="s4d_react_emoji"></block>
             <block type="s4d_react_member"></block>
         </category>
+        <category name="{{ TOOLBLOX_E_ADDED }}" colour="#0000cc">
+        <label text="%{BKY_ADDED_RELATED_BLOCKS}" web-class="boldtext"></label>
+        <label text="%{BKY_DETECT_ADDED}"></label>
+        <block type="s4d_on_added"></block>
+        <label text="%{BKY_ADDED_INFORMATIONS}"></label>
+        <block type="s4d_add_server_id"></block> 
+        <block type="s4d_add_server_name"></block>
+        <block type="s4d_add_server_icon"></block>
+        <block type="s4d_add_server_owner"/>
+        </category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>
