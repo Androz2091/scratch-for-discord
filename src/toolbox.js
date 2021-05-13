@@ -451,6 +451,15 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_reaction_wait_added_reaction">
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">5</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_wait_react_emoji_id"></block>
+            <block type="s4d_wait_react_emoji_name"></block>
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
@@ -539,6 +548,7 @@ export default (Blockly) => {
 
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
             <block type="s4d_create_channel"></block>
+            <block type="s4d_delete_channel"></block>
         </category>
         <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
             <label text="%{BKY_FIND_ROLE}"></label>
@@ -546,7 +556,10 @@ export default (Blockly) => {
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
             <block type="s4d_add_role"></block>
             <block type="s4d_remove_role"></block>
-        </category>
+            <block type="s4d_delete_role"></block>
+            <block type="s4d_has_role"></block>
+            <block type="s4d_create_role"></block>
+        </category> 
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
