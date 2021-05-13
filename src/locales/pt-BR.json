@@ -122,7 +122,7 @@
   "SEND_CHANNEL": "envie %1 no canal %2",
   "HAS_ROLE":"membro %2 tem cargo %1",
   "RES_REACT_NO_MEMBER":"Você precisa especifica um membro valido!",
-  "REACTION_WAIT_ADDED_REACTION":"espere para um membro adiciona uma reação %1 durante (minutos) %2 quando uma reação for adicionada %3",
+  "REACTION_WAIT_ADDED_REACTION":"espere para reação \n do membro %1 durante (minutos) %2 quando uma reação for adicionada %3",
   "TOOLBOX_LOGIC": "Logica",
   "TOOLBOX_LOOPS": "Loops",
   "TOOLBOX_MATH": "Matematica",
