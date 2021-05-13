@@ -16,7 +16,7 @@
   "NICKNAME": "sobrenome",
   "GET_GUILD": "encontre servidor %1 usando %2",
   "NAME": "nome",
-  "EDIT":"edita mensagem para %1",
+  "EDIT":"edita pergunta para %1",
   "REPLACE": "no texto %1 troque %2 com %3",
   "RES_REPLACE_STRING": "Você precisa me ta um texto para troca!",
   "RES_REPLACE_REPLACE": "Você precisa me fala oque você quer troca no texto!",
