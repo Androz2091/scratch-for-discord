@@ -32,7 +32,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const role = Blockly.JavaScript.valueToCode(block, "ROLE", Blockly.JavaScript.ORDER_ATOMIC);
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`${member}.roles.cache.has(${role})\n`, Blockly.JavaScript.ORDER_NONE ];
+    const code = [`${member}.roles.cache.find(r=> r.id === ${role}.id)\n`, Blockly.JavaScript.ORDER_NONE ];
     return code;
     
 };
