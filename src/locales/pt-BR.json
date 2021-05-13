@@ -137,6 +137,7 @@
   "TOOLBOX_SERVER": "Servers",
   "TOOLBOX_ROLES": "Cargos",
   "FIND_SERVER": "Encontre um servidor",
+
   "GET_SERVER": "encontre um servidor com %2 igual a %1",
   "RES_GET_SERVER_SERVER": "você precisa especifica um nome ou id de um servidor valido!",
   "LABEL_SERVER_INFOS": "Informações sobre o servidor",
@@ -197,7 +198,7 @@
   "BOT_INFORMATIONS": "Informação do bot",
   "BOT_ACTIONS": "Ações no bot",
   "RES_MISSING_GAME": "Você deve especificar um status para o bot!",
-  "SET_BOT_GAME": "definir o status customizado do bot para %1 tipo %2",
+  "SET_BOT_GAME": "definir o status do bot para %3 status customizado %1 tipo %2",
   "SET_BOT_STATUS":"definir o status to bot para %1",
   "BOT_SERVER_COUNT": "contagem de servidores bot",
   "TOOLBOX_E_JOINS": "Entradas",

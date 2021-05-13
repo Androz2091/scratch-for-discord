@@ -210,7 +210,7 @@
   "BOT_INFORMATIONS": "Bot Informations",
   "BOT_ACTIONS": "Actions on the bot",
   "RES_MISSING_GAME": "You must specify a custom status for the bot!",
-  "SET_BOT_GAME": "set bot custom status to %1 type %2",
+  "SET_BOT_GAME": "set bot status to %3 custom status %1 type %2",
   "SET_BOT_STATUS":"set bot status to %1",
   "MEMBER_ICON":"member profile picture %1",
   "DELETE_CHANNEL":"delete channel %1",
