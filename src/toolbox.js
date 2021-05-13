@@ -558,6 +558,7 @@ export default (Blockly) => {
             <block type="s4d_delete_role"></block>
             <block type="s4d_has_role"></block>
             <block type="s4d_create_role"></block>
+            <block type="s4d_set_role_perm"></block>
         </category> 
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
             <label text="%{BKY_FIND_MEMBER}"></label>
