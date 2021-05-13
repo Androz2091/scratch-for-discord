@@ -220,7 +220,7 @@
   "ON_MEMBER_LEAVE": "When a member leaves a server",
   "RELATED_TO_LEAVE_STRINGS": "Strings related to leave",
   "TOOLBOX_E_LEAVES": "Leaves",
-  "EDIT":"edit message to %1",
+  "EDIT":"edit reply to %1",
   "RES_MUST_BE_IN_ON_MEMBER_LEAVE": "This block may only be used in a \"When a member leaves a server\" event",
   "LEAVING_MEMBER_RAW": "%1 of the leaving member",
   "WAIT_SECONDS": "wait %1 seconds",
