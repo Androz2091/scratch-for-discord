@@ -98,7 +98,8 @@ export default {
                         },
                         dependencies: {
                             'discord.js': '^12.5.1',
-                            'easy-json-database': '^1.3.0'
+                            'easy-json-database': '^1.3.0',
+                            'canvas':'^2.7.0'
                         }
                     }));
                     zip.generateAsync({
