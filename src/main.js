@@ -45,7 +45,7 @@ const i18n = new Vuei18n({
 });
 
 import toolbox from "./toolbox";
-import Theme from '@blockly/theme-modern';
+import Theme from '@blockly/theme-dark';
 
 Vue.mixin({
     methods: {
