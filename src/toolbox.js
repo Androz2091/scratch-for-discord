@@ -542,6 +542,7 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
             <label text="%{BKY_FIND_CHANNEL}"></label>
             <block type="s4d_get_channel"></block>
+            <block type="s4d_get_main_channel"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
             <block type="s4d_send_channel"></block>
             <label text="%{BKY_FORMS}"></label>

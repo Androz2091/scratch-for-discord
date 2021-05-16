@@ -115,6 +115,7 @@
   "WAIT_REACT_EMOJI_NAME":"nome do emoji",
   "MANDATORY_BLOCKS": "Blocos obrigatorios",
   "FIND_CHANNEL": "Encontre um canal",
+  "GET_MAIN_CHANNEL":"pega o canal principal do servidor %1",
   "REPLY_THEN":"envia resposta %1 ai %2",
   "EDIT":"edita pergunta para %1",
   "REPLY_ADD_REACTION":"adiciona reação %1 para a resposta",
