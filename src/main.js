@@ -120,6 +120,7 @@ Vue.mixin({
             return `
                 let Discord;
                 let Database;
+                let moment = require('moment')
                 if(typeof window !== "undefined"){
                     Discord = DiscordJS;
                     Database = EasyDatabase;

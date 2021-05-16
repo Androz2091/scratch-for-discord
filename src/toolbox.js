@@ -399,6 +399,7 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_eval"></block>
         </category>
         <sep />
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
@@ -417,6 +418,7 @@ export default (Blockly) => {
             <block type="s4d_bot_server_count"></block>
             <label text="%{BKY_BOT_ACTIONS}"></label>
             <block type="s4d_set_bot_game"></block>
+            <block type="s4d_get_bot"></block>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -516,6 +518,16 @@ export default (Blockly) => {
             <block type="s4d_react_emoji"></block>
             <block type="s4d_react_member"></block>
         </category>
+        <category name="{{ TOOLBOX_E_DELETED }}" colour="#d96e26">
+           <label text="%{BKY_DELETED_RELATED_BLOCKS}" web-class="boldtext"></label>
+           <label text="%{BKY_DELETED_EVENT}"></label>
+           <block type="s4d_on_deleted"></block>
+           <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
+           <block type="s4d_message_content_deleted"></block>
+           <block type="s4d_message_server_deleted"></block>
+           <block type="s4d_message_channel_deleted"></block>
+           <block type="s4d_message_author_deleted"></block>
+        </category>
         <category name="{{ TOOLBLOX_E_ADDED }}" colour="#0000cc">
         <label text="%{BKY_ADDED_RELATED_BLOCKS}" web-class="boldtext"></label>
         <label text="%{BKY_DETECT_ADDED}"></label>
@@ -530,6 +542,8 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>
             <block type="s4d_get_server"></block>
+            <block type="s4d_get_all_server"></block>
+            <block type="s4d_get_all_server_server"></block>
             <label text="%{BKY_LABEL_SERVER_INFOS}"></label>
             <block type="s4d_server_name"></block>
             <block type="s4d_member_count"></block>
@@ -543,6 +557,8 @@ export default (Blockly) => {
             <label text="%{BKY_FIND_CHANNEL}"></label>
             <block type="s4d_get_channel"></block>
             <block type="s4d_get_main_channel"></block>
+            <block type="s4d_get_all_channel"></block>
+            <block type="s4d_get_all_channel_channel"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
             <block type="s4d_send_channel"></block>
             <label text="%{BKY_FORMS}"></label>
@@ -576,6 +592,8 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
             <label text="%{BKY_FIND_ROLE}"></label>
             <block type="s4d_get_role"></block>
+            <block type="s4d_get_all_role"></block>
+            <block type="s4d_get_all_role_role"></block>
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
             <block type="s4d_add_role"></block>
             <block type="s4d_remove_role"></block>
@@ -587,21 +605,28 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
+            <block type="s4d_get_all"></block>
+            <block type="s4d_get_all_member"></block>
             <label text="%{BKY_MEMBER_INFORMATIONS}"></label>
             <block type="s4d_member_id"></block>
             <block type="s4d_member_discriminator"></block>
             <block type="s4d_member_tag"></block>
             <block type="s4d_member_username"></block>
             <block type="s4d_member_icon"></block>
+            <block type="s4d_joined_at"></block>
+            <block type="s4d_created_at"></block>
             <block type="s4d_member_has_permission"></block>
             <block type="s4d_member_is_bot"></block>
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
-
+            <block type="s4d_unban_member"></block>
             <block type="s4d_send_member"></block>
 
             <block type="s4d_set_member_nickname"></block>
+            <label text="%{BKY_FORMS}"></label>
+            <block type="s4d_send_wait_reply_dm"></block>
+            <block type="s4d_send_wait_reply_dm_value"></block>
         </category>
         <sep />
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">

@@ -5,3 +5,5 @@ import "./delete_role";
 import "./has_role";
 import "./create_role";
 import "./set_role_permission";
+import "./get_all_roles_then";
+import "./get_all_roles_then_roles";
