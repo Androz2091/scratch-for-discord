@@ -88,6 +88,7 @@ export default {
             const Momentl = require('moment')
             this.botStarting = true;
             //const result = new Promise(resolve => resolve(eval(this.getWorkspaceCode())));
+            console.log(this.getWorkspaceCode())
             eval(`${this.getWorkspaceCode()}`).then((s4d) => {
                 setTimeout(() => {
                     if(s4d.tokenInvalid){
