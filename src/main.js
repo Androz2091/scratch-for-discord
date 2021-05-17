@@ -120,13 +120,15 @@ Vue.mixin({
             return `
                 let Discord;
                 let Database;
-                let moment = require('moment')
+                let moment;
                 if(typeof window !== "undefined"){
                     Discord = DiscordJS;
                     Database = EasyDatabase;
+                    moment = Momentl;
                 } else {
                     Discord = require("discord.js");
                     Database = require("easy-json-database");
+                    moment = require('moment');
                 }
                 const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
