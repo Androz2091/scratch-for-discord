@@ -118,18 +118,20 @@ Vue.mixin({
         getWorkspaceCode(){
             if(!this.$store.state.workspace) return "";
             return `
-                let Discord;
-                let Database;
-                let moment;
-                if(typeof window !== "undefined"){
-                    Discord = DiscordJS;
-                    Database = EasyDatabase;
-                    moment = Momentl;
-                } else {
-                    Discord = require("discord.js");
-                    Database = require("easy-json-database");
-                    moment = require('moment');
-                }
+                let Discord =  require("discord.js");
+                let Database= require("easy-json-database");
+                let moment= require('moment');
+               /*
+               if(typeof window !== "undefined"){
+                Discord = DiscordJS;
+                Database = EasyDatabase;
+                moment = Momentl;
+            } else {
+                Discord = require("discord.js");
+                Database = require("easy-json-database");
+                moment = require('moment');
+            }
+               */
                 const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
                     Discord,
