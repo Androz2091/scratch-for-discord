@@ -1,6 +1,6 @@
 <template>
     <b-modal id="run-modal" hide-footer :title="$t('run_modal.title')">
-        <div class="d-block">
+        <div class="d-block"> 
             <b-container>
                 <b-row v-if="!electronApp">
                     <i18n path="run_modal.disabled" tag="h5">
@@ -85,7 +85,7 @@ export default {
             /* eslint-disable no-undef */
             const DiscordJS = Discord;
             const EasyDatabase = Database;
-            const Momentj = momenl
+            const Momentl = moment
             this.botStarting = true;
             const result = new Promise(resolve => resolve(eval(this.getWorkspaceCode())));
             result.then((s4d) => {
