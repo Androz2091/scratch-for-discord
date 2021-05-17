@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import Blocklylua from "blockly/lua";
+import Blockly from "blockly/core"
 
 const blockName = "s4d_forever";
 
@@ -28,10 +29,9 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     return `
-        while(s4d.client && s4d.client.token) {
-            await delay(50);
-            ${Blockly.JavaScript.statementToCode(block, 'STATEMENT')}
-            console.log('ran')
+        while(true) {
+            wait();
+            ${Blocklylua.statementToCode(block, 'STATEMENT')}
         }
     `;
 };

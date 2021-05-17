@@ -12,11 +12,11 @@ export const websiteMessages = {
     untitled: "Untitled document",
     help: "Help",
     load: {
-        error: "The uploaded file is corrupted and cannot be loaded by Scratch For Discord..."
+        error: "The uploaded file is corrupted and cannot be loaded by Scratch For Roblox Studio..."
     },
     file: {
         title: "File",
-        javascript: "Export to Javascript",
+        javascript: "Export to Lua",
         open: "Open a file...",
         save: "Save"
     },
@@ -81,7 +81,7 @@ export const websiteMessages = {
         here: "here"
     },
     code_modal: {
-        title: "JavaScript code of your bot"
+        title: "Lua code"
     }
 };
 

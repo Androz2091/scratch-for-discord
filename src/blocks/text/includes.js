@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import Blocklylua from "blockly/lua";
+import Blockly from "blockly/core"
 import { registerRestrictions } from "../../restrictions";
 
 const blockName = "s4d_includes";
@@ -30,9 +31,9 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
-    const includes = Blockly.JavaScript.valueToCode(block, "INCLUDES", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`String(${text}).includes(String(${includes}))`, Blockly.JavaScript.ORDER_NONE];
+    const text = Blocklylua.valueToCode(block, "TEXT", Blocklylua.ORDER_ATOMIC);
+    const includes = Blocklylua.valueToCode(block, "INCLUDES", Blocklylua.ORDER_ATOMIC);
+    const code = [`string.find(${text},${includes})`, Blocklylua.ORDER_NONE];
     
     return code;
 };

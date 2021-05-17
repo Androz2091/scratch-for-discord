@@ -16,18 +16,6 @@ Blockly.Tooltip.HOVER_MS = 100;
 
 // Load blocks
 
-import "./blocks/discord/base/";
-import "./blocks/discord/message-event/";
-import "./blocks/discord/join-event/";
-import "./blocks/discord/leave-event/";
-import "./blocks/discord/reaction-event/";
-
-import "./blocks/discord/channels/";
-import "./blocks/discord/servers/";
-import "./blocks/discord/roles/";
-import "./blocks/discord/members/";
-
-import "./blocks/database/";
 import "./blocks/text/";
 import "./blocks/loops/";
 import "./blocks/other/";
