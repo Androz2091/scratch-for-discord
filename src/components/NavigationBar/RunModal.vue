@@ -87,7 +87,8 @@ export default {
             const EasyDatabase = Database;
             const Momentl = require('moment')
             this.botStarting = true;
-            const result = new Promise(resolve => resolve(eval(this.getWorkspaceCode())));
+            let code = this.getWorkspaceCode()
+            const result = new Promise(resolve => resolve(eval(code)));
             result.then((s4d) => {
                 setTimeout(() => {
                     if(s4d.tokenInvalid){
