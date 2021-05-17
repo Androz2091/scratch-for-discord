@@ -137,6 +137,7 @@
   "RES_INCLUDES_TEXT":"You must give me a text to see if that includes something!",
   "RES_INCLUDES_INCLUDES":"You must give me a text to see if in the other text includes that!",
   "NEWLINE": "new line",
+  "RES_SET_SERVER_NAME_NEW_NICKNAME": "You must specify a new valid name for the server!",
   "REACTION_WAIT_ADDED_REACTION":"wait for reaction of member %1 during (minutes) %2 when reaction is added %3",
   "RES_REACT_NO_MEMBER":"You must specify a valid member!",
   "FIND_CHANNEL": "Find a channel",
