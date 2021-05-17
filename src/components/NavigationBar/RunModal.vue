@@ -85,7 +85,7 @@ export default {
             /* eslint-disable no-undef */
             const DiscordJS = Discord;
             const EasyDatabase = Database;
-            const Momentl = moment
+            const Momentl = require('moment')
             this.botStarting = true;
             const result = new Promise(resolve => resolve(eval(this.getWorkspaceCode())));
             result.then((s4d) => {
