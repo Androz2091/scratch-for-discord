@@ -7,7 +7,7 @@ const blockData = {
     "message0": "%{BKY_MENTIONED_CHANNEL}",
     "colour": "#187795",
     "tooltip": "",
-    "output": "Member",
+    "output": "Channel",
     "helpUrl": ""
 };
 
