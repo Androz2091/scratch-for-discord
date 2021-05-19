@@ -429,6 +429,7 @@ export default (Blockly) => {
             <block type="s4d_message_id"></block>
             <block type="s4d_message_author"></block>
             <block type="s4d_mentioned_member"></block>
+            <block type="s4d_mentioned_channel"></block>
             <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
             <block type="s4d_message_channel"></block>
             <block type="s4d_message_guild"></block>
@@ -486,6 +487,17 @@ export default (Blockly) => {
             <block type="s4d_reply_id"></block>
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
+            <label text="%{BKY_EMBED}"></label>
+            <block type="s4d_create_embed_then"></block>
+            <block type="s4d_create_embed_then_send"></block>
+            <block type="s4d_create_embed_then_set_color"></block>
+            <block type="s4d_create_embed_then_set_title"></block>
+            <block type="s4d_create_embed_then_set_author"></block>
+            <block type="s4d_create_embed_then_set_description"></block>
+            <block type="s4d_create_embed_then_set_thumbnail"></block>
+            <block type="s4d_create_embed_then_add_field"></block>
+            <block type="s4d_create_embed_then_set_image"></block>
+            <block type="s4d_create_embed_then_set_footer"></block>
         </category>
         <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
