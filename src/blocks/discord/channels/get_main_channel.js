@@ -12,7 +12,7 @@ const blockData = {
         }
     ],
     "colour": "#a55b80",
-    "output": "Channel",
+    "output": "String",
     "tooltip": "",
     "helpUrl": ""
 };
