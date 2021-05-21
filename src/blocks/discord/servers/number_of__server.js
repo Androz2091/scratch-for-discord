@@ -58,7 +58,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const type = block.getFieldValue("OF_THIS");
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    var code;
+    var code = "0";
     if(type === "BOT"){
         code = `${server}.members.cache.filter(m => m.bot).size`
     }else if(type === "MEMBERS"){

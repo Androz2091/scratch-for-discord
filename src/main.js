@@ -155,6 +155,7 @@ Vue.mixin({
                             return channelID.id
                         }
                     }
+                    return null
                 }
                 s4d.client.on('raw', async (packet) => {
                     if(['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)){
