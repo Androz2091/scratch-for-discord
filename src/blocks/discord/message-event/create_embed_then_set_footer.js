@@ -8,7 +8,7 @@ const blockData = {
     "args0": [
         {
             "type":"input_value",
-            "name":"FIELD",
+            "name":"FOOTER",
             "check":"String"
         },
         {
@@ -20,6 +20,7 @@ const blockData = {
     "colour": "#4C97FF",
     "previousStatement": null,
     "nextStatement": null,
+    "inputsInline": true,
     "tooltip": "",
     "helpUrl": ""
 };
@@ -31,9 +32,9 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
-    const field = Blockly.JavaScript.valueToCode(block, "FIELD", Blockly.JavaScript.ORDER_ATOMIC);
-    const fieldimage = Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `embed.setField(${field},${fieldimage});\n`;
+    const footer = Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC);
+    const footerimage = Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `embed.setFooter(${footer},${footerimage});\n`;
     return code;
 };
 

@@ -1,18 +1,18 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "s4d_get_bot";
+const blockName = "s4d_server_created_at";
 
 const blockData = {
-    "message0": "%{BKY_GET_BOT}",
+    "message0": "%{BKY_SERVER_CREATED_AT}",
     "args0": [
         {
             "type": "input_value",
             "name": "SERVER",
             "check": "Server"
-        }
+        },
     ],
-    "colour": "#5b67a5",
-    "output": "Member",
+    "colour": "#e07e6c",
+    "output": "String",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -25,5 +25,5 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${server}.members.cache.find((m) => m.id === s4d.client.user.id)`, Blockly.JavaScript.ORDER_NONE ];
+    return [ `moment(${server}.createdAt).format('LLLL')`, Blockly.JavaScript.ORDER_NONE ];
 };

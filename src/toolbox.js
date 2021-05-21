@@ -416,9 +416,9 @@ export default (Blockly) => {
             <label text="%{BKY_BOT_INFORMATIONS}"></label>
             <block type="s4d_bot_ping"></block>
             <block type="s4d_bot_server_count"></block>
+            <block type="s4d_get_bot"></block>
             <label text="%{BKY_BOT_ACTIONS}"></label>
             <block type="s4d_set_bot_game"></block>
-            <block type="s4d_get_bot"></block>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -562,6 +562,8 @@ export default (Blockly) => {
             <block type="s4d_icon_url"></block>
             <block type="s4d_boost_level"></block>
             <block type="s4d_server_owner"></block>
+            <block type="s4d_number_of__server"></block>
+            <block type="s4d_server_created_at"></block>
             <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
             <block type="s4d_set_server_name"></block>
         </category>
