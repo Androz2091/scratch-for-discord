@@ -60,17 +60,17 @@ Blockly.JavaScript[blockName] = function(block){
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     var code;
     if(type === "BOT"){
-        code = `${server}.members.cache.map(m => m.bot).size`
+        code = `${server}.members.cache.filter(m => m.bot).size`
     }else if(type === "MEMBERS"){
-        code = `${server}.members.cache.map(m => !m.bot).size`
+        code = `${server}.members.cache.filter(m => !m.bot).size`
     }else if(type === "CHANNELS"){
         code = `${server}.channels.cache.size`
     }else if(type === "ROLES"){
         code = `${server}.roles.cache.size`
     }else if(type === "VOICE"){
-        code = `${server}.channels.cache.map(m => m.type === "voice").size`
+        code = `${server}.channels.cache.filter(m => m.type === "voice").size`
     }else if(type === "TEXT"){
-        code = `${server}.channels.cache.map(m=>m.type === "text").size`
+        code = `${server}.channels.cache.filter(m=>m.type === "text").size`
     }
     return [ code , Blockly.JavaScript.ORDER_NONE ];
 };

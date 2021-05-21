@@ -152,7 +152,7 @@ Vue.mixin({
                     for (let in channels) {
                         if (channels[i].type === "text" && channels[i].permissionsFor(guild.me).has('SEND_MESSAGES')) {
                             channelID = channels[i]
-                            return channelID
+                            return channelID.id
                         }
                     }
                 }

@@ -139,7 +139,7 @@
   "WAIT_REACT_EMOJI_NAME":"nome do emoji",
   "MANDATORY_BLOCKS": "Blocos obrigatorios",
   "FIND_CHANNEL": "Encontre um canal",
-  "GET_MAIN_CHANNEL":"pega o canal principal do servidor %1",
+  "GET_MAIN_CHANNEL":"pega o id do canal principal do servidor %1",
   "GET_ALL":"no servidor %1 pegue todos os membros ai %2",
   "GET_ALL_MEMBER":"membro",
   "REPLY_THEN":"envia resposta %1 ai %2",

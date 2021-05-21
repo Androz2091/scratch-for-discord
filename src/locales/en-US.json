@@ -99,7 +99,7 @@
   "REPLY_DELETE":"delete reply",
   "REPLY_THEN":"send reply %1 then %2",
   "EDIT":"edit reply to %1",
-  "GET_MAIN_CHANNEL":"get main channel in server %1",
+  "GET_MAIN_CHANNEL":"get main channel id in server %1",
   "DURING_HOURS": "during",
   "MESSAGE_CONTENT_DELETED":"message content",
   "WITH_REASON": "for the reason",
