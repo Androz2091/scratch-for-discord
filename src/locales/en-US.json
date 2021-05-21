@@ -259,7 +259,7 @@
   "BOT_INFORMATIONS": "Bot Informations",
   "BOT_ACTIONS": "Actions on the bot",
   "BOT":"bot",
-  "NUMBER_OF__SERVER":"number of %2 in server $1",
+  "NUMBER_OF__SERVER":"number of %2 in server %1",
   "CHANNELS":"channels",
   "ROLES":"roles",
   "VOICE_CHANNEL":"voice channel",
