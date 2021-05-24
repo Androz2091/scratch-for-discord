@@ -1,54 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans" />
-    <style>
-        body {
-            font-family: "PT Sans";
-        }
-        table {
-            width: 100%;
-        }
-        th,
-        td {
-            width: 33%;
-        }
-        thead,
-        tfoot {
-            background-color: #333;
-            color: #fff;
-        }
-    </style>
-    <title>Scratch For Discord App</title>
-</head>
-<body>
-    <h1>Scratch For Discord Apps</h1>
-    <h2>The official website to download latest Scratch For Discord Apps</h2>
-    <p>The source code of the apps is available on <a href="https://github.com/Androz2091/scratch-for-discord">GitHub</a></p>
-    <h2>Windows</h2>
-    <a id="win32">Download latest (win32)</a>
-    <h2>MacOS</h2>
-    <a id="macos-x64">Download latest (x64)</a><br>
-    <a id="macos-arm64">Download latest (arm64 m1 version)</a>
-    <h2>Linux</h2>
-    <a id="linux-x64">Download latest</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Scratch For Discord</title>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
-    <script>
-        axios('https://api.github.com/repos/DevSnowflake/scratch-for-discord-app/releases').then((response) => {
-            const latestRelease = response.data[0];
-            const windowsFile = latestRelease.assets.find((a) => a.name.includes('win32')).browser_download_url;
-            const macOS = latestRelease.assets.find((a) => a.name.includes('macos-x64')).browser_download_url;
-            const macOSM1 = latestRelease.assets.find((a) => a.name.includes('macos-arm64')).browser_download_url;
-            const linux = latestRelease.assets.find((a) => a.name.includes('linux-x64')).browser_download_url;
-            document.querySelector('#win32').href = windowsFile;
-            document.querySelector('#macos-x64').href = macOS;
-            document.querySelector('#macos-arm64').href = macOSM1;
-            document.querySelector('#linux-x64').href = linux;
-        });
-    </script>
-</body>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+        <style>
+            :root {
+                --light: white;
+                --dark: #18181b;
+                --special: #ffc61b;
+            }
+        
+            * {
+                margin: 0;
+                padding: 0;
+            }
+        
+            html,
+            body,
+            main {
+                width: 100%;
+                font-family: "Poppins", sans-serif;
+                background-color: var(--dark);
+                color: var(--light);
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            main>* {
+                max-width: 80%;
+            }
+        
+            .special {
+                color: var(--special);
+            }
+        
+            .dull {
+                opacity: 0.6;
+            }
+        
+            .center {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        
+            .noselect {
+                -webkit-user-select: none;
+                user-select: none;
+            }
+        
+            .btn {
+                margin-top: 0.3rem;
+                background-color: var(--special);
+                color: var(--dark);
+                height: 2.5rem;
+                width: 7rem;
+                border: none;
+                border-radius: 0.2rem;
+                cursor: pointer;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 1rem;
+                transition: 0.3s;
+            }
+        
+            .btn:hover {
+                opacity: 0.8;
+            }
+
+            .disabled {
+                cursor: not-allowed !important;
+                opacity: 0.8;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <img src="./icon.png" class="center noselect" height="150px" width="150px" draggable="false" />
+            <h1 class="special">Scratch For Discord</h1>
+
+            <p class="dull" id="status" style="margin-top: 0.4rem; font-size: 0.9rem">🐱Create your own Discord Bot easily using Scratch-styled blocks!</p>
+        
+            <h1 class="special" style="margin-top:3rem;">Desktop</h1>
+            <div class="center">
+                <a id="win"><button class="btn">Windows</button></a>
+                <a id="mac"><button class="btn">MacOS</button></a>
+                <a id="linux"><button class="btn">Linux</button></a>
+            </div>
+
+            <h1 class="special" style="margin-top:3rem;">Mobile</h1>
+            <div class="center">
+                <a href="https://play.google.com/store/apps/details?id=com.snowflakestudio.scratchfordiscord">
+                    <button class="btn">Android</button>
+                </a>
+                <a>
+                    <button class="btn disabled" title="This version is not available">IOS</button>
+                </a>
+            </div>
+
+            <h1 class="special" style="margin-top:3rem;">Web Version</h1>
+            <div class="center">
+                <a href="https://scratch-for-discord.netlify.app">
+                    <button class="btn">Website</button>
+                </a>
+            </div>
+        </main>
+
+        <script>
+            const win = document.getElementById("win");
+            const mac = document.getElementById("mac");
+            const linux = document.getElementById("linux");
+
+            fetch("https://api.github.com/repositories/320868050/releases/latest")
+                .then(res => res.json())
+                .then(data => {
+                    win.href = data.assets.find(x => x.name.includes(".exe")).browser_download_url;
+                    win.title = `Downloads: ${data.assets.find(x => x.name.includes(".exe")).download_count} | Size: ${(data.assets.find(x => x.name.includes(".exe")).size / 1024 / 1024).toFixed(1)}MB`;
+
+                    mac.href = data.assets.find(x => x.name.includes(".dmg")).browser_download_url;
+                    mac.title = `Downloads: ${data.assets.find(x => x.name.includes(".dmg")).download_count} | Size: ${(data.assets.find(x => x.name.includes(".dmg")).size / 1024 / 1024).toFixed(1)}MB`;
+                    
+                    linux.href = data.assets.find(x => x.name.includes(".AppImage")).browser_download_url;
+                    linux.title = `Downloads: ${data.assets.find(x => x.name.includes(".AppImage")).download_count} | Size: ${(data.assets.find(x => x.name.includes(".AppImage")).size / 1024 / 1024).toFixed(1)}MB`;
+                })
+                .catch((e) => {
+                    win.href = "https://github.com/scratch-for-discord/scratch-for-discord-app/releases/download/v1.2.0/Scratch-For-Discord-Setup-1.2.0.exe";
+                    mac.href = "https://github.com/scratch-for-discord/scratch-for-discord-app/releases/download/v1.2.0/Scratch-For-Discord-1.2.0.dmg";
+                    linux.href = "https://github.com/scratch-for-discord/scratch-for-discord-app/releases/download/v1.2.0/Scratch-For-Discord-1.2.0.AppImage";
+                });
+        </script>
+    </body>
 </html>
