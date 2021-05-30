@@ -61,7 +61,7 @@ Blockly.JavaScript[blockName] = function(block){
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
         if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            code = `${channel}.send({embed:${content}});\n`;
+            code = `${channel}.send(${content});\n`;
         } else {
             code = `${channel}.send(String(${content}));\n`;
         }
