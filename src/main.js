@@ -120,7 +120,6 @@ Vue.mixin({
             return `
                 let Discord;
                 let Database;
-                let disbut;
                 let moment;
                 if(typeof window !== "undefined"){
                     Discord = DiscordJS;
@@ -130,7 +129,6 @@ Vue.mixin({
                     Discord = require("discord.js");
                     Database = require("easy-json-database");
                     moment = require('moment');
-                    disbut = require('discord-buttons')(client);
                 }
                 const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
