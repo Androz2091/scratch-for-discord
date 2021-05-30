@@ -18,6 +18,7 @@
     "blockly": "^4.20201217.0",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
+    "discord-buttons": "^2.4.1",
     "easy-json-database-browser": "^2.1.0",
     "js-beautify": "^1.13.5",
     "jszip": "^3.6.0",

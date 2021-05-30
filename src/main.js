@@ -120,6 +120,7 @@ Vue.mixin({
             return `
                 let Discord;
                 let Database;
+                let disbut;
                 let moment;
                 if(typeof window !== "undefined"){
                     Discord = DiscordJS;
@@ -129,6 +130,7 @@ Vue.mixin({
                     Discord = require("discord.js");
                     Database = require("easy-json-database");
                     moment = require('moment');
+                    disbut = require('discord-buttons')(client);
                 }
                 const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
@@ -138,6 +140,8 @@ Vue.mixin({
                     reply: null,
                     joiningMember: null,
                     database: new Database("./db.json"),
+                    disbut:require('discord-buttons'),
+                    disbut: null,
                     checkMessageExists() {
                         if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                         if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
@@ -146,6 +150,7 @@ Vue.mixin({
                 s4d.client = new s4d.Discord.Client({
                     fetchAllMembers: true
                 });
+                require('discord-buttons')(s4d.client);
                 function mainchannel(guild){
                     let channelID;
                     let channels = guild.channels.cache;

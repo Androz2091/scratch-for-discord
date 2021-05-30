@@ -54,14 +54,14 @@ Blockly.JavaScript[blockName] = function(block){
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
         if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            code = `let msg = await ${member}.send(${content});\n`;
+            code = ` ${member}.send({embed:${content}}).then(msg =>{\n`;
         } else {
-            code = `let msg = await${member}.send(String(${content}));\n`;
+            code = `${member}.send(String(${content})).then(msg =>{\n`;
         }
     } else {
-        code = `let msg = await${member}.send(String(${content}));\n`;
+        code = `${member}.send(String(${content})).then(msg =>{\n`;
     }
-    code += `msg.channel.awaitMessages((m) => m.author.id === ${member}.id, { time: (${time}*60*1000), max: 1 }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} });`;
+    code += `msg.channel.awaitMessages(response => response.content, { time: (${time}*60*1000), max: 1,errors: ['time'] }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} })\n});\n`;
     return code;
 };
 

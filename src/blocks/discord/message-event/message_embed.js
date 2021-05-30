@@ -91,18 +91,11 @@ Blockly.Extensions.registerMutator("s4d_message_embed_mutator", BORDER_MUTATOR_M
 
 Blockly.JavaScript["s4d_message_embed"] = function(block){
     return [ `
-        {
-            embed: {
-                title: ${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC) || null},
-                color: ${Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC) || null},
-                image: { url: ${Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC) || null} }, 
-
-                description: ${Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC) || null},
-                footer: { text: ${Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC) || null} },
-                thumbnail: { url: ${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC) || null} }
-
-
-            }
-        }
+        title: ${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC) || null},
+        color: ${Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC) || null},
+        image: { url: ${Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC) || null} }, 
+        description: ${Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC) || null},
+        footer: { text: ${Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC) || null} },
+        thumbnail: { url: ${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC) || null} }   
     `, Blockly.JavaScript.ORDER_ATOMIC ];
 };
