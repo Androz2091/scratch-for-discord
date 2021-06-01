@@ -130,6 +130,7 @@ Vue.mixin({
                     Database = require("easy-json-database");
                     moment = require('moment');
                 }
+                const { MessageButton, MessageActionRow } = require("discord-buttons")
                 const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
                     Discord,
@@ -138,8 +139,6 @@ Vue.mixin({
                     reply: null,
                     joiningMember: null,
                     database: new Database("./db.json"),
-                    disbut:require('discord-buttons'),
-                    disbut: null,
                     checkMessageExists() {
                         if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                         if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')

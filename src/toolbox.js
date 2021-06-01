@@ -550,6 +550,20 @@ export default (Blockly) => {
         <block type="s4d_add_server_icon"></block>
         <block type="s4d_add_server_owner"/>
         </category>
+        <category name="{{ TOOLBOX_BUTTON }}" colour="#059CA1">
+            <label text="%{BKY_BUTTON_EVENT}"></label>
+            <block type="s4d_on_click"></block>
+            <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
+            <block type="s4d_button_click_member"></block>
+            <block type="s4d_button_click_channel"></block>
+            <block type="s4d_button_click_guild"></block>
+            <block type="s4d_button_click_id"></block>
+            <block type="s4d_button_think"></block>
+            <block type="s4d_button_reply"></block>
+            <label text="%{BKY_BUTTON_BLOCKS}"></label>
+            <block type="s4d_send_button"></block>
+            <block type="s4d_message_block"></block>
+        </category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>
