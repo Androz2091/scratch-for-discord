@@ -110,6 +110,7 @@
   "RES_SEND_WAIT_REPL_DM_VALUE_PARENT":"This block may only be used in a \"send in user dm\" bl",
   "RES_MUST_BE_CREATE_EMBED_THEN":"This block may only be used in a \"create embed\" bl!",
   "JOINED_AT":"member joined date %1",
+  "LEAVE_SERVER":"leave server %1",
   "CREATE_EMBED_THEN_SEND":"send embed",
   "CREATE_EMBED_THEN_SET_COLOR":"set embed color %1",
   "CREATE_EMBED_THEN_SET_TITLE":"set embed title %1",

@@ -578,6 +578,7 @@ export default (Blockly) => {
             <block type="s4d_server_owner"></block>
             <block type="s4d_number_of__server"></block>
             <block type="s4d_server_created_at"></block>
+            <block type="s4d_leave_server"></block>
             <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
             <block type="s4d_set_server_name"></block>
         </category>

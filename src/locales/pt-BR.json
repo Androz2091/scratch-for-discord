@@ -136,6 +136,7 @@
   "GET_ALL_CHANNEL":"pega todos os canais no servido %1 ai %2",
   "WAIT_REACT_EMOJI_ID":"id do emoji",
   "GET_ALL_CHANNEL_CHANNEL":"canal",
+  "LEAVE_SERVER":"sai do servidor %1",
   "CREATE_ROLE":"criar cargo no servidor %2 com o nome %1 com cor %3",
   "WAIT_REACT_EMOJI_NAME":"nome do emoji",
   "MANDATORY_BLOCKS": "Blocos obrigatorios",
