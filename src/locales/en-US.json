@@ -149,6 +149,7 @@
   "INCLUDES":"%1 includes %2",
   "RES_INCLUDES_TEXT":"You must give me a text to see if that includes something!",
   "RES_INCLUDES_INCLUDES":"You must give me a text to see if in the other text includes that!",
+  "OTHERS":"other",
   "NEWLINE": "new line",
   "CREATE_EMBED_THEN":"create new embed %2 then %1",
   "MENTIONED_CHANNEL":"mentioned channel",
