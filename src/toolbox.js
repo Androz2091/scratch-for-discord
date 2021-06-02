@@ -562,6 +562,7 @@ export default (Blockly) => {
             <block type="s4d_button_reply"></block>
             <label text="%{BKY_BUTTON_BLOCKS}"></label>
             <block type="s4d_send_button"></block>
+            <block type="s4d_button_style"></block>
             <block type="s4d_message_block"></block>
         </category>
         <sep />

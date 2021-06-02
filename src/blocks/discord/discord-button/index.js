@@ -7,3 +7,4 @@ import "./clicker-guild";
 import "./button-id";
 import "./button_think";
 import "./button-reply";
+import "./button_style";
