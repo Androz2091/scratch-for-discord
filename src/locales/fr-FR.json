@@ -190,7 +190,7 @@
     "BOT_INFORMATIONS": "Informations about the bot",
     "BOT_ACTIONS": "Actions sur le bot",
     "RES_MISSING_GAME": "Vous devez préciser un jeu pour le bot !",
-    "SET_BOT_GAME": "définir le jeu du bot à %1",
+    "SET_BOT_GAME": "custom status %1 type %2 status %3 ",
     "BOT_SERVER_COUNT": "nombre de serveurs du bot",
     "TOOLBOX_E_JOINS": "Arrivées",
     "TOOLBOX_E_MESSAGES": "Messages",
