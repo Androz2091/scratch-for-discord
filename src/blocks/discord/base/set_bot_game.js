@@ -47,6 +47,10 @@ const blockData = {
                 [
                     "%{BKY_DND}",
                     "dnd"
+                ],
+                [
+                    "%{BKY_INVIS}",
+                    "invisible"
                 ]
             ]
         },
