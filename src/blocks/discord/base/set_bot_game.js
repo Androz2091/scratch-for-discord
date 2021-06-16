@@ -34,7 +34,7 @@ const blockData = {
         },
         {
             "type": "field_dropdown",
-            "name": "OIFD",
+            "name": "STATUS",
             "options": [
                 [
                     "%{BKY_ONLINE}",
@@ -72,8 +72,8 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const type = block.getFieldValue("TYPE");
     const game = Blockly.JavaScript.valueToCode(block, "GAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const OIFD = block.getFieldValue("OIFD");
-    const code = `s4d.client.user.setPresence({status: "${OIFD}",activity:{name:${game},type:"${type}"}});; \n`;
+    const status = block.getFieldValue("STATUS");
+    const code = `s4d.client.user.setPresence({status: "${status}",activity:{name:${game},type:"${type}"}});; \n`;
     return code;
 };
 
