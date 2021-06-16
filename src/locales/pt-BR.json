@@ -186,7 +186,7 @@
     "BOT_INFORMATIONS": "Informação do bot",
     "BOT_ACTIONS": "Ações no bot",
     "RES_MISSING_GAME": "Você deve especificar um jogo para o bot!",
-    "SET_BOT_GAME": "definir o jogo de bot para %1",
+    "SET_BOT_GAME": "custom status %1 type %2 status %3 ",
     "BOT_SERVER_COUNT": "contagem de servidores bot",
     "TOOLBOX_E_JOINS": "Entradas",
     "TOOLBOX_E_MESSAGES": "Mensagems",
