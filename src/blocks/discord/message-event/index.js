@@ -13,3 +13,8 @@ import "./message_guild_raw";
 import "./on_message";
 import "./reply";
 import "./purge";
+import "./send_reply_then";
+import "./send_reply_then_edit";
+import "./send_reply_then_delete";
+import "./send_reply_then_add_reaction";
+import "./send_reply_then_reply_id";
