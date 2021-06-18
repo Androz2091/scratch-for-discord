@@ -12,11 +12,11 @@ export const websiteMessages = {
     untitled: "Documento sem nome",
     help: "Ajuda",
     load: {
-        error: "O arquivo enviado está corrompido e não pode ser carregado pelo Scratch For Discord..."
+        error: "O arquivo enviado está corrompido e não pode ser carregado pelo Scratch For Roblox Studio..."
     },
     file: {
         title: "Arquivo",
-        javascript: "Exporta para javascirpt",
+        javascript: "Exporta para Lua",
         open: "abrir arquivo...",
         save: "Salva"
     },
@@ -81,7 +81,7 @@ export const websiteMessages = {
         here: "aqui"
     },
     code_modal: {
-        title: "Código JavaScript do seu bot"
+        title: "Código Lua"
     }
 };
 

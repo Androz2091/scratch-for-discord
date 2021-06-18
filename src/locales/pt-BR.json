@@ -208,6 +208,7 @@
   "LEAVING_MEMBER_INFORMATIONS": "Informações sobre o membro",
   "LEAVES_RELATED_BLOCKS": "Bloqueios relacionados às saídas de membros",
   "ON_MEMBER_LEAVE": "Quando um membro sai de um servidor",
+  "NEW_SCRIPT":"novo script",
   "RELATED_TO_LEAVE_STRINGS": "Strings relacionados a saida",
   "TOOLBOX_E_LEAVES": "Saidas",
   "RES_MUST_BE_IN_ON_MEMBER_LEAVE": "Este bloco só pode ser usado em um evento \"Quando um membro deixa um servidor \"",

@@ -1,5 +1,5 @@
-import Blockly from "blockly/core";
-
+import Blocklylua from "blockly/lua";
+import Blockly from "blockly/core"
 const blockName = "s4d_newline";
 
 const blockData = {
@@ -13,8 +13,8 @@ Blockly.Blocks[blockName] = {
     init: function() {
         this.jsonInit(blockData);
     }
-};
+}
 
 Blockly.JavaScript[blockName] = function() {
-    return [ '\'\\n\'', Blockly.JavaScript.ORDER_ATOMIC ];
+    return [ '\'\\n\'', Blocklylua.ORDER_ATOMIC ];
 };

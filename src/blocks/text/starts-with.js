@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import Blocklylua from "blockly/lua";
+import Blockly from "blockly/core"
 
 const blockName = "s4d_starts_with";
 
@@ -29,8 +30,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-    const string = Blockly.JavaScript.valueToCode(block, "STRING", Blockly.JavaScript.ORDER_ATOMIC);
-    const substring = Blockly.JavaScript.valueToCode(block, "SUBSTRING", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [ `(${string} || '').startsWith(${substring} || '')`, Blockly.JavaScript.ORDER_NONE ];
+    const string = Blocklylua.valueToCode(block, "STRING", Blocklylua.ORDER_ATOMIC);
+    const substring = Blocklylua.valueToCode(block, "SUBSTRING", Blocklylua.ORDER_ATOMIC);
+    const code = [ `string.startswith(${string},${substring})`, Blocklylua.ORDER_NONE ];
     return code;
 };

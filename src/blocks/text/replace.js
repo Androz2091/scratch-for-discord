@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import Blocklylua from "blockly/lua";
+import Blockly from "blockly/core"
 import { registerRestrictions } from "../../restrictions";
 
 const blockName = "s4d_replace";
@@ -35,10 +36,10 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
-    const replace = Blockly.JavaScript.valueToCode(block, "REPLACE", Blockly.JavaScript.ORDER_ATOMIC);
-    const replaceWith = Blockly.JavaScript.valueToCode(block, "WITH", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`String(${text}).replace(new RegExp(String(${replace}), 'g'), String(${replaceWith}))`, Blockly.JavaScript.ORDER_NONE];
+    const text = Blocklylua.valueToCode(block, "TEXT", Blocklylua.ORDER_ATOMIC);
+    const replace = Blocklylua.valueToCode(block, "REPLACE", Blocklylua.ORDER_ATOMIC);
+    const replaceWith = Blocklylua.valueToCode(block, "WITH", Blocklylua.ORDER_ATOMIC);
+    const code = [`${text}:gsub(${replace},${replaceWith})`, Blocklylua.ORDER_NONE];
     return code;
 };
 
