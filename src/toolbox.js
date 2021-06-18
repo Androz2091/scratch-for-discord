@@ -389,6 +389,88 @@ export default (Blockly) => {
         <sep />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
+        <category name="{{ TOOLBOX_CANVAS }}" colour="#59a659">
+            <block type="s4d_create_canvas">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT">canvas</field>
+                    </shadow>
+                </value>
+                <value name="WIDTH">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="HEIGHT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_text_canvas">
+                <value name="CANVAS_NAME">
+                    <shadow type="text">
+                        <field name="TEXT">name of canvas</field>
+                    </shadow>
+                </value>
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT">text</field>
+                    </shadow>
+                </value>
+                <value name="X">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="Y">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_load_image_then">
+                <value name="IMAGE_URL">
+                    <shadow type="text">
+                        <field name="TEXT">https://cdn.discordapp.com/attachments/826739682817081377/842795493348081664/unknown.png</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_draw_image">
+                <value name="CANVAS_NAME">
+                    <shadow type="text">
+                        <field name="TEXT">canvas name</field>
+                    </shadow>
+                </value>
+                <value name="X">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="Y">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="SIZEX">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="SIZEY">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value> 
+            </block>
+            <block type="s4d_to_buffer">
+                <value name="CANVAS_NAME">
+                    <shadow type="text">
+                        <field name="TEXT">canvas name</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081">
             <block type="s4d_current"></block>
             <block type="s4d_run_save_output"></block>
