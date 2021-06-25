@@ -1,0 +1,51 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  target-branch: develop
+  ignore:
+  - dependency-name: sweetalert2
+    versions:
+    - 10.14.0
+    - 10.14.1
+    - 10.15.0
+    - 10.15.1
+    - 10.15.5
+    - 10.15.6
+    - 10.15.7
+    - 10.16.0
+    - 10.16.2
+    - 10.16.4
+    - 10.16.5
+  - dependency-name: eslint
+    versions:
+    - 7.18.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: vue-i18n
+    versions:
+    - 8.24.1
+    - 8.24.2
+    - 8.24.3
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+    - 4.0.2
+  - dependency-name: blockly
+    versions:
+    - 5.20210325.0
+  - dependency-name: eslint-plugin-vue
+    versions:
+    - 7.5.0
+    - 7.8.0
+  - dependency-name: "@babel/preset-env"
+    versions:
+    - 7.12.13
+    - 7.13.0
+    - 7.13.12
+    - 7.13.8
