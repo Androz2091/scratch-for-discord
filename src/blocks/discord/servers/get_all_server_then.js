@@ -25,7 +25,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    let code = `let servers = s4d.client.servers.cache.map(m => m);
-    servers.forEach(s =>{ \n ${statementThen} \n})\n`;
+    let code = `s4d.client.guilds.cache.forEach(s =>{ \n ${statementThen} \n})\n`;
     return code;
 };
