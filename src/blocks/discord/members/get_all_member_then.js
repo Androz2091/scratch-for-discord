@@ -31,7 +31,6 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    let code = `let members = ${server}.members.cache.map(m => m);
-    members.forEach(m =>{ \n ${statementThen} \n})\n`;
+    let code = `${server}.members.cache.forEach(m =>{ \n ${statementThen} \n})\n`;
     return code;
 };
