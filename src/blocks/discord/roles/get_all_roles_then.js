@@ -31,7 +31,6 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    let code = `let roles = ${server}.roles.cache.map(m => m);
-    roles.forEach(ro =>{ \n ${statementThen} \n})\n`;
+    let code = `${server}.roles.cache.forEach(ro =>{ \n ${statementThen} \n})\n`;
     return code;
 };
