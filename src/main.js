@@ -121,6 +121,8 @@ Vue.mixin({
                 let Discord;
                 let Database;
                 let moment;
+                let rpc;
+                let RPC;
                 if(typeof window !== "undefined"){
                     Discord = DiscordJS;
                     Database = EasyDatabase;
@@ -129,7 +131,12 @@ Vue.mixin({
                     Discord = require("discord.js");
                     Database = require("easy-json-database");
                     moment = require('moment');
+                    rpc = require("discord-rpc");
+                    RPC = new rpc.Client({
+                      transport: "ipc"
+                    });                       
                 }
+                
                 const { MessageButton, MessageActionRow } = require("discord-buttons")
                 const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
