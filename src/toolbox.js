@@ -565,6 +565,17 @@ export default (Blockly) => {
             <block type="s4d_button_style"></block>
             <block type="s4d_message_block"></block>
         </category>
+        <category name="{{ TOOLBOX_RPC }}" colour="#9361c9">
+            <block type="s4d_rpc_login">
+            <value name="CLIENTID">
+                <block type="text">
+                    <field name="TEXT">Your rich presence client id</field>
+                </block>
+            </value>
+            </block>
+            <block type="s4d_on_rpc_ready"></block>
+            <block type="s4d_rpc_setup"></block>
+        </category> 
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>

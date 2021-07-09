@@ -121,10 +121,6 @@ Vue.mixin({
                 let Discord;
                 let Database;
                 let moment;
-                let rpc;
-                let RPC;
-                const scopes = ['rpc', 'rpc.api', 'messages.read'];
-                let clientID;
                 if(typeof window !== "undefined"){
                     Discord = DiscordJS;
                     Database = EasyDatabase;
@@ -132,11 +128,7 @@ Vue.mixin({
                 } else {
                     Discord = require("discord.js");
                     Database = require("easy-json-database");
-                    moment = require('moment');
-                    rpc = require("discord-rpc");
-                    RPC = new rpc.Client({
-                      transport: "websocket"
-                    });                       
+                    moment = require('moment');                    
                 }
                 
                 const { MessageButton, MessageActionRow } = require("discord-buttons")

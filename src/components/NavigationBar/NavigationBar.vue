@@ -101,7 +101,6 @@ export default {
                             'easy-json-database': '^1.3.0',
                             'moment':'^2.29.1',
                             'discord-buttons':'^3.0.1',
-                            'discord-rpc':'^4.0.1',
                         }
                     }));
                     zip.generateAsync({
