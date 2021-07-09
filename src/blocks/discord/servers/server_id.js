@@ -1,26 +1,19 @@
 import * as Blockly from "blockly/core";
+import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_get_all";
+const blockName = "s4d_server_id";
 
 const blockData = {
-    "message0": "%{BKY_GET_ALL}",
+    "message0": "%{BKY_SERVER_ID}",
     "args0": [
         {
             "type": "input_value",
             "name": "SERVER",
             "check": "Server"
-        },
-        {
-            "type": "input_dummy"
-        },
-        {
-            "type": "input_statement",
-            "name": "THEN"
-        },
+        }
     ],
-    "colour": "#187795",
-    "previousStatement": null,
-    "nextStatement": null,
+    "colour": "#e07e6c",
+    "output": "String",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -33,7 +26,15 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    let code = `${server}.members.cache.forEach(m =>{ \n ${statementThen} \n})\n`;
-    return code;
+    return [ `${server}.id`, Blockly.JavaScript.ORDER_NONE ];
 };
+
+registerRestrictions(blockName, [
+    {
+        type: "notempty",
+        message: "RES_VALID_SERVER",
+        types: [
+            "SERVER"
+        ]
+    }
+]);

@@ -29,6 +29,7 @@ import "./blocks/discord/roles/";
 import "./blocks/discord/members/";
 import "./blocks/discord/deleted/"
 import "./blocks/discord/discord-button/"
+import "./blocks/discord/webhook/"
 
 import "./blocks/database/";
 import "./blocks/text/";

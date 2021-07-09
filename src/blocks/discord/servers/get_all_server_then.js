@@ -6,6 +6,9 @@ const blockData = {
     "message0": "%{BKY_GET_ALL_SERVER}",
     "args0": [
         {
+            "type": "input_dummy"
+        },
+        {
             "type": "input_statement",
             "name": "THEN"
         },

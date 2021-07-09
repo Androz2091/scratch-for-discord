@@ -400,6 +400,7 @@ export default (Blockly) => {
                 </value>
             </block>
             <block type="s4d_eval"></block>
+            <block type="s4d_try_and_catch"></block>
         </category>
         <sep />
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
@@ -565,17 +566,15 @@ export default (Blockly) => {
             <block type="s4d_button_style"></block>
             <block type="s4d_message_block"></block>
         </category>
-        <category name="{{ TOOLBOX_RPC }}" colour="#9361c9">
-            <block type="s4d_rpc_login">
-            <value name="CLIENTID">
-                <block type="text">
-                    <field name="TEXT">Your rich presence client id</field>
-                </block>
-            </value>
-            </block>
-            <block type="s4d_on_rpc_ready"></block>
-            <block type="s4d_rpc_setup"></block>
-        </category> 
+        <category name="{{ TOOLBOX_WEBHOOK }}" colour="#f5dfa2">
+            <block type="s4d_create_webhook_then"></block>
+            <block type="s4d_edit_webhook"></block>
+            <block type="s4d_webhook_id"></block>
+            <block type="s4d_webhook_token"></block>
+            <block type="s4d_get_webhook_then"></block>
+            <block type="s4d_get_edit_webhook"></block>
+            <block type="s4d_send_webhook"></block>
+        </category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>
@@ -586,6 +585,7 @@ export default (Blockly) => {
             <block type="s4d_server_name"></block>
             <block type="s4d_member_count"></block>
             <block type="s4d_icon_url"></block>
+            <block type="s4d_server_id"></block>
             <block type="s4d_boost_level"></block>
             <block type="s4d_server_owner"></block>
             <block type="s4d_number_of__server"></block>

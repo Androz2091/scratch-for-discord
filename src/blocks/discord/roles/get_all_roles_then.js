@@ -11,6 +11,9 @@ const blockData = {
             "check": "Server"
         },
         {
+            "type": "input_dummy"
+        },
+        {
             "type": "input_statement",
             "name": "THEN"
         },
