@@ -123,6 +123,8 @@ Vue.mixin({
                 let moment;
                 let rpc;
                 let RPC;
+                const scopes = ['rpc', 'rpc.api', 'messages.read'];
+                let clientID;
                 if(typeof window !== "undefined"){
                     Discord = DiscordJS;
                     Database = EasyDatabase;
@@ -133,7 +135,7 @@ Vue.mixin({
                     moment = require('moment');
                     rpc = require("discord-rpc");
                     RPC = new rpc.Client({
-                      transport: "ipc"
+                      transport: "websocket"
                     });                       
                 }
                 
