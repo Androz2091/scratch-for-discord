@@ -40,5 +40,5 @@ Blockly.JavaScript[blockName] = function(block){
 const id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC);
 const token = Blockly.JavaScript.valueToCode(block, "TOKEN", Blockly.JavaScript.ORDER_ATOMIC);
 const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-return  `client.fetchWebhook('${id}','${token}').then(gwebhook =>{\n${statements}\n});\n`
+return  `s4d.client.fetchWebhook('${id}','${token}').then(gwebhook =>{\n${statements}\n});\n`
 };
