@@ -39,7 +39,7 @@ Blockly.JavaScript[blockName] = function(block){
 const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
 const avatar = Blockly.JavaScript.valueToCode(block, "AVATAR", Blockly.JavaScript.ORDER_ATOMIC);
 const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
-return `gwebhook.edit({name:${name},avatar:${avatar},channel:${channel}});\n`
+return `gwebhook.edit({name:${name},avatar:${avatar},channel:${channel}.id});\n`
 };
 registerRestrictions(blockName, [
     {
