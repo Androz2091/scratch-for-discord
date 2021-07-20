@@ -1,18 +1,18 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_create_embed_then_set_description";
+const blockName = "s4d_create_embed_then_set_image";
 
 const blockData = {
-    "message0": "%{BKY_CREATE_EMBED_THEN_SET_DESCRIPTION}",
+    "message0": "%{BKY_CREATE_EMBED_THEN_SET_IMAGE}",
     "args0": [
         {
             "type":"input_value",
-            "name":"DESCRIPTION",
+            "name":"IMAGE",
             "check":"String"
         }
     ],
-    "colour": "#4C97FF",
+    "colour": "#40BF4A",
     "previousStatement": null,
     "nextStatement": null,
     "inputsInline": true,
@@ -27,8 +27,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
-    const description = Blockly.JavaScript.valueToCode(block, "DESCRIPTION", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `embed.setDescription(${description});\n`;
+    const image = Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `embed.setImage(${image});\n`;
     return code;
 };
 

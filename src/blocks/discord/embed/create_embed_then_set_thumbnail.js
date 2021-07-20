@@ -1,23 +1,18 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_create_embed_then_set_author";
+const blockName = "s4d_create_embed_then_set_thumbnail";
 
 const blockData = {
-    "message0": "%{BKY_CREATE_EMBED_THEN_SET_AUTHOR}",
+    "message0": "%{BKY_CREATE_EMBED_THEN_SET_THUMBNAIL}",
     "args0": [
         {
             "type":"input_value",
-            "name":"AUTHOR",
+            "name":"THUMBNAIL",
             "check":"String"
-        },
-        {
-            "type":"input_value",
-            "name":"PFP",
-            "check":"String"  
         }
     ],
-    "colour": "#4C97FF",
+    "colour": "#40BF4A",
     "previousStatement": null,
     "nextStatement": null,
     "inputsInline": true,
@@ -32,9 +27,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
-    const author = Blockly.JavaScript.valueToCode(block, "AUTHOR", Blockly.JavaScript.ORDER_ATOMIC);
-    const pfp = Blockly.JavaScript.valueToCode(block, "PFP", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `embed.setAuthor(${author},${pfp});\n`;
+    const thumbnail = Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `embed.setThumbnail(${thumbnail});\n`;
     return code;
 };
 

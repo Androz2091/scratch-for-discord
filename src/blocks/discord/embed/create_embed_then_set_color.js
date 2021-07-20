@@ -1,18 +1,18 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_create_embed_then_set_title";
+const blockName = "s4d_create_embed_then_set_color";
 
 const blockData = {
-    "message0": "%{BKY_CREATE_EMBED_THEN_SET_TITLE}",
+    "message0": "%{BKY_CREATE_EMBED_THEN_SET_COLOR}",
     "args0": [
         {
             "type":"input_value",
-            "name":"TITLE",
-            "check":"String"
+            "name":"COLOR",
+            "check":"Colour"
         }
     ],
-    "colour": "#4C97FF",
+    "colour": "#40BF4A",
     "previousStatement": null,
     "nextStatement": null,
     "inputsInline": true,
@@ -27,8 +27,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
-    const title = Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `embed.setTitle(${title});\n`;
+    const color = Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `embed.setColor(${color});\n`;
     return code;
 };
 

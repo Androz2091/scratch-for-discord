@@ -25,7 +25,7 @@ const blockData = {
             "check":"Boolean"
         }
     ],
-    "colour": "#4C97FF",
+    "colour": "#40BF4A",
     "previousStatement": null,
     "nextStatement": null,
     "inputsInline": true,

@@ -1,20 +1,15 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_create_embed_then_set_image";
+const blockName = "s4d_create_embed_then_send";
 
 const blockData = {
-    "message0": "%{BKY_CREATE_EMBED_THEN_SET_IMAGE}",
+    "message0": "%{BKY_CREATE_EMBED_THEN_SEND}",
     "args0": [
-        {
-            "type":"input_value",
-            "name":"IMAGE",
-            "check":"String"
-        }
     ],
-    "colour": "#4C97FF",
+    "colour": "#40BF4A",
     "previousStatement": null,
-    "nextStatement": null,
+    "nextStatement": null,    
     "inputsInline": true,
     "tooltip": "",
     "helpUrl": ""
@@ -26,9 +21,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-    const image = Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `embed.setImage(${image});\n`;
+Blockly.JavaScript[blockName] = function(){
+    const code = `s4dmessage.channel.send(embed);\n`;
     return code;
 };
 
