@@ -344,7 +344,7 @@
   "SEND_BLOCK_LIST_MSG_EMPTY":"vazio",
   "TOOLBOX_BUTTON":"botões",
   "MESSAGE_BLOCK":"botão da mensagem",
-  "MESSAGE_ROW_BLOCK":"botão da mensagem",
+  "MESSAGE_ROW_BLOCK":"botão da mensagem para lista",
   "BUTTON_ROW":"lista de butão",
   "RES_MUST_BE_IN_BUTTON_ROW":"este bloco so pode ser usado em uma lista de butão!",
   "OTHERS":"outro",

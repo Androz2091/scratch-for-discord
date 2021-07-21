@@ -335,7 +335,7 @@
   "RES_GET_MESSAGE_VALUE": "You must specify a valid message ID!",
   "FIND_MESSAGE": "Find the message",
   "MESSAGE_BLOCK":"message button",
-  "MESSAGE_ROW_BLOCK":"message button",
+  "MESSAGE_ROW_BLOCK":"message button for row",
   "BUTTON_ROW":"button row",
   "RES_MUST_BE_IN_BUTTON_ROW":"this block can only be used in a button row block!",
   "STYLE":"button style",
