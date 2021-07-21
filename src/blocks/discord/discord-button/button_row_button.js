@@ -109,7 +109,7 @@ return code
 
 registerRestrictions("s4d_message_row_block", [
     {
-        type: "toplevelparent",
+        type: "hasparent",
         message: "RES_MUST_BE_IN_BUTTON_ROW",
         types: [
             "s4d_button_row"
