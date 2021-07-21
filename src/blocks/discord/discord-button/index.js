@@ -1,5 +1,5 @@
 import "./message-button";
-import "./send-1-button";
+import "./send-button";
 import "./on-click";
 import "./clicker-member";
 import "./clicker-channel";
@@ -8,3 +8,5 @@ import "./button-id";
 import "./button_think";
 import "./button-reply";
 import "./button_style";
+import "./button_row";
+import "./button_row_button";

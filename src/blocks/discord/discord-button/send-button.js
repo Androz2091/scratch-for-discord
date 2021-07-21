@@ -7,6 +7,11 @@ const blockData = {
     "args0": [
         {
             "type": "input_value",
+            "name": "BUTTON",
+            "check": ["Button" , "ButtonRow"]
+        },
+        {
+            "type": "input_value",
             "name": "CONTENT",
             "check": [ "String", "Number" ]  
         },
@@ -32,7 +37,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-
-    const code = `${channel}.send(${content},a)\n`;
-    return code;
+    const button = Blockly.JavaScript.valueToCode(block, "BUTTON", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `${channel}.send(${content},${button})\n`;
+    return code
 };

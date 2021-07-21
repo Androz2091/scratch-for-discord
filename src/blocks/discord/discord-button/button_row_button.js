@@ -1,28 +1,29 @@
 import BaseBlockly from "blockly";
 import Blockly from "blockly/core";
-
+import { registerRestrictions } from "../../../restrictions";
 
 const BORDER_FIELDS = ["STYLE" , "LABEL", "EMOJI","URL", "CUSTOM_ID"];
 
 const BORDER_TYPES = ["ButtonStyle",  "String", "String" ,"String", "String" ];
 
 
-const s4d_message_block = {
-    "message0": "%{BKY_MESSAGE_BLOCK}",
-    "mutator": "s4d_message_block_mutator",
-    "output": "Button",
+const s4d_message_row_block = {
+    "message0": "%{BKY_MESSAGE_ROW_BLOCK}",
+    "mutator": "s4d_message_row_block_mutator",
     "tooltip": "",
     "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null,
     "colour": "#40BF4A"
 };
 
-Blockly.Blocks["s4d_message_block"] = {
+Blockly.Blocks["s4d_message_row_block"] = {
     init: function() {
-        this.jsonInit(s4d_message_block);
+        this.jsonInit(s4d_message_row_block);
     }
 };
 
-Blockly.Blocks["s4d_message_block_mutator"] = {
+Blockly.Blocks["s4d_message_row_block_mutator"] = {
     init: function() {
         this.setColour("#CECDCE");
         this.setTooltip("");
@@ -53,7 +54,7 @@ const BORDER_MUTATOR_MIXIN = {
     },
 
     decompose: function(workspace) {
-        const containerBlock = workspace.newBlock("s4d_message_block_mutator");
+        const containerBlock = workspace.newBlock("s4d_message_row_block_mutator");
         for (let i = 0; i < this.inputs_.length; i++) {
         containerBlock.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -87,9 +88,9 @@ const BORDER_MUTATOR_MIXIN = {
     }
 };
 
-Blockly.Extensions.registerMutator("s4d_message_block_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
+Blockly.Extensions.registerMutator("s4d_message_row_block_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
 
-Blockly.JavaScript["s4d_message_block"] = function(block){
+Blockly.JavaScript["s4d_message_row_block"] = function(block){
     let id = Blockly.JavaScript.valueToCode(block, "CUSTOM_ID", Blockly.JavaScript.ORDER_ATOMIC) || null
     let url = Blockly.JavaScript.valueToCode(block, "URL", Blockly.JavaScript.ORDER_ATOMIC) || null
     let emoji = Blockly.JavaScript.valueToCode(block, "EMOJI", Blockly.JavaScript.ORDER_ATOMIC) || null
@@ -102,5 +103,16 @@ if(label !== null)code += `.setLabel(${label})\n`
 if(emoji !== null) code += `.setEmoji(${emoji})\n`
 if(style === null) code += ".setStyle('red')"
 if(style !== null) code += `.setStyle(${style})`
-return [code, Blockly.JavaScript.ORDER_NONE];
+code +=",\n"
+return code
 };
+
+registerRestrictions("s4d_message_row_block", [
+    {
+        type: "toplevelparent",
+        message: "RES_MUST_BE_IN_BUTTON_ROW",
+        types: [
+            "s4d_button_row"
+        ]
+    }
+]);
