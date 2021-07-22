@@ -13,6 +13,8 @@ const s4d_message_block = {
     "output": "Button",
     "tooltip": "",
     "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null,
     "colour": "#40BF4A"
 };
 
@@ -102,5 +104,5 @@ if(label !== null)code += `.setLabel(${label})\n`
 if(emoji !== null) code += `.setEmoji(${emoji})\n`
 if(style === null) code += ".setStyle('red')"
 if(style !== null) code += `.setStyle(${style})`
-return [code, Blockly.JavaScript.ORDER_NONE];
+return code
 };
