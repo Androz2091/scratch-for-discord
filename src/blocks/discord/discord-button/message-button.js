@@ -10,7 +10,6 @@ const BORDER_TYPES = ["ButtonStyle",  "String", "String" ,"String", "String" ];
 const s4d_message_block = {
     "message0": "%{BKY_MESSAGE_BLOCK}",
     "mutator": "s4d_message_block_mutator",
-    "output": "Button",
     "tooltip": "",
     "helpUrl": "",
     "previousStatement": null,
