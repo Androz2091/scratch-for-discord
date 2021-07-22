@@ -21,11 +21,16 @@ import "./blocks/discord/message-event/";
 import "./blocks/discord/join-event/";
 import "./blocks/discord/leave-event/";
 import "./blocks/discord/reaction-event/";
+import "./blocks/discord/bot-event";
 
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";
 import "./blocks/discord/roles/";
 import "./blocks/discord/members/";
+import "./blocks/discord/deleted/";
+import "./blocks/discord/discord-button/";
+import "./blocks/discord/webhook/";
+import "./blocks/discord/embed";
 
 import "./blocks/database/";
 import "./blocks/text/";
