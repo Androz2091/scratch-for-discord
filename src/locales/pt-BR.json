@@ -382,7 +382,7 @@
   "BUTTON_CLICK_GUILD":"servidor",
   "BUTTON_CLICK_ID":"id do botão",
   "BUTTON_THINK":"pensar %1",
-  "BUTTON_REPLY":"responder %1",
+  "BUTTON_REPLY":"responder %1 %2",
   "ADDED_INFORMATIONS":"Informações sobre o servidor",
   "NO": "não",
   "ADD_SERVER_ID":"id do server",

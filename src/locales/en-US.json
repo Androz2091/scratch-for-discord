@@ -368,7 +368,7 @@
   "BUTTON_CLICK_GUILD":"server",
   "BUTTON_CLICK_ID":"button id",
   "BUTTON_THINK":"think %1",
-  "BUTTON_REPLY":"reply %1",
+  "BUTTON_REPLY":"reply %1 %2",
   "MENU_MEMBER":"member",
   "MENU_CHANNEL":"channel",
   "MENU_SERVER":"server",
