@@ -18,7 +18,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["button.clicker.guild", Blockly.JavaScript.ORDER_NONE];
+    const code = ["button.guild", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 

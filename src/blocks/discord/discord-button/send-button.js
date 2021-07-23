@@ -8,7 +8,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "BUTTON",
-            "check": ["Button" , "ButtonRow"]
+            "check": ["Button" , "ButtonRow", "ButtonMenu"]
         },
         {
             "type": "input_value",

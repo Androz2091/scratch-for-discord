@@ -568,12 +568,26 @@ export default (Blockly) => {
             <block type="s4d_button_click_id"></block>
             <block type="s4d_button_think"></block>
             <block type="s4d_button_reply"></block>
+            <block type="s4d_button_edit"></block>
             <label text="%{BKY_BUTTON_BLOCKS}"></label>
             <block type="s4d_send_button"></block>
             <block type="s4d_button_style"></block>
             <block type="s4d_button_row"></block>
             <block type="s4d_message_row_block"></block>
             <block type="s4d_message_block"></block>
+        </category>
+        <category name="{{ TOOLBOX_MENU }}" colour="#059CA1">
+            <label text="%{BKY_BUTTON_EVENT}"></label>
+            <block type="s4d_on_menu_click"></block>
+            <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
+            <block type="s4d_menu_member"></block>
+            <block type="s4d_menu_id"></block>
+            <block type="s4d_menu_channel"></block>
+            <block type="s4d_menu_guild"></block>
+            <block type="s4d_menu_value"></block>
+            <label text="%{BKY_BUTTON_BLOCKS}"></label>
+            <block type="s4d_button_menu"></block>
+            <block type="s4d_message_menu_block"></block>
         </category>
         <category name="{{ TOOLBOX_WEBHOOK }}" colour="#f5dfa2">
             <block type="s4d_create_webhook_then"></block>

@@ -1,12 +1,12 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_button_click_channel";
+const blockName = "s4d_menu_guild";
 
 const blockData = {
-    "message0": "%{BKY_BUTTON_CLICK_CHANNEL}",
+    "message0": "%{BKY_MENU_SERVER}",
     "colour": "#187795",
-    "output": "Channel",
+    "output": "Server",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -18,16 +18,16 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["button.channel", Blockly.JavaScript.ORDER_NONE];
+    const code = ["menu.guild", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 
 registerRestrictions(blockName, [
     {
         type: "toplevelparent",
-        message: "RES_MUST_BE_IN_ON_CLICK",
+        message: "RES_MUST_BE_IN_ON_MENU_CLICK",
         types: [
-            "s4d_on_click"
+            "s4d_on_menu_click"
         ]
     }
 ]);

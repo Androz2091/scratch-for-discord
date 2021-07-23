@@ -131,7 +131,7 @@ Vue.mixin({
                     moment = require('moment');                    
                 }
                 
-                const { MessageButton, MessageActionRow } = require("discord-buttons")
+                const { MessageButton, MessageActionRow, MessageMenu, MessageMenuOption } = require("discord-buttons")
                 const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
                     Discord,

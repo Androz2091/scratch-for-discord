@@ -1,21 +1,17 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_button_reply";
+const blockName = "s4d_button_edit";
 
 const blockData = {
-    "message0": "%{BKY_BUTTON_REPLY}",
+    "message0": "%{BKY_BUTTON_EDIT}",
     "args0": [
         {
             "type": "input_value",
             "name": "REPLY",
             "check": [ "String","Number" ]
         },
-        {
-            "type": "input_value",
-            "name": "TRUEORFALSE",
-            "check": [ "Boolean" ]
-        }
+
     ],
     "colour": "#4C97FF",
     "previousStatement": null,
@@ -31,9 +27,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-    const tof = Blockly.JavaScript.valueToCode(block, "TRUEORFALSE", Blockly.JavaScript.ORDER_ATOMIC);
     const reply = Blockly.JavaScript.valueToCode(block, "REPLY", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `button.reply.send(${reply},${tof})\n`
+    const code = `button.reply.edit(${reply})\n`
     return code;
 };
 
