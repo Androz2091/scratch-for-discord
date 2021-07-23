@@ -42,6 +42,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const color = block.getFieldValue("COLOR");
-    const code = [`${color}`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`'${color}'`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
