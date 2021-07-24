@@ -28,7 +28,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const tof = Blockly.JavaScript.valueToCode(block, "TRUEORFALSE", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `button.reply.think(${tof})\n`
+    const code = `await button.reply.think(${tof})\n`
     return code;
 };
 
