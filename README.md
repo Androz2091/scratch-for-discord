@@ -2,6 +2,9 @@
 
 🐱 Make your Discord bot using Scratch blocks! [Scratch For Discord](https://scratch-for-discord.netlify.com) is an advanced fork of [discord-blocks](https://discordblocks.leondrolio.com/). Thanks to [7coil](https://github.com/7coil) for her great work!
 
+## i didnt make this project i just added new feature go support [androz2091](https://github.com/Androz2091)
+## [Website Link with all new Features](https://s4d-420-deploy-preview.netlify.app/)
+
 ## Features
 
 * 🖥️ No code knowledge required!  
