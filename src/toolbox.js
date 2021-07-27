@@ -518,7 +518,7 @@ export default (Blockly) => {
             <block type="s4d_set_server_name"></block>
         </category>
         <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
-        <block type="slowmode"></block>
+        <block type="slowmodes"></block>
         <block type="s4d_create_embed_then"></block>
         <block type="set_perms"></block>
         <block type="set_perms_parent"></block>
