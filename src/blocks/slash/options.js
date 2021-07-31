@@ -54,6 +54,14 @@ const blockData = {
                     "role",
                     "Role"
                 ],
+                [
+                    "subcommand",
+                    "Subcommand"
+                ],
+                [
+                    "subcommand group",
+                    "SubcommandGroup"
+                ],
 
             ]
         }
