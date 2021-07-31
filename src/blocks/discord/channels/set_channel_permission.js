@@ -1,7 +1,7 @@
 import * as Blockly from "blockly/core";
 
 
-const blockName = "s4d_create_embed_then";
+const blockName = "s4d_create_embed_thens";
 
 const blockData = {
     "message0": "who %3 channel %4 Permissions %2 %1",

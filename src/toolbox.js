@@ -391,7 +391,6 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081">
             <block type="s4d_current"></block>
-            <block type="return"></block>
             <block type="s4d_run_save_output"></block>
             <block type="s4d_wait_seconds">
                 <value name="TIME">
@@ -418,6 +417,8 @@ export default (Blockly) => {
             <block type="s4d_bot_server_count"></block>
             <label text="%{BKY_BOT_ACTIONS}"></label>
             <block type="s4d_set_bot_game"></block>
+            <block type="s4d_set_bot_stream"></block>
+            <block type="s4d_bot_shutdown"></block>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -451,28 +452,60 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
-            <label text="%{BKY_TOOLS}"></label>
-            <block type="s4d_message_embed"></block>
-        </category>
-        <category name="Misc" colour="#731627">
-        <label text="Misc cmd" web-class="boldtext"></label>
-        <block type="s4d_bot_shutdown"></block>
-        </category>
-        <category name="Edited" colour="#7289da">
-            <label text="Dont expect much as its my 2 nd day making blocks" web-class="boldtext"></label>
+            </category>
+        <category name="{{ TOOLBOX_E_EMBED }}" colour="#40BF4A">
+        <label text="Create A Perfect Embed" web-class="boldtext"></label>
+            <block type="s4d_create_embed_then"></block>
+            <label text="%{BKY_COLOR_MESSAGE}"></label>
+            <block type="s4d_create_embed_then_set_color"></block>
+            <block type="s4d_create_embed_then_set_author"></block>
+            <block type="s4d_create_embed_then_set_title"></block>
+            <block type="s4d_create_embed_then_set_thumbnail"></block>
+            <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
+            <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
+            <block type="s4d_create_embed_then_set_description"></block>
+            <block type="s4d_create_embed_then_add_field"></block>
+            <block type="s4d_create_embed_then_add_blankfield"></block>
+            <block type="s4d_create_embed_then_set_image"></block>
+            <block type="s4d_create_embed_then_set_footer"></block> 
+            <block type="s4d_create_embed_then_set_time"></block>
+            <label text="%{BKY_SEND_EMBED}"></label>
+            <block type="s4d_create_embed_then_send"></block>
+    </category>
+    <category name="Slash" colour="#ff2f00">
+    <label text="Register slash commands by clicking 'Register slash commands' button"></label>
+    <block type="on_slash"></block>
+    <block type="interaction_name"></block>
+    <block type="options"></block>
+    <block type="interaction_author"></block>
+    <block type="interaction_channel"></block>
+    <block type="interaction_guild"></block>
+    <block type="slash_reply"></block>
+    <block type="slash_edit"></block>
+    <block type="send_embed_string"></block>
+    </category>
+    <category name="Edited" colour="#7289da">
+            <label text="Event" web-class="boldtext"></label>
             <block type="when_message_is_edited"></block>
             <label text="New message stuff" web-class="boldtext"></label>
-            <block type="s4d_newmessage_content"></block>
-            <block type="s4d_newmsg_del"></block>
-            <block type="newmsg_member"></block>
-            <label text="Old message stuff" web-class="boldtext"></label>
-            <block type="s4d_oldmessage_content"></block>
-            <block type="new_message_server"></block>
-            <block type="newmsg_timestamp"></block>
-            
             <block type="newmsg_channel"></block>
+            <block type="new_message_server"></block>
+            <block type="s4d_newmessage_content"></block>
+            <block type="newmsg_member"></block>
+            <block type="s4d_newmsg_del"></block>
+            
+            <block type="newmsg_timestamp"></block>
         </category>
-        <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
+    <label text="Event"></label>
+    <block type="on_button"></block>
+    <block type="button_id"></block>
+    <block type="button_author"></block>
+    <block type="button_channel"></block>
+    <block type="button_guild"></block>
+    <block type="button_reply"></block>
+    <block type="button_edit"></block>
+    
+    <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
             <block type="s4d_on_member_join"></block>
@@ -502,7 +535,6 @@ export default (Blockly) => {
             <block type="s4d_react_message_id"></block>
             <block type="s4d_react_emoji"></block>
             <block type="s4d_react_member"></block>
-            <block type="s4d_bot_cpus"></block>
         </category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
@@ -519,7 +551,7 @@ export default (Blockly) => {
         </category>
         <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
         <block type="slowmode"></block>
-        <block type="s4d_create_embed_then"></block>
+        <block type="s4d_create_embed_thens"></block>
         <block type="set_perms"></block>
         <block type="set_perms_parent"></block>
             <label text="%{BKY_FIND_CHANNEL}"></label>
@@ -640,10 +672,9 @@ export default (Blockly) => {
                 </value>
             </block>
         </category>
-        <category name="Slash" colour="#731627">
-        <label text="Coming soon in few weeks!" web-class="boldtext"></label>
-        </category>
+
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
-    return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
-}))};
+        return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
+    }))
+};

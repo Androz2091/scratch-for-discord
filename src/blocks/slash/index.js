@@ -1,2 +1,9 @@
-
-
+import "./on_slash"
+import "./slash_reply"
+import "./i_name"
+import "./i_member"
+import "./i_server"
+import "./i_channel"
+import "./i_channel"
+import "./options"
+import "./edit_reply"
