@@ -391,6 +391,7 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081">
             <block type="s4d_current"></block>
+            <block type="return"></block>
             <block type="s4d_run_save_output"></block>
             <block type="s4d_wait_seconds">
                 <value name="TIME">
@@ -453,6 +454,24 @@ export default (Blockly) => {
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
+        <category name="Misc" colour="#731627">
+        <label text="Misc cmd" web-class="boldtext"></label>
+        <block type="s4d_bot_shutdown"></block>
+        </category>
+        <category name="Edited" colour="#7289da">
+            <label text="Dont expect much as its my 2 nd day making blocks" web-class="boldtext"></label>
+            <block type="when_message_is_edited"></block>
+            <label text="New message stuff" web-class="boldtext"></label>
+            <block type="s4d_newmessage_content"></block>
+            <block type="s4d_newmsg_del"></block>
+            <block type="newmsg_member"></block>
+            <label text="Old message stuff" web-class="boldtext"></label>
+            <block type="s4d_oldmessage_content"></block>
+            <block type="new_message_server"></block>
+            <block type="newmsg_timestamp"></block>
+            
+            <block type="newmsg_channel"></block>
+        </category>
         <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
@@ -483,6 +502,7 @@ export default (Blockly) => {
             <block type="s4d_react_message_id"></block>
             <block type="s4d_react_emoji"></block>
             <block type="s4d_react_member"></block>
+            <block type="s4d_bot_cpus"></block>
         </category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
@@ -498,6 +518,9 @@ export default (Blockly) => {
             <block type="s4d_set_server_name"></block>
         </category>
         <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
+        <block type="s4d_create_embed_then"></block>
+        <block type="set_perms"></block>
+        <block type="set_perms_parent"></block>
             <label text="%{BKY_FIND_CHANNEL}"></label>
             <block type="s4d_get_channel"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
@@ -615,6 +638,9 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+        </category>
+        <category name="Slash" colour="#731627">
+        <label text="Coming soon in few weeks!" web-class="boldtext"></label>
         </category>
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
