@@ -417,6 +417,7 @@ export default (Blockly) => {
             <block type="s4d_bot_server_count"></block>
             <label text="%{BKY_BOT_ACTIONS}"></label>
             <block type="s4d_set_bot_game"></block>
+            <block type="s4d_set_bot_stream"></block>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -450,9 +451,26 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
-            <label text="%{BKY_TOOLS}"></label>
-            <block type="s4d_message_embed"></block>
-        </category>
+            </category>
+        <category name="{{ TOOLBOX_E_EMBED }}" colour="#40BF4A">
+        <label text="Create A Perfect Embed" web-class="boldtext"></label>
+            <block type="s4d_create_embed_then"></block>
+            <label text="%{BKY_COLOR_MESSAGE}"></label>
+            <block type="s4d_create_embed_then_set_color"></block>
+            <block type="s4d_create_embed_then_set_author"></block>
+            <block type="s4d_create_embed_then_set_title"></block>
+            <block type="s4d_create_embed_then_set_thumbnail"></block>
+            <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
+            <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
+            <block type="s4d_create_embed_then_set_description"></block>
+            <block type="s4d_create_embed_then_add_field"></block>
+            <block type="s4d_create_embed_then_add_blankfield"></block>
+            <block type="s4d_create_embed_then_set_image"></block>
+            <block type="s4d_create_embed_then_set_footer"></block> 
+            <block type="s4d_create_embed_then_set_time"></block>
+            <label text="%{BKY_SEND_EMBED}"></label>
+            <block type="s4d_create_embed_then_send"></block>
+    </category>
         <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
@@ -618,5 +636,6 @@ export default (Blockly) => {
         </category>
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
-    return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
-}))};
+        return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
+    }))
+};
