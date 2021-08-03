@@ -496,8 +496,11 @@ export default (Blockly) => {
             
             <block type="newmsg_timestamp"></block>
         </category>
+        
     <label text="Event"></label>
     <block type="on_button"></block>
+    <block type="b_create"></block>
+    <block type="b_style"></block>
     <block type="button_id"></block>
     <block type="button_author"></block>
     <block type="button_channel"></block>
