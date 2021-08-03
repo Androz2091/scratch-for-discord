@@ -20,7 +20,6 @@ const blockData = {
     "colour": "#40BF4A",
     "previousStatement": null,
     "nextStatement": null,
-    "inputsInline": true,
     "tooltip": "",
     "helpUrl": ""
 };

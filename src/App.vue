@@ -12,6 +12,8 @@ import Blockly from "blockly";
 import NavBarComponent from "./components/NavigationBar/NavigationBar.vue";
 import BlocklyComponent from "./components/BlocklyComponent.vue";
 
+
+
 Blockly.Tooltip.HOVER_MS = 100;
 
 // Load blocks
