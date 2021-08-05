@@ -497,9 +497,20 @@ export default (Blockly) => {
             <block type="newmsg_timestamp"></block>
         </category>
 
-        <category name="buttons" colour="#EABB11">
+        <category name="buttons" colour="#ff0019">
     <label text="Event"></label>
     <block type="on_button"></block>
+    <label text="Button stuff"></label>
+    <block type="button_id"></block>
+    <block type="button_author"></block>
+    <block type="button_channel"></block>
+    <block type="button_guild"></block>
+    <block type="b_style"></block>
+    <label text="Reply and edit and send embed"></label>
+    <block type="button_reply"></block>
+    <block type="button_edit"></block>
+    <block type="send_embed_string"></block>
+    <label text="Create Button"></label>
     <block type="b_create">
                 <value name="B_NAME">
                     <shadow type="text">
@@ -507,6 +518,7 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+    <label text="Button Row"></label>
     <block type="b_row">
                 <value name="BUTTON_NAME">
                     <shadow type="text">
@@ -521,13 +533,6 @@ export default (Blockly) => {
                 </shadow>
             </value>
         </block>
-    <block type="b_style"></block>
-    <block type="button_id"></block>
-    <block type="button_author"></block>
-    <block type="button_channel"></block>
-    <block type="button_guild"></block>
-    <block type="button_reply"></block>
-    <block type="button_edit"></block>
     </category>
     <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
