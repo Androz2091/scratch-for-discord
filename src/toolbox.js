@@ -507,6 +507,7 @@ export default (Blockly) => {
     <block type="button_guild"></block>
     <block type="b_style"></block>
     <label text="Reply and edit and send embed"></label>
+    <block type="b_send_msg"></block>
     <block type="button_reply"></block>
     <block type="button_edit"></block>
     <block type="send_embed_string"></block>
