@@ -496,10 +496,31 @@ export default (Blockly) => {
             
             <block type="newmsg_timestamp"></block>
         </category>
-        
+
+        <category name="buttons" colour="#EABB11">
     <label text="Event"></label>
     <block type="on_button"></block>
-    <block type="b_create"></block>
+    <block type="b_create">
+                <value name="B_NAME">
+                    <shadow type="text">
+                        <field name="TEXT">button_name</field>
+                    </shadow>
+                </value>
+            </block>
+    <block type="b_row">
+                <value name="BUTTON_NAME">
+                    <shadow type="text">
+                        <field name="TEXT">name</field>
+                    </shadow>
+                </value>
+            </block>
+    <block type="b_row_comp">
+            <value name="BUTTON">
+                <shadow type="text">
+                    <field name="TEXT"></field>
+                </shadow>
+            </value>
+        </block>
     <block type="b_style"></block>
     <block type="button_id"></block>
     <block type="button_author"></block>
@@ -507,7 +528,7 @@ export default (Blockly) => {
     <block type="button_guild"></block>
     <block type="button_reply"></block>
     <block type="button_edit"></block>
-    
+    </category>
     <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>

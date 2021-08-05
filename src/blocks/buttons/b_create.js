@@ -4,26 +4,33 @@ import Blockly from "blockly/core";
 
 const BORDER_FIELDS = [ "LABEL", "STYLE", "EMOJI", "URL", "ID"];
 
-const BORDER_TYPES = [ "String", "bstyle", "String", "String","String" ];
+const BORDER_TYPES = ["String",  "bstyle", "String" ,"String", "String" ];
 
 
-const s4d_message_embed = {
-    "message0": "Create Button",
-    "mutator": "s4d_message_embed_mutator",
+const s4d_message_row_block = {
+    "message0": "create button %1",
+    "args0": [
+        {
+            "type": "input_value",
+            "name": "B_NAME",
+            "check": "String"
+        },
+    ],
+    "mutator": "s4d_message_row_block_mutator",
+    "tooltip": "",
+    "helpUrl": "",
     "previousStatement": null,
     "nextStatement": null,
-    "helpUrl": "",
-    "tooltip": "",
     "colour": "#40BF4A"
 };
 
 Blockly.Blocks["b_create"] = {
     init: function() {
-        this.jsonInit(s4d_message_embed);
+        this.jsonInit(s4d_message_row_block);
     }
 };
 
-Blockly.Blocks["s4d_message_embed_mutator"] = {
+Blockly.Blocks["s4d_message_row_block_mutator"] = {
     init: function() {
         this.setColour("#CECDCE");
         this.setTooltip("");
@@ -32,7 +39,7 @@ Blockly.Blocks["s4d_message_embed_mutator"] = {
 };
 
 const BORDER_MUTATOR_MIXIN = {
-    inputs_: [ true, false, false, false ,false],
+    inputs_: [true, true, false, false, false],
 
 
     mutationToDom: function() {
@@ -54,7 +61,7 @@ const BORDER_MUTATOR_MIXIN = {
     },
 
     decompose: function(workspace) {
-        const containerBlock = workspace.newBlock("s4d_message_embed_mutator");
+        const containerBlock = workspace.newBlock("s4d_message_row_block_mutator");
         for (let i = 0; i < this.inputs_.length; i++) {
         containerBlock.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -88,19 +95,26 @@ const BORDER_MUTATOR_MIXIN = {
     }
 };
 
-Blockly.Extensions.registerMutator("s4d_message_embed_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
+Blockly.Extensions.registerMutator("s4d_message_row_block_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
 
-Blockly.JavaScript["s4d_message_embed"] = function(block){
-    return [ `
-    {
-        embed:{
-            title: ${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC) || null},
-            color: ${Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC) || null},
-            image: { url: ${Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC) || null} }, 
-            description: ${Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC) || null},
-            footer: { text: ${Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC) || null} },
-            thumbnail: { url: ${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC) || null} }
-        }
-    }  
-    `, Blockly.JavaScript.ORDER_ATOMIC ];
+Blockly.JavaScript["b_create"] = function(block){
+    
+    let id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC) || null
+    let url = Blockly.JavaScript.valueToCode(block, "URL", Blockly.JavaScript.ORDER_ATOMIC) || null
+    let emoji = Blockly.JavaScript.valueToCode(block, "EMOJI", Blockly.JavaScript.ORDER_ATOMIC) || null
+    let label = Blockly.JavaScript.valueToCode(block, "LABEL", Blockly.JavaScript.ORDER_ATOMIC) || null
+    let style = Blockly.JavaScript.valueToCode(block, "STYLE", Blockly.JavaScript.ORDER_ATOMIC) || null
+    let name = Blockly.JavaScript.valueToCode(block, "B_NAME", Blockly.JavaScript.ORDER_ATOMIC)
+    let text1 = name.replace("'","")
+    let text2 = text1.replace("'","")
+    let code = `const ${text2} = new MessageButton()\n`
+if(id !== null) code += `.setCustomId(${id})\n`
+if(label !== null)code += `.setLabel(${label})\n`
+if(style === null) code += ".setStyle('DANGER')\n"
+if(style !== null) code += `.setStyle(${style})\n`
+if(emoji !== null) code += `.setEmoji(${emoji})\n`
+if(url !== null) code += `.setURL(${url})\n`
+code +="\n"
+return code
 };
+

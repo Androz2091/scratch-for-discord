@@ -143,7 +143,7 @@ Vue.mixin({
                 s4d.client = new s4d.Discord.Client({
                      intents: ['GUILDS', 'GUILD_MESSAGES'] 
                 });
-                const { Permissions } = require('discord.js');
+                const { Permissions, MessageButton, MessageActionRow, MessageEmbed } = require('discord.js');
                 s4d.client.on('raw', async (packet) => {
                     if(['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)){
                         const guild = s4d.client.guilds.cache.get(packet.d.guild_id);

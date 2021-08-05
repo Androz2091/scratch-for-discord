@@ -271,5 +271,6 @@
     "RES_MISSING_URL": "Insert a URL here",
     "COLOR_MESSAGE": "type RANDOM in text block instead of (random color block)",
     "HYPERLINK_MESSAGE": "To add hyperlink, use format : [name](link)",
-    "HYPERLINK_MESSAGE_2": "hyperlinks can be only used in descriptions"
+    "HYPERLINK_MESSAGE_2": "hyperlinks can be only used in descriptions",
+    "B_ROW": "You can use this block only when its in create button row"
 }
