@@ -33,7 +33,7 @@ import "./blocks/loops/";
 import "./blocks/other/";
 import "./prompt";
 
-import Theme from '@blockly/theme-modern';
+import Theme from '@blockly/theme-dark';
 
 export default {
     name: "app",
