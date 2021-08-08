@@ -47,6 +47,10 @@ const blockData = {
                     "User"
                 ],
                 [
+                    "member",
+                    "Member"
+                ],
+                [
                     "channel",
                     "Channel"
                 ],
