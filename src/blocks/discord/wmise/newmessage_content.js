@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "s4d_newmessage_content";
 
 const blockData = {
-    "message0": "New Message content",
+    "message0": "%{BKY_N_CON}", 
     "colour": "#5BA58C",
     "tooltip": "",
     "output": "String",

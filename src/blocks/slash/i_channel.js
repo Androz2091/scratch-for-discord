@@ -4,7 +4,7 @@ import Blockly from "blockly/core";
 const blockName = "interaction_channel";
 
 const blockData = {
-    "message0": "Interaction Channel",
+    "message0": "%{BKY_S_CHANNEL}",
     "colour": "#a55b80",
     "output": "Channel",
     "tooltip": "",

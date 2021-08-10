@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "slash_reply";
 
 const blockData = {
-    "message0": "Interaction Reply %1 Ephemeral %2 Row %3",
+    "message0": "%{BKY_S_REPLY}",
     "args0": [
         {
             "type": "input_value",

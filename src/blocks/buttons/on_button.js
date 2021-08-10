@@ -3,7 +3,7 @@ import * as Blockly from "blockly";
 const blockName = "on_button";
 
 const blockData = {
-    "message0": "When button is clicked %1 %2",
+    "message0": "%{BKY_B_ON}",
     "colour": "#F5AB1A",
     "args0": [
         {

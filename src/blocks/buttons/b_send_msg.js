@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "b_send_msg";
 
 const blockData = {
-    "message0": "Reply %1 Row %2 channel %3",
+    "message0": "%{BKY_B_SEND_MSG}",
     "args0": [
         {
             "type": "input_value",

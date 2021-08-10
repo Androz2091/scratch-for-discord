@@ -4,7 +4,7 @@ import * as Blockly from "blockly";
 const blockName = "newmsg_member";
 
 const blockData = {
-    "message0": "%1 of new message author",
+    "message0": "%{BKY_N_MAS}",
     "args0": [
         {
             "type": "field_dropdown",

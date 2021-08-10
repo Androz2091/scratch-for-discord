@@ -4,7 +4,7 @@ import Blockly from "blockly/core";
 const blockName = "interaction_guild";
 
 const blockData = {
-    "message0": "Interaction Server",
+    "message0": "%{BKY_S_GUILD}",
     "colour": "#D85E47",
     "output": "Server",
     "tooltip": "",

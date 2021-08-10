@@ -19,7 +19,7 @@ import * as Blockly from "blockly";
 const blockName = "options";
 
 const blockData = {
-    "message0": "Get %2 option name %1",
+    "message0": "%{BKY_S_OPTIONS}",
     "args0": [
         {
             "type": "input_value",
@@ -45,6 +45,10 @@ const blockData = {
                 [
                     "user",
                     "User"
+                ],
+                [
+                    "member",
+                    "Member"
                 ],
                 [
                     "channel",

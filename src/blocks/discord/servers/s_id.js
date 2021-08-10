@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s_id";
 
 const blockData = {
-    "message0": "id of server %1",
+    "message0": "%{BKY_S_ID}",
     "args0": [
         {
             "type": "input_value",

@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "button_edit";
 
 const blockData = {
-    "message0": "Button Edit %1 Row %2",
+    "message0": "%{BKY_B_EDIT}",
     "args0": [
         {
             "type": "input_value",

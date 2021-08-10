@@ -4,10 +4,10 @@ import * as Blockly from "blockly/core";
 const blockName = "s4d_create_embed_thens";
 
 const blockData = {
-    "message0": "who %3 channel %4 Permissions %2 %1",
+    "message0": "%{BKY_C_PERM}",
     "args0": [{
             "type": "input_statement",
-            "name": "THEN"
+            "name": "THENA"
         },
         {
             "type": "input_dummy"
@@ -21,6 +21,13 @@ const blockData = {
             "type": "input_value",
             "name": "CHANNEL",
             "check": "Channel"
+        },
+        {
+            "type": "input_statement",
+            "name": "THEND"
+        },
+        {
+            "type": "input_dummy"
         },
     ],
     "colour": "#4C97FF",

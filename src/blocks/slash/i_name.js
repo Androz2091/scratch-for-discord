@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "interaction_name";
 
 const blockData = {
-    "message0": "Interaction Name",
+    "message0": "%{BKY_S_NAME}",
     "colour": "#5BA58C",
     "tooltip": "",
     "output": "String",

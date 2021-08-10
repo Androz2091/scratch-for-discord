@@ -4,7 +4,7 @@ import Blockly from "blockly/core";
 const blockName = "button_channel";
 
 const blockData = {
-    "message0": "Button Channel",
+    "message0": "%{BKY_B_CHANNEL}",
     "colour": "#a55b80",
     "output": "Channel",
     "tooltip": "",

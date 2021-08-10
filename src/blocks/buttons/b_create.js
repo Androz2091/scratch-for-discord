@@ -8,7 +8,7 @@ const BORDER_TYPES = ["String",  "bstyle", "String" ,"String", "String" ];
 
 
 const s4d_message_row_block = {
-    "message0": "create button %1",
+    "message0": "%{BKY_B_CREATE}",
     "args0": [
         {
             "type": "input_value",

@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "slowmode";
 
 const blockData = {
-    "message0": "channel %1 time %2",
+    "message0": "%{BKY_C_SLOW}",
     "args0": [
         {
             "type": "input_value",

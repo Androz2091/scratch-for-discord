@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "newmsg_timestamp";
 
 const blockData = {
-    "message0": "timestamp",
+    "message0": "%{BKY_N_TIME}",
     "colour": "#5BA58C",
     "tooltip": "",
     "output": "String",

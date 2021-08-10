@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "slash_edit";
 
 const blockData = {
-    "message0": "Interaction reply Edit %1 Row %2 ",
+    "message0": "%{BKY_S_EDIT}",
     "args0": [
         {
             "type": "input_value",

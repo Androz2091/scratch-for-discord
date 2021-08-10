@@ -472,8 +472,8 @@ export default (Blockly) => {
             <label text="%{BKY_SEND_EMBED}"></label>
             <block type="s4d_create_embed_then_send"></block>
     </category>
-    <category name="Slash" colour="#ff2f00">
-    <label text="Register slash commands by clicking 'Register slash commands' button"></label>
+    <category name="{{ TOOLBOX_SLASH }}" colour="#ff2f00">
+    <label text="%{BKY_T_RS}"></label>
     <block type="on_slash"></block>
     <block type="interaction_name"></block>
     <block type="options"></block>
@@ -484,10 +484,11 @@ export default (Blockly) => {
     <block type="slash_edit"></block>
     <block type="send_embed_string"></block>
     </category>
-    <category name="Edited" colour="#7289da">
-            <label text="Event" web-class="boldtext"></label>
+    <category name="{{ TOOLBOX_EDITED }}" colour="#7289da">
+            <label text="%{BKY_T_EDI}" web-class="boldtext"></label>
             <block type="when_message_is_edited"></block>
-            <label text="New message stuff" web-class="boldtext"></label>
+            <block type="s4d_replys"></block>
+            <label text="%{BKY_T_NMS}" web-class="boldtext"></label>
             <block type="newmsg_channel"></block>
             <block type="new_message_server"></block>
             <block type="s4d_newmessage_content"></block>
@@ -497,21 +498,21 @@ export default (Blockly) => {
             <block type="newmsg_timestamp"></block>
         </category>
 
-        <category name="buttons" colour="#ff0019">
-    <label text="Event"></label>
+        <category name="{{ TOOLBOX_BUTTONS }}" colour="#ff0019">
+    <label text="%{BKY_T_EDI}"></label>
     <block type="on_button"></block>
-    <label text="Button stuff"></label>
+    <label text="%{BKY_T_BS}"></label>
     <block type="button_id"></block>
     <block type="button_author"></block>
     <block type="button_channel"></block>
     <block type="button_guild"></block>
     <block type="b_style"></block>
-    <label text="Reply and edit and send embed"></label>
+    <label text="%{BKY_T_B_SHIP}Reply and edit and send embed"></label>
     <block type="b_send_msg"></block>
     <block type="button_reply"></block>
     <block type="button_edit"></block>
     <block type="send_embed_string"></block>
-    <label text="Create Button"></label>
+    <label text="%{BKY_T_CB}"></label>
     <block type="b_create">
                 <value name="B_NAME">
                     <shadow type="text">
@@ -519,7 +520,7 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
-    <label text="Button Row"></label>
+    <label text="%{BKY_T_BR}"></label>
     <block type="b_row">
                 <value name="BUTTON_NAME">
                     <shadow type="text">
@@ -580,11 +581,12 @@ export default (Blockly) => {
             <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
             <block type="s4d_set_server_name"></block>
         </category>
-        <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
-        <block type="slowmode"></block>
         <block type="s4d_create_embed_thens"></block>
         <block type="set_perms"></block>
         <block type="set_perms_parent"></block>
+        <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
+        <block type="slowmode"></block>
+
             <label text="%{BKY_FIND_CHANNEL}"></label>
             <block type="s4d_get_channel"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>

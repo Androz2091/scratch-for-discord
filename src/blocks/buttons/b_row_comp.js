@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../restrictions";
 const blockName = "b_row_comp";
 
 const blockData = {
-    "message0": "add button %1",
+    "message0": "%{BKY_B_ROW_COMP}",
     "args0": [{
         "type": "input_value",
         "name": "BUTTON",

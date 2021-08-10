@@ -4,7 +4,7 @@ import Blockly from "blockly/core";
 const blockName = "button_guild";
 
 const blockData = {
-    "message0": "Button Server",
+    "message0": "%{BKY_B_GUILD}",
     "colour": "#D85E47",
     "output": "Server",
     "tooltip": "",

@@ -3,7 +3,7 @@ import * as Blockly from "blockly";
 const blockName = "on_slash";
 
 const blockData = {
-    "message0": "When slash command is recieved %1 %2",
+    "message0": "%{BKY_S_ON}",
     "colour": "#F5AB1A",
     "args0": [
         {

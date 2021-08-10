@@ -4,7 +4,7 @@ import Blockly from "blockly/core";
 const blockName = "button_id";
 
 const blockData = {
-    "message0": "Button ID",
+    "message0": "%{BKY_B_ID}",
     "colour": "#5BA58C",
     "output": "String",
     "tooltip": "",

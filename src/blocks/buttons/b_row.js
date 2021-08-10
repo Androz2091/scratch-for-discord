@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "b_row";
 
 const blockData = {
-    "message0": "name %3 create button row %2 %1 ",
+    "message0": "%{BKY_B_ROW}",
     "args0": [{
             "type": "input_statement",
             "name": "THEN"

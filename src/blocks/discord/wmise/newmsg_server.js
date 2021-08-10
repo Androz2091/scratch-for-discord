@@ -4,7 +4,7 @@ import Blockly from "blockly/core";
 const blockName = "new_message_server";
 
 const blockData = {
-    "message0": "New Message server",
+    "message0": "%{BKY_N_S}",
     "colour": "#D85E47",
     "output": "Server",
     "tooltip": "",

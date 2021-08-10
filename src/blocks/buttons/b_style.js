@@ -4,7 +4,7 @@ import * as Blockly from "blockly";
 const blockName = "b_style";
 
 const blockData = {
-    "message0": "button style %1",
+    "message0": "%{BKY_B_STYLE}",
     "args0": [
         {
             "type": "field_dropdown",

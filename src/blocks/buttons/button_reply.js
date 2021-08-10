@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "button_reply";
 
 const blockData = {
-    "message0": "Button Reply %1 Ephemeral %2 Row %3",
+    "message0": "%{BKY_B_REPLY}",
     "args0": [
         {
             "type": "input_value",
