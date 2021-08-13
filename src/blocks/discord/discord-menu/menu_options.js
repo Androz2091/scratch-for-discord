@@ -14,12 +14,12 @@ const blockData = {
         },
         {
             "type": "input_value",
-            "name": "PLACEHOLDER",
+            "name": "ID",
             "check": [ "String", "Number" ]  
         },
         {
             "type": "input_value",
-            "name": "ID",
+            "name": "PLACEHOLDER",
             "check": [ "String", "Number" ]  
         }
     ],

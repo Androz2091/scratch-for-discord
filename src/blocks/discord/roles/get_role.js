@@ -53,7 +53,7 @@ Blockly.Blocks["s4d_get_role_mutator"] = {
 };
 
 const BORDER_MUTATOR_MIXIN = {
-    inputs_: [ false ],
+    inputs_: [ true ],
 
     mutationToDom: function() {
         if (!this.inputs_) {
