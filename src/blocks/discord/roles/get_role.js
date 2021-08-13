@@ -122,7 +122,7 @@ Blockly.JavaScript[blockName] = function(block){
         }
     } else {
         if(server){
-            return [ `${server}.roles.cache.get(${value})`, Blockly.JavaScript.ORDER_NONE ];
+            return [ `${server}.roles.cache.find((role) => role.id === ${value})`, Blockly.JavaScript.ORDER_NONE ];
         } else {
             return [ `Array.prototype.concat.apply([], s4d.client.guilds.cache.array().map((g) => g.roles.cache.array())).get(${value})`, Blockly.JavaScript.ORDER_NONE ];
         }
