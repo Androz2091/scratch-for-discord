@@ -6,12 +6,6 @@ const blockName = "s4d_button_think";
 const blockData = {
     "message0": "%{BKY_BUTTON_THINK}",
     "args0": [
-        {
-            "type": "input_value",
-            "name": "TRUEORFALSE",
-            "check": "Boolean"
-        },
-
     ],
     "colour": "#4C97FF",
     "previousStatement": null,
@@ -26,9 +20,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const tof = Blockly.JavaScript.valueToCode(block, "TRUEORFALSE", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `await button.reply.think(${tof})\n`
+Blockly.JavaScript[blockName] = function() {
+    const code = `await button.deferUpdate()\n`
     return code;
 };
 

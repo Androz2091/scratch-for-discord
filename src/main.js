@@ -120,7 +120,10 @@ Vue.mixin({
             return `
                 let Discord;
                 let Database;
+                let Intents;
                 let moment;
+                let MessageActionRow;
+                let MessageButton;
                 if(typeof window !== "undefined"){
                     Discord = DiscordJS;
                     Database = EasyDatabase;
@@ -128,10 +131,12 @@ Vue.mixin({
                 } else {
                     Discord = require("discord.js");
                     Database = require("easy-json-database");
+                    Intents = Discord.Intents
+                    MessageActionRow = Discord.MessageButton
+                    MessageButton = Discord.MessageActionRow
                     moment = require('moment');                    
                 }
                 
-                const { MessageButton, MessageActionRow, MessageMenu, MessageMenuOption } = require("discord-buttons")
                 const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
                     Discord,
@@ -145,21 +150,7 @@ Vue.mixin({
                         if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
                     }
                 };
-                s4d.client = new s4d.Discord.Client({
-                    fetchAllMembers: true
-                });
-                require('discord-buttons')(s4d.client);
-                function mainchannel(guild){
-                    let channelID;
-                    let channels = guild.channels.cache;
-                    for (let in channels) {
-                        if (channels[i].type === "text" && channels[i].permissionsFor(guild.me).has('SEND_MESSAGES')) {
-                            channelID = channels[i]
-                            return channelID.id
-                        }
-                    }
-                    return null
-                }
+                s4d.client = new s4d.Discord.Client({{ intents: [Intents.FLAGS.GUILD_MESSAGES,Intents.FLAGS.GUILD_MEMBERS,Intents.FLAGS.GUILDS] }});
                 s4d.client.on('raw', async (packet) => {
                     if(['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)){
                         const guild = s4d.client.guilds.cache.get(packet.d.guild_id);

@@ -24,6 +24,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.client.on('clickButton', async (button) => {\n${statements}\n});\n`;
+    const code = `s4d.client.on('interactionCreate', async (button) => {\nif (!button.isButton()) return\n${statements}\n});\n`;
     return code;
 };

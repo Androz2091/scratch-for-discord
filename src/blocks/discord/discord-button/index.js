@@ -1,4 +1,3 @@
-import "./message-button";
 import "./send-button";
 import "./on-click";
 import "./clicker-member";

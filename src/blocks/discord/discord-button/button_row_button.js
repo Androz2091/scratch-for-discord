@@ -97,7 +97,7 @@ Blockly.JavaScript["s4d_message_row_block"] = function(block){
     let label = Blockly.JavaScript.valueToCode(block, "LABEL", Blockly.JavaScript.ORDER_ATOMIC) || null
     let style = Blockly.JavaScript.valueToCode(block, "STYLE", Blockly.JavaScript.ORDER_ATOMIC) || null
     let code = `new MessageButton()\n`
-if(id !== null) code += `.setID(${id})\n`
+if(id !== null) code += `.setCustomId(${id})\n`
 if(url !== null) code += `.setURL(${url})\n`
 if(label !== null)code += `.setLabel(${label})\n`
 if(emoji !== null) code += `.setEmoji(${emoji})\n`

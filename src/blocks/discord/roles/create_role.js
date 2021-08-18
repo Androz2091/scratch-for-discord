@@ -40,6 +40,6 @@ Blockly.JavaScript[blockName] = function(block){
     const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const color = Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC)
-    const code = `${server}.roles.create({  data: {name: ${name},color:${color}, }});\n`;
+    const code = `${server}.roles.create({ name: ${name},color:${color} });\n`;
     return code;
 };

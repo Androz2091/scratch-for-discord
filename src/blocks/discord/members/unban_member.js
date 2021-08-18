@@ -32,7 +32,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${server}.fetchBans().then(bans=> {
+    const code = `${server}.bans.fetch().then(bans=> {
         if(bans.size != 0) {
         let bUser = bans.find(b => b.user.id == ${member})
         if(bUser){

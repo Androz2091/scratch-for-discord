@@ -97,7 +97,7 @@ export default {
                             start: 'node .'
                         },
                         dependencies: {
-                            'discord.js': '^12.5.1',
+                            'discord.js': '^13.1.0',
                             'easy-json-database': '^1.3.0',
                             'moment':'^2.29.1',
                             'discord-buttons':'^3.0.1',

@@ -11,19 +11,23 @@ const blockData = {
             "options": [
                 [
                     "%{BKY_RED}",
-                    "red"
+                    "DANGER"
                 ],
                 [
                     "%{BKY_BLURPLE}",
-                    "blurple"
+                    "PRIMARY"
                 ],
                 [
                     "%{BKY_GREY}",
-                    "grey"
+                    "SECONDARY"
                 ],
                 [
                     "%{BKY_GREEN}",
-                    "green"
+                    "SUCCESS"
+                ],
+                [
+                    "%{BKY_LINK}",
+                    "LINK"
                 ]
             ] 
         },

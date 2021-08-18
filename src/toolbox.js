@@ -574,7 +574,6 @@ export default (Blockly) => {
             <block type="s4d_button_style"></block>
             <block type="s4d_button_row"></block>
             <block type="s4d_message_row_block"></block>
-            <block type="s4d_message_block"></block>
         </category>
         <category name="{{ TOOLBOX_MENU }}" colour="#059CA1">
             <label text="%{BKY_BUTTON_EVENT}"></label>
@@ -620,7 +619,6 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
             <label text="%{BKY_FIND_CHANNEL}"></label>
             <block type="s4d_get_channel"></block>
-            <block type="s4d_get_main_channel"></block>
             <block type="s4d_get_all_channel"></block>
             <block type="s4d_get_all_channel_channel"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>

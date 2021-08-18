@@ -33,7 +33,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const tof = Blockly.JavaScript.valueToCode(block, "TRUEORFALSE", Blockly.JavaScript.ORDER_ATOMIC);
     const reply = Blockly.JavaScript.valueToCode(block, "REPLY", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `await button.reply.send(${reply},${tof})\n`
+    const code = `await button.reply(${reply},${tof})\n`
     return code;
 };
 

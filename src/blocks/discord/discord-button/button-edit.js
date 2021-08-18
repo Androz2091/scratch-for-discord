@@ -28,7 +28,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const reply = Blockly.JavaScript.valueToCode(block, "REPLY", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `await button.reply.edit(${reply})\n`
+    const code = `await button.editReply({ content: ${reply}})\n`
     return code;
 };
 
