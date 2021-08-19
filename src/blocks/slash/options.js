@@ -71,7 +71,7 @@ const blockData = {
         }
     ],
     "colour": "#4C97FF",
-    "output": "String",
+    "output": ["String", "Member", "Channel", "Role"],
     "tooltip": "",
     "helpUrl": ""
 };

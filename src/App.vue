@@ -23,6 +23,8 @@ import "./blocks/discord/join-event/";
 import "./blocks/discord/leave-event/";
 import "./blocks/discord/reaction-event/";
 import "./blocks/discord/wmise/";
+import "./blocks/register_context_menus/";
+import "./blocks/context_menus/";
 
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";

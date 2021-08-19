@@ -484,7 +484,37 @@ export default (Blockly) => {
     <block type="slash_edit"></block>
     <block type="send_embed_string"></block>
     </category>
-    <category name="{{ TOOLBOX_EDITED }}" colour="#7289da">
+    <category name="Register" colour="#65700c">
+    <label text="Register slash commands" web-class="boldtext"></label>
+    <block type="guild_s"></block>
+    <block type="guild_g"></block>
+    <label text="Make slash commands" web-class="boldtext"></label>
+    <block type="register_var"></block>
+    <label text="Register context menu" web-class="boldtext"></label>
+    <block type="register_c_m"></block>
+    </category>
+    <label text="Make slash commands" web-class="boldtext"></label>
+    <block type="register_var"></block>
+    <block type="register_c_s"></block>
+    <block type="options_s"></block>
+    <label text="Choices for slash commands" web-class="boldtext"></label> 
+    <block type="choices_s"></block>
+    <block type="choices_c"></block>
+    <category name="Context" colour="#f0f255">
+    <label text="Event" web-class="boldtext"></label>
+    <block type="on_menu"></block>
+    <label text="Stuff" web-class="boldtext"></label>
+    <block type="m_name"></block>
+    <block type="m_member"></block>
+    <block type="m_channel"></block>
+    <block type="m_guild"></block>
+    <label text="Reply and Edit" web-class="boldtext"></label>
+    <block type="m_reply"></block>
+    <block type="m_edit"></block>
+    <label text="send embed" web-class="boldtext"></label>
+    <block type="send_embed_string"></block>
+    </category>
+    <category name="{{ TOOLBOX_EDITED }}" colour="#e85a66">
             <label text="%{BKY_T_EDI}" web-class="boldtext"></label>
             <block type="when_message_is_edited"></block>
             <block type="s4d_replys"></block>
