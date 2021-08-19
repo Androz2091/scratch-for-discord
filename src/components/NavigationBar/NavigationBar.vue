@@ -14,7 +14,7 @@
                 <EditMenu></EditMenu>
                 <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
-                <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
+                <b-nav-item href="https://slash-commands-gui.netlify.app/" target="_blank">{{ $t('Register Slash commands') }}</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <RunModal></RunModal>
@@ -97,7 +97,7 @@ export default {
                             start: 'node .'
                         },
                         dependencies: {
-                            'discord.js': '^12.5.1',
+                            'discord.js': '^13.1.0',
                             'easy-json-database': '^1.3.0'
                         }
                     }));

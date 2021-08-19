@@ -5,3 +5,4 @@ import "./member_count";
 import "./server_name";
 import "./server_owner";
 import "./set_server_name";
+import "./s_id";
