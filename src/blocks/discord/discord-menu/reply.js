@@ -1,13 +1,18 @@
 import Blockly from "blockly/core";
 
-const blockName = "s4d_button_think";
+const blockName = "s4d_menu_reply";
 
 const blockData = {
-    "message0": "%{BKY_BUTTON_THINK}",
+    "message0": "%{BKY_REPLY}",
     "args0": [
         {
             "type": "input_value",
-            "name": "TOF",
+            "name": "REPLY",
+            "check": [ "String","Number" ]
+        },
+        {
+            "type": "input_value",
+            "name": "TRUEORFALSE",
             "check": [ "Boolean" ]
         }
     ],
@@ -26,6 +31,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const tof = Blockly.JavaScript.valueToCode(block, "TRUEORFALSE", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `await i.deferReply({ ephemeral:${tof === null? false : tof} })\n`
+    const reply = Blockly.JavaScript.valueToCode(block, "REPLY", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `await i.reply({content:${reply},ephemeral:${tof === null ? false : tof}})\n`
     return code;
 };

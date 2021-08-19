@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_reply";
 
 const blockData = {
-    "message0": "%{BKY_REPLY}",
+    "message0": "%{BKY_REPLY_MSG}",
     "args0": [
         {
             "type": "input_value",

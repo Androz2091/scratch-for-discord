@@ -1,11 +1,14 @@
 import Blockly from "blockly/core";
 
-const blockName = "s4d_menu_value";
+const blockName = "s4d_button_delete_reply";
 
 const blockData = {
-    "message0": "%{BKY_MENU_VALUE}",
-    "colour": "#187795",
-    "output": "String",
+    "message0": "%{BKY_DELETE_REPLY}",
+    "args0": [
+    ],
+    "colour": "#4C97FF",
+    "previousStatement": null,
+    "nextStatement": null,
     "tooltip": "",
     "helpUrl": ""
 };
@@ -17,7 +20,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["i.values[0]", Blockly.JavaScript.ORDER_NONE];
+    const code = `await i.deleteReply()\n`
     return code;
-}; 
+};
 

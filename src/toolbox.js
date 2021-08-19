@@ -487,8 +487,6 @@ export default (Blockly) => {
                 </value>
             </block>
             <block type="s4d_reply_id"></block>
-            <label text="%{BKY_TOOLS}"></label>
-            <block type="s4d_message_embed"></block>
         </category>
         <category name="{{ EMBED }}" colour="#40BF4A">
         <label text="Create A Perfect Embed" web-class="boldtext"></label>
@@ -562,13 +560,12 @@ export default (Blockly) => {
             <label text="%{BKY_BUTTON_EVENT}"></label>
             <block type="s4d_on_click"></block>
             <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
-            <block type="s4d_button_click_member"></block>
-            <block type="s4d_button_click_channel"></block>
-            <block type="s4d_button_click_guild"></block>
             <block type="s4d_button_click_id"></block>
             <block type="s4d_button_think"></block>
             <block type="s4d_button_reply"></block>
             <block type="s4d_button_edit"></block>
+            <block type="s4d_button_delete_reply"></block>
+            <block type="s4d_update"></block>
             <label text="%{BKY_BUTTON_BLOCKS}"></label>
             <block type="s4d_send_button"></block>
             <block type="s4d_button_style"></block>
@@ -579,11 +576,13 @@ export default (Blockly) => {
             <label text="%{BKY_BUTTON_EVENT}"></label>
             <block type="s4d_on_menu_click"></block>
             <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
-            <block type="s4d_menu_member"></block>
-            <block type="s4d_menu_id"></block>
-            <block type="s4d_menu_channel"></block>
-            <block type="s4d_menu_guild"></block>
             <block type="s4d_menu_value"></block>
+            <block type="s4d_menu_click_id"></block>
+            <block type="s4d_menu_reply"></block>
+            <block type="s4d_button_think"></block>
+            <block type="s4d_button_edit"></block>
+            <block type="s4d_button_delete_reply"></block>
+            <block type="s4d_update"></block>
             <label text="%{BKY_BUTTON_BLOCKS}"></label>
             <block type="s4d_button_menu"></block>
             <block type="s4d_message_menu_block"></block>

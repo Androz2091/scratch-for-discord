@@ -124,6 +124,7 @@ Vue.mixin({
                 let moment;
                 let MessageActionRow;
                 let MessageButton;
+                let MessageSelectMenu;
                 if(typeof window !== "undefined"){
                     Discord = DiscordJS;
                     Database = EasyDatabase;
@@ -132,8 +133,9 @@ Vue.mixin({
                     Discord = require("discord.js");
                     Database = require("easy-json-database");
                     Intents = Discord.Intents
-                    MessageActionRow = Discord.MessageButton
-                    MessageButton = Discord.MessageActionRow
+                    MessageButton = Discord.MessageButton
+                    MessageActionRow = Discord.MessageActionRow
+                    MessageSelectMenu = Discord.MessageSelectMenu
                     moment = require('moment');                    
                 }
                 

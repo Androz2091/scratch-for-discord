@@ -37,11 +37,13 @@ Blockly.JavaScript[blockName] = function(block){
     const id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC);
     const placeholder = Blockly.JavaScript.valueToCode(block, "PLACEHOLDER", Blockly.JavaScript.ORDER_ATOMIC);
     const statements = Blockly.JavaScript.statementToCode(block, "OPTIONS");
-    var code = [`new MessageMenu()
-    .setID(${id})
+    var code = [`new MessageActionRow()
+    .addComponents(
+    new MessageSelectMenu()
+    .setCustomId(${id})
     .setPlaceholder(${placeholder})
     .setMaxValues(1)
     .setMinValues(1)
-    ${statements}\n`, Blockly.JavaScript.ORDER_NONE];
+    .addOptions(${statements}))\n`, Blockly.JavaScript.ORDER_NONE];
     return code
 };

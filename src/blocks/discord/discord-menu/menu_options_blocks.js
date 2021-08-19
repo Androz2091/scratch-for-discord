@@ -95,12 +95,13 @@ Blockly.JavaScript["s4d_message_menu_block"] = function(block){
     let emoji = Blockly.JavaScript.valueToCode(block, "EMOJI2", Blockly.JavaScript.ORDER_ATOMIC) || null
     let label = Blockly.JavaScript.valueToCode(block, "LABEL2", Blockly.JavaScript.ORDER_ATOMIC) || null
     let description  = Blockly.JavaScript.valueToCode(block, "DESCRIPTION", Blockly.JavaScript.ORDER_ATOMIC) || null
-    let code = `.addOption(new MessageMenuOption()\n`
-if(id !== null) code += `.setValue(${id})\n`
-if(label !== null)code += `.setLabel(${label})\n`
-if(emoji !== null) code += `.setEmoji(${emoji})\n`
-if(description !== null) code += `.setDescription(${description})\n`
-code +=")\n"
+    let code = `{\n`
+if(id !== null) code += `value:${id},\n`
+if(label !== null)code += `label:${label},\n`
+if(emoji !== null) code += `emoji:${emoji},\n`
+if(description !== null) code += `description:${description},\n`
+code += `default:false,`
+code +="},\n"
 return code
 };
 

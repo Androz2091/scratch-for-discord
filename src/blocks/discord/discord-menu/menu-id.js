@@ -1,9 +1,9 @@
 import Blockly from "blockly/core";
 
-const blockName = "s4d_menu_value";
+const blockName = "s4d_menu_click_id";
 
 const blockData = {
-    "message0": "%{BKY_MENU_VALUE}",
+    "message0": "%{BKY_MENU_ID}",
     "colour": "#187795",
     "output": "String",
     "tooltip": "",
@@ -17,7 +17,6 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["i.values[0]", Blockly.JavaScript.ORDER_NONE];
+    const code = ["i.customId", Blockly.JavaScript.ORDER_NONE];
     return code;
-}; 
-
+};

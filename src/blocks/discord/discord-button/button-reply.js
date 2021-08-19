@@ -1,10 +1,9 @@
 import Blockly from "blockly/core";
-import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_button_reply";
 
 const blockData = {
-    "message0": "%{BKY_BUTTON_REPLY}",
+    "message0": "%{BKY_REPLY}",
     "args0": [
         {
             "type": "input_value",
@@ -33,16 +32,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const tof = Blockly.JavaScript.valueToCode(block, "TRUEORFALSE", Blockly.JavaScript.ORDER_ATOMIC);
     const reply = Blockly.JavaScript.valueToCode(block, "REPLY", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `await button.reply(${reply},${tof})\n`
+    const code = `await i.reply({content:${reply},ephemeral:${tof}})\n`
     return code;
 };
 
-registerRestrictions(blockName, [
-    {
-        type: "toplevelparent",
-        message: "RES_MUST_BE_IN_ON_CLICK",
-        types: [
-            "s4d_on_click"
-        ]
-    }
-]);
