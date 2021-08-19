@@ -51,7 +51,7 @@
     const required = Blockly.JavaScript.valueToCode(block, "BOOLEAN", Blockly.JavaScript.ORDER_ATOMIC);
     const description = Blockly.JavaScript.valueToCode(block, "DESCRIPTION", Blockly.JavaScript.ORDER_ATOMIC);
       const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-      const code = `{ name: ${name}, \n type: 'STRING'\n description: ${description}, \n required: ${required}, \n choices: [ \n ${statementThen} \n ] }`;
+      const code = `{ name: ${name}, \n type: 'STRING'\n description: ${description}, \n required: ${required}, \n choices: [ \n ${statementThen} \n ] },`;
       return code;
   };
   

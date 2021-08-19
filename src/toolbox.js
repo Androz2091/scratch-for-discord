@@ -492,14 +492,19 @@ export default (Blockly) => {
     <block type="register_var"></block>
     <label text="Register context menu" web-class="boldtext"></label>
     <block type="register_c_m"></block>
+    <label text="comma used for multiple slash commands in 1 variabel" web-class="boldtext"></label> 
+    <block type="comma"></block>
+
     </category>
     <label text="Make slash commands" web-class="boldtext"></label>
-    <block type="register_var"></block>
     <block type="register_c_s"></block>
     <block type="options_s"></block>
     <label text="Choices for slash commands" web-class="boldtext"></label> 
     <block type="choices_s"></block>
     <block type="choices_c"></block>
+    <label text="comma used for multiple slash commands in 1 variabel" web-class="boldtext"></label> 
+    <block type="comma"></block>
+    
     <category name="Context" colour="#f0f255">
     <label text="Event" web-class="boldtext"></label>
     <block type="on_menu"></block>

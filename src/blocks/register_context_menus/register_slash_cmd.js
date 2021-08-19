@@ -44,7 +44,7 @@
     const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
     const description = Blockly.JavaScript.valueToCode(block, "DESCRIPTION", Blockly.JavaScript.ORDER_ATOMIC);
       const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-      const code = `{ \n name: ${name}, \n description: ${description}, \n options: [\n ${statementThen} \n] \n }, \n`;
+      const code = `{ \n name: ${name}, \n description: ${description}, \n options: [\n ${statementThen} \n] \n } \n`;
       return code;
   };
   

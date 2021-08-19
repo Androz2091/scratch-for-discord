@@ -47,7 +47,7 @@
       const name_var = Blockly.JavaScript.valueToCode(block, "NAME_VAR", Blockly.JavaScript.ORDER_ATOMIC);
       let text2 = name_var.replace("'","")
       let var_name3 = text2.replace("'","")
-      const code = `const ${var_name3} = await s4d.client.guilds.cache.get(${server})?.commands.create([${var_name2}]);`;
+      const code = `const ${var_name3} = await s4d.client.guilds.cache.get(${server})?.commands.create(${var_name2});`;
       return code;
   };
   
