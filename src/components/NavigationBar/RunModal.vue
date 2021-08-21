@@ -1,6 +1,6 @@
 <template>
     <b-modal id="run-modal" hide-footer :title="$t('run_modal.title')">
-        <div class="d-block">
+        <div class="d-block"> 
             <b-container>
                 <b-row v-if="!electronApp">
                     <i18n path="run_modal.disabled" tag="h5">
@@ -34,7 +34,6 @@
 
 <script>
 import Database from "easy-json-database-browser";
-
 export default {
     name: "editmenu",
     data: function () {
@@ -86,8 +85,10 @@ export default {
             /* eslint-disable no-undef */
             const DiscordJS = Discord;
             const EasyDatabase = Database;
+            const Momentl = require('moment')
             this.botStarting = true;
-            const result = new Promise(resolve => resolve(eval(this.getWorkspaceCode())));
+            let code = this.getWorkspaceCode()
+            const result = new Promise(resolve => resolve(eval(code)));
             result.then((s4d) => {
                 setTimeout(() => {
                     if(s4d.tokenInvalid){
@@ -149,11 +150,9 @@ export default {
 </script>
 
 <style>
-
 .btn-space {
     margin-right: 5px;
 }
-
 .botinfos {
     border-width: 10px;
     border-color: grey;
@@ -161,7 +160,6 @@ export default {
     align-items: center;
     cursor: pointer;
 }
-
 .botname {
     margin-left: 10px;
     font-weight: 600;
@@ -170,7 +168,6 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
 .handlebuttondiv {
     margin-right: 0%;
     margin-left: 40%;
@@ -178,13 +175,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center
-
 }
-
 .handlebutton {
     width:100px;
 }
-
 #run-container:after {
     position: absolute;
     content: '';
@@ -195,7 +189,6 @@ export default {
     left: 0;
     background-color: rgb(169, 169, 169, 0.5)
 }
-
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -204,5 +197,4 @@ export default {
     -ms-user-select: none;
     user-select: none;
 }
-
 </style>

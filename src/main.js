@@ -120,13 +120,18 @@ Vue.mixin({
             return `
                 let Discord;
                 let Database;
+                let moment;
                 if(typeof window !== "undefined"){
                     Discord = DiscordJS;
                     Database = EasyDatabase;
+                    moment = Momentl;
                 } else {
                     Discord = require("discord.js");
                     Database = require("easy-json-database");
+                    moment = require('moment');                    
                 }
+                
+                const { MessageButton, MessageActionRow, MessageMenu, MessageMenuOption } = require("discord-buttons")
                 const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
                     Discord,
@@ -143,6 +148,18 @@ Vue.mixin({
                 s4d.client = new s4d.Discord.Client({
                     fetchAllMembers: true
                 });
+                require('discord-buttons')(s4d.client);
+                function mainchannel(guild){
+                    let channelID;
+                    let channels = guild.channels.cache;
+                    for (let in channels) {
+                        if (channels[i].type === "text" && channels[i].permissionsFor(guild.me).has('SEND_MESSAGES')) {
+                            channelID = channels[i]
+                            return channelID.id
+                        }
+                    }
+                    return null
+                }
                 s4d.client.on('raw', async (packet) => {
                     if(['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)){
                         const guild = s4d.client.guilds.cache.get(packet.d.guild_id);

@@ -53,7 +53,7 @@ Blockly.Blocks["s4d_get_role_mutator"] = {
 };
 
 const BORDER_MUTATOR_MIXIN = {
-    inputs_: [ false ],
+    inputs_: [ true ],
 
     mutationToDom: function() {
         if (!this.inputs_) {
@@ -115,14 +115,14 @@ Blockly.JavaScript[blockName] = function(block){
     const searchType = block.getFieldValue("SEARCH_TYPE");
     const server = block.getFieldValue("GET_ROLE_SERVER");
     if(searchType === "NAME"){
-        if(server){
+        if(server !== null){
             return [ `${server}.roles.cache.find((role) => role.name === ${value})`, Blockly.JavaScript.ORDER_NONE ];
         } else {
             return [ `Array.prototype.concat.apply([], s4d.client.guilds.cache.array().map((g) => g.roles.cache.array())).find((role) => role.name === ${value})`, Blockly.JavaScript.ORDER_NONE ];
         }
     } else {
-        if(server){
-            return [ `${server}.roles.get(${value})`, Blockly.JavaScript.ORDER_NONE ];
+        if(server !== null){
+            return [ `${server}.roles.cache.find((role) => role.id === ${value})`, Blockly.JavaScript.ORDER_NONE ];
         } else {
             return [ `Array.prototype.concat.apply([], s4d.client.guilds.cache.array().map((g) => g.roles.cache.array())).get(${value})`, Blockly.JavaScript.ORDER_NONE ];
         }
