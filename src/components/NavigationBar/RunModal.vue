@@ -33,8 +33,6 @@
 </template>
 
 <script>
-import Database from "easy-json-database-browser";
-
 export default {
     name: "editmenu",
     data: function () {
@@ -48,7 +46,7 @@ export default {
     },
     computed: {
         botAvatar: function(){
-            return this.botRawAvatar || "https://cdn.discordapp.com/embed/avatars/2.png";
+            return this.botRawAvatar || "https://cdn.discordapp.com/embed/avatars/0.png";
         },
         electronApp: function(){
             return typeof navigator === 'object' && typeof navigator.userAgent === 'string' && navigator.userAgent.indexOf('Electron') >= 0;
@@ -82,16 +80,15 @@ export default {
             }
         },
         start(){
-            /* eslint-disable no-unused-vars */
-            /* eslint-disable no-undef */
-            const DiscordJS = Discord;
-            const EasyDatabase = Database;
+            if (!("ScratchNative" in window)) return;
             this.botStarting = true;
-            const result = new Promise(resolve => resolve(eval(this.getWorkspaceCode())));
-            result.then((s4d) => {
+            const finalCode = this.getWorkspaceCode();
+            window.ScratchNative?.onMessage("executeCode", (event, result) => {
+                return console.log(result);
+                /* eslint-disable */
                 setTimeout(() => {
-                    if(s4d.tokenInvalid){
-                        console.error(s4d.tokenError);
+                    if(result.s4d.tokenInvalid) {
+                        console.error(result.s4d.tokenError);
                         this.botStarting = false;
                         this.botStarted = false;
                         this.$toast.open({
@@ -102,7 +99,7 @@ export default {
                             position: "top-right"
                         });
                         this.$bvModal.hide("run-modal");
-                    } else if(!s4d.client.readyTimestamp){
+                    } else if(!result.s4d.client.readyTimestamp){
                         this.botStarting = false;
                         this.botStarted = false;
                         this.$toast.open({
@@ -114,23 +111,25 @@ export default {
                         });
                         this.$bvModal.hide("run-modal");
                     }
-                    return;
-                }, (5000));
-                s4d.client.on('ready', () => {
-                    this.botStarting = false;
-                    this.botStarted = true;
-                    this.botRawAvatar = s4d.client.user.displayAvatarURL();
-                    this.botTag = s4d.client.user.tag;
-                });
-                s4d.client.on('shardDisconnect', () => {
-                    this.botStarted = false;
-                    this.s4d = null;
-                });
-                this.s4d = s4d;
+                }, 5000);
             });
+
+            window.ScratchNative?.onMessage('clientReady', (client) => {
+                this.botStarting = false;
+                this.botStarted = true;
+                this.botRawAvatar = client.displayAvatarURL;
+                this.botTag = client.tag;
+            });
+
+            window.ScratchNative?.onMessage('clientShardDisconnect', () => {
+                this.botStarted = false;
+                this.s4d = null;
+            });
+
+            window.ScratchNative?.sendMessage("executeCode", finalCode);
         },
         stop(){
-            this.s4d.client.destroy();
+            window.ScratchNative?.sendMessage("destroyClient");
             this.botRawAvatar = null;
             this.botTag = null;
         },
