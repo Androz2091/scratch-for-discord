@@ -127,6 +127,14 @@ export default {
                 console.log(`[S4D_DEBUG] ${message}`);
             });
 
+            window.ScratchNative?.onMessage("clientError", (event, message) => {
+                console.error(`[S4D_ERROR] ${message}`);
+            });
+
+            window.ScratchNative?.onMessage("clientWarn", (event, message) => {
+                console.warn(`[S4D_WARN] ${message}`);
+            });
+
             window.ScratchNative?.onMessage('clientShardDisconnect', () => {
                 this.botStarted = false;
                 this.s4d = null;
