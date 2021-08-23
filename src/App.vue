@@ -45,6 +45,7 @@ export default {
         this.$root.$i18n.locale = this.$store.state.blocklyLocale;
     },
     mounted(){
+        if (!("ScratchNative" in window) && window.parent?.ScratchNative) window.ScratchNative = window.parent.ScratchNative;
         const tourDone = localStorage.getItem('tourDone');
         if (tourDone !== null) this.$store.commit('setTour', {
             status: tourDone
