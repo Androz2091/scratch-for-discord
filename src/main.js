@@ -125,7 +125,7 @@ Vue.mixin({
                 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 const s4d = {
                     Discord,
-                    database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "./"}/db.json\`),
+                    database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/db.json\`),
                     joiningMember:null,
                     reply:null,
                     tokenInvalid:false,
