@@ -84,41 +84,47 @@ export default {
             this.botStarting = true;
             const finalCode = this.getWorkspaceCode();
             window.ScratchNative?.onMessage("executeCode", (event, result) => {
-                return console.log(result);
-                /* eslint-disable */
                 setTimeout(() => {
-                    if(result.s4d.tokenInvalid) {
-                        console.error(result.s4d.tokenError);
-                        this.botStarting = false;
-                        this.botStarted = false;
-                        this.$toast.open({
-                            message: this.$t('run_modal.invalid_token'),
-                            type: "error",
-                            dismissible: true,
-                            duration: 10000,
-                            position: "top-right"
-                        });
-                        this.$bvModal.hide("run-modal");
-                    } else if(!result.s4d.client.readyTimestamp){
-                        this.botStarting = false;
-                        this.botStarted = false;
-                        this.$toast.open({
-                            message: this.$t('run_modal.error'),
-                            type: "error",
-                            dismissible: true,
-                            duration: 10000,
-                            position: "top-right"
-                        });
-                        this.$bvModal.hide("run-modal");
+                    try {
+                        if(result.s4d.tokenInvalid) {
+                            console.error(result.s4d.tokenError);
+                            this.botStarting = false;
+                            this.botStarted = false;
+                            this.$toast.open({
+                                message: this.$t('run_modal.invalid_token'),
+                                type: "error",
+                                dismissible: true,
+                                duration: 10000,
+                                position: "top-right"
+                            });
+                            this.$bvModal.hide("run-modal");
+                        } else if(result.s4d.client && !result.s4d.client.readyTimestamp){
+                            this.botStarting = false;
+                            this.botStarted = false;
+                            this.$toast.open({
+                                message: this.$t('run_modal.error'),
+                                type: "error",
+                                dismissible: true,
+                                duration: 10000,
+                                position: "top-right"
+                            });
+                            this.$bvModal.hide("run-modal");
+                        }
+                    } catch {
+                        void 0;
                     }
                 }, 5000);
             });
 
-            window.ScratchNative?.onMessage('clientReady', (client) => {
+            window.ScratchNative?.onMessage('clientReady', (event, client) => {
                 this.botStarting = false;
                 this.botStarted = true;
                 this.botRawAvatar = client.displayAvatarURL;
                 this.botTag = client.tag;
+            });
+
+            window.ScratchNative?.onMessage("clientDebug", (event, message) => {
+                console.log(`[S4D_DEBUG] ${message}`);
             });
 
             window.ScratchNative?.onMessage('clientShardDisconnect', () => {

@@ -121,13 +121,15 @@ Vue.mixin({
                 (async()=>{
                 const Discord = require("discord.js");
                 const Database = require("easy-json-database");
+                const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 const s4d = {
                     Discord,
-                    database: new Database(\`\${S4D_NATIVE_GET_PATH}/db.json\`),
+                    database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "./"}/db.json\`),
                     joiningMember:null,
                     reply:null,
                     tokenInvalid:false,
+                    tokenError: null,
                     checkMessageExists() {
                         if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                         if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
