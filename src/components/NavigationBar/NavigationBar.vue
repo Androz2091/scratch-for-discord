@@ -97,8 +97,8 @@ export default {
                             start: 'node .'
                         },
                         dependencies: {
-                            'discord.js': '^12.5.1',
-                            'easy-json-database': '^1.3.0'
+                            'discord.js': '^13.1.0',
+                            'easy-json-database': '^1.5.0'
                         }
                     }));
                     zip.generateAsync({
