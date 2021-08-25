@@ -7,13 +7,13 @@ const blockData = {
     "args0": [
         {
             "type": "input_value",
-            "name": "BUTTON",
-            "check": ["ButtonRow", "ButtonMenu"]
+            "name": "CONTENT",
+            "check": [ "String", "Number" ]  
         },
         {
             "type": "input_value",
-            "name": "CONTENT",
-            "check": [ "String", "Number" ]  
+            "name": "BUTTON",
+            "check": ["ButtonRow", "ButtonMenu"]
         },
         {
             "type": "input_dummy"
