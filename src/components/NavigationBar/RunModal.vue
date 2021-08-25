@@ -91,7 +91,7 @@ export default {
                             this.botStarting = false;
                             this.botStarted = false;
                             this.$toast.open({
-                                message: this.$t('run_modal.invalid_token'),
+                                message: result.s4d.tokenError || this.$t('run_modal.invalid_token'),
                                 type: "error",
                                 dismissible: true,
                                 duration: 10000,
@@ -102,7 +102,7 @@ export default {
                             this.botStarting = false;
                             this.botStarted = false;
                             this.$toast.open({
-                                message: this.$t('run_modal.error'),
+                                message: result.s4d.tokenError || this.$t('run_modal.error'),
                                 type: "error",
                                 dismissible: true,
                                 duration: 10000,
@@ -144,6 +144,14 @@ export default {
         },
         stop(){
             window.ScratchNative?.sendMessage("destroyClient");
+            window.ScratchNative?.unregisterEvents([
+                "executeCode",
+                "clientShardDisconnect",
+                "clientWarn",
+                "clientError",
+                "clientDebug",
+                "clientReady"
+            ]);
             this.botRawAvatar = null;
             this.botTag = null;
         },
