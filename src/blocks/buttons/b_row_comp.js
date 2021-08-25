@@ -28,7 +28,7 @@ Blockly.JavaScript[blockName] = function(block){
     const button = Blockly.JavaScript.valueToCode(block, "BUTTON", Blockly.JavaScript.ORDER_ATOMIC);
     let text1 = button.replace("'","")
     let button2 = text1.replace("'","")
-    const code = `.addComponents(${button2})\n`;
+    const code = `.addComponents(${button2}),\n`;
     return code;
 };
 
