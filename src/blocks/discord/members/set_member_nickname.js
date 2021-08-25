@@ -47,7 +47,7 @@ registerRestrictions(blockName, [
     },
     {
         type: "notempty",
-        message: "RES_SET_MEMBER_NICKNAME_NEW_NICKNAME",
+        message: "RES_SET_MEMBER_NICKNAME_NEW_NAME",
         types: [
             "NEW_NICKNAME"
         ]

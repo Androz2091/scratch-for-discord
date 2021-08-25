@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${server}.owner || await ${server}.members.fetch(${server}.ownerID)`, Blockly.JavaScript.ORDER_NONE ];
+    return [ `${server}.fetchOwner() || await ${server}.members.fetch(${server}.ownerId)`, Blockly.JavaScript.ORDER_NONE ];
 };
 
 registerRestrictions(blockName, [

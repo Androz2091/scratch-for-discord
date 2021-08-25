@@ -34,7 +34,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
     const amount = Blockly.JavaScript.valueToCode(block, "AMOUNT", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${channel}.bulkDelete((${amount}|1))`;
+    const code = `${channel}.bulkDelete((${amount}|1)); \n`;
     return code;
 };
 

@@ -3,3 +3,6 @@ import "./get_channel";
 import "./send_channel";
 import "./send_wait_reply";
 import "./send_wait_reply_value";
+import "./delete_channel";
+import "./get_all_channel_then";
+import "./get_all_channel_then_channel";
