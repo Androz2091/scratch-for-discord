@@ -142,17 +142,21 @@ Vue.mixin({
                 const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
                 const s4d = {
                     Discord,
-                    client: null,
-                    tokenInvalid: false,
-                    reply: null,
-                    joiningMember: null,
-                    database: new Database("./db.json"),
+                    database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/db.json\`),
+                    joiningMember:null,
+                    reply:null,
+                    tokenInvalid:false,
+                    tokenError: null,
                     checkMessageExists() {
                         if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                         if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
                     }
                 };
-                s4d.client = new s4d.Discord.Client({ intents: [Intents.FLAGS.GUILD_MESSAGES,Intents.FLAGS.GUILD_MEMBERS,Intents.FLAGS.GUILDS] });
+                                s4d.client = new s4d.Discord.Client({
+                    intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
+                    partials: ["REACTION"]
+
+                });
                 s4d.client.on('raw', async (packet) => {
                     if(['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)){
                         const guild = s4d.client.guilds.cache.get(packet.d.guild_id);
@@ -165,9 +169,12 @@ Vue.mixin({
                         if(!message) return;
                         s4d.client.emit(packet.t, guild, channel, message, member, packet.d.emoji.name);
                     }
-                });
+
+
                 ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
-                s4d;
+
+                return s4d;
+                })();
             `;
         }
     }
