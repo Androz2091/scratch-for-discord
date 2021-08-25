@@ -66,7 +66,7 @@ export default {
         }, false);
         const element = document.querySelector("#docName");
         element.spellcheck = false;
-        element.focus();
+        element.focus(); 
         element.blur();
     },
     methods: {
