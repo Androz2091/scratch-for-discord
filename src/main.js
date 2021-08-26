@@ -28,18 +28,15 @@ Vue.config.ignoredElements = ["field","block","category","xml","mutation","value
 import blocklyLocaleEN from "blockly/msg/en";
 import blocklyLocaleFR from "blockly/msg/fr";
 import blocklyLocalePT from "blockly/msg/pt";
-import blocklyLocaleRU from "blockly/msg/ru";
 
 import customLocaleEN from './locales/en';
 import customLocaleFR from './locales/fr';
 import customLocalePT from './locales/pt';
-import customLocaleRU from './locales/ru';
 
 const messages = {
     en: customLocaleEN.websiteMessages,
     fr: customLocaleFR.websiteMessages,
-    pt: customLocalePT.websiteMessages,
-    ru: customLocaleRU.websiteMessages
+    pt: customLocalePT.websiteMessages
 };
 
 const i18n = new Vuei18n({
@@ -114,15 +111,6 @@ Vue.mixin({
                     // Change website languages (navbar, etc...)
                     this.$root.$i18n.locale = "pt";
                     break;
-                    case "ru":
-                    // Change Blockly language for default blocks
-                    Blockly.setLocale(blocklyLocaleRU);
-                    // Change Blockly language for custom blocks
-                    customLocaleRU.applyBlocklyLocale();
-                    // Change website languages (navbar, etc...)
-                    this.$root.$i18n.locale = "ru";
-                    break;
-             
                 default:
                     break;
             }
@@ -130,47 +118,32 @@ Vue.mixin({
         getWorkspaceCode(){
             if(!this.$store.state.workspace) return "";
             return `
-                let Discord;
-                let Database;
-                if(typeof window !== "undefined"){
-                    Discord = DiscordJS;
-                    Database = EasyDatabase;
-                } else {
-                    Discord = require("discord.js");
-                    Database = require("easy-json-database");
-                }
-                const delay = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
+                (async()=>{
+                const Discord = require("discord.js");
+                const Database = require("easy-json-database");
+                const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
+                const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 const s4d = {
                     Discord,
-                    client: null,
-                    tokenInvalid: false,
-                    reply: null,
-                    joiningMember: null,
-                    database: new Database("./db.json"),
+                    database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/db.json\`),
+                    joiningMember:null,
+                    reply:null,
+                    tokenInvalid:false,
+                    tokenError: null,
                     checkMessageExists() {
                         if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                         if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
                     }
                 };
                 s4d.client = new s4d.Discord.Client({
-                     intents: ['GUILDS', 'GUILD_MESSAGES'] 
+                    intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
+                    partials: ["REACTION"]
                 });
-                const { Permissions, MessageButton, MessageActionRow, MessageEmbed } = require('discord.js');
-                s4d.client.on('raw', async (packet) => {
-                    if(['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)){
-                        const guild = s4d.client.guilds.cache.get(packet.d.guild_id);
-                        if(!guild) return;
-                        const member = guild.members.cache.get(packet.d.user_id) || guild.members.fetch(d.user_id).catch(() => {});
-                        if(!member) return;
-                        const channel = s4d.client.channels.cache.get(packet.d.channel_id);
-                        if(!channel) return;
-                        const message = channel.messages.cache.get(packet.d.message_id) || await channel.messages.fetch(packet.d.message_id).catch(() => {});
-                        if(!message) return;
-                        s4d.client.emit(packet.t, guild, channel, message, member, packet.d.emoji.name);
-                    }
-                });
+
                 ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
-                s4d;
+
+                return s4d;
+                })();
             `;
         }
     }

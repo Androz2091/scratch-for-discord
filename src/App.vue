@@ -18,13 +18,11 @@ Blockly.Tooltip.HOVER_MS = 100;
 
 import "./blocks/discord/base/";
 import "./blocks/discord/message-event/";
-import "./blocks/discord/embed/";
 import "./blocks/discord/join-event/";
 import "./blocks/discord/leave-event/";
 import "./blocks/discord/reaction-event/";
 import "./blocks/discord/wmise/";
-import "./blocks/register_context_menus/";
-import "./blocks/context_menus/";
+import "./blocks/discord/embed/";
 
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";
@@ -34,9 +32,11 @@ import "./blocks/discord/members/";
 import "./blocks/database/";
 import "./blocks/text/";
 import "./blocks/loops/";
-import "./blocks/slash/";
-import "./blocks/buttons/";
 import "./blocks/other/";
+import "./blocks/buttons/";
+import "./blocks/context_menus/";
+import "./blocks/register_context_menus/";
+import "./blocks/slash/";
 import "./prompt";
 
 import Theme from '@blockly/theme-modern';
@@ -51,6 +51,7 @@ export default {
         this.$root.$i18n.locale = this.$store.state.blocklyLocale;
     },
     mounted(){
+        if (!("ScratchNative" in window) && window.parent?.ScratchNative) window.ScratchNative = window.parent.ScratchNative;
         const tourDone = localStorage.getItem('tourDone');
         if (tourDone !== null) this.$store.commit('setTour', {
             status: tourDone
