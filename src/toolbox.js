@@ -401,6 +401,8 @@ export default (Blockly) => {
             </block>
             <block type="s4d_eval"></block>
             <block type="s4d_try_and_catch"></block>
+            <block type="s4d_return"></block>
+            <block type="s4d_string_to_number"></block>
         </category>
         <sep />
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
@@ -487,6 +489,7 @@ export default (Blockly) => {
                 </value>
             </block>
             <block type="s4d_reply_id"></block>
+            <block type="s4d_message_embed"></block>
         </category>
         <category name="{{ EMBED }}" colour="#40BF4A">
         <label text="Create A Perfect Embed" web-class="boldtext"></label>
@@ -595,6 +598,34 @@ export default (Blockly) => {
             <block type="s4d_get_webhook_then"></block>
             <block type="s4d_get_edit_webhook"></block>
             <block type="s4d_send_webhook"></block>
+        </category>
+        <category name="{{ TOOLBOX_MUSIC }}" colour="#009966">
+            <label text="%{BKY_MUSIC_EVENT}"></label>
+            <block type="s4d_track_playing"></block>
+            <block type="s4d_track_added"></block>
+            <block type="s4d_queue_finished"></block>
+            <label text="%{BKY_MUSIC_INFO}"></label>
+            <block type="s4d_track_name"></block>
+            <block type="s4d_track_channel"></block>
+            <label text="%{BKY_MUSIC_BLOCKS}"></label>
+            <block type="s4d_bot_voice_channel"></block>
+            <block type="s4d_voice_channel"></block>
+            <block type="s4d_voice_channel_id"></block>
+            <block type="s4d_get_queue"></block>
+            <block type="s4d_playing"></block>
+            <block type="s4d_current_track"></block>
+            <block type="s4d_connected"></block>
+            <block type="s4d_search"></block>
+            <block type="s4d_loop"></block>
+            <block type="s4d_volume"></block>
+            <block type="s4d_back"></block>
+            <block type="s4d_resume"></block>
+            <block type="s4d_pause"></block>
+            <block type="s4d_stop"></block>
+            <block type="s4d_skip"></block>
+            <block type="s4d_play"></block>
+            <block type="s4d_create_queue"></block>
+            <block type="s4d_connect"></block>
         </category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">

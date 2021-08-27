@@ -34,6 +34,7 @@ import "./blocks/discord/discord-button/";
 import "./blocks/discord/webhook/";
 import "./blocks/discord/embed/";
 import "./blocks/discord/discord-menu/";
+import "./blocks/discord/music/";
 
 import "./blocks/database/";
 import "./blocks/text/";
