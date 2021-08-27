@@ -471,6 +471,7 @@ export default (Blockly) => {
             <block type="s4d_create_embed_then_set_time"></block>
             <label text="%{BKY_SEND_EMBED}"></label>
             <block type="s4d_create_embed_then_send"></block>
+            <block type="s4d_message_embed"></block>
     </category>
     <category name="{{ TOOLBOX_SLASH }}" colour="#ff2f00">
     <label text="%{BKY_T_RS}"></label>

@@ -120,11 +120,12 @@ Vue.mixin({
             return `
                 (async()=>{
 
-                const { Discord, MessageEmbed, MessageButton, MessageActionRow, Client, Intents, Permissions, MessageSelectMenu } = require("discord.js");
+                const Discord = require("discord.js");
+                const { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu } = require('discord.js')
                 const Database = require("easy-json-database");
                 const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-                // hello
+                const Client = require('discord.js')
                 const s4d = {
                     Discord,
                     database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/db.json\`),

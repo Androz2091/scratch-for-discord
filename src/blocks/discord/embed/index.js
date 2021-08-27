@@ -11,3 +11,4 @@ import "./create_embed_then_set_time";
 import "./create_embed_then_add_blankfield";
 import "./create_embed_then";
 import "./send_embed_string";
+import "./message_embed";
