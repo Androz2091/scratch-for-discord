@@ -119,7 +119,8 @@ Vue.mixin({
             if(!this.$store.state.workspace) return "";
             return `
                 (async()=>{
-                const { Discord, Permissions, MessageActionRow, MessageEmbed, Intents, MessageEmbed } = require("discord.js");
+
+                const { Discord, MessageEmbed, MessageButton, MessageActionRow, Client, Intents, Permissions, MessageSelectMenu } = require("discord.js");
                 const Database = require("easy-json-database");
                 const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
