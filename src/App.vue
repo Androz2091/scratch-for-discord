@@ -30,13 +30,14 @@ import "./blocks/discord/roles/";
 import "./blocks/discord/members/";
 
 import "./blocks/database/";
+import "./blocks/mongodb/";
 import "./blocks/text/";
 import "./blocks/loops/";
 import "./blocks/other/";
-import "./blocks/buttons/";
-import "./blocks/context_menus/";
-import "./blocks/register_context_menus/";
-import "./blocks/slash/";
+import "./blocks/discord/buttons/";
+import "./blocks/discord/context_menus/";
+import "./blocks/discord/register_context_menus/";
+import "./blocks/discord/slash/";
 import "./prompt";
 
 import Theme from '@blockly/theme-modern';

@@ -98,7 +98,8 @@ export default {
                         },
                         dependencies: {
                             'discord.js': '^13.1.0',
-                            'easy-json-database': '^1.5.0'
+                            'easy-json-database': '^1.5.0',
+                            "quickmongo":"github:mrredo/quickmongo"
                         }
                     }));
                     zip.generateAsync({

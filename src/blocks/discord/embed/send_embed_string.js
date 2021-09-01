@@ -5,7 +5,7 @@ const blockName = "send_embed_string";
 const blockData = {
     "message0": "Send Embed",
     "colour": "#40BF4A",
-    "tooltip": "Used for slash commands",
+    "tooltip": null,
     "output": "Embed",
     "helpUrl": ""
 };

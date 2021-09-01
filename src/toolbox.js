@@ -741,6 +741,99 @@ export default (Blockly) => {
                 </value>
             </block>
         </category>
+        <category name="Mongo" colour="#0db550">
+            <label text="connect to MongoDB"></label>
+            <block type="mongo_on"></block>
+            <block type="mongo_connect">
+            <value name="URL">
+            <shadow type="text">
+                <field name="TEXT">mongodb url</field>
+            </shadow>
+        </value>
+            </block>
+            <label text="nerd blocks"></label>
+            <block type="mongo_get_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="mongo_has_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="mongo_set_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="mongo_push_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="VALUE">
+                <shadow type="text">
+                    <field name="TEXT">world</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_pull_data">
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">hello</field>
+            </shadow>
+        </value>
+        <value name="VALUE">
+            <shadow type="text">
+                <field name="TEXT">world</field>
+            </shadow>
+        </value>
+    </block>
+            <block type="mongo_delete_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="mongo_add_data">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="mongo_subtract_data">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
 
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {

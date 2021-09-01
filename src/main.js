@@ -121,6 +121,7 @@ Vue.mixin({
                 (async()=>{
 
                 const Discord = require("discord.js");
+                const { DB } = require("quickmongo");
                 const { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu } = require('discord.js')
                 const Database = require("easy-json-database");
                 const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
@@ -143,6 +144,7 @@ Vue.mixin({
                     partials: ["REACTION"]
                 });
 
+
                 ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
 
                 return s4d;
@@ -151,7 +153,7 @@ Vue.mixin({
         }
     }
 });
-  
+  // cool stuff
 new Vue({
     store,
     render: h => h(App),
