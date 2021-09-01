@@ -155,7 +155,7 @@ new Vue({
     render: h => h(App),
     i18n,
     mounted() {
-        autosave(this.$store.state.workspace);
+        autosave(this);
     }
 }).$mount("#app");
 
