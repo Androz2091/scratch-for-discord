@@ -42,7 +42,6 @@ export default async function register(self) {
 
   workspace.addChangeListener((event) => {
     if (DISABLED_EVENTS.includes(event.type)) return;
-    console.log(event.type)
     handle(workspace);
   });
 }
