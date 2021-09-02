@@ -87,7 +87,7 @@ export const websiteMessages = {
         title: "Restore a project",
         text: "You did not save your project before quitting Scratch For Discord? No problem, you can choose the project you want to restore from the menu below!",
         restore: "Restore",
-        cancel: "Cancel",
+        cancel: "Cancel"
     }
 };
 
