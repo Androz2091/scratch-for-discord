@@ -33,7 +33,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const duration = Blockly.JavaScript.valueToCode(block, "NUMBER", Blockly.JavaScript.ORDER_ATOMIC);
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${channel}.setRateLimitPerUser(${duration})`
+    const code = `${channel}.setRateLimitPerUser(${duration})\n`
     return code;
 };
 
