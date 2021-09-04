@@ -9,7 +9,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "Number", "String", "Embed" ]
+            "check": [ "Number", "String", "Embed", "MessageEmbed" ]
         },
         {
             "type": "input_value",
@@ -42,6 +42,9 @@ Blockly.JavaScript[blockName] = function(block){
         null;
         if((contentType === "Embed") || (!contentType && typeof contentType === "object")){
             const code = `await interaction.update({ embeds: [${content}], components: [${button2}] });\n`;
+            return code;
+        } else if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
+            const code = `await interaction.update(${content});\n`;
             return code;
         } else {
             const code = `await interaction.update({ content: ${content}, components: [${button2}] });\n`;

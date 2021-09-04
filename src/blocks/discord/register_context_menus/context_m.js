@@ -6,13 +6,29 @@
   const blockName = "register_c_m";
   
   const blockData = {
-      "message0": " register context menu with the name %1",
+      "message0": "name %1 type %2",
       "args0": [
         {
             "type": "input_value",
             "name": "NAME",
             "check": [ "String" ]
         },
+        {
+          "type": "field_dropdown",
+          "name": "SEARCH",
+          "options": [
+              [
+                  "message",
+                  "3"
+              ],
+              [
+                  "user",
+                  "2"
+              ]
+          ],
+
+          },
+          
       ],
       "colour": "#40BF4A",
       "previousStatement": null,
@@ -28,9 +44,9 @@
   };
   
   Blockly.JavaScript[blockName] = function(block) {
-    
+    const searchType = block.getFieldValue("SEARCH");
     const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
-      const code = `{ \n name: ${name}, \n type: 3 \n } \n`;
+      const code = `{ \n name: ${name}, \n type: ${searchType} \n } \n`;
       return code;
   };
   

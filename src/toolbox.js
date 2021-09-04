@@ -514,6 +514,7 @@ export default (Blockly) => {
     <block type="m_member"></block>
     <block type="m_channel"></block>
     <block type="m_guild"></block>
+    <block type="c_options"></block>
     <label text="Reply and Edit" web-class="boldtext"></label>
     <block type="m_reply"></block>
     <block type="m_edit"></block>
