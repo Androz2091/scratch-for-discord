@@ -22,3 +22,8 @@ import "./loop";
 import "./skip";
 import "./volume";
 import "./stop";
+import "./track_views";
+import "./track_url";
+import "./track_thumbnail";
+import "./track_duration";
+import "./track_author";

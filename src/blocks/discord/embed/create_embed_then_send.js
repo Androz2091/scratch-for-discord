@@ -6,6 +6,11 @@ const blockName = "s4d_create_embed_then_send";
 const blockData = {
     "message0": "%{BKY_CREATE_EMBED_THEN_SEND}",
     "args0": [
+        {
+            "type":"input_value",
+            "name":"CHANNEL",
+            "check":"Channel"
+        }
     ],
     "colour": "#40BF4A",
     "previousStatement": null,
@@ -20,8 +25,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(){
-    const code = `s4dmessage.channel.send(embed);\n`;
+Blockly.JavaScript[blockName] = function(block){
+    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `${channel}.send({embeds:[embed]});\n`;
     return code;
 };
 

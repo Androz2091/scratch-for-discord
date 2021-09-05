@@ -13,7 +13,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "String", "Number" ]  
+            "check": [ "String", "Number","DMessageEmbed" ]  
         },
         {
             "type": "input_value",
@@ -40,14 +40,30 @@ Blockly.Blocks[blockName] = {
         this.jsonInit(blockData);
       },
 }
-
 Blockly.JavaScript[blockName] = function(block){
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
     const button = Blockly.JavaScript.valueToCode(block, "BUTTON", Blockly.JavaScript.ORDER_ATOMIC);
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
+    if(block.getInput("CONTENT").connection.targetConnection){
+        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
+        block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
+        null;
+        if((contentType === "DMessageEmbed") || (!contentType && typeof contentType === "object")){
+            const code = `${channel}.send({ embeds: ${content},components:[${button}]}).then(m=>{
+                ${statements}
+            });\n`;
+            return code;
+        } else {
+            const code = `${channel}.send({ content: String(${content}),components:[${button}]}).then(m=>{
+                ${statements}
+            });\n`;
+            return code;
+        }
+    } else {
         const code = `${channel}.send({ content: String(${content}),components:[${button}]}).then(m=>{
             ${statements}
         });\n`;
         return code;
+    }
 };

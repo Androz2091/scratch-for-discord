@@ -46,12 +46,11 @@ const i18n = new Vuei18n({
 
 import toolbox from "./toolbox";
 import Theme from '@blockly/theme-modern';
-
 Vue.mixin({
     methods: {
         reloadWorkspace(){
             // Get current workspace
-            const workspace = this.$store.state.workspace;
+            let workspace = this.$store.state.workspace;
             // Convert it to a dom string
             const dom = Blockly.Xml.workspaceToDom(workspace);
             // Delete the current workspace
@@ -126,6 +125,7 @@ Vue.mixin({
                     let MessageButton = Discord.MessageButton;
                     let MessageSelectMenu = Discord.MessageSelectMenu;
                     let Intents = Discord.Intents;
+                    let Permissions = Discord.Permissions;
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                     const s4d = {
@@ -154,7 +154,8 @@ Vue.mixin({
         }
     }
 });
-  
+
+
 new Vue({
     store,
     render: h => h(App),
