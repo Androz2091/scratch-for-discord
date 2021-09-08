@@ -43,7 +43,9 @@ export const websiteMessages = {
         loaded: "Exemplo {example} importando com sucesso!",
         ping_pong: "comando ping-pong",
         command_parsing: "handler de comandos",
-        leveling: "XP e sistema de níveis"
+        leveling: "XP e sistema de níveis",
+        button: "Butão e lista de butão",
+        music: "exemplo de blocos de musica"
     },
     download: {
         title: "Instale o seu bot",

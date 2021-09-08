@@ -66,7 +66,7 @@ export default {
         }, false);
         const element = document.querySelector("#docName");
         element.spellcheck = false;
-        element.focus();
+        element.focus(); 
         element.blur();
     },
     methods: {
@@ -98,7 +98,14 @@ export default {
                         },
                         dependencies: {
                             'discord.js': '^13.1.0',
-                            'easy-json-database': '^1.5.0'
+                            'easy-json-database': '^1.3.0',
+                            'moment':'^2.29.1',
+                            'discord-buttons':'^3.0.1',
+                            "@discordjs/opus": "^0.5.3",
+                            "avconv": "^3.1.0",
+                            "discord-music-player": "^7.2.0",
+                            "discord-player": "^5.1.0",
+                            "ffmpeg-static": "^4.4.0"
                         }
                     }));
                     zip.generateAsync({
