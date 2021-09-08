@@ -9,7 +9,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "MessageEmbed", "String", "Number" ]
+            "check": [ "DMessageEmbed", "String", "Number" ]
         },
         {
             "type": "input_value",
@@ -60,15 +60,15 @@ Blockly.JavaScript[blockName] = function(block){
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
-        if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            code = `${channel}.send(${content});\n`;
+        if((contentType === "DMessageEmbed") || (!contentType && typeof contentType === "object")){
+            code = `${channel}.send({${content}});\n`;
         } else {
             code = `${channel}.send(String(${content}));\n`;
         }
     } else {
         code = `${channel}.send(String(${content}));\n`;
     }
-    code += `${channel}.awaitMessages((m) => m.author.id === ${member}.id, { time: (${time}*60*1000), max: 1 }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} });`;
+    code += `${channel}.awaitMessages({(m) => m.author.id === ${member}.id,  time: (${time}*60*1000), max: 1 }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} });`;
     return code;
 };
 

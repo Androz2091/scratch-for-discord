@@ -12,6 +12,8 @@ import Blockly from "blockly";
 import NavBarComponent from "./components/NavigationBar/NavigationBar.vue";
 import BlocklyComponent from "./components/BlocklyComponent.vue";
 
+
+
 Blockly.Tooltip.HOVER_MS = 100;
 
 // Load blocks
@@ -21,11 +23,18 @@ import "./blocks/discord/message-event/";
 import "./blocks/discord/join-event/";
 import "./blocks/discord/leave-event/";
 import "./blocks/discord/reaction-event/";
+import "./blocks/discord/bot-event";
 
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";
 import "./blocks/discord/roles/";
 import "./blocks/discord/members/";
+import "./blocks/discord/deleted/";
+import "./blocks/discord/discord-button/";
+import "./blocks/discord/webhook/";
+import "./blocks/discord/embed/";
+import "./blocks/discord/discord-menu/";
+import "./blocks/discord/music/";
 
 import "./blocks/database/";
 import "./blocks/text/";
