@@ -16,6 +16,7 @@
   "BOT":"bot",
   "NUMBER_OF__SERVER":"numeros de %2 no servidor %1",
   "CHANNELS":"canais",
+  "PRINT":"logar no console %1",
   "ROLES":"cargos",
   "VOICE_CHANNEL":"canal de voz",
   "TEXT_CHANNEL":"canal de texto",

@@ -78,6 +78,7 @@
   "WEBHOOK_ID":"webhook id",
   "WEBHOOK_TOKEN":"webhook token",
   "TOKEN":"token",
+  "PRINT":"print %1",
   "RES_CREATE_WEBHOOK_PARENT":"this block can only be used in a create webhook block!",
   "SERVER_ID":"id of server %1",
   "LOGIN": "Connect to Discord with the token %1",
