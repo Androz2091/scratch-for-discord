@@ -46,17 +46,17 @@ Blockly.JavaScript[blockName] = function(block){
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
         if((contentType === "Embed") || (!contentType && typeof contentType === "object")){
-            const code = `await interaction.reply({ ephemeral: ${boolean}, embeds: [${content}], components: [${button2}] })\n`;
+            const code = `await interaction.reply({ embeds: [${content}], ephemeral: ${boolean}, components: [${button2}] });\n`;
             return code;
         } else if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
             const code = `s4dmessage.channel.send({${content}});\n`;
             return code;
         } else {
-            const code = `await interaction.reply({ ephemeral: ${boolean}, content: ${content}, components: [${button2}] })\n`;
+            const code = `await interaction.reply({ content: ${content}, ephemeral: ${boolean}, components: [${button2}] });\n`;
             return code;
         }
     } else {
-        const code = `await interaction.reply({ ephemeral: ${boolean}, content: ${content}, components: [${button2}] });\n`;
+        const code = `await interaction.reply({ content: ${content}, ephemeral: ${boolean}, components: [${button2}] });\n`;
         return code;
     }
 };
