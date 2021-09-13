@@ -1,5 +1,5 @@
 # [Scratch For Discord](https://scratch-for-discord.netlify.com)
-#THIS REPO WILL NOT BE UPDATED
+# THIS REPO WILL NOT BE UPDATED
 
 
 
