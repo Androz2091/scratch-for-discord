@@ -158,6 +158,9 @@ export default (Blockly) => {
             <block type="text">
                 <field name="TEXT" />
             </block>
+            <block type="text_multiline">
+                <field name="TEXT" />
+            </block>
             <block type="text_join">
                 <mutation items="2" />
             </block>
