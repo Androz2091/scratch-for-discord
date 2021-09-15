@@ -393,7 +393,6 @@ export default (Blockly) => {
         </category>
         <sep />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
-        <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLES_DYNAMIC" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
             <block type="s4d_current"></block>
