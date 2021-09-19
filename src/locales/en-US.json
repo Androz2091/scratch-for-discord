@@ -1,5 +1,6 @@
 {
   "BASE_BLOCKS": "Base blocks",
+  "TESTTEST": "TESTTEST",
   "MESSAGE_RELATED_BLOCKS": "Blocks related to messages",
   "REPLY": "reply %1",
   "REPLY_MENTION": "reply with mention %1",
