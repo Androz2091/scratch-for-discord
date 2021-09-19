@@ -442,6 +442,13 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_reply_mention">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="s4d_delete"></block>
             <block type="s4d_add_reaction">
                 <value name="REACTION">
