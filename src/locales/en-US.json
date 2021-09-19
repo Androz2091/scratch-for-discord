@@ -1,7 +1,7 @@
 {
   "BASE_BLOCKS": "Base blocks",
   "MESSAGE_RELATED_BLOCKS": "Blocks related to messages",
-  "REPLY": "reply %1",
+  "REPLY": "TEST %1",
   "LOGIN": "Connect to Discord with the token %1",
   "LOGIN_TOOLTIP": "Connect your bot to Discord. To get your bot token, go to https://discord.com/developers/.",
   "ON_MESSAGE": "When a message is received",
