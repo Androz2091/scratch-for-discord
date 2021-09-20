@@ -1,6 +1,7 @@
 {
   "BASE_BLOCKS": "Base blocks",
   "MESSAGE_RELATED_BLOCKS": "Blocks related to messages",
+  "MEMBER_STATUS": "status of member %1",
   "REPLY": "reply %1",
   "REPLY_MENTION": "reply with mention %1",
   "START_TYPING": "start typing %1 in channel %2",
