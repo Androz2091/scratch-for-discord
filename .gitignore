@@ -6,3 +6,4 @@ start.bat
 
 # Compiled files
 dist/
+.vscode/launch.json

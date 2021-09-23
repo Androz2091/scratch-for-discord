@@ -555,6 +555,7 @@ export default (Blockly) => {
             <block type="s4d_member_tag"></block>
             <block type="s4d_member_username"></block>
             <block type="s4d_member_status"></block>
+            <block type="s4d_member_streaming"></block>
             <block type="s4d_member_has_permission"></block>
             <block type="s4d_member_is_bot"></block>
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>

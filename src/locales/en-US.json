@@ -109,6 +109,7 @@
   "STARTS_WITH": "%1 starts with %2",
   "REPLACE": "in text %1 replace %2 with %3",
   "RES_REPLACE_STRING": "You must specify a text to replace!",
+  "MEMBER_IS_STREAMING": "is member %1 streaming",
   "RES_REPLACE_REPLACE": "You must specify what to replace in the text!",
   "RES_REPLACE_WITH": "You must specify the new value to replace!",
   "INCLUDES": "%1 includes %2",

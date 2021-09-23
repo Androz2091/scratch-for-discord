@@ -1,10 +1,10 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_member_status";
+const blockName = "s4d_member_streaming";
 
 const blockData = {
-    "message0": "%{BKY_MEMBER_STATUS}",
+    "message0": "%{BKY_MEMBER_IS_STREAMING}",
     "args0": [
         {
             "type": "input_value",
@@ -12,9 +12,9 @@ const blockData = {
             "check": "Member"
         }
     ],
-    "colour": "#50a6c9",
-    "output": "String",
-    "tooltip": "Get status of member. (May return online, offline, idle, dnd)",
+    "colour": "#5B80A5",
+    "output": "Boolean",
+    "tooltip": "",
     "helpUrl": ""
 };
 
@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${member}.presence ? ${member}.presence.status : 'offline'`, Blockly.JavaScript.ORDER_NONE ];
+    return [ `${member}.presence ? s4dmessage.member.presence.activities[0] ? ${member}.presence.activities[0].type === "STREAMING" : false : false`, Blockly.JavaScript.ORDER_NONE ];
 };
 
 registerRestrictions(blockName, [

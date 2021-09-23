@@ -10,3 +10,4 @@ import "./member_username";
 import "./send_message";
 import "./set_member_nickname";
 import "./presence_status";
+import "./member_streaming";
