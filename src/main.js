@@ -139,9 +139,7 @@ Vue.mixin({
                     intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
                     partials: ["REACTION"]
                 });
-
                 ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
-
                 return s4d;
                 })();
             `;

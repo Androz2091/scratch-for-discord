@@ -399,6 +399,8 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_eval"></block>
+            <block type="s4d_print"></block>
         </category>
         <sep />
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">

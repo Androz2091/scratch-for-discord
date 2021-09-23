@@ -1,5 +1,8 @@
 # Node
 node_modules
 
+# Start
+start.bat
+
 # Compiled files
 dist/
