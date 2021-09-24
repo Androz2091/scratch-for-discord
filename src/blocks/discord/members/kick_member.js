@@ -33,8 +33,14 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
     const reason = Blockly.JavaScript.valueToCode(block, "STRING", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${member}.kick({ reason: ${reason} });\n`;
-    return code;
+    if(reason === null) {
+        const code = `${member}.kick({ reason: ${reason} });\n`;
+        return code;
+    }else{
+        const code = `${member}.kick({ reason: ${reason} });\n`;
+        return code;
+    }
+
 };
 
 registerRestrictions(blockName, [

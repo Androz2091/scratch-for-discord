@@ -38,8 +38,7 @@ Blockly.JavaScript[blockName] = function(block){
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
     const time = Blockly.JavaScript.valueToCode(block, "TIME", Blockly.JavaScript.ORDER_ATOMIC) || 5;
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    let code = `var filter = (reaction, user) => {return user.id === ${member}.id};
-    s4dmessage.awaitReactions({filter, time: (${time}*60*1000), max: 1 }).then(collected => {const s4dreaction = collected.first(); \n ${statementThen} \n});\n`;
+    let code = `s4dmessage.awaitReactions({(reation,user)=>{user.id === ${member}.id}, time: (${time}*60*1000), max: 1 }).then(collected => {const s4dreaction = collected.first(); \n ${statementThen} \n});\n`;
     return code;
 };
 

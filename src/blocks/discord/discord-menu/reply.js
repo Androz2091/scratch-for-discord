@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "s4d_menu_reply";
 
 const blockData = {
-    "message0": "%{BKY_REPLY}",
+    "message0": "%{BKY_REPLY_MENU}",
     "args0": [
         {
             "type": "input_value",

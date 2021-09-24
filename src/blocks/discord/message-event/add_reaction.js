@@ -1,5 +1,4 @@
 import Blockly from "blockly/core";
-import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_add_reaction";
 
@@ -30,13 +29,3 @@ Blockly.JavaScript[blockName] = function(block) {
     const code = `s4dmessage.react(${reaction});`;
     return code;
 };
-
-registerRestrictions(blockName, [
-    {
-        type: "notempty",
-        message: "RES_ADD_REACTION_MISSING_REACTION",
-        types: [
-            "REACTION"
-        ]
-    }
-]);

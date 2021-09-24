@@ -41,7 +41,8 @@ const i18n = new Vuei18n({
 });
 
 import toolbox from "./toolbox";
-import Theme from '@blockly/theme-modern';
+//import {Backpack} from '@blockly/workspace-backpack';
+import Theme from '@blockly/theme-dark';
 Vue.mixin({
     methods: {
         reloadWorkspace(){
@@ -59,24 +60,24 @@ Vue.mixin({
                     spacing: 25,
                     length: 3,
                     colour: "#ccc",
-                    snap: true
                 },
-                zoom: {
+								zoom: {
                     controls: true,
                     startScale: 0.9,
                     maxScale: 3,
                     minScale: 0.3,
                     scaleSpeed: 1.2
-                },
+                     },
                 toolbox: toolbox(Blockly)
             });
-            // And restore the blocks
+   
             Blockly.Xml.domToWorkspace(dom, newWorkspace);
             // Update the workspace in the vuex store
             this.$store.commit("setWorkspace", {
                 workspace: newWorkspace
-            });
-            workspace.addChangeListener(Blockly.Events.disableOrphans);
+            })
+;				
+
             // Return the workspace
             return workspace;
         },
@@ -118,7 +119,9 @@ Vue.mixin({
                     const Database = require("easy-json-database");
                     const moment = require('moment');
                     const { DB } = require("quickmongo");
+										const canvas = require("discord-canvas")
                     const { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu } = require('discord.js')
+										const https = require("https");
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                     const s4d = {
@@ -141,7 +144,6 @@ Vue.mixin({
                     const { Player,QueueRepeatMode } = require("discord-player")
                     s4d.player = new Player(s4d.client)
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
-                    return s4d;
                     })();
             `;
         }

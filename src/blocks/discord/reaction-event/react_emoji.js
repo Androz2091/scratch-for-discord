@@ -16,7 +16,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["rEmoji", Blockly.JavaScript.ORDER_NONE];
+    const code = ["reaction.emoji.name", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 

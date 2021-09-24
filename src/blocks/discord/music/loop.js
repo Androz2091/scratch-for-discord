@@ -34,7 +34,7 @@ Blockly.JavaScript[blockName] = function(block) {
     const looping = Blockly.JavaScript.valueToCode(block, "LOOPING", Blockly.JavaScript.ORDER_ATOMIC);
     let code = ""
     if(looping === 'true'){
-         code = `${queue}.setRepeatMode(QueueRepeatMode.TRACK)\n`;   
+         code = `${queue}.setRepeatMode(QueueRepeatMode.QUEUE)\n`;   
     }else{
          code = `${queue}.setRepeatMode(QueueRepeatMode.OFF)\n`;
     }
