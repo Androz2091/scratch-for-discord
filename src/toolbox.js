@@ -641,7 +641,7 @@ export default (Blockly) => {
         <block type="slash_edit"></block>
         <block type="send_m_embed_string"></block>
         </category>
-				        <category name="menu" colour="#f0f255">
+				        <category name="context menu" colour="#f0f255">
         <label text="Event" web-class="boldtext"></label>
         <block type="on_menu"></block>
         <label text="Stuff" web-class="boldtext"></label>
