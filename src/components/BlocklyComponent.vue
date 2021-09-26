@@ -13,6 +13,7 @@ import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
 import {Backpack} from '@blockly/workspace-backpack';
 import Theme from '@blockly/theme-dark';
+import {ContinuousToolbox, ContinuousFlyout, ContinuousMetrics} from '@blockly/continuous-toolbox';
 export default {
     name: "BlocklyComponent",
     props: ["options"],
@@ -29,6 +30,11 @@ export default {
         const workspace = Blockly.inject(this.$refs["blocklyDiv"], {
             ...options,
             ...{
+                plugins: {
+    'toolbox': ContinuousToolbox,
+    'flyoutsVerticalToolbox': ContinuousFlyout,
+    'metricsManager': ContinuousMetrics,
+  },
 							theme:Theme,
                 toolbox: toolbox(Blockly)
             }

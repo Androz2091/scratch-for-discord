@@ -43,6 +43,7 @@ const i18n = new Vuei18n({
 import toolbox from "./toolbox";
 //import {Backpack} from '@blockly/workspace-backpack';
 import Theme from '@blockly/theme-dark';
+import {ContinuousToolbox, ContinuousFlyout, ContinuousMetrics} from '@blockly/continuous-toolbox';
 Vue.mixin({
     methods: {
         reloadWorkspace(){
@@ -56,6 +57,11 @@ Vue.mixin({
             const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), {
                 renderer: "zelos",
                 theme: Theme,
+                plugins: {
+                    'toolbox': ContinuousToolbox,
+                    'flyoutsVerticalToolbox': ContinuousFlyout,
+                    'metricsManager': ContinuousMetrics,
+                  },
                 grid: {
                     spacing: 25,
                     length: 3,
@@ -63,9 +69,9 @@ Vue.mixin({
                 },
 								zoom: {
                     controls: true,
-                    startScale: 0.9,
-                    maxScale: 3,
-                    minScale: 0.3,
+                    startScale: 0.5,
+                    maxScale: 6,
+                    minScale: 0.1,
                     scaleSpeed: 1.2
                      },
                 toolbox: toolbox(Blockly)
