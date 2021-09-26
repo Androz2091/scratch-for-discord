@@ -33,6 +33,7 @@ export default {
                 toolbox: toolbox(Blockly)
             }
         });
+
 				const defaultOptions = {
 					contextMenu: {
 						emptyBackpack: true,

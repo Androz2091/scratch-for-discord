@@ -74,8 +74,6 @@ import "./blocks/events/sticker/stickerCreate/";
 import "./blocks/events/sticker/stickerUpdate/";
 import "./blocks/events/sticker/stickerDelete/";
 
-
-
 import Theme from '@blockly/theme-modern';
 
 export default {
