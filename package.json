@@ -11,16 +11,24 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@blockly/block-test": "^1.1.5",
+    "@blockly/continuous-toolbox": "^1.0.18",
+    "@blockly/field-grid-dropdown": "^1.0.25",
+    "@blockly/field-slider": "^2.1.29",
+    "@blockly/theme-dark": "^2.0.6",
     "@blockly/theme-modern": "^2.1.10",
+    "@blockly/workspace-backpack": "^1.0.9",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
-    "blockly": "^4.20201217.0",
+    "blockly": "^6.20210701.0",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
+    "discord-buttons": "^2.4.1",
     "easy-json-database-browser": "^2.1.0",
     "js-beautify": "^1.13.5",
     "jszip": "^3.6.0",
+    "moment": "^2.29.1",
     "sweetalert2": "^10.15.5",
     "vue": "^2.6.12",
     "vue-i18n": "^8.24.0",
@@ -62,5 +70,20 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "description": "🐱 Make your Discord bot using Scratch blocks! [Scratch For Discord](https://scratch-for-discord.netlify.com) is an advanced fork of [discord-blocks](https://discordblocks.leondrolio.com/). Thanks to [7coil](https://github.com/7coil) for their great work!",
+  "main": "babel.config.js",
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrredo-and-josetrindade1/scratch-for-discord.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrredo-and-josetrindade1/scratch-for-discord/issues"
+  },
+  "homepage": "https://github.com/mrredo-and-josetrindade1/scratch-for-discord#readme"
 }

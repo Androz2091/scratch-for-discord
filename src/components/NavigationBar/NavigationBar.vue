@@ -17,12 +17,8 @@
                 <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
-                <RunModal></RunModal>
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
                 <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
-                </b-button>
-                <b-button id="v-step-1" :disabled="!configurationValidated" style="border-right-color: #161719; border-radius: 0em;" v-b-modal.run-modal>
-                    <b-icon-play></b-icon-play>
                 </b-button>
                 <b-button id="v-step-2" :disabled="!configurationValidated" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
                     <b-icon-download></b-icon-download>
@@ -39,7 +35,6 @@ import JSZip from "jszip";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
 import LanguageMenu from "./LanguageMenu.vue";
-import RunModal from "./RunModal.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal";
 
@@ -49,7 +44,6 @@ export default {
         FileMenu,
         EditMenu,
         LanguageMenu,
-        RunModal,
         ExamplesMenu,
         CodeModal
     },
@@ -66,7 +60,7 @@ export default {
         }, false);
         const element = document.querySelector("#docName");
         element.spellcheck = false;
-        element.focus();
+        element.focus(); 
         element.blur();
     },
     methods: {
@@ -98,7 +92,14 @@ export default {
                         },
                         dependencies: {
                             'discord.js': '^13.1.0',
-                            'easy-json-database': '^1.5.0'
+                            'easy-json-database': '^1.3.0',
+                            'moment':'^2.29.1',
+                            'discord-buttons':'^3.0.1',
+                            "@discordjs/opus": "^0.5.3",
+                            "avconv": "^3.1.0",
+                            "discord-music-player": "^7.2.0",
+                            "discord-player": "^5.1.0",
+                            "ffmpeg-static": "^4.4.0"
                         }
                     }));
                     zip.generateAsync({

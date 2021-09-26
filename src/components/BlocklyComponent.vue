@@ -11,7 +11,9 @@
 import Blockly from "blockly";
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
-
+import {Backpack} from '@blockly/workspace-backpack';
+import Theme from '@blockly/theme-dark';
+import {ContinuousToolbox, ContinuousFlyout, ContinuousMetrics} from '@blockly/continuous-toolbox';
 export default {
     name: "BlocklyComponent",
     props: ["options"],
@@ -28,9 +30,43 @@ export default {
         const workspace = Blockly.inject(this.$refs["blocklyDiv"], {
             ...options,
             ...{
+                plugins: {
+    'toolbox': ContinuousToolbox,
+    'flyoutsVerticalToolbox': ContinuousFlyout,
+    'metricsManager': ContinuousMetrics,
+  },
+                  grid: {
+                    spacing: 25,
+                    length: 3,
+                    colour: "#ccc",
+                    snap: true
+                },
+								zoom: {
+                    controls: true,
+                    startScale: 0.5,
+                    maxScale: 6,
+                    minScale: 0.1,
+                    scaleSpeed: 1.2,
+                    pinch:true,
+                    wheel:true
+                     },
+							theme:Theme,
                 toolbox: toolbox(Blockly)
             }
         });
+
+				const defaultOptions = {
+					contextMenu: {
+						emptyBackpack: true,
+						removeFromBackpack: true,
+						copyToBackpack: true,
+						copyAllToBackpack: true,
+						pasteAllToBackpack: true,
+						disablePreconditionChecks: true,
+					},
+				};
+				const backpack = new Backpack(workspace,defaultOptions);
+				backpack.init();
         this.$store.commit("setWorkspace", {
             workspace
         });
@@ -60,10 +96,13 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 .blocklyDiv {
     height: 100%;
     width: 100%;
     text-align: left;
+}
+.blocklyToolboxCategory{
+	color: rgb(204, 204, 204)
 }
 </style>
