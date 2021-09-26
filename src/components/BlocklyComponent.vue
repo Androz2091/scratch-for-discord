@@ -35,6 +35,21 @@ export default {
     'flyoutsVerticalToolbox': ContinuousFlyout,
     'metricsManager': ContinuousMetrics,
   },
+                  grid: {
+                    spacing: 25,
+                    length: 3,
+                    colour: "#ccc",
+                    snap: true
+                },
+								zoom: {
+                    controls: true,
+                    startScale: 0.5,
+                    maxScale: 6,
+                    minScale: 0.1,
+                    scaleSpeed: 1.2,
+                    pinch:true,
+                    wheel:true
+                     },
 							theme:Theme,
                 toolbox: toolbox(Blockly)
             }
