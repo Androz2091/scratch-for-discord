@@ -45,7 +45,6 @@ import "./blocks/discord/mslash/";
 import "./blocks/discord/wmise/";
 import "./blocks/mongodb/";
 
-import "./blocks/jsonrequest";
 import "./blocks/database/";
 import "./blocks/text/";
 import "./blocks/loops/";

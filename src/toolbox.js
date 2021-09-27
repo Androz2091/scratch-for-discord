@@ -461,10 +461,6 @@ export default (Blockly) => {
 						<block type="s4d_send_in_channel"/>
 					</category>
 				</category>
-				<category name="{{ TOOLBOX_JSONREQUEST }}" colour="#4d004d">
-					<block type="s4d_http_get_then"/>
-					<block type="s4d_get_string_of_data"/>
-				</category>
 				        <category name="{{ EMBED }}" colour="#40BF4A">
         <label text="Create A Perfect Embed" web-class="boldtext"></label>
             <block type="s4d_create_embed_then"></block>
