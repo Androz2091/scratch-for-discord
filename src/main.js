@@ -120,9 +120,8 @@ Vue.mixin({
                     const Database = require("easy-json-database");
                     const moment = require('moment');
                     const { DB } = require("quickmongo");
-										const canvas = require("discord-canvas")
+		    const canvas = require("discord-canvas")
                     const { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu } = require('discord.js')
-										const https = require("https");
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                     const s4d = {
