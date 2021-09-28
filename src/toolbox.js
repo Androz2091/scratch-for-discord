@@ -992,6 +992,7 @@ export default (Blockly) => {
             </block>
 
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
+            <block type="s4d_is_channel_nsfw"/>
             <block type="slowmode"></block>
             <block type="set_perms"></block>
             <block type="set_perms_parent"></block>

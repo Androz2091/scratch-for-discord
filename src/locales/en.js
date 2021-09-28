@@ -11,6 +11,7 @@ export const applyBlocklyLocale = () => {
 export const websiteMessages = {
     untitled: "Untitled document",
     help: "Help",
+    host:"host",
     load: {
         error: "The uploaded file is corrupted and cannot be loaded by Scratch For Discord..."
     },
@@ -84,6 +85,16 @@ export const websiteMessages = {
     },
     code_modal: {
         title: "JavaScript code of your bot"
+    },
+    autosave:{
+        cancell:"cancell",
+        confirm:"confirm",
+        title:"auto save",
+        text:"your auto save has been loaded!",
+        title2:"i found a auto save of a project! do you wanna load it?",
+    },
+    save:{
+        title:"auto save"
     }
 };
 

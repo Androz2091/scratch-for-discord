@@ -8,6 +8,7 @@ import Blockly from "blockly";
 import VueToast from 'vue-toast-notification';
 import VueTour from 'vue-tour';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import savenload from './save-load';
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -144,6 +145,7 @@ Vue.mixin({
                     const { Player,QueueRepeatMode } = require("discord-player")
                     s4d.player = new Player(s4d.client)
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
+                    return s4d;
                     })();
             `;
         }
@@ -154,7 +156,10 @@ Vue.mixin({
 new Vue({
     store,
     render: h => h(App),
-    i18n
+    i18n,
+    mounted() {
+        savenload(this);
+    },
 }).$mount("#app");
 
 import 'bootstrap/dist/css/bootstrap.css';

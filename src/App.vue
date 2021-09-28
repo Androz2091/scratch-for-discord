@@ -13,7 +13,6 @@ import NavBarComponent from "./components/NavigationBar/NavigationBar.vue";
 import BlocklyComponent from "./components/BlocklyComponent.vue";
 
 
-
 Blockly.Tooltip.HOVER_MS = 100;
 
 // Load blocks
@@ -176,4 +175,8 @@ export default {
 .testopa {
     opacity: 0.1;
 }
+
+</style>
+<style lang="scss">
+@import '~@sweetalert2/theme-dark/dark.scss';
 </style>
