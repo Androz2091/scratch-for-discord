@@ -3,6 +3,7 @@
   "IS_CHANNEL_NSFW":"o canal %1 é nsfw?",
 "M_RES_MUST_BE_CREATE_EMBED_THEN":"This block may only be used in a \"create embed\" bl!",
 "M_CREATE_EMBED_THEN_SEND":"send embed in channel %1",
+"MESSAGE_MEMBER":"membro da menssagem",
 "REPLY_MENU":"reply %1 ephemeral %2",
 "REPLY_BUTTON":"reply %1 ephemeral %2",
 "CREATE_WELCOME_THEN":"criar bem vindo ai %1 %2",

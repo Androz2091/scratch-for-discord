@@ -847,6 +847,7 @@ export default (Blockly) => {
             <block type="s4d_message_content"></block>
             <block type="s4d_message_id"></block>
             <block type="s4d_message_author"></block>
+            <block type="s4d_message_member"/>
             <block type="s4d_mentioned_member"></block>
             <block type="s4d_mentioned_channel"></block>
             <block type="s4d_mentioned_role"></block>

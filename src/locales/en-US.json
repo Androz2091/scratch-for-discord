@@ -3,6 +3,7 @@
   "IS_CHANNEL_NSFW":"is channel %1 nsfw?",
 	"HTTP_GET_THEN":"json request https %1 then %2",
 	"ROLE_EXIST":"role %1 exist?",
+  "MESSAGE_MEMBER":"message member",
 	"WELCOME":"welcome",
 	"GOODBYE":"goodbye",
 	"SET_LEVEL":"set level %1",
