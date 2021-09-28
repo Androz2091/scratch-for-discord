@@ -41,7 +41,7 @@ export default {
     z-index: 100000;
 }
 .modal-content {
-		background-color: #000000;
+		background-color: #808080;
 }
 
 </style>

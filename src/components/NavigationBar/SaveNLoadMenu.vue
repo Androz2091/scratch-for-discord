@@ -1,6 +1,7 @@
 <template>
     <b-nav-item-dropdown :text="$t('save.title')" right>
-
+        <input type="checkbox" id="checked" v-model="checked" @change="save(checked)">
+        <label for='i1'>Auto Save</label>
     </b-nav-item-dropdown>
 </template>
 
