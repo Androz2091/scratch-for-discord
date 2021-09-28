@@ -1,13 +1,13 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_mentioned_member";
+const blockName = "s4d_edited_author";
 
 const blockData = {
-    "message0": "%{BKY_MENTIONED_MEMBER}",
+    "message0": "%{BKY_EDITED_AUTHOR}",
     "colour": "#187795",
-    "tooltip": "",
     "output": "Member",
+    "tooltip": "",
     "helpUrl": ""
 };
 
@@ -18,7 +18,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = [`oldMessage.mentions.members.first()`, Blockly.JavaScript.ORDER_NONE];
+    const code = ["newMessage.member", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 
@@ -27,7 +27,7 @@ registerRestrictions(blockName, [
         type: "toplevelparent",
         message: "RES_MUST_BE_IN_ON_MESSAGE",
         types: [
-            "s4d_on_message"
+            "s4d_on_edited"
         ]
     }
 ]);

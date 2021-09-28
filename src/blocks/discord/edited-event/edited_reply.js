@@ -1,10 +1,10 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_reply";
+const blockName = "s4d_edited_reply";
 
 const blockData = {
-    "message0": "%{BKY_REPLY}",
+    "message0": "%{BKY_EDITED_REPLY}",
     "args0": [
         {
             "type": "input_value",
@@ -42,15 +42,15 @@ Blockly.JavaScript[blockName] = function(block){
     const mention = Blockly.JavaScript.valueToCode(block, "MENTION", Blockly.JavaScript.ORDER_ATOMIC) || null;
     if(mention) {
         if(content.length > 2){
-            return(`s4dmessage.reply({embeds: ${embed}, content: ${content}});\n`)
+            return(`newMessage.reply({embeds: ${embed}, content: ${content}});\n`)
         } else {
-            return(`s4dmessage.reply({embeds: ${embed}});\n`)
+            return(`newMessage.reply({embeds: ${embed}});\n`)
         }
     }else {
         if(content.length > 2){
-            return(`s4dmessage.channel.send({embeds: ${embed}, content: ${content}});\n`)
+            return(`newMessage.channel.send({embeds: ${embed}, content: ${content}});\n`)
         } else {
-            return(`s4dmessage.channel.send({embeds: ${embed}});\n`)
+            return(`newMessage.channel.send({embeds: ${embed}});\n`)
         }
     }}
 
@@ -66,7 +66,7 @@ registerRestrictions(blockName, [
         type: "toplevelparent",
         message: "RES_MUST_BE_IN_ON_MESSAGE",
         types: [
-            "s4d_on_message"
+            "s4d_on_edited"
         ]
     }
 ]);

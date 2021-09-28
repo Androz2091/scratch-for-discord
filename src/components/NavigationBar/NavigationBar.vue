@@ -12,17 +12,12 @@
                 <CodeModal></CodeModal>
                 <FileMenu></FileMenu>
                 <EditMenu></EditMenu>
-                <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
                 <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
-                <RunModal></RunModal>
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
                 <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
-                </b-button>
-                <b-button id="v-step-1" :disabled="!configurationValidated" style="border-right-color: #161719; border-radius: 0em;" v-b-modal.run-modal>
-                    <b-icon-play></b-icon-play>
                 </b-button>
                 <b-button id="v-step-2" :disabled="!configurationValidated" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
                     <b-icon-download></b-icon-download>
@@ -38,8 +33,6 @@ import JSZip from "jszip";
 
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
-import LanguageMenu from "./LanguageMenu.vue";
-import RunModal from "./RunModal.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal";
 
@@ -48,8 +41,6 @@ export default {
     components: {
         FileMenu,
         EditMenu,
-        LanguageMenu,
-        RunModal,
         ExamplesMenu,
         CodeModal
     },

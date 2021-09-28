@@ -21,6 +21,7 @@ import "./blocks/discord/message-event/";
 import "./blocks/discord/join-event/";
 import "./blocks/discord/leave-event/";
 import "./blocks/discord/reaction-event/";
+import "./blocks/discord/edited-event/";
 
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";

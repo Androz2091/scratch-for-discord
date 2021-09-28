@@ -1,10 +1,10 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_mentioned_member";
+const blockName = "s4d_edited_old_mentioned_member";
 
 const blockData = {
-    "message0": "%{BKY_MENTIONED_MEMBER}",
+    "message0": "%{BKY_OLD_EDITED_MENTIONED_MEMBER}",
     "colour": "#187795",
     "tooltip": "",
     "output": "Member",
@@ -27,7 +27,7 @@ registerRestrictions(blockName, [
         type: "toplevelparent",
         message: "RES_MUST_BE_IN_ON_MESSAGE",
         types: [
-            "s4d_on_message"
+            "s4d_on_edited"
         ]
     }
 ]);

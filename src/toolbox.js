@@ -399,6 +399,8 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_eval"></block>
+            <block type="s4d_log"></block>
         </category>
         <sep />
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
@@ -452,6 +454,40 @@ export default (Blockly) => {
             </block>
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
+        </category>
+        <category name="{{ TOOLBOX_EDITED }}" colour="#18c847">
+        <label text="%{BKY_DETECT_EDITED}"></label>
+        <block type="s4d_on_edited"></block>
+        <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
+        <block type="s4d_new_content"></block>
+        <block type="s4d_old_content"></block>
+        <block type="s4d_edited_id"></block>
+        <block type="s4d_edited_author"></block>
+        <block type="s4d_edited_old_mentioned_member"></block>
+        <block type="s4d_edited_new_mentioned_member"></block>
+        <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
+        <block type="s4d_edited_author_raw"></block>
+        <block type="s4d_edited_channel_raw"></block>
+        <block type="s4d_edited_guild_raw"></block>
+        <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
+        <block type="s4d_edited_channel"></block>
+        <block type="s4d_edited_server"></block>
+        <label text="%{BKY_LABEL_EDITED_INTERACTION}"></label>
+        <block type="s4d_edited_reply">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+            </block>
+        <block type="s4d_edited_delete"></block>
+        <block type="s4d_add_edited_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
         </category>
         <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -528,6 +564,7 @@ export default (Blockly) => {
 
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
             <block type="s4d_create_channel"></block>
+            <block type="s4d_start_typing"></block>
         </category>
         <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
             <label text="%{BKY_FIND_ROLE}"></label>
@@ -544,6 +581,8 @@ export default (Blockly) => {
             <block type="s4d_member_discriminator"></block>
             <block type="s4d_member_tag"></block>
             <block type="s4d_member_username"></block>
+            <block type="s4d_member_status"></block>
+            <block type="s4d_member_streaming"></block>
             <block type="s4d_member_has_permission"></block>
             <block type="s4d_member_is_bot"></block>
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
