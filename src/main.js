@@ -115,7 +115,7 @@ Vue.mixin({
         getWorkspaceCode(){
             if(!this.$store.state.workspace) return "";
             return `
-                (async()=>{
+            module.exports = async function s4d(){
                     const Discord = require("discord.js");
                     const Database = require("easy-json-database");
                     const moment = require('moment');
@@ -132,6 +132,7 @@ Vue.mixin({
                         tokenInvalid:false,
                         tokenError: null,
                         player:null,
+                        client:null,
                         checkMessageExists() {
                             if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                             if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
@@ -145,7 +146,7 @@ Vue.mixin({
                     s4d.player = new Player(s4d.client)
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
                     return s4d;
-                    })();
+                    }
             `;
         }
     }
