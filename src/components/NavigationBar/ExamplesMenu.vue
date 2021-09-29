@@ -42,6 +42,7 @@ export default {
                 if (result.isConfirmed) {
                     this.$store.state.workspace.getAllBlocks().forEach((block) => block.dispose());
                 }
+                if(result.isConfirmed || result.isDenied){
                 const exampleXml = examples[example];
                 Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(exampleXml), this.$store.state.workspace);
                 setTimeout(() => {
@@ -54,6 +55,7 @@ export default {
                         duration: 10000
                     });
                 }, (200));
+                }
             });
         }
     }

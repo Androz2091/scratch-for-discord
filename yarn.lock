@@ -951,6 +951,11 @@
   "resolved" "https://registry.npmjs.org/@blockly/workspace-backpack/-/workspace-backpack-1.0.9.tgz"
   "version" "1.0.9"
 
+"@blockly/zoom-to-fit@^2.0.9":
+  "integrity" "sha512-yfv7Y0QCcEkiZJKI7o4EzV1pqebk/gIyKugYUaszZh/4sRvtmyfIF7fGrqcuqRc+JQHJy07SI3yvdo7bJW/nQg=="
+  "resolved" "https://registry.npmjs.org/@blockly/zoom-to-fit/-/zoom-to-fit-2.0.9.tgz"
+  "version" "2.0.9"
+
 "@eslint/eslintrc@^0.4.1":
   "integrity" "sha512-5v7TDE9plVhvxQeWLXDTvFvJBdH6pEsdnl2g/dAptmuFEPedQ4Erq5rsDsX+mvAM610IhNaO2W5V1dOOnDKxkQ=="
   "resolved" "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-0.4.1.tgz"
@@ -1662,9 +1667,6 @@
   "integrity" "sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ=="
   "resolved" "https://registry.npmjs.org/@xtuc/long/-/long-4.2.2.tgz"
   "version" "4.2.2"
-
-"~@file:sweetalert2/themes/dark/dark.scss":
-  "resolved" "file:sweetalert2/themes/dark/dark.scss"
 
 "abab@^2.0.0":
   "integrity" "sha512-9IK9EadsbHo6jLWIpxpR6pL0sazTXV6+SQv25ZB+F7Bj9mJNaOc4nCRabwd5M/JwmUa8idz6Eci6eKfJryPs6Q=="

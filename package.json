@@ -18,6 +18,7 @@
     "@blockly/theme-dark": "^2.0.6",
     "@blockly/theme-modern": "^2.1.10",
     "@blockly/workspace-backpack": "^1.0.9",
+    "@blockly/zoom-to-fit": "^2.0.9",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
