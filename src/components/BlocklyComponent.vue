@@ -13,6 +13,7 @@ import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
 import {Backpack} from '@blockly/workspace-backpack';
 import Theme from '@blockly/theme-dark';
+import Load from '../backpack-save-load.js';
 export default {
     name: "BlocklyComponent",
     props: ["options"],
@@ -58,6 +59,8 @@ export default {
 				};
 				const backpack = new Backpack(workspace,defaultOptions);
 				backpack.init();
+                Load(backpack)
+
         this.$store.commit("setWorkspace", {
             workspace
         });
