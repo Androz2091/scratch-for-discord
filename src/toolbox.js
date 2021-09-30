@@ -564,7 +564,13 @@ export default (Blockly) => {
             <label text="%{BKY_FIND_CHANNEL}"></label>
             <block type="s4d_get_channel"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
-            <block type="s4d_send_channel"></block>
+            <block type="s4d_send_channel">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+            </block>
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply">
                 <value name="CONTENT">

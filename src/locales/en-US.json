@@ -150,7 +150,7 @@
   "RES_MISSING_CHANNEL_VALUE": "You must specify a valid channel name or ID!",
   "RES_SEND_CHANNEL_CONTENT": "You must specify a content to send!",
   "RES_SEND_CHANNEL_CHANNEL": "You must specify a channel in which to send the content!",
-  "SEND_CHANNEL": "send %1 in the channel %2",
+  "SEND_CHANNEL": "send %1embed%2channel %3",
   "TOOLBOX_LOGIC": "Logic",
   "TOOLBOX_LOOPS": "Loops",
   "TOOLBOX_MATH": "Math",
