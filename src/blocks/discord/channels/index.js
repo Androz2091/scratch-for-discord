@@ -10,3 +10,4 @@ import "./set_channel_permissions";
 import "./set_perms";
 import "./set_perms_parent";
 import "./set_slowmode";
+import "./is_channel_nsfw";

@@ -84,6 +84,16 @@ export const websiteMessages = {
     },
     code_modal: {
         title: "JavaScript code of your bot"
+    },
+    autosave:{
+        cancell:"cancell",
+        confirm:"confirm",
+        title:"auto save",
+        text:"your auto save has been loaded!",
+        title2:"i found a auto save of a project! do you wanna load it?",
+    },
+    save:{
+        title:"auto save"
     }
 };
 

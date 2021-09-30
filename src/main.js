@@ -8,6 +8,7 @@ import Blockly from "blockly";
 import VueToast from 'vue-toast-notification';
 import VueTour from 'vue-tour';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import savenload from './save-load';
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -54,20 +55,27 @@ Vue.mixin({
             workspace.dispose();
             // Create a new workspace (with the good language)
             const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), {
-                renderer: "zelos",
-                theme: Theme,
                 grid: {
                     spacing: 25,
                     length: 3,
                     colour: "#ccc",
                 },
-								zoom: {
+                renderer: "zelos",
+                theme: Theme,
+                zoom: {
                     controls: true,
                     startScale: 0.9,
                     maxScale: 3,
                     minScale: 0.3,
                     scaleSpeed: 1.2
-                     },
+                },
+            move:{
+        scrollbars: {
+          horizontal: true,
+          vertical: true
+        },
+        drag: true,
+        wheel: true},
                 toolbox: toolbox(Blockly)
             });
    
@@ -154,7 +162,10 @@ Vue.mixin({
 new Vue({
     store,
     render: h => h(App),
-    i18n
+    i18n,
+    mounted() {
+        savenload(this);
+    },
 }).$mount("#app");
 
 import 'bootstrap/dist/css/bootstrap.css';
