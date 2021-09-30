@@ -41,9 +41,9 @@ Blockly.JavaScript[blockName] = function(block){
     const embed = Blockly.JavaScript.valueToCode(block, "EMBED", Blockly.JavaScript.ORDER_ATOMIC) || null;
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC) || "false";
     if(content.length > 2){
-        return(`${channel}.channel.send({embeds: ${embed}, content: ${content}});\n`)
+        return(`${channel}.send({embeds: ${embed}, content: ${content}});\n`)
     } else {
-        return(`${channel}.channel.send({embeds: ${embed}});\n`)
+        return(`${channel}.send({embeds: ${embed}});\n`)
     }
 }
 
