@@ -130,6 +130,7 @@ Vue.mixin({
 										const canvas = require("discord-canvas")
                     const { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu } = require('discord.js')
 										const https = require("https");
+const InvitesTracker = require('@androz2091/discord-invites-tracker');
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                     const s4d = {
@@ -140,6 +141,7 @@ Vue.mixin({
                         tokenInvalid:false,
                         tokenError: null,
                         player:null,
+                        tracker:null,
                         checkMessageExists() {
                             if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                             if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
@@ -148,6 +150,11 @@ Vue.mixin({
                     s4d.client = new s4d.Discord.Client({
                         intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
                         partials: ["REACTION"]
+                    });
+                    s4d.tracker = InvitesTracker.init(s4d.client, {
+                        fetchGuilds: true,
+                        fetchVanity: true,
+                        fetchAuditLogs: true
                     });
                     const { Player,QueueRepeatMode } = require("discord-player")
                     s4d.player = new Player(s4d.client)
