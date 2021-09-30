@@ -1,10 +1,10 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_reply";
+const blockName = "s4d_direct_reply";
 
 const blockData = {
-    "message0": "%{BKY_REPLY}",
+    "message0": "%{BKY_DIRECT_REPLY}",
     "args0": [
         {
             "type": "input_value",
@@ -64,9 +64,9 @@ registerRestrictions(blockName, [
     },
     {
         type: "toplevelparent",
-        message: "RES_MUST_BE_IN_ON_MESSAGE",
+        message: "RES_MUST_BE_IN_ON_DIRECT",
         types: [
-            "s4d_on_message"
+            "s4d_on_direct"
         ]
     }
 ]);

@@ -455,6 +455,33 @@ export default (Blockly) => {
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
+        <category name="{{ TOOLBOX_DIRECT }}" colour="#00BBE6">
+            <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
+            <label text="{{ DETECT_MESSAGES }}"></label>
+            <block type="s4d_on_direct"></block>
+            <label text="{{ MESSAGE_INFORMATIONS }}"></label>
+            <block type="s4d_direct_content"></block>
+            <block type="s4d_direct_id"></block>
+            <label text="{{ DIRECT_AUTHOR_INFO }}"></label>
+            <block type="s4d_direct_author_raw"></block>
+            <block type="s4d_direct_bot"></block>
+            <label text="{{ MESSAGE_ACTIONS }}"></label>
+            <block type="s4d_direct_reply">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_direct_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_direct_delete"></block>
+        </category>
         <category name="{{ TOOLBOX_EDITED }}" colour="#18c847">
         <label text="%{BKY_DETECT_EDITED}"></label>
         <block type="s4d_on_edited"></block>
@@ -465,13 +492,13 @@ export default (Blockly) => {
         <block type="s4d_edited_author"></block>
         <block type="s4d_edited_old_mentioned_member"></block>
         <block type="s4d_edited_new_mentioned_member"></block>
+        <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
+        <block type="s4d_edited_channel"></block>
+        <block type="s4d_edited_server"></block>
         <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
         <block type="s4d_edited_author_raw"></block>
         <block type="s4d_edited_channel_raw"></block>
         <block type="s4d_edited_guild_raw"></block>
-        <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
-        <block type="s4d_edited_channel"></block>
-        <block type="s4d_edited_server"></block>
         <label text="%{BKY_LABEL_EDITED_INTERACTION}"></label>
         <block type="s4d_edited_reply">
                 <value name="CONTENT">
@@ -572,6 +599,8 @@ export default (Blockly) => {
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
             <block type="s4d_add_role"></block>
             <block type="s4d_remove_role"></block>
+            <block type="s4d_has_role"></block>
+            <block type="s4d_role_exist"></block>
         </category>
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
             <label text="%{BKY_FIND_MEMBER}"></label>
@@ -659,3 +688,11 @@ export default (Blockly) => {
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
     return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
 }))};
+
+
+
+//<category name="{{ TOOLBOX_SLASH }}" colour="#D088D1">
+//        <label text="{{ DETECT_SLASH }}"></label>
+//        <block type="s4d_on_slash"></block>
+//        <block type="s4d_slash_value"></block>
+//        </category>

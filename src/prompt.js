@@ -39,6 +39,7 @@ Blockly.prompt = function(msg, defaultValue, callback) {
 		},
 		showCancelButton: true,
 		confirmButtonText: "Look up",
+		ADD_START_HATS: true,
 		showLoaderOnConfirm: true,
 		allowOutsideClick: () => !Swal.isLoading()
 	}).then(result => {

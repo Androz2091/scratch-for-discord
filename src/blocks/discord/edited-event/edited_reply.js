@@ -39,8 +39,8 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
     const embed = Blockly.JavaScript.valueToCode(block, "EMBED", Blockly.JavaScript.ORDER_ATOMIC) || null;
-    const mention = Blockly.JavaScript.valueToCode(block, "MENTION", Blockly.JavaScript.ORDER_ATOMIC) || null;
-    if(mention) {
+    const mention = Blockly.JavaScript.valueToCode(block, "MENTION", Blockly.JavaScript.ORDER_ATOMIC) || "false";
+    if(mention === "true") {
         if(content.length > 2){
             return(`newMessage.reply({embeds: ${embed}, content: ${content}});\n`)
         } else {
