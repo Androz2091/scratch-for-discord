@@ -3,6 +3,7 @@
         <b-dropdown-item @click="load('ping-pong')">{{ $t('examples.ping_pong') }}</b-dropdown-item>
         <b-dropdown-item @click="load('command-parsing')">{{ $t('examples.command_parsing') }}</b-dropdown-item>
         <b-dropdown-item @click="load('leveling')">{{ $t('examples.leveling') }}</b-dropdown-item>
+        <b-dropdown-item @click="load('music')">{{ $t('examples.music') }}</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
 
@@ -12,12 +13,15 @@ import Blockly from "blockly";
 import PingPongExample from "../../examples/ping-pong";
 import CommandParsingExample from "../../examples/command-parsing";
 import LevelingExample from "../../examples/leveling";
+import MusicExample from "../../examples/music";
 
 const examples = {
     "ping-pong": PingPongExample,
     "command-parsing": CommandParsingExample,
-    "leveling": LevelingExample
+    "leveling": LevelingExample,
+    "music":MusicExample
 };
+import Swal from "sweetalert2";
 
 export default {
     name: "editmenu",
@@ -25,28 +29,20 @@ export default {
     },
     methods: {
         load(example){
-            this.$swal({
+            Swal.fire({
                 title: this.$t('examples.confirm.title'),
                 text: this.$t('examples.confirm.text'),
-                buttons: {
-                    cancel: this.$t('examples.confirm.cancel'),
-                    no: {
-                        text: this.$t('examples.confirm.no'),
-                        value: false,
-                        className: "red-button"
-                    },
-                    yes: {
-                        text: this.$t('examples.confirm.yes'),
-                        value: true
-                    }
-                },
-                closeOnClickOutside: false
+                showCloseButton: true,
+                showCancelButton: true,
+                showDenyButton:true,
+                cancelButtonText:this.$t('examples.confirm.cancel'),
+                denyButtonText:this.$t('examples.confirm.no'),
+                confirmButtonText:this.$t('examples.confirm.yes'),
             }).then(result => {
-                if(typeof result === "object"){
-                    return;
-                } else if (result) {
+                if (result.isConfirmed) {
                     this.$store.state.workspace.getAllBlocks().forEach((block) => block.dispose());
                 }
+                if(result.isConfirmed || result.isDenied){
                 const exampleXml = examples[example];
                 Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(exampleXml), this.$store.state.workspace);
                 setTimeout(() => {
@@ -59,6 +55,7 @@ export default {
                         duration: 10000
                     });
                 }, (200));
+                }
             });
         }
     }

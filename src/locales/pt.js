@@ -11,6 +11,7 @@ export const applyBlocklyLocale = () => {
 export const websiteMessages = {
     untitled: "Documento sem nome",
     help: "Ajuda",
+    host:"host",
     load: {
         error: "O arquivo enviado está corrompido e não pode ser carregado pelo Scratch For Discord..."
     },
@@ -43,7 +44,9 @@ export const websiteMessages = {
         loaded: "Exemplo {example} importando com sucesso!",
         ping_pong: "comando ping-pong",
         command_parsing: "handler de comandos",
-        leveling: "XP e sistema de níveis"
+        leveling: "XP e sistema de níveis",
+        button: "Butão e lista de butão",
+        music: "exemplo de blocos de musica"
     },
     download: {
         title: "Instale o seu bot",
@@ -82,6 +85,16 @@ export const websiteMessages = {
     },
     code_modal: {
         title: "Código JavaScript do seu bot"
+    },
+    autosave:{
+        cancell:"cancela",
+        confirm:"confirma",
+        title:"auto save",
+        text:"seu save foi carregado!",
+        title2:"eu encontrei um auto save de um projeto! você quer carregar ele?",
+    },
+    save:{
+        title:"auto save"
     }
 };
 

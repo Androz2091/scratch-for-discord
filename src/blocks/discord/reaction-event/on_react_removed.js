@@ -24,6 +24,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.client.on('MESSAGE_REACTION_REMOVED', async (rGuild, rChannel, rMessage, rMember, rEmoji) => {\n${statements}\n});\n`;
+    const code = `s4d.client.on('messageReactionRemove', async (reaction,user) => {\n${statements}\n});\n`;
     return code;
 };

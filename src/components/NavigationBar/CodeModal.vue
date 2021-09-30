@@ -40,5 +40,8 @@ export default {
     position: fixed;
     z-index: 100000;
 }
+.modal-content {
+		background-color: #808080;
+}
 
 </style>

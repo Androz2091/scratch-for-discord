@@ -11,10 +11,55 @@ const blockData = {
             "name": "GAME",
             "check": [ "Number", "String" ]
         },
+        {
+            "type": "field_dropdown",
+            "name": "TYPE",
+            "options": [
+                [
+                    "%{BKY_LISTENING}",
+                    "LISTENING"
+                ],
+                [
+                    "%{BKY_WATCHING}",
+                    "WATCHING"
+                ],
+                [
+                    "%{BKY_COMPETING}",
+                    "COMPETING"
+                ],
+                [
+                    "%{BKY_PLAYING}",
+                    "PLAYING"
+                ]
+            ]
+        },
+        {
+            "type": "field_dropdown",
+            "name": "OIFD",
+            "options": [
+                [
+                    "%{BKY_ONLINE}",
+                    "online"
+                ],
+                [
+                    "%{BKY_OFFLINE}",
+                    "offline"
+                ],
+                [
+                    "%{BKY_IDLE}",
+                    "idle"
+                ],
+                [
+                    "%{BKY_DND}",
+                    "dnd"
+                ]
+            ]
+        },
     ],
     "colour": "#4C97FF",
     "previousStatement": null,
     "nextStatement": null,
+    "inputsInline": true,
     "tooltip": "",
     "helpUrl": ""
 };
@@ -26,11 +71,13 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
+    const type = block.getFieldValue("TYPE");
     const game = Blockly.JavaScript.valueToCode(block, "GAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `s4d.client.user.setActivity(String(${game}));\n`;
+    const OIFD =  block.getFieldValue("OIFD");
+    const code = `s4d.client.user.setPresence({status: "${OIFD}",activities:[{name:${game},type:"${type}"}]}); \n`;
     return code;
 };
-
+ 
 registerRestrictions(blockName, [
     {
         type: "notempty",

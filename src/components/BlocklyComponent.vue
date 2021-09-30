@@ -11,7 +11,9 @@
 import Blockly from "blockly";
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
-
+import {Backpack} from '@blockly/workspace-backpack';
+import Theme from '@blockly/theme-dark';
+import Load from '../backpack-save-load.js';
 export default {
     name: "BlocklyComponent",
     props: ["options"],
@@ -27,10 +29,44 @@ export default {
         options.toolbox = this.$refs["blocklyToolbox"];
         const workspace = Blockly.inject(this.$refs["blocklyDiv"], {
             ...options,
-            ...{
+            ...{                renderer: "zelos",
+                theme: Theme,
+                grid: {
+                    spacing: 25,
+                    length: 3,
+                    colour: "#ccc",
+                },move:{
+        scrollbars: {
+          horizontal: true,
+          vertical: true
+        },
+        drag: true,
+        wheel: true},
+								zoom: {
+                    controls: true,
+                    startScale: 0.9,
+                    maxScale: 3,
+                    minScale: 0.3,
+                    scaleSpeed: 1.2
+                     },
+                     
                 toolbox: toolbox(Blockly)
             }
         });
+
+				const defaultOptions = {
+					contextMenu: {
+						emptyBackpack: true,
+						removeFromBackpack: true,
+						copyToBackpack: true,
+						copyAllToBackpack: true,
+						pasteAllToBackpack: true,
+						disablePreconditionChecks: true,
+					},
+				};
+				const backpack = new Backpack(workspace,defaultOptions);
+				backpack.init();
+                Load(backpack);
         this.$store.commit("setWorkspace", {
             workspace
         });
@@ -60,10 +96,20 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 .blocklyDiv {
     height: 100%;
     width: 100%;
     text-align: left;
+}
+.blocklyToolboxCategory{
+	color: rgb(204, 204, 204)
+}
+.dropdown-menu {
+    color: #212529;
+    background-color: #000;
+}
+.dropdown-item {
+    color: #ffffff;
 }
 </style>
