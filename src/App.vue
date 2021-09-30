@@ -117,6 +117,13 @@ export default {
                     scaleSpeed: 1.2
                 }
             },
+            move:{
+        scrollbars: {
+          horizontal: true,
+          vertical: true
+        },
+        drag: true,
+        wheel: true},
             vueTourOptions: {
                 labels: {
                     buttonSkip: this.$t('tour.skip'),

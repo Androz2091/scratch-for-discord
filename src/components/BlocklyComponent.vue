@@ -35,7 +35,13 @@ export default {
                     spacing: 25,
                     length: 3,
                     colour: "#ccc",
-                },
+                },move:{
+        scrollbars: {
+          horizontal: true,
+          vertical: true
+        },
+        drag: true,
+        wheel: true},
 								zoom: {
                     controls: true,
                     startScale: 0.9,
@@ -43,6 +49,7 @@ export default {
                     minScale: 0.3,
                     scaleSpeed: 1.2
                      },
+                     
                 toolbox: toolbox(Blockly)
             }
         });
@@ -59,8 +66,7 @@ export default {
 				};
 				const backpack = new Backpack(workspace,defaultOptions);
 				backpack.init();
-                Load(backpack)
-
+                Load(backpack);
         this.$store.commit("setWorkspace", {
             workspace
         });
