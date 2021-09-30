@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${member}.presence ? s4dmessage.member.presence.activities[0] ? ${member}.presence.activities[0].type === "STREAMING" : false : false`, Blockly.JavaScript.ORDER_NONE ];
+    return [ `${member}.presence ? ${member}.presence.activities[0] ? ${member}.presence.activities[0].type === "STREAMING" : false : false`, Blockly.JavaScript.ORDER_NONE ];
 };
 
 registerRestrictions(blockName, [
