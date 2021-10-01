@@ -392,6 +392,8 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081">
             <block type="s4d_current"></block>
             <block type="s4d_run_save_output"></block>
+            <block type="s4d_cpu_model"></block>
+            <block type="s4d_cpu_usage"></block>
             <block type="s4d_wait_seconds">
                 <value name="TIME">
                     <shadow type="math_number">
@@ -444,6 +446,13 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_reference_reply">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="s4d_delete"></block>
             <block type="s4d_add_reaction">
                 <value name="REACTION">
@@ -481,6 +490,16 @@ export default (Blockly) => {
                 </value>
             </block>
             <block type="s4d_direct_delete"></block>
+        </category>
+        <category name="{{ TOOLBOX_SLASH }}" colour="#D088D1">
+        <label text="{{ DETECT_SLASH }}"></label>
+        <block type="s4d_on_slash"></block>
+        <block type="s4d_slash_name"></block>
+        <block type="s4d_slash_author"></block>
+        <block type="s4d_slash_channel"></block>
+        <block type="s4d_slash_server"></block>
+        <block type="s4d_slash_value"></block>
+        <block type="s4d_slash_reply"></block>
         </category>
         <category name="{{ TOOLBOX_EDITED }}" colour="#18c847">
         <label text="%{BKY_DETECT_EDITED}"></label>
@@ -697,8 +716,3 @@ export default (Blockly) => {
 
 
 
-//<category name="{{ TOOLBOX_SLASH }}" colour="#D088D1">
-//        <label text="{{ DETECT_SLASH }}"></label>
-//        <block type="s4d_on_slash"></block>
-//        <block type="s4d_slash_value"></block>
-//        </category>

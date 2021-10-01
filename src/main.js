@@ -97,6 +97,8 @@ Vue.mixin({
                 (async()=>{
                 const Discord = require("discord.js");
                 const Database = require("easy-json-database");
+                const os = require("os");
+                const process = require("process");
                 const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 const s4d = {
