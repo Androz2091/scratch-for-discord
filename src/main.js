@@ -123,8 +123,10 @@ Vue.mixin({
             if(!this.$store.state.workspace) return "";
             return `
                 (async()=>{
+                    const backup = require("discord-backup");
                     const Discord = require("discord.js");
                     const Database = require("easy-json-database");
+                    const logs = require('discord-logs');
                     const moment = require('moment');
                     const { DB } = require("quickmongo");
 										const canvas = require("discord-canvas")
@@ -132,6 +134,8 @@ Vue.mixin({
 										const https = require("https");
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+                    const { GiveawaysManager } = require('discord-giveaways');
+                    const ytnotifier = require('youtube-notification-module');
                     const s4d = {
                         Discord,
                         database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/db.json\`),
@@ -140,6 +144,8 @@ Vue.mixin({
                         tokenInvalid:false,
                         tokenError: null,
                         player:null,
+                        manager:null,
+                        notifer:new ytnotifier({channels: [],checkInterval: 50});,
                         checkMessageExists() {
                             if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                             if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
@@ -148,6 +154,16 @@ Vue.mixin({
                     s4d.client = new s4d.Discord.Client({
                         intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
                         partials: ["REACTION"]
+                    });
+                    logs(s4d.client);
+                    s4d.manager = new GiveawaysManager(client, {
+                        storage: './giveaways.json',
+                        default: {
+                            botsCanWin: false,
+                            embedColor: '#FF0000',
+                            embedColorEnd: '#000000',
+                            reaction: '🎉'
+                        }
                     });
                     const { Player,QueueRepeatMode } = require("discord-player")
                     s4d.player = new Player(s4d.client)

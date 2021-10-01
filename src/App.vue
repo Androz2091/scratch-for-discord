@@ -36,6 +36,26 @@ import "./blocks/discord/music/";
 import "./blocks/discord/discord-canvas/welcome/";
 import "./blocks/discord/discord-canvas/goodbye/";
 import "./blocks/discord/discord-canvas/rankcard/";
+import "./blocks/discord/discord-backup/";
+import "./blocks/discord/discord-giveaway/";
+import "./blocks/youtube-notifier/";
+//my events
+//channel
+import "./blocks/logs-events/channel/channel-permissions-update/";
+import "./blocks/logs-events/channel/channel-topic-update/";
+//member
+import "./blocks/logs-events/member/member_boosted/";
+import "./blocks/logs-events/member/member_unboosted/";
+import "./blocks/logs-events/member/role_add/";
+import "./blocks/logs-events/member/role_remove/";
+//server
+import "./blocks/logs-events/guild/boost_level_up/";
+import "./blocks/logs-events/guild/boost_level_down/";
+import "./blocks/logs-events/guild/guild_banner_add/";
+import "./blocks/logs-events/guild/vanity_url_add/";
+import "./blocks/logs-events/guild/vanity_url_remove/";
+import "./blocks/logs-events/guild/vanity_url_update/";
+//finish of my events
 
 import "./blocks/discord/mmenu/";
 import "./blocks/discord/mbuttons/";

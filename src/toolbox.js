@@ -415,6 +415,91 @@ export default (Blockly) => {
         </category>
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
+                <category name="Events" colour="#00b3ff">
+                    <category name="channel permissions update" colour="#00b3ff">
+                        <block type="on_channelPermissionsChange"/>
+                        <block type="s4d_channel_raw"/>
+                        <block type="permissions"/>
+                    </category>
+                    <category name="channel topic update" colour="#00b3ff">
+                        <block type="on_channelTopicChange"/>
+                        <block type="s4d_channel_raw"/>
+                        <block type="topic"/>
+                    </category>
+                    <category name="member boost" colour="#00b3ff">
+                        <block type="on_boost"/>
+                        <block type="member_raw"/>
+                        <block type="member"/>
+                    </category>
+                    <category name="member unboost" colour="#00b3ff">
+                        <block type="on_unboost"/>
+                        <block type="member_raw"/>
+                        <block type="member"/>
+                    </category>
+                    <category name="role add" colour="#00b3ff">
+                        <block type="on_roleadd"/>
+                        <block type="event-role"/>
+                        <block type="member_raw"/>
+                        <block type="member"/>
+                    </category>
+                    <category name="role remove" colour="#00b3ff">
+                        <block type="on_roleremove"/>
+                        <block type="event-role"/>
+                        <block type="member_raw"/>
+                        <block type="member"/>
+                    </category>
+                    <category name="guild boost level up" colour="#00b3ff">
+                        <block type="on_up"/>
+                        <block type="event-guild"/>
+                        <block type="boost"/>
+                    </category>
+                    <category name="guild boost level down" colour="#00b3ff">
+                        <block type="on_down"/>
+                        <block type="event-guild"/>
+                        <block type="boost"/>
+                    </category>
+                    <category name="guild banner add" colour="#00b3ff">
+                        <block type="on_banner_add"/>
+                        <block type="event-guild"/>
+                        <block type="banner-url"/>
+                    </category>
+                    <category name="guild vanity url add" colour="#00b3ff">
+                        <block type="on_vanity_add"/>
+                        <block type="event-guild"/>
+                        <block type="vanity-url"/>
+                    </category>
+                    <category name="guild vanity url remove" colour="#00b3ff">
+                        <block type="on_vanity_remove"/>
+                        <block type="event-guild"/>
+                        <block type="vanity-url"/>
+                    </category>
+                    <category name="guild vanity url update" colour="#00b3ff">
+                        <block type="on_vanity_update"/>
+                        <block type="event-guild"/>
+                        <block type="url-update"/>
+                    </category>
+                </category>
+                <category name="YoutubeNotifier">
+                    <block type="video_raw"/>
+                    <block type="on_newvideo"/>
+                    <block type="add_channel"/>
+                </category>
+                <category name="{{ DISCORDBACKUP }}">
+                    <block type="s4d_create_backup_of_guild_then"/>
+                    <block type="s4d_backup_load"/>
+                    <block type="s4d_delete_backup"/>
+                    <block type="s4d_backup_id"/>
+                </category>
+                <category name="{{ DISCORDGIVEAWAYS }}">
+                    <block type="s4d_create_giveaway"/> 
+                    <block type="s4d_giveaway_id"/>
+                    <block type="s4d_reroll_giveaway"/>
+                    <block type="s4d_edit_giveaway"/>
+                    <block type="s4d_delete_giveaway"/>
+                    <block type="s4d_end_giveaway"/>
+                    <block type="s4d_pause_giveaway"/>
+                    <block type="s4d_unpause_giveaway"/>
+                </category>
 				<category name="{{ DISCORDCANVAS }}">
 					<category name="{{ WELCOME }}">
 						<block type="s4d_create_welcome_then"/>
