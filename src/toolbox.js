@@ -416,67 +416,73 @@ export default (Blockly) => {
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
                 <category name="Events" colour="#00b3ff">
-                    <category name="channel permissions update" colour="#00b3ff">
-                        <block type="on_channelPermissionsChange"/>
-                        <block type="s4d_channel_raw"/>
-                        <block type="permissions"/>
+                    <category name="channel" colour="#00b3ff">
+                        <category name="channel permissions update" colour="#00b3ff">
+                            <block type="on_channelPermissionsChange"/>
+                            <block type="s4d_channel_raw"/>
+                            <block type="permissions"/>
+                        </category>
+                        <category name="channel topic update" colour="#00b3ff">
+                            <block type="on_channelTopicChange"/>
+                            <block type="s4d_channel_raw"/>
+                            <block type="topic"/>
+                        </category>
                     </category>
-                    <category name="channel topic update" colour="#00b3ff">
-                        <block type="on_channelTopicChange"/>
-                        <block type="s4d_channel_raw"/>
-                        <block type="topic"/>
+                    <category name="member" colour="#00b3ff">
+                        <category name="member boost" colour="#00b3ff">
+                            <block type="on_boost"/>
+                            <block type="member_raw"/>
+                            <block type="member"/>
+                        </category>
+                        <category name="member unboost" colour="#00b3ff">
+                            <block type="on_unboost"/>
+                            <block type="member_raw"/>
+                            <block type="member"/>
+                        </category>
+                        <category name="member role add" colour="#00b3ff">
+                            <block type="on_roleadd"/>
+                            <block type="event-role"/>
+                            <block type="member_raw"/>
+                            <block type="member"/>
+                        </category>
+                        <category name="member role remove" colour="#00b3ff">
+                            <block type="on_roleremove"/>
+                            <block type="event-role"/>
+                            <block type="member_raw"/>
+                            <block type="member"/>
+                        </category>
                     </category>
-                    <category name="member boost" colour="#00b3ff">
-                        <block type="on_boost"/>
-                        <block type="member_raw"/>
-                        <block type="member"/>
-                    </category>
-                    <category name="member unboost" colour="#00b3ff">
-                        <block type="on_unboost"/>
-                        <block type="member_raw"/>
-                        <block type="member"/>
-                    </category>
-                    <category name="role add" colour="#00b3ff">
-                        <block type="on_roleadd"/>
-                        <block type="event-role"/>
-                        <block type="member_raw"/>
-                        <block type="member"/>
-                    </category>
-                    <category name="role remove" colour="#00b3ff">
-                        <block type="on_roleremove"/>
-                        <block type="event-role"/>
-                        <block type="member_raw"/>
-                        <block type="member"/>
-                    </category>
-                    <category name="guild boost level up" colour="#00b3ff">
-                        <block type="on_up"/>
-                        <block type="event-guild"/>
-                        <block type="boost"/>
-                    </category>
-                    <category name="guild boost level down" colour="#00b3ff">
-                        <block type="on_down"/>
-                        <block type="event-guild"/>
-                        <block type="boost"/>
-                    </category>
-                    <category name="guild banner add" colour="#00b3ff">
-                        <block type="on_banner_add"/>
-                        <block type="event-guild"/>
-                        <block type="banner-url"/>
-                    </category>
-                    <category name="guild vanity url add" colour="#00b3ff">
-                        <block type="on_vanity_add"/>
-                        <block type="event-guild"/>
-                        <block type="vanity-url"/>
-                    </category>
-                    <category name="guild vanity url remove" colour="#00b3ff">
-                        <block type="on_vanity_remove"/>
-                        <block type="event-guild"/>
-                        <block type="vanity-url"/>
-                    </category>
-                    <category name="guild vanity url update" colour="#00b3ff">
-                        <block type="on_vanity_update"/>
-                        <block type="event-guild"/>
-                        <block type="url-update"/>
+                    <category name="guild" colour="#00b3ff">
+                        <category name="guild boost level up" colour="#00b3ff">
+                            <block type="on_up"/>
+                            <block type="event-guild"/>
+                            <block type="boost"/>
+                        </category>
+                        <category name="guild boost level down" colour="#00b3ff">
+                            <block type="on_down"/>
+                            <block type="event-guild"/>
+                            <block type="boost"/>
+                        </category>
+                        <category name="guild banner add" colour="#00b3ff">
+                            <block type="on_banner_add"/>
+                            <block type="event-guild"/>
+                            <block type="banner-url"/>
+                        </category>
+                        <category name="guild vanity url add" colour="#00b3ff">
+                            <block type="on_vanity_add"/>
+                            <block type="event-guild"/>
+                            <block type="vanity-url"/>
+                        </category>
+                        <category name="guild vanity url remove" colour="#00b3ff">
+                            <block type="on_vanity_remove"/>
+                            <block type="event-guild"/>
+                            <block type="vanity-url"/>
+                        </category>
+                        <category name="guild vanity url update" colour="#00b3ff">
+                            <block type="on_vanity_update"/>
+                            <block type="event-guild"/>
+                            <block type="url-update"/>
+                        </category>
                     </category>
                 </category>
                 <category name="YoutubeNotifier">
