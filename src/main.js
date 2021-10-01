@@ -145,7 +145,7 @@ Vue.mixin({
                         tokenError: null,
                         player:null,
                         manager:null,
-                        notifer:new ytnotifier({channels: [],checkInterval: 50});,
+                        notifer:new ytnotifier({channels: [],checkInterval: 50}),
                         checkMessageExists() {
                             if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                             if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
