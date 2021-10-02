@@ -156,7 +156,7 @@ Vue.mixin({
                         partials: ["REACTION"]
                     });
                     logs(s4d.client);
-                    s4d.manager = new GiveawaysManager(client, {
+                    s4d.manager = new GiveawaysManager(s4d.client, {
                         storage: './giveaways.json',
                         default: {
                             botsCanWin: false,
