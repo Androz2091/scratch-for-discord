@@ -82,24 +82,35 @@ export default {
                     zip.file("blocks.xml", xmlContent);
                     const javascriptContent = this.getWorkspaceCode();
                     zip.file("bot.js", javascriptContent);
-                    zip.file(".replit", 'run = "node bot.js"');
+                    zip.file(".replit", 'run = "npm start"');
                     zip.file("package.json", JSON.stringify({
                         name: 'scratch-for-discord-bot',
                         version: '1.0.0',
                         main: 'bot.js',
                         scripts: {
-                            start: 'node .'
+                            "start": 'node .',
+                            "node-update": "npm i --save-dev node@16 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",
+                            "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i"
                         },
                         dependencies: {
-                            'discord.js': '^13.1.0',
-                            'easy-json-database': '^1.3.0',
-                            'moment':'^2.29.1',
-                            'discord-buttons':'^3.0.1',
-                            "@discordjs/opus": "^0.5.3",
+                            "@discordjs/opus": "^0.6.0",
                             "avconv": "^3.1.0",
-                            "discord-music-player": "^7.2.0",
+                            "discord-backup": "^3.0.1",
+                            "discord-canvas": "^1.4.1",
+                            "discord-giveaways": "^5.0.1",
+                            "discord-logs": "^2.0.1",
                             "discord-player": "^5.1.0",
-                            "ffmpeg-static": "^4.4.0"
+                            "discord.js": "^13.1.0",
+                            "easy-json-database": "^1.5.0",
+                            "express": "^4.17.1",
+                            "ffmpeg-static": "^4.4.0",
+                            "moment": "^2.29.1",
+                            "quick.db": "^7.1.3",
+                            "quickmongo": "git+https://github.com/mrredo/quickmongo.git",
+                            "youtube-notification-module": "^1.1.0"
+                        },
+                        devDependencies: {
+                            "node": "^16.9.1"
                         }
                     }));
                     zip.generateAsync({
