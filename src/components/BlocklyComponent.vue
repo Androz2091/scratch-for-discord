@@ -12,7 +12,7 @@ import Blockly from "blockly";
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
 import {Backpack} from '@blockly/workspace-backpack';
-import Theme from '@blockly/theme-dark';
+import theme from '@blockly/theme-dark';
 import Load from '../backpack-save-load.js';
 export default {
     name: "BlocklyComponent",
@@ -36,7 +36,7 @@ export default {
                     length: 3,
                     colour: "#ccc",
                 },
-                theme: Theme,
+                theme: theme,
                 zoom: {
                     controls: true,
                     startScale: 0.9,

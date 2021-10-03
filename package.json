@@ -21,6 +21,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@sweetalert2/theme-dark": "^5.0.5",
     "blockly": "^6.20210701.0",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
@@ -30,14 +31,20 @@
     "jszip": "^3.6.0",
     "localforage": "^1.10.0",
     "moment": "^2.29.1",
-    "sweetalert2": "^10.15.5",
-    "vue": "^2.6.12",
+    "sweetalert2": "^10.16.9",
+    "vue": "2.6.11",
+    "sass-loader": "^10",
     "vue-i18n": "^8.24.0",
+    "vue-loader": "^15.9.8",
     "vue-swal": "^1.0.0",
+    "vue-switches": "^2.0.1",
     "vue-toast-notification": "^0.6.1",
+    "vue-template-compiler": "2.6.11",
+    "vue-toggle-btn": "^0.1.2",
     "vue-tour": "^1.5.0",
     "vuex": "^3.6.2"
-  },
+  }, 
+
   "devDependencies": {
     "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@babel/preset-env": "^7.13.10",
@@ -47,7 +54,10 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.21.0",
     "eslint-plugin-vue": "^7.7.0",
-    "vue-template-compiler": "^2.6.12"
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4.0.0"
   },
   "eslintConfig": {
     "root": true,
