@@ -123,6 +123,7 @@ Vue.mixin({
             if(!this.$store.state.workspace) return "";
             return `
                 (async()=>{
+                    const DIG = require("discord-image-generation");
                     const backup = require("discord-backup");
                     const Discord = require("discord.js");
                     const Database = require("easy-json-database");

@@ -415,6 +415,14 @@ export default (Blockly) => {
         </category>
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
+                <category name="image generation">
+                    <block type="1imagepng"/>
+                    <block type="1imagegif"/>
+                    <block type="2imagepng"/>
+                    <block type="load_gif"/>
+                    <block type="load_image"/>
+                    <block type="send_on_channel"/>
+                </category>
                 <category name="Events" colour="#00b3ff">
                     <category name="channel" colour="#00b3ff">
                         <category name="channel permissions update" colour="#00b3ff">

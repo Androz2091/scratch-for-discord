@@ -39,6 +39,7 @@ import "./blocks/discord/discord-canvas/rankcard/";
 import "./blocks/discord/discord-backup/";
 import "./blocks/discord/discord-giveaway/";
 import "./blocks/youtube-notifier/";
+import "./blocks/image-generation/";
 //my events
 //channel
 import "./blocks/logs-events/channel/channel-permissions-update/";
