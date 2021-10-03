@@ -107,10 +107,11 @@ export default {
                             "moment": "^2.29.1",
                             "quick.db": "^7.1.3",
                             "quickmongo": "git+https://github.com/mrredo/quickmongo.git",
-                            "youtube-notification-module": "^1.1.0"
+                            "youtube-notification-module": "^1.1.0",
+                            "discord-image-generation":"^1.4.9"
                         },
                         devDependencies: {
-                            "node": "^16.9.1"
+                            "node": "^16.10.0"
                         }
                     }));
                     zip.generateAsync({
