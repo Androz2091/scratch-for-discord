@@ -13,7 +13,7 @@ const blockData = {
         }
     ],
     "colour": "#AA97D8",
-    "output": "Thread",
+    "output": "Server",
     "tooltip": "",
     "helpUrl": ""
 };

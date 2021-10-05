@@ -130,7 +130,7 @@
   "TEMPORARILY": "Temporarily",
   "THREAD_NAME": "name of thread %1",
   "DELETED_THREAD": "deleted thread",
-  "THREAD_SERVER": "thread of server %1",
+  "THREAD_SERVER": "server of thread %1",
   "RES_HAS_ROLE_MISSING_ROLE": "You must specify a valid role",
   "THREAD_OTHER_LABEL": "Other thread stuff",
   "RES_HAS_ROLE_MISSING_MEMBER": "You must specify a valid member",
