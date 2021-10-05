@@ -1,9 +1,9 @@
 import * as Blockly from "blockly";
 
-const blockName = "s4d_on_message";
+const blockName = "s4d_on_thread_create";
 
 const blockData = {
-    "message0": "%{BKY_ON_MESSAGE} %1 %2",
+    "message0": "%{BKY_ON_THREAD_CREATE} %1 %2",
     "colour": "#F5AB1A",
     "args0": [
         {
@@ -24,6 +24,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.client.on('messageCreate', async (s4dmessage) => {\nif(s4dmessage.channel.type === "GUILD_TEXT"){\n${statements}\n}\n});\n`;
+    const code = `s4d.client.on('threadCreate', async (s4dThread) => {\n${statements}\n});\n`;
     return code;
 };

@@ -393,7 +393,6 @@ export default (Blockly) => {
             <block type="s4d_current"></block>
             <block type="s4d_run_save_output"></block>
             <block type="s4d_cpu_model"></block>
-            <block type="s4d_cpu_usage"></block>
             <block type="s4d_wait_seconds">
                 <value name="TIME">
                     <shadow type="math_number">
@@ -440,11 +439,17 @@ export default (Blockly) => {
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
             <block type="s4d_reply">
+                <value name="MENTION">
+                    <block type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </block>
+                </value>
                 <value name="CONTENT">
                     <shadow type="text">
                         <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
                     </shadow>
                 </value>
+
             </block>
             <block type="s4d_reference_reply">
                 <value name="CONTENT">
@@ -461,11 +466,14 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_message_start_thread"/>
+            <block type="s4d_started_message_thread"/>
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
         <category name="{{ TOOLBOX_DIRECT }}" colour="#00BBE6">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
+            <block type="s4d_send_member"></block>
             <label text="{{ DETECT_MESSAGES }}"></label>
             <block type="s4d_on_direct"></block>
             <label text="{{ MESSAGE_INFORMATIONS }}"></label>
@@ -481,6 +489,11 @@ export default (Blockly) => {
                         <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
                     </shadow>
                 </value>
+                <value name="MENTION">
+                    <block type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </block>
+                </value>
             </block>
             <block type="s4d_direct_reaction">
                 <value name="REACTION">
@@ -491,6 +504,62 @@ export default (Blockly) => {
             </block>
             <block type="s4d_direct_delete"></block>
         </category>
+        <category name="Threads" colour="#AA97D8">
+            <label text="%{BKY_LABEL_THREAD_MESSAGE}"/>
+            <block type="s4d_on_thread_message"/>
+            <block type="s4d_send_thread"/>
+            <label text="{{ MESSAGE_INFORMATIONS }}"/>
+            <block type="s4d_thread_message_content"/>
+            <block type="s4d_thread_message_id"/>
+            <block type="s4d_thread_message_author"/>
+            <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"/>
+            <block type="s4d_message_thread"/>
+            <block type="s4d_server_thread"/>
+            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"/>
+            <block type="s4d_thread_message_author_raw"/>
+            <block type="s4d_thread_raw"/>
+            <block type="s4d_thread_guild_raw"/>
+            <label text="%{BKY_MESSAGE_ACTIONS}"/>
+            <block type="s4d_start_thread"/>
+            <block type="s4d_started_thread"/>
+            <block type="s4d_thread_reply">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+                <value name="MENTION">
+                    <block type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </block>
+                </value>
+            </block>
+            <block type="s4d_thread_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_thread_message_delete"/>
+            <label text="%{BKY_LABEL_THREAD_ARCHIVE}"/>
+            <block type="s4d_on_thread_archive"/>
+            <block type="s4d_on_thread_unarchive"/>
+            <block type="s4d_unarchived_thread"/>
+            <label text="%{BKY_THREAD_CREATE_LABEL}"/>
+            <block type="s4d_on_thread_create"/>
+            <block type="s4d_created_thread_on"/>
+            <label text="%{BKY_THREAD_DELETE_LABEL}"/>
+            <block type="s4d_on_thread_delete"/>
+            <block type="s4d_deleted_thread"/>
+            <label text="%{BKY_THREAD_OTHER_LABEL}"/>
+            <block type="s4d_thread_channel"/>
+            <block type="s4d_thread_name"/>
+            <block type="s4d_thread_server"/>
+            <block type="s4d_thread_archive"/>
+            
+            
+        </category>
         <category name="{{ TOOLBOX_SLASH }}" colour="#D088D1">
         <label text="{{ DETECT_SLASH }}"></label>
         <block type="s4d_on_slash"></block>
@@ -499,7 +568,18 @@ export default (Blockly) => {
         <block type="s4d_slash_channel"></block>
         <block type="s4d_slash_server"></block>
         <block type="s4d_slash_value"></block>
-        <block type="s4d_slash_reply"></block>
+        <block type="s4d_slash_reply">
+            <value name="EPHEMERAL">
+                <block type="logic_boolean">
+                    <field name="BOOL">FALSE</field>
+                </block>
+            </value>
+            <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+        </block>
         </category>
         <category name="{{ TOOLBOX_EDITED }}" colour="#18c847">
         <label text="%{BKY_DETECT_EDITED}"></label>
@@ -590,6 +670,7 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_channel_category"></block>
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply">
                 <value name="CONTENT">
@@ -713,6 +794,3 @@ export default (Blockly) => {
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
     return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
 }))};
-
-
-

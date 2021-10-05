@@ -4,3 +4,4 @@ import "./send_channel";
 import "./send_wait_reply";
 import "./send_wait_reply_value";
 import "./start_typing";
+import "./channel_category";

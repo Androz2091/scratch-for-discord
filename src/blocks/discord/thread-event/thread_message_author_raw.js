@@ -1,10 +1,10 @@
 import * as Blockly from "blockly";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_joining_member_raw";
+const blockName = "s4d_thread_message_author_raw";
 
 const blockData = {
-    "message0": "%{BKY_JOINING_MEMBER_RAW}",
+    "message0": "%{BKY_THREAD_MESSAGE_AUTHOR_RAW}",
     "args0": [
         {
             "type": "field_dropdown",
@@ -40,13 +40,13 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "ID"){
-        const code = ["s4dJoiningMember.id", Blockly.JavaScript.ORDER_NONE];
+        const code = ["s4dThread.author.id", Blockly.JavaScript.ORDER_NONE];
         return code;
     } else if(searchType === "USERNAME"){
-        const code = ["s4dJoiningMember.user.username", Blockly.JavaScript.ORDER_NONE];
+        const code = ["s4dThread.author.username", Blockly.JavaScript.ORDER_NONE];
         return code;
     } else if(searchType === "NICKNAME"){
-        const code = ["s4dJoiningMember.nickname", Blockly.JavaScript.ORDER_NONE];
+        const code = ["(s4dThread.member || await s4dThread.guild.members.fetch(s4dThread.author.id)).nickname", Blockly.JavaScript.ORDER_NONE];
         return code;
     }
 };
@@ -54,9 +54,9 @@ Blockly.JavaScript[blockName] = function(block) {
 registerRestrictions(blockName, [
     {
         type: "toplevelparent",
-        message: "RES_MUST_BE_IN_ON_MEMBER_JOIN",
+        message: "RES_MUST_BE_IN_ON_THREAD_MESSAGE",
         types: [
-            "s4d_on_member_join"
+            "s4d_on_thread_message"
         ]
     }
 ]);

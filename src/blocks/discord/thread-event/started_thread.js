@@ -1,12 +1,12 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_joining_member";
+const blockName = "s4d_started_thread";
 
 const blockData = {
-    "message0": "%{BKY_JOINING_MEMBER}",
-    "colour": "#187795",
-    "output": "Member",
+    "message0": "%{BKY_CREATED_THREAD}",
+    "colour": "#AA97D8",
+    "output": "Thread",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -18,16 +18,16 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["s4dJoiningMember", Blockly.JavaScript.ORDER_NONE];
+    const code = ["s4dCreatedThread", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 
 registerRestrictions(blockName, [
     {
-        type: "toplevelparent",
-        message: "RES_MUST_BE_IN_ON_MEMBER_JOIN",
+        type: "hasparent",
+        message: "RES_MUST_BE_IN_THREAD_START",
         types: [
-            "s4d_on_member_join"
+            "s4d_start_thread"
         ]
     }
 ]);

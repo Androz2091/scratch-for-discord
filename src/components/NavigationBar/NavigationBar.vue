@@ -14,7 +14,7 @@
                 <EditMenu></EditMenu>
                 <ExamplesMenu></ExamplesMenu>
                 <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
-                <b-nav-item href="slash-commands-gui.androz2091.fr" target="_blank">{{ $t('slash') }}</b-nav-item>
+                <b-nav-item href="https://slash-commands-gui.androz2091.fr" target="_blank">{{ $t('slash') }}</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
