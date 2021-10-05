@@ -26,17 +26,11 @@ Vue.config.productionTip = false;
 Vue.config.ignoredElements = ["field","block","category","xml","mutation","value","sep"];
 
 import blocklyLocaleEN from "blockly/msg/en";
-import blocklyLocaleFR from "blockly/msg/fr";
-import blocklyLocalePT from "blockly/msg/pt";
 
 import customLocaleEN from './locales/en';
-import customLocaleFR from './locales/fr';
-import customLocalePT from './locales/pt';
 
 const messages = {
-    en: customLocaleEN.websiteMessages,
-    fr: customLocaleFR.websiteMessages,
-    pt: customLocalePT.websiteMessages
+    en: customLocaleEN.websiteMessages
 };
 
 const i18n = new Vuei18n({
@@ -95,24 +89,6 @@ Vue.mixin({
                     // Change website languages (navbar, etc...)
                     this.$root.$i18n.locale = "en";
                     break;
-                case "fr":
-                    // Change Blockly language for default blocks
-                    Blockly.setLocale(blocklyLocaleFR);
-                    // Change Blockly language for custom blocks
-                    customLocaleFR.applyBlocklyLocale();
-                    // Change website languages (navbar, etc...)
-                    this.$root.$i18n.locale = "fr";
-                    break;
-                case "pt":
-                    // Change Blockly language for default blocks
-                    Blockly.setLocale(blocklyLocalePT);
-                    // Change Blockly language for custom blocks
-                    customLocalePT.applyBlocklyLocale();
-                    // Change website languages (navbar, etc...)
-                    this.$root.$i18n.locale = "pt";
-                    break;
-                default:
-                    break;
             }
         },
         getWorkspaceCode(){
@@ -121,6 +97,8 @@ Vue.mixin({
                 (async()=>{
                 const Discord = require("discord.js");
                 const Database = require("easy-json-database");
+                const os = require("os");
+                const process = require("process");
                 const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 const s4d = {
@@ -137,7 +115,7 @@ Vue.mixin({
                 };
                 s4d.client = new s4d.Discord.Client({
                     intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
-                    partials: ["REACTION"]
+                    partials: ["REACTION", "CHANNEL"]
                 });
 
                 ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}

@@ -9,3 +9,5 @@ import "./member_tag";
 import "./member_username";
 import "./send_message";
 import "./set_member_nickname";
+import "./member_status";
+import "./member_is_streaming";

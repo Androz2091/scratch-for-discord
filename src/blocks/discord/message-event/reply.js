@@ -9,10 +9,21 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "Number", "String", "MessageEmbed" ]
+            "check": ["Number", "String"]
         },
+        {
+            "type": "input_value",
+            "name": "EMBED",
+            "check": "MessageEmbed"
+        },
+        {
+            "type": "input_value",
+            "name": "MENTION",
+            "check": "Boolean"
+        }
     ],
     "colour": "#4C97FF",
+    "inputsInline": false,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "",
@@ -27,22 +38,21 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    if(block.getInput("CONTENT").connection.targetConnection){
-        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
-        block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
-        null;
-        if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            const code = `s4dmessage.channel.send(${content});\n`;
-            return code;
+    const embed = Blockly.JavaScript.valueToCode(block, "EMBED", Blockly.JavaScript.ORDER_ATOMIC) || null;
+    const mention = Blockly.JavaScript.valueToCode(block, "MENTION", Blockly.JavaScript.ORDER_ATOMIC) || "false";
+    if(mention === "true") {
+        if(content.length > 2){
+            return(`s4dmessage.reply({embeds: ${embed}, content: ${content}});\n`)
         } else {
-            const code = `s4dmessage.channel.send(String(${content}));\n`;
-            return code;
+            return(`s4dmessage.reply({embeds: ${embed}});\n`)
         }
-    } else {
-        const code = `s4dmessage.channel.send(String(${content}));\n`;
-        return code;
-    }
-};
+    }else {
+        if(content.length > 2){
+            return(`s4dmessage.channel.send({embeds: ${embed}, content: ${content}});\n`)
+        } else {
+            return(`s4dmessage.channel.send({embeds: ${embed}});\n`)
+        }
+    }}
 
 registerRestrictions(blockName, [
     {
