@@ -118,13 +118,13 @@ Blockly.JavaScript[blockName] = function(block){
         if(server !== null){
             return [ `${server}.roles.cache.find((role) => role.name === ${value})`, Blockly.JavaScript.ORDER_NONE ];
         } else {
-            return [ `Array.prototype.concat.apply([], s4d.client.guilds.cache.array().map((g) => g.roles.cache.array())).find((role) => role.name === ${value})`, Blockly.JavaScript.ORDER_NONE ];
+            return [ `${server}.roles.cache.find((role) => role.name === ${value})`, Blockly.JavaScript.ORDER_NONE ];
         }
     } else {
         if(server !== null){
             return [ `${server}.roles.cache.find((role) => role.id === ${value})`, Blockly.JavaScript.ORDER_NONE ];
         } else {
-            return [ `Array.prototype.concat.apply([], s4d.client.guilds.cache.array().map((g) => g.roles.cache.array())).get(${value})`, Blockly.JavaScript.ORDER_NONE ];
+            return [ `${server}.roles.cache.find((role) => role.id === ${value})`, Blockly.JavaScript.ORDER_NONE ];
         }
     }
 };
