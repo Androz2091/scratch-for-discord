@@ -123,20 +123,8 @@ Vue.mixin({
             if(!this.$store.state.workspace) return "";
             return `
                 (async()=>{
-                    const DIG = require("discord-image-generation");
-                    const backup = require("discord-backup");
-                    const Discord = require("discord.js");
-                    const Database = require("easy-json-database");
-                    const logs = require('discord-logs');
-                    const moment = require('moment');
-                    const { DB } = require("quickmongo");
-										const canvas = require("discord-canvas")
-                    const { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu } = require('discord.js')
-										const https = require("https");
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-                    const { GiveawaysManager } = require('discord-giveaways');
-                    const ytnotifier = require('youtube-notification-module');
                     const s4d = {
                         Discord,
                         database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/db.json\`),
@@ -166,9 +154,9 @@ Vue.mixin({
                             reaction: '🎉'
                         }
                     });
-                    const { Player,QueueRepeatMode } = require("discord-player")
                     s4d.player = new Player(s4d.client)
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
+                    return s4d
                     })();
             `;
         }
