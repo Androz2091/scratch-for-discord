@@ -123,6 +123,18 @@ Vue.mixin({
             if(!this.$store.state.workspace) return "";
             return `
                 (async()=>{
+                    let DIG = require("discord-image-generation")
+                    let Discord = require("discord.js")
+                    let Database  = require("easy-json-database")
+                    let logs = require("discord-logs")
+                    let moment  = require("moment")
+                     let { DB } = require("quickmongo");
+                     let canvas = require("discord-canvas")
+                     let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")
+                     let https = require("https")
+                                        let { GiveawaysManager }= require("discord-giveaways")
+                                        let ytnotifier = require("youtube-notification-module")
+                                        let { Player,QueueRepeatMode } = require("discord-player")
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                     const s4d = {

@@ -342,7 +342,7 @@
   "LABEL_MODIFY_SERVER": "Modifique o servidor",
   "SET_SERVER_NAME": "troque o nome do servidor %1 nome novo %2",
   "GET_ROLE_SERVER": "no servidor",
-  "GET_ROLE": "pegue o cargo com %2 igual a %1",
+  "GET_ROLE": "pegue o cargo com %2 igual a %1 no servidor %3",
   "RES_GET_ROLE_VALUE": "você precisa especificar um nome ou id de um cargo valido!",
   "RES_GET_SERVER_VALUE": "você precisa especificar um nome ou id de um servidor valido!",
   "FIND_ROLE": "Encontre um cargo",

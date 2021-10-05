@@ -437,7 +437,7 @@
   "LABEL_MODIFY_SERVER": "Modifier le serveur",
   "SET_SERVER_NAME": "changer le nom du serveur %1 nouveau nom %2",
   "GET_ROLE_SERVER": "sur le serveur",
-  "GET_ROLE": "obtenir le rôle dont le %2 est %1",
+  "GET_ROLE": "obtenir le rôle dont le %2 est %1 sur le serveur %3",
   "RES_GET_ROLE_VALUE": "Vous devez préciser un nom ou un identifiant de rôle valide !",
   "RES_GET_SERVER_VALUE": "Vous devez préciser un nom ou un identifiant de serveur valide !",
   "FIND_ROLE": "Trouver un rôle",
