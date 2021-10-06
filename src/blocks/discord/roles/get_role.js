@@ -28,7 +28,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "VALUE",
-            "check": "String"
+            "check": "Server"
         },
     ],
     "colour": "#2EB66B",
@@ -52,13 +52,13 @@ Blockly.JavaScript[blockName] = function(block){
         if(server !== null){
             return [ `${server}.roles.cache.find((role) => role.name === ${value})`, Blockly.JavaScript.ORDER_NONE ];
         } else {
-            return [ `${server}.roles.cache.find((role) => role.name === ${value})`, Blockly.JavaScript.ORDER_NONE ];
+            return [ `false`, Blockly.JavaScript.ORDER_NONE ];
         }
     } else {
         if(server !== null){
             return [ `${server}.roles.cache.find((role) => role.id === ${value})`, Blockly.JavaScript.ORDER_NONE ];
         } else {
-            return [ `${server}.roles.cache.find((role) => role.id === ${value})`, Blockly.JavaScript.ORDER_NONE ];
+            return [ `false`, Blockly.JavaScript.ORDER_NONE ];
         }
     }
 };
