@@ -40,6 +40,7 @@ import "./blocks/discord/discord-backup/";
 import "./blocks/discord/discord-giveaway/";
 import "./blocks/youtube-notifier/";
 import "./blocks/image-generation/";
+import "./blocks/discord-image/";
 //my events
 //channel
 import "./blocks/logs-events/channel/channel-permissions-update/";

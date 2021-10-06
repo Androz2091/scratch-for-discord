@@ -130,6 +130,8 @@ Vue.mixin({
                     let moment  = require("moment")
                      let { DB } = require("quickmongo");
                      let canvas = require("discord-canvas")
+                     const Images = require("discord-images")
+                     const images = new Images.Client()
                      let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")
                      let https = require("https")
                                         let { GiveawaysManager }= require("discord-giveaways")

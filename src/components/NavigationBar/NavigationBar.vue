@@ -108,7 +108,8 @@ export default {
                             "quick.db": "^7.1.3",
                             "quickmongo": "git+https://github.com/mrredo/quickmongo.git",
                             "youtube-notification-module": "^1.1.0",
-                            "discord-image-generation":"^1.4.9"
+                            "discord-image-generation":"^1.4.9",
+                            "discord-images": "^0.1.6"
                         },
                         devDependencies: {
                             "node": "^16.10.0"

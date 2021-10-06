@@ -415,6 +415,9 @@ export default (Blockly) => {
         </category>
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
+                <category name="discord image generation">
+                    <block type="new_image"/>
+                </category>
                 <category name="image generation">
                     <block type="1imagepng"/>
                     <block type="1imagegif"/>
