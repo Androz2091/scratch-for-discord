@@ -719,14 +719,8 @@ export default (Blockly) => {
         </category>
 					<category name="register" colour="#65700c">
         <label text="Register slash commands" web-class="boldtext"></label>
-        <block type="guild_s"></block>
-        <block type="guild_g"></block>
-        <label text="Make slash commands" web-class="boldtext"></label>
-        <block type="register_var"></block>
         <label text="Register context menu" web-class="boldtext"></label>
         <block type="register_c_m"></block>
-        <label text="comma used for multiple slash commands in 1 variabel" web-class="boldtext"></label> 
-        <block type="comma"></block>
         </category>
         <category name="slash" colour="#ff2f00">
         <label text="%{BKY_T_RS}"></label>
