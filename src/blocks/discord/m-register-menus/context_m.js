@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "register_c_m";
 
 const blockData = {
-    "message0": "name %1 type %2",
+    "message0": "name %1 type %2 server id(optional) %3 ",
     "args0": [
       {
           "type": "input_value",
@@ -26,6 +26,11 @@ const blockData = {
         ],
 
         },
+        {
+            "type": "input_value",
+            "name": "ID",
+            "check": [ "String" ]
+        },
 
     ],
     "colour": "#40BF4A",
@@ -44,6 +49,13 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
   const searchType = block.getFieldValue("SEARCH");
   const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `{ \n name: ${name}, \n type: ${searchType} \n } \n`;
+  const id = Blockly.JavaScript.valueToCode(block, "id", Blockly.JavaScript.ORDER_ATOMIC) || null
+  if(id === null) {
+    const code = `s4d.client.application?.commands.create({ \n name: ${name}, \n type: ${searchType} \n }) \n`;
     return code;
+  } else {
+    const code = `await s4d.client.guilds.cache.get(${id})?.commands.create({ \n name: ${name}, \n type: ${searchType} \n }) \n`;
+    return code;
+  }
+
 };
