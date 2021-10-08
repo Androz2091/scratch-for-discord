@@ -717,8 +717,7 @@ export default (Blockly) => {
         <block type="su_name"></block>
         </category>
         </category>
-					<category name="register" colour="#65700c">
-        <label text="Register slash commands" web-class="boldtext"></label>
+	<category name="register" colour="#65700c">
         <label text="Register context menu" web-class="boldtext"></label>
         <block type="register_c_m"></block>
         </category>
