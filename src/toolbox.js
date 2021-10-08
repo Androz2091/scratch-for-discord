@@ -720,6 +720,7 @@ export default (Blockly) => {
 	<category name="register" colour="#65700c">
         <label text="Register context menu" web-class="boldtext"></label>
         <block type="register_c_m"></block>
+	<block type="register_c_m_g"></block>
         </category>
         <category name="slash" colour="#ff2f00">
         <label text="%{BKY_T_RS}"></label>
