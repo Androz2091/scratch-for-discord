@@ -53,7 +53,7 @@ Blockly.JavaScript[blockName] = function(block) {
   if(id === null) {
     const code = `s4d.client.application?.commands.create({ \n name: ${name}, \n type: ${searchType} \n }) \n`;
     return code;
-  } else {
+  } else if (id !== null) {
     const code = `await s4d.client.guilds.cache.get(${id})?.commands.create({ \n name: ${name}, \n type: ${searchType} \n }) \n`;
     return code;
   }
