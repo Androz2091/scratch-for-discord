@@ -1,9 +1,1 @@
-import "./choices_c";
-import "./choices_s";
-import "./comma";
 import "./context_m";
-import "./options";
-import "./register_c_g";
-import "./register_c_gl";
-import "./register_slash_cmd";
-import "./register_var";
