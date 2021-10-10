@@ -17,6 +17,7 @@ export const websiteMessages = {
     file: {
         nothing:"nada né po",
         nothing2:"nada 2 akakka",
+        outrobug:"f tem outro bug mannn REEEEEE",
         title: "Arquivo",
         javascript: "Exporta para javascirpt",
         open: "abrir arquivo...",

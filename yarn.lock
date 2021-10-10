@@ -3771,11 +3771,6 @@
   dependencies:
     "path-type" "^3.0.0"
 
-"discord-buttons@^2.4.1":
-  "integrity" "sha512-oJkG0TpFtgL4UiFc+y4nFVSm62KxU4zX+cH/UPCq1cIy05etfN7swGh80j9AIDxRMf8HJEWNSbvd3HNuZWeZVg=="
-  "resolved" "https://registry.npmjs.org/discord-buttons/-/discord-buttons-2.4.1.tgz"
-  "version" "2.4.1"
-
 "dns-equal@^1.0.0":
   "integrity" "sha1-s55/HabrCnW6nBcySzR1PEfgZU0="
   "resolved" "https://registry.npmjs.org/dns-equal/-/dns-equal-1.0.0.tgz"
