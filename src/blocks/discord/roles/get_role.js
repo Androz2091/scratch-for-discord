@@ -27,7 +27,7 @@ const blockData = {
         },
         {
             "type": "input_value",
-            "name": "VALUE",
+            "name": "SERVER",
             "check": "Server"
         },
     ],

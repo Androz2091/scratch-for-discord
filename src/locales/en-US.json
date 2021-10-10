@@ -350,7 +350,6 @@
   "RES_SET_SERVER_NAME_NEW_NAME": "You must specify a new valid name for the server!",
   "LABEL_MODIFY_SERVER": "Modify the server",
   "SET_SERVER_NAME": "change name of server %1 new name %2",
-  "GET_ROLE_SERVER": "on the server",
   "GET_ROLE": "get role with %2 equal to %1 on the server %3",
   "RES_GET_ROLE_VALUE": "You must specify a valid name or role ID!",
   "RES_GET_SERVER_VALUE": "You must specify a valid server name or ID!",

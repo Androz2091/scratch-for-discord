@@ -110,7 +110,7 @@ export default {
                             "youtube-notification-module": "^1.1.0",
                             "discord-image-generation":"^1.4.9",
                             "discord-images": "^0.1.6",
-                            "discord-inviter-tracker":"^0.0.3",
+                            "discord-inviter-tracker":"^1.0.3",
                             "anti-link-for-discord":"^5.0.0",
                             "discord-together":"^1.3.0",
                             "axios": "^0.22.0",
