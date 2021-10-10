@@ -123,6 +123,7 @@ Vue.mixin({
             if(!this.$store.state.workspace) return "";
             return `
                 (async()=>{
+                //hello :)
                     const AntiLinkClient = require("anti-link-for-discord");
                     let DIG = require("discord-image-generation")
                     let Discord = require("discord.js")
