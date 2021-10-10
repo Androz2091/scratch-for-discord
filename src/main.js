@@ -133,6 +133,7 @@ Vue.mixin({
                      const Images = require("discord-images")
                      const images = new Images.Client()
                      let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")
+                     let Invite = require("discord-inviter-tracker")
                      let https = require("https")
                                         let { GiveawaysManager }= require("discord-giveaways")
                                         let ytnotifier = require("youtube-notification-module")
@@ -148,17 +149,30 @@ Vue.mixin({
                         tokenError: null,
                         player:null,
                         manager:null,
+                        Inviter:null,
                         notifer:new ytnotifier({channels: [],checkInterval: 50}),
                         checkMessageExists() {
                             if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                             if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
                         }
                     };
+                    const badges = require("discord-badges");
                     s4d.client = new s4d.Discord.Client({
                         intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
                         partials: ["REACTION"]
-                    });
+                    });    
+                    function getBadges(user){
+                        return badges.badges(user).then((response) => {
+                            return response
+                        }).catch((e) => {
+                            console.log(e);
+                        });
+                    } 
+                    Inviter = new Invite(s4d.client)
                     logs(s4d.client);
+                    s4d.Inviter.on("WARN",function(e){
+                        console.log('WARN: '+e)
+                    })
                     s4d.manager = new GiveawaysManager(s4d.client, {
                         storage: './giveaways.json',
                         default: {
@@ -169,6 +183,28 @@ Vue.mixin({
                         }
                     });
                     s4d.player = new Player(s4d.client)
+                    const Cooldown = ""
+                    if(s4d.database.has('cooldown')){
+                        Cooldown = s4d.database.get('cooldown')
+                        setInterval(()=>{
+                            s4d.database.set('cooldown',cooldown)
+                        },1000)
+                    }else{
+                        Cooldown = new Set();
+                        setInterval(()=>{
+                            s4d.database.set('cooldown',cooldown)
+                        },1000)
+                    }
+                    const { DiscordTogether } = require('discord-together');
+
+                    s4d.client.discordTogether = new DiscordTogether(client);
+                    const antilink = new AntiLinkClient({
+                        warnMessage: (message) => '<@'+message.author.id+'>, No links.',
+                        muteCount: 5,
+                        kickCount: 10,
+                        banCount: 15,
+                        deleteMessage: true,
+                      });
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
                     return s4d
                     })();

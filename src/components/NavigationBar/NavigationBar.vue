@@ -109,7 +109,12 @@ export default {
                             "quickmongo": "git+https://github.com/mrredo/quickmongo.git",
                             "youtube-notification-module": "^1.1.0",
                             "discord-image-generation":"^1.4.9",
-                            "discord-images": "^0.1.6"
+                            "discord-images": "^0.1.6",
+                            "discord-inviter-tracker":"^0.0.3",
+                            "anti-link-for-discord":"^5.0.0",
+                            "discord-together":"^1.3.0",
+                            "axios": "^0.22.0",
+                            "discord-badges": "0.0.0"
                         },
                         devDependencies: {
                             "node": "^16.10.0"

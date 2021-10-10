@@ -397,6 +397,7 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
+            <block type="anti_link"/>
             <block type="s4d_print"></block>
             <block type="s4d_current"></block>
             <block type="s4d_run_save_output"></block>
@@ -415,6 +416,34 @@ export default (Blockly) => {
         </category>
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
+                <category name="discord togheter">
+                    <block type="create_together"/>
+                    <block type="invite_code"/>
+                </category>
+                <category name="cooldown">
+                    <block type="set_member_cooldown"/>
+                    <block type="delete_member_cooldown"/>
+                    <block type="is_member_on_cooldown"/>
+                </category>
+                <category name="invite tracker">
+                    <category name="joined">
+                        <block type="userinvited"/>
+                        <block type="Member"/>
+                        <block type="InviteMember"/>
+                        <block type="Server"/>
+                        <block type="Amount"/>
+                    </category>
+                    <category name="leave">
+                        <block type="UserLeave"/>
+                        <block type="Member"/>
+                        <block type="InviteMember"/>
+                        <block type="Server"/>
+                        <block type="Amount"/>
+                    </category>
+                    <category name="others">
+                        <block type="get_member_invites"/>
+                    </category>
+                </category>
                 <category name="discord image generation">
                     <block type="new_image"/>
                 </category>
@@ -952,6 +981,7 @@ export default (Blockly) => {
             <block type="s4d_mentioned_channel"></block>
             <block type="s4d_mentioned_role"></block>
             <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
+            <block type="Message"/>
             <block type="s4d_message_channel"></block>
             <block type="s4d_message_guild"></block>
             <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
