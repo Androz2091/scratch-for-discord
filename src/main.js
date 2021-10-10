@@ -123,6 +123,7 @@ Vue.mixin({
             if(!this.$store.state.workspace) return "";
             return `
                 (async()=>{
+                    const AntiLinkClient = require("anti-link-for-discord");
                     let DIG = require("discord-image-generation")
                     let Discord = require("discord.js")
                     let Database  = require("easy-json-database")
@@ -168,7 +169,7 @@ Vue.mixin({
                             console.log(e);
                         });
                     } 
-                    Inviter = new Invite(s4d.client)
+                    s4d.Inviter = new Invite(s4d.client)
                     logs(s4d.client);
                     s4d.Inviter.on("WARN",function(e){
                         console.log('WARN: '+e)
@@ -183,21 +184,21 @@ Vue.mixin({
                         }
                     });
                     s4d.player = new Player(s4d.client)
-                    const Cooldown = ""
+                    let Cooldown = ""
                     if(s4d.database.has('cooldown')){
                         Cooldown = s4d.database.get('cooldown')
                         setInterval(()=>{
-                            s4d.database.set('cooldown',cooldown)
+                            s4d.database.set('cooldown',Cooldown)
                         },1000)
                     }else{
                         Cooldown = new Set();
                         setInterval(()=>{
-                            s4d.database.set('cooldown',cooldown)
+                            s4d.database.set('cooldown',Cooldown)
                         },1000)
                     }
                     const { DiscordTogether } = require('discord-together');
 
-                    s4d.client.discordTogether = new DiscordTogether(client);
+                    s4d.client.discordTogether = new DiscordTogether(s4d.client);
                     const antilink = new AntiLinkClient({
                         warnMessage: (message) => '<@'+message.author.id+'>, No links.',
                         muteCount: 5,
