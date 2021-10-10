@@ -125,6 +125,9 @@ Vue.mixin({
                 (async()=>{
                 //hello :)
                 let process = require('process');
+                process.on('uncaughtExceptionMonitor', (err, origin) => {
+                    MyMonitoringTool.logSync(err, origin);
+                  });
 
                     const AntiLinkClient = require("anti-link-for-discord");
                     let DIG = require("discord-image-generation")
@@ -210,9 +213,6 @@ Vue.mixin({
                         deleteMessage: true,
                       });
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
-                    process.on('uncaughtExceptionMonitor', (err, origin) => {
-                        MyMonitoringTool.logSync(err, origin);
-                      });
                     return s4d
                     })();
             `;

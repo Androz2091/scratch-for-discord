@@ -115,7 +115,7 @@ export default {
                             "discord-together":"^1.3.0",
                             "axios": "^0.22.0",
                             "discord-badges": "0.0.0",
-                            "process":"^0.11.10"^,
+                            "process":"^0.11.10",
 },
                         devDependencies: {
                             "node": "^16.10.0"
