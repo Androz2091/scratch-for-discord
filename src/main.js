@@ -123,10 +123,10 @@ Vue.mixin({
             if(!this.$store.state.workspace) return "";
             return `
                 (async()=>{
-                //hello :)
+                //hello :) hehe
                 let process = require('process');
-                process.on('uncaughtExceptionMonitor', (err, origin) => {
-                    MyMonitoringTool.logSync(err, origin);
+                process.on('uncaughtException', function (err) {
+                    console.log(err);
                   });
 
                     const AntiLinkClient = require("anti-link-for-discord");
