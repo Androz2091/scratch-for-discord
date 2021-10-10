@@ -16,6 +16,7 @@ export const websiteMessages = {
     },
     file: {
         nothing:"nada né po",
+        nothing2:"nada 2 akakka",
         title: "Arquivo",
         javascript: "Exporta para javascirpt",
         open: "abrir arquivo...",
