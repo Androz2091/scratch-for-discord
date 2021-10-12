@@ -128,7 +128,7 @@ Vue.mixin({
                 process.on('uncaughtException', function (err) {
                     console.log(err);
                   });
-
+                    const ms = require("ms")
                     const AntiLinkClient = require("anti-link-for-discord");
                     let DIG = require("discord-image-generation")
                     let Discord = require("discord.js")

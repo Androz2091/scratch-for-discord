@@ -51,6 +51,6 @@ Blockly.JavaScript[blockName] = function(block){
     const duration = Blockly.JavaScript.valueToCode(block, "DURATION", Blockly.JavaScript.ORDER_ATOMIC);
     const winnecount = Blockly.JavaScript.valueToCode(block, "WINNERS", Blockly.JavaScript.ORDER_ATOMIC);
     const prize = Blockly.JavaScript.valueToCode(block, "PRIZE", Blockly.JavaScript.ORDER_ATOMIC);
-    var code = `s4d.manager.start(${channel}, {duration:${duration},winnerCount:${winnecount},prize:${prize}}).then((gData) => {\n${statements}\n});\n`
+    var code = `s4d.manager.start(${channel}, {duration:ms(${duration}),winnerCount:${winnecount},prize:${prize}}).then((gData) => {\n${statements}\n});\n`
     return code
 };
