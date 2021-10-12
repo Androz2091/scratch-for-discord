@@ -38,11 +38,11 @@ Blockly.JavaScript[blockName] = function(block){
             const code = `s4dreply.edit({embeds:[${content}]});\n`;
             return code;
         } else {
-            const code = `s4dreply.edit(String(${content}));\n`;
+            const code = `s4dreply.edit({content:String(${content})});\n`;
             return code;
         }
     } else {
-        const code = `s4dreply.edit(String(${content}));\n`;
+        const code = `s4dreply.edit({content:String(${content})});\n`;
         return code;
     }
 };

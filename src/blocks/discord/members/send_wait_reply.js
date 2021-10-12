@@ -58,10 +58,10 @@ Blockly.JavaScript[blockName] = function(block){
         }else if((contentType === "embed") || (!contentType && typeof contentType === "object")){
              code = `${member}.send({ embeds:[${content}]}).then(msg =>{\n\n`;
         } else {
-            code = `${member}.send(String(${content})).then(msg =>{\n`;
+            code = `${member}.send({content:String(${content})}).then(msg =>{\n`;
         }
     } else {
-        code = `${member}.send(String(${content})).then(msg =>{\n`;
+        code = `${member}.send({content:String(${content})}).then(msg =>{\n`;
     }
     code += `msg.channel.awaitMessages(response => response.content, { time: (${time}*60*1000), max: 1,errors: ['time'] }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} })\n});\n`;
     return code;

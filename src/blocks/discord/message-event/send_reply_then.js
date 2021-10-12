@@ -43,7 +43,7 @@ Blockly.JavaScript[blockName] = function(block){
             const code = `s4dmessage.channel.send({ embeds:[${content}]}).then(async (s4dreply) =>{\n ${statementThen} \n});\n`;
             return code;
         } else {
-            const code = `s4dmessage.channel.send(String(${content})).then(async (s4dreply) =>{\n ${statementThen} \n});\n`;
+            const code = `s4dmessage.channel.send({content:String(${content})}).then(async (s4dreply) =>{\n ${statementThen} \n});\n`;
             return code;
         }
     } else {

@@ -35,11 +35,11 @@ Blockly.JavaScript[blockName] = function(block){
             const code = `oldMessage.channel.send({${content}});\n`;
             return code;
         } else {
-            const code = `oldMessage.channel.send(String(${content}));\n`;
+            const code = `oldMessage.channel.send({content:String(${content})});\n`;
             return code;
         }
     } else {
-        const code = `oldMessage.channel.send(String(${content}));\n`;
+        const code = `oldMessage.channel.send({content:String(${content})});\n`;
         return code;
     }
 };

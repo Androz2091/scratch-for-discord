@@ -41,11 +41,11 @@ Blockly.JavaScript[blockName] = function(block) {
             const code = `${member}.send({${content}});\n`;
             return code;
         } else {
-            const code = `${member}.send(String(${content}));\n`;
+            const code = `${member}.send({content:String(${content})});\n`;
             return code;
         }
     } else {
-        const code = `${member}.send(String(${content}));\n`;
+        const code = `${member}.send({content:String(${content})});\n`;
         return code;
     }
 };
