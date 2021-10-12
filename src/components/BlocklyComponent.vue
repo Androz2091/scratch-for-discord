@@ -66,4 +66,7 @@ export default {
     width: 100%;
     text-align: left;
 }
+.blocklyToolboxCategory{
+    color: rgb(204, 204, 204)
+}
 </style>

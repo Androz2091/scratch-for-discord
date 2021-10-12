@@ -13,3 +13,6 @@ import "./message_guild_raw";
 import "./on_message";
 import "./reply";
 import "./purge";
+import "./reference_reply";
+import "./message_start_thread";
+import "./started_thread";

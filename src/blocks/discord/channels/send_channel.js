@@ -9,15 +9,21 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "MessageEmbed", "String", "Number" ]
+            "check": ["Number", "String"]
+        },
+        {
+            "type": "input_value",
+            "name": "EMBED",
+            "check": "MessageEmbed"
         },
         {
             "type": "input_value",
             "name": "CHANNEL",
             "check": "Channel"
-        },
+        }
     ],
     "colour": "#4C97FF",
+    "inputsInline": false,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "",
@@ -31,38 +37,22 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
-    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    if(block.getInput("CONTENT").connection.targetConnection){
-        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
-        block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
-        null;
-        if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            const code = `${channel}.send(${content});\n`;
-            return code;
-        } else {
-            const code = `${channel}.send(String(${content}));\n`;
-            return code;
-        }
+    const embed = Blockly.JavaScript.valueToCode(block, "EMBED", Blockly.JavaScript.ORDER_ATOMIC) || null;
+    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC) || "false";
+    if(content.length > 2){
+        return(`${channel}.send({embeds: ${embed}, content: ${content}});\n`)
     } else {
-        const code = `${channel}.send(String(${content}));\n`;
-        return code;
+        return(`${channel}.send({embeds: ${embed}});\n`)
     }
-};
+}
 
 registerRestrictions(blockName, [
     {
         type: "notempty",
-        message: "RES_SEND_CHANNEL_CONTENT",
+        message: "RES_MISSING_CONTENT",
         types: [
-            "CONTENT"
-        ]
-    },
-    {
-        type: "notempty",
-        message: "RES_SEND_CHANNEL_CHANNEL",
-        types: [
-            "CHANNEL"
+          "CONTENT"
         ]
     }
 ]);

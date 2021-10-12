@@ -20,7 +20,13 @@ import "./blocks/discord/base/";
 import "./blocks/discord/message-event/";
 import "./blocks/discord/join-event/";
 import "./blocks/discord/leave-event/";
+import "./blocks/discord/invite";
 import "./blocks/discord/reaction-event/";
+import "./blocks/discord/edited-event/";
+import "./blocks/discord/typing-event";
+import "./blocks/discord/thread-event";
+import "./blocks/discord/direct";
+import "./blocks/discord/slash";
 
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";
@@ -31,9 +37,10 @@ import "./blocks/database/";
 import "./blocks/text/";
 import "./blocks/loops/";
 import "./blocks/other/";
+import "./blocks/request";
 import "./prompt";
 
-import Theme from '@blockly/theme-modern';
+import Theme from './theme';
 
 export default {
     name: "app",
