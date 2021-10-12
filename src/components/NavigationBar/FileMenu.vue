@@ -3,6 +3,7 @@
         <b-dropdown-item @click="askForFile">{{ $t('file.open') }}</b-dropdown-item>
         <input hidden @change="load" id="load-code" type="file" accept=".s4d">
         <b-dropdown-item v-b-modal.code-modal>{{ $t('file.javascript') }}</b-dropdown-item>
+        <b-dropdown-item @click="copy">{{ $t('file.copy')}}</b-dropdown-item>
         <b-dropdown-item @click="save">{{ $t('file.save') }}</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
@@ -10,10 +11,18 @@
 <script>
 import Blockly from "blockly";
 import JSZip from "jszip";
+import beautify from "js-beautify";
 
 export default {
     name: "filemenu",
     methods: {
+        copy() {
+            var url = beautify.js(this.getWorkspaceCode(), {
+                indent_size: 4,
+                space_in_empty_paren: true
+            });
+           navigator.clipboard.writeText(url)
+        },
         viewCode() {
 			alert(this.getWorkspaceCode());
         },

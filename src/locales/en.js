@@ -15,6 +15,7 @@ export const websiteMessages = {
         error: "The uploaded file is corrupted and cannot be loaded by Scratch For Discord..."
     },
     file: {
+        copy:"Copy Javascript code",
         title: "File",
         javascript: "Export to Javascript",
         open: "Open a file...",

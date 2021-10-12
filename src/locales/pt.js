@@ -15,9 +15,7 @@ export const websiteMessages = {
         error: "O arquivo enviado está corrompido e não pode ser carregado pelo Scratch For Discord..."
     },
     file: {
-        nothing:"nada né po",
-        nothing2:"nada 2 akakka",
-        outrobug:"f tem outro bug mannn REEEEEE",
+        copy:"Copiar codigo javascript",
         title: "Arquivo",
         javascript: "Exporta para javascirpt",
         open: "abrir arquivo...",
