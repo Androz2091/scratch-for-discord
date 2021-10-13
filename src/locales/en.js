@@ -14,6 +14,32 @@ export const websiteMessages = {
     load: {
         error: "The uploaded file is corrupted and cannot be loaded by Scratch For Discord..."
     },
+    token:{
+        title:"Token Database",
+        load:"Load Token",
+        save:"Save Token as...",
+        text2:"name of token that you want to save to Database",
+        save2:"next",
+        error:"error there is alredy a token with that name",
+        text3:"token that you want to save",
+        save3:"save",
+        success:"succesfully saved token as ",
+        erros:"you dont have any token saved in database!",
+        load2:"load token",
+        text4:"choose a token name for loading!",
+        cancels:"cancell",
+        loadss:"load",
+        successs:"succesfully loaded token!(the token is on your clipboard)",
+        all:"amount of tokens: {blockCount}",
+        delete:"Delete Token From Database",
+        deletee:{
+            title:"delete token",
+            success:"succesfully deleted token from database",
+            load:"delete",
+            cancel:"cancel",
+            text:"choose a token for deleting from database",
+        }
+    },
     file: {
         copy:"Copy Javascript code",
         title: "File",

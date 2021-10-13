@@ -14,6 +14,32 @@ export const websiteMessages = {
     load: {
         error: "O arquivo enviado está corrompido e não pode ser carregado pelo Scratch For Discord..."
     },
+    token:{
+        title:"Token Database",
+        load:"Carregar Token",
+        save:"Salva Token Como...",
+        text2:"nome do token que você quer salva na Database",
+        save2:"procimo",
+        error:"error ja tem um token com esse nome",
+        text3:"token que você quer salva",
+        save3:"salvar",
+        success:"salvado token com sucesso! nome ",
+        erros:"você não tem tokens salvo na database!",
+        load2:"carregar token",
+        text4:"escolha um token para carregar!",
+        cancels:"cancelar",
+        loadss:"carregar",
+        successs:"carregado token com sucesso!(o token esta no teu copiar)",
+        delete:"Deletar Token Na Database",
+        all:"tando de tokens: {blockCount}",
+        deletee:{
+            title:"deletar token",
+            success:"deletado token com sucesso!",
+            load:"deletar",
+            cancel:"cancelar",
+            text:"escolha um token para deletar da database",
+        }
+    },
     file: {
         copy:"Copiar codigo javascript",
         title: "Arquivo",

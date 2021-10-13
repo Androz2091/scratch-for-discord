@@ -14,6 +14,7 @@
                 <EditMenu></EditMenu>
                 <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
+                <TokenModal></TokenModal>
                 <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
@@ -32,11 +33,12 @@
 import Blockly from "blockly";
 import JSZip from "jszip";
 
+import TokenModal from "./TokenModal.vue";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
 import LanguageMenu from "./LanguageMenu.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
-import CodeModal from "./CodeModal";
+import CodeModal from "./CodeModal.vue";
 
 export default {
     name: "navbar",
@@ -45,7 +47,8 @@ export default {
         EditMenu,
         LanguageMenu,
         ExamplesMenu,
-        CodeModal
+        CodeModal,
+        TokenModal
     },
     computed: {
         configurationValidated: function () {
