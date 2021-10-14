@@ -14,6 +14,7 @@
                 <EditMenu></EditMenu>
                 <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
+                <preBuilds></preBuilds>
                 <TokenModal></TokenModal>
                 <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
             </b-navbar-nav>
@@ -39,7 +40,7 @@ import EditMenu from "./EditMenu.vue";
 import LanguageMenu from "./LanguageMenu.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
-
+import preBuilds from "./preBuilds.vue";
 export default {
     name: "navbar",
     components: {
@@ -48,7 +49,8 @@ export default {
         LanguageMenu,
         ExamplesMenu,
         CodeModal,
-        TokenModal
+        TokenModal,
+        preBuilds
     },
     computed: {
         configurationValidated: function () {

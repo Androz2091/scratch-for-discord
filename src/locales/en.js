@@ -121,6 +121,40 @@ export const websiteMessages = {
     },
     save:{
         title:"auto save"
+    },
+    prebuild:{
+        title:"Pre Builds",
+        load:"Load  Pre Build",
+        save:"Save Pre Build as...",
+        text2:"name of  Pre Build that you want to save to Database",
+        save2:"save",
+        error:"error there is alredy a  Pre Build with that name",
+        text3:"Pre Build that you want to save",
+        save3:"save",
+        success:"succesfully saved Pre Build as ",
+        erros:"you dont have any Pre Build saved in database!",
+        load2:"load Pre Build",
+        text4:"choose a Pre Build name for loading!",
+        cancels:"cancell",
+        loadss:"load",
+        successs:"succesfully loaded Pre Build!",
+        all:"amount of Pre Build: {blockCount}",
+        delete:"Delete Pre Build From Database",
+        deletee:{
+            title:"delete Pre Build",
+            success:"succesfully deleted Pre Build from database",
+            load:"delete",
+            cancel:"cancel",
+            text:"choose a Pre Build for deleting from database",
+        },
+        downloadd:"Download Pre build",
+        download:{
+            load2:"donwload Pre Build",
+            successs:"downloaded succesfully Pre Build!",
+            loadss:"download",
+            cancels:"cancel",
+            text4:"choose a Pre Build for downloading",
+        }
     }
 };
 
