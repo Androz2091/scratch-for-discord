@@ -28,6 +28,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    let code = `s4d.client.guilds.cache.forEach(s =>{ \n ${statementThen} \n})\n`;
+    let code = `s4d.client.guilds.cache.forEach(async s =>{ \n ${statementThen} \n})\n`;
     return code;
 };

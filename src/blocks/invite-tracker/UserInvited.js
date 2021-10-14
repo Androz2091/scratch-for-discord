@@ -24,6 +24,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.Inviter.on('UserInvited', function (member,uses,inviter,invite) {\n${statements}\n});\n`;
+    const code = `s4d.Inviter.on('UserInvited',async function (member,uses,inviter,invite) {\n${statements}\n});\n`;
     return code;
 };

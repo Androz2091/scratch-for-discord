@@ -24,6 +24,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.player.on("trackStart", (queue, track) => {\n ${statements} \n})\n`;
+    const code = `s4d.player.on("trackStart", async (queue, track) => {\n ${statements} \n})\n`;
     return code;
 };
