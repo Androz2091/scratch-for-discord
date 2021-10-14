@@ -27,7 +27,7 @@ export const websiteMessages = {
         erros:"you dont have any token saved in database!",
         load2:"load token",
         text4:"choose a token name for loading!",
-        cancels:"cancell",
+        cancels:"cancel",
         loadss:"load",
         successs:"succesfully loaded token!(the token is on your clipboard)",
         all:"amount of tokens: {blockCount}",
@@ -113,7 +113,7 @@ export const websiteMessages = {
         title: "JavaScript code of your bot"
     },
     autosave:{
-        cancell:"cancell",
+        cancell:"cancel",
         confirm:"confirm",
         title:"auto save",
         text:"your auto save has been loaded!",
@@ -135,7 +135,7 @@ export const websiteMessages = {
         erros:"you dont have any Pre Build saved in database!",
         load2:"load Pre Build",
         text4:"choose a Pre Build name for loading!",
-        cancels:"cancell",
+        cancels:"cancel",
         loadss:"load",
         successs:"succesfully loaded Pre Build!",
         all:"amount of Pre Build: {blockCount}",
