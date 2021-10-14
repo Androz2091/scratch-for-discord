@@ -416,7 +416,7 @@ export default (Blockly) => {
         </category>
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
-                <category name="discord togheter">
+                <category name="discord together">
                     <block type="create_together"/>
                     <block type="invite_code"/>
                 </category>
