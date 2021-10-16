@@ -17,6 +17,6 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = [`s4dmessage.mentions.members.first()`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`s4dmessage.mentions.members.first().user`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };

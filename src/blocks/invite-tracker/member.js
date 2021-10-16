@@ -17,6 +17,6 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["member", Blockly.JavaScript.ORDER_NONE];
+    const code = ["member.user", Blockly.JavaScript.ORDER_NONE];
     return code;
 };

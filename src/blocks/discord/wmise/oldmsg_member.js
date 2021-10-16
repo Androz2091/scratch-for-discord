@@ -40,13 +40,13 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "ID"){
-        const code = ["oldMessage.author.id", Blockly.JavaScript.ORDER_NONE];
+        const code = ["oldMessage.member.user.id", Blockly.JavaScript.ORDER_NONE];
         return code;
     } else if(searchType === "USERNAME"){
-        const code = ["oldMessage.author.username", Blockly.JavaScript.ORDER_NONE];
+        const code = ["oldMessage.member.user.username", Blockly.JavaScript.ORDER_NONE];
         return code;
     } else if(searchType === "NICKNAME"){
-        const code = ["oldMessage.author.nickname", Blockly.JavaScript.ORDER_NONE];
+        const code = ["oldMessage.member.user.nickname", Blockly.JavaScript.ORDER_NONE];
         return code;
     }
 };

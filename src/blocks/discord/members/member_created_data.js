@@ -25,5 +25,5 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `moment(${member}.user.createdAt).format('LLLL')`, Blockly.JavaScript.ORDER_NONE ];
+    return [ `moment(${member}.createdAt).format('LLLL')`, Blockly.JavaScript.ORDER_NONE ];
 };

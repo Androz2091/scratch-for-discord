@@ -32,7 +32,8 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const role = Blockly.JavaScript.valueToCode(block, "ROLE", Blockly.JavaScript.ORDER_ATOMIC);
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const memberr = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    let member = memberr.replace(".user","")
     if(block.getInput("ROLE").connection.targetConnection){
         const roleType = block.getInput("ROLE").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
         block.getInput("ROLE").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :

@@ -1,18 +1,18 @@
-import * as Blockly from "blockly/core";
+import Blockly from "blockly/core";
 
-const blockName = "s4d_joined_at";
+const blockName = "s4d_member_exist";
 
 const blockData = {
-    "message0": "%{BKY_JOINED_AT}",
+    "message0": "member %1 exist?",
     "args0": [
         {
             "type": "input_value",
             "name": "MEMBER",
-            "check": "Member"
+            "check":  "Member" 
         },
     ],
-    "colour": "#187795",
-    "output": "String",
+    "output": "Boolean",
+    "colour": "#4C97FF",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -23,7 +23,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function(block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `moment(${member}.joinedAt).format('LLLL')`, Blockly.JavaScript.ORDER_NONE ];
+    const code = [`typeof ${member} !== undefined`, Blockly.JavaScript.ORDER_NONE ];
+    return code;
+    
 };

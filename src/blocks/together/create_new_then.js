@@ -76,7 +76,7 @@ Blockly.JavaScript[blockName] = function(block){
     const info2 = block.getFieldValue("INFO");
     let info1 = info2.replace("'",'')
     let info = info1.replace("'","")
-    const code = `s4d.client.discordTogether.createTogetherCode(${voicechannel}, "${info}").then(async invite => {\n${statements}\n})`;
+    const code = `s4d.client.discordTogether.createTogetherCode(${voicechannel}.id, "${info}").then(async invite => {\n${statements}\n})`;
     return code;
 };
 
