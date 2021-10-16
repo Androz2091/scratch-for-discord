@@ -299,6 +299,7 @@ export default (Blockly) => {
             </block>
             <block type="lists_length" />
             <block type="lists_isEmpty" />
+            <block type="lists_sort"/>
 						<block type="lists_reverse"/>
 						<block type="lists_sort" />
             <block type="lists_indexOf">
