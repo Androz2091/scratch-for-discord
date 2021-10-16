@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="blocklyDiv" ref="blocklyDiv" id="blocklyDiv"></div>
-        <xml ref="blocklyToolbox" style="display:none">
+        <xml ref="blocklyToolbox" style=" font-family: 'Roboto Slab', serif;">
             <slot></slot>
         </xml>
     </div>
@@ -98,12 +98,42 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+.saturate { filter: saturate(3); }
+.grayscale { filter: grayscale(100%); }
+.contrast { filter: contrast(160%); }
+.brightness { filter: brightness(0.25); }
+.blur { filter: blur(3px); }
+.invert { filter: invert(100%); }
+.sepia { filter: sepia(100%); }
+.huerotate { filter: hue-rotate(180deg); }
+.rss.opacity { filter: opacity(50%); }
+.blocklyText, .blocklyHtmlInput, .blocklyTreeLabel {
+  font-family: "Lato", sans-serif !important;
+}
+
+                        .blocklyTreeIcon {
+filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
+}
+#blocklyTreeIcon {
+filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
+}
+.blocklyTreeIconClosed {
+filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%)!important;
+}
+#blocklyTreeIconClosed {
+filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
+}
+body{
+    font-family: "Oswald", sans-serif;
+}
 .blocklyDiv {
+    font-family: 'Roboto Slab', serif;
     height: 100%;
     width: 100%;
     text-align: left;
 }
 .blocklyToolboxCategory{
+    font-family: 'Roboto Slab', serif;
 	color: rgb(204, 204, 204)
 }
 </style>

@@ -301,7 +301,6 @@ export default (Blockly) => {
             <block type="lists_isEmpty" />
             <block type="lists_sort"/>
 						<block type="lists_reverse"/>
-						<block type="lists_sort" />
             <block type="lists_indexOf">
                 <field name="END">FIRST</field>
                 <value name="VALUE">
@@ -417,38 +416,38 @@ export default (Blockly) => {
         </category>
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
-                <category name="discord together">
+                <category name="discord together" colour="#00664d">
                     <block type="create_together"/>
                     <block type="invite_code"/>
                 </category>
-                <category name="cooldown">
+                <category name="cooldown" colour="#00664d">
                     <block type="set_member_cooldown"/>
                     <block type="delete_member_cooldown"/>
                     <block type="is_member_on_cooldown"/>
                 </category>
-                <category name="invite tracker">
-                    <category name="joined">
+                <category name="invite tracker" colour="#00b3ff">
+                    <category name="joined" colour="#00b3ff">
                         <block type="userinvited"/>
                         <block type="Member"/>
                         <block type="InviteMember"/>
                         <block type="Server"/>
                         <block type="Amount"/>
                     </category>
-                    <category name="leave">
+                    <category name="leave" colour="#00b3ff">
                         <block type="UserLeave"/>
                         <block type="Member"/>
                         <block type="InviteMember"/>
                         <block type="Server"/>
                         <block type="Amount"/>
                     </category>
-                    <category name="others">
+                    <category name="others" colour="#00b3ff">
                         <block type="get_member_invites"/>
                     </category>
                 </category>
-                <category name="discord image generation">
+                <category name="discord image generation" colour="#00664d">
                     <block type="new_image"/>
                 </category>
-                <category name="image generation">
+                <category name="image generation" colour="#00664d">
                     <block type="1imagepng"/>
                     <block type="1imagegif"/>
                     <block type="2imagepng"/>
@@ -526,18 +525,18 @@ export default (Blockly) => {
                         </category>
                     </category>
                 </category>
-                <category name="YoutubeNotifier">
+                <category name="YoutubeNotifier" colour="#00664d">
                     <block type="video_raw"/>
                     <block type="on_newvideo"/>
                     <block type="add_channel"/>
                 </category>
-                <category name="{{ DISCORDBACKUP }}">
+                <category name="{{ DISCORDBACKUP }}" colour="#00664d">
                     <block type="s4d_create_backup_of_guild_then"/>
                     <block type="s4d_backup_load"/>
                     <block type="s4d_delete_backup"/>
                     <block type="s4d_backup_id"/>
                 </category>
-                <category name="{{ DISCORDGIVEAWAYS }}">
+                <category name="{{ DISCORDGIVEAWAYS }}" colour="#00664d">
                     <block type="s4d_create_giveaway"/> 
                     <block type="s4d_giveaway_id"/>
                     <block type="s4d_reroll_giveaway"/>
@@ -547,8 +546,8 @@ export default (Blockly) => {
                     <block type="s4d_pause_giveaway"/>
                     <block type="s4d_unpause_giveaway"/>
                 </category>
-				<category name="{{ DISCORDCANVAS }}">
-					<category name="{{ WELCOME }}">
+				<category name="{{ DISCORDCANVAS }}" colour="#00b3ff">
+					<category name="{{ WELCOME }}" colour="#00b3ff">
 						<block type="s4d_create_welcome_then"/>
 						<block type="s4d_set_username"/>
 						<block type="s4d_set_member_count"/>
@@ -559,7 +558,7 @@ export default (Blockly) => {
 						<block type="s4d_set_color"/>
 						<block type="s4d_send_in_channel"/>
 					</category>
-					<category name="{{ GOODBYE }}">
+					<category name="{{ GOODBYE }}" colour="#00b3ff">
 						<block type="s4d_create_goodbye_then"/>
 						<block type="s4d_set_username"/>
 						<block type="s4d_set_member_count"/>
@@ -570,7 +569,7 @@ export default (Blockly) => {
 						<block type="s4d_set_color"/>
 						<block type="s4d_send_in_channel"/>
 					</category>
-					<category name="{{ RANKCARD }}">
+					<category name="{{ RANKCARD }}" colour="#00b3ff">
 						<block type="s4d_create_rankcard_then"/>
 						<block type="s4d_set_badge"/>
 						<block type="s4d_set_xp"/>
@@ -593,11 +592,11 @@ export default (Blockly) => {
 						<block type="s4d_send_in_channel"/>
 					</category>
 				</category>
-				<category name="{{ TOOLBOX_JSONREQUEST }}" colour="#4d004d">
+				<category name="{{ TOOLBOX_JSONREQUEST }}" colour="#00664d">
 					<block type="s4d_http_get_then"/>
 					<block type="s4d_get_string_of_data"/>
 				</category>
-				        <category name="{{ EMBED }}" colour="#40BF4A">
+				        <category name="{{ EMBED }}" colour="#00664d">
         <label text="Create A Perfect Embed" web-class="boldtext"></label>
             <block type="s4d_create_embed_then"></block>
             <label text="%{BKY_COLOR_MESSAGE}"></label>
@@ -614,7 +613,7 @@ export default (Blockly) => {
             <label text="%{BKY_SEND_EMBED}"></label>
             <block type="s4d_create_embed_then_send"></block>
     </category>
-					        <category name="{{ TOOLBOX_E_DELETED }}" colour="#d96e26">
+					        <category name="{{ TOOLBOX_E_DELETED }}" colour="#00664d">
            <label text="%{BKY_DELETED_RELATED_BLOCKS}" web-class="boldtext"></label>
            <label text="%{BKY_DELETED_EVENT}"></label>
            <block type="s4d_on_deleted"></block>
@@ -624,7 +623,7 @@ export default (Blockly) => {
            <block type="s4d_message_channel_deleted"></block>
            <block type="s4d_message_author_deleted"></block>
         </category>
-        <category name="{{ TOOLBLOX_E_ADDED }}" colour="#0000cc">
+        <category name="{{ TOOLBLOX_E_ADDED }}" colour="#00664d">
         <label text="%{BKY_ADDED_RELATED_BLOCKS}" web-class="boldtext"></label>
         <label text="%{BKY_DETECT_ADDED}"></label>
         <block type="s4d_on_added"></block>
@@ -634,7 +633,7 @@ export default (Blockly) => {
         <block type="s4d_add_server_icon"></block>
         <block type="s4d_add_server_owner"/>
         </category>
-        <category name="{{ TOOLBOX_BUTTON }}" colour="#059CA1">
+        <category name="{{ TOOLBOX_BUTTON }}" colour="#00664d">
             <label text="%{BKY_BUTTON_EVENT}"></label>
             <block type="s4d_on_click"></block>
             <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
@@ -651,7 +650,7 @@ export default (Blockly) => {
             <block type="s4d_message_row_block"></block>
         </category>
       
-        <category name="{{ TOOLBOX_MENU }}" colour="#059CA1">
+        <category name="{{ TOOLBOX_MENU }}" colour="#00664d">
             <label text="%{BKY_BUTTON_EVENT}"></label>
             <block type="s4d_on_menu_click"></block>
             <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
@@ -666,7 +665,7 @@ export default (Blockly) => {
             <block type="s4d_button_menu"></block>
             <block type="s4d_message_menu_block"></block>
         </category>
-        <category name="{{ TOOLBOX_WEBHOOK }}" colour="#f5dfa2">
+        <category name="{{ TOOLBOX_WEBHOOK }}" colour="#00664d">
             <block type="s4d_create_webhook_then"></block>
             <block type="s4d_edit_webhook"></block>
             <block type="s4d_webhook_id"></block>
@@ -675,7 +674,7 @@ export default (Blockly) => {
             <block type="s4d_get_edit_webhook"></block>
             <block type="s4d_send_webhook"></block>
         </category>
-        <category name="{{ TOOLBOX_MUSIC }}" colour="#009966">
+        <category name="{{ TOOLBOX_MUSIC }}" colour="#00664d">
             <label text="%{BKY_MUSIC_EVENT}"></label>
             <block type="s4d_track_playing"></block>
             <block type="s4d_track_added"></block>
