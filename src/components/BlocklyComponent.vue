@@ -9,6 +9,7 @@
 
 <script>
 import Blockly from "blockly";
+
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
 import {Backpack} from '@blockly/workspace-backpack';
@@ -398,7 +399,7 @@ export default {
 .huerotate { filter: hue-rotate(180deg); }
 .rss.opacity { filter: opacity(50%); }
 .blocklyText, .blocklyHtmlInput, .blocklyTreeLabel {
-  font-family: "Lato", sans-serif !important;
+  font-family: "lato", sans-serif !important;
 }
 
                         .blocklyTreeIcon {
@@ -414,16 +415,16 @@ filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118
 filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
 }
 body{
-    font-family: "Oswald", sans-serif;
+    font-family: "lato", sans-serif;
 }
 .blocklyDiv {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'lato', serif;
     height: 100%;
     width: 100%;
     text-align: left;
 }
 .blocklyToolboxCategory{
-    font-family: 'Roboto Slab', serif;
+    font-family: 'lato', serif;
 	color: rgb(204, 204, 204)
 }
 </style>

@@ -415,7 +415,7 @@ export default (Blockly,value) => {
             <block type="s4d_string_to_number"></block>
         </category>
                 <sep class="bt"/>
-                    <category name="favorite" colour="">
+                    <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
                         ${value === null ? "" : value.map(c=> `<block type="${c}"/>`)}
                     </category>
 				<sep class="bt"/>

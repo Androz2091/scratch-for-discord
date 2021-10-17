@@ -62,18 +62,18 @@ Blockly.JavaScript[blockName] = function(block){
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
         if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            code = `${channel}.send({${content}}).awaitMessages({filter:(m) => m.author.id === ${member}.id,  time: (${time}*60*1000), max: 1 }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} });\n`;
+            code = `${channel}.send({${content}})`;
         }else if((contentType === "embed") || (!contentType && typeof contentType === "object")){
             const code = `${channel}.send({ embeds:[${content}]});\n`;
             return code;
         } else {
-            code = `${channel}.send(String(${content})).awaitMessages({filter:(m) => m.author.id === ${member}.id,  time: (${time}*60*1000), max: 1 }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} });\n`;
+            code = `${channel}.send(String(${content}))`;
             return code;
         }
     } else {
-        code = `${channel}.send(String(${content})).awaitMessages({filter:(m) => m.author.id === ${member}.id,  time: (${time}*60*1000), max: 1 }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} });\n`;
+        code = `${channel}.send(String(${content}))`;
     }
-    code += `${channel}.awaitMessages({filter:(m) => m.author.id === ${member}.id,  time: (${time}*60*1000), max: 1 }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} });`;
+    code += `.then(() => { ${channel}.awaitMessages({filter:(m) => m.author.id === ${member}.id,  time: (${time}*60*1000), max: 1 }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} });\n})\n`;
     return code;
 };
 
