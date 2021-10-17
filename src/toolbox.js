@@ -1,4 +1,4 @@
-export default (Blockly) => {
+export default (Blockly,value) => {
     return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
         <category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
@@ -414,6 +414,10 @@ export default (Blockly) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
         </category>
+                <sep class="bt"/>
+                    <category name="favorite" colour="">
+                        ${value === null ? "" : value.map(c=> `<block type="${c}"/>`)}
+                    </category>
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
                 <category name="discord together" colour="#00664d">
@@ -1240,4 +1244,4 @@ export default (Blockly) => {
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
     return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
-}))};
+}))}

@@ -29,7 +29,7 @@ import blocklyLocalePT from "blockly/msg/pt";
 import customLocaleEN from './locales/en';
 import customLocaleFR from './locales/fr';
 import customLocalePT from './locales/pt';
-
+import localforage from "localforage";
 const messages = {
     en: customLocaleEN.websiteMessages,
     fr: customLocaleFR.websiteMessages,
@@ -46,7 +46,8 @@ import toolbox from "./toolbox";
 import Theme from '@blockly/theme-dark';
 Vue.mixin({
     methods: {
-        reloadWorkspace(){
+        async reloadWorkspace(){
+            let val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
             // Get current workspace
             let workspace = this.$store.state.workspace;
             // Convert it to a dom string
@@ -76,7 +77,7 @@ Vue.mixin({
         },
         drag: true,
         wheel: true},
-                toolbox: toolbox(Blockly)
+                toolbox: toolbox(Blockly,val)
             });
    
             Blockly.Xml.domToWorkspace(dom, newWorkspace);

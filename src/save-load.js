@@ -18,6 +18,7 @@ const DISABLED_EVENTS = [
 
 export default async function register(self) {
     console.log('started!')
+    setTimeout(async()=>{
     const workspace = self.$store.state.workspace;
     const xml = await localforage.getItem("save3");
     if(xml !== null){
@@ -55,6 +56,7 @@ export default async function register(self) {
         if (DISABLED_EVENTS.includes(event.type)) return;
         handle(workspace);
     });
+  },1000)
 }
 
 async function handle(workspace) {
