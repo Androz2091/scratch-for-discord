@@ -200,6 +200,18 @@ export default (Blockly,value) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_ends_with">
+            <value name="STRING">
+                <shadow type="text">
+                    <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+            <value name="SUBSTRING">
+                <shadow type="text">
+                    <field name="TEXT">a</field>
+                </shadow>
+            </value>
+            </block>
             <block type="s4d_starts_with">
                 <value name="STRING">
                     <shadow type="text">
