@@ -12,3 +12,7 @@ import "./set_perms_parent";
 import "./set_slowmode";
 import "./is_channel_nsfw";
 import "./channel_exist";
+import "./reply_message";
+import "./reply_mentioned_channel";
+import "./reply_mentioned_member";
+import "./reply_mentioned_role";

@@ -129,6 +129,7 @@ Vue.mixin({
                 process.on('uncaughtException', function (err) {
                     console.log(err);
                   });
+                  let URL = require('url')
                     const ms = require("ms")
                     const AntiLinkClient = require("anti-link-for-discord");
                     let DIG = require("discord-image-generation")
@@ -158,6 +159,7 @@ Vue.mixin({
                         player:null,
                         manager:null,
                         Inviter:null,
+                        message:null,
                         notifer:new ytnotifier({channels: [],checkInterval: 50}),
                         checkMessageExists() {
                             if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')

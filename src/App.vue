@@ -44,6 +44,7 @@ import "./blocks/discord-image/";
 import "./blocks/invite-tracker/";
 import "./blocks/cooldown/";
 import "./blocks/together/";
+import "./blocks/discord/attachment/";
 //my events
 //channel
 import "./blocks/logs-events/channel/channel-permissions-update/";

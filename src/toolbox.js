@@ -432,6 +432,12 @@ export default (Blockly,value) => {
                     </category>
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
+                <category name="attachment" colour="#00664d">
+                    <block type="att_size"/>
+                    <block type="att_name"/>
+                    <block type="att_type"/>
+                    <block type="att_url"/>
+                </category>
                 <category name="discord together" colour="#00664d">
                     <block type="create_together"/>
                     <block type="invite_code"/>
@@ -1044,6 +1050,7 @@ export default (Blockly,value) => {
                 </value>
             </block>
             <block type="s4d_reply_delete"></block>
+            <block type="rreply_message"/>
             <block type="s4d_reply_add_reaction">
                 <value name="REACTION">
                     <shadow type="text">
@@ -1128,7 +1135,10 @@ export default (Blockly,value) => {
                 </value>
             </block>
             <block type="s4d_send_wait_reply_value"></block>
-
+            <block type="reply_mentioned_member"/>
+            <block type="reply_mentioned_role"/>
+            <block type="reply_mentioned_channel"/>
+            <block type="reply_message"/>
             <label text="%{BKY_CHANNEL_MESSAGE_ACTIONS}"></label>
             <block type="s4d_channel_exist"/>
              <block type="s4d_purge">

@@ -25,3 +25,4 @@ import "./pin_message";
 import "./unpin_message";
 import "./message_member";
 import "./message";
+import "./reply_message";
