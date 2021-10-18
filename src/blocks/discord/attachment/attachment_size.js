@@ -25,6 +25,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const message = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`${message}.attachments.size`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`${message}.attachments.size !== 0`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
