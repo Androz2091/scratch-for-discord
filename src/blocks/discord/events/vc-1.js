@@ -44,10 +44,10 @@ Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "JOIN"){
         const code = `s4d.client.on("voiceChannelJoin", 
-async (member, channel) => {${statements}})\n`;
+async (member, channel) => {${statements}});\n`;
         return code;
     } else if(searchType === "LEAVE"){
-        const code = `s4d.client.on("voiceChannelLeave",  async (member, channel) => {${statements}})\n`;
+        const code = `s4d.client.on("voiceChannelLeave",  async (member, channel) => {${statements}});\n`;
         return code;
             }
 };

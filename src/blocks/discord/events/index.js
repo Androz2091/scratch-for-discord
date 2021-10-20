@@ -4,3 +4,7 @@ import "./vc-2";
 import "./vc-3";
 import "./vc-4";
 import "./vc-5";
+import "./av-url";
+import "./user";
+import "./discrim-update";
+import "./username-update";

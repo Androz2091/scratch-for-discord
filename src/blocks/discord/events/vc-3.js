@@ -43,10 +43,10 @@ Blockly.JavaScript[blockName] = function(block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "DEAF"){
-        const code = `s4d.client.on("voiceChannelDeaf", async (member, deafType) => {${statements}})\n`;
+        const code = `s4d.client.on("voiceChannelDeaf", async (member, deafType) => {${statements}});\n`;
         return code;
     } else if(searchType === "UNDEAF"){
-        const code = `s4d.client.on("voiceChannelUndeaf", (member, deafType) => {${statements}})\n`;
+        const code = `s4d.client.on("voiceChannelUndeaf", (member, deafType) => {${statements}});\n`;
         return code;
     }
  };

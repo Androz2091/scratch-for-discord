@@ -44,10 +44,10 @@ Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "START"){
         const code = `s4d.client.on("voiceStreamingStart", 
-async (member, voiceChannel) => {${statements}})\n`;
+async (member, voiceChannel) => {${statements}});\n`;
         return code;
     } else if(searchType === "STOP"){
-        const code = `s4d.client.on("voiceStreamingStop", async (member, voiceChannel) => {${statements}})\n`;
+        const code = `s4d.client.on("voiceStreamingStop", async (member, voiceChannel) => {${statements}});\n`;
         return code;
     }
  };

@@ -20,12 +20,9 @@ const blockData = {
                     "username",
                     "NAME"
                 ],
-                [
-                    "flags",
-                    "FLAGS"
-                ],
+
                                 [
-                    "discrimitor",
+                    "discriminator",
                     "DISCRIM"
                 ],
               ["avatar",
@@ -48,20 +45,16 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
     const searchType = block.getFieldValue("SEARCH_TYPE");
-    if(searchType === "FLAGS"){
-        const code = `s4d.client.on("userFlagsUpdate", 
-async (user, oldFlags, newFlags) => {${statements}})\n`;
-        return code;
-    } else if(searchType === "NAME"){
+  if(searchType === "NAME"){
         const code = `s4d.client.on("userUsernameUpdate", 
-async (user, oldUsername, newUsername) => {${statements}})\n`;
+    async (user, oldUsername, newUsername) => {${statements}});\n`;
         return code;
             } else if(searchType === "DISCRIM"){
-        const code = `s4d.client.on("userDiscriminatorUpdate", async (user, oldDiscriminator, newDiscriminator) => {${statements}})\n`;
+        const code = `s4d.client.on("userDiscriminatorUpdate", async (user, oldDiscriminator, newDiscriminator) => {${statements}});\n`;
         return code;
     } else if(searchType === "AV"){
         const code = `s4d.client.on("userAvatarUpdate", 
-async (user, oldAvatarURL, newAvatarURL) => {${statements}})\n`;
+    async (user, oldAvatarURL, newAvatarURL) => {${statements}});\n`;
         return code;
     }
 };

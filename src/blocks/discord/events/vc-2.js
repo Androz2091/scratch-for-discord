@@ -44,10 +44,10 @@ Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "MUTE"){
         const code = `s4d.client.on("voiceChannelMute", 
-async (member, muteType) => {${statements}})\n`;
+async (member, muteType) => {${statements}});\n`;
         return code;
     } else if(searchType === "UNMUTE"){
-        const code = `s4d.client.on("voiceChannelUnmute", async (member, oldMuteType) => {${statements}})\n`;
+        const code = `s4d.client.on("voiceChannelUnmute", async (member, oldMuteType) => {${statements}});\n`;
         return code;
     }
  };

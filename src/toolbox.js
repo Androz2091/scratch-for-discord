@@ -682,6 +682,10 @@ export default (Blockly) => {
         <category name="Events" colour="#ffc269">
 <category name="User" colour="#d3fd6d">
 <block type="s4d_on_useru"></block>
+<block type="s4d_update_user"></block>
+<block type="s4d_av_url_update"></block>
+<block type="s4d_username_update"></block>
+<block type="s4d_discrim_update"></block>
 </category>
 <category name="Voice" colour="#518cee"><block type="s4d_on_vc"></block>
 <block type="s4d_on_vc_um"></block>
