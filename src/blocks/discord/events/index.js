@@ -8,3 +8,6 @@ import "./av-url";
 import "./user";
 import "./discrim-update";
 import "./username-update";
+import "./member";
+import "./j_or_l-channel";
+import "./j_or_l-channel-raw";

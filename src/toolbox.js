@@ -692,6 +692,10 @@ export default (Blockly) => {
 <block type="s4d_on_vc_ud"></block>
 <block type="s4d_on_vc_sss"></block>
 <block type="s4d_on_vc_switch"></block>
+<block type="s4d_update_member"></block>
+<label text="Join/Leave" web-class="boldtext"></label>
+<block type="s4d_join/leave_channel"></block>
+<block type="s4d_join/leave_channel_raw"></block>
 </category></category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">

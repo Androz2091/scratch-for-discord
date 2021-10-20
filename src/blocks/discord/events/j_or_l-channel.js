@@ -1,12 +1,12 @@
 import Blockly from "blockly/core";
 
 
-const blockName = "s4d_update_user";
+const blockName = "s4d_join/leave_channel";
 
 const blockData = {
-    "message0": "Updated user",
-    "colour": "#187795",
-    "output": "Member",
+    "message0": "channel",
+    "colour": "#a55b80",
+    "output": "Channel",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -18,7 +18,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["user", Blockly.JavaScript.ORDER_NONE];
+    const code = ["channel", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 

@@ -1,10 +1,9 @@
 import Blockly from "blockly/core";
 
-
-const blockName = "s4d_update_user";
+const blockName = "s4d_update_member";
 
 const blockData = {
-    "message0": "Updated user",
+    "message0": "Updated member",
     "colour": "#187795",
     "output": "Member",
     "tooltip": "",
@@ -18,7 +17,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["user", Blockly.JavaScript.ORDER_NONE];
+    const code = ["member", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+
 
