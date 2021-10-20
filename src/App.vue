@@ -25,6 +25,7 @@ import "./blocks/discord/reaction-event/";
 import "./blocks/discord/edited-event/";
 import "./blocks/discord/typing-event";
 import "./blocks/discord/thread-event";
+import "./blocks/discord/events";
 import "./blocks/discord/direct";
 import "./blocks/discord/slash";
 

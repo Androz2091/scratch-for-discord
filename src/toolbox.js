@@ -679,6 +679,16 @@ export default (Blockly) => {
             <block type="s4d_react_emoji"></block>
             <block type="s4d_react_member"></block>
         </category>
+        <category name="Events" colour="#ffc269">
+<category name="User" colour="#d3fd6d">
+<block type="s4d_on_useru"></block>
+</category>
+<category name="Voice" colour="#518cee"><block type="s4d_on_vc"></block>
+<block type="s4d_on_vc_um"></block>
+<block type="s4d_on_vc_ud"></block>
+<block type="s4d_on_vc_sss"></block>
+<block type="s4d_on_vc_switch"></block>
+</category></category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>
