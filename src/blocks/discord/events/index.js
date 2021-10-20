@@ -11,3 +11,8 @@ import "./username-update";
 import "./member";
 import "./j_or_l-channel";
 import "./j_or_l-channel-raw";
+import "./switch_chnl";
+import "./old_channel-raw";
+import "./new_channel-raw";
+import "./mute-type";
+import "./old_mute-type";

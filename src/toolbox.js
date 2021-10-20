@@ -696,6 +696,16 @@ export default (Blockly) => {
 <label text="Join/Leave" web-class="boldtext"></label>
 <block type="s4d_join/leave_channel"></block>
 <block type="s4d_join/leave_channel_raw"></block>
+<label text="Mute" web-class="boldtext"></label>
+<block type="s4d_mute_type"></block>
+<label text="Unmute" web-class="boldtext"></label>
+<block type="s4d_oldmute_type"></block>
+<label text="Deaf/Undeaf" web-class="boldtext"></label>
+<label text="Streaming Start/Stop" web-class="boldtext"></label>
+<label text="VC switch" web-class="boldtext"></label>
+<block type="s4d_switch_chnl"></block>
+<block type="s4d_old_channel_raw"></block>
+<block type="s4d_new_channel_raw"></block>
 </category></category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
