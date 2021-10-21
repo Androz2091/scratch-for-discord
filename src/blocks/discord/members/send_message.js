@@ -9,7 +9,12 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "MessageEmbed", "String", "Number" ]
+            "check": ["Number", "String"]
+        },
+        {
+            "type": "input_value",
+            "name": "EMBED",
+            "check": "MessageEmbed"
         },
         {
             "type": "input_value",
@@ -32,21 +37,12 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const embed = Blockly.JavaScript.valueToCode(block, "EMBED", Blockly.JavaScript.ORDER_ATOMIC) || null;
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    if(block.getInput("CONTENT").connection.targetConnection){
-        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
-        block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
-        null;
-        if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            const code = `${member}.send(${content});\n`;
-            return code;
-        } else {
-            const code = `${member}.send(String(${content}));\n`;
-            return code;
-        }
+    if(content.length > 2){
+        return(`${member}.send({embeds: ${embed}, content: ${content}});\n`)
     } else {
-        const code = `${member}.send(String(${content}));\n`;
-        return code;
+        return(`${member}.send({embeds: ${embed}});\n`)
     }
 };
 

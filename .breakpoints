@@ -1,0 +1,20 @@
+{
+  "files": {
+    ".replit": [
+      {
+        "id": "7736dd70-c6bf-4270-ba90-78ed3f7c3f9d",
+        "line": 2,
+        "version": 2,
+        "index": 20
+      }
+    ],
+    "src/blocks/discord/events/index.js": [
+      {
+        "id": "4277b778-ab26-4ae4-837c-16cd639a7e4d",
+        "line": 21,
+        "version": 329,
+        "index": 455
+      }
+    ]
+  }
+}

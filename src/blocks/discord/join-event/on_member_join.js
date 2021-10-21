@@ -24,6 +24,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.client.on('guildMemberAdd', async (param1) => {\ns4d.joiningMember = param1;\n${statements}s4d.joiningMember = null\n});\n`;
+    const code = `s4d.client.on('guildMemberAdd', async (s4dJoiningMember) => {\n${statements}\n});\n`;
     return code;
 };
