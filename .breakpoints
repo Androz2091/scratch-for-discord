@@ -7,6 +7,14 @@
         "version": 2,
         "index": 20
       }
+    ],
+    "src/blocks/discord/events/index.js": [
+      {
+        "id": "4277b778-ab26-4ae4-837c-16cd639a7e4d",
+        "line": 21,
+        "version": 329,
+        "index": 455
+      }
     ]
   }
 }

@@ -701,7 +701,10 @@ export default (Blockly) => {
 <label text="Unmute" web-class="boldtext"></label>
 <block type="s4d_oldmute_type"></block>
 <label text="Deaf/Undeaf" web-class="boldtext"></label>
+<block type="s4d_deaf_type"></block>
 <label text="Streaming Start/Stop" web-class="boldtext"></label>
+<block type="s4d_streaming_channel"></block>
+<block type="s4d_stream_channel_raw"></block>
 <label text="VC switch" web-class="boldtext"></label>
 <block type="s4d_switch_chnl"></block>
 <block type="s4d_old_channel_raw"></block>

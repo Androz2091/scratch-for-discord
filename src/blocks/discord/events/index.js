@@ -16,3 +16,6 @@ import "./old_channel-raw";
 import "./new_channel-raw";
 import "./mute-type";
 import "./old_mute-type";
+import "./streaming_chnl";
+import "./deaf-type";
+import "./stream_channel-raw";
