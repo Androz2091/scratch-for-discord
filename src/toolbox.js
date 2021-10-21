@@ -735,6 +735,7 @@ export default (Blockly) => {
                 </value>
             </block>
             <block type="s4d_channel_category"></block>
+            <block type="s4d_chnl_exist"></block>
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply">
                 <value name="CONTENT">
