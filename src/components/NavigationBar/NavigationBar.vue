@@ -12,6 +12,7 @@
                 <CodeModal></CodeModal>
                 <FileMenu></FileMenu>
                 <EditMenu></EditMenu>
+                <ToolboxModal></ToolboxModal>
                 <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
                 <preBuilds></preBuilds>
@@ -41,6 +42,7 @@ import LanguageMenu from "./LanguageMenu.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
 import preBuilds from "./preBuilds.vue";
+import ToolboxModal from "./ToolboxModal.vue";
 export default {
     name: "navbar",
     components: {
@@ -50,7 +52,8 @@ export default {
         ExamplesMenu,
         CodeModal,
         TokenModal,
-        preBuilds
+        preBuilds,
+        ToolboxModal
     },
     computed: {
         configurationValidated: function () {

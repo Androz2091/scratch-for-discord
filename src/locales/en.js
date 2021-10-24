@@ -47,6 +47,11 @@ export const websiteMessages = {
         open: "Open a file...",
         save: "Save"
     },
+    toolbox:{
+        title:"Toolbox",
+        hide:"Hide",
+        show:"Show"
+    },
     edit: {
         title: "Edit",
         undo: "Undo",
