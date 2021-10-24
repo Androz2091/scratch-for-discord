@@ -655,6 +655,16 @@ export default (Blockly,value) => {
         <block type="s4d_add_server_icon"></block>
         <block type="s4d_add_server_owner"/>
         </category>
+        <category name="Removed" colour="#00664d">
+        <label text="blocks related to removed" web-class="boldtext"></label>
+        <label text="detect remove"></label>
+        <block type="s4d_on_remove"></block>
+        <label text="%{BKY_ADDED_INFORMATIONS}"></label>
+        <block type="s4d_add_server_id"></block> 
+        <block type="s4d_add_server_name"></block>
+        <block type="s4d_add_server_icon"></block>
+        <block type="s4d_add_server_owner"/>
+        </category>
         <category name="{{ TOOLBOX_BUTTON }}" colour="#00664d">
             <label text="%{BKY_BUTTON_EVENT}"></label>
             <block type="s4d_on_click"></block>

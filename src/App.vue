@@ -45,6 +45,7 @@ import "./blocks/invite-tracker/";
 import "./blocks/cooldown/";
 import "./blocks/together/";
 import "./blocks/discord/attachment/";
+import "./blocks/discord/bot-event-2/";
 //my events
 //channel
 import "./blocks/logs-events/channel/channel-permissions-update/";
