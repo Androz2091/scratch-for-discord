@@ -15,7 +15,7 @@ const blockData = {
         },
         {
             "type": "input_statement",
-            "name": "BUTTONS"
+            "name": "THEN"
         }
     ],
     "colour": "#4C97FF",
