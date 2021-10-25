@@ -137,6 +137,7 @@ Vue.mixin({
                     let Database  = require("easy-json-database")
                     let logs = require("discord-logs")
                     let moment  = require("moment")
+                    const backup = require("discord-backup");
                      let { DB } = require("quickmongo");
                      let canvas = require("discord-canvas")
                      const Images = require("discord-images")
