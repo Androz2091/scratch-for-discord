@@ -140,7 +140,7 @@ Vue.mixin({
                     require('events').EventEmitter.defaultMaxListeners = 50;
                     const backup = require("discord-backup");
                      let { DB } = require("quickmongo");
-                     let canvas = require("discord-canvas")
+                     let canvas = require("discord-canvas") 
                      const Images = require("discord-images")
                      const images = new Images.Client()
                      let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")
