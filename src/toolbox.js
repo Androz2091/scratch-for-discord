@@ -470,7 +470,9 @@ export default (Blockly,value) => {
                     <block type="new_image"/>
                 </category>
                 <category name="image generation" colour="#00664d">
-                    <block type="1imagepng"/>
+                    <block type="1imagepng">
+                    <mutation divisor_input="true"></mutation>
+                    </block>
                     <block type="1imagegif"/>
                     <block type="2imagepng"/>
                     <block type="load_gif"/>

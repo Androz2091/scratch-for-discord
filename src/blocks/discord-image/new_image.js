@@ -170,7 +170,13 @@ const blockData = {
 Blockly.Blocks[blockName] = {
     init: function() {
         this.jsonInit(blockData);
-    }
+    },
+    mutationToDom: function() {
+        var container = document.createElement('mutation');
+        var divisorInput = (this.getFieldValue('INFO') == 'DIVISIBLE_BY');
+        container.setAttribute('divisor_input', divisorInput);
+        return container;
+      }
 };
 
 Blockly.JavaScript[blockName] = function(block) {

@@ -1,4 +1,5 @@
 import '@blockly/field-slider';
+
 import * as Blockly from "blockly/core";
 
 const blockName = "s4d_set_badge";
