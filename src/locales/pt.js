@@ -58,7 +58,8 @@ export const websiteMessages = {
         redo: "refazer",
         clear: "deleta {blockCount} blocos",
         cleanup: "limpa blocos",
-        cleardb: "limpa database"
+        cleardb: "limpa database",
+        clearGhost:"deletar blocos fantasmas"
     },
     lang: {
         title: "linguagem"

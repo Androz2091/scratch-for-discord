@@ -58,7 +58,8 @@ export const websiteMessages = {
         redo: "Redo",
         clear: "Clear {blockCount} blocks",
         cleanup: "Clean up blocks",
-        cleardb: "Clear the database"
+        cleardb: "Clear the database",
+        clearGhost:"clear ghost blocks"
     },
     lang: {
         title: "Language"
