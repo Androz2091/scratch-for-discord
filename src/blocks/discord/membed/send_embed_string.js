@@ -6,7 +6,7 @@ const blockData = {
     "message0": "Send Embed",
     "colour": "#40BF4A",
     "tooltip": null,
-    "output": "embed",
+    "output": "Embed",
     "helpUrl": ""
 };
 
