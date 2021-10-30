@@ -2,9 +2,9 @@ import BaseBlockly from "blockly";
 import Blockly from "blockly/core";
 
 
-const BORDER_FIELDS = [ "LABEL", "STYLE", "EMOJI", "URL", "ID"];
+const BORDER_FIELDS = [ "LABEL", "STYLE", "EMOJI", "URL", "ID", "DISABLED"];
 
-const BORDER_TYPES = ["String",  "bstyle", "String" ,"String", "String" ];
+const BORDER_TYPES = ["String",  "bstyle", "String" ,"String", "String", "Boolean" ];
 
 
 const s4d_message_row_block = {
@@ -39,7 +39,7 @@ Blockly.Blocks["s4d_message_2row_block_mutator"] = {
 };
 
 const BORDER_MUTATOR_MIXIN = {
-    inputs_: [true, true, false, false, false],
+    inputs_: [true, true, false, false, false, false],
 
 
     mutationToDom: function() {
@@ -104,6 +104,7 @@ Blockly.JavaScript["b_create"] = function(block){
     let emoji = Blockly.JavaScript.valueToCode(block, "EMOJI", Blockly.JavaScript.ORDER_ATOMIC) || null
     let label = Blockly.JavaScript.valueToCode(block, "LABEL", Blockly.JavaScript.ORDER_ATOMIC) || null
     let style = Blockly.JavaScript.valueToCode(block, "STYLE", Blockly.JavaScript.ORDER_ATOMIC) || null
+    let disabled = Blockly.JavaScript.valueToCode(block, "DISABLED", Blockly.JavaScript.ORDER_ATOMIC) || null
     let name = Blockly.JavaScript.valueToCode(block, "B_NAME", Blockly.JavaScript.ORDER_ATOMIC)
     let text1 = name.replace("'","")
     let text2 = text1.replace("'","")
@@ -113,6 +114,7 @@ if(label !== null)code += `.setLabel(${label})\n`
 if(style === null) code += ".setStyle('DANGER')\n"
 if(style !== null) code += `.setStyle(${style})\n`
 if(emoji !== null) code += `.setEmoji(${emoji})\n`
+if(disabled !== null) code += `.setDisabled(${disabled})\n`
 if(url !== null) code += `.setURL(${url})\n`
 code +="\n"
 return code

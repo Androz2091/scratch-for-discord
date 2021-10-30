@@ -569,5 +569,6 @@
   "CHANNEL_ACTIONS": "Actions for the channel",
   "TEXT": "text",
   "VOICE": "voice",
-  "CATEGORY": "category"
+  "CATEGORY": "category",
+	"DISABLED": "Disable a button"
 }
