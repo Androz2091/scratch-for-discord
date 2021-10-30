@@ -37,7 +37,6 @@ const messages = {
     fr: customLocaleFR.websiteMessages,
     pt: customLocalePT.websiteMessages
 };
-
 const i18n = new Vuei18n({
     locale: (messages[navigator.language.split("-")[0]] ? navigator.language.split("-")[0] : "en"),
     messages: messages
@@ -132,6 +131,9 @@ Vue.mixin({
             ]
             let requiresjscode = [`logs(s4d.client);`]
             r(requires,requiresjscode,Blockly.JavaScript.workspaceToCode(this.$store.state.workspace))
+            setTimeout(async()=>{
+                await localforage.setItem("requires",requires)
+            },1000)
             return `
                 (async()=>{
                 //hello :) hehe

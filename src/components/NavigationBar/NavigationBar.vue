@@ -43,6 +43,8 @@ import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
 import preBuilds from "./preBuilds.vue";
 import ToolboxModal from "./ToolboxModal.vue";
+import localforage from 'localforage';
+import r from "./requires"
 export default {
     name: "navbar",
     components: {
@@ -82,7 +84,10 @@ export default {
                     cancel: this.$t('download.cancel'),
                     confirm: this.$t('download.confirm')
                 },
-            }).then(result => {
+            }).then(async result => {
+                let requires = [`"discord.js": "^13.1.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
+                let oldrequires = await localforage.getItem("requires")
+                r(requires,oldrequires)
                 if(result){
                     const zip = new JSZip();
                     const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
@@ -91,7 +96,7 @@ export default {
                     const javascriptContent = this.getWorkspaceCode();
                     zip.file("bot.js", javascriptContent);
                     zip.file(".replit", 'run = "npm start"');
-                    zip.file("package.json", JSON.stringify({
+                    zip.file("package.json", `{
                         name: 'scratch-for-discord-bot',
                         version: '1.0.0',
                         main: 'bot.js',
@@ -101,35 +106,12 @@ export default {
                             "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i"
                         },
                         dependencies: {
-                            "@discordjs/opus": "^0.6.0",
-                            "avconv": "^3.1.0",
-                            "discord-backup": "^3.0.1",
-                            "discord-canvas": "^1.4.1",
-                            "discord-giveaways": "^5.0.1",
-                            "discord-logs": "^2.0.1",
-                            "discord-player": "^5.1.0",
-                            "discord.js": "^13.1.0",
-                            "easy-json-database": "^1.5.0",
-                            "express": "^4.17.1",
-                            "ffmpeg-static": "^4.4.0",
-                            "moment": "^2.29.1",
-                            "quick.db": "^7.1.3",
-                            "quickmongo": "git+https://github.com/mrredo/quickmongo.git",
-                            "youtube-notification-module": "^1.1.0",
-                            "discord-image-generation":"^1.4.9",
-                            "discord-images": "^0.1.6",
-                            "discord-inviter-tracker":"^1.0.3",
-                            "anti-link-for-discord":"^5.0.0",
-                            "discord-together":"^1.3.0",
-                            "axios": "^0.22.0",
-                            "discord-badges": "0.0.0",
-                            "process":"^0.11.10",
-                            "ms":"^2.1.3"
-},
+                            ${requires.join("\n")}
+                        },
                         devDependencies: {
                             "node": "^16.10.0"
                         }
-                    }));
+                    }`)
                     zip.generateAsync({
                         type: "blob"
                     })

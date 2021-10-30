@@ -61,7 +61,7 @@ if(js.includes("s4d.notifer")){
     code.push(`s4d.notifer = new ytnotifier({channels: [],checkInterval: 50});`)
 }
 if(js.includes("s4d.player")){
-    array.push(`let { Player,QueueRepeatMode } = require("discord-player")`)
+    array.push(`let { Player,QueueRepeatMode } = require("discord-player")`)//foi
     code.push(`s4d.player = new Player(s4d.client)`)
 }
 if(js.includes("getBadges")){
