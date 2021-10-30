@@ -22,6 +22,8 @@ Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
 Vue.config.ignoredElements = ["field","block","category","xml","mutation","value","sep"];
 
+import r from "./require";
+
 import blocklyLocaleEN from "blockly/msg/en";
 import blocklyLocaleFR from "blockly/msg/fr";
 import blocklyLocalePT from "blockly/msg/pt";
@@ -122,6 +124,14 @@ Vue.mixin({
         },
         getWorkspaceCode(){
             if(!this.$store.state.workspace) return "";
+            let requires = [
+            `let Discord = require("discord.js")`,
+            `let Database  = require("easy-json-database")`,
+            `let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")`,
+            `let logs = require("discord-logs")`  
+            ]
+            let requiresjscode = [`logs(s4d.client);`]
+            r(requires,requiresjscode,Blockly.JavaScript.workspaceToCode(this.$store.state.workspace))
             return `
                 (async()=>{
                 //hello :) hehe
@@ -129,31 +139,13 @@ Vue.mixin({
                 process.on('uncaughtException', function (err) {
                     console.log(err);
                   });
-                  let URL = require('url')
-                    const ms = require("ms")
-                    const AntiLinkClient = require("anti-link-for-discord");
-                    let DIG = require("discord-image-generation")
-                    let Discord = require("discord.js")
-                    let Database  = require("easy-json-database")
-                    let logs = require("discord-logs")
-                    let moment  = require("moment")
+                  ${requires.join("\n")}
                     require('events').EventEmitter.defaultMaxListeners = 50;
-                    const backup = require("discord-backup");
-                     let { DB } = require("quickmongo");
-                     let canvas = require("discord-canvas") 
-                     const Images = require("discord-images")
-                     const images = new Images.Client()
-                     let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")
-                     let Invite = require("discord-inviter-tracker")
-                     let https = require("https")
-                                        let { GiveawaysManager }= require("discord-giveaways")
-                                        let ytnotifier = require("youtube-notification-module")
-                                        let { Player,QueueRepeatMode } = require("discord-player")
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                     const s4d = {
                         Discord,
-                        database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/db.json\`),
+                        database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/database.json\`),
                         joiningMember:null,
                         reply:null,
                         tokenInvalid:false,
@@ -162,61 +154,17 @@ Vue.mixin({
                         manager:null,
                         Inviter:null,
                         message:null,
-                        notifer:new ytnotifier({channels: [],checkInterval: 50}),
+                        notifer:null,
                         checkMessageExists() {
                             if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
                             if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
                         }
                     };
-                    const badges = require("discord-badges");
                     s4d.client = new s4d.Discord.Client({
                         intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
                         partials: ["REACTION"]
-                    });    
-                    function getBadges(user){
-                        return badges.badges(user).then((response) => {
-                            return response
-                        }).catch((e) => {
-                            console.log(e);
-                        });
-                    } 
-                    s4d.Inviter = new Invite(s4d.client)
-                    logs(s4d.client);
-                    s4d.Inviter.on("WARN",function(e){
-                        console.log('WARN: '+e)
-                    })
-                    s4d.manager = new GiveawaysManager(s4d.client, {
-                        storage: './giveaways.json',
-                        default: {
-                            botsCanWin: false,
-                            embedColor: '#FF0000',
-                            embedColorEnd: '#000000',
-                            reaction: '🎉'
-                        }
                     });
-                    s4d.player = new Player(s4d.client)
-                    let Cooldown = ""
-                    if(s4d.database.has('cooldown')){
-                        Cooldown = s4d.database.get('cooldown')
-                        setInterval(()=>{
-                            s4d.database.set('cooldown',Cooldown)
-                        },1000)
-                    }else{
-                        Cooldown = new Set();
-                        setInterval(()=>{
-                            s4d.database.set('cooldown',Cooldown)
-                        },1000)
-                    }
-                    const { DiscordTogether } = require('discord-together');
-
-                    s4d.client.discordTogether = new DiscordTogether(s4d.client);
-                    const antilink = new AntiLinkClient({
-                        warnMessage: (message) => '<@'+message.author.id+'>, No links.',
-                        muteCount: 5,
-                        kickCount: 10,
-                        banCount: 15,
-                        deleteMessage: true,
-                      });
+                    ${requiresjscode.join("\n")}         
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
                     return s4d
                     })();
