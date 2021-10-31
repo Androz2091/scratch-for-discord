@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${member}.user.username`, Blockly.JavaScript.ORDER_NONE ];
+    return [ `${member}.username`, Blockly.JavaScript.ORDER_NONE ];
 };
 
 registerRestrictions(blockName, [

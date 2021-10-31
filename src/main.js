@@ -7,11 +7,8 @@ import Vuei18n from 'vue-i18n';
 import Blockly from "blockly";
 import VueToast from 'vue-toast-notification';
 import VueTour from 'vue-tour';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPowerOff } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-library.add(faPowerOff)
+import savenload from './save-load';
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -25,6 +22,8 @@ Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
 Vue.config.ignoredElements = ["field","block","category","xml","mutation","value","sep"];
 
+import r from "./require";
+
 import blocklyLocaleEN from "blockly/msg/en";
 import blocklyLocaleFR from "blockly/msg/fr";
 import blocklyLocalePT from "blockly/msg/pt";
@@ -32,40 +31,39 @@ import blocklyLocalePT from "blockly/msg/pt";
 import customLocaleEN from './locales/en';
 import customLocaleFR from './locales/fr';
 import customLocalePT from './locales/pt';
-
+import localforage from "localforage";
 const messages = {
     en: customLocaleEN.websiteMessages,
     fr: customLocaleFR.websiteMessages,
     pt: customLocalePT.websiteMessages
 };
-
 const i18n = new Vuei18n({
     locale: (messages[navigator.language.split("-")[0]] ? navigator.language.split("-")[0] : "en"),
     messages: messages
 });
 
 import toolbox from "./toolbox";
-import Theme from '@blockly/theme-modern';
-
+//import {Backpack} from '@blockly/workspace-backpack';
+import Theme from '@blockly/theme-dark';
 Vue.mixin({
     methods: {
-        reloadWorkspace(){
+        async reloadWorkspace(){
+            let val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
             // Get current workspace
-            const workspace = this.$store.state.workspace;
+            let workspace = this.$store.state.workspace;
             // Convert it to a dom string
             const dom = Blockly.Xml.workspaceToDom(workspace);
             // Delete the current workspace
             workspace.dispose();
             // Create a new workspace (with the good language)
             const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), {
-                renderer: "zelos",
-                theme: Theme,
                 grid: {
                     spacing: 25,
                     length: 3,
                     colour: "#ccc",
-                    snap: true
                 },
+                renderer: "zelos",
+                theme: Theme,
                 zoom: {
                     controls: true,
                     startScale: 0.9,
@@ -73,15 +71,23 @@ Vue.mixin({
                     minScale: 0.3,
                     scaleSpeed: 1.2
                 },
-                toolbox: toolbox(Blockly)
+            move:{
+        scrollbars: {
+          horizontal: true,
+          vertical: true
+        },
+        drag: true,
+        wheel: true},
+                toolbox: toolbox(Blockly,val)
             });
-            // And restore the blocks
+   
             Blockly.Xml.domToWorkspace(dom, newWorkspace);
             // Update the workspace in the vuex store
             this.$store.commit("setWorkspace", {
                 workspace: newWorkspace
-            });
-            workspace.addChangeListener(Blockly.Events.disableOrphans);
+            })
+;				
+
             // Return the workspace
             return workspace;
         },
@@ -117,42 +123,66 @@ Vue.mixin({
         },
         getWorkspaceCode(){
             if(!this.$store.state.workspace) return "";
+            let requires = [
+            `let Discord = require("discord.js")`,
+            `let Database  = require("easy-json-database")`,
+            `let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")`,
+            `let logs = require("discord-logs")`  
+            ]
+            let requiresjscode = [`logs(s4d.client);`]
+            r(requires,requiresjscode,Blockly.JavaScript.workspaceToCode(this.$store.state.workspace))
+            setTimeout(async()=>{
+                await localforage.setItem("requires",requires)
+            },1000)
             return `
                 (async()=>{
-                const Discord = require("discord.js");
-                const Database = require("easy-json-database");
-                const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
-                const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-                const s4d = {
-                    Discord,
-                    database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/db.json\`),
-                    joiningMember:null,
-                    reply:null,
-                    tokenInvalid:false,
-                    tokenError: null,
-                    checkMessageExists() {
-                        if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
-                        if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
-                    }
-                };
-                s4d.client = new s4d.Discord.Client({
-                    intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
-                    partials: ["REACTION"]
-                });
-
-                ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
-
-                return s4d;
-                })();
+                //hello :) hehe
+                let process = require('process');
+                process.on('uncaughtException', function (err) {
+                    console.log(err);
+                  });
+                  ${requires.join("\n")}
+                    require('events').EventEmitter.defaultMaxListeners = 50;
+                    const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
+                    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+                    const s4d = {
+                        Discord,
+                        database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/database.json\`),
+                        joiningMember:null,
+                        reply:null,
+                        tokenInvalid:false,
+                        tokenError: null,
+                        player:null,
+                        manager:null,
+                        Inviter:null,
+                        message:null,
+                        notifer:null,
+                        checkMessageExists() {
+                            if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
+                            if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
+                        }
+                    };
+                    s4d.client = new s4d.Discord.Client({
+                        intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
+                        partials: ["REACTION"]
+                    });
+                    ${requiresjscode.join("\n")}         
+                    ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
+                    return s4d
+                    })();
             `;
         }
     }
 });
-  
+
+
 new Vue({
     store,
     render: h => h(App),
-    i18n
+    i18n,
+    mounted() {
+        savenload(this);
+    },
 }).$mount("#app");
 
 import 'bootstrap/dist/css/bootstrap.css';

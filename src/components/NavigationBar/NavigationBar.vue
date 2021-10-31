@@ -12,17 +12,16 @@
                 <CodeModal></CodeModal>
                 <FileMenu></FileMenu>
                 <EditMenu></EditMenu>
+                <ToolboxModal></ToolboxModal>
                 <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
+                <preBuilds></preBuilds>
+                <TokenModal></TokenModal>
                 <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
-                <RunModal></RunModal>
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
                 <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
-                </b-button>
-                <b-button id="v-step-1" :disabled="!configurationValidated" style="border-right-color: #161719; border-radius: 0em;" v-b-modal.run-modal>
-                    <b-icon-play></b-icon-play>
                 </b-button>
                 <b-button id="v-step-2" :disabled="!configurationValidated" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
                     <b-icon-download></b-icon-download>
@@ -36,22 +35,27 @@
 import Blockly from "blockly";
 import JSZip from "jszip";
 
+import TokenModal from "./TokenModal.vue";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
 import LanguageMenu from "./LanguageMenu.vue";
-import RunModal from "./RunModal.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
-import CodeModal from "./CodeModal";
-
+import CodeModal from "./CodeModal.vue";
+import preBuilds from "./preBuilds.vue";
+import ToolboxModal from "./ToolboxModal.vue";
+import localforage from 'localforage';
+import r from "./requires"
 export default {
     name: "navbar",
     components: {
         FileMenu,
         EditMenu,
         LanguageMenu,
-        RunModal,
         ExamplesMenu,
-        CodeModal
+        CodeModal,
+        TokenModal,
+        preBuilds,
+        ToolboxModal
     },
     computed: {
         configurationValidated: function () {
@@ -66,7 +70,7 @@ export default {
         }, false);
         const element = document.querySelector("#docName");
         element.spellcheck = false;
-        element.focus();
+        element.focus(); 
         element.blur();
     },
     methods: {
@@ -80,7 +84,10 @@ export default {
                     cancel: this.$t('download.cancel'),
                     confirm: this.$t('download.confirm')
                 },
-            }).then(result => {
+            }).then(async result => {
+                let requires = [`"discord.js": "^13.1.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
+                let oldrequires = await localforage.getItem("requires")
+                r(requires,oldrequires)
                 if(result){
                     const zip = new JSZip();
                     const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
@@ -88,19 +95,23 @@ export default {
                     zip.file("blocks.xml", xmlContent);
                     const javascriptContent = this.getWorkspaceCode();
                     zip.file("bot.js", javascriptContent);
-                    zip.file(".replit", 'run = "node bot.js"');
-                    zip.file("package.json", JSON.stringify({
+                    zip.file(".replit", 'run = "npm start"');
+                    zip.file("package.json", `{
                         name: 'scratch-for-discord-bot',
                         version: '1.0.0',
                         main: 'bot.js',
                         scripts: {
-                            start: 'node .'
+                            "start": 'node .',
+                            "node-update": "npm i --save-dev node@16 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",
+                            "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i"
                         },
                         dependencies: {
-                            'discord.js': '^13.1.0',
-                            'easy-json-database': '^1.5.0'
+                            ${requires.join("\n")}
+                        },
+                        devDependencies: {
+                            "node": "^16.10.0"
                         }
-                    }));
+                    }`)
                     zip.generateAsync({
                         type: "blob"
                     })

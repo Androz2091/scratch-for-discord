@@ -14,11 +14,43 @@ export const websiteMessages = {
     load: {
         error: "The uploaded file is corrupted and cannot be loaded by Scratch For Discord..."
     },
+    token:{
+        title:"Token Database",
+        load:"Load Token",
+        save:"Save Token as...",
+        text2:"name of token that you want to save to Database",
+        save2:"next",
+        error:"error there is alredy a token with that name",
+        text3:"token that you want to save",
+        save3:"save",
+        success:"succesfully saved token as ",
+        erros:"you dont have any token saved in database!",
+        load2:"load token",
+        text4:"choose a token name for loading!",
+        cancels:"cancel",
+        loadss:"load",
+        successs:"succesfully loaded token!(the token is on your clipboard)",
+        all:"amount of tokens: {blockCount}",
+        delete:"Delete Token From Database",
+        deletee:{
+            title:"delete token",
+            success:"succesfully deleted token from database",
+            load:"delete",
+            cancel:"cancel",
+            text:"choose a token for deleting from database",
+        }
+    },
     file: {
+        copy:"Copy Javascript code",
         title: "File",
         javascript: "Export to Javascript",
         open: "Open a file...",
         save: "Save"
+    },
+    toolbox:{
+        title:"Toolbox",
+        hide:"Hide",
+        show:"Show"
     },
     edit: {
         title: "Edit",
@@ -26,7 +58,8 @@ export const websiteMessages = {
         redo: "Redo",
         clear: "Clear {blockCount} blocks",
         cleanup: "Clean up blocks",
-        cleardb: "Clear the database"
+        cleardb: "Clear the database",
+        clearGhost:"clear ghost blocks"
     },
     lang: {
         title: "Language"
@@ -43,7 +76,9 @@ export const websiteMessages = {
         loaded: "Example {example} successfully imported!",
         ping_pong: "ping-pong command",
         command_parsing: "commands handler",
-        leveling: "XP and levels system"
+        leveling: "XP and levels system",
+        button: "Button and Button row example",
+        music: "Music Blocks example"
     },
     download: {
         title: "Download your bot",
@@ -82,6 +117,50 @@ export const websiteMessages = {
     },
     code_modal: {
         title: "JavaScript code of your bot"
+    },
+    autosave:{
+        cancell:"cancel",
+        confirm:"confirm",
+        title:"auto save",
+        text:"your auto save has been loaded!",
+        title2:"i found a auto save of a project! do you wanna load it?",
+    },
+    save:{
+        title:"auto save"
+    },
+    prebuild:{
+        title:"Pre Builds",
+        load:"Load  Pre Build",
+        save:"Save Pre Build as...",
+        text2:"name of  Pre Build that you want to save to Database",
+        save2:"save",
+        error:"error there is alredy a  Pre Build with that name",
+        text3:"Pre Build that you want to save",
+        save3:"save",
+        success:"succesfully saved Pre Build as ",
+        erros:"you dont have any Pre Build saved in database!",
+        load2:"load Pre Build",
+        text4:"choose a Pre Build name for loading!",
+        cancels:"cancel",
+        loadss:"load",
+        successs:"succesfully loaded Pre Build!",
+        all:"amount of Pre Build: {blockCount}",
+        delete:"Delete Pre Build From Database",
+        deletee:{
+            title:"delete Pre Build",
+            success:"succesfully deleted Pre Build from database",
+            load:"delete",
+            cancel:"cancel",
+            text:"choose a Pre Build for deleting from database",
+        },
+        downloadd:"Download Pre build",
+        download:{
+            load2:"donwload Pre Build",
+            successs:"downloaded succesfully Pre Build!",
+            loadss:"download",
+            cancels:"cancel",
+            text4:"choose a Pre Build for downloading",
+        }
     }
 };
 

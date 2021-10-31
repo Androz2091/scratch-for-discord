@@ -31,21 +31,22 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const memberr = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    let member = memberr.replace(".user","")
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
     if(block.getInput("CONTENT").connection.targetConnection){
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
         if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            const code = `${member}.send(${content});\n`;
+            const code = `${member}.send({${content}});\n`;
             return code;
         } else {
-            const code = `${member}.send(String(${content}));\n`;
+            const code = `${member}.send({content:String(${content})});\n`;
             return code;
         }
     } else {
-        const code = `${member}.send(String(${content}));\n`;
+        const code = `${member}.send({content:String(${content})});\n`;
         return code;
     }
 };

@@ -28,6 +28,10 @@ const blockData = {
                 [
                     "%{BKY_DAY_OF_WEEK}",
                     "DAY_OF_WEEK"
+                ],
+                [
+                    "%{BKY_OTHERS}",
+                    "COOLDOWN"
                 ]
             ]
         }
@@ -56,5 +60,7 @@ Blockly.JavaScript[blockName] = function(block) {
         return ["(new Date().getDate())", Blockly.JavaScript.ORDER_NONE];
     } else if(dataType === "DAY_OF_WEEK"){
         return ["(new Date().getDay())", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "COOLDOWN"){
+        return ["new Date()", Blockly.JavaScript.ORDER_NONE];
     }
 };
