@@ -3,8 +3,10 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 const getSystemTheme = () => {
+    // try returning theme from app
+    if (window.ScratchNative) return window.ScratchNative?.getTheme() === "dark" ? "dark" : "light";
     // try to detect theme from media query
-    return (window.ScratchNative?.getTheme() === "dark" || window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
 
 const getTheme = () => {
