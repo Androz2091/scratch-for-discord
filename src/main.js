@@ -47,18 +47,22 @@ const i18n = new Vuei18n({
 import toolbox from "./toolbox";
 import Theme from "@blockly/theme-modern";
 import DarkTheme from "@blockly/theme-dark";
+import loadBlock from "./loadBlock";
 
 Vue.mixin({
     methods: {
         reloadWorkspace() {
+            // load extension
+            const external = window.ScratchNative?.loadBlocklyExtensions(toolbox.getToolbox());
+            if (external) {
+                loadBlock(external.blocks);
+            }
             // Get current workspace
             const workspace = this.$store.state.workspace;
             // Convert it to a dom string
             const dom = Blockly.Xml.workspaceToDom(workspace);
             // Delete the current workspace
             workspace.dispose();
-            // load s4d app extension
-            const external = window.ScratchNative?.loadBlocklyExtensions(toolbox.getToolbox());
             // Create a new workspace (with the good language)
             const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), {
                 renderer: "zelos",
