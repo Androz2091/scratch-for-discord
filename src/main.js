@@ -34,14 +34,14 @@ import customLocaleFR from "./locales/fr";
 import customLocalePT from "./locales/pt";
 
 const messages = {
-	en: customLocaleEN.websiteMessages,
-	fr: customLocaleFR.websiteMessages,
-	pt: customLocalePT.websiteMessages
+    en: customLocaleEN.websiteMessages,
+    fr: customLocaleFR.websiteMessages,
+    pt: customLocalePT.websiteMessages
 };
 
 const i18n = new Vuei18n({
-	locale: messages[navigator.language.split("-")[0]] ? navigator.language.split("-")[0] : "en",
-	messages: messages
+    locale: messages[navigator.language.split("-")[0]] ? navigator.language.split("-")[0] : "en",
+    messages: messages
 });
 
 import toolbox from "./toolbox";
@@ -49,80 +49,80 @@ import Theme from "@blockly/theme-modern";
 import DarkTheme from "@blockly/theme-dark";
 
 Vue.mixin({
-	methods: {
-		reloadWorkspace() {
-			// Get current workspace
-			const workspace = this.$store.state.workspace;
-			// Convert it to a dom string
-			const dom = Blockly.Xml.workspaceToDom(workspace);
-			// Delete the current workspace
-			workspace.dispose();
-			// load s4d app extension
-			const external = window.ScratchNative?.loadBlocklyExtensions();
-			// Create a new workspace (with the good language)
-			const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), {
-				renderer: "zelos",
-				theme: this.$store.state.theme === "dark" ? DarkTheme : Theme,
-				grid: {
-					spacing: 25,
-					length: 3,
-					colour: "#ccc",
-					snap: true
-				},
-				zoom: {
-					controls: true,
-					startScale: 0.9,
-					maxScale: 3,
-					minScale: 0.3,
-					scaleSpeed: 1.2
-				},
-				toolbox: toolbox(Blockly, external?.toolbox)
-			});
-			// And restore the blocks
-			Blockly.Xml.domToWorkspace(dom, newWorkspace);
+    methods: {
+        reloadWorkspace() {
+            // Get current workspace
+            const workspace = this.$store.state.workspace;
+            // Convert it to a dom string
+            const dom = Blockly.Xml.workspaceToDom(workspace);
+            // Delete the current workspace
+            workspace.dispose();
+            // load s4d app extension
+            const external = window.ScratchNative?.loadBlocklyExtensions();
+            // Create a new workspace (with the good language)
+            const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), {
+                renderer: "zelos",
+                theme: this.$store.state.theme === "dark" ? DarkTheme : Theme,
+                grid: {
+                    spacing: 25,
+                    length: 3,
+                    colour: "#ccc",
+                    snap: true
+                },
+                zoom: {
+                    controls: true,
+                    startScale: 0.9,
+                    maxScale: 3,
+                    minScale: 0.3,
+                    scaleSpeed: 1.2
+                },
+                toolbox: toolbox(Blockly, external?.toolbox)
+            });
+            // And restore the blocks
+            Blockly.Xml.domToWorkspace(dom, newWorkspace);
 
-			// Update the workspace in the vuex store
-			this.$store.commit("setWorkspace", {
-				workspace: newWorkspace
-			});
-			workspace.addChangeListener(Blockly.Events.disableOrphans);
+            // Update the workspace in the vuex store
+            this.$store.commit("setWorkspace", {
+                workspace: newWorkspace
+            });
+            workspace.addChangeListener(Blockly.Events.disableOrphans);
 
-			// Return the workspace
-			return workspace;
-		},
-		setLanguage(locale) {
-			switch (locale) {
-				case "en":
-					// Change Blockly language for default blocks
-					Blockly.setLocale(blocklyLocaleEN);
-					// Change Blockly language for custom blocks
-					customLocaleEN.applyBlocklyLocale();
-					// Change website languages (navbar, etc...)
-					this.$root.$i18n.locale = "en";
-					break;
-				case "fr":
-					// Change Blockly language for default blocks
-					Blockly.setLocale(blocklyLocaleFR);
-					// Change Blockly language for custom blocks
-					customLocaleFR.applyBlocklyLocale();
-					// Change website languages (navbar, etc...)
-					this.$root.$i18n.locale = "fr";
-					break;
-				case "pt":
-					// Change Blockly language for default blocks
-					Blockly.setLocale(blocklyLocalePT);
-					// Change Blockly language for custom blocks
-					customLocalePT.applyBlocklyLocale();
-					// Change website languages (navbar, etc...)
-					this.$root.$i18n.locale = "pt";
-					break;
-				default:
-					break;
-			}
-		},
-		getWorkspaceCode() {
-			if (!this.$store.state.workspace) return "";
-			return `
+            // Return the workspace
+            return workspace;
+        },
+        setLanguage(locale) {
+            switch (locale) {
+                case "en":
+                    // Change Blockly language for default blocks
+                    Blockly.setLocale(blocklyLocaleEN);
+                    // Change Blockly language for custom blocks
+                    customLocaleEN.applyBlocklyLocale();
+                    // Change website languages (navbar, etc...)
+                    this.$root.$i18n.locale = "en";
+                    break;
+                case "fr":
+                    // Change Blockly language for default blocks
+                    Blockly.setLocale(blocklyLocaleFR);
+                    // Change Blockly language for custom blocks
+                    customLocaleFR.applyBlocklyLocale();
+                    // Change website languages (navbar, etc...)
+                    this.$root.$i18n.locale = "fr";
+                    break;
+                case "pt":
+                    // Change Blockly language for default blocks
+                    Blockly.setLocale(blocklyLocalePT);
+                    // Change Blockly language for custom blocks
+                    customLocalePT.applyBlocklyLocale();
+                    // Change website languages (navbar, etc...)
+                    this.$root.$i18n.locale = "pt";
+                    break;
+                default:
+                    break;
+            }
+        },
+        getWorkspaceCode() {
+            if (!this.$store.state.workspace) return "";
+            return `
                 (async()=>{
                 const Discord = require("discord.js");
                 const Database = require("easy-json-database");
@@ -150,14 +150,14 @@ Vue.mixin({
                 return s4d;
                 })();
             `;
-		}
-	}
+        }
+    }
 });
 
 new Vue({
-	store,
-	render: (h) => h(App),
-	i18n
+    store,
+    render: (h) => h(App),
+    i18n
 }).$mount("#app");
 
 import "bootstrap/dist/css/bootstrap.css";
