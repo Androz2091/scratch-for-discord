@@ -4,7 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 const getSystemTheme = () => {
     // try to detect theme from media query
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return (window.ScratchNative?.getTheme() === "dark" || window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
 };
 
 const getTheme = () => {
