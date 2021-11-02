@@ -58,7 +58,7 @@ Vue.mixin({
             // Delete the current workspace
             workspace.dispose();
             // load s4d app extension
-            const external = window.ScratchNative?.loadBlocklyExtensions();
+            const external = window.ScratchNative?.loadBlocklyExtensions(toolbox.getToolbox());
             // Create a new workspace (with the good language)
             const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), {
                 renderer: "zelos",
