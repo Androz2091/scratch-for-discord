@@ -1,7 +1,7 @@
 /* eslint-disable no-import-assign */
 /**
  * @license
- * 
+ *
  * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,15 +22,14 @@
  * @author abbychau@gmail.com (Abby Chau)
  */
 
-
-import * as Blockly from 'blockly/core';
+import * as Blockly from "blockly/core";
 import Swal from "sweetalert2";
 
-var renameVar = function(name) {
-  return name;
+var renameVar = function (name) {
+	return name;
 };
 
-Blockly.prompt = function(msg, defaultValue, callback) {
+Blockly.prompt = function (msg, defaultValue, callback) {
 	Swal.fire({
 		title: "Variable:",
 		input: "text",
@@ -41,7 +40,7 @@ Blockly.prompt = function(msg, defaultValue, callback) {
 		confirmButtonText: "Look up",
 		showLoaderOnConfirm: true,
 		allowOutsideClick: () => !Swal.isLoading()
-	}).then(result => {
+	}).then((result) => {
 		if (result.value) {
 			callback(renameVar(result.value));
 		}

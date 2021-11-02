@@ -8,9 +8,11 @@
     "start": "npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "format": "prettier --write src/**/*.{js,vue}"
   },
   "dependencies": {
+    "@blockly/theme-dark": "^2.0.6",
     "@blockly/theme-modern": "^2.1.10",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
@@ -38,6 +40,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.21.0",
     "eslint-plugin-vue": "^7.7.0",
+    "prettier": "^2.4.1",
     "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
