@@ -1,8 +1,8 @@
-import Blockly from "blockly/core";
+import BlocklyCore from "blockly/core";
 
 export default (data) => {
     if (!data || typeof data !== "object" || !Array.isArray(data)) return;
-
+    const Blockly = BlocklyCore;
     try {
         for (const block of data) {
             if (!block.name || !block.data) continue;
