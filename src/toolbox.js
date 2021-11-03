@@ -380,11 +380,10 @@ export const getToolbox = () => {
 
 export default (Blockly, tboxExternal) => {
     const toolbox = tboxExternal && typeof tboxExternal === "object" ? tboxExternal : getToolbox();
-
+    console.log(getToolbox().contents.length, toolbox.contents.length)
     toolbox.contents = toolbox.contents.map((m) => {
-        if (m.name) m.name = Blockly.Msg[m.name.replace("{{ ", "").replace(" }}", "")];
+        if (m.name) m.name = Blockly.Msg[m.name.replace("{{ ", "").replace(" }}", "")] || m.name;
         return m;
     });
-
     return toolbox;
 };

@@ -10,9 +10,8 @@
 <script>
 import Blockly from "blockly";
 import { disableUnapplicable } from "../restrictions";
-import toolbox from "../toolbox";
-
-window.Blocklyla = Blockly;
+import toolbox, { getToolbox } from "../toolbox";
+import loadBlock from "../loadBlock";
 
 export default {
     name: "BlocklyComponent",
@@ -23,14 +22,19 @@ export default {
             workspace: this.$store.state.workspace
         };
     },
-    mounted() {
+    async mounted() {
         this.setLanguage(this.$store.state.blocklyLocale);
         const options = this.$props.options || {};
         options.toolbox = this.$refs["blocklyToolbox"];
+        // load extension
+        const external = await (window.ScratchNative || window.parent?.ScratchNative)?.loadBlocklyExtensions(getToolbox());
+        if (external) {
+            loadBlock(external.blocks);
+        }
         const workspace = Blockly.inject(this.$refs["blocklyDiv"], {
             ...options,
             ...{
-                toolbox: (window.toolbox = toolbox(Blockly))
+                toolbox: toolbox(Blockly, external?.toolbox)
             }
         });
         this.$store.commit("setWorkspace", {

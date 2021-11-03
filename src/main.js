@@ -44,16 +44,16 @@ const i18n = new Vuei18n({
     messages: messages
 });
 
-import toolbox from "./toolbox";
+import toolbox, { getToolbox } from "./toolbox";
 import Theme from "@blockly/theme-modern";
 import DarkTheme from "@blockly/theme-dark";
 import loadBlock from "./loadBlock";
 
 Vue.mixin({
     methods: {
-        reloadWorkspace() {
+        async reloadWorkspace() {
             // load extension
-            const external = window.ScratchNative?.loadBlocklyExtensions(toolbox.getToolbox());
+            const external = await window.ScratchNative?.loadBlocklyExtensions(getToolbox());
             if (external) {
                 loadBlock(external.blocks);
             }

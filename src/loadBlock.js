@@ -17,8 +17,7 @@ export default (data) => {
                     }
                 };
 
-                const JS = eval(`function(block){${String(block.JavaScript) || 'return "";'}}`);
-
+                const JS = eval(`(() => {function S4DIX_INITIATOR_JS(block){${String(block.JavaScript) || 'return "";'}};return S4DIX_INITIATOR_JS;})();`);
                 Blockly.JavaScript[blockName] = JS;
             } catch {
                 continue;
