@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import App from './App.vue';
+import autosave from './autosave'
 import store from './store';
 import VueSwal from 'vue-swal';
 import Vuei18n from 'vue-i18n';
@@ -152,7 +153,10 @@ Vue.mixin({
 new Vue({
     store,
     render: h => h(App),
-    i18n
+    i18n,
+    mounted() {
+        autosave(this);
+    }
 }).$mount("#app");
 
 import 'bootstrap/dist/css/bootstrap.css';

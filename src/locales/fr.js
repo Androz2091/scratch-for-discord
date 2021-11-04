@@ -82,6 +82,12 @@ export const websiteMessages = {
     },
     code_modal: {
         title: "Code JavaScript de votre bot"
+    },
+    autosave: {
+        title: "Restorer un projet",
+        text: "Vous n'avez pas sauvegardé votre projet avant de quitter Scratch For Discord ?<br>Pas de problème, vous pouvez choisir le projet que vous voulez restaurer depuis le menu ci-dessous !",
+        restore: "Restorer",
+        cancel: "Annuler"
     }
 };
 
