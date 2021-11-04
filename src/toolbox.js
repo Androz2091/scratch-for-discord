@@ -351,6 +351,13 @@ export default (Blockly,value) => {
                     </block>
                 </value>
             </block>
+            <block type="push_to_list">
+                <value name="LIST">
+                    <block type="variables_get">
+                        <field name="VAR" id="fztpO]@!)|*c81-vAZ)P">list</field>
+                    </block>
+                </value>
+            </block>
             <block type="lists_split">
                 <mutation mode="SPLIT" />
                 <field name="MODE">SPLIT</field>
@@ -411,7 +418,6 @@ export default (Blockly,value) => {
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
             <block type="anti_link"/>
             <block type="s4d_print"></block>
-            <block type="s4d_current"></block>
             <block type="s4d_run_save_output"></block>
             <block type="s4d_wait_seconds">
                 <value name="TIME">
@@ -432,6 +438,16 @@ export default (Blockly,value) => {
                     </category>
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
+                <category name="date" colour="#00664d">
+                    <block type="s4d_current"></block>
+                    <block type="unix_to_date"/>
+                    <block type="date_to_unix"/>
+                    <block type="get_in_date"/>
+                </category>
+                <category name="RegEx" colour="#00664d">
+                    <block type="new_regex"/>
+                    <block type="test_regex"/>
+                </category>
                 <category name="attachment" colour="#00664d">
                     <block type="att_size"/>
                     <block type="att_name"/>
@@ -871,6 +887,7 @@ export default (Blockly,value) => {
             <block type="s4d_m_create_embed_then_set_footer"></block> 
             <block type="s4d_m_create_embed_then_set_time"></block>
             <label text="%{BKY_SEND_EMBED}"></label>
+            <block type="send_m_embed_string"/>
             <block type="s4d_m_create_embed_then_send"></block>
     </category>
 		        <category name="edited" colour="#e85a66">
@@ -1032,6 +1049,8 @@ export default (Blockly,value) => {
                 </value>
             </block>
             <block type="s4d_delete"></block>
+            <block type="s4d_remove_all_reactions"/>
+            <block type="s4d_remove_reactions"/>
             <block type="s4d_add_reaction">
                 <value name="REACTION">
                     <shadow type="text">
@@ -1103,10 +1122,13 @@ export default (Blockly,value) => {
             <block type="s4d_on_react_added"></block>
             <block type="s4d_on_react_removed"></block>
             <label text="%{BKY_REACT_INFORMATIONS}"></label>
+            <block type="s4d_react_message"/>
             <block type="s4d_react_message_id"></block>
             <block type="s4d_react_emoji"></block>
             <block type="s4d_react_member"></block> 
-						<block type="s4d_react_count"></block>
+			<block type="s4d_react_count"></block>
+            <block type="s4d_remove_all_reactions"/>
+            <block type="s4d_remove_reactions"/>
         </category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
@@ -1196,6 +1218,7 @@ export default (Blockly,value) => {
             <block type="s4d_member_discriminator"></block>
             <block type="s4d_member_tag"></block>
             <block type="s4d_member_username"></block>
+            <block type="s4d_member_nickname"></block>
             <block type="s4d_member_icon"></block>
             <block type="s4d_joined_at"></block>
             <block type="s4d_created_at"></block>

@@ -4,11 +4,16 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_m_create_embed_then_send";
 
 const blockData = {
-    "message0": "%{BKY_M_CREATE_EMBED_THEN_SEND}",
+    "message0": "send embed in channel %1 with text %2",
     "args0": [{
         "type": "input_value",
         "name": "CHANNEL",
         "check": "Channel"
+    },
+    {
+        "type": "input_value",
+        "name": "TEXT",
+        "check": "STRING"
     }],
     "colour": "#40BF4A",
     "previousStatement": null,
@@ -25,7 +30,8 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${channel}.send({ embeds: [embed] });\n`;
+    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `${channel}.send({${text === "" ? "" : `content:${text},`} embeds: [embed] });\n`;
     return code;
 };
 

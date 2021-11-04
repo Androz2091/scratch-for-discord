@@ -45,5 +45,8 @@ oldarray.forEach(js=>{
     if(js.includes("discord-image-generation")){
         array.push(`"discord-image-generation":"^1.4.9",`)
     }
+    if(js.includes("regex")){
+        array.push(`"regex":"^0.1.1",`)
+    }
 })
 }

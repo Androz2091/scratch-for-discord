@@ -8613,6 +8613,11 @@
   dependencies:
     "chokidar" ">=3.0.0 <4.0.0"
 
+"save-svg-as-png@^1.4.17":
+  "integrity" "sha512-7QDaqJsVhdFPwviCxkgHiGm9omeaMBe1VKbHySWU6oFB2LtnGCcYS13eVoslUgq6VZC6Tjq/HddBd1K6p2PGpA=="
+  "resolved" "https://registry.npmjs.org/save-svg-as-png/-/save-svg-as-png-1.4.17.tgz"
+  "version" "1.4.17"
+
 "sax@~1.2.4":
   "integrity" "sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw=="
   "resolved" "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz"

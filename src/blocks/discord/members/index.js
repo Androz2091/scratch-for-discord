@@ -18,3 +18,4 @@ import "./member_joined_data";
 import "./member_created_data";
 import "./unban_member";
 import "./member_exist";
+import "./member_nickname";

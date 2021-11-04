@@ -92,4 +92,7 @@ if(js.includes("Cooldown")){
         },1000)
     }`)
 }
+if(js.includes("Regex")){
+    array.push(`var Regex = require("regex");`)
+}
 }

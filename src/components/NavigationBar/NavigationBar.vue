@@ -96,21 +96,21 @@ export default {
                     const javascriptContent = this.getWorkspaceCode();
                     zip.file("bot.js", javascriptContent);
                     zip.file(".replit", 'run = "npm start"');
-                    zip.file("package.json", `{
-                        name: 'scratch-for-discord-bot',
-                        version: '1.0.0',
-                        main: 'bot.js',
-                        scripts: {
-                            "start": 'node .',
-                            "node-update": "npm i --save-dev node@16 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",
-                            "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i"
-                        },
-                        dependencies: {
-                            ${requires.join("\n")}
-                        },
-                        devDependencies: {
-                            "node": "^16.10.0"
-                        }
+                    zip.file("package.json", `{\n
+                        "name": 'scratch-for-discord-bot',\n
+                        "version": '1.0.0',\n
+                        "main": 'bot.js',\n
+                        "scripts": {\n
+                            "start": 'node .',\n
+                            "node-update": "npm i --save-dev node@16 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",\n
+                            "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i"\n
+                        },\n
+                        "dependencies": {\n
+                            ${requires.join("\n")}\n
+                        },\n
+                        "devDependencies": {\n
+                            "node": "^16.10.0"\n
+                        }\n
                     }`)
                     zip.generateAsync({
                         type: "blob"

@@ -14,6 +14,7 @@ import BlocklyComponent from "./components/BlocklyComponent.vue";
 
 
 
+
 Blockly.Tooltip.HOVER_MS = 100;
 
 // Load blocks
@@ -46,6 +47,9 @@ import "./blocks/cooldown/";
 import "./blocks/together/";
 import "./blocks/discord/attachment/";
 import "./blocks/discord/bot-event-2/";
+import "./blocks/date/";
+import "./blocks/regex/";
+import "./blocks/list/";
 //my events
 //channel
 import "./blocks/logs-events/channel/channel-permissions-update/";

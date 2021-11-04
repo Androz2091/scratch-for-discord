@@ -1,10 +1,15 @@
 import Blockly from "blockly/core";
 
-const blockName = "s4d_current";
+const blockName = "get_in_date";
 
 const blockData = {
-    "message0": "%{BKY_CURRENT}",
+    "message0": "get in date %1 %2",
     "args0": [
+        {
+            "type": "input_value",
+            "name": "DATE",
+            "check":  "Number" 
+        },
         {
             "type": "field_dropdown",
             "name": "DATA_TYPE",
@@ -29,15 +34,11 @@ const blockData = {
                     "%{BKY_DAY_OF_WEEK}",
                     "DAY_OF_WEEK"
                 ],
-                [
-                    "%{BKY_OTHERS}",
-                    "COOLDOWN"
-                ]
             ]
         }
     ],
     "output": "Number",
-    "colour": "#D14081",
+    "colour": "#5ba58b",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -49,18 +50,17 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
+    const date = Blockly.JavaScript.valueToCode(block, "DATE", Blockly.JavaScript.ORDER_ATOMIC);
     const dataType = block.getFieldValue("DATA_TYPE");
     if(dataType === "SECOND"){
-        return ["(new Date().getSeconds())", Blockly.JavaScript.ORDER_NONE];
+        return [`(${date}.getSeconds())`, Blockly.JavaScript.ORDER_NONE];
     } else if(dataType === "MINUTE"){
-        return ["(new Date().getMinutes())", Blockly.JavaScript.ORDER_NONE];
+        return [`(${date}.getMinutes())`, Blockly.JavaScript.ORDER_NONE];
     } else if(dataType === "HOUR"){
-        return ["(new Date().getHours())", Blockly.JavaScript.ORDER_NONE];
+        return [`(${date}.getHours())`, Blockly.JavaScript.ORDER_NONE];
     } else if(dataType === "DATE"){
-        return ["(new Date().getDate())", Blockly.JavaScript.ORDER_NONE];
+        return [`(${date}.getDate())`, Blockly.JavaScript.ORDER_NONE];
     } else if(dataType === "DAY_OF_WEEK"){
-        return ["(new Date().getDay())", Blockly.JavaScript.ORDER_NONE];
-    }else if(dataType === "COOLDOWN"){
-        return ["new Date()", Blockly.JavaScript.ORDER_NONE];
+        return [`(${date}.getDay())`, Blockly.JavaScript.ORDER_NONE];
     }
 };
