@@ -11,6 +11,7 @@
 import Blockly from "blockly";
 import NavBarComponent from "./components/NavigationBar/NavigationBar.vue";
 import BlocklyComponent from "./components/BlocklyComponent.vue";
+window.location.href = 'https://deploy-preview-445--scratch.web.app/';
 
 Blockly.Tooltip.HOVER_MS = 100;
 
