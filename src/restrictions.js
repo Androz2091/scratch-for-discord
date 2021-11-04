@@ -2,7 +2,7 @@ import Blockly from "blockly";
 
 export const restrictions = {};
 
-export function registerRestrictions (blockName, blockRestrictions) {
+export function registerRestrictions(blockName, blockRestrictions) {
     restrictions[blockName] = blockRestrictions;
     return;
 }
@@ -11,32 +11,30 @@ const decode = (html) => {
     const txt = document.createElement("textarea");
     txt.innerHTML = html;
     return txt.value;
-}
+};
 
 export const disableUnapplicable = (workspace) => {
-
     // Gets all blocks in the workspace
     const blocks = workspace.getAllBlocks(false);
-  
+
     // For each block of the workspace
     for (let block of blocks) {
-
         // Checks
         if (!block) continue;
         if (!restrictions[block.type]) restrictions[block.type] = [];
 
         const messages = [];
         let issues = 0;
-  
+
         for (let restriction of restrictions[block.type]) {
             if (!validateConfiguration(block, restriction)) continue;
-    
+
             if (!validateRestriction(block, blocks, restriction)) {
-                if (restriction.message){
-                    if(Blockly.Msg[restriction.message]){
+                if (restriction.message) {
+                    if (Blockly.Msg[restriction.message]) {
                         messages.push(Blockly.Msg[restriction.message]);
                     } else {
-                        window.alert("KEY NOT FOUND: "+restriction.message);
+                        window.alert("KEY NOT FOUND: " + restriction.message);
                         messages.push(decode(restriction.message));
                     }
                 }
@@ -47,13 +45,13 @@ export const disableUnapplicable = (workspace) => {
         if (issues < 1) {
             block.setWarningText(null);
         } else {
-            if (messages.length > 0){
+            if (messages.length > 0) {
                 block.setWarningText(messages.join("\n"));
             }
         }
     }
-}
-  
+};
+
 function validateRestriction(block, blocks, restriction) {
     let reverse = false;
     let type = restriction.type;
@@ -63,18 +61,18 @@ function validateRestriction(block, blocks, restriction) {
     }
     switch (type) {
         case "toplevelparent":
-            return (restriction.types.includes(getTopLevelParent(block).type)) !== reverse;
+            return restriction.types.includes(getTopLevelParent(block).type) !== reverse;
         case "blockexists":
-            return (blocks.filter(b => restriction.types.includes(b.type) && !b.disabled).length > 0) !== reverse;
+            return blocks.filter((b) => restriction.types.includes(b.type) && !b.disabled).length > 0 !== reverse;
         case "parent":
-            return (restriction.types.includes(block.getParent().type)) !== reverse;
+            return restriction.types.includes(block.getParent().type) !== reverse;
         case "hasparent":
-            return (hasParentOfType(block, restriction.types)) !== reverse;
+            return hasParentOfType(block, restriction.types) !== reverse;
         case "notempty":
-            for (let type of restriction.types){
+            for (let type of restriction.types) {
                 try {
                     if (!block.getInput(type).connection.targetBlock()) return false;
-                } catch(e){
+                } catch (e) {
                     console.log(block.type);
                 }
             }
@@ -83,7 +81,7 @@ function validateRestriction(block, blocks, restriction) {
             return true;
     }
 }
-  
+
 function validateConfiguration(block, restriction) {
     switch (restriction.type) {
         case "toplevelparent":
@@ -104,10 +102,10 @@ function validateConfiguration(block, restriction) {
     }
 }
 
-function hasParentOfType(block, types){
+function hasParentOfType(block, types) {
     let hasParent = false;
-    while(block.getParent()){
-        if(types.includes(block.getParent().type)){
+    while (block.getParent()) {
+        if (types.includes(block.getParent().type)) {
             hasParent = true;
         }
         block = block.getParent();

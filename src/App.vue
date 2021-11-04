@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
 import Blockly from "blockly";
 import NavBarComponent from "./components/NavigationBar/NavigationBar.vue";
 import BlocklyComponent from "./components/BlocklyComponent.vue";
@@ -33,7 +32,8 @@ import "./blocks/loops/";
 import "./blocks/other/";
 import "./prompt";
 
-import Theme from '@blockly/theme-modern';
+import Theme from "@blockly/theme-modern";
+import DarkTheme from "@blockly/theme-dark";
 
 export default {
     name: "app",
@@ -41,26 +41,27 @@ export default {
         BlocklyComponent,
         NavBarComponent
     },
-    beforeCreate(){
+    beforeCreate() {
         this.$root.$i18n.locale = this.$store.state.blocklyLocale;
     },
-    mounted(){
+    mounted() {
         if (!("ScratchNative" in window) && window.parent?.ScratchNative) window.ScratchNative = window.parent.ScratchNative;
-        const tourDone = localStorage.getItem('tourDone');
-        if (tourDone !== null) this.$store.commit('setTour', {
-            status: tourDone
-        });
-        const blocklyLocale = localStorage.getItem('blocklyLocale');
+        const tourDone = localStorage.getItem("tourDone");
+        if (tourDone !== null)
+            this.$store.commit("setTour", {
+                status: tourDone
+            });
+        const blocklyLocale = localStorage.getItem("blocklyLocale");
         if (blocklyLocale !== null) {
-            this.$store.commit('setLocale', {
+            this.$store.commit("setLocale", {
                 newLocale: blocklyLocale
             });
             this.setLanguage(blocklyLocale);
         }
 
-        if(!this.$store.state.tourDone){
+        if (!this.$store.state.tourDone) {
             this.$tours["start-tour"].start();
-            this.$store.commit('setTour', {
+            this.$store.commit("setTour", {
                 status: true
             });
         }
@@ -69,7 +70,7 @@ export default {
         return {
             options: {
                 renderer: "zelos",
-                theme: Theme,
+                theme: this.$store.state.theme === "light" ? Theme : DarkTheme,
                 zoom: {
                     controls: true,
                     startScale: 0.9,
@@ -80,39 +81,38 @@ export default {
             },
             vueTourOptions: {
                 labels: {
-                    buttonSkip: this.$t('tour.skip'),
-                    buttonPrevious: this.$t('tour.previous'),
-                    buttonNext: this.$t('tour.next'),
-                    buttonStop: this.$t('tour.finish')
+                    buttonSkip: this.$t("tour.skip"),
+                    buttonPrevious: this.$t("tour.previous"),
+                    buttonNext: this.$t("tour.next"),
+                    buttonStop: this.$t("tour.finish")
                 },
                 steps: [
                     {
-                        target: '#v-step-0',
-                        content: this.$t('tour.steps.load_examples'),
+                        target: "#v-step-0",
+                        content: this.$t("tour.steps.load_examples"),
                         params: {
                             enableScrolling: false
                         }
                     },
                     {
-                        target: '#v-step-1',
-                        content: this.$t('tour.steps.run_test'),
+                        target: "#v-step-1",
+                        content: this.$t("tour.steps.run_test"),
                         params: {
                             enableScrolling: false
                         }
                     },
                     {
-                        target: '#v-step-2',
-                        content: this.$t('tour.steps.export_code'),
+                        target: "#v-step-2",
+                        content: this.$t("tour.steps.export_code"),
                         params: {
                             enableScrolling: false
                         }
                     }
                 ]
             }
-        }
+        };
     }
-}
-
+};
 </script>
 
 <style>

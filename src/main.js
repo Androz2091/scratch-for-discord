@@ -1,20 +1,20 @@
-import Vue from 'vue';
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-import App from './App.vue';
-import autosave from './autosave'
-import store from './store';
-import VueSwal from 'vue-swal';
-import Vuei18n from 'vue-i18n';
+import Vue from "vue";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+import App from "./App.vue";
+import autosave from "./autosave";
+import store from "./store";
+import VueSwal from "vue-swal";
+import Vuei18n from "vue-i18n";
 import Blockly from "blockly";
-import VueToast from 'vue-toast-notification';
-import VueTour from 'vue-tour';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPowerOff } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import VueToast from "vue-toast-notification";
+import VueTour from "vue-tour";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faPowerOff)
+library.add(faPowerOff);
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.use(VueTour);
 Vue.use(VueToast);
@@ -24,15 +24,15 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 
 Vue.config.productionTip = false;
-Vue.config.ignoredElements = ["field","block","category","xml","mutation","value","sep"];
+Vue.config.ignoredElements = ["field", "block", "category", "xml", "mutation", "value", "sep"];
 
 import blocklyLocaleEN from "blockly/msg/en";
 import blocklyLocaleFR from "blockly/msg/fr";
 import blocklyLocalePT from "blockly/msg/pt";
 
-import customLocaleEN from './locales/en';
-import customLocaleFR from './locales/fr';
-import customLocalePT from './locales/pt';
+import customLocaleEN from "./locales/en";
+import customLocaleFR from "./locales/fr";
+import customLocalePT from "./locales/pt";
 
 const messages = {
     en: customLocaleEN.websiteMessages,
@@ -41,16 +41,23 @@ const messages = {
 };
 
 const i18n = new Vuei18n({
-    locale: (messages[navigator.language.split("-")[0]] ? navigator.language.split("-")[0] : "en"),
+    locale: messages[navigator.language.split("-")[0]] ? navigator.language.split("-")[0] : "en",
     messages: messages
 });
 
-import toolbox from "./toolbox";
-import Theme from '@blockly/theme-modern';
+import toolbox, { getToolbox } from "./toolbox";
+import Theme from "@blockly/theme-modern";
+import DarkTheme from "@blockly/theme-dark";
+import loadBlock from "./loadBlock";
 
 Vue.mixin({
     methods: {
-        reloadWorkspace(){
+        async reloadWorkspace() {
+            // load extension
+            const external = await window.ScratchNative?.loadBlocklyExtensions(getToolbox());
+            if (external) {
+                loadBlock(external.blocks);
+            }
             // Get current workspace
             const workspace = this.$store.state.workspace;
             // Convert it to a dom string
@@ -60,7 +67,7 @@ Vue.mixin({
             // Create a new workspace (with the good language)
             const newWorkspace = Blockly.inject(document.getElementById("blocklyDiv"), {
                 renderer: "zelos",
-                theme: Theme,
+                theme: this.$store.state.theme === "dark" ? DarkTheme : Theme,
                 grid: {
                     spacing: 25,
                     length: 3,
@@ -74,19 +81,21 @@ Vue.mixin({
                     minScale: 0.3,
                     scaleSpeed: 1.2
                 },
-                toolbox: toolbox(Blockly)
+                toolbox: toolbox(Blockly, external?.toolbox)
             });
             // And restore the blocks
             Blockly.Xml.domToWorkspace(dom, newWorkspace);
+
             // Update the workspace in the vuex store
             this.$store.commit("setWorkspace", {
                 workspace: newWorkspace
             });
             workspace.addChangeListener(Blockly.Events.disableOrphans);
+
             // Return the workspace
             return workspace;
         },
-        setLanguage(locale){
+        setLanguage(locale) {
             switch (locale) {
                 case "en":
                     // Change Blockly language for default blocks
@@ -116,8 +125,8 @@ Vue.mixin({
                     break;
             }
         },
-        getWorkspaceCode(){
-            if(!this.$store.state.workspace) return "";
+        getWorkspaceCode() {
+            if (!this.$store.state.workspace) return "";
             return `
                 (async()=>{
                 const Discord = require("discord.js");
@@ -149,17 +158,17 @@ Vue.mixin({
         }
     }
 });
-  
+
 new Vue({
     store,
-    render: h => h(App),
+    render: (h) => h(App),
     i18n,
     mounted() {
         autosave(this);
     }
 }).$mount("#app");
 
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-import 'vue-toast-notification/dist/theme-default.css';
-import 'vue-tour/dist/vue-tour.css';
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+import "vue-toast-notification/dist/theme-default.css";
+import "vue-tour/dist/vue-tour.css";

@@ -5,11 +5,11 @@
                 <b-row v-if="!electronApp">
                     <i18n path="run_modal.disabled" tag="h5">
                         <template v-slot:here>
-                            <a href="https://androz2091.github.io/scratch-for-discord/download/index.html" target="_blank">{{ $t('run_modal.here') }}</a>
+                            <a href="https://androz2091.github.io/scratch-for-discord/download/index.html" target="_blank">{{ $t("run_modal.here") }}</a>
                         </template>
                     </i18n>
                 </b-row>
-                <hr>
+                <hr />
                 <b-row>
                     <b-col sm="12" lg="8">
                         <div class="botinfos">
@@ -22,7 +22,7 @@
                     <b-col>
                         <div class="handlebuttondiv">
                             <b-overlay :show="botStarting" rounded opacity="0.6" spinner-small spinner-variant="primary" class="d-inline-block" ref="button" @hidden="onHidden">
-                                <b-button :class="getHandleButtonClass()" @click="handle()" v-b-tooltip.hover :title="getTooltipContent()" ><font-awesome-icon icon="power-off" /></b-button>
+                                <b-button :class="getHandleButtonClass()" @click="handle()" v-b-tooltip.hover :title="getTooltipContent()"><font-awesome-icon icon="power-off" /></b-button>
                             </b-overlay>
                         </div>
                     </b-col>
@@ -45,64 +45,64 @@ export default {
         };
     },
     computed: {
-        botAvatar: function(){
+        botAvatar: function () {
             return this.botRawAvatar || "https://cdn.discordapp.com/embed/avatars/0.png";
         },
-        electronApp: function(){
-            return typeof navigator === 'object' && typeof navigator.userAgent === 'string' && navigator.userAgent.indexOf('Electron') >= 0;
+        electronApp: function () {
+            return typeof navigator === "object" && typeof navigator.userAgent === "string" && navigator.userAgent.indexOf("Electron") >= 0 && Boolean(window.ScratchNative || window.parent?.ScratchNative);
         }
     },
     methods: {
-        getBotImageStyle(){
+        getBotImageStyle() {
             return {
-                'background-size': '50px',
-                'background-image': `url(${this.botAvatar})`,
-                width: '50px',
-                height: '50px',
-                'min-height': '50px',
-                'min-width': '50px',
-                'border-radius': '50%'
-            }
+                "background-size": "50px",
+                "background-image": `url(${this.botAvatar})`,
+                width: "50px",
+                height: "50px",
+                "min-height": "50px",
+                "min-width": "50px",
+                "border-radius": "50%"
+            };
         },
-        getUsernameSpanClass(){
-            return `botname ${!this.electronApp ? 'unselectable' : ''}`
+        getUsernameSpanClass() {
+            return `botname ${!this.electronApp ? "unselectable" : ""}`;
         },
-        getTooltipContent(){
-            return this.botStarted ? this.$t('run_modal.stop') : this.$t('run_modal.start');
+        getTooltipContent() {
+            return this.botStarted ? this.$t("run_modal.stop") : this.$t("run_modal.start");
         },
-        getHandleButtonClass(){
+        getHandleButtonClass() {
             return {
-                'btn': true,
-                'btn-block': true,
-                'handlebutton': true,
-                'btn-danger': this.botStarted,
-                'btn-success': !this.botStarted
-            }
+                btn: true,
+                "btn-block": true,
+                handlebutton: true,
+                "btn-danger": this.botStarted,
+                "btn-success": !this.botStarted
+            };
         },
-        start(){
+        start() {
             if (!("ScratchNative" in window)) return;
             this.botStarting = true;
             const finalCode = this.getWorkspaceCode();
             window.ScratchNative?.onMessage("executeCode", (event, result) => {
                 setTimeout(() => {
                     try {
-                        if(result.s4d.tokenInvalid) {
+                        if (result.s4d.tokenInvalid) {
                             console.error(result.s4d.tokenError);
                             this.botStarting = false;
                             this.botStarted = false;
                             this.$toast.open({
-                                message: result.s4d.tokenError || this.$t('run_modal.invalid_token'),
+                                message: result.s4d.tokenError || this.$t("run_modal.invalid_token"),
                                 type: "error",
                                 dismissible: true,
                                 duration: 10000,
                                 position: "top-right"
                             });
                             this.$bvModal.hide("run-modal");
-                        } else if(result.s4d.client && !result.s4d.client.readyTimestamp){
+                        } else if (result.s4d.client && !result.s4d.client.readyTimestamp) {
                             this.botStarting = false;
                             this.botStarted = false;
                             this.$toast.open({
-                                message: result.s4d.tokenError || this.$t('run_modal.error'),
+                                message: result.s4d.tokenError || this.$t("run_modal.error"),
                                 type: "error",
                                 dismissible: true,
                                 duration: 10000,
@@ -116,7 +116,7 @@ export default {
                 }, 5000);
             });
 
-            window.ScratchNative?.onMessage('clientReady', (event, client) => {
+            window.ScratchNative?.onMessage("clientReady", (event, client) => {
                 this.botStarting = false;
                 this.botStarted = true;
                 this.botRawAvatar = client.displayAvatarURL;
@@ -135,42 +135,34 @@ export default {
                 console.warn(`[S4D_WARN] ${message}`);
             });
 
-            window.ScratchNative?.onMessage('clientShardDisconnect', () => {
+            window.ScratchNative?.onMessage("clientShardDisconnect", () => {
                 this.botStarted = false;
                 this.s4d = null;
             });
 
             window.ScratchNative?.sendMessage("executeCode", finalCode);
         },
-        stop(){
+        stop() {
             window.ScratchNative?.sendMessage("destroyClient");
-            window.ScratchNative?.unregisterEvents([
-                "executeCode",
-                "clientShardDisconnect",
-                "clientWarn",
-                "clientError",
-                "clientDebug",
-                "clientReady"
-            ]);
+            window.ScratchNative?.unregisterEvents(["executeCode", "clientShardDisconnect", "clientWarn", "clientError", "clientDebug", "clientReady"]);
             this.botRawAvatar = null;
             this.botTag = null;
         },
-        handle(){
-            if(this.botStarted){
+        handle() {
+            if (this.botStarted) {
                 this.stop();
             } else {
                 this.start();
             }
         },
         onHidden() {
-            this.$refs.button.focus()
+            this.$refs.button.focus();
         }
     }
-}
+};
 </script>
 
 <style>
-
 .btn-space {
     margin-right: 5px;
 }
@@ -195,26 +187,25 @@ export default {
 .handlebuttondiv {
     margin-right: 0%;
     margin-left: 40%;
-    height:100%;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center
-
+    justify-content: center;
 }
 
 .handlebutton {
-    width:100px;
+    width: 100px;
 }
 
 #run-container:after {
     position: absolute;
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     z-index: 5; /* Make sure this value is higher than the .form class  */
     top: 0;
     left: 0;
-    background-color: rgb(169, 169, 169, 0.5)
+    background-color: rgb(169, 169, 169, 0.5);
 }
 
 .unselectable {
@@ -225,5 +216,4 @@ export default {
     -ms-user-select: none;
     user-select: none;
 }
-
 </style>

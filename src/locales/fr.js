@@ -3,7 +3,7 @@ import Blockly from "blockly";
 import blocklyMessages from "./fr-FR.json";
 
 export const applyBlocklyLocale = () => {
-    for(let key in blocklyMessages){
+    for (let key in blocklyMessages) {
         Blockly.Msg[key] = blocklyMessages[key];
     }
 };
@@ -30,6 +30,9 @@ export const websiteMessages = {
     },
     lang: {
         title: "Langue"
+    },
+    theme: {
+        title: "Theme"
     },
     examples: {
         title: "Exemples",
@@ -69,7 +72,7 @@ export const websiteMessages = {
         }
     },
     warnings: {
-        login_block: "Le block \"Connexion à Discord\" de la catégorie \"Base\" est obligatoire !"
+        login_block: 'Le block "Connexion à Discord" de la catégorie "Base" est obligatoire !'
     },
     run_modal: {
         title: "Appuyez sur démarrer pour tester votre bot!",
@@ -92,6 +95,6 @@ export const websiteMessages = {
 };
 
 export default {
-	applyBlocklyLocale,
-	websiteMessages
+    applyBlocklyLocale,
+    websiteMessages
 };
