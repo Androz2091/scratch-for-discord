@@ -70,7 +70,7 @@ export default {
 
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
-                await localforage.removeItem(fileName.replace('.s4d', ''));
+                localforage.removeItem(fileName.replace('.s4d', ''));
             });
         }
     }
