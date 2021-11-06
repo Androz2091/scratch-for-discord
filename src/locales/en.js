@@ -78,7 +78,8 @@ export const websiteMessages = {
         command_parsing: "commands handler",
         leveling: "XP and levels system",
         button: "Button and Button row example",
-        music: "Music Blocks example"
+        music: "Music Blocks example",
+	frostlevel: "Frost Level Example"
     },
     download: {
         title: "Download your bot",
