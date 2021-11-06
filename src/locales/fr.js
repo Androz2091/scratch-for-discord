@@ -45,7 +45,8 @@ export const websiteMessages = {
         command_parsing: "Traitement des commandes",
         leveling: "Système d'XP et niveaux",
         music: "Système de musique",
-        button: "Boutton et ligne de bouttons"
+        button: "Boutton et ligne de bouttons",
+	frostlevel: "Frost Exemple de niveau"
     },
     download: {
         title: "Télécharger votre bot",
