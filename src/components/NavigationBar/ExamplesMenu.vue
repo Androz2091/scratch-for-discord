@@ -17,7 +17,7 @@ import CommandParsingExample from "../../examples/command-parsing";
 import ServerPrefixExample from "../../examples/serverprefix";
 import LevelingExample from "../../examples/leveling";
 import MusicExample from "../../examples/music";
- FrostLevelExample from "../../examples/frostlevel";
+import FrostLevelExample from "../../examples/frostlevel";
 
 const examples = {
     "ping-pong": PingPongExample,
