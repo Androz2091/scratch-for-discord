@@ -5,8 +5,6 @@
         <b-dropdown-item @click="load('serverprefix')">{{ $t('examples.serverprefix') }}</b-dropdown-item>
         <b-dropdown-item @click="load('leveling')">{{ $t('examples.leveling') }}</b-dropdown-item>
         <b-dropdown-item @click="load('music')">{{ $t('examples.music') }}</b-dropdown-item>
-        <b-dropdown-item @click="load('frostlevel')">{{ $t('examples.frostlevel') }}</b-dropdown-item>
-    </b-nav-item-dropdown>
 </template>
 
 <script>
@@ -17,7 +15,6 @@ import CommandParsingExample from "../../examples/command-parsing";
 import ServerPrefixExample from "../../examples/serverprefix";
 import LevelingExample from "../../examples/leveling";
 import MusicExample from "../../examples/music";
-import FrostLevelExample from "../../examples/frostlevel";
 
 const examples = {
     "ping-pong": PingPongExample,
@@ -25,7 +22,6 @@ const examples = {
     "serverprefix": ServerPrefixExample,
     "leveling": LevelingExample,
     "music":MusicExample,
-    "frostlevel":FrostLevelExample
 };
 
 export default {
