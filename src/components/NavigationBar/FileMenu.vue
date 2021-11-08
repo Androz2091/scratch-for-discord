@@ -61,7 +61,7 @@ export default {
         save(){
             const zip = new JSZip();
             const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
-            const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, ' ')}.s4d`;
+            const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, " ")}.s4d`;
             zip.file("blocks.xml", xmlContent);
             zip.generateAsync({
                 type: "blob"
