@@ -182,7 +182,7 @@ export default `
 <statement name="DO0">
 <block type="s4d_create_embed_then" id="RtRfOXf:}4uN9hQga,D0">
 <statement name="THEN">
-<block type="s4d_create_embed_then_set_color" id="C#_$58_]q`P;SnG|=u(`">
+<block type="s4d_create_embed_then_set_color" id="C#_$58_]q\`P;SnG|=u(\`">
 <value name="COLOR">
 <block type="colour_random" id="pz9Re-+YEXDOEsl.WrD4"/>
 </value>
