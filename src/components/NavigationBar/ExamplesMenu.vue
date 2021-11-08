@@ -2,8 +2,10 @@
     <b-nav-item-dropdown id="v-step-0" :text="$t('examples.title')" right>
         <b-dropdown-item @click="load('ping-pong')">{{ $t('examples.ping_pong') }}</b-dropdown-item>
         <b-dropdown-item @click="load('command-parsing')">{{ $t('examples.command_parsing') }}</b-dropdown-item>
+        <b-dropdown-item @click="load('server-prefix)">{{ $t('examples.server_prefix') }}</b-dropdown-item>
         <b-dropdown-item @click="load('leveling')">{{ $t('examples.leveling') }}</b-dropdown-item>
         <b-dropdown-item @click="load('music')">{{ $t('examples.music') }}</b-dropdown-item>
+        <b-dropdown-item @click="load('image-gen')">{{ $t('examples.image_gen') }}</b-dropdown-item>
         <b-dropdown-item @click="load('frostlevel')">{{ $t('examples.frostlevel') }}</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
@@ -13,15 +15,19 @@ import Blockly from "blockly";
 
 import PingPongExample from "../../examples/ping-pong";
 import CommandParsingExample from "../../examples/command-parsing";
+import ServerPrefix from "../../examples/serverprefix";
 import LevelingExample from "../../examples/leveling";
 import MusicExample from "../../examples/music";
+import ImageGen from "../../examples/image_gen";
 import FrostLevelExample from "../../examples/frostlevel";
 
 const examples = {
     "ping-pong": PingPongExample,
     "command-parsing": CommandParsingExample,
+    "server-prefix": ServerPrefix,
     "leveling": LevelingExample,
     "music":MusicExample,
+    "image-gen":ImageGen,
     "frostlevel":FrostLevelExample
 };
 
