@@ -1,4 +1,4 @@
 
 import Blockly from "blockly/core";
 
-const blockName = "akinator";
+const blockName = "timezone";
