@@ -1,11 +1,11 @@
 
 import Blockly from "blockly/core";
 
-const blockName = "timezone";
+const blockName = "s4d_timezone";
 
 
 const blockData = {
-    "message0": "%{TIMEZONE}",
+    "message0": "%{BKY_TIMEZONE}",
     "args0": [
         {
             "type": "field_dropdown",
