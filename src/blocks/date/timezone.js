@@ -1,7 +1,7 @@
 
 import Blockly from "blockly/core";
 
-const blockName = "s4d_timezone";
+const blockName = "s4d_timezone%1";
 
 
 const blockData = {
