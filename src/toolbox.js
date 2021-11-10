@@ -450,6 +450,15 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_reaction_wait_added_reaction">
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">5</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_wait_react_emoji_id"></block>
+            <block type="s4d_wait_react_emoji_name"></block>
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
@@ -483,6 +492,16 @@ export default (Blockly) => {
             <block type="s4d_react_message_id"></block>
             <block type="s4d_react_emoji"></block>
             <block type="s4d_react_member"></block>
+        </category>
+        <category name="{{ TOOLBLOX_E_ADDED }}" colour="#0000cc">
+        <label text="%{BKY_ADDED_RELATED_BLOCKS}" web-class="boldtext"></label>
+        <label text="%{BKY_DETECT_ADDED}"></label>
+        <block type="s4d_on_added"></block>
+        <label text="%{BKY_ADDED_INFORMATIONS}"></label>
+        <block type="s4d_add_server_id"></block> 
+        <block type="s4d_add_server_name"></block>
+        <block type="s4d_add_server_icon"></block>
+        <block type="s4d_add_server_owner"/>
         </category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
@@ -528,6 +547,7 @@ export default (Blockly) => {
 
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
             <block type="s4d_create_channel"></block>
+            <block type="s4d_delete_channel"></block>
         </category>
         <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
             <label text="%{BKY_FIND_ROLE}"></label>
@@ -535,7 +555,10 @@ export default (Blockly) => {
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
             <block type="s4d_add_role"></block>
             <block type="s4d_remove_role"></block>
-        </category>
+            <block type="s4d_delete_role"></block>
+            <block type="s4d_has_role"></block>
+            <block type="s4d_create_role"></block>
+        </category> 
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
@@ -544,6 +567,7 @@ export default (Blockly) => {
             <block type="s4d_member_discriminator"></block>
             <block type="s4d_member_tag"></block>
             <block type="s4d_member_username"></block>
+            <block type="s4d_member_icon"></block>
             <block type="s4d_member_has_permission"></block>
             <block type="s4d_member_is_bot"></block>
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>

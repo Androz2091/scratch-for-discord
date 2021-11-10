@@ -101,6 +101,7 @@ Blockly.JavaScript["s4d_message_embed"] = function(block){
                 footer: { text: ${Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC) || null} },
                 thumbnail: { url: ${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC) || null} }
 
+
             }
         }
     `, Blockly.JavaScript.ORDER_ATOMIC ];
