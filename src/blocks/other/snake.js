@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "s4d_snake";
 
 const blockData = {
-    "message0": "%{Create Snake Game%1}",
+    "message0": "Create a Snake Game",
     "args0": [],
     "colour": "#D14081",
     "previousStatement": null,
