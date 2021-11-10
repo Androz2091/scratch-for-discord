@@ -416,7 +416,8 @@ export default (Blockly,value) => {
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
-            <block type="anti_link"/>
+            <block type="s4d_snake"/>
+	    <block type="anti_link"/>
             <block type="s4d_print"></block>
             <block type="s4d_run_save_output"></block>
             <block type="s4d_wait_seconds">
