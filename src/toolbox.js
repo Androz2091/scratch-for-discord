@@ -446,7 +446,7 @@ export default (Blockly,value) => {
                     <block type="unix_to_date"/>
                     <block type="date_to_unix"/>
                     <block type="get_in_date"/>
-		    <block type="s4d_timezone"/>
+		    
                 </category>
                 <category name="RegEx" colour="#00664d">
                     <block type="new_regex"/>
