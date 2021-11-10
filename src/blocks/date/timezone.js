@@ -5,7 +5,7 @@ const blockName = "s4d_timezone";
 
 
 const blockData = {
-    "message0": "%{s4d_timezone}",
+    "message0": "%{BKY_TIMEZONE}",
     "args0": [
         {
             "type": "field_dropdown",
