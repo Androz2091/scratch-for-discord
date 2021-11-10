@@ -5,7 +5,7 @@ const blockName = "timezone";
 
 
 const blockData = {
-    "message0": "%{BKY_CURRENT}",
+    "message0": "%{TIMEZONE}",
     "args0": [
         {
             "type": "field_dropdown",
@@ -122,4 +122,62 @@ const blockData = {
     "colour": "#5ba58b",
     "tooltip": "",
     "helpUrl": ""
+};
+Blockly.Blocks[blockName] = {
+    init: function() {
+        this.jsonInit(blockData);
+    }
+};
+
+Blockly.JavaScript[blockName] = function(block) {
+    const dataType = block.getFieldValue("DATA_TYPE");
+    if(dataType === "UTC+1"){
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+    } else if(dataType === "UTC+2"){
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+    } else if(dataType === "UTC+3"){
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+    } else if(dataType === "UTC+4"){
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+    } else if(dataType === "UTC+6"){
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC+7"){
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC+8"){
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC+9"){
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC+10"){
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-1"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-2"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-3"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-4"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-5"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-6"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-7"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-8"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-9"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-10"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-11"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC-12"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC+11"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UTC+12"){
+        return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }
 };
