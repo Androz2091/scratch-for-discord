@@ -20,7 +20,14 @@ import "./blocks/discord/base/";
 import "./blocks/discord/message-event/";
 import "./blocks/discord/join-event/";
 import "./blocks/discord/leave-event/";
+import "./blocks/discord/invite";
 import "./blocks/discord/reaction-event/";
+import "./blocks/discord/edited-event/";
+import "./blocks/discord/typing-event";
+import "./blocks/discord/thread-event";
+import "./blocks/discord/events";
+import "./blocks/discord/direct";
+import "./blocks/discord/slash";
 
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";
@@ -31,9 +38,11 @@ import "./blocks/database/";
 import "./blocks/text/";
 import "./blocks/loops/";
 import "./blocks/other/";
+import "./blocks/request";
+import "./blocks/time";
 import "./prompt";
 
-import Theme from '@blockly/theme-modern';
+import Theme from './theme';
 
 export default {
     name: "app",
@@ -76,6 +85,14 @@ export default {
                     maxScale: 3,
                     minScale: 0.3,
                     scaleSpeed: 1.2
+                },
+                move: {
+                    scrollbars: {
+                        horizontal:true,
+                        vertical:true
+                    },
+                    drag:true,
+                    wheel:true
                 }
             },
             vueTourOptions: {
@@ -126,7 +143,7 @@ export default {
 #blocklySpace {
     position: absolute;
     width: 100%;
-    height: 94%;
+    height: calc(100% - 66px);
 }
 
 .boldtext {

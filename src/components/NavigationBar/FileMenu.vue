@@ -10,7 +10,6 @@
 <script>
 import Blockly from "blockly";
 import JSZip from "jszip";
-import localforage from "localforage"
 
 export default {
     name: "filemenu",
@@ -58,19 +57,16 @@ export default {
             zip.generateAsync({
                 type: "blob"
             })
-            .then(async (blob) => {
+            .then((blob) => {
                 const a = document.createElement("a");
                 a.style = "display: none";
                 document.body.appendChild(a);
-
                 const url = window.URL.createObjectURL(blob);
                 a.href = url;
                 a.download = fileName;
                 a.click();
-
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
-                await localforage.removeItem(fileName.replace('.s4d', ''));
             });
         }
     }

@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import App from './App.vue';
-import autosave from './autosave'
 import store from './store';
 import VueSwal from 'vue-swal';
 import Vuei18n from 'vue-i18n';
@@ -27,17 +26,11 @@ Vue.config.productionTip = false;
 Vue.config.ignoredElements = ["field","block","category","xml","mutation","value","sep"];
 
 import blocklyLocaleEN from "blockly/msg/en";
-import blocklyLocaleFR from "blockly/msg/fr";
-import blocklyLocalePT from "blockly/msg/pt";
 
 import customLocaleEN from './locales/en';
-import customLocaleFR from './locales/fr';
-import customLocalePT from './locales/pt';
 
 const messages = {
-    en: customLocaleEN.websiteMessages,
-    fr: customLocaleFR.websiteMessages,
-    pt: customLocalePT.websiteMessages
+    en: customLocaleEN.websiteMessages
 };
 
 const i18n = new Vuei18n({
@@ -62,8 +55,8 @@ Vue.mixin({
                 renderer: "zelos",
                 theme: Theme,
                 grid: {
-                    spacing: 25,
-                    length: 3,
+                    spacing: 9,
+                    length: 30,
                     colour: "#ccc",
                     snap: true
                 },
@@ -96,35 +89,21 @@ Vue.mixin({
                     // Change website languages (navbar, etc...)
                     this.$root.$i18n.locale = "en";
                     break;
-                case "fr":
-                    // Change Blockly language for default blocks
-                    Blockly.setLocale(blocklyLocaleFR);
-                    // Change Blockly language for custom blocks
-                    customLocaleFR.applyBlocklyLocale();
-                    // Change website languages (navbar, etc...)
-                    this.$root.$i18n.locale = "fr";
-                    break;
-                case "pt":
-                    // Change Blockly language for default blocks
-                    Blockly.setLocale(blocklyLocalePT);
-                    // Change Blockly language for custom blocks
-                    customLocalePT.applyBlocklyLocale();
-                    // Change website languages (navbar, etc...)
-                    this.$root.$i18n.locale = "pt";
-                    break;
-                default:
-                    break;
             }
         },
         getWorkspaceCode(){
             if(!this.$store.state.workspace) return "";
             return `
                 (async()=>{
-                const Discord = require("discord.js");
-                const Database = require("easy-json-database");
-                const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
-                const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-                const s4d = {
+                const Discord = require("discord.js"),
+                Database = require("easy-json-database"),
+                request = require('request'),
+                os = require("os"),
+                process = require("process"),
+                pidusage = require("pidusage"),
+                devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV,
+                delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+                s4d = {
                     Discord,
                     database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/db.json\`),
                     joiningMember:null,
@@ -138,7 +117,7 @@ Vue.mixin({
                 };
                 s4d.client = new s4d.Discord.Client({
                     intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
-                    partials: ["REACTION"]
+                    partials: ["REACTION", "CHANNEL"]
                 });
 
                 ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
@@ -153,10 +132,7 @@ Vue.mixin({
 new Vue({
     store,
     render: h => h(App),
-    i18n,
-    mounted() {
-        autosave(this);
-    }
+    i18n
 }).$mount("#app");
 
 import 'bootstrap/dist/css/bootstrap.css';
