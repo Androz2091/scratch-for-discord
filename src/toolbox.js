@@ -438,14 +438,7 @@ export default (Blockly,value) => {
                     </category>
 				<sep class="bt"/>
 				
-				<category name="{{ XL83 }}" colour="#00664d">
-		<category name="date" colour="#00664d">
-		    <block type="s4d_current"></block>
-                    <block type="unix_to_date"/>
-                    <block type="date_to_unix"/>
-                    <block type="get_in_date"/>
-		    <block type="timezone"/>
-		</category>
+				
 				
 				<category name="{{ JOSE }}" colour="#00664d">
                 <category name="date" colour="#00664d">
@@ -453,6 +446,7 @@ export default (Blockly,value) => {
                     <block type="unix_to_date"/>
                     <block type="date_to_unix"/>
                     <block type="get_in_date"/>
+		    <block type="timezone"/>
                 </category>
                 <category name="RegEx" colour="#00664d">
                     <block type="new_regex"/>
