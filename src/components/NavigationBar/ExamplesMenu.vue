@@ -25,8 +25,7 @@ const examples = {
     "leveling": LevelingExample,
     "music":MusicExample,
     "image-gen": ImageGen,
-    "economy": Economy,
-    "image-gen": ImageGen
+    "economy": Economy
 };
 
 export default {
