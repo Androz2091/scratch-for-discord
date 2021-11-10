@@ -5,7 +5,7 @@ const blockName = "s4d_timezone";
 
 
 const blockData = {
-    "message0": "%{BKY_TIMEZONE}",
+    "message0": "%{s4d_timezone}",
     "args0": [
         {
             "type": "field_dropdown",
@@ -123,6 +123,7 @@ const blockData = {
     "tooltip": "",
     "helpUrl": ""
 };
+
 Blockly.Blocks[blockName] = {
     init: function() {
         this.jsonInit(blockData);
