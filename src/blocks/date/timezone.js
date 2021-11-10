@@ -152,34 +152,34 @@ Blockly.JavaScript[blockName] = function(block) {
     }else if(dataType === "UTC"){
         return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/UTC' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-1"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-1' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-2"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-2' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-3"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-3' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-4"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-4' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-5"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-5' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-6"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-6' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-7"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-7' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-8"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-8' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-9"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-9' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-10"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-10' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-11"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-11' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC-12"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT-12' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC+11"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+11' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC+12"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+12' }))", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC+5"){
-        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+1' }))", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().toLocaleString('en-US', { timeZone: 'Etc/GMT+5' }))", Blockly.JavaScript.ORDER_NONE];
     }
 };
