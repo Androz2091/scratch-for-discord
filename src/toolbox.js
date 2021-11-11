@@ -420,7 +420,7 @@ export default (Blockly,value) => {
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
         
             <block type="anti_link"/>
-	    <block type="Akinator"/>
+	  
             <block type="s4d_print"></block>
             <block type="s4d_run_save_output"></block>
             <block type="s4d_wait_seconds">
