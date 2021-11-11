@@ -418,8 +418,7 @@ export default (Blockly,value) => {
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
-            <block type="s4d_snake"/>
-	    <block type="ran_red_post"/>
+   
 	    <block type="anti_link"/>
             <block type="s4d_print"></block>
             <block type="s4d_run_save_output"></block>
@@ -443,10 +442,10 @@ export default (Blockly,value) => {
 				<sep class="bt"/>
 				
 				<category name="XL83 Category" colour="#5b80a5">
-				 <category name="Games" colour="#00664d">
+				 <category name="Games" colour="#5b80a5">
 					<block type="s4d_snake"/>
 					</category>
-				<category name="Reddit" colour="#00664d">
+				<category name="Reddit" colour="#5b80a5">
 					 <block type="ran_red_post"/>
 					  </category>
 	  				</category>
