@@ -79,7 +79,8 @@ export const websiteMessages = {
         leveling: "XP and levels system",
         button: "Button and Button row example",
         music: "Music Blocks example",
-	frostlevel: "Frost Level Example"
+        image_gen: "Image Generator Example",
+        economy: "Economy Example"
     },
     download: {
         title: "Download your bot",

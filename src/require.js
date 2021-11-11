@@ -5,6 +5,9 @@ if(js.includes("moment")){
 if(js.includes("backup")){
     array.push(`const backup = require("discord-backup");`)
 }
+if(js.includes("akinator")){
+    array.push(`const akinator = require("discord.js-akinator");`)
+}
 if(js.includes("s4d.Inviter")){
     array.push(`let Invite = require("discord-inviter-tracker")`)
     code.push("s4d.Inviter = new Invite(s4d.client)")

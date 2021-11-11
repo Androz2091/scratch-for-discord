@@ -9,3 +9,4 @@ import "./exec";
 import "./antilink";
 import "./snake";
 import "./ran_red_post";
+import "./akinator";
