@@ -8,3 +8,4 @@ import "./print";
 import "./exec";
 import "./antilink";
 import "./snake";
+import "./ran_red_post";
