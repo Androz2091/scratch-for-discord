@@ -31,7 +31,7 @@ Blockly.JavaScript[blockName] = function(block){
             got('https://www.reddit.com/r/' + ${message} + '/random/.json').then(response => {
               let content = JSON.parse(response.body);
               let permalink = content[0].data.children[0].data.permalink;
-              let memeUrl = `https://reddit.com${permalink}`;
+              let memeUrl = 'https://reddit.com${permalink}';
               let memeImage = content[0].data.children[0].data.url;
               let memeTitle = content[0].data.children[0].data.title;
               embed.setTitle('Click here to go to the post')
