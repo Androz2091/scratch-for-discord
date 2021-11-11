@@ -7,4 +7,4 @@ import "./text_to_number";
 import "./print";
 import "./exec";
 import "./antilink";
-import "./akinator";
+

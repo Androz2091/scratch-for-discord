@@ -106,6 +106,26 @@ export default {
                             "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i"\n
                         },\n
                         "dependencies": {\n
+                             "anti-link-for-discord": "^5.0.0",\n
+                             "canvas": "^2.8.0",\n
+                             "discord-backup": "^3.0.1",\n
+                             "discord-badges": "0.0.0",\n
+                             "discord-canvas": "^1.4.1",\n
+                             "discord-giveaways": "^5.0.1",\n
+                             "discord-images": "^0.1.6",\n
+                             "discord-inviter-tracker": "^1.0.3",\n
+                             "discord-logs": "^2.0.1",\n
+                             "discord-player": "^5.1.0",\n
+                             "discord-tictactoe": "^2.1.1",\n
+                             "discord-together": "^1.3.1",\n
+                             "discord.js": "^13.2.0",\n
+                             "djs-games": "^2.1.10",\n
+                             "easy-json-database": "^1.5.0",\n
+                             "moment": "^2.29.1",\n
+                             "ms": "^2.1.3",\n
+                             "quickmongo": "^4.0.0",\n
+                             "snakecord": "^1.0.9",\n
+                            "youtube-notification-module": "^1.1.0"\n
                             ${requires.join("\n")}\n
                         },\n
                         "devDependencies": {\n

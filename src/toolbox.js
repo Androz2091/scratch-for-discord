@@ -1,7 +1,9 @@
 export default (Blockly,value) => {
     return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-        <category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
+        
+	
+	<category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
             <block type="controls_if" />
             <block type="logic_compare">
                 <field name="OP">EQ</field>
@@ -416,8 +418,9 @@ export default (Blockly,value) => {
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
+        
             <block type="anti_link"/>
-	    <block type="Akinator"/>
+	  
             <block type="s4d_print"></block>
             <block type="s4d_run_save_output"></block>
             <block type="s4d_wait_seconds">
@@ -433,17 +436,30 @@ export default (Blockly,value) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
         </category>
+	 <category name="Games" colour="#D14081">
+	 				<block type="Akinator"/>
+					<block type="s4d_snake"/>
+					</category>
+				<category name="Reddit" colour="#5b80a5">
+					 <block type="ran_red_post"/>
+					  </category>
                 <sep class="bt"/>
                     <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
                         ${value === null ? "" : value.map(c=> `<block type="${c}"/>`)}
                     </category>
 				<sep class="bt"/>
+				
+				
+				
+	  			
+				
 				<category name="{{ JOSE }}" colour="#00664d">
                 <category name="date" colour="#00664d">
                     <block type="s4d_current"></block>
                     <block type="unix_to_date"/>
                     <block type="date_to_unix"/>
                     <block type="get_in_date"/>
+		    
                 </category>
                 <category name="RegEx" colour="#00664d">
                     <block type="new_regex"/>
