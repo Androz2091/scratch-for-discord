@@ -27,13 +27,13 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const message = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
     return ` const got = require('got')
-             let embed = new Discord.MessageEmbed();
+             var embed = new Discord.MessageEmbed();
             got('https://www.reddit.com/r/' + ${message} + '/random/.json').then(response => {
-              let content = JSON.parse(response.body);
-              let permalink = content[0].data.children[0].data.permalink;
-              let memeUrl = 'https://reddit.com' + permalink;
-              let memeImage = content[0].data.children[0].data.url;
-              let memeTitle = content[0].data.children[0].data.title;
+              var content = JSON.parse(response.body);
+              var permalink = content[0].data.children[0].data.permalink;
+              var memeUrl = 'https://reddit.com' + permalink;
+              var memeImage = content[0].data.children[0].data.url;
+              var memeTitle = content[0].data.children[0].data.title;
               embed.setTitle('Click here to go to the post')
               embed.setURL(memeUrl);
               embed.setDescription(memeTitle);
