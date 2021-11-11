@@ -443,9 +443,13 @@ export default (Blockly,value) => {
 				<sep class="bt"/>
 				
 				<category name="XL83 Category" colour="#5b80a5">
-		<block type="s4d_snake"/>
-	    <block type="ran_red_post"/>
-	  </category>
+				 <category name="Games" colour="#00664d">
+					<block type="s4d_snake"/>
+					</category>
+				<category name="Reddit" colour="#00664d">
+					 <block type="ran_red_post"/>
+					  </category>
+	  				</category>
 				
 				<category name="{{ JOSE }}" colour="#00664d">
                 <category name="date" colour="#00664d">
