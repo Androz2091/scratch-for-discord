@@ -3,13 +3,13 @@ import * as Blockly from "blockly/core";
 const blockName = "ran_red_post";
 
 const blockData = {
-    "message0": "Send random reddit post from r/%1",
+    "message0": "Get random reddit post from r/%1",
     "args0": [
         {
-            "type": "input_value",
-            "name": "MESSAGE",
-            "check": [ "Number", "String" ]
-        }
+          "type": "input_value",
+          "name": "MESSAGE",
+          "check": [ "Number", "String" ]
+        },
     ],
     "colour": "#D14081",
     "previousStatement": null,
@@ -17,6 +17,7 @@ const blockData = {
     "tooltip": "",
     "helpUrl": ""
 };
+
 
 Blockly.Blocks[blockName] = {
     init: function() {
@@ -31,16 +32,8 @@ Blockly.JavaScript[blockName] = function(block){
             got('https://www.reddit.com/r/' + ${message} + '/random/.json').then(response => {
               var content = JSON.parse(response.body);
               var permalink = content[0].data.children[0].data.permalink;
-              var memeUrl = 'https://reddit.com' + permalink;
-              var memeImage = content[0].data.children[0].data.url;
-              var memeTitle = content[0].data.children[0].data.title;
-              embed.setTitle('Click here to go to the post')
-              embed.setURL(memeUrl);
-              embed.setDescription(memeTitle);
-              embed.setImage(memeImage);
-              embed.setColor('RANDOM');
-              (s4dmessage.channel).send({
-                embeds: [embed]
-              });
+              var postUrl = 'https://reddit.com' + permalink;
+              var postImage = content[0].data.children[0].data.url;
+              var postTitle = content[0].data.children[0].data.title;
             })`;
 };
