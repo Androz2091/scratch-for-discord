@@ -46,7 +46,10 @@ export const websiteMessages = {
         leveling: "Système d'XP et niveaux",
         music: "Système de musique",
         button: "Boutton et ligne de bouttons",
-	frostlevel: "Frost Exemple de niveau"
+	image_gen : "Exemple de générateur d'images",
+      economy : "Exemple d'économie", aki : "Exemple d'Akinator",
+      backup : "Exemple de sauvegarde",
+      random : "Exemple de réponse aléatoire"
     },
     download: {
         title: "Télécharger votre bot",

@@ -80,7 +80,10 @@ export const websiteMessages = {
         button: "Button and Button row example",
         music: "Music Blocks example",
         image_gen: "Image Generator Example",
-        economy: "Economy Example"
+        economy: "Economy Example",
+          aki:"Akinator Example",
+      backup:"Backup Example",
+      random:"Random Response Example"
     },
     download: {
         title: "Download your bot",
