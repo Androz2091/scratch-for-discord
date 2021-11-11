@@ -81,6 +81,9 @@ if(js.includes("s4d.client.discordTogether")){
     array.push(`const { DiscordTogether } = require('discord-together');`)
     code.push(`s4d.client.discordTogether = new DiscordTogether(s4d.client);`)
 }
+ if(js.includes("SnakeGame")){
+    array.push(`const SnakeGame = require('snakecord')`)
+}
 if(js.includes("Cooldown")){
     code.push(`let Cooldown = ""
     if(s4d.database.has('cooldown')){
