@@ -436,20 +436,22 @@ export default (Blockly,value) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
         </category>
+	 <category name="Games" colour="#D14081">
+	 				<block type="Akinator"/>
+					<block type="s4d_snake"/>
+					</category>
+				<category name="Reddit" colour="#5b80a5">
+					 <block type="ran_red_post"/>
+					  </category>
                 <sep class="bt"/>
                     <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
                         ${value === null ? "" : value.map(c=> `<block type="${c}"/>`)}
                     </category>
 				<sep class="bt"/>
 				
-				<category name="XL83 Category" colour="#5b80a5">
-				 <category name="Games" colour="#5b80a5">
-					<block type="s4d_snake"/>
-					</category>
-				<category name="Reddit" colour="#5b80a5">
-					 <block type="ran_red_post"/>
-					  </category>
-	  				</category>
+				
+				
+	  			
 				
 				<category name="{{ JOSE }}" colour="#00664d">
                 <category name="date" colour="#00664d">
