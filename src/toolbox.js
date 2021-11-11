@@ -1,7 +1,7 @@
 export default (Blockly,value) => {
     return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-        <category name="{{ TOOLBOX_XL83 }}" colour="#5b80a5">
+        <category name="XL83 Category" colour="#5b80a5">
 		<block type="s4d_snake"/>
 	    <block type="ran_red_post"/>
 	  </category>
