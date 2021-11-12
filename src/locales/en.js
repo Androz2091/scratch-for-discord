@@ -80,8 +80,7 @@ export const websiteMessages = {
         button: "Button and Button row example",
         music: "Music Blocks example",
         image_gen: "Image Generator Example",
-        economy: "Economy Example",
-	reddit: "Reddit Example"
+        economy: "Economy Example"
     },
     download: {
         title: "Download your bot",
