@@ -18,6 +18,7 @@ import LevelingExample from "../../examples/leveling";
 import MusicExample from "../../examples/music";
 import ImageGen from "../../examples/image_gen";
 import Economy from "../../examples/economy";
+import reddit from "../../examples/reddit"
 
 const examples = {
     "ping-pong": PingPongExample,
@@ -25,7 +26,8 @@ const examples = {
     "leveling": LevelingExample,
     "music":MusicExample,
     "image-gen": ImageGen,
-    "economy": Economy
+    "economy": Economy,
+    "reddit": reddit
 };
 
 export default {
