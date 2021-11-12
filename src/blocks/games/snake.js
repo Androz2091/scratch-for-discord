@@ -21,8 +21,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function() {
     const code = `
-            const { Snake } = require('djs-games');
-            
             const snakeGame = new SnakeGame({
                 title: 'Snake Game',
                 color: 'GREEN',
