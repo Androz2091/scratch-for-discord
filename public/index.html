@@ -17,70 +17,90 @@
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Lato:wght@900&family=Oswald&family=Roboto+Slab&display=swap" rel="stylesheet">
 
         <meta name="google-site-verification" content="cpALYx5PHSXOgLtp-1pxqyELC6zIekO0RDQnWmFvhXI" />
-        <style>
-						.blocklyTreeSeparator {
-								border-bottom: solid #343434 1px;
-								height: 0;
-								margin: 5px 0;
-						}
-                        .blocklyTreeIcon {
-filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
-}
-#blocklyTreeIcon {
-filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
-}
-.blocklyTreeIconClosed {
-filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%)!important;
-}
-#blocklyTreeIconClosed {
-filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
-}
+        
+	<style>
+		.blocklyTreeSeparator {
+			border-bottom: solid #343434 1px;
+			height: 0;
+			margin: 4px 0;
+		}
+		
+                 .blocklyTreeIcon {
+			filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
+		}
+		
+		#blocklyTreeIcon {
+			filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
+		}
+		
+		.blocklyTreeIconClosed {
+		filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%)!important;
+		}
+		
+		#blocklyTreeIconClosed {
+		filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
+		}
 
-.customIcon {
-  color: yellow;
-}
-/* Makes our label white. */
-.blocklyTreeLabel {
-  color: white;
-}
-/* Adds padding around the group of categories and separators. */
-.blocklyToolboxContents {
-  padding: 3px;
-}
-/* Adds space between the categories, rounds the corners and adds space around the label. */
-.blocklyTreeRow {
-  padding: 0px;
-  margin-bottom: 3px;
-  border-radius: 4px;
-}
-						.bt {
-								border-bottom: solid #343434 1px;
-								height: 0;
-								margin: 5px 0;
-						}
-                        body{
-                            font-family: 'lato', sans-serif;
-                        }
-            ::-webkit-scrollbar {
-                width: 1px;
-                height: 1px;
-            }
-            ::-webkit-scrollbar-thumb {
-                background: #6b6d70;
-            }
+		.customIcon {
+		  color: yellow;
+		}
 
-            ::-webkit-scrollbar-corner {
-                background-color: #161719;
-                color: #161719;
-            }
-        </style>
-    </head>
-    <body>
-        <noscript>
-            <strong>We're sorry but Scratch For Discord doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-        </noscript>
-        <div id="app"></div>
-        <!-- built files will be auto injected -->
-        <script async defer data-website-id="bcf39955-5495-4aba-bb44-4c392778a96c" src="https://analytics.androz2091.fr/umami.js"></script>
+		/* Makes our label white. */
+		.blocklyTreeLabel {
+		  color: white;
+		}
+
+		/* Adds padding around the group of categories and separators. */
+		.blocklyToolboxContents {
+		  padding: 3px;
+		}
+
+		/* Adds space between the categories, adds space around the label. */
+		.blocklyTreeRow {
+		  padding: 0px;
+		  margin-bottom: 3px;
+		}
+/* Adds cool animations to the categories */
+        .blocklyTreeRow:hover {
+		  border-radius: 4px;
+        }
+	
+	 .blocklyTreeRow:checked {
+		  border-radius: 4.5px;
+        }
+
+        .bt {
+		  border-bottom: solid #343434 1px;
+		  height: 0;
+		  margin: 5px 0;
+		}
+
+		body {
+		font-family: sans-serif;
+        }
+		
+        ::-webkit-scrollbar {
+			width: 1px;
+			height: 1px;
+		}
+			
+		::-webkit-scrollbar-thumb {
+			background: #6b6d70;
+		}
+
+		::-webkit-scrollbar-corner {
+			background-color: #161719;
+			color: #161719;
+	    }
+		</style>
+	</head>
+    
+	<body>
+		<noscript>
+	    	<strong>We're sorry but Scratch For Discord doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+		</noscript>
+		<div id="app"></div>
+		<!-- built files will be auto injected -->
+		<script async defer data-website-id="bcf39955-5495-4aba-bb44-4c392778a96c" src="https://analytics.androz2091.fr/umami.js"></script>
     </body>
 </html>
