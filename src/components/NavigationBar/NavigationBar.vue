@@ -106,7 +106,7 @@ export default {
                             "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i"\n
                         },\n
                         "dependencies": {\n
-                            ${requires.join("\n                           ")}\n
+                            ${requires.join("\n                            ")}
                             "djs-games": "^2.1.10"\n
                         },\n
                         "devDependencies": {\n
