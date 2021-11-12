@@ -442,6 +442,9 @@ export default (Blockly,value) => {
 					</category>
 				<category name="Reddit" colour="#5b80a5">
 					 <block type="ran_red_post"/>
+					  <block type="post_Image"/>
+					   <block type="post_Title"/>
+					    <block type="post_Url"/>
 					  </category>
                 <sep class="bt"/>
                     <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
