@@ -26,7 +26,6 @@ const examples = {
     "music":MusicExample,
     "image-gen": ImageGen,
     "economy": Economy,
-    "reddit": reddit,
 
 };
 
