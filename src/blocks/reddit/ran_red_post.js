@@ -2,18 +2,19 @@ import * as Blockly from "blockly/core";
 
 const blockName = "ran_red_post";
 
+
 const blockData = {
-    "message0": "Get random reddit post from r/%1",
+    "message0": "Get random Reddit post from r/%1",
     "args0": [
         {
-          "type": "input_value",
-          "name": "MESSAGE",
-          "check": [ "Number", "String" ]
+            "type": "input_value",
+            "name": "MESSAGE",
+            "check":  ["Number","String"]
         },
+       
     ],
-    "colour": "#D14081",
-    "previousStatement": null,
-    "nextStatement": null,
+    "output": "regex",
+    "colour": "#5ba58b",
     "tooltip": "",
     "helpUrl": ""
 };
