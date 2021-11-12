@@ -4,7 +4,7 @@ const blockName = "post_Url";
 
 const blockData = {
     "message0": "Post URL",
-    "colour": "#40BF4A",
+    "colour": "#5ba58b",
 		"args0": [
 		],
     "tooltip": null,
