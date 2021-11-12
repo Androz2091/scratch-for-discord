@@ -6,7 +6,7 @@ const blockName = "post_Title";
 
 const blockData = {
     "message0": "Post Title",
-    "colour": "#40BF4A",
+    "colour": "#5ba58b",
 		"args0": [
 		],
     "tooltip": null,
