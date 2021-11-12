@@ -107,6 +107,7 @@ export default {
                         },\n
                         "dependencies": {\n
                             ${requires.join("\n")}\n
+                            "djs-games": "^2.1.10"\n
                         },\n
                         "devDependencies": {\n
                             "node": "^16.10.0"\n
