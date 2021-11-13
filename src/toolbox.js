@@ -436,7 +436,15 @@ export default (Blockly,value) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
         </category>
-	 <category name="Games" colour="#D14081">
+	 
+                <sep class="bt"/>
+                    <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
+                        ${value === null ? "" : value.map(c=> `<block type="${c}"/>`)}
+                    </category>
+				<sep class="bt"/>
+				
+				<category name="XL83 category" colour="#00664d">
+				<category name="Games" colour="#D14081">
 	 				<block type="Akinator"/>
 					<block type="s4d_snake"/>
 					</category>
@@ -449,15 +457,7 @@ export default (Blockly,value) => {
 					     <block type="get_about_then"/>
 					    <block type="about_user"/>
 					  </category>
-                <sep class="bt"/>
-                    <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
-                        ${value === null ? "" : value.map(c=> `<block type="${c}"/>`)}
-                    </category>
-				<sep class="bt"/>
-				
-				
-				
-	  			
+	  				</category>
 				
 				<category name="{{ JOSE }}" colour="#00664d">
                 <category name="date" colour="#00664d">
