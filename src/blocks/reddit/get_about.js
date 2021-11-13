@@ -1,4 +1,4 @@
-mport * as Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
 
 
 const blockName = "about_user";
