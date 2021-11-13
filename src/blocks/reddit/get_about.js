@@ -18,14 +18,19 @@ const blockData = {
                 "Comment Karma",
                 "comment_karma"
             ],
-           [
-                "Creation Date (UTC)",
-                "created_utc"
+             [
+                "Total Karma",
+                "total_karma"
             ],
-          [
+           [
                 "Awarder Karma",
                 "awarder_karma"
+            ],
+            [
+                "Creation Date (UTC)",
+                "created_utc"
             ]
+          
         ],
         },
       {
@@ -51,7 +56,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
   const searchType = block.getFieldValue("SEARCH");
   const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `s4d.client.application?.commands.create({ \n name: ${name}, \n type: ${searchType} \n }) \n`;
+    const code = ``;
     return code;
 
 };
