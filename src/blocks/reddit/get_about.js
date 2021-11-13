@@ -49,8 +49,8 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
   const stats = block.getFieldValue("INFO");
- 
-    const code = `(info.data.${stats})`;
+ [`(info.data.${stats})`, Blockly.JavaScript.ORDER_NONE]
+
     return code;
 
 };
