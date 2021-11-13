@@ -15,7 +15,7 @@ const blockData = {
           "name": "THEN"
         },
     ],
-    "colour": "#4C97FF",
+    "colour": "#5ba58b",
     "previousStatement": null,
     "nextStatement": null,
 		"inputsInline": true,
