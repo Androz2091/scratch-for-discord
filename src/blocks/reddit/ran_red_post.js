@@ -12,7 +12,7 @@ const blockData = {
             "check": [ "Number", "String" ]
         }
     ],
-    "colour": "#5ba58b",
+    "colour": "#4C97FF",
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "",
