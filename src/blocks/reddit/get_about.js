@@ -1,14 +1,14 @@
 mport * as Blockly from "blockly/core";
 
 
-const blockName = "get_about";
+const blockName = "about_user";
 
 const blockData = {
-    "message0": "Get %1 from user %2",
+    "message0": "%1",
     "args0": [
        {
         "type": "field_dropdown",
-        "name": "SEARCH",
+        "name": "INFO",
         "options": [
             [
                 "Profile Picture",
@@ -33,12 +33,6 @@ const blockData = {
           
         ],
         },
-      {
-          "type": "input_value",
-          "name": "NAME",
-          "check": [ "String" ]
-      },
-     
 
     ],
     "colour": "#5ba58b",
@@ -54,9 +48,9 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-  const searchType = block.getFieldValue("SEARCH");
-  const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = ``;
+  const stats = block.getFieldValue("INFO");
+ 
+    const code = `(info.data.${stats})`;
     return code;
 
 };
