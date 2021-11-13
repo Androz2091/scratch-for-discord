@@ -1,5 +1,3 @@
-
-   
 import * as Blockly from "blockly/core";
 
 const blockName = "post_Title";

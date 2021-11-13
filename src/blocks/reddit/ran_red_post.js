@@ -3,7 +3,6 @@ import * as Blockly from "blockly/core";
 const blockName = "ran_red_post";
 
 
-
 const blockData = {
     "message0": "Get random reddit post from r/%1 then %2 %3",
     "args0": [
