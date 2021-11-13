@@ -443,7 +443,7 @@ export default (Blockly,value) => {
                     </category>
 				<sep class="bt"/>
 				
-				<category name="XL83 category" colour="#00664d">
+				<category name="XL83 category" colour="#fdfd96">
 				<category name="Games" colour="#D14081">
 	 				<block type="Akinator"/>
 					<block type="s4d_snake"/>
