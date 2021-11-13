@@ -445,7 +445,7 @@ export default (Blockly,value) => {
 					  <block type="post_Image"/>
 					   <block type="post_Title"/>
 					    <block type="post_Url"/>
-					    <sep class="bt"/>
+					  
 					     <block type="get_about_then"/>
 					    <block type="about_user"/>
 					  </category>
