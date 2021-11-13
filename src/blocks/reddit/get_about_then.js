@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "get_about_then";
 
 const blockData = {
-    "message0": "Get User:%1 Reddit data then%2",
+    "message0": "Get User %1 Reddit's data then%2 %3",
     "args0": [
         {
           "type": "input_value",
