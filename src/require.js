@@ -37,6 +37,10 @@ if(js.includes("DIG")){
 if(js.includes("DB")){
     array.push(`let { DB } = require("quickmongo");`)
 }
+ if(js.includes("tictactoe")){
+    array.push(`const TicTacToe = require('discord-tictactoe');`)
+    array.push(`const game = new TicTacToe({ language: 'en' })`)
+}
 if(js.includes("canvas")){
     array.push(`let canvas = require("discord-canvas") `)
 }

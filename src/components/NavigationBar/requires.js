@@ -27,6 +27,9 @@ oldarray.forEach(js=>{
     if(js.includes("discord-together")){
         array.push(`"discord-together":"^1.3.0",`)
     }
+    if(js.includes("got")){
+        array.push(`"got":"^11.8.2",`)
+    }
     if(js.includes("anti-link-for-discord")){
         array.push(`"anti-link-for-discord":"^5.0.0",`)
     }

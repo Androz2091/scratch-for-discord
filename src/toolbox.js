@@ -436,15 +436,18 @@ export default (Blockly,value) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
         </category>
-	 <category name="Games" colour="#D14081">
+	<category name="Games" colour="#5ba58b">
 	 				<block type="Akinator"/>
 					<block type="s4d_snake"/>
 					</category>
-				<category name="Reddit" colour="#5b80a5">
+				<category name="Reddit" colour="#5ba58b">
 					 <block type="ran_red_post"/>
 					  <block type="post_Image"/>
 					   <block type="post_Title"/>
 					    <block type="post_Url"/>
+					  
+					     <block type="get_about_then"/>
+					    <block type="about_user"/>
 					  </category>
                 <sep class="bt"/>
                     <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
@@ -453,8 +456,6 @@ export default (Blockly,value) => {
 				<sep class="bt"/>
 				
 				
-				
-	  			
 				
 				<category name="{{ JOSE }}" colour="#00664d">
                 <category name="date" colour="#00664d">
