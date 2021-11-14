@@ -1,6 +1,6 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "ticket connect";
+const blockName = "ticket_connect";
 
 const blockData = {
     "type": "block_type",
