@@ -1,7 +1,7 @@
 import * as Blockly from "blockly/core";
 
 
-const blockName = "archieve_ticket";
+const blockName = "unarchieve_ticket";
 
 const blockData = {
     "message0": "Archive the ticket (message channel)",
