@@ -422,7 +422,7 @@ export default (Blockly,value) => {
 		<block type="setup"/>
 		<block type="unarchive"/>
 		<block type="archieve"/>
-		<block type="close""/>
+		<block type="close"/>
         </category>
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
         
