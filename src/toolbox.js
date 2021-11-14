@@ -440,7 +440,7 @@ export default (Blockly,value) => {
 	 				<block type="Akinator"/>
 					<block type="s4d_snake"/>
 					</category>
-				<category name="Reddit" colour="#5b80a5">
+				<category name="Reddit" colour="#5ba58b">
 					 <block type="ran_red_post"/>
 					  <block type="post_Image"/>
 					   <block type="post_Title"/>
