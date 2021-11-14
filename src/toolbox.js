@@ -417,8 +417,12 @@ export default (Blockly,value) => {
         <sep class="bt" />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
-	<category name="Ticketing system" colour="#5b80a5">
-
+	<category name="Ticketing System" colour="#5b80a5">
+		<block type="ticket_connect"/>
+		<block type="ticket_setup"/>
+		<block type="close_ticket"/>
+		<block type="archieve_ticket"/>
+		<block type="unarchieve_ticket"/>
         </category>
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
         
