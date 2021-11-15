@@ -20,6 +20,6 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = `s4dticket.close(s4dmessage.channel);`;
+    const code = `ticket.close(s4dmessage.channel);`;
     return code;
 };
