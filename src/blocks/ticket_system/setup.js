@@ -20,6 +20,6 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = `s4dticket.setup(s4dmessage, s4dmessage.mentions.channels.first().id);`;
+    const code = `ticket.setup(s4dmessage, s4dmessage.mentions.channels.first().id);`;
     return code;
 };
