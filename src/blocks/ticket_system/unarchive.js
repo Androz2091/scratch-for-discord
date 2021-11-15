@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "unarchieve_ticket";
 
 const blockData = {
-    "message0": "Archive the ticket (message channel)",
+    "message0": "Unarchive the ticket (message channel)",
     "args0": [],
     "colour": "#D14081",
     "previousStatement": null,
