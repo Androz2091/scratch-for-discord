@@ -20,7 +20,7 @@ if(js.includes("URL")){
 }
 if(js.includes("ticket")){
     array.push(`const ticket = require('tickets-discord');`)
-    code.push("ticket.start(client //client)")
+    array.push(`const { start, login } = require('ticket-discord');`)
 }
 if(js.includes(`ms`)){
     array.push(`const ms = require("ms")`)
