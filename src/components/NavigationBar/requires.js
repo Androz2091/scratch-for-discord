@@ -16,7 +16,7 @@ oldarray.forEach(js=>{
         array.push(`"discord-giveaways": "^5.0.1",`)
     }
     if(js.includes("ms")){
-        array.push(`"ms":"^2.1.3"`)
+        array.push(`"ms":"^2.1.3",`)
     }
     if(js.includes("discord-logs")){
         array.push(`"discord-logs": "^2.0.1",`)
