@@ -441,6 +441,7 @@ export default (Blockly,value) => {
 					<block type="s4d_snake"/>
 					</category>
 				<category name="Reddit" colour="#5ba58b">
+					
 					 <block type="ran_red_post"/>
 					  <block type="post_Image"/>
 					   <block type="post_Title"/>
@@ -449,6 +450,11 @@ export default (Blockly,value) => {
 					     <block type="get_about_then"/>
 					    <block type="about_user"/>
 					  </category>
+					  
+					  <category name="Pc/Server Stats" colour="#a5745b">
+					  <block type="ps_stats"/>
+					  
+					    </category>
                 <sep class="bt"/>
                     <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
                         ${value === null ? "" : value.map(c=> `<block type="${c}"/>`)}
