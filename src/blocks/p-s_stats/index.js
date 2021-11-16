@@ -1,1 +1,1 @@
-import "./p-s_stats"
+import "./stats"
