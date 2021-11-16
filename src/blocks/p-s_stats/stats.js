@@ -1,7 +1,7 @@
 import * as Blockly from "blockly";
 
 
-const blockName = "ec_name";
+const blockName = "ps_stats";
 
 const blockData = {
     "message0": "%1",
