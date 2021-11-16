@@ -452,8 +452,8 @@ export default (Blockly,value) => {
 					  </category>
 					  
 					  <category name="Pc/Server Stats" colour="#a5745b">
-					  <block type="ps_stats"/>
-					  
+					  <block type="ps_cpu_stats"/>
+					    <block type="ps_os_stats"/>
 					    </category>
                 <sep class="bt"/>
                     <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
