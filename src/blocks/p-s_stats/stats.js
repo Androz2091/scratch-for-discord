@@ -22,7 +22,7 @@ const blockData = {
         },
     ],
     "output": "String",
-    "colour": "#5BA58C",
+    "colour": "#a5745b",
     "tooltip": "",
     "helpUrl": ""
 };
