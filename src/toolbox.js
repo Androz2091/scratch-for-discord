@@ -419,6 +419,7 @@ export default (Blockly,value) => {
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
 	<category name="Ticketing System" colour="#5b80a5">
 		<block type="ticket_connect"/>
+		<label text="Do npm install tickets-discord in shell after running" web-class="boldtext"></label>
 		<block type="archieve_ticket"/>
 		<block type="close_ticket"/>
 		<block type="ticket_setup"/>
