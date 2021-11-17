@@ -1,10 +1,10 @@
 import * as Blockly from "blockly/core";
 
 
-const blockName = "s4d_connect4";
+const blockName = "s4d_fart";
 
 const blockData = {
-    "message0": "Play Connect four",
+    "message0": "Send Fart",
     "args0": [],
     "colour": "#D14081",
     "previousStatement": null,
@@ -21,14 +21,10 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function() {
     const code = `
-const { ConnectFour } = require(djs-games)
-
-const game = new ConnectFour({
-  message: message,
-  player1: '🔴',
-  player2: '🟡',
-})
-game.start()
-`;
+            let embed = new Discord.MessageEmbed()
+        embed.setImage('https://c.tenor.com/UVAk99QaOTsAAAAC/fart-experiment.gif');
+        (s4dmessage.channel).send({
+            embeds: [embed]
+        });`;
     return code;
 };

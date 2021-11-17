@@ -8,7 +8,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "MESSAGE",
-            "check": "Message"
+            "check": ["Message", "String"]
         }
     ],
     "colour": "#D14081",

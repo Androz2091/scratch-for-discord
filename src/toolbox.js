@@ -440,6 +440,7 @@ export default (Blockly,value) => {
 
 <category name="retro and xl83" colour="#AAE941">
 	<category name="Games" colour="#5ba58b">
+  <label text="Akinator gamemodes: character, animal, object" web-class="boldtext"></label>
 	 				<block type="Akinator"/>
 					<block type="s4d_snake"/>
 					</category>

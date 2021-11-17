@@ -570,5 +570,6 @@
   "TEXT": "text",
   "VOICE": "voice",
   "CATEGORY": "category",
-	"DISABLED": "Disable a button"
+	"DISABLED": "Disable a button",
+  "FSEND_IMAGE":"send image %1"
 }
