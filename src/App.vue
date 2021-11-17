@@ -110,6 +110,7 @@ import "./blocks/reddit/"
 import "./blocks/ticket_system/"
 import "./blocks/Lyric_finder/"
 import "./blocks/frostzzone/useless/"
+import "./blocks/frostzzone/scratch/"
 
 
 import Theme from '@blockly/theme-modern';

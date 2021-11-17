@@ -1,3 +1,4 @@
+//line 448 add < at start and > at end
 export default (Blockly,value) => {
     return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
@@ -437,6 +438,16 @@ export default (Blockly,value) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
         </category>
+
+<category name="frostzzone" colour="#347dfa">
+<category name="scratch" colour="#347dfa">
+<block type="scratch_get_about_then"/>
+<block type="scratch_about_user"/>
+</category>
+
+<!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/></category>-->
+
+</category>
 
 <category name="retro and xl83" colour="#AAE941">
 	<category name="Games" colour="#5ba58b">

@@ -8,10 +8,10 @@ const blockData = {
         {
             "type": "input_value",
             "name": "image",
-            "check": [ "image", "String" ]
+            "check": "String"
         }
     ],
-    "colour": "#D14081",
+    "colour": "#4C97FF",
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "",

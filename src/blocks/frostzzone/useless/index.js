@@ -1,4 +1,4 @@
 import "./fart"
 import "./floppa"
-import "./test"
+import "./send_image"
 import "./drop"
