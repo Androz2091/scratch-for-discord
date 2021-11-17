@@ -462,6 +462,10 @@ export default (Blockly,value) => {
 		<block type="ticket_setup"/>
 		<block type="unarchieve_ticket"/>
         </category>
+	<category name="lyric finder" colour="#5ba58b">
+	 	<block type="find_lyric_than"/>
+		<block type="lyric"/>
+	</category>
 </category>
                 <sep class="bt"/>
                     <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
