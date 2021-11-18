@@ -1,7 +1,7 @@
 import * as Blockly from "blockly/core";
 
 
-const blockName = "post";
+const blockName = "postVars";
 
 const blockData = {
     "message0": "%1",
@@ -23,12 +23,12 @@ const blockData = {
                 "postUrl"
             ],
            [
-                "Awarder Karma",
-                "awarder_karma"
+                "Post Upvotes",
+                "postUpvotes"
             ],
             [
-                "Creation Date (UTC)",
-                "created_utc"
+                "Post Comments",
+                "postComs"
             ]
           
         ],
