@@ -463,14 +463,19 @@ export default (Blockly, value) => {
 					<block type="s4d_snake"/>
 					</category>
 				<category name="Reddit" colour="#5ba58b">
+					
 					 <block type="ran_red_post"/>
-					  <block type="post_Image"/>
-					   <block type="post_Title"/>
-					    <block type="post_Url"/>
+					  <block type="postVars"/>
+	
 					  
 					     <block type="get_about_then"/>
 					    <block type="about_user"/>
 					  </category>
+					  
+					  <category name="Pc/Server Stats" colour="#a5745b">
+					  <block type="ps_cpu_stats"/>
+					    <block type="ps_os_stats"/>
+					    </category>
 <category name="Ticketing System" colour="#5b80a5">
 	<label text="You can also type local" web-class="boldtext"></label>
 		<block type="ticket_connect"/>

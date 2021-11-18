@@ -1,7 +1,7 @@
 import * as Blockly from "blockly/core";
 
 
-const blockName = "about_user";
+const blockName = "postVars";
 
 const blockData = {
     "message0": "%1",
@@ -11,24 +11,24 @@ const blockData = {
         "name": "INFO",
         "options": [
             [
-                "Profile Picture",
-                "icon_img"
+                "Post Title",
+                "postTitle"
             ],
             [
-                "Comment Karma",
-                "comment_karma"
+                "Post Image",
+                "postImg"
             ],
              [
-                "Total Karma",
-                "total_karma"
+                "Post URL",
+                "postUrl"
             ],
            [
-                "Awarder Karma",
-                "awarder_karma"
+                "Post Upvotes",
+                "postUpvotes"
             ],
             [
-                "Creation Date (UTC)",
-                "created_utc"
+                "Post Comments",
+                "postComs"
             ]
           
         ],
@@ -49,7 +49,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
   const stats = block.getFieldValue("INFO");
-  const code = [`info.data.${stats}`, Blockly.JavaScript.ORDER_NONE]
+  const code = [`${stats}`, Blockly.JavaScript.ORDER_NONE]
 
     return code;
 
