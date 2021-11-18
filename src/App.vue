@@ -111,6 +111,7 @@ import "./blocks/ticket_system/"
 import "./blocks/Lyric_finder/"
 import "./blocks/frostzzone/useless/"
 import "./blocks/frostzzone/scratch/"
+import "./blocks/frostzzone/github/"
 
 
 import Theme from '@blockly/theme-modern';

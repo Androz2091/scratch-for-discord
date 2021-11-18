@@ -10,15 +10,8 @@ const blockData = {
         "type": "field_dropdown",
         "name": "INFO",
         "options": [
-            [
-                "Fart",
-                "https://c.tenor.com/UVAk99QaOTsAAAAC/fart-experiment.gif"
-            ],
-            [
-                "Floppa",
-                "https://c.tenor.com/VcR3cl_TNQsAAAAM/big-floppa-mad-floppa.gif"
-            ]
-          
+          [{"src": "https://c.tenor.com/UVAk99QaOTsAAAAC/fart-experiment.gif", "width": 50, "height": 25, "alt": "Fart"}, "https://c.tenor.com/UVAk99QaOTsAAAAC/fart-experiment.gif"],
+          [{"src": "https://c.tenor.com/VcR3cl_TNQsAAAAM/big-floppa-mad-floppa.gif", "width": 50, "height": 50, "alt": "Floppa"}, "https://c.tenor.com/VcR3cl_TNQsAAAAM/big-floppa-mad-floppa.gif"]
         ],
         },
 

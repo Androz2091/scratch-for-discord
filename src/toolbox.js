@@ -1,6 +1,6 @@
-//line 448 add < at start and > at end
-export default (Blockly,value) => {
-    return (`
+//line 455 add < at start and > at end
+export default (Blockly, value) => {
+  return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
         
 	
@@ -440,6 +440,13 @@ export default (Blockly,value) => {
         </category>
 
 <category name="frostzzone" colour="#347dfa">
+
+<category name="github" colour="#1f1f1f">
+<block type="github_get_then"/>
+<label text="For profile" web-class="boldtext"></label>
+<block type="github_what_stat"/>
+</category>
+
 <category name="scratch" colour="#347dfa">
 <block type="scratch_get_about_then"/>
 <block type="scratch_about_user"/>
@@ -480,7 +487,7 @@ export default (Blockly,value) => {
 </category>
                 <sep class="bt"/>
                     <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
-                        ${value === null ? "" : value.map(c=> `<block type="${c}"/>`)}
+                        ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}
                     </category>
 				<sep class="bt"/>
 				
@@ -1352,5 +1359,6 @@ export default (Blockly,value) => {
         </category>
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
-    return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
-}))}
+      return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
+    }))
+}
