@@ -84,6 +84,7 @@ export const websiteMessages = {
 	aki:"Akinator",
         music: "Music System",
 	backup:"Backup",
+      reddit:"Reddit",
     },
     download: {
         title: "Download your bot?",

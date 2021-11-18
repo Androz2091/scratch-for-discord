@@ -1,3 +1,4 @@
+export default `
 <xml xmlns="https://developers.google.com/blockly/xml">
   <block type="s4d_login" id=")O7+PL3eS1Br}h;?X9N$" x="288" y="163">
     <value name="TOKEN">
@@ -8,7 +9,7 @@
   </block>
   <block type="s4d_on_message" id="Qx+aIDM=_,mj^tl$vGmW" x="288" y="238">
     <statement name="STATEMENTS">
-      <block type="controls_if" id="Cr$f.P2*Nq2Dl}?D!r`(">
+      <block type="controls_if" id="Cr$f.P2*Nq2Dl}?D!r\`(">
         <value name="IF0">
           <block type="logic_compare" id="oq-Tf{oSnv,],{N*FSF|">
             <field name="OP">EQ</field>
@@ -30,7 +31,7 @@
               </block>
             </value>
             <statement name="THEN">
-              <block type="s4d_m_create_embed_then" id="};Ye.(`#?*+:^gYxI8W5">
+              <block type="s4d_m_create_embed_then" id="};Ye.(\`#?*+:^gYxI8W5">
                 <statement name="THEN">
                   <block type="s4d_m_create_embed_then_set_color" id="Q@}A;C)MnQfp4:~c.?D5">
                     <value name="COLOR">
@@ -41,7 +42,7 @@
                     <next>
                       <block type="s4d_m_create_embed_then_set_title" id="^Zk=MI7NvdSF5iR;Pn*{">
                         <value name="TITLE">
-                          <block type="text" id="[f~lL`nzMGJbatj9,`!M">
+                          <block type="text" id="[f~lL\`nzMGJbatj9,\`!M">
                             <field name="TEXT">Click here to go to the post</field>
                           </block>
                         </value>
@@ -51,7 +52,7 @@
                         <next>
                           <block type="s4d_m_create_embed_then_set_description" id="Dw(RZ[=quR*wEoN9E=mZ">
                             <value name="DESCRIPTION">
-                              <block type="post_Title" id="|CVH3`L;mkjU#jL]%NjR"></block>
+                              <block type="post_Title" id="|CVH3\`L;mkjU#jL]%NjR"></block>
                             </value>
                             <next>
                               <block type="s4d_m_create_embed_then_set_image" id=":~lQJXS6Vy~z7Hf)b7)Q">
@@ -81,3 +82,4 @@
     </statement>
   </block>
 </xml>
+`;

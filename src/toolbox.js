@@ -1,5 +1,6 @@
-export default (Blockly,value) => {
-    return (`
+//line 455 add < at start and > at end
+export default (Blockly, value) => {
+  return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
         
 	
@@ -417,6 +418,7 @@ export default (Blockly,value) => {
         <sep class="bt" />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
+	
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
         
             <block type="anti_link"/>
@@ -436,7 +438,27 @@ export default (Blockly,value) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
         </category>
+
+<category name="frostzzone" colour="#347dfa">
+
+<category name="github" colour="#1f1f1f">
+<block type="github_get_then"/>
+<label text="For profile" web-class="boldtext"></label>
+<block type="github_what_stat"/>
+</category>
+
+<category name="scratch" colour="#347dfa">
+<block type="scratch_get_about_then"/>
+<block type="scratch_about_user"/>
+</category>
+
+<!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/></category>-->
+
+</category>
+
+<category name="retro and xl83" colour="#AAE941">
 	<category name="Games" colour="#5ba58b">
+  <label text="Akinator gamemodes: character, animal, object" web-class="boldtext"></label>
 	 				<block type="Akinator"/>
 					<block type="s4d_snake"/>
 					</category>
@@ -454,9 +476,23 @@ export default (Blockly,value) => {
 					  <block type="ps_cpu_stats"/>
 					    <block type="ps_os_stats"/>
 					    </category>
+<category name="Ticketing System" colour="#5b80a5">
+	<label text="You can also type local" web-class="boldtext"></label>
+		<block type="ticket_connect"/>
+		<label text="Do npm install tickets-discord in shell after running" web-class="boldtext"></label>
+		<block type="archieve_ticket"/>
+		<block type="close_ticket"/>
+		<block type="ticket_setup"/>
+		<block type="unarchieve_ticket"/>
+        </category>
+	<category name="lyric finder" colour="#5ba58b">
+	 	<block type="find_lyric_than"/>
+		<block type="lyric"/>
+	</category>
+</category>
                 <sep class="bt"/>
                     <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
-                        ${value === null ? "" : value.map(c=> `<block type="${c}"/>`)}
+                        ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}
                     </category>
 				<sep class="bt"/>
 				
@@ -1328,5 +1364,6 @@ export default (Blockly,value) => {
         </category>
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
-    return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
-}))}
+      return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
+    }))
+}

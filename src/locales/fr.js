@@ -51,6 +51,7 @@ export const websiteMessages = {
       backup : "Exemple de sauvegarde",
       random : "Exemple de réponse aléatoire"
     },
+  reddit : "Reddit",
     download: {
         title: "Télécharger votre bot",
         content: {

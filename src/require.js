@@ -8,6 +8,7 @@ if(js.includes("backup")){
 if(js.includes("akinator")){
     array.push(`const akinator = require("discord.js-akinator");`)
 }
+array.push(`const lyricsFinder = require('lyrics-finder');`)
 if(js.includes("s4d.Inviter")){
     array.push(`let Invite = require("discord-inviter-tracker")`)
     code.push("s4d.Inviter = new Invite(s4d.client)")
@@ -17,6 +18,10 @@ if(js.includes("s4d.Inviter")){
 }
 if(js.includes("URL")){
     array.push(`let URL = require('url')`)
+}
+if(js.includes("ticket")){
+    array.push(`const ticket = require('tickets-discord');`)
+    array.push(`const { start, login } = require('tickets-discord');`)
 }
 if(js.includes(`ms`)){
     array.push(`const ms = require("ms")`)

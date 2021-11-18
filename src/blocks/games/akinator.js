@@ -3,12 +3,12 @@ import * as Blockly from "blockly/core";
 const blockName = "Akinator";
 
 const blockData = {
-    "message0": "Start an Akinator with the gametype (use var)%1",
+    "message0": "Start an Akinator with the gametype  %1",
     "args0": [
         {
             "type": "input_value",
             "name": "MESSAGE",
-            "check": "Message"
+            "check": ["Message", "String"]
         }
     ],
     "colour": "#D14081",

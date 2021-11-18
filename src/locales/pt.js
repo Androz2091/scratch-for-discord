@@ -83,7 +83,8 @@ export const websiteMessages = {
         economy: "Exemplo de economia",
           aki: "Exemplo de Akinator",
       backup: "Exemplo de backup",
-      random: "Exemplo de resposta aleatória"
+      random: "Exemplo de resposta aleatória",
+      reddit:"reddit",
     },
     download: {
         title: "Instale o seu bot",
