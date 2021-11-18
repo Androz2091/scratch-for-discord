@@ -34,14 +34,17 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const message = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    return ` const got = require('got')
-             var embed = new Discord.MessageEmbed();
-            got('https://www.reddit.com/r/' + ${message} + '/random/.json').then(response => {
-              var content = JSON.parse(response.body);
-              var permalink = content[0].data.children[0].data.permalink;
-              var postUrl = 'https://reddit.com' + permalink;
-              var postImage = content[0].data.children[0].data.url;
-              var postTitle = content[0].data.children[0].data.title;
-               ${statementThen}
-            })`;
+    return `
+    
+    musakui(${message})
+  .then(result => {
+  var postTitle = result.title
+  var postUrl = result.reddit_url
+  var postImg = result.media_url
+  var postUpvotes = result.upvotes
+  var postComs = result.comments
+   ${statementThen}
+ })
+  .catch(error => console.log(error));
+`;
 };
