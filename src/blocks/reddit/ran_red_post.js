@@ -35,7 +35,7 @@ Blockly.JavaScript[blockName] = function(block){
     const message = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
     return `
-    
+    const musakui = require('musakui');
     musakui(${message})
   .then(result => {
   var postTitle = result.title
