@@ -443,9 +443,8 @@ export default (Blockly,value) => {
 				<category name="Reddit" colour="#5ba58b">
 					
 					 <block type="ran_red_post"/>
-					  <block type="post_Image"/>
-					   <block type="post_Title"/>
-					    <block type="post_Url"/>
+					  <block type="postVars"/>
+	
 					  
 					     <block type="get_about_then"/>
 					    <block type="about_user"/>
