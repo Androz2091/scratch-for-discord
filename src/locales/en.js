@@ -85,6 +85,7 @@ export const websiteMessages = {
         music: "Music System",
 	backup:"Backup",
       reddit:"Reddit",
+      ticket:"Ticket",
     },
     download: {
         title: "Download your bot?",

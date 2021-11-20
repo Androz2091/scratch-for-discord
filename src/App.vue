@@ -111,6 +111,7 @@ import "./blocks/p-s_stats/"
 import "./blocks/ticket_system/"
 import "./blocks/Lyric_finder/"
 import "./blocks/frostzzone/useless/"
+import "./blocks/frostzzone/useful/"
 import "./blocks/frostzzone/scratch/"
 import "./blocks/frostzzone/github/"
 

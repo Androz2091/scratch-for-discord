@@ -1,3 +1,4 @@
+export default `
 <xml xmlns="https://developers.google.com/blockly/xml">
   <block type="s4d_login" id="+X4MpZayvtt7cjQdJbn6" x="265" y="100">
     <value name="TOKEN">
@@ -6,7 +7,7 @@
       </block>
     </value>
   </block>
-  <block type="ticket_connect" id="tdkd}QaH1$90-h0q`#[0" x="262" y="190">
+  <block type="ticket_connect" id="tdkd}QaH1$90-h0q\`#[0" x="262" y="190">
     <value name="URL">
       <block type="text" id="%{dgTz9Nyo2L=ak6SAf4">
         <field name="TEXT">Mongodb URI here or type local</field>
@@ -18,7 +19,7 @@
       <block type="controls_if" id="y[Zd4^IR3GK!s?44|!~X">
         <comment pinned="false" h="80" w="160">This will set your ticket channel to mentioned channel</comment>
         <value name="IF0">
-          <block type="s4d_starts_with" id="2G5n|2auP|5Yf`O:d2WQ">
+          <block type="s4d_starts_with" id="2G5n|2auP|5Yf\`O:d2WQ">
             <value name="STRING">
               <shadow type="text" id="%7xut+8PnbWP#Pl%W5b9">
                 <field name="TEXT">abc</field>
@@ -37,7 +38,7 @@
             <statement name="try">
               <block type="ticket_setup" id="1O(xq,Qa9*)5@pU}vLuc">
                 <next>
-                  <block type="s4d_reply" id="L:)RsJnX;`P7*ZAkGi1{">
+                  <block type="s4d_reply" id="L:)RsJnX;\`P7*ZAkGi1{">
                     <value name="CONTENT">
                       <shadow type="text" id="r01@NRfXm{ZMCR$9-*XM">
                         <field name="TEXT"></field>
@@ -69,7 +70,7 @@
               </block>
             </statement>
             <statement name="catch">
-              <block type="s4d_reply" id="p-%]v*]`QLgQ-J}|Pk$K">
+              <block type="s4d_reply" id="p-%]v*]\`QLgQ-J}|Pk$K">
                 <value name="CONTENT">
                   <shadow type="text" id="pfZh_Hg]u8rj/i_X.ELo">
                     <field name="TEXT">U need to mention a channel!</field>
@@ -99,7 +100,7 @@
             <statement name="DO0">
               <block type="close_ticket" id="W[~-[a^vvknhCzQys7kb">
                 <next>
-                  <block type="s4d_reply" id="0]J:hj-UMM`ZMA;_wY7T">
+                  <block type="s4d_reply" id="0]J:hj-UMM\`ZMA;_wY7T">
                     <value name="CONTENT">
                       <shadow type="text" id="PV3cX()t%o7pjPgqj7So">
                         <field name="TEXT">Closed the ticket</field>
@@ -117,10 +118,10 @@
                       <shadow type="text">
                         <field name="TEXT">abc</field>
                       </shadow>
-                      <block type="s4d_message_content" id="gp.~ymuL0s(nR1Hx$`$u"></block>
+                      <block type="s4d_message_content" id="gp.~ymuL0s(nR1Hx$\`$u"></block>
                     </value>
                     <value name="SUBSTRING">
-                      <shadow type="text" id="0n$S=n3X=V0X`sC5,5o`">
+                      <shadow type="text" id="0n$S=n3X=V0X\`sC5,5o\`">
                         <field name="TEXT">!archive</field>
                       </shadow>
                     </value>
@@ -139,9 +140,9 @@
                   </block>
                 </statement>
                 <next>
-                  <block type="controls_if" id="eUSuB)~`4yb|0(4Wt.hh">
+                  <block type="controls_if" id="eUSuB)~\`4yb|0(4Wt.hh">
                     <value name="IF0">
-                      <block type="s4d_starts_with" id=".?xl*AT#1?}+S-{=`aTL">
+                      <block type="s4d_starts_with" id=".?xl*AT#1?}+S-{=\`aTL">
                         <value name="STRING">
                           <shadow type="text">
                             <field name="TEXT">abc</field>
@@ -163,7 +164,7 @@
                           </shadow>
                         </value>
                         <next>
-                          <block type="unarchieve_ticket" id="2cY6`W,%Qbc8;KvlJ~gf"></block>
+                          <block type="unarchieve_ticket" id="2cY6\`W,%Qbc8;KvlJ~gf"></block>
                         </next>
                       </block>
                     </statement>
@@ -177,3 +178,4 @@
     </statement>
   </block>
 </xml>
+`;

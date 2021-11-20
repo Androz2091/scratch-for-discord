@@ -28,7 +28,7 @@ Blockly.JavaScript[blockName] = function(block){
     const message = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
     return `akinator(s4dmessage, {
         language: "en",
-        childMode: false,
+        childMode: true,
         gameType: ${message},
         useButtons: true
 })`;
