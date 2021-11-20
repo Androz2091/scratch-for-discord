@@ -9,6 +9,7 @@
         <b-dropdown-item @click="load('economy')">{{ $t('examples.economy') }}</b-dropdown-item>
       <b-dropdown-item @click="load('backup')">{{ $t('examples.backup') }}</b-dropdown-item>
       <b-dropdown-item @click="load('random')">{{ $t('examples.random') }}</b-dropdown-item>
+      <b-dropdown-item @click="load('ticket')">{{ $t('examples.ticket') }}</b-dropdown-item>
       <b-dropdown-item @click="load('reddit')">{{ $t('examples.reddit') }}</b-dropdown-item>
       
       </b-nav-item-dropdown>
@@ -26,7 +27,8 @@ import Economy from "../../examples/economy";
 import backup from "../../examples/backup";
 import random from "../../examples/random";
   import aki from "../../examples/aki";
-  import reddit from "../../examples/reddit"
+  import reddit from "../../examples/reddit";
+  import ticket from "../../examples/ticket"
 
 const examples = {
     "ping-pong": PingPongExample,
@@ -38,7 +40,8 @@ const examples = {
   "backup": backup,
   "random": random,
   "aki": aki,
-  "reddit": reddit
+  "reddit": reddit,
+  "ticket": ticket
 };
 
 export default {
