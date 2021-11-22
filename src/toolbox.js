@@ -455,7 +455,7 @@ export default (Blockly, value) => {
 <!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
 </category>
 
-<category name="retro and xl83" colour="#AAE941">
+<category name="Retro & XL83" colour="#AAE941">
 	<category name="Games" colour="#5ba58b">
   <label text="Akinator gamemodes: character, animal, object" web-class="boldtext"></label>
 	 				<block type="Akinator"/>
