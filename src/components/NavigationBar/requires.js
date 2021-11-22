@@ -12,6 +12,9 @@ oldarray.forEach(js=>{
     if(js.includes("discord-backup")){
         array.push(`"discord-backup": "^3.0.1",`)
     }
+    if(js.includes("node-os-utils")){
+        array.push(`"node-os-utils": "^1.3.5",`)
+    }
     if(js.includes("discord-giveaways")){
         array.push(`"discord-giveaways": "^5.0.1",`)
     }
