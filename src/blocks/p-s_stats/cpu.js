@@ -8,7 +8,7 @@ const blockData = {
     "args0": [
     ],
     "output": "String",
-    "colour": "#40BF4A",
+    "colour": "#a5745b",
     "tooltip": "",
     "helpUrl": ""
 };
