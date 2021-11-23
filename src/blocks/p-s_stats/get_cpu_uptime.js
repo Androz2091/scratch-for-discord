@@ -34,10 +34,7 @@ Blockly.JavaScript[blockName] = function(block){
         os.cpuUsage(function(v){
 	      var obj = v * 100
         ${statementThen}   
-});
-                              
-                              
-        
+});      
 `;
    
     return code;
