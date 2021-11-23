@@ -21,6 +21,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function() {
     const code = `
-       var os 	= require('os-utils');
+       var os = require('os-utils');
     return code;
 };
