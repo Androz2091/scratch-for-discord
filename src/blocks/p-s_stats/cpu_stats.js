@@ -12,6 +12,7 @@ const blockData = {
             "options": [
                 [ "Operating System", "platform" ],
                 [ "System Uptime", "sysUptime" ],
+                [ "Free Memory", "freemem" ],
               
             ]
         },
