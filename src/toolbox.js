@@ -473,7 +473,6 @@ export default (Blockly, value) => {
 					  </category>
 					  
 					  <category name="Pc/Server Stats" colour="#a5745b">
-					  <block type="get_stats"/>
 					  <block type="ps_os_stats"/>
 					  <block type="get_cpu_uptime"/>
 					  <block type="cpu"/>
