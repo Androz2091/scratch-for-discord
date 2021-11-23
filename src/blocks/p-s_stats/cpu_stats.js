@@ -10,8 +10,8 @@ const blockData = {
             "type": "field_dropdown",
             "name": "INFO",
             "options": [
-                [ "CPU Average Usage", "usage" ],
-                [ "CPU Model", "model" ],
+                [ "Operating System", "platform" ],
+                [ "System Uptime", "sysUptime" ],
               
             ]
         },
@@ -30,6 +30,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const info = block.getFieldValue("INFO");
-    const code = [`cpu.${info}()`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`os.${info}()`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
