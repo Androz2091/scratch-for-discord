@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "get_stats";
 
 const blockData = {
-    "message0": "Get Pc/Sever stats",
+    "message0": "Get Pc/Server stats",
     "args0": [],
     "colour": "#D14081",
     "previousStatement": null,
