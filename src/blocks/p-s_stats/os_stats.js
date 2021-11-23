@@ -1,7 +1,7 @@
 import * as Blockly from "blockly";
 
 
-const blockName = "ps_cpu_stats";
+const blockName = "ps_os_stats";
 
 const blockData = {
     "message0": "%1",
