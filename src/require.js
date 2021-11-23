@@ -8,6 +8,9 @@ if(js.includes("backup")){
 if(js.includes("akinator")){
     array.push(`const akinator = require("discord.js-akinator");`)
 }
+if(js.includes("os-utils")){
+    array.push(`const os = require("os-utils");`)
+}
 array.push(`const lyricsFinder = require('lyrics-finder');`)
 if(js.includes("s4d.Inviter")){
     array.push(`let Invite = require("discord-inviter-tracker")`)
