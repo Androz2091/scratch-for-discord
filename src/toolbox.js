@@ -473,8 +473,12 @@ export default (Blockly, value) => {
 					  </category>
 					  
 					  <category name="Pc/Server Stats" colour="#a5745b">
-					  <block type="ps_cpu_stats"/>
-					    <block type="ps_os_stats"/>
+					  <block type="get_stats"/>
+					  <block type="ps_os_stats"/>
+					  <block type="get_cpu_uptime"/>
+					  <block type="cpu"/>
+					    
+					    
 					    </category>
 <category name="Ticketing System" colour="#5b80a5">
 	<label text="You can also type local" web-class="boldtext"></label>
