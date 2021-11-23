@@ -6,7 +6,7 @@ const blockName = "get_stats";
 const blockData = {
     "message0": "Get Pc/Server stats",
     "args0": [],
-    "colour": "#D14081",
+    "colour": "#a5745b",
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "",
