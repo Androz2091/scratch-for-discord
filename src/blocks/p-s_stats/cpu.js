@@ -4,7 +4,7 @@ import Blockly from "blockly/core";
 const blockName = "cpu";
 
 const blockData = {
-    "message0": "Cpu usage",
+    "message0": "Cpu Usage",
     "args0": [
     ],
     "output": "String",
