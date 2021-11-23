@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "get_cpu_uptime";
 
 const blockData = {
-    "message0": "Get CPU uptime then %1 %2",
+    "message0": "Get CPU Usage then %1 %2",
     "args0": [
         {
             "type": "input_dummy"
