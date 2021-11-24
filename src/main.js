@@ -170,7 +170,14 @@ Vue.mixin({
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
                     return s4d
                     })();
-            `;
+                    
+                    //create webserver
+                    const http = require('http');
+const server = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('Bot is online');
+});
+server.listen(3000);`;
         }
     }
 });
