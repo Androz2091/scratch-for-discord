@@ -483,6 +483,12 @@ export default (Blockly, value) => {
 		<block type="close_ticket"/>
 		<block type="ticket_setup"/>
 		<block type="unarchieve_ticket"/>
+    <label text="Slash version" web-class="boldtext"></label>
+    <block type="slash_archieve_ticket"/>
+		<block type="slash_close_ticket"/>
+		<block type="slash_ticket_setup"/>
+		<block type="slash_unarchieve_ticket"/>
+<block type="slash_message_channel"/>
         </category>
 	<category name="lyric finder" colour="#5ba58b">
 	 	<block type="find_lyric_than"/>
