@@ -25,7 +25,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const value = Blockly.JavaScript.valueToCode(block, "URL", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `ticket.login(${value});\n
-    ticket.start(s4d.client)\n`;
+    const code = `ticket.start(s4d.client, ${value})`;
     return code;
 };
