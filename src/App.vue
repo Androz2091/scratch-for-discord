@@ -114,6 +114,7 @@ import "./blocks/frostzzone/useless/"
 import "./blocks/frostzzone/useful/"
 import "./blocks/frostzzone/scratch/"
 import "./blocks/frostzzone/github/"
+import "./blocks/better_music/"
 
 import Theme from '@blockly/theme-modern';
 
