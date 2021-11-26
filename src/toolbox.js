@@ -476,7 +476,34 @@ export default (Blockly, value) => {
 					    <block type="ps_os_stats"/>
 					    </category>
 					    <category name="Music [retro]" colour="#a5745b">
-					    <label text="Coming soon in a week or two" web-class="boldtext"></label>
+					    <label text="Create a perfect music player" web-class="boldtext"></label>
+        <label text="Made with discord-music-player DMP" web-class="boldtext"></label>
+        <label text="Events :D" web-class="boldtext"></label>
+        <block type="first_track"/>
+        <block type="track_start"/>
+        <block type="empty"/>
+        <block type="kicked"/>
+        <block type="queue_error"/>
+        <block type="track_added"/>
+        <label text="Blocks :D" web-class="boldtext"></label>
+        <block type="discord_connect"/>
+        <block type="better_stop"/>
+        <block type="better_play"/>
+        <block type="better_pause"/>
+        <block type="better_resume"/>
+        <block type="queue_setdata"/>
+        <block type="better_shuffle"/>
+        <block type="better_skip"/>
+        <block type="better_loop_song"/>
+        <block type="better_loop_queue"/>
+        <block type="loop_stop"/>
+        <label text="Queue info :D" web-class="boldtext"></label>
+        <block type="better_song_thumbnail"/>
+        <block type="new_track_name"/>
+        <block type="added_song_name"/>
+        <block type="better_track_url"/>
+        <block type="retro_track_channel"/>
+        <block type="better_duration"/>
 					    </category>
 <category name="Ticketing System" colour="#5b80a5">
 	<label text="You can also type local" web-class="boldtext"></label>
