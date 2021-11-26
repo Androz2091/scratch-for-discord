@@ -1,7 +1,6 @@
 export default async function require(array,oldarray) {
 oldarray.forEach(js=>{
     if(js.includes("discord-player")){
-        array.push(`"@discordjs/opus": "^0.6.0",`)
         array.push(`"discord-player": "^5.1.0",`)
     }
     if(js.includes("youtube-notification-module")){
