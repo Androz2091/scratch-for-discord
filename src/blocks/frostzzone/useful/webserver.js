@@ -1,10 +1,10 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "ticket_connect";
+const blockName = "frost_webserver";
 
 const blockData = {
     "type": "block_type",
-    "message0": "Login to mongo with the URL %1",
+    "message0": "Create webserver with text %1",
     "args0": [
         {
             "type": "input_value",
@@ -25,6 +25,11 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const value = Blockly.JavaScript.valueToCode(block, "URL", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `ticket.start(s4d.client, ${value})`;
+    const code = `const http = require('http');
+const server = http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end(${value});
+});
+server.listen(3000);\n`;
     return code;
-};
+} 
