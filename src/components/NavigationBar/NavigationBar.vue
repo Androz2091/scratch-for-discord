@@ -108,7 +108,11 @@ export default {
                         "dependencies": {\n
                             ${requires.join("\n")}\n
                             "djs-games": "^2.1.10",\n
-                            "lyrics-finder": "^21.7.0"
+                            "lyrics-finder": "^21.7.0",\n
+                            "@discordjs/opus": "^0.7.0",\n
+                            "discord-music-player": "^8.3.1",\n
+                            "discord.js": "^13.3.1",\n
+                            "ffmpeg-static": "^4.4.0"\n
                         },\n
                         "devDependencies": {\n
                             "node": "^16.10.0"\n
