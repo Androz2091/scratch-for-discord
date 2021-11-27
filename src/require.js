@@ -1,5 +1,6 @@
 export default async function require(array,code,js) {
     array.push(`let { Player, RepeatMode } = require("discord-music-player");`)
+    code.push(`const player = new Player(client, { leaveOnEmpty: false, });`)
 if(js.includes("moment")){
     array.push(`let moment  = require("moment")`)
 }
