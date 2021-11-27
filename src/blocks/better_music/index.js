@@ -22,3 +22,4 @@ import "./next";
 import "./songloop";
 import "./queueloop";
 import "./loopstop";
+import "./voicechannel";
