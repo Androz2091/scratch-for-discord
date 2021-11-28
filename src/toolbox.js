@@ -478,7 +478,8 @@ export default (Blockly, value) => {
 					    <category name="Music [retro]" colour="#a5745b">
 					    <label text="Create a perfect music player" web-class="boldtext"></label>
         <label text="Made with discord-music-player DMP" web-class="boldtext"></label>
-        <label text="Events :D" web-class="boldtext"></label>
+        <label text="WARNING DON'T USE WITH JOSE MUSIC BLOCKS" web-class="boldtext"></label>
+	<label text="Events :D" web-class="boldtext"></label>
         <block type="first_track"/>
         <block type="track_start"/>
         <block type="empty"/>
