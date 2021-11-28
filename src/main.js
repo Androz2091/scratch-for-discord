@@ -126,7 +126,7 @@ Vue.mixin({
             let requires = [
             `let Discord = require("discord.js")`,
             `let Database  = require("easy-json-database")`,
-            `let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")`,
+            `let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu, Collection }= require("discord.js")`,
             `let logs = require("discord-logs")`  
             ]
             let requiresjscode = [`logs(s4d.client);`]
@@ -142,7 +142,11 @@ Vue.mixin({
                     console.log(err);
                   });
                   ${requires.join("\n")}
+                  
+                  const { loadEvents } = require('./handler/LoadEvents')
+                  const { loadCommands } = require('./handler/LoadCommands')
                     require('events').EventEmitter.defaultMaxListeners = 50;
+                    let fs = require('fs');
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                     const s4d = {
@@ -167,6 +171,13 @@ Vue.mixin({
                         intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
                         partials: ["REACTION"]
                     });
+                    s4d.client.commands = new Collection();
+                    s4d.client.slash = new Collection();
+                    s4d.client.aliases = new Collection();
+                    s4d.client.categories = fs.readdirSync("./Commands/");
+                    s4d.client.setMaxListeners(0);
+                    loadEvents(s4d)
+                    loadCommands(s4d)
                     ${requiresjscode.join("\n")}         
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
                     return s4d

@@ -70,6 +70,9 @@ import "./blocks/logs-events/guild/vanity_url_remove/";
 import "./blocks/logs-events/guild/vanity_url_update/";
 //finish of my events
 
+//handler
+import "./blocks/discord/handler/normal_cmd_handler";
+
 import "./blocks/discord/mmenu/";
 import "./blocks/discord/mbuttons/";
 import "./blocks/discord/membed/";

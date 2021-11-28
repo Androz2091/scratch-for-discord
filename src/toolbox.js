@@ -769,6 +769,7 @@ export default (Blockly,value) => {
         </category>
 				</category>
 				<category name="{{ MRREDO }}" colour="#FF0000">
+                
         <category name="Event" colour="#00b3ff">
         <category name="Event channel" colour="#00b3ff">
         <block type="on_channelCreate"></block>
@@ -805,6 +806,15 @@ export default (Blockly,value) => {
         <block type="on_stickerupdate"></block>
         <block type="su_name"></block>
         </category>
+        </category>
+        <category name="Handler" colour="#65700c">
+        <category name="Variables" colour="#65700c">
+        <label text="Sorry variable creation is not available yet, its quite complicated process." web-class="boldtext"></label>
+        </category>
+        <block type="h_createFile"></block>
+        <block type="h_settings"></block>
+        <block type="h_args"></block>
+        <block type="h_command"></block>
         </category>
 	<category name="register" colour="#65700c">
         <label text="Register context menu" web-class="boldtext"></label>
