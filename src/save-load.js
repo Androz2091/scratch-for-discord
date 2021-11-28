@@ -6,7 +6,7 @@ const DISABLED_EVENTS = [
   Blockly.Events.BUBBLE_OPEN,
   Blockly.Events.BUMP_EVENTS,
   Blockly.Events.CLICK,
-  Blockly.Events.BLOCK_DRAG,
+  Blockly.Events.BLOCK_DRAG, 
   Blockly.Events.FINISHED_LOADING,
   Blockly.Events.SELECTED,
   Blockly.Events.THEME_CHANGE,

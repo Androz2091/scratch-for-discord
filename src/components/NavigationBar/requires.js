@@ -48,5 +48,11 @@ oldarray.forEach(js=>{
     if(js.includes("regex")){
         array.push(`"regex":"^0.1.1",`)
     }
+    if(js.includes("firebase")){
+        array.push(`"firebase":"^9.5.0",`)
+    }
 })
+array.reverse()
+array[0] = array[0].replace(",","")
+array.reverse()
 }

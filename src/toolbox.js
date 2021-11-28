@@ -438,6 +438,16 @@ export default (Blockly,value) => {
                     </category>
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
+                <category name="firebase" colour="#00664d">
+                    <block type="start_db"/>
+                </category> 
+                <category name="voice channel" colour="#00664d">
+                    <block type="mute_member"/>
+                    <block type="unmute_member"/>
+                    <block type="deaf_member"/>
+                    <block type="undeaf_member"/>
+                    <block type="move_member"/>
+                </category>
                 <category name="date" colour="#00664d">
                     <block type="s4d_current"></block>
                     <block type="unix_to_date"/>

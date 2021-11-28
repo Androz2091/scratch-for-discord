@@ -96,6 +96,7 @@ export default {
                     const javascriptContent = this.getWorkspaceCode();
                     zip.file("bot.js", javascriptContent);
                     zip.file(".replit", 'run = "npm start"');
+                    zip.file("db.json",await localStorage.getItem('easyjsondatabase'));
                     zip.file("package.json", `{\n
                         "name": 'scratch-for-discord-bot',\n
                         "version": '1.0.0',\n

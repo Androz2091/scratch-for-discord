@@ -148,6 +148,7 @@ Vue.mixin({
                     const s4d = {
                         Discord,
                         database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/database.json\`),
+                        fire:null,
                         joiningMember:null,
                         reply:null,
                         tokenInvalid:false,

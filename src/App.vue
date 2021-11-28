@@ -50,6 +50,8 @@ import "./blocks/discord/bot-event-2/";
 import "./blocks/date/";
 import "./blocks/regex/";
 import "./blocks/list/";
+import "./blocks/firebase/";
+import  "./blocks/discord/voice-channel/";  
 //my events
 //channel
 import "./blocks/logs-events/channel/channel-permissions-update/";

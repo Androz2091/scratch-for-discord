@@ -26,5 +26,5 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const code = Blockly.JavaScript.valueToCode(block, "EVAL", Blockly.JavaScript.ORDER_ATOMIC);
-    return `await eval(${code});\n`;
+    return ` eval(${code});\n`;
 };
