@@ -491,7 +491,6 @@ export default (Blockly, value) => {
         <block type="better_play"/>
         <block type="better_pause"/>
         <block type="better_resume"/>
-        <block type="queue_setdata"/>
         <block type="better_shuffle"/>
         <block type="better_skip"/>
         <block type="better_loop_song"/>
