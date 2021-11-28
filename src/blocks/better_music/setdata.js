@@ -21,8 +21,8 @@ Blockly.JavaScript[blockName] = function(){
     const code = `
     let queue = client.player.createQueue(message.guild.id, {\n
         data: {\n
-            channel: message.channel\n
-        }\n
+            channel: s4dmessage.channel
+        }
     });`;
     return code;
 };
