@@ -505,6 +505,8 @@ export default (Blockly, value) => {
         <block type="retro_track_channel"/>
         <block type="better_duration"/>
 	<block type="better_voice_channel"/>
+	<block type="better_vcid"/>
+        <block type="better_botvcid"/>
 					    </category>
 <category name="Ticketing System" colour="#5b80a5">
 	<label text="You can also type local" web-class="boldtext"></label>
