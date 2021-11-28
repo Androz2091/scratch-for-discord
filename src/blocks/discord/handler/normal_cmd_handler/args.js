@@ -26,11 +26,11 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     let args = Blockly.JavaScript.valueToCode(block, "ARGS", Blockly.JavaScript.ORDER_ATOMIC) || null
     if(typeof args === 'string') {
-        return `args.join(${args})`
+        return [`args.join(${args})`, Blockly.JavaScript.ORDER_ATOMIC ]
     } else if(typeof args === 'number') {
-        return`args[${args}]`
+        return [`args[${args}]`, Blockly.JavaScript.ORDER_ATOMIC ]
     } else if(args === null) {
-        return `args.join(' ')`
+        return [`args.join(' ')`, Blockly.JavaScript.ORDER_ATOMIC ]
     }
 };
 

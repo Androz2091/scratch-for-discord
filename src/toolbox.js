@@ -815,6 +815,7 @@ export default (Blockly,value) => {
         <block type="h_settings"></block>
         <block type="h_args"></block>
         <block type="h_command"></block>
+        <block type="h_permission"></block>
         </category>
 	<category name="register" colour="#65700c">
         <label text="Register context menu" web-class="boldtext"></label>

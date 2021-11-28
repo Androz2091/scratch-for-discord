@@ -52,5 +52,5 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const string = block.getFieldValue("INFO")
     let code = `command.${string}` 
-    return code
+    return [ code, Blockly.JavaScript.ORDER_ATOMIC ] 
 };

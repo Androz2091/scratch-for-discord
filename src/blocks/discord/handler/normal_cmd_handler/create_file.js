@@ -105,7 +105,7 @@ Blockly.JavaScript[blockName] = function(block){
     let aliases = Blockly.JavaScript.valueToCode(block, "H_ALIASES", Blockly.JavaScript.ORDER_ATOMIC) || 'null'
     let name = Blockly.JavaScript.valueToCode(block, "H_NAME", Blockly.JavaScript.ORDER_ATOMIC) || 'null'
     let botperm = Blockly.JavaScript.valueToCode(block, "H_BOTPERM", Blockly.JavaScript.ORDER_ATOMIC) || 'null'
-    let userperm = Blockly.JavaScript.valueToCode(block, "H_USERPERM", Blockly.JavaScript.ORDER_ATOMIC) || 'null'
+    let userperm = Blockly.JavaScript.valueToCode(block, "H_USERPERM", Blockly.JavaScript.ORDER_ATOMIC) || '[]'
     let owner = Blockly.JavaScript.valueToCode(block, "H_OWNER", Blockly.JavaScript.ORDER_ATOMIC) || 'null'
     let guild = Blockly.JavaScript.valueToCode(block, "H_GUILD", Blockly.JavaScript.ORDER_ATOMIC) || 'null'
     let enabled = Blockly.JavaScript.valueToCode(block, "H_ENABLED", Blockly.JavaScript.ORDER_ATOMIC) || 'null'
@@ -142,7 +142,7 @@ Blockly.JavaScript[blockName] = function(block){
     if(name !== 'null') code += `name: ${name}, \n`
     if(aliases !== 'null') code += `aliases: ${aliases},\n`
     if(botperm !== 'null') code += `botPerms: ${botperm},\n`
-    if(userperm !== 'null') code += `userPerms: ${userperm},\n`
+    code += `userPerms: ${userperm},\n`
     if(owner !== 'null') code += `ownerOnly: ${owner},\n`
     if(guild !== 'null') code += `guildOnly: ${guild},\n`
     if(enabled !== 'null') code += `enabled: ${enabled},\n`
