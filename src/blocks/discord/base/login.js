@@ -12,7 +12,7 @@ const blockData = {
             "check": "String"
         }
     ],
-    "colour": "#F46580",
+    "colour": "#7289DA",
     "tooltip": "%{BKY_LOGIN_TOOLTIP}",
     "helpUrl": ""
 };
