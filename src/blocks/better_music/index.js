@@ -10,7 +10,6 @@ import "./songurl";
 import "./error";
 import "./musicpause";
 import "./musicresume";
-import "./setdata";
 import "./trackchannel";
 import "./Shuffle";
 import "./newtrackname";
