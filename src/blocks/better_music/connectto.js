@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "discord_connect";
 
 const blockData = {
-    "message0": "Connect to %1",
+    "message0": "Connect to %1 and set track channel",
     "args0": [
         {
             "type": "input_value",
@@ -26,6 +26,12 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const voice = Blockly.JavaScript.valueToCode(block, "VOICECHANNEL", Blockly.JavaScript.ORDER_ATOMIC) || 's4dmessage.member.voice.channel';
-    const code = `await queue.join(${voice});\n;`;
+    const code = `
+    await queue.join(${voice});
+    let queue = client.player.createQueue(message.guild.id, {
+        data: {
+            channel: s4dmessage.channel
+        }
+    });`;
     return code;
 };
