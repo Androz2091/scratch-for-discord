@@ -23,3 +23,5 @@ import "./songloop";
 import "./queueloop";
 import "./loopstop";
 import "./voicechannel";
+import "./idchannel";
+import "./botvcid";
