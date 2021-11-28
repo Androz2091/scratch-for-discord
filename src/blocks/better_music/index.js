@@ -24,3 +24,4 @@ import "./loopstop";
 import "./voicechannel";
 import "./idchannel";
 import "./botvcid";
+import "./setvolume";
