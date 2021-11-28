@@ -496,6 +496,7 @@ export default (Blockly, value) => {
         <block type="better_loop_song"/>
         <block type="better_loop_queue"/>
         <block type="loop_stop"/>
+	<block type="better_volume"/>
         <label text="Queue info :D" web-class="boldtext"></label>
         <block type="better_song_thumbnail"/>
         <block type="new_track_name"/>
