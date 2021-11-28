@@ -441,13 +441,13 @@ export default (Blockly, value) => {
 
 <category name="frostzzone" colour="#347dfa">
 
-<category name="github" colour="#1f1f1f">
+<category name="Github" colour="#1f1f1f">
 <block type="github_get_then"/>
 <label text="For profile" web-class="boldtext"></label>
 <block type="github_what_stat"/>
 </category>
 
-<category name="scratch" colour="#347dfa">
+<category name="Scratch" colour="#347dfa">
 <block type="scratch_get_about_then"/>
 <block type="scratch_about_user"/>
 </category>
@@ -455,7 +455,7 @@ export default (Blockly, value) => {
 <!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
 </category>
 
-<category name="retro and xl83" colour="#AAE941">
+<category name="Retro & XL83" colour="#AAE941">
 	<category name="Games" colour="#5ba58b">
   <label text="Akinator gamemodes: character, animal, object" web-class="boldtext"></label>
 	 				<block type="Akinator"/>
@@ -471,11 +471,11 @@ export default (Blockly, value) => {
 					    <block type="about_user"/>
 					  </category>
 					  
-					  <category name="Pc/Server Stats" colour="#a5745b">
+					  <category name="PC/Server Stats" colour="#a5745b">
 					  <block type="ps_cpu_stats"/>
 					    <block type="ps_os_stats"/>
 					    </category>
-					    <category name="Music [retro]" colour="#a5745b">
+					    <category name="Music" colour="#a5745b">
 					    <label text="Create a perfect music player" web-class="boldtext"></label>
         <label text="Made with discord-music-player DMP" web-class="boldtext"></label>
         <label text="Events :D" web-class="boldtext"></label>
@@ -1105,7 +1105,7 @@ export default (Blockly, value) => {
                     </shadow>
                 </value>
             </block>
-	    <label text="Repl"></label>
+	    <label text="Replit"></label>
 	    <block type="frost_webserver">
 <value name="URL">
                     <shadow type="text">
