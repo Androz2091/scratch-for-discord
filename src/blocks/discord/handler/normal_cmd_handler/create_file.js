@@ -111,7 +111,7 @@ Blockly.JavaScript[blockName] = function(block){
     let enabled = Blockly.JavaScript.valueToCode(block, "H_ENABLED", Blockly.JavaScript.ORDER_ATOMIC) || 'null'
     let nsfw = Blockly.JavaScript.valueToCode(block, "H_NSFW", Blockly.JavaScript.ORDER_ATOMIC) || 'null'
     let cooldown = Blockly.JavaScript.valueToCode(block, "H_COOLDOWN", Blockly.JavaScript.ORDER_ATOMIC) || 'null'
-    let code = `fs.writeFileSync("./Commands/Commands/${fileName.replace(/[ .',/-]/g, '_')}.js/", \`
+    let code = `fs.writeFileSync("./Commands/Commands/${fileName.replace(/'/g, '').replace(/[ .,"`/-=+!@#$%^&*(){}|~]/g, '_')}.js/", \`
     let URL = require('url')
     const ms = require("ms")
     const AntiLinkClient = require("anti-link-for-discord");
