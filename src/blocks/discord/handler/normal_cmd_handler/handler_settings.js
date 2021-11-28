@@ -1,10 +1,10 @@
 import BaseBlockly from "blockly";
 import Blockly from "blockly/core";
 
-const truearr = [true, true, true, true, true, true, true, true, true, true]
-const BORDER_FIELDS = [ "H_S_ERROR_MSG", "H_S_PREFIX", "H_S_DISABLED", "H_S_OWNER", "H_S_ID", "H_S_USERP", "H_S_BOTPERM", "H_S_GUILD_MSG", "H_S_NSFW", "H_S_COOLDOWN"];
+const truearr = [true, true, true, true, true, true, true, true, true, true, true]
+const BORDER_FIELDS = [ "H_S_ERROR_MSG", "H_S_PREFIX", "H_S_DISABLED", "H_S_OWNER", "H_S_ID", "H_S_USERP", "H_S_BOTPERM", "H_S_GUILD_MSG", "H_S_NSFW", "H_S_COOLDOWN", "H_S_BOT_ID"];
 
-const BORDER_TYPES = ["String",  "String", "String", "String", "String", "String", "String", "String", "String", "String"];
+const BORDER_TYPES = ["String",  "String", "String", "String", "String", "String", "String", "String", "String", "String", "String"];
 const mutator = 'h_settings_mutator'
 const blockName = 'h_settings'
 const s4d_message_row_block = {
