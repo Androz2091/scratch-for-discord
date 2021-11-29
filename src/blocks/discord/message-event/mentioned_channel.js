@@ -27,8 +27,7 @@ registerRestrictions(blockName, [
         type: "toplevelparent",
         message: "RES_MUST_BE_IN_ON_MESSAGE",
         types: [
-            "s4d_on_message",
-            "h_createFile"
+            "s4d_on_message"
         ]
     }
 ]);
