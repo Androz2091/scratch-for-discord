@@ -42,6 +42,9 @@ if(js.includes("antilink")){
 if(js.includes("DIG")){
     array.push(`let DIG = require("discord-image-generation")`)
 }
+  if(js.includes("firebase")){
+    array.push(`let firebase = require("firebase")`)
+}
 if(js.includes("DB")){
     array.push(`let { DB } = require("quickmongo");`)
 }

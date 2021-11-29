@@ -50,6 +50,9 @@ import "./blocks/discord/bot-event-2/";
 import "./blocks/date/";
 import "./blocks/regex/";
 import "./blocks/list/";
+import "./blocks/firebase/";
+import  "./blocks/discord/voice-channel/";
+  
 //my events
 //channel
 import "./blocks/logs-events/channel/channel-permissions-update/";
@@ -67,7 +70,8 @@ import "./blocks/logs-events/guild/vanity_url_add/";
 import "./blocks/logs-events/guild/vanity_url_remove/";
 import "./blocks/logs-events/guild/vanity_url_update/";
 //finish of my events
-
+//handler
+import "./blocks/discord/handler/normal_cmd_handler";
 import "./blocks/discord/mmenu/";
 import "./blocks/discord/mbuttons/";
 import "./blocks/discord/membed/";
