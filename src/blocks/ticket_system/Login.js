@@ -10,11 +10,6 @@ const blockData = {
             "type": "input_value",
             "name": "URL",
             "check": "String"
-        },
-        {
-            "type": "input_value",
-            "name": "LOGS",
-            "check": [ "Boolean" ]
         }
     ],
     "colour": "#F46580",
@@ -29,8 +24,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-    const value = Blockly.JavaScript.valueToCode(block, "URL", Blockly.JavaScript.ORDER_ATOMIC) || 'local';
-    const logs = Blockly.JavaScript.valueToCode(block, "LOGS", Blockly.JavaScript.ORDER_ATOMIC) || true;
-    const code = `//ticketv3.0.0 login code\nticket.start(s4d.client, ${value}, ${logs})`;
+    const value = Blockly.JavaScript.valueToCode(block, "URL", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `//ticketv3.0.0 login code\nticket.start(s4d.client, ${value}, true)`;
     return code;
 };
