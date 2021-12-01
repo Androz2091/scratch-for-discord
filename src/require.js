@@ -1,7 +1,9 @@
 export default async function require(array,code,js) {
+if(js.includes("queue.join") {
     array.push(`let { Player, RepeatMode } = require("discord-music-player");`)
-    code.push(`const player = new Player(s4d.client, { leaveOnEmpty: false, });`)
+    code.push(`const player = new Player(s4d.client, { leaveOnEmpty: false, deafenOnJoin: true, });`)
     code.push(`s4d.client.player = player;`)
+}
 if(js.includes("moment")){
     array.push(`let moment  = require("moment")`)
 }
