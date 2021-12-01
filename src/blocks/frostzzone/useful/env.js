@@ -1,10 +1,13 @@
 import * as Blockly from "blockly/core";
 
 const blockName = "frost_env";
-
+function colourRandom() {
+  var num = Math.floor(Math.random() * Math.pow(2, 24));
+  return '#' + ('00000' + num.toString(16)).substr(-6);
+}
 const blockData = {
     "message0": "process.env. %1",
-    "colour": "#ff5776",
+    "colour": (colourRandom()),
 		"args0": [
         {
           "type": "input_value",
