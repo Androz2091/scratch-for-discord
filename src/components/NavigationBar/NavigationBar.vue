@@ -111,7 +111,6 @@ export default {
                             "lyrics-finder": "^21.7.0",\n
                             "@discordjs/opus": "^0.7.0",\n
                             "ffmpeg-static": "^4.4.0",\n
-                            "discord-music-player": "^8.3.1",\n
                             ${requires.join("\n")}\n
                             
                         },\n
