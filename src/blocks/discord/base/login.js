@@ -14,7 +14,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "TOKEN",
-            "check": "String"
+            "check": [ "String","Env" ]
         }
     ],
     "colour": (colourRandom()),
