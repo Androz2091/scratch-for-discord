@@ -33,8 +33,8 @@ Blockly.JavaScript[blockName] = function(block){
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
   const server = Blockly.JavaScript.valueToCode(block, "Server", Blockly.JavaScript.ORDER_ATOMIC);
   //i shall try tomorrow as its 11PM here
-    const code = `let members = ${server}.members.fetch()
-    let random = members.random()
+    const code = `let usersCollection = ${server}.guild.members.cache;
+    let randomUser = usersCollection.random();
     ${statementThen}`;
     return code;
 };
