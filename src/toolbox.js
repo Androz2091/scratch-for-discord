@@ -462,12 +462,51 @@ export default (Blockly, value) => {
 </category>
 
 <!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
+
+<category name="Real Reply" colour="#2a46fa">
+<block type="frost_real_reply">
+<value name="CONTENT">
+  <shadow type="text">
+    <field name="TEXT">Hey!</field>
+  </shadow>
+</value>
+<value name="boolean">
+  <shadow type="logic_boolean">
+                <field name="Boolean">TRUE</field>
+            </shadow>
+        </value>
+</block>
+<block type="frost_real_reply_then">
+<value name="CONTENT">
+  <shadow type="text">
+    <field name="TEXT">Hey!</field>
+  </shadow>
+</value>
+<value name="boolean">
+  <shadow type="logic_boolean">
+                <field name="Boolean">TRUE</field>
+            </shadow>
+        </value>
+</block>
+<block type="frost_real_reply_add_reaction">
+<value name="REACTION"><shadow type="text"><field name="TEXT">👍</field></shadow></value>
+</block>
+<block type="frost_real_reply_edit">
+<value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
+</block>
+<block type="frost_real_reply_delete"/>
+</category>
 </category>
 
 <category name="retro and xl83" colour="#AAE941">
 	<category name="Games" colour="#5ba58b">
   <label text="Akinator gamemodes: character, animal, object" web-class="boldtext"></label>
-	 				<block type="Akinator"/>
+	 				<block type="Akinator">
+           <value name="MESSAGE">
+           <shadow type="aki_gametype">
+           </shadow>
+           </value>
+           </block>
 					<block type="s4d_snake"/>
 					</category>
 				<category name="Reddit" colour="#5ba58b">
