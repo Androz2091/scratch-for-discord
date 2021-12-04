@@ -80,7 +80,7 @@ if(js.includes("s4d.notifer")){
     array.push(`let ytnotifier = require("youtube-notification-module")`)
     code.push(`s4d.notifer = new ytnotifier({channels: [],checkInterval: 50});`)
 }
-if(js.includes("s4d.player")){
+if(js.includes("queue.connect")){
     array.push(`let { Player,QueueRepeatMode } = require("discord-player")`)//foi
     code.push(`s4d.player = new Player(s4d.client)`)
 }
