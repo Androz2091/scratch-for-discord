@@ -448,6 +448,8 @@ export default (Blockly, value) => {
         <block type="s4d_get_rndmber"/>
         </category>
         </category>
+
+
 <category name="frostzzone" colour="#347dfa">
 
 <category name="github" colour="#1f1f1f">
@@ -463,7 +465,7 @@ export default (Blockly, value) => {
 
 <!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
 
-<category name="Real Reply" colour="#2a46fa">
+<category name="Messages" colour="#2a46fa">
 <block type="frost_real_reply">
 <value name="CONTENT">
   <shadow type="text">
@@ -495,6 +497,9 @@ export default (Blockly, value) => {
 <value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
 </block>
 <block type="frost_real_reply_delete"/>
+<block type="frost_typing">
+<value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
+</block>
 </category>
 </category>
 
@@ -556,6 +561,7 @@ export default (Blockly, value) => {
 	<block type="better_voice_channel"/>
 	<block type="better_vcid"/>
         <block type="better_botvcid"/>
+	<block type="song-first"/>
 					    </category>
 <category name="Ticketing System" colour="#5b80a5">
 	<label text="You can also type local" web-class="boldtext"></label>
