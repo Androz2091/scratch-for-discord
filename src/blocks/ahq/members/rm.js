@@ -20,6 +20,6 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(){
-    const code = ['random', Blockly.JavaScript.ORDER_NONE];
+    const code = ['randomUser.user', Blockly.JavaScript.ORDER_NONE];
     return code;
 };
