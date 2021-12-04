@@ -121,7 +121,7 @@ import "./blocks/better_music/"
 
 import Theme from '@blockly/theme-modern';
 //ahq stuff
-import "./blocks/ahq/members"
+import "./blocks/ahq/";
 export default {
     name: "app",
     components: {

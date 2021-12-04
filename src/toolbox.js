@@ -447,6 +447,26 @@ export default (Blockly, value) => {
         <label text="Get random member" web-class="boldtext"></label>
         <block type="s4d_get_rndmber"/>
         </category>
+        <category name="button" colour="#ff0019">
+        <label text="Event" web-class="boldtext"></label>
+        <block type="on_real_button"/>
+        <label text="Button Information" web-class="boldtext"></label>
+        <block type="id_btn_srv"/>
+        <block type="id_btn_ch"/>
+        <block type="id_btn_clkr"/>
+        <block type="id_btn_ahq"/>
+        <block type="updte_ahq_button"/>
+        <block type="rply_ahq_button"/>
+        <label text="Send button" web-class="boldtext"></label>
+        <block type="snd_ahq_button"/>
+        <label text="Button Creation Stuff" web-class="boldtext"></label>
+        <block type="make_ahq_button"/>
+        <block type="style_ahq_button"/>
+        <block type="label_ahq_button"/>
+        <block type="emoji_ahq_button"/>
+        <block type="url_ahq_button"/>
+        <block type="d_ahq_button"/>
+        </category>
         </category>
 
 
