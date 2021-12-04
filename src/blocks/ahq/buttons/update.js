@@ -1,8 +1,13 @@
 import * as Blockly from "blockly";
 const blockName = "updte_ahq_button";
-function colourRandom() {
-    var num = Math.floor(Math.random() * Math.pow(2, 24));
-    return '#' + ('00000' + num.toString(16)).substr(-6);
+const ahqcolor = ['#3366ff', '#6600cc', '#33cc00', '#ff6666'];
+function listsGetRandomItem(list, remove) {
+    var x = Math.floor(Math.random() * list.length);
+    if (remove) {
+        return list.splice(x, 1)[0];
+    } else {
+        return list[x];
+    }
 }
 const blockData = {
     "message0": "Update %1 %2 %3 button %4",
@@ -24,7 +29,7 @@ const blockData = {
             "check": "String"
         },
     ],
-    "colour": colourRandom(),
+    "colour": listsGetRandomItem(ahqcolor, false),
     "previousStatement": null,
     "nextStatement": null,
 };
