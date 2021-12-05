@@ -12,3 +12,4 @@ import "./btn_srv";
 import "./reply";
 import "./update";
 import "./btn_disabled";
+import "./button_send_embed";

@@ -455,6 +455,7 @@ export default (Blockly, value) => {
         <block type="id_btn_ch"/>
         <block type="id_btn_clkr"/>
         <block type="id_btn_ahq"/>
+        <block type="embed_btn_ahq"/>
         <label text="Button Actions" web-class="boldtext"></label>
         <block type="updte_ahq_button"/>
         <block type="rply_ahq_button"/>

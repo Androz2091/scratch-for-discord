@@ -10,7 +10,7 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Send button on channel %1 %2 text %3 %4 button %5",
+    "message0": "Send button on channel %1 %2 text %3 %4 button %5 %6 embed %7",
     "args0": [
         {
             "type": "input_value",
@@ -33,6 +33,15 @@ const blockData = {
             "name": "button val",
             "check": "String"
         },
+        {
+            "type": "input_space"
+        },
+        {
+            "type": "input_value",
+            "name": "embed val",
+            "check": "ahq"
+        },
+
     ],
     "colour": listsGetRandomItem(ahqcolor, false),
     "previousStatement": null,
@@ -45,15 +54,20 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block) {
+    let extra = "";
     const name = Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE);
     const data = Blockly.JavaScript.valueToCode(block, "button name", Blockly.JavaScript.ORDER_NONE);
+    const embed = Blockly.JavaScript.valueToCode(block, "embed val", Blockly.JavaScript.ORDER_NONE);
+    if (embed) {
+        extra = `,\nembeds: [embed]`;
+    }
     const statementsThen = Blockly.JavaScript.valueToCode(block, "button val", Blockly.JavaScript.ORDER_NONE);
     const ahq = statementsThen.replace("'", "").replace("'", "");
     const code = `${name}.send({
         content: String(${data}),
         components: [new MessageActionRow().addComponents(${ahq}
 
-        )]
+        )]${extra.replace("`", "").replace("`", "")}
         });`;
     return code;
 };
