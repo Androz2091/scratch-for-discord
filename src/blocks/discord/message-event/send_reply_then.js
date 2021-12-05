@@ -37,7 +37,7 @@ Blockly.JavaScript[blockName] = function(block){
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
         if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            const code = `s4dmessage.channel.send({${content}}).then(async (s4dreply) =>{\n ${statementThen} \n});\n`;
+            const code = `s4dmessage.channel.send({content: String(${content})}).then(async (s4dreply) =>{\n ${statementThen} \n});\n`;
             return code;
         }else if((contentType === "embed") || (!contentType && typeof contentType === "object")){
             const code = `s4dmessage.channel.send({ embeds:[${content}]}).then(async (s4dreply) =>{\n ${statementThen} \n});\n`;
