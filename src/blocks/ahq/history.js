@@ -26,8 +26,8 @@ Blockly.Blocks[blockName] = {
 };
 Blockly.JavaScript[blockName] = function(){
     const code = [`\`s4d means scratch for discord
-    s4d was created mainly by \`Androz\`
-    The Devs of the current preview \`469\` are:-
+    s4d was created mainly by \\\`Androz\\\`
+    The Devs of the current preview \\\`469\\\` are:-
     1. Androz (of course)
     2. Jose
     3. Redo
