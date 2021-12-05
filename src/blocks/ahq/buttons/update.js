@@ -10,7 +10,7 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Update %1 %2 %3 button %4",
+    "message0": "Update %1 %2 %3 button %4 %5 embeds %6",
     "args0": [
         {
             "type": "input_space"
@@ -28,6 +28,14 @@ const blockData = {
             "name": "button val",
             "check": "String"
         },
+        {
+            "type": "input_space"
+        },
+        {
+            "type": "input_value",
+            "name": "embed val",
+            "check": "ahq"
+        },
     ],
     "colour": listsGetRandomItem(ahqcolor, false),
     "previousStatement": null,
@@ -41,12 +49,17 @@ Blockly.Blocks[blockName] = {
 };
 Blockly.JavaScript[blockName] = function(block) {
     var ahq = ``;
+    let extra = "";
     const data = Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE);
     const statementsThen = Blockly.JavaScript.valueToCode(block, "button val", Blockly.JavaScript.ORDER_NONE);
+    const embed = Blockly.JavaScript.valueToCode(block, "embed val", Blockly.JavaScript.ORDER_NONE);
     if (statementsThen) {
         ahq = `,\ncomponents: [new MessageActionRow().addComponents(
             ${statementsThen.replace("'", "").replace("'", "")}
         )]`;
+    }
+    if (embed) {
+        extra = `,\nembeds: [embed]`;
     }
     const code = `i.update({
         content: String(${data})

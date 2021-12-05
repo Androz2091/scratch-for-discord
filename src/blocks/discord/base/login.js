@@ -2,10 +2,6 @@ import * as Blockly from "blockly/core";
 
 const blockName = "s4d_login";
 
-function colourRandom() {
-    var num = Math.floor(Math.random() * Math.pow(2, 24));
-    return '#' + ('00000' + num.toString(16)).substr(-6);
-}
 
 const blockData = {
     "type": "block_type",
@@ -17,7 +13,7 @@ const blockData = {
             "check": [ "String","Env" ]
         }
     ],
-    "colour": (colourRandom()),
+    "colour": "#3333ff",
     "tooltip": "%{BKY_LOGIN_TOOLTIP}",
     "helpUrl": ""
 };
