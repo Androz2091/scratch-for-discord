@@ -42,7 +42,7 @@ Blockly.JavaScript[blockName] = function(block) {
     const finaln = name.replace("'", "").replace("'", "");
     const statementsThen = Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE);
     if (statementsThen.includes("https://")) {
-        code = `${finaln}.setUrl(${statementsThen});`;
+        code = `${finaln}.setURL(${statementsThen});`;
     } else {
         code = `${finaln}.setCustomId(${statementsThen});`;
     }
