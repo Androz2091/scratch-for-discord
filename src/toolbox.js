@@ -440,7 +440,7 @@ export default (Blockly, value) => {
         </category>
         <sep class="bt"/>
         <category name="ahq" colour="#ff0000">
-        
+        <block type="s4d_history"/>
         <category name="member" colour="#006600">
         <label text="Fetch members of a server" web-class="boldtext"></label>
         <block type="s4d_get_rndm"/>
