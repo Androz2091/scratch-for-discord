@@ -90,13 +90,38 @@ const BORDER_MUTATOR_MIXIN = {
 Blockly.Extensions.registerMutator("s4d_message_embed_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
 
 Blockly.JavaScript["s4d_message_embed"] = function(block){
-    return [ `
+    title = "";
+    color = "";
+    image = "";
+    message = "";
+    footer = "";
+    thumbnail = "";
+    if (!(Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC))){
+        title = `.setTitle(${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC)})`
+    }
+    if (!(Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC))){
+        color = `.setColor(${Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC)})`
+    }
+    if (!(Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC))){
+        image = `.setImage(${Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC)})`
+    }
+    if (!(Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC))){
+        message = `.setDescription(${Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC)})`
+    }
+    if (!(Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC))){
+        footer = `.setFooter(${Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC)})`
+    }
+    if (!(Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC))){
+        thumbnail = `.setThumbnail(${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC)})`
+    }
+    return (`
             new MessageEmbed()
-                .setTitle(${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC) || null})
-                .setColor(${Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC) || null})
-                .setImage(${Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC) || null})
-                .setDescription(${Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC) || null})
-                .setFooter(${Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC) || null})
-                .setThumbnail(${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC) || null})
-    `, Blockly.JavaScript.ORDER_ATOMIC ];
+            ${title.replace("`", "").replace("`", "")}
+            ${color.replace("`", "").replace("`", "")}
+            ${image.replace("`", "").replace("`", "")}
+            ${message.replace("`", "").replace("`", "")}     
+            ${footer.replace("`", "").replace("`", "")}
+            ${thumbnail.replace("`", "").replace("`", "")}      
+                
+    `);
 };
