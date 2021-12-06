@@ -1,13 +1,14 @@
+export default `
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="OZ0l|^XRQH?T?s;b$B%X">arguments</variable>
-    <variable id="=6`ushn0ewC41R$-^dvJ">prefix</variable>
-    <variable id="9p=y^o3Q9D#i[*`~t8Qd">commandwithprefix</variable>
+    <variable id="=6\`ushn0ewC41R$-^dvJ">prefix</variable>
+    <variable id="9p=y^o3Q9D#i[*\`~t8Qd">commandwithprefix</variable>
     <variable id="dN-GQox{6nqmX%so5NT^">command</variable>
   </variables>
-  <block type="s4d_login" id="{|lO_b-0fA9`}/b6#m6T" x="0" y="0">
+  <block type="s4d_login" id="{|lO_b-0fA9\`}/b6#m6T" x="0" y="0">
     <value name="TOKEN">
-      <block type="text" id="T3=]`vNu7E~Pv%]r^%YC">
+      <block type="text" id="T3=]\`vNu7E~Pv%]r^%YC">
         <field name="TEXT">Your bot token</field>
       </block>
     </value>
@@ -15,7 +16,7 @@
   <block type="s4d_on_connected" id="HcFcs6Jw;M1hHa#=JL9n" x="0" y="104">
     <statement name="STATEMENTS">
       <block type="variables_set" id="GZDP:Red|*ajsbPV}guA">
-        <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+        <field name="VAR" id="=6\`ushn0ewC41R$-^dvJ">prefix</field>
         <value name="VALUE">
           <block type="text" id="[iP}[(^%wkCP!|kzFvV/">
             <field name="TEXT">!</field>
@@ -44,9 +45,9 @@
         </value>
         <next>
           <block type="variables_set" id="U^i0Ox!/+F6x[NrTqTpR">
-            <field name="VAR" id="9p=y^o3Q9D#i[*`~t8Qd">commandwithprefix</field>
+            <field name="VAR" id="9p=y^o3Q9D#i[*\`~t8Qd">commandwithprefix</field>
             <value name="VALUE">
-              <block type="lists_getIndex" id="9ul#e70.^`!G^_~-BlK~">
+              <block type="lists_getIndex" id="9ul#e70.^\`!G^_~-BlK~">
                 <mutation statement="false" at="true"></mutation>
                 <field name="MODE">GET_REMOVE</field>
                 <field name="WHERE">FROM_START</field>
@@ -71,7 +72,7 @@
                         <field name="TEXT">abc</field>
                       </shadow>
                       <block type="variables_get" id=",-bX4=FVdN5l;kLY*Q3l">
-                        <field name="VAR" id="9p=y^o3Q9D#i[*`~t8Qd">commandwithprefix</field>
+                        <field name="VAR" id="9p=y^o3Q9D#i[*\`~t8Qd">commandwithprefix</field>
                       </block>
                     </value>
                     <value name="SUBSTRING">
@@ -79,13 +80,13 @@
                         <field name="TEXT">a</field>
                       </shadow>
                       <block type="variables_get" id="VfKek(*Bv2_ut)Hi##?:">
-                        <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                        <field name="VAR" id="=6\`ushn0ewC41R$-^dvJ">prefix</field>
                       </block>
                     </value>
                   </block>
                 </value>
                 <statement name="DO0">
-                  <block type="variables_set" id="2}t[rFyvtZ`O=Qr%1$#0">
+                  <block type="variables_set" id="2}t[rFyvtZ\`O=Qr%1$#0">
                     <field name="VAR" id="dN-GQox{6nqmX%so5NT^">command</field>
                     <value name="VALUE">
                       <block type="text_getSubstring" id="tk/+|mA*Z|4~B9|.CuKM">
@@ -94,7 +95,7 @@
                         <field name="WHERE2">LAST</field>
                         <value name="STRING">
                           <block type="variables_get" id="h17=Uep1/B8X+$A*ozx3">
-                            <field name="VAR" id="9p=y^o3Q9D#i[*`~t8Qd">commandwithprefix</field>
+                            <field name="VAR" id="9p=y^o3Q9D#i[*\`~t8Qd">commandwithprefix</field>
                           </block>
                         </value>
                         <value name="AT1">
@@ -110,7 +111,7 @@
                                     <field name="TEXT">abc</field>
                                   </shadow>
                                   <block type="variables_get" id="Oh^urZbwt%S(?:4fRptd">
-                                    <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                                    <field name="VAR" id="=6\`ushn0ewC41R$-^dvJ">prefix</field>
                                   </block>
                                 </value>
                               </block>
@@ -142,7 +143,7 @@
                           </block>
                         </value>
                         <statement name="DO0">
-                          <block type="s4d_reply" id="-{l,tE6ZGFbL6`Pn_@~#">
+                          <block type="s4d_reply" id="-{l,tE6ZGFbL6\`Pn_@~#">
                             <value name="CONTENT">
                               <shadow type="text" id="aL1?|+/#9ra54-jg7_Gm">
                                 <field name="TEXT">You have written the following content after !say:</field>
@@ -151,7 +152,7 @@
                             <next>
                               <block type="s4d_reply" id=")aBPXtsn1JD-vhr:VEL-">
                                 <value name="CONTENT">
-                                  <shadow type="text" id="9FEK`)XQ20Dm!SwfYg}5">
+                                  <shadow type="text" id="9FEK\`)XQ20Dm!SwfYg}5">
                                     <field name="TEXT">Salut!</field>
                                   </shadow>
                                   <block type="lists_split" id="dXoK}l3=r:Qu|E|[I_EZ">
@@ -185,3 +186,4 @@
     </statement>
   </block>
 </xml>
+  `;
