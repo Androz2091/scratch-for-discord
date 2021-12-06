@@ -90,12 +90,12 @@ const BORDER_MUTATOR_MIXIN = {
 Blockly.Extensions.registerMutator("s4d_message_embed_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
 
 Blockly.JavaScript["s4d_message_embed"] = function(block){
-    title = "";
-    color = "";
-    image = "";
-    message = "";
-    footer = "";
-    thumbnail = "";
+    let title = "";
+    let color = "";
+    let image = "";
+    let message = "";
+    let footer = "";
+    let thumbnail = "";
     if (!(Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC))){
         title = `.setTitle(${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC)})`
     }
