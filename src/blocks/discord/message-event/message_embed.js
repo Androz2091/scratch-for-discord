@@ -96,23 +96,29 @@ Blockly.JavaScript["s4d_message_embed"] = function(block){
     let description = "";
     let footer = "";
     let thumbnail = "";
-    if ((Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC)) !== null) {
-        title = ".setTitle(String(${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC)}))";
+    let valtitle = Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC);
+    let vatcolor = Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC);
+    let valimage = Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    let valdes = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    let vatft = Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC);
+    let vatth = Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC);
+    if (valtitle !== null) {
+        title = ".setTitle(String(${valtitle}))";
     }
-    if ((Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC)) !== null) {
-        color = ".setColor(String(${Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC)}))";
+    if (vatcolor !== null) {
+        color = ".setColor(String(${valcolor}))";
     }
-    if ((Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC)) !== null) {
-        image = ".setImage(String(${Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC)}))";
+    if (valimage !== null) {
+        image = ".setImage(String(${valimage}))";
     }
-    if ((Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC)) !== null) {
-        description = ".setDescription(String(${Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC)}))";
+    if (valdes !== null) {
+        description = ".setDescription(String(${valdes}))";
     }
-    if ((Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC)) !== null) {
-        footer = ".setFooter(String(${Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC)}))";
+    if (vatft !== null) {
+        footer = ".setFooter(String(${vatft}))";
     }
-    if ((Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC)) !== null) {
-        thumbnail = ".setThumbnail(String(${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC)}))";
+    if (vatth !== null) {
+        thumbnail = ".setThumbnail(String(${vatth}))";
     }
     return [ `
             embeds: [new MessageEmbed()
