@@ -82,6 +82,7 @@ if(js.includes("s4d.notifer")){
 }
 if(js.includes("queue.connect")){
     array.push(`let { Player,QueueRepeatMode } = require("discord-player")`)//foi
+    array.push(`let playdl = require("play-dl")`)
     code.push(`s4d.player = new Player(s4d.client)`)
 }
 if(js.includes("getBadges")){
