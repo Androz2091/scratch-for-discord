@@ -137,16 +137,7 @@ Vue.mixin({
             return `
                 (async()=>{
                 //hello :) hehe
-                let process = require('process');
-                process.on('uncaughtException', function (err) {
-                    console.log(err);
-                  });
                   ${requires.join("\n")}
-                  
-                  const { loadEvents } = require('./handler/LoadEvents')
-                  const { loadCommands } = require('./handler/LoadCommands')
-                    require('events').EventEmitter.defaultMaxListeners = 50;
-                    let fs = require('fs');
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                     const s4d = {
@@ -174,10 +165,7 @@ Vue.mixin({
                     s4d.client.commands = new Collection();
                     s4d.client.slash = new Collection();
                     s4d.client.aliases = new Collection();
-                    s4d.client.categories = fs.readdirSync("./Commands/");
                     s4d.client.setMaxListeners(0);
-                    loadEvents(s4d)
-                    loadCommands(s4d)
                     ${requiresjscode.join("\n")}         
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
                     return s4d

@@ -34,7 +34,6 @@
 <script>
 import Blockly from "blockly";
 import JSZip from "jszip";
-import {LoadEvents, LoadCommands, messageCreate, settings} from "../text.js"
 import TokenModal from "./TokenModal.vue";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
@@ -45,7 +44,7 @@ import preBuilds from "./preBuilds.vue";
 import ToolboxModal from "./ToolboxModal.vue";
 import localforage from 'localforage';
 import r from "./requires"
-export default {
+export default { 
     name: "navbar",
     components: {
         FileMenu,
@@ -90,22 +89,12 @@ export default {
                 r(requires,oldrequires)
                 if(result){
                     const zip = new JSZip();
-                    let handler = zip.folder('handler')
-                    let event = zip.folder('events')
-                    let guild = event.folder('guild')
-                    let commands = zip.folder('Commands')
                     const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
                     const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, " ")}.zip`;
                     zip.file("blocks.xml", xmlContent);
-                    const javascriptContent = this.getWorkspaceCode();
-                    handler.file('LoadCommands.js', LoadCommands)
-                    handler.file('LoadEvents.js', LoadEvents)
-                    guild.file('messageCreate.js', messageCreate)
-                    commands.folder('Commands').file('1SJKKDJUJHOUHH672_TEST_jiwjiw.js', 'module.exports = {}')    
-                    zip.file('settingMessages.js', settings)
+                    const javascriptContent = this.getWorkspaceCode(); 
                     zip.file("bot.js", javascriptContent);
                     zip.file(".replit", 'run = "npm start"');
-                    zip.file("db.json",await localStorage.getItem('easyjsondatabase'));
                     zip.file("package.json", `{\n
                         "name": "scratch-for-discord-bot",\n
                         "version": "1.0.0",\n
