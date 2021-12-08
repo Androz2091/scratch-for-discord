@@ -7,7 +7,7 @@ const blockData = {
   "message0": "URL of image  %1",
   "args0": [
     {
-      "type": input_value"",
+      "type": "input_value",
       "name": "query",
       "check": "String"
     }
