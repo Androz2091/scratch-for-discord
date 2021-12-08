@@ -46,7 +46,7 @@ Blockly.JavaScript[blockName] = function (block) {
                 guildId: s4dmessage.guildId,
                 adapterCreator: s4dmessage.guild.voiceAdapterCreator,
             });
-            voiceConnection=await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5_000);
+            voiceConnection= entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5_000);
         }
         
         if(voiceConnection.status===VoiceConnectionStatus.Connected){
