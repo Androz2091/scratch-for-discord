@@ -3,17 +3,17 @@ import * as Blockly from "blockly/core";
 const blockName = "tts-test";
 
 const blockData = {
-  "message0": "Get lyric with the artist name %1 song name %2 then %3 %4",
+  "message0": "Play TTS %1 in channel %2 then %3 %4",
   "args0": [
     {
       "type": "input_value",
-      "name": "ArtistName",
-      "check": ["Number", "String"]
+      "name": "tts",
+      "check": "String"
     },
     {
       "type": "input_value",
-      "name": "SongName",
-      "check": ["Number", "String"]
+      "name": "channel",
+      "check": "VoiceChannel"
     },
     {
       "type": "input_dummy"
