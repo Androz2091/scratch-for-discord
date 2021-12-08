@@ -458,6 +458,7 @@ export default (Blockly, value) => {
         </category>
 	<category name="Image Finder" colour="#00c7ad">
         <block type="get_image"/>
+	<block type="url_image"/>
         </category>
         </category>
 	
