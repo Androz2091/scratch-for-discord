@@ -1,6 +1,6 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "tts-test";
+const blockName = "tts-testo";
 
 const blockData = {
   "message0": "Get lyric with the artist name %1 song name %2 then %3 %4",
