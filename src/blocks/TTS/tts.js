@@ -38,12 +38,21 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-  const Artist = Blockly.JavaScript.valueToCode(block, "ArtistName", Blockly.JavaScript.ORDER_ATOMIC);
-  const Song = Blockly.JavaScript.valueToCode(block, "SongName", Blockly.JavaScript.ORDER_ATOMIC);
-  const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-  const code =  `(async function(artist, title) {
-        let lyrics = await lyricsFinder(artist, title) || "Not Found!";\n
-        ${statementThen}
-    })(${Artist}, ${Song});`;
+  const stream=discordTTS.getVoiceStream("tts");
+        const audioResource=createAudioResource(stream, {inputType: StreamType.Arbitrary, inlineVolume:true});
+        if(!voiceConnection || voiceConnection.status===VoiceConnectionStatus.Disconnected){
+            voiceConnection = joinVoiceChannel({
+                channelId: "channel",
+                guildId: s4dmessage.guildId,
+                adapterCreator: s4dmessage.guild.voiceAdapterCreator,
+            });
+            voiceConnection=await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5_000);
+        }
+        
+        if(voiceConnection.status===VoiceConnectionStatus.Connected){
+            voiceConnection.subscribe(audioPlayer);
+            audioPlayer.play(audioResource);
+        
+    }
   return code;
 };
