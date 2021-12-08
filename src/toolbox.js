@@ -439,6 +439,24 @@ export default (Blockly, value) => {
             <block type="s4d_string_to_number"></block>
         </category>
         <sep class="bt"/>
+
+          <category name="henpokpok" colour="#64C9FF">
+        <category name="Reactions" colour="#FF6464">
+        <label text="Reations event" web-class="boldtext"></label>
+        <block type="reaction_added"/>
+        <block type="reaction_removed"/>
+        <label text="React info" web-class="boldtext"></label>
+        <block type="react_member"/>
+        <block type="react_emoji"/>
+        <block type="react_messageId"/>
+        </category>
+        </category>
+        
+
+
+
+
+
         <category name="ahq" colour="#ff0000">
         <block type="s4d_history"/>
         <category name="member" colour="#006600">
