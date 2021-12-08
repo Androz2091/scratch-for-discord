@@ -46,7 +46,7 @@ let audioPlayer=new AudioPlayer();
         const audioResource=createAudioResource(stream, {inputType: StreamType.Arbitrary, inlineVolume:true});
         if(!voiceConnection || voiceConnection.status===VoiceConnectionStatus.Disconnected){
             voiceConnection = joinVoiceChannel({
-                channelId: ${channel},
+                channelId: ${channel}.Id,
                 guildId: s4dmessage.guildId,
                 adapterCreator: s4dmessage.guild.voiceAdapterCreator,
             });
