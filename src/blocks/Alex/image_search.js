@@ -20,6 +20,7 @@ const blockData = {
       "align": "RIGHT"
     }
   ],
+  "previousStatement": null,
   "nextStatement": null,
   "colour": "#04ccab",
   "tooltip": "",
