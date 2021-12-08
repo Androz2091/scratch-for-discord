@@ -142,7 +142,6 @@ Vue.mixin({
                 let voiceConnection;
                 let audioPlayer=new AudioPlayer();
                 const  image_finder  =  require("image-search-engine")
-                async  function  printUrl(query)
                 process.on('uncaughtException', function (err) {
                     console.log(err);
                   });
