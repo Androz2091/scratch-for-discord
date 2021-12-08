@@ -38,7 +38,7 @@ Blockly.Blocks[blockName] = {
   }
 };
 
-Blockly.JavaScript[blockName] = function (block) {
-test;
-  return code;
+Blockly.JavaScript[blockName] = function(block){
+    const time = Blockly.JavaScript.valueToCode(block, "TIME", Blockly.JavaScript.ORDER_ATOMIC);
+    return `await delay(Number(${time})*1000);\n`;
 };
