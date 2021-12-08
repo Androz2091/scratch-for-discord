@@ -26,6 +26,12 @@ const blockData = {
   "helpUrl": ""
 }
 
+Blockly.Blocks[blockName] = {
+  init: function () {
+    this.jsonInit(blockData);
+  }
+};
+
 Blockly.JavaScript[blockName] = function (block) {
 const query = Blockly.JavaScript.valueToCode(block, "query", Blockly.JavaScript.ORDER_ATOMIC);
   const code =  [`query = ${query}`, Blockly.JavaScript.ORDER_NONE ];
