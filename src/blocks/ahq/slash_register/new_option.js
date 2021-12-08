@@ -24,7 +24,7 @@ Blockly.Blocks[blockName] = {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function(){
     const code = [`,\n`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
