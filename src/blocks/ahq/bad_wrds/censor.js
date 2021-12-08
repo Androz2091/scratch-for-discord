@@ -12,13 +12,11 @@ const blockName = "ahq_bdwrd_cn";
 //block working now working
 const blockData = {
     "message0": "Censored Version Of %1",
-    "args0": [
-        {
-            "type": "INPUT_VALUE",
-            "name": "BAD",
-            "check": "String"
-        }
-    ],
+    "args0": [{
+        "type": "input_value",
+        "name": "BAD",
+        "check": ["String"]
+    }],
     "colour": listsGetRandomItem(ahqcolor, false),
     "output": "String",
     "tooltip": "",
