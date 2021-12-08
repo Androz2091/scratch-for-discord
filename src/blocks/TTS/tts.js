@@ -30,8 +30,8 @@ const blockData = {
     }
   ],
   "inputsInline": false,
-  "previousStatement": null,
-  "nextStatement": null,
+  "previousStatement": ".",
+  "nextStatement": ".",
   "colour": "#002663",
   "tooltip": "",
   "helpUrl": ""
