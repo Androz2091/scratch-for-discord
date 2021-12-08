@@ -138,7 +138,7 @@ Vue.mixin({
                 (async()=>{
                 let process = require('process');
                 const discordTTS = require("discord-tts");
-                const {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus} = require("@discordjs/voice");
+                const {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} = require("@discordjs/voice");
                 let voiceConnection;
                 let audioPlayer=new AudioPlayer();
 
