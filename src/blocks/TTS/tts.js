@@ -1,6 +1,6 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "playtts";
+const blockName = "tts-test";
 
 const blockData = {
 "message0": "Play OCR  %1 In channel  %2 Then %3 %4",
