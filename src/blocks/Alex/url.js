@@ -19,7 +19,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function () {  
-const code = [`await image_finder.find(query)`, Blockly.JavaScript.ORDER_NONE];
+const code = `await image_finder.find(query)`;
   return code;
 };
 
