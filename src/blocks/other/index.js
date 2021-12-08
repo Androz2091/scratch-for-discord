@@ -6,6 +6,5 @@ import "./return";
 import "./text_to_number";
 import "./print";
 import "./exec";
-import "./tts";
 import "./antilink";
 
