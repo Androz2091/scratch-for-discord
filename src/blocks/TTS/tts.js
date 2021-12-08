@@ -1,6 +1,6 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "tts-test2";
+const blockName = "playtts";
 
 const blockData = {
 "message0": "Play OCR  %1 In channel  %2 Then %3 %4",
@@ -36,7 +36,6 @@ Blockly.Blocks[blockName] = {
   }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-    const time = Blockly.JavaScript.valueToCode(block, "TIME", Blockly.JavaScript.ORDER_ATOMIC);
-    return `await delay(Number(${time})*1000);\n`;
+Blockly.JavaScript[blockName] = function(){
+ 
 };
