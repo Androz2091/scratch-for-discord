@@ -11,7 +11,7 @@ function listsGetRandomItem(list, remove) {
 const blockName = "s4d_reg_slash_options";
 //block working now working
 const blockData = {
-    "message0": "Set slash cmd options name %1 %2 set Description %3 %4 required? %5",
+    "message0": "Set slash cmd options name %1 %2 set Description %3 %4 required? %5 %6 type %7",
     "args0": [
         {
             "type": "input_value",
@@ -42,24 +42,44 @@ const blockData = {
             "name": "Label",
             "options": [
               [
-                "Red",
-                "DANGER"
+                "SUB_COMMAND",
+                "1"
               ],
               [
-                "Purple",
-                "PRIMARY"
+                "SUB_COMMAND_GROUP",
+                "2"
               ],
               [
-                "Grey",
-                "SECONDARY"
+                "STRING",
+                "3"
               ],
               [
-                "Green",
-                "SUCCESS"
+                "INTEGER",
+                "4"
               ],
               [
-                "Url",
-                "LINK"
+                "BOOLEAN",
+                "5"
+              ],
+              [
+                "USER",
+                "6"
+              ],
+              [
+                "CHANNEL",
+                "7"
+              ],
+              [
+                "ROLE",
+                "8"
+              ],
+              [
+                "MENTIONABLE",
+                "9"
+              ],
+              [
+                "NUMBER",
+                "10"
               ]
       
             ],
@@ -77,14 +97,15 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block){
-    const bl = Blockly.JavaScript.statementToCode(block, "ahq", Blockly.JavaScript.ORDER_ATOMIC);
+    const bl = Blockly.JavaScript.valueToCode(block, "ahq", Blockly.JavaScript.ORDER_ATOMIC);
   const server = Blockly.JavaScript.valueToCode(block, "Server", Blockly.JavaScript.ORDER_ATOMIC);
   const des = Blockly.JavaScript.valueToCode(block, "args", Blockly.JavaScript.ORDER_ATOMIC);
+  const type = block.getFieldValue("Label");
     const code = `{
         name: ${server},
         description: ${des},
         required: ${bl},
-        type: ${type}
+        type: ${type.replace("\"", "").replace("\"", "")}
     }`;
     return code;
 };
