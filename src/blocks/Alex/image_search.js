@@ -12,6 +12,7 @@ const blockData = {
       "check": "String"
     }
   ],
+  "output": "url",
   "colour": "#06ccb2",
   "tooltip": "",
   "helpUrl": ""
