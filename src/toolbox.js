@@ -502,9 +502,9 @@ export default (Blockly, value) => {
         
         <category name="TTS" colour="#49a4d1">
         <label text="Connect and use TTS" web-class="boldtext"></label>
-        <block type="tts"/>
+        <block type="tts-test"/>
         <label text="test" web-class="boldtext"></label>
-        <block type="tts"/>
+        <block type="tts-test"/>
         </category>
         </category>
 
