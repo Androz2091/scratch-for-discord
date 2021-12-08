@@ -451,10 +451,12 @@ export default (Blockly, value) => {
 	
 	<category name="Alex" colour="#06cfaa">
         
-        <category name="TTS" colour="#49a4d1">
+        <category name="TTS" colour="#1010b5">
         <label text="Connect and use TTS" web-class="boldtext"></label>
         <block type="tts-test"/>
 	<block type="tts_channel"/>
+        </category>
+	<category name="Image Finder" colour="#00c9af">
         </category>
         </category>
 	
