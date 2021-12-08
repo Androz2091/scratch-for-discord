@@ -501,8 +501,8 @@ export default (Blockly, value) => {
 <category name="Alex" colour="#06cfaa">
         
         <category name="TTS" colour="#49a4d1">
-        <label text="Fetch members of a server" web-class="boldtext"></label>
-        <block type="s4d_get_rndm"/>
+        <label text="Connect and use TTS" web-class="boldtext"></label>
+        <block type="tts"/>
         <label text="Get random member" web-class="boldtext"></label>
         <block type="s4d_get_rndmber"/>
         </category>
