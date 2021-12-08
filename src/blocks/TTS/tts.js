@@ -40,9 +40,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function (block) {
   const playtts = Blockly.JavaScript.valueToCode(block, "tts", Blockly.JavaScript.ORDER_ATOMIC);
     const channel = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
-const code = `let voiceConnection;
-            let audioPlayer = new AudioPlayer();
-const stream=discordTTS.getVoiceStream(${playtts});
+const code = `const stream=discordTTS.getVoiceStream(${tts});
         const audioResource=createAudioResource(stream, {inputType: StreamType.Arbitrary, inlineVolume:true});
         if(!voiceConnection || voiceConnection.status===VoiceConnectionStatus.Disconnected){
             voiceConnection = joinVoiceChannel({
@@ -50,7 +48,7 @@ const stream=discordTTS.getVoiceStream(${playtts});
                 guildId: s4dmessage.guildId,
                 adapterCreator: s4dmessage.guild.voiceAdapterCreator,
             });
-            voiceConnection=await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5_000);
+            voiceConnection=await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5000);
         }
         
         if(voiceConnection.status===VoiceConnectionStatus.Connected){
