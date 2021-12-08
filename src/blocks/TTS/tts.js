@@ -38,7 +38,10 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function () {
-  
+  const {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus} = require("@discordjs/voice");
+
+let voiceConnection;
+let audioPlayer=new AudioPlayer();
   const stream=discordTTS.getVoiceStream("tts");
         const audioResource=createAudioResource(stream, {inputType: StreamType.Arbitrary, inlineVolume:true});
         if(!voiceConnection || voiceConnection.status===VoiceConnectionStatus.Disconnected){
