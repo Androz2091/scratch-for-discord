@@ -19,5 +19,5 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    return 's4dmessage.member.voice.channelId';
+    return ['s4dmessage.member.voice.channelId', Blockly.JavaScript.ORDER_NONE ];
 };
