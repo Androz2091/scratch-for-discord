@@ -25,6 +25,6 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(){
-    const code = [`,\n`, Blockly.JavaScript.ORDER_NONE];
+    const code = `,\n`;
     return code;
 };
