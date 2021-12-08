@@ -37,15 +37,16 @@ Blockly.Blocks[blockName] = {
   }
 };
 
-Blockly.JavaScript[blockName] = function () {
-
-let voiceConnection;
+Blockly.JavaScript[blockName] = function (block) {
+  const playtts = Blockly.JavaScript.valueToCode(block, "tts", Blockly.JavaScript.ORDER_ATOMIC);
+    const channel = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
+const code = `let voiceConnection;
 let audioPlayer=new AudioPlayer();
-  const stream=discordTTS.getVoiceStream("tts");
+  const stream=discordTTS.getVoiceStream(${playtts});
         const audioResource=createAudioResource(stream, {inputType: StreamType.Arbitrary, inlineVolume:true});
         if(!voiceConnection || voiceConnection.status===VoiceConnectionStatus.Disconnected){
             voiceConnection = joinVoiceChannel({
-                channelId: "channel",
+                channelId: ${channel},
                 guildId: s4dmessage.guildId,
                 adapterCreator: s4dmessage.guild.voiceAdapterCreator,
             });
@@ -56,6 +57,6 @@ let audioPlayer=new AudioPlayer();
             voiceConnection.subscribe(audioPlayer);
             audioPlayer.play(audioResource);
         
-    }
-
+    } `:
+ return code;
 };
