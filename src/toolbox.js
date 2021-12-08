@@ -501,6 +501,7 @@ export default (Blockly, value) => {
 <category name="Alex" colour="#00d1b5">
 	<category name="TTS" colour="#52a8de">
         </category>
+        </category>
 
 
 <category name="retro and xl83" colour="#AAE941">
