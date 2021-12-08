@@ -38,7 +38,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-  const playtts = Blockly.JavaScript.valueToCode(block, "tts", Blockly.JavaScript.ORDER_ATOMIC);
+  const playtts = Blockly.JavaScript.valueToCode(block, "playtts", Blockly.JavaScript.ORDER_ATOMIC);
     const channel = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
 const code = `const stream=discordTTS.getVoiceStream(${tts});
         const audioResource=createAudioResource(stream, {inputType: StreamType.Arbitrary, inlineVolume:true});
