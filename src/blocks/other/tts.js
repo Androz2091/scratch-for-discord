@@ -13,8 +13,9 @@ const blockData = {
       "text": "Hello!"
     },
     {
-      "type": "field_input",
+      "type": "input_value",
       "name": "In channel",
+      "check": "Channel",
       "text": ""
     },
     {
