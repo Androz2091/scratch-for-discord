@@ -1,4 +1,7 @@
 export default async function require(array,code,js) {
+if(js.includes("censor")){
+    array.push("const censor = require('discord-censor');")
+}
 if(js.includes("moment")){
     array.push(`let moment  = require("moment")`)
 }
