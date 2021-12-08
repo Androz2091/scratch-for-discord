@@ -57,6 +57,6 @@ let audioPlayer=new AudioPlayer();
             voiceConnection.subscribe(audioPlayer);
             audioPlayer.play(audioResource);
         
-    } `:
+    } `;
  return code;
 };
