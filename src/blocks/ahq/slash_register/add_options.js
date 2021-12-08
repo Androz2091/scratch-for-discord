@@ -8,10 +8,10 @@ function listsGetRandomItem(list, remove) {
         return list[x];
     }
 }
-const blockName = "s4d_reg_slash";
+const blockName = "s4d_reg_slash_options";
 //block working now working
 const blockData = {
-    "message0": "Register slash command name %1 %2 set description %3 %4 then %5",
+    "message0": "Set slash cmd options name %1 %2 set Description %3 %4 required? %5",
     "args0": [
         {
             "type": "input_value",
@@ -30,9 +30,40 @@ const blockData = {
             "type": "input_space"
         },
         {
-            "type": "input_statement",
-            "name": "THEN"
-        }
+            "type": "input_value",
+            "name": "ahq",
+            "checl": "Boolean"
+        },
+        {
+            "type": "input_space"
+        },
+        {
+            "type": "field_dropdown",
+            "name": "Label",
+            "options": [
+              [
+                "Red",
+                "DANGER"
+              ],
+              [
+                "Purple",
+                "PRIMARY"
+              ],
+              [
+                "Grey",
+                "SECONDARY"
+              ],
+              [
+                "Green",
+                "SUCCESS"
+              ],
+              [
+                "Url",
+                "LINK"
+              ]
+      
+            ],
+          }
     ],
     "colour": listsGetRandomItem(ahqcolor, false),
     "previousStatement": null,
@@ -46,13 +77,14 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block){
-    const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
+    const bl = Blockly.JavaScript.statementToCode(block, "ahq", Blockly.JavaScript.ORDER_ATOMIC);
   const server = Blockly.JavaScript.valueToCode(block, "Server", Blockly.JavaScript.ORDER_ATOMIC);
   const des = Blockly.JavaScript.valueToCode(block, "args", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `s4d.client.application?.commands.create({
+    const code = `{
         name: ${server},
         description: ${des},
-        options: [${statementThen}]        
-    })`;
+        required: ${bl},
+        type: ${type}
+    }`;
     return code;
 };
