@@ -1,5 +1,8 @@
 export default async function require(array,oldarray) {
 oldarray.forEach(js=>{
+    if(js.includes("censor")){
+        array.push(`"discord-censor": "^1.0.9"`)
+    }
     if(js.includes("discord-player")){
         array.push(`"avconv": "^3.1.0",`)
         array.push(`"discord-player": "^5.2.0",`)

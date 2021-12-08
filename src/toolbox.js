@@ -494,9 +494,7 @@ export default (Blockly, value) => {
         <block type="s4d_reg_new_options"/>
         </category>
         <category name="profanity" colour="#6600cc">
-        <label text="Bad Words Check" web-class="boldtext"></label>
         <block type="ahq_bdwrd"/>
-        <label text="Bad Words Censor" web-class="boldtext"></label>
         <block type="ahq_bdwrd_cn"/>
         </category>
         </category>
