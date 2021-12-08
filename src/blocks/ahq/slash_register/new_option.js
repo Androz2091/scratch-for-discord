@@ -8,7 +8,7 @@ function listsGetRandomItem(list, remove) {
         return list[x];
     }
 }
-const blockName = "s4d_reg_slash_options";
+const blockName = "s4d_reg_new_options";
 //block working now working
 const blockData = {
     "message0": "Add option",

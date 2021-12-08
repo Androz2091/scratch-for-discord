@@ -473,6 +473,7 @@ export default (Blockly, value) => {
         <label text="Create a slash command" web-class="boldtext"></label>
         <block type="s4d_reg_slash"/>
         <block type="s4d_reg_slash_options"/>
+        <block type="s4d_reg_new_options"/>
         </category>
         </category>
 
