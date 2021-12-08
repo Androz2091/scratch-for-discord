@@ -4,7 +4,7 @@ const blockName = "tts-test";
 
 const blockData = {
   "type": "input_value",
-  "message0": "Play OCR  %1 In channel  %2 Then %3 %4",
+  "message0": "Play OCR  %1 In channel  %2 Then",
   "args0": [
     {
       "type": "field_input",
@@ -14,15 +14,7 @@ const blockData = {
     {
       "type": "input_value",
       "name": "In channel",
-      "check": "VoiceChannel",
       "text": ""
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "input_statement",
-      "name": "THEN"
     }
   ],
   "inputsInline": false,
