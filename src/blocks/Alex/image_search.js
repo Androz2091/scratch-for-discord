@@ -26,7 +26,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
 const query = Blockly.JavaScript.valueToCode(block, "query", Blockly.JavaScript.ORDER_ATOMIC);
-  const code =  `await  image_finder.find(${query})`;
+  const code =  [`await image_finder.find(${query})`, Blockly.JavaScript.ORDER_NONE ];
   return code;
 };
-
