@@ -36,6 +36,6 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function (block) {
     const Then = Blockly.JavaScript.statementToCode(block, "then");
 const query = Blockly.JavaScript.valueToCode(block, "query", Blockly.JavaScript.ORDER_ATOMIC);
-  const code =  `query = ${query}` ${Then};
+  const code =  `query = ${query} \n ${Then}`;
   return code;
 };
