@@ -7,7 +7,7 @@ const blockData = {
   "message0": "Image URL",
   "name": "url",
   "output": "url",
-  "colour": 230,
+  "colour": "#04ccab",
   "tooltip": "",
   "helpUrl": ""
 }
