@@ -1,31 +1,33 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "search_image";
+const blockName = "get_image";
 
 const blockData = {
-  "type": "g",
-  "message0": "URL of image  %1",
+
+  "message0": "Find image with query  %1  then %2 %3",
   "args0": [
     {
       "type": "input_value",
       "name": "query",
-      "check": "String"
+      "Check": "String"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "then",
+      "align": "RIGHT"
     }
   ],
-  "output": "url",
-  "colour": "#06ccb2",
+  "nextStatement": null,
+  "colour": "#04ccab",
   "tooltip": "",
   "helpUrl": ""
-};
-
-Blockly.Blocks[blockName] = {
-  init: function () {
-    this.jsonInit(blockData);
-  }
-};
+}
 
 Blockly.JavaScript[blockName] = function (block) {
 const query = Blockly.JavaScript.valueToCode(block, "query", Blockly.JavaScript.ORDER_ATOMIC);
-  const code =  [`await image_finder.find(${query})`, Blockly.JavaScript.ORDER_NONE ];
+  const code =  [`query = ${query}`, Blockly.JavaScript.ORDER_NONE ];
   return code;
 };
