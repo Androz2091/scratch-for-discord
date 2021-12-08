@@ -39,7 +39,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
   const playtts = Blockly.JavaScript.valueToCode(block, "tts", Blockly.JavaScript.ORDER_ATOMIC);
-    const channel = s4dmessage.member.voice.channelId;
+    const channel = `s4dmessage.member.voice.channelId`;
 const code = `let voiceConnection;
             let audioPlayer = new AudioPlayer();
 const stream=discordTTS.getVoiceStream(${playtts});
