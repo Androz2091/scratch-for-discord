@@ -498,8 +498,13 @@ export default (Blockly, value) => {
 </category>
 </category>
 
-<category name="Alex" colour="#00d1b5">
-	<category name="TTS" colour="#52a8de">
+<category name="Alex" colour="#06cfaa">
+        
+        <category name="TTS" colour="#49a4d1">
+        <label text="Fetch members of a server" web-class="boldtext"></label>
+        <block type="s4d_get_rndm"/>
+        <label text="Get random member" web-class="boldtext"></label>
+        <block type="s4d_get_rndmber"/>
         </category>
         </category>
 
