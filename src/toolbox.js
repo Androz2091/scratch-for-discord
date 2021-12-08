@@ -448,6 +448,17 @@ export default (Blockly, value) => {
         <block type="s4d_get_rndmber"/>
         </category>
         </category>
+	
+	<category name="Alex" colour="#06cfaa">
+        
+        <category name="TTS" colour="#49a4d1">
+        <label text="Connect and use TTS" web-class="boldtext"></label>
+        <block type="tts-test"/>
+	<label text="Detect the played TTS" web-class="boldtext"></label>
+        <block type="played-tts"/>
+        </category>
+        </category>
+	
 <category name="frostzzone" colour="#347dfa">
 
 <category name="github" colour="#1f1f1f">
@@ -497,17 +508,6 @@ export default (Blockly, value) => {
 <block type="frost_real_reply_delete"/>
 </category>
 </category>
-
-<category name="Alex" colour="#06cfaa">
-        
-        <category name="TTS" colour="#49a4d1">
-        <label text="Connect and use TTS" web-class="boldtext"></label>
-        <block type="tts-test"/>
-	        <label text="Detect the played tts" web-class="boldtext"></label>
-        <block type="played-tts"/>
-        </category>
-        </category>
-
 
 <category name="retro and xl83" colour="#AAE941">
 	<category name="Games" colour="#5ba58b">
