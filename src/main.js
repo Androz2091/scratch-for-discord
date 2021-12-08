@@ -136,8 +136,9 @@ Vue.mixin({
             },1000)
             return `
                 (async()=>{
-                //hello :) hehe
                 let process = require('process');
+                const discordTTS = require("discord-tts");
+
                 process.on('uncaughtException', function (err) {
                     console.log(err);
                   });
