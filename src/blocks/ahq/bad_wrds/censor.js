@@ -12,7 +12,7 @@ const blockName = "ahq_bdwrd_cn";
 //block working now working
 const blockData = {
     "message0": "Censored Version Of %1",
-    "args": [
+    "args0": [
         {
             "type": "INPUT_VALUE",
             "name": "BAD",

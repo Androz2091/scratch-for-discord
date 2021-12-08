@@ -12,7 +12,7 @@ const blockName = "ahq_bdwrd";
 //block working now working
 const blockData = {
     "message0": "Bad Word %1 ?",
-    "args": [
+    "args0": [
         {
             "type": "INPUT_VALUE",
             "name": "BAD",
