@@ -58,5 +58,5 @@ let audioPlayer=new AudioPlayer();
             audioPlayer.play(audioResource);
         
     }
-  return code;
+
 };
