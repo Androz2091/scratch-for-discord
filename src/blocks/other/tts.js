@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "tts-test";
 
 const blockData = {
-  {
+  
   "type": "input_value",
   "message0": "Play TTS  %1 In channel  %2 Then %3 %4",
   "args0": [
