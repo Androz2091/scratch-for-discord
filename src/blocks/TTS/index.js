@@ -1,3 +1,2 @@
-
-import "./tts2";
+import "./tts";
 import "./ptts"
