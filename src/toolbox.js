@@ -469,6 +469,10 @@ export default (Blockly, value) => {
         <block type="url_ahq_button"/>
         <block type="d_ahq_button"/>
         </category>
+        <category name="slash (half done!)" colour="#ff0019">
+        <label text="UNDER CONSTRUCTION" web-class="boldtext"></label>
+        <block type="s4d_reg_slash"/>
+        </category>
         </category>
 
 
