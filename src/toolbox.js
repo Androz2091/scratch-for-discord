@@ -456,7 +456,7 @@ export default (Blockly, value) => {
         <block type="tts-test"/>
 	<block type="tts_channel"/>
         </category>
-	<category name="Image Finder" colour="#00c9af">
+	<category name="Image Finder" colour="#00c7ad">
         </category>
         </category>
 	
