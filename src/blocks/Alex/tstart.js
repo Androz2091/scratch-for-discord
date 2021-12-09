@@ -25,6 +25,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
 const then = Blockly.JavaScript.valueToCode(block, "THEN", Blockly.JavaScript.ORDER_ATOMIC);
-  const code =  `s4d.client.on('typingStart', async (s4dTyping) => { \n ${then}`;
+  const code =  `s4d.client.on('typingStart', async (s4dTyping) => { \n ${then} \n });`;
   return code;
 };
