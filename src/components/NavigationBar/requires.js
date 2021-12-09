@@ -1,5 +1,9 @@
 export default async function require(array,oldarray) {
 oldarray.forEach(js=>{
+    if(js.includes("const stream = discordTTS")) {
+        array.push(`"discord-tts": "^1.2.1",
+        "@discord.js/voice": "^0.7.5",`)
+    }
     if(js.includes("censor")){
         array.push(`"discord-censor": "^1.0.9"`)
     }
