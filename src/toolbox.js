@@ -510,6 +510,7 @@ export default (Blockly, value) => {
         <label text="Typing event" web-class="boldtext"></label>
         <block type="typing_start"/>
         <label text="Typing blocks" web-class="boldtext"></label>
+        <block type="typing_server"/>
         <block type="typing_channel"/>
         <block type="typing_member"/>
         </category>
