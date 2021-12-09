@@ -31,6 +31,6 @@ Blockly.Blocks[blockName] = {
 };
 Blockly.JavaScript[blockName] = function(block){
     const data = Blockly.JavaScript.valueToCode(block, "BAD", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `(censor.check(String(${data})))`;
+    const code = [`(censor.check(String(${data})))`, Blockly.JavaScript.ORDER_ATOMIC];
     return code;
 };

@@ -442,7 +442,7 @@ export default (Blockly, value) => {
 
           <category name="henpokpok" colour="#64C9FF">
         <category name="Reactions" colour="#FF6464">
-        <label text="Reations event" web-class="boldtext"></label>
+        <label text="Reations event (under construction)" web-class="boldtext"></label>
         <block type="reaction_added"/>
         <block type="reaction_removed"/>
         <label text="React info" web-class="boldtext"></label>
@@ -493,6 +493,10 @@ export default (Blockly, value) => {
         <block type="s4d_reg_slash_options"/>
         <block type="s4d_reg_new_options"/>
         </category>
+        <category name="profanity" colour="#ff0000">
+        <block type="ahq_bdwrd"/>
+        <block type="ahq_bdwrd_cn"/>
+        </category>
         </category>
 	
 	<category name="Alex" colour="#06cfaa">
@@ -515,6 +519,7 @@ export default (Blockly, value) => {
         <block type="typing_member"/>
         </category>
  	</category>
+
 <category name="frostzzone" colour="#347dfa">
 
 <category name="github" colour="#1f1f1f">
@@ -590,8 +595,10 @@ export default (Blockly, value) => {
 					  </category>
 					  
 					  <category name="Pc/Server Stats" colour="#a5745b">
-					  <block type="ps_cpu_stats"/>
-					    <block type="ps_os_stats"/>
+					  <block type="ps_os_stats"/>
+					  <block type="get_cpu_uptime"/>
+					  <block type="cpu"/>
+					    
 					    </category>
 					    <category name="Music [retro]" colour="#a5745b">
 					    <label text="Create a perfect music player" web-class="boldtext"></label>

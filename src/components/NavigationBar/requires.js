@@ -1,5 +1,9 @@
 export default async function require(array,oldarray) {
 oldarray.forEach(js=>{
+    if(js.includes("const stream = discordTTS")) {
+        array.push(`"discord-tts": "^1.2.1",
+        "@discord.js/voice": "^0.7.5",`)
+    }
     if(js.includes("censor")){
         array.push(`"discord-censor": "^1.0.9"`)
     }
@@ -21,6 +25,9 @@ oldarray.forEach(js=>{
     } 
     if(js.includes("discord-backup")){
         array.push(`"discord-backup": "^3.0.1",`)
+    }
+    if(js.includes("node-os-utils")){
+        array.push(`"node-os-utils": "^1.3.5",`)
     }
     if(js.includes("discord-giveaways")){
         array.push(`"discord-giveaways": "^5.0.1",`)
