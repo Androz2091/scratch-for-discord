@@ -582,8 +582,10 @@ export default (Blockly, value) => {
 					  </category>
 					  
 					  <category name="Pc/Server Stats" colour="#a5745b">
-					  <block type="ps_cpu_stats"/>
-					    <block type="ps_os_stats"/>
+					  <block type="ps_os_stats"/>
+					  <block type="get_cpu_uptime"/>
+					  <block type="cpu"/>
+					    
 					    </category>
 					    <category name="Music [retro]" colour="#a5745b">
 					    <label text="Create a perfect music player" web-class="boldtext"></label>
