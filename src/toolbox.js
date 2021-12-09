@@ -518,6 +518,9 @@ export default (Blockly, value) => {
         <block type="typing_channel"/>
         <block type="typing_member"/>
         </category>
+	<category name="Other" colour="#c70e6d">
+        <block type="hig_role"/>
+	</category>
  	</category>
 
 <category name="frostzzone" colour="#347dfa">
