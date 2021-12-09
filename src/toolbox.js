@@ -510,6 +510,18 @@ export default (Blockly, value) => {
         <block type="get_image"/>
 	<block type="url_image"/>
         </category>
+	<category name="Typing" colour="#f79400">
+        <label text="Typing event" web-class="boldtext"></label>
+        <block type="typing_start"/>
+        <label text="Typing blocks" web-class="boldtext"></label>
+        <block type="typing_server"/>
+        <block type="typing_channel"/>
+        <block type="typing_member"/>
+        </category>
+	<category name="Other" colour="#c70e6d">
+        <block type="hig_role"/>
+        <block type="isdm"/>
+	</category>
  	</category>
 
 <category name="frostzzone" colour="#347dfa">

@@ -171,8 +171,8 @@ fire:null,
                         }
                     };
                     s4d.client = new s4d.Discord.Client({
-                        intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
-                        partials: ["REACTION"]
+                    intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
+                    partials: ["REACTION", "CHANNEL"]
                     });
                     ${requiresjscode.join("\n")}         
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
