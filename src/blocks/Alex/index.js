@@ -6,4 +6,5 @@ import "./tchannel";
 import "./tmember";
 import "./tserver";
 import "./higrole";
+import "./isdm";
 import "./channel"
