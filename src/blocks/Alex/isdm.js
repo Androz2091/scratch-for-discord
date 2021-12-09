@@ -23,7 +23,7 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
+Blockly.JavaScript[blockName] = function(block) {
 const chan = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
     const code = [`${chan}.type === "DM"`, Blockly.JavaScript.ORDER_NONE];
     return code;
