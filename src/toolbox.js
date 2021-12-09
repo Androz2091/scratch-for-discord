@@ -438,7 +438,75 @@ export default (Blockly, value) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
         </category>
+        <sep class="bt"/>
 
+          <category name="henpokpok" colour="#64C9FF">
+        <category name="Reactions" colour="#FF6464">
+        <label text="Reations event" web-class="boldtext"></label>
+        <block type="reaction_added"/>
+        <block type="reaction_removed"/>
+        <label text="React info" web-class="boldtext"></label>
+        <block type="react_member"/>
+        <block type="react_emoji"/>
+        <block type="react_messageId"/>
+        </category>
+        </category>
+        
+
+
+
+
+
+        <category name="ahq" colour="#ff0000">
+        <block type="s4d_history"/>
+        <category name="member" colour="#006600">
+        <label text="Fetch members of a server" web-class="boldtext"></label>
+        <block type="s4d_get_rndm"/>
+        <label text="Get random member" web-class="boldtext"></label>
+        <block type="s4d_get_rndmber"/>
+        </category>
+        <category name="button" colour="#ff0019">
+        <label text="Event" web-class="boldtext"></label>
+        <block type="on_real_button"/>
+        <label text="Button Information" web-class="boldtext"></label>
+        <block type="id_btn_srv"/>
+        <block type="id_btn_ch"/>
+        <block type="id_btn_clkr"/>
+        <block type="id_btn_ahq"/>
+        <block type="embed_btn_ahq"/>
+        <label text="Button Actions" web-class="boldtext"></label>
+        <block type="updte_ahq_button"/>
+        <block type="rply_ahq_button"/>
+        <label text="Send button" web-class="boldtext"></label>
+        <block type="snd_ahq_button"/>
+        <label text="Button Creation Stuff" web-class="boldtext"></label>
+        <block type="make_ahq_button"/>
+        <block type="style_ahq_button"/>
+        <block type="label_ahq_button"/>
+        <block type="emoji_ahq_button"/>
+        <block type="url_ahq_button"/>
+        <block type="d_ahq_button"/>
+        </category>
+        <category name="cmd register" colour="#6600cc">
+        <label text="Create a slash command" web-class="boldtext"></label>
+        <block type="s4d_reg_slash"/>
+        <block type="s4d_reg_slash_options"/>
+        <block type="s4d_reg_new_options"/>
+        </category>
+        </category>
+	
+	<category name="Alex" colour="#06cfaa">
+        
+        <category name="TTS" colour="#1010b5">
+        <label text="Connect and use TTS" web-class="boldtext"></label>
+        <block type="tts-test"/>
+	<block type="tts_channel"/>
+        </category>
+	<category name="Image Finder" colour="#00c7ad">
+        <block type="get_image"/>
+	<block type="url_image"/>
+        </category>
+        </category>
 <category name="frostzzone" colour="#347dfa">
 
 <category name="github" colour="#1f1f1f">
@@ -452,14 +520,55 @@ export default (Blockly, value) => {
 <block type="scratch_about_user"/>
 </category>
 
-<!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/></category>-->
+<!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
 
+<category name="Messages" colour="#2a46fa">
+<block type="frost_real_reply">
+<value name="CONTENT">
+  <shadow type="text">
+    <field name="TEXT">Hey!</field>
+  </shadow>
+</value>
+<value name="boolean">
+  <shadow type="logic_boolean">
+                <field name="Boolean">TRUE</field>
+            </shadow>
+        </value>
+</block>
+<block type="frost_real_reply_then">
+<value name="CONTENT">
+  <shadow type="text">
+    <field name="TEXT">Hey!</field>
+  </shadow>
+</value>
+<value name="boolean">
+  <shadow type="logic_boolean">
+                <field name="Boolean">TRUE</field>
+            </shadow>
+        </value>
+</block>
+<block type="frost_real_reply_add_reaction">
+<value name="REACTION"><shadow type="text"><field name="TEXT">👍</field></shadow></value>
+</block>
+<block type="frost_real_reply_edit">
+<value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
+</block>
+<block type="frost_real_reply_delete"/>
+<block type="frost_typing">
+<value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
+</block>
+</category>
 </category>
 
 <category name="retro and xl83" colour="#AAE941">
 	<category name="Games" colour="#5ba58b">
   <label text="Akinator gamemodes: character, animal, object" web-class="boldtext"></label>
-	 				<block type="Akinator"/>
+	 				<block type="Akinator">
+           <value name="MESSAGE">
+           <shadow type="aki_gametype">
+           </shadow>
+           </value>
+           </block>
 					<block type="s4d_snake"/>
 					</category>
 				<category name="Reddit" colour="#5ba58b">
@@ -477,7 +586,41 @@ export default (Blockly, value) => {
 					  <block type="get_cpu_uptime"/>
 					  <block type="cpu"/>
 					    
-					    
+					    </category>
+					    <category name="Music [retro]" colour="#a5745b">
+					    <label text="Create a perfect music player" web-class="boldtext"></label>
+        <label text="Made with discord-music-player DMP" web-class="boldtext"></label>
+        <label text="WARNING DON'T USE WITH JOSE MUSIC BLOCKS" web-class="boldtext"></label>
+	<label text="Events :D" web-class="boldtext"></label>
+        <block type="first_track"/>
+        <block type="track_start"/>
+        <block type="empty"/>
+        <block type="kicked"/>
+        <block type="queue_error"/>
+        <block type="track_added"/>
+        <label text="Blocks :D" web-class="boldtext"></label>
+        <block type="discord_connect"/>
+        <block type="better_stop"/>
+        <block type="better_play"/>
+        <block type="better_pause"/>
+        <block type="better_resume"/>
+        <block type="better_shuffle"/>
+        <block type="better_skip"/>
+        <block type="better_loop_song"/>
+        <block type="better_loop_queue"/>
+        <block type="loop_stop"/>
+	<block type="better_volume"/>
+        <label text="Queue info :D" web-class="boldtext"></label>
+        <block type="better_song_thumbnail"/>
+        <block type="new_track_name"/>
+        <block type="added_song_name"/>
+        <block type="better_track_url"/>
+        <block type="retro_track_channel"/>
+        <block type="better_duration"/>
+	<block type="better_voice_channel"/>
+	<block type="better_vcid"/>
+        <block type="better_botvcid"/>
+	<block type="song-first"/>
 					    </category>
 <category name="Ticketing System" colour="#5b80a5">
 	<label text="You can also type local" web-class="boldtext"></label>
@@ -487,6 +630,12 @@ export default (Blockly, value) => {
 		<block type="close_ticket"/>
 		<block type="ticket_setup"/>
 		<block type="unarchieve_ticket"/>
+    <label text="Slash version" web-class="boldtext"></label>
+    <block type="slash_archieve_ticket"/>
+		<block type="slash_close_ticket"/>
+		<block type="slash_ticket_setup"/>
+		<block type="slash_unarchieve_ticket"/>
+<block type="slash_message_channel"/>
         </category>
 	<category name="lyric finder" colour="#5ba58b">
 	 	<block type="find_lyric_than"/>
@@ -502,6 +651,16 @@ export default (Blockly, value) => {
 				
 				
 				<category name="{{ JOSE }}" colour="#00664d">
+<category name="firebase" colour="#00664d">
+                    <block type="start_db"/>
+                </category> 
+                <category name="voice channel" colour="#00664d">
+                    <block type="mute_member"/>
+                    <block type="unmute_member"/>
+                    <block type="deaf_member"/>
+                    <block type="undeaf_member"/>
+                    <block type="move_member"/>
+                </category>
                 <category name="date" colour="#00664d">
                     <block type="s4d_current"></block>
                     <block type="unix_to_date"/>
@@ -709,6 +868,7 @@ export default (Blockly, value) => {
             <block type="s4d_create_embed_then_set_color"></block>
             <block type="s4d_create_embed_then_set_author"></block>
             <block type="s4d_create_embed_then_set_title"></block>
+            <block type="s4d_create_embed_then_add_link"></block>            
             <block type="s4d_create_embed_then_set_thumbnail"></block>
             <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
             <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
@@ -862,6 +1022,7 @@ export default (Blockly, value) => {
         <block type="su_name"></block>
         </category>
         </category>
+
 	<category name="register" colour="#65700c">
         <label text="Register context menu" web-class="boldtext"></label>
         <block type="register_c_m"></block>
@@ -1067,9 +1228,24 @@ export default (Blockly, value) => {
         <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
             <block type="s4d_login">
                 <value name="TOKEN">
-                    <block type="text">
+                    <shadow type="text">
                         <field name="TEXT">Your bot token</field>
-                    </block>
+                    </shadow>
+                </value>
+            </block>
+	    <label text="Repl"></label>
+	    <block type="frost_webserver">
+<value name="URL">
+                    <shadow type="text">
+                        <field name="TEXT">This site was created to keep bot on 25/8</field>
+                    </shadow>
+                </value>
+</block>
+	    <block type="frost_env">
+<value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">token</field>
+                    </shadow>
                 </value>
             </block>
             <label text="%{BKY_BASE_BLOCKS}"></label>

@@ -2,6 +2,7 @@ import * as Blockly from "blockly/core";
 
 const blockName = "s4d_login";
 
+
 const blockData = {
     "type": "block_type",
     "message0": "%{BKY_LOGIN}",
@@ -9,10 +10,10 @@ const blockData = {
         {
             "type": "input_value",
             "name": "TOKEN",
-            "check": "String"
+            "check": [ "String","Env" ]
         }
     ],
-    "colour": "#F46580",
+    "colour": "#3333ff",
     "tooltip": "%{BKY_LOGIN_TOOLTIP}",
     "helpUrl": ""
 };

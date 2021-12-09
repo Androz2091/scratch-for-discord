@@ -1,10 +1,20 @@
 export default async function require(array,oldarray) {
 oldarray.forEach(js=>{
+    if(js.includes("censor")){
+        array.push(`"discord-censor": "^1.0.9"`)
+    }
     if(js.includes("discord-player")){
-        array.push(`"@discordjs/opus": "^0.6.0",`)
         array.push(`"avconv": "^3.1.0",`)
-        array.push(`"discord-player": "^5.1.0",`)
+        array.push(`"discord-player": "^5.2.0",`)
+        array.push(`"play-dl": "^1.4.4",`)
         array.push(`"ffmpeg-static": "^4.4.0",`)
+        array.push(`"@discordjs/opus": "^0.7.0",`)
+    }
+    if(js.includes("discord-music-player")){
+        array.push(`"discord-music-player": "^8.3.1",`)
+        array.push(`"ytdl-core": "^4.9.1",`)
+        array.push(`"ffmpeg-static": "^4.4.0",`)
+        array.push(`"@discordjs/opus": "^0.7.0",`)
     }
     if(js.includes("youtube-notification-module")){
         array.push(`"youtube-notification-module": "^1.1.0",`)
@@ -30,9 +40,6 @@ oldarray.forEach(js=>{
     if(js.includes("discord-together")){
         array.push(`"discord-together":"^1.3.0",`)
     }
-    if(js.includes("got")){
-        array.push(`"got":"^11.8.2",`)
-    }
     if(js.includes("anti-link-for-discord")){
         array.push(`"anti-link-for-discord":"^5.0.0",`)
     }
@@ -54,5 +61,11 @@ oldarray.forEach(js=>{
     if(js.includes("regex")){
         array.push(`"regex":"^0.1.1",`)
     }
+    if(js.includes("firebase")){
+        array.push(`"firebase":"^9.5.0",`)
+    }
 })
+array.reverse()
+array[0] = array[0].replace(",","")
+array.reverse()
 }

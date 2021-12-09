@@ -126,7 +126,7 @@ Vue.mixin({
             let requires = [
             `let Discord = require("discord.js")`,
             `let Database  = require("easy-json-database")`,
-            `let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")`,
+              `let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")`,
             `let logs = require("discord-logs")`  
             ]
             let requiresjscode = [`logs(s4d.client);`]
@@ -136,18 +136,24 @@ Vue.mixin({
             },1000)
             return `
                 (async()=>{
-                //hello :) hehe
                 let process = require('process');
+                const discordTTS = require("discord-tts");
+                const {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} = require("@discordjs/voice");
+                let voiceConnection;
+                let audioPlayer=new AudioPlayer();
+                const  image_finder  =  require("image-search-engine")
                 process.on('uncaughtException', function (err) {
                     console.log(err);
                   });
                   ${requires.join("\n")}
                     require('events').EventEmitter.defaultMaxListeners = 50;
+let fs = require('fs');
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                     const s4d = {
                         Discord,
                         database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/database.json\`),
+fire:null,
                         joiningMember:null,
                         reply:null,
                         tokenInvalid:false,
@@ -170,7 +176,7 @@ Vue.mixin({
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
                     return s4d
                     })();
-            `;
+                    `;
         }
     }
 });

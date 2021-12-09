@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "find_lyric_than";
 
 const blockData = {
-  "message0": "Get lyric With the artist name %1 song name %2 than %3 %4",
+  "message0": "Get lyric with the artist name %1 song name %2 then %3 %4",
   "args0": [
     {
       "type": "input_value",
@@ -41,9 +41,7 @@ Blockly.JavaScript[blockName] = function (block) {
   const Artist = Blockly.JavaScript.valueToCode(block, "ArtistName", Blockly.JavaScript.ORDER_ATOMIC);
   const Song = Blockly.JavaScript.valueToCode(block, "SongName", Blockly.JavaScript.ORDER_ATOMIC);
   const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-  const code = `const lyricsFinder = require('lyrics-finder');
-
-    (async function(artist, title) {
+  const code =  `(async function(artist, title) {
         let lyrics = await lyricsFinder(artist, title) || "Not Found!";\n
         ${statementThen}
     })(${Artist}, ${Song});`;

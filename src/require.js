@@ -1,6 +1,14 @@
 export default async function require(array,code,js) {
+if(js.includes("censor")){
+    array.push("const censor = require('discord-censor');")
+}
 if(js.includes("moment")){
     array.push(`let moment  = require("moment")`)
+}
+if(js.includes("queue.join")) { 
+    array.push(`let { Player, RepeatMode } = require("discord-music-player");`)
+    code.push(`const player = new Player(s4d.client, { leaveOnEmpty: false, deafenOnJoin: true, });`)
+    code.push(`s4d.client.player = player;`)
 }
 if(js.includes("backup")){
     array.push(`const backup = require("discord-backup");`)
@@ -42,6 +50,9 @@ if(js.includes("antilink")){
 if(js.includes("DIG")){
     array.push(`let DIG = require("discord-image-generation")`)
 }
+  if(js.includes("firebase")){
+    array.push(`let firebase = require("firebase")`)
+}
 if(js.includes("DB")){
     array.push(`let { DB } = require("quickmongo");`)
 }
@@ -75,8 +86,9 @@ if(js.includes("s4d.notifer")){
     array.push(`let ytnotifier = require("youtube-notification-module")`)
     code.push(`s4d.notifer = new ytnotifier({channels: [],checkInterval: 50});`)
 }
-if(js.includes("s4d.player")){
+if(js.includes("queue.connect")){
     array.push(`let { Player,QueueRepeatMode } = require("discord-player")`)//foi
+    array.push(`let playdl = require("play-dl")`)
     code.push(`s4d.player = new Player(s4d.client)`)
 }
 if(js.includes("getBadges")){

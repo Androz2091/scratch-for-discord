@@ -77,6 +77,7 @@ export const websiteMessages = {
         ping_pong: "Ping-Pong Command",
 	random:"Random Response",
         command_parsing: "Commands Handler",
+      bettercmd: "Better Command Handler", 
         leveling: "Leveling System",
         button: "Button and Button Row",
 	image_gen: "Image Generation",
@@ -85,6 +86,7 @@ export const websiteMessages = {
         music: "Music System",
 	backup:"Backup",
       reddit:"Reddit",
+      ticket:"Ticket",
     },
     download: {
         title: "Download your bot?",
