@@ -1460,6 +1460,7 @@ export default (Blockly, value) => {
             <block type="s4d_get_all"></block>
             <block type="s4d_get_all_member"></block>
             <label text="%{BKY_MEMBER_INFORMATIONS}"></label>
+            <block type="highest_role"/>
             <block type="s4d_member_exist"/>
             <block type="s4d_member_id"></block>
             <block type="s4d_member_discriminator"></block>
