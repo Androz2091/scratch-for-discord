@@ -498,8 +498,19 @@ export default (Blockly, value) => {
         <block type="ahq_bdwrd_cn"/>
         </category>
         </category>
-
-
+	
+	<category name="Alex" colour="#06cfaa">
+        
+        <category name="TTS" colour="#1010b5">
+        <label text="Connect and use TTS" web-class="boldtext"></label>
+        <block type="tts-test"/>
+	<block type="tts_channel"/>
+        </category>
+	<category name="Image Finder" colour="#00c7ad">
+        <block type="get_image"/>
+	<block type="url_image"/>
+        </category>
+        </category>
 <category name="frostzzone" colour="#347dfa">
 
 <category name="github" colour="#1f1f1f">
@@ -575,8 +586,10 @@ export default (Blockly, value) => {
 					  </category>
 					  
 					  <category name="Pc/Server Stats" colour="#a5745b">
-					  <block type="ps_cpu_stats"/>
-					    <block type="ps_os_stats"/>
+					  <block type="ps_os_stats"/>
+					  <block type="get_cpu_uptime"/>
+					  <block type="cpu"/>
+					    
 					    </category>
 					    <category name="Music [retro]" colour="#a5745b">
 					    <label text="Create a perfect music player" web-class="boldtext"></label>

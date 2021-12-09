@@ -10,10 +10,9 @@ const blockData = {
             "type": "field_dropdown",
             "name": "INFO",
             "options": [
-    
-                [ "Uptime", "uptime" ],
-                [ "Hostname", "hostname" ],
-              
+                [ "Operating System", "platform" ],
+                [ "System Uptime", "sysUptime" ],
+                [ "Free Memory", "freemem" ],
             ]
         },
     ],
