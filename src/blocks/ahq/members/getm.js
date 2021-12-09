@@ -1,7 +1,12 @@
 import * as Blockly from "blockly/core";
-function colourRandom() {
-    var num = Math.floor(Math.random() * Math.pow(2, 24));
-    return '#' + ('00000' + num.toString(16)).substr(-6);
+const ahqcolor = ['#3366ff', '#6600cc', '#33cc00', '#ff6666'];
+function listsGetRandomItem(list, remove) {
+    var x = Math.floor(Math.random() * list.length);
+    if (remove) {
+        return list.splice(x, 1)[0];
+    } else {
+        return list[x];
+    }
 }
 const blockName = "s4d_get_rndm";
 //block working now working
@@ -18,7 +23,7 @@ const blockData = {
             "name": "THEN"
         }
     ],
-    "colour": colourRandom(),
+    "colour": listsGetRandomItem(ahqcolor, false),
     "previousStatement": null,
     "nextStatement": null,
 };

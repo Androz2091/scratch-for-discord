@@ -109,8 +109,6 @@ export default {
                         "dependencies": {\n
                              "djs-games": "^2.1.10",\n
                             "lyrics-finder": "^21.7.0",\n
-                            "@discordjs/opus": "^0.7.0",\n
-                            "ffmpeg-static": "^4.4.0",\n
                             ${requires.join("\n")}\n
                             
                         },\n

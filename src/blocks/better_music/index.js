@@ -25,3 +25,4 @@ import "./voicechannel";
 import "./idchannel";
 import "./botvcid";
 import "./setvolume";
+import "./first-song-name";

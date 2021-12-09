@@ -51,7 +51,8 @@ registerRestrictions(blockName, [
         type: "hasparent",
         message: "RES_MUST_BE_CREATE_EMBED_THEN",
         types: [
-            "s4d_create_embed_then"
+            "s4d_create_embed_then",
+            "s4d_m_create_embed_then"
         ]
     }
 ]);

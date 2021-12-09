@@ -66,7 +66,7 @@ Blockly.JavaScript[blockName] = function(block) {
         return ["(new Date().getDay())", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "COOLDOWN"){
         return ["new Date()", Blockly.JavaScript.ORDER_NONE];
-    }else if(dataType === "UNIT"){
+    }else if(dataType === "UNIX"){
         return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
     }
 };

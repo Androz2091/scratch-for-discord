@@ -121,8 +121,13 @@ import "./blocks/frostzzone/github/"
 import "./blocks/better_music/"
 
 import Theme from '@blockly/theme-modern';
+
+
+
+
 //ahq stuff
-import "./blocks/ahq/members"
+import "./blocks/ahq/";
+import "./blocks/henpokpok/";
 export default {
     name: "app",
     components: {

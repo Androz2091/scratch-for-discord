@@ -439,13 +439,59 @@ export default (Blockly, value) => {
             <block type="s4d_string_to_number"></block>
         </category>
         <sep class="bt"/>
-        <category name="ahq" colour="#ff0000">
+
+          <category name="henpokpok" colour="#64C9FF">
+        <category name="Reactions" colour="#FF6464">
+        <label text="Reations event" web-class="boldtext"></label>
+        <block type="reaction_added"/>
+        <block type="reaction_removed"/>
+        <label text="React info" web-class="boldtext"></label>
+        <block type="react_member"/>
+        <block type="react_emoji"/>
+        <block type="react_messageId"/>
+        </category>
+        </category>
         
+
+
+
+
+
+        <category name="ahq" colour="#ff0000">
+        <block type="s4d_history"/>
         <category name="member" colour="#006600">
         <label text="Fetch members of a server" web-class="boldtext"></label>
         <block type="s4d_get_rndm"/>
         <label text="Get random member" web-class="boldtext"></label>
         <block type="s4d_get_rndmber"/>
+        </category>
+        <category name="button" colour="#ff0019">
+        <label text="Event" web-class="boldtext"></label>
+        <block type="on_real_button"/>
+        <label text="Button Information" web-class="boldtext"></label>
+        <block type="id_btn_srv"/>
+        <block type="id_btn_ch"/>
+        <block type="id_btn_clkr"/>
+        <block type="id_btn_ahq"/>
+        <block type="embed_btn_ahq"/>
+        <label text="Button Actions" web-class="boldtext"></label>
+        <block type="updte_ahq_button"/>
+        <block type="rply_ahq_button"/>
+        <label text="Send button" web-class="boldtext"></label>
+        <block type="snd_ahq_button"/>
+        <label text="Button Creation Stuff" web-class="boldtext"></label>
+        <block type="make_ahq_button"/>
+        <block type="style_ahq_button"/>
+        <block type="label_ahq_button"/>
+        <block type="emoji_ahq_button"/>
+        <block type="url_ahq_button"/>
+        <block type="d_ahq_button"/>
+        </category>
+        <category name="cmd register" colour="#6600cc">
+        <label text="Create a slash command" web-class="boldtext"></label>
+        <block type="s4d_reg_slash"/>
+        <block type="s4d_reg_slash_options"/>
+        <block type="s4d_reg_new_options"/>
         </category>
         </category>
 	
@@ -461,7 +507,6 @@ export default (Blockly, value) => {
 	<block type="url_image"/>
         </category>
         </category>
-	
 <category name="frostzzone" colour="#347dfa">
 
 <category name="github" colour="#1f1f1f">
@@ -477,7 +522,7 @@ export default (Blockly, value) => {
 
 <!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
 
-<category name="Real Reply" colour="#2a46fa">
+<category name="Messages" colour="#2a46fa">
 <block type="frost_real_reply">
 <value name="CONTENT">
   <shadow type="text">
@@ -509,6 +554,9 @@ export default (Blockly, value) => {
 <value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
 </block>
 <block type="frost_real_reply_delete"/>
+<block type="frost_typing">
+<value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
+</block>
 </category>
 </category>
 
@@ -570,6 +618,7 @@ export default (Blockly, value) => {
 	<block type="better_voice_channel"/>
 	<block type="better_vcid"/>
         <block type="better_botvcid"/>
+	<block type="song-first"/>
 					    </category>
 <category name="Ticketing System" colour="#5b80a5">
 	<label text="You can also type local" web-class="boldtext"></label>
@@ -817,6 +866,7 @@ export default (Blockly, value) => {
             <block type="s4d_create_embed_then_set_color"></block>
             <block type="s4d_create_embed_then_set_author"></block>
             <block type="s4d_create_embed_then_set_title"></block>
+            <block type="s4d_create_embed_then_add_link"></block>            
             <block type="s4d_create_embed_then_set_thumbnail"></block>
             <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
             <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>

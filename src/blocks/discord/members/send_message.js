@@ -9,7 +9,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "MessageEmbed", "String", "Number" ]
+            "check": [ "MessageEmbed", "String", "Number", "var"]
         },
         {
             "type": "input_value",
@@ -38,7 +38,13 @@ Blockly.JavaScript[blockName] = function(block) {
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
-        if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
+        if ((contentType === "var")) {
+            const code = `${member}.send({content: String(${content})});\n`;
+            return code;
+        }else if((contentType === "embed") || (!contentType && typeof contentType === "object")){
+            const code = `${member}.send({ embeds:[${content}]});\n`;
+            return code;
+        } else if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
             const code = `${member}.send({${content}});\n`;
             return code;
         } else {
