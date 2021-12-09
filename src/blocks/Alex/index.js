@@ -5,4 +5,5 @@ import "./tstart";
 import "./tchannel";
 import "./tmember";
 import "./tserver";
+import "./higrole";
 import "./channel"
