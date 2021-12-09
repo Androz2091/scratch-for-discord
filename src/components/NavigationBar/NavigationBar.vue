@@ -93,7 +93,7 @@ export default {
                     const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, " ")}.zip`;
                     zip.file("blocks.xml", xmlContent);
                     const javascriptContent = this.getWorkspaceCode();
-
+                    
                     zip.file("bot.js", javascriptContent);
                     zip.file(".replit", 'run = "npm start"');
                   zip.file("db.json",await localStorage.getItem('easyjsondatabase'));

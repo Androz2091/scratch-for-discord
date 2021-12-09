@@ -32,7 +32,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "ahq",
-            "checl": "Boolean"
+            "checl": ["Boolean"]
         },
         {
             "type": "input_space"

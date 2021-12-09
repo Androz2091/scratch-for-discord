@@ -29,12 +29,15 @@ Blockly.JavaScript[blockName] = function(){
     s4d was created mainly by \\\`Androz\\\`
     The Devs of the current preview \\\`469\\\` are:-
     1. Androz (of course)
-    2. Jose
-    3. Redo
-    4. Frostzzone
+    2. Jose (454 coder)
+    3. Redo (454 coder)
+    4. Frostzzone (pull request 469 owner)
     5. Retro
-    6. AHQ
+    6. AHQSoftwares
+    7. HenPokPok
+    8. AlexCdDg
     
-    Official s4d server:- https://discord.gg/cB2g5f4Ypq\``, Blockly.JavaScript.ORDER_NONE];
+    Official s4d server:- https://discord.gg/cB2g5f4Ypq\`
+    s4d 469 official server:- https://discord.gg/A7yttWszfD`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
