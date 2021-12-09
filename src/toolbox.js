@@ -442,7 +442,7 @@ export default (Blockly, value) => {
 
           <category name="henpokpok" colour="#64C9FF">
         <category name="Reactions" colour="#FF6464">
-        <label text="Reations event" web-class="boldtext"></label>
+        <label text="Reations event (under construction)" web-class="boldtext"></label>
         <block type="reaction_added"/>
         <block type="reaction_removed"/>
         <label text="React info" web-class="boldtext"></label>
