@@ -12,15 +12,15 @@ const blockData = {
       "options": [
         [
           "Character",
-          "character"
+          "'character'"
         ],
         [
           "Object",
-          "object"
+          "'object'"
         ],
         [
           "Animal",
-          "animal"
+          "'animal'"
         ]
       ],
     },

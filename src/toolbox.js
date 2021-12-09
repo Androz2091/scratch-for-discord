@@ -487,9 +487,26 @@ export default (Blockly, value) => {
         <block type="url_ahq_button"/>
         <block type="d_ahq_button"/>
         </category>
+        <category name="cmd register" colour="#6600cc">
+        <label text="Create a slash command" web-class="boldtext"></label>
+        <block type="s4d_reg_slash"/>
+        <block type="s4d_reg_slash_options"/>
+        <block type="s4d_reg_new_options"/>
         </category>
-
-
+        </category>
+	
+	<category name="Alex" colour="#06cfaa">
+        
+        <category name="TTS" colour="#1010b5">
+        <label text="Connect and use TTS" web-class="boldtext"></label>
+        <block type="tts-test"/>
+	<block type="tts_channel"/>
+        </category>
+	<category name="Image Finder" colour="#00c7ad">
+        <block type="get_image"/>
+	<block type="url_image"/>
+        </category>
+        </category>
 <category name="frostzzone" colour="#347dfa">
 
 <category name="github" colour="#1f1f1f">
@@ -565,8 +582,10 @@ export default (Blockly, value) => {
 					  </category>
 					  
 					  <category name="Pc/Server Stats" colour="#a5745b">
-					  <block type="ps_cpu_stats"/>
-					    <block type="ps_os_stats"/>
+					  <block type="ps_os_stats"/>
+					  <block type="get_cpu_uptime"/>
+					  <block type="cpu"/>
+					    
 					    </category>
 					    <category name="Music [retro]" colour="#a5745b">
 					    <label text="Create a perfect music player" web-class="boldtext"></label>
@@ -849,6 +868,7 @@ export default (Blockly, value) => {
             <block type="s4d_create_embed_then_set_color"></block>
             <block type="s4d_create_embed_then_set_author"></block>
             <block type="s4d_create_embed_then_set_title"></block>
+            <block type="s4d_create_embed_then_add_link"></block>            
             <block type="s4d_create_embed_then_set_thumbnail"></block>
             <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
             <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>

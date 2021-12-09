@@ -9,7 +9,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "Number", "String", "MessageEmbed","embed", "ahqEmbed"]
+            "check": [ "Number", "String", "MessageEmbed","embed", "var"]
         },
         {
             "type": "input_statement",
@@ -36,16 +36,16 @@ Blockly.JavaScript[blockName] = function(block){
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
-        if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
+        if ((contentType === "var")) {
             const code = `s4dmessage.channel.send({content: String(${content})}).then(async (s4dreply) =>{\n ${statementThen} \n});\n`;
             return code;
         }else if((contentType === "embed") || (!contentType && typeof contentType === "object")){
             const code = `s4dmessage.channel.send({ embeds:[${content}]}).then(async (s4dreply) =>{\n ${statementThen} \n});\n`;
             return code;
-        } else if((contentType === "ahqEmbed") || (!contentType && typeof contentType === "object")){
-            const code = `s4dmessage.channel.send(${content});\n`;
+        } else if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
+            const code = `s4dmessage.channel.send({${content}}).then(async (s4dreply) =>{\n ${statementThen} \n});\n`;
             return code;
-        } else{
+        } else {
             const code = `s4dmessage.channel.send({content:String(${content})});\n`;
             return code;
         }

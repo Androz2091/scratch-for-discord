@@ -147,4 +147,4 @@ export default `<xml xmlns="https://developers.google.com/blockly/xml">
     </block>
   </statement>
 </block>
-</xml>`
+</xml>`;
