@@ -494,8 +494,19 @@ export default (Blockly, value) => {
         <block type="s4d_reg_new_options"/>
         </category>
         </category>
-
-
+	
+	<category name="Alex" colour="#06cfaa">
+        
+        <category name="TTS" colour="#1010b5">
+        <label text="Connect and use TTS" web-class="boldtext"></label>
+        <block type="tts-test"/>
+	<block type="tts_channel"/>
+        </category>
+	<category name="Image Finder" colour="#00c7ad">
+        <block type="get_image"/>
+	<block type="url_image"/>
+        </category>
+        </category>
 <category name="frostzzone" colour="#347dfa">
 
 <category name="github" colour="#1f1f1f">
