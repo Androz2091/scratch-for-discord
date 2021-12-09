@@ -25,7 +25,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-const mem = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `'${mem}.roles.highest'`;
-    return code;
+const memb = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC);
+  const code =  `${memb}.roles.highest`;
+  return code;
 };
