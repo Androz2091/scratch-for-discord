@@ -5,7 +5,7 @@ const blockName = "react_emoji";
 
 const blockData = {
     "message0": "Reacting emoji",
-    "colour": "#79F05C",
+    "colour": "#D83939",
     "tooltip":"Emoji of the reaction",
     "output": "String"
 
