@@ -1,4 +1,3 @@
-//line 455 add < at start and > at end
 export default (Blockly, value) => {
   return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
@@ -526,13 +525,13 @@ export default (Blockly, value) => {
 
 <category name="frostzzone" colour="#347dfa">
 
-<category name="github" colour="#1f1f1f">
+<category name="Github" colour="#1f1f1f">
 <block type="github_get_then"/>
 <label text="For profile" web-class="boldtext"></label>
 <block type="github_what_stat"/>
 </category>
 
-<category name="scratch" colour="#347dfa">
+<category name="Scratch" colour="#347dfa">
 <block type="scratch_get_about_then"/>
 <block type="scratch_about_user"/>
 </category>
@@ -575,9 +574,12 @@ export default (Blockly, value) => {
 <value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
 </block>
 </category>
+  <category name="Time" colour="#00664d">
+  <block type="frost_current"/>
+  </category>
 </category>
 
-<category name="retro and xl83" colour="#AAE941">
+<category name="Retro and XL83" colour="#AAE941">
 	<category name="Games" colour="#5ba58b">
   <label text="Akinator gamemodes: character, animal, object" web-class="boldtext"></label>
 	 				<block type="Akinator">
