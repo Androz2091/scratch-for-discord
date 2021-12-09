@@ -25,6 +25,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function() {
 const chan = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = ["${chan}.type === "DM"", Blockly.JavaScript.ORDER_NONE];
+    const code = [`${chan}.type === "DM"`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
