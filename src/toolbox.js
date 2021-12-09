@@ -502,11 +502,11 @@ export default (Blockly, value) => {
         <block type="tts-test"/>
 	<block type="tts_channel"/>
         </category>
-	<category name="Image Finder" colour="#f79400">
+	<category name="Image Finder" colour="#00c7ad">
         <block type="get_image"/>
 	<block type="url_image"/>
         </category>
-	<category name="Typing" colour="#00c7ad">
+	<category name="Typing" colour="#f79400">
         <block type="typing_start"/>
         </category>
  	</category>
