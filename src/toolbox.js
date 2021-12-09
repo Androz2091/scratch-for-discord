@@ -520,6 +520,7 @@ export default (Blockly, value) => {
         </category>
 	<category name="Other" colour="#c70e6d">
         <block type="hig_role"/>
+        <block type="isdm"/>
 	</category>
  	</category>
 
