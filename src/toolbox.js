@@ -493,6 +493,10 @@ export default (Blockly, value) => {
         <block type="s4d_reg_slash_options"/>
         <block type="s4d_reg_new_options"/>
         </category>
+        <category name="profanity" colour="#ff0000">
+        <block type="ahq_bdwrd"/>
+        <block type="ahq_bdwrd_cn"/>
+        </category>
         </category>
 
 
