@@ -12,7 +12,7 @@ const blockData = {
    
     }
   ],
-  "output": "boolean",
+  "output": "Boolean",
   "colour": "#33a146",
   "tooltip": "",
   "helpUrl": ""
