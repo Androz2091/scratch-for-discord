@@ -8,4 +8,6 @@ import "./tserver";
 import "./higrole";
 import "./isdm";
 import "./colorofmember";
+import "./channel_category";
+import "./vchannel_category";
 import "./channel"

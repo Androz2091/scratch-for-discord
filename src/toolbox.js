@@ -450,12 +450,7 @@ export default (Blockly, value) => {
         <block type="react_messageId"/>
         </category>
         </category>
-        
-
-
-
-
-
+       
         <category name="ahq" colour="#ff0000">
         <block type="s4d_history"/>
         <category name="member" colour="#006600">
@@ -498,7 +493,7 @@ export default (Blockly, value) => {
         </category>
         </category>
 	
-	<category name="Alex" colour="#06cfaa">
+	<category name="AlexCdDg" colour="#06cfaa">
         
         <category name="TTS" colour="#1010b5">
         <label text="Connect and use TTS" web-class="boldtext"></label>
@@ -522,6 +517,9 @@ export default (Blockly, value) => {
         <block type="isdm"/>
         <label text="This will detect the color of highest role" web-class="boldtext"></label>
         <block type="member_color"/>
+        <label text="ㅤ" web-class="boldtext"></label>
+        <block type="category_channel"/>
+        <block type="vcategory_channel"/>
 	</category>
  	</category>
 
