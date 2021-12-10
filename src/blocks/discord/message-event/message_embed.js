@@ -122,6 +122,6 @@ Blockly.JavaScript["s4d_message_embed"] = function(block){
             ${description}
             ${footer}
             ${thumbnail}
-            ]
+            ],
     `, Blockly.JavaScript.ORDER_ATOMIC ];
 };
