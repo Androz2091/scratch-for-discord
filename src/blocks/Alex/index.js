@@ -7,5 +7,4 @@ import "./tmember";
 import "./tserver";
 import "./higrole";
 import "./isdm";
-import "./insultos";
 import "./channel"
