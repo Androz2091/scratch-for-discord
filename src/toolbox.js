@@ -521,7 +521,6 @@ export default (Blockly, value) => {
 	<category name="Other" colour="#c70e6d">
         <block type="hig_role"/>
         <block type="isdm"/>
-        <block type="mainchannel"/>
 	</category>
  	</category>
 
