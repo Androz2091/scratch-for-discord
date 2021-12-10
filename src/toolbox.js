@@ -524,6 +524,7 @@ export default (Blockly, value) => {
         <block type="member_color"/>
         <label text="ㅤ" web-class="boldtext"></label>
         <block type="category_channel"/>
+        <block type="vcategory_channel"/>
 	</category>
  	</category>
 
