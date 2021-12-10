@@ -520,6 +520,7 @@ export default (Blockly, value) => {
         <label text="ㅤ" web-class="boldtext"></label>
         <block type="category_channel"/>
         <block type="vcategory_channel"/>
+        <block type="renamec"/>
 	</category>
  	</category>
 
