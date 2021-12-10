@@ -45,10 +45,17 @@ Blockly.JavaScript[blockName] = function(block){
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
         if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
+          if(contentType === "MessageEmbed"){
+            const code = `await i.update({${content}components:[${button}]}).then(m=>{
+                ${statements}
+            });\n`;
+            return code;
+          }else{
             const code = `await i.update({${content},components:[${button}]}).then(m=>{
                 ${statements}
             });\n`;
             return code;
+          }
         }else if((contentType === "embed") || (!contentType && typeof contentType === "object")){
             const code = `await i.update({ embeds:[${content}],components:[${button}]}).then(m=>{
                 ${statements}
