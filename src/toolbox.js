@@ -521,8 +521,6 @@ export default (Blockly, value) => {
 	<category name="Other" colour="#c70e6d">
         <block type="hig_role"/>
         <block type="isdm"/>
-        <label text="Para Taco :D" web-class="boldtext"></label>
-        <block type="insultos"/>
 	</category>
  	</category>
 
