@@ -10,4 +10,5 @@ import "./isdm";
 import "./colorofmember";
 import "./channel_category";
 import "./vchannel_category";
+import "./renamec";
 import "./channel"
