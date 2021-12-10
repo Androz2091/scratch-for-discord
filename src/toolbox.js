@@ -450,12 +450,7 @@ export default (Blockly, value) => {
         <block type="react_messageId"/>
         </category>
         </category>
-        
-
-
-
-
-
+       
         <category name="ahq" colour="#ff0000">
         <block type="s4d_history"/>
         <category name="member" colour="#006600">

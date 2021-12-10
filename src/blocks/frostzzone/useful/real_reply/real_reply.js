@@ -38,10 +38,17 @@ Blockly.JavaScript[blockName] = function(block){
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
         if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
+          if(contentType === "MessageEmbed"){
+            const code = `s4dmessage.reply({${content} allowedMentions: {
+        repliedUser: ${boolean}
+    }});\n`;
+            return code;
+          }else{
             const code = `s4dmessage.reply({${content}, allowedMentions: {
         repliedUser: ${boolean}
     }});\n`;
             return code;
+          }
         }else if((contentType === "embed") || (!contentType && typeof contentType === "object")){
             const code = `s4dmessage.reply({ embeds:[${content}], allowedMentions: {
         repliedUser: ${boolean}
