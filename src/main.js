@@ -170,7 +170,6 @@ fire:null,
                             if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
                         }
                     };
-                    bwdr = 'mierdaputoputasexopenepitopijachotopelotudopelotuda';
                     s4d.client = new s4d.Discord.Client({
                     intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
                     partials: ["REACTION", "CHANNEL"]
