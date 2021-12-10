@@ -521,6 +521,8 @@ export default (Blockly, value) => {
 	<category name="Other" colour="#c70e6d">
         <block type="hig_role"/>
         <block type="isdm"/>
+        <label text="This will detect the color of highest role" web-class="boldtext"></label>
+        <block type="member_color"/>
 	</category>
  	</category>
 
