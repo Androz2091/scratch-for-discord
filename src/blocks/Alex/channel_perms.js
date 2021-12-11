@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "channel_perms";
 
 const blockData = {
-"message0": "%1  permission  %2 %3 %4 %5 to role / member / everyone  %6 in channel  %7",
+"message0": "%1  permission  %2 %3 to role / member / everyone  %4 in channel  %5",
   "args0": [
     {
       "type": "field_dropdown",
@@ -18,6 +18,9 @@ const blockData = {
           "false"
         ]
       ]
+    },
+        {
+      "type": "input_space"
     },
     {
       "type": "field_dropdown",
@@ -61,15 +64,7 @@ const blockData = {
         ]
       ]
     },
-    {
-      "type": "input_space"
-    },
-        {
-      "type": "input_space"
-    },
-        {
-      "type": "input_space"
-    },
+
     {
       "type": "input_value",
       "name": "to",
