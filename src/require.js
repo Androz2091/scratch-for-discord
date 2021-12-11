@@ -1,9 +1,9 @@
 export default async function require(array,code,js) {
 if(js.includes("const stream = discordTTS")) {
-    array.push(`const discordTTS = require("discord-tts");
-    const {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} = require("@discordjs/voice");
-    let voiceConnection;
-    let audioPlayer=new AudioPlayer();`)
+    array.push(`const discordTTS = require("discord-tts");`)
+    array.push(`const {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} = require("@discordjs/voice");`)
+    code.push(`let voiceConnection;`)
+    code.push(`let audioPlayer=new AudioPlayer();`)
 }
 if(js.includes("censor")){
     array.push("const censor = require('discord-censor');")
