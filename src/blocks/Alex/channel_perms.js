@@ -65,7 +65,7 @@ const blockData = {
       "type": "input_value",
       "name": "channel",
       "check": "Channel"
-    }
+    },
     {
       "type": "input_value",
       "name": "to",
