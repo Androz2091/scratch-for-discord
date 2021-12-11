@@ -523,6 +523,7 @@ export default (Blockly, value) => {
         <block type="vcategory_channel"/>
         <block type="renamec"/>
         <block type="channel_perms"/>
+        <block type="everyn"/>
 	</category>
  	</category>
 
