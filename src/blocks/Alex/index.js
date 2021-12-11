@@ -12,5 +12,6 @@ import "./colorofmember";
 import "./channel_category";
 import "./channel_perms";
 import "./vchannel_category";
+import "./role_color";
 import "./renamec";
 import "./channel"
