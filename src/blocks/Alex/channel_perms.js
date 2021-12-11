@@ -61,13 +61,13 @@ const blockData = {
         ]
       ]
     },
-     {
+    {
       "type": "input_space"
     },
-     {
+        {
       "type": "input_space"
     },
-     {
+        {
       "type": "input_space"
     },
     {
