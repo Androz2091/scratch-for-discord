@@ -3,11 +3,16 @@ import Blockly from "blockly/core";
 const blockName = "everyn";
 
 const blockData = {
-    "message0": "Everyone",
-    "args0": [
-    ],
+    "message0": "Get everyone of server  %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "server",
+      "check": "Server"
+    }
+  ],
     "output": "Everyone",
-    "colour": "#5153c2",
+    "colour": "#01824c",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -18,6 +23,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
-    return ['(s4dmessage.guild || {}).id', Blockly.JavaScript.ORDER_NONE ];
+Blockly.JavaScript[blockName] = function(block) {
+const server = Blockly.JavaScript.valueToCode(block, "server", Blockly.JavaScript.ORDER_ATOMIC);
+  const code =  [`(${server} || {}).id`, Blockly.JavaScript.ORDER_NONE ];
+  return code;
 };
