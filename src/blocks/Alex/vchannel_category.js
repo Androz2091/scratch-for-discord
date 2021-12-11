@@ -17,6 +17,14 @@ const blockData = {
       "type": "input_value",
       "name": "id",
       "check": "String"
+    },
+    {
+      "type": "input_space"
+    },
+    {
+      "type": "input_value",
+      "name": "server",
+      "check": "Server"
     }
   ],
   "previousStatement": null,
@@ -35,7 +43,9 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
 const name = Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_ATOMIC);
 const cid = Blockly.JavaScript.valueToCode(block, "id", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `s4dmessage.guild.channels.create(${name}, { type: 'GUILD_VOICE', parent: ${cid} });
+const server = Blockly.JavaScript.valueToCode(block, "server", Blockly.JavaScript.ORDER_ATOMIC);
+
+    const code = `${server}.channels.create(${name}, { type: 'GUILD_VOICE', parent: ${cid} });
 `;
     return code;
 };
