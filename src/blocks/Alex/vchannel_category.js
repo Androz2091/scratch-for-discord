@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "vcategory_channel";
 
 const blockData = {
-  "message0": "Create voice channel with name %1 %2 In category with ID %3",
+  "message0": "Create voice channel with name %1 %2 In category with ID %3 %4 In server %5",
   "args0": [
     {
       "type": "input_value",
