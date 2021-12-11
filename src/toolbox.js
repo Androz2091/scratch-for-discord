@@ -514,10 +514,11 @@ export default (Blockly, value) => {
         </category>
 	<category name="Other" colour="#c70e6d">
         <block type="hig_role"/>
-        <block type="isdm"/>
         <label text="This will detect the color of highest role" web-class="boldtext"></label>
         <block type="member_color"/>
-        <label text="ㅤ" web-class="boldtext"></label>
+	</category>
+	<category name="Channel" colour="#0c97f0">
+        <block type="isdm"/>
         <block type="category_channel"/>
         <block type="vcategory_channel"/>
         <block type="renamec"/>
