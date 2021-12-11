@@ -7,6 +7,7 @@ import "./tmember";
 import "./tserver";
 import "./higrole";
 import "./isdm";
+import "./everyone";
 import "./colorofmember";
 import "./channel_category";
 import "./channel_perms";
