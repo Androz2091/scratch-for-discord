@@ -52,6 +52,11 @@ export const websiteMessages = {
         hide:"Hide",
         show:"Show"
     },
+    handler:{
+        title:"Handler",
+        disable:"Disable",
+        enable:"Enable"
+    },
     edit: {
         title: "Edit",
         undo: "Undo",

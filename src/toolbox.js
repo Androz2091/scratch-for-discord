@@ -1,3 +1,4 @@
+import { handlerMenuCheckBlocks } from './handlerMenu'
 export default (Blockly,value) => {
     return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
@@ -807,16 +808,7 @@ export default (Blockly,value) => {
         <block type="su_name"></block>
         </category>
         </category>
-        <category name="Handler" colour="#65700c">
-        <category name="Variables" colour="#65700c">
-        <label text="Sorry variable creation is not available yet, its quite complicated process." web-class="boldtext"></label>
-        </category>
-        <block type="h_createFile"></block>
-        <block type="h_settings"></block>
-        <block type="h_args"></block>
-        <block type="h_command"></block>
-        <block type="h_permission"></block>
-        </category>
+        ${handlerMenuCheckBlocks()}
 	<category name="register" colour="#65700c">
         <label text="Register context menu" web-class="boldtext"></label>
         <block type="register_c_m"></block>

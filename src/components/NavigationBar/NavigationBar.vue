@@ -16,6 +16,7 @@
                 <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
                 <preBuilds></preBuilds>
+                <handlerMenu></handlerMenu>
                 <TokenModal></TokenModal>
                 <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
             </b-navbar-nav>
@@ -42,6 +43,7 @@ import LanguageMenu from "./LanguageMenu.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
 import preBuilds from "./preBuilds.vue";
+import handlerMenu from "./handlerMenu.vue";
 import ToolboxModal from "./ToolboxModal.vue";
 import localforage from 'localforage';
 import r from "./requires"
@@ -55,6 +57,7 @@ export default {
         CodeModal,
         TokenModal,
         preBuilds,
+        handlerMenu,
         ToolboxModal
     },
     computed: {
@@ -87,22 +90,34 @@ export default {
             }).then(async result => {
                 let requires = [`"discord.js": "^13.1.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
                 let oldrequires = await localforage.getItem("requires")
+                const handlerC = localStorage.getItem('handler') 
                 r(requires,oldrequires)
                 if(result){
                     const zip = new JSZip();
-                    let handler = zip.folder('handler')
-                    let event = zip.folder('events')
-                    let guild = event.folder('guild')
-                    let commands = zip.folder('Commands')
+                    const handlerThing = {
+                        true: () => {
+                            let handler = zip.folder('handler')
+                            let event = zip.folder('events')
+                            let guild = event.folder('guild')
+                            let commands = zip.folder('Commands')
+                            handler.file('LoadCommands.js', LoadCommands)
+                            handler.file('LoadEvents.js', LoadEvents)
+                            guild.file('messageCreate.js', messageCreate)
+                            commands.folder('Commands').file('1SJKKDJUJHOUHH672_TEST_jiwjiw.js', 'module.exports = {}')
+                            zip.file('settingMessages.js', settings)    
+                        },
+                        false: () => {}
+                    }
+                    handlerThing[handlerC]()
+                    
+                    
+                    
+                    
                     const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
                     const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, " ")}.zip`;
                     zip.file("blocks.xml", xmlContent);
                     const javascriptContent = this.getWorkspaceCode();
-                    handler.file('LoadCommands.js', LoadCommands)
-                    handler.file('LoadEvents.js', LoadEvents)
-                    guild.file('messageCreate.js', messageCreate)
-                    commands.folder('Commands').file('1SJKKDJUJHOUHH672_TEST_jiwjiw.js', 'module.exports = {}')    
-                    zip.file('settingMessages.js', settings)
+                    
                     zip.file("bot.js", javascriptContent);
                     zip.file(".replit", 'run = "npm start"');
                     zip.file("db.json",await localStorage.getItem('easyjsondatabase'));
