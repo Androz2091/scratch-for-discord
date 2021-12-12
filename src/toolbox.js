@@ -518,6 +518,7 @@ export default (Blockly, value) => {
         <block type="member_color"/>
         <label text="ㅤ" web-class="boldtext"></label>
         <block type="role_color"/>
+        <block type="role_name"/>
 	</category>
 	<category name="Channel" colour="#0c97f0">
         <block type="isdm"/>
