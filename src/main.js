@@ -137,6 +137,7 @@ Vue.mixin({
             return `
                 (async()=>{
                 let process = require('process');
+                const  image_finder  =  require("image-search-engine")
                 process.on('uncaughtException', function (err) {
                     console.log(err);
                   });
