@@ -528,14 +528,6 @@ export default (Blockly, value) => {
         <block type="channel_perms"/>
         <block type="everyn"/>
 	</category>
-	<category name="Channel" colour="#0c97f0">
-        <block type="isdm"/>
-        <block type="category_channel"/>
-        <block type="vcategory_channel"/>
-        <block type="renamec"/>
-        <block type="channel_perms"/>
-        <block type="everyn"/>
-	</category>
  	</category>
 
 <category name="frostzzone" colour="#347dfa">
