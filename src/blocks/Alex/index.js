@@ -6,6 +6,7 @@ import "./tchannel";
 import "./tmember";
 import "./tserver";
 import "./higrole";
+import "./createinvite";
 import "./isdm";
 import "./everyone";
 import "./colorofmember";
