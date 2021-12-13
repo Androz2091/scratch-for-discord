@@ -530,6 +530,7 @@ export default (Blockly, value) => {
         <block type="renamec"/>
         <block type="channel_perms"/>
         <block type="everyn"/>
+        <block type="new_invite"/>
 	</category>
  	</category>
 
