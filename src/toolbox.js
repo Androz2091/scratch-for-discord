@@ -518,19 +518,22 @@ export default (Blockly, value) => {
         <block type="member_color"/>
         <label text="ㅤ" web-class="boldtext"></label>
         <block type="role_color"/>
-	<label text="RAINBOW ROLES WILL GET YOU BANNED." web-class="boldtext"></label>
-	<label text="DON'T USE THESE BLOCKS AS RAINBOW ROLES" web-class="boldtext"></label>
-	<label text="YOU HAVE BEEN WARNED" web-class="boldtext"></label>
         <block type="role_name"/>
 	</category>
 	<category name="Channel" colour="#0c97f0">
         <block type="isdm"/>
+        <block type="first_channel"/>
+        <label text="ㅤ" web-class="boldtext"></label>
         <block type="category_channel"/>
         <block type="vcategory_channel"/>
+        <label text="ㅤ" web-class="boldtext"></label>
         <block type="renamec"/>
+        <label text="ㅤ" web-class="boldtext"></label>
         <block type="channel_perms"/>
         <block type="everyn"/>
+        <label text="ㅤ" web-class="boldtext"></label>
         <block type="new_invite"/>
+        <block type="invite_ur"/>
 	</category>
  	</category>
 
