@@ -181,6 +181,7 @@
   "IMAGE": "image",
   "FOOTER":"footer",
   "THUMBNAIL":"thumbnail",
+  "FIELD":"field (frostzzone/embed)",
   "PURGE":"in channel %1 purge %2 messages",
   "RES_PURGE_AMOUNT":"You must specify a valid amount of messages to purge!",
   "RES_PURGE_CHANNEL":"You must specify a valid channel!",
@@ -571,5 +572,6 @@
   "VOICE": "voice",
   "CATEGORY": "category",
 	"DISABLED_2": "Disable a button",
-  "FSEND_IMAGE":"send image %1"
+  "FSEND_IMAGE":"send image %1",
+  "FROST_RES_MUST_BE_CREATE_FIELD":"This block may only be used in a \"Create fields for embed\" block!"
 }

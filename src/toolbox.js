@@ -584,13 +584,19 @@ export default (Blockly, value) => {
 <value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
 </block>
 <block type="frost_real_reply_delete"/>
-<block type="frost_typing">
-<value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
+<block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
 </block>
 </category>
   <category name="Time" colour="#00664d">
   <block type="frost_current"/>
   </category>
+<category name="Embed" colour="#40bf4a">
+<label text="For Androz Embed"></label>
+<block type="frost_create_field"/>
+<block type="frost_add_field"/>
+<label text="For Jose Or Redo Embeds"></label>
+<block type="frost_send_embed_rr"/>
+</category>
 </category>
 
 <category name="Retro and XL83" colour="#AAE941">

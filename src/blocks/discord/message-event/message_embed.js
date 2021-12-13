@@ -2,9 +2,9 @@ import BaseBlockly from "blockly";
 import Blockly from "blockly/core";
 
 
-const BORDER_FIELDS = [ "MESSAGE", "COLOR", "TITLE", "IMAGE","FOOTER", "THUMBNAIL"];
+const BORDER_FIELDS = [ "MESSAGE", "COLOR", "TITLE", "IMAGE","FOOTER", "THUMBNAIL", "FIELD"];
 
-const BORDER_TYPES = [ "String", "Colour", "String", "String","String", "String" ];
+const BORDER_TYPES = [ "String", "Colour", "String", "String","String", "String", "Field" ];
 
 
 const s4d_message_embed = {
@@ -31,7 +31,7 @@ Blockly.Blocks["s4d_message_embed_mutator"] = {
 };
 
 const BORDER_MUTATOR_MIXIN = {
-    inputs_: [ true, false, false, false ,false,false],
+    inputs_: [ true, false, false, false, false, false, false],
 
 
     mutationToDom: function() {
@@ -96,6 +96,7 @@ Blockly.JavaScript["s4d_message_embed"] = function(block){
     let description = "";
     let footer = "";
     let thumbnail = "";
+    let field = "";
     if ((Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
         title = `.setTitle(String(${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC)}))`;
     }
@@ -114,6 +115,9 @@ Blockly.JavaScript["s4d_message_embed"] = function(block){
     if ((Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
         thumbnail = `.setThumbnail(String(${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC)}))`;
     }
+  if ((Blockly.JavaScript.statementToCode(block, "FIELD", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
+        field = `.addFields(${Blockly.JavaScript.statementToCode(block, "FIELD")})`;
+    }
     return [ `
             embeds: [new MessageEmbed()
             ${title}
@@ -122,6 +126,7 @@ Blockly.JavaScript["s4d_message_embed"] = function(block){
             ${description}
             ${footer}
             ${thumbnail}
+            ${field}
             ],
     `, Blockly.JavaScript.ORDER_ATOMIC ];
 };
