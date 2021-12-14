@@ -14,7 +14,7 @@ const blockData = {
     {
       "type": "input_value",
       "name": "server",
-      "Check": "Server"
+      "check": "Server"
     },
     {
       "type": "input_dummy"
