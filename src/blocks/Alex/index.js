@@ -8,6 +8,8 @@ import "./tmember";
 import "./tserver";
 import "./higrole";
 import "./isdm";
+import "./allroles";
+import "./getallroles";
 import "./everyone";
 import "./colorofmember";
 import "./createinvite";
