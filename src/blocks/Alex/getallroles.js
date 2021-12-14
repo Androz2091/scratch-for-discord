@@ -9,7 +9,7 @@ const blockData = {
     {
       "type": "input_value",
       "name": "member",
-      "Check": "Member"
+      "check": "Member"
     },
     {
       "type": "input_value",
