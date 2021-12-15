@@ -5,6 +5,9 @@ if(js.includes("const stream = discordTTS")) {
     code.push(`let voiceConnection;`)
     code.push(`let audioPlayer=new AudioPlayer();`)
 }
+if(js.includes("Snake") || (js.includes("Calculator")) || (js.includes("Fight"))) {
+    array.push(`const { Calculator, Snake, Fight } = require('weky')`)
+}
 if(js.includes("censor")){
     array.push("const censor = require('discord-censor');")
 }
