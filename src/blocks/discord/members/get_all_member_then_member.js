@@ -20,7 +20,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(){
-return [ `m.member.user`, Blockly.JavaScript.ORDER_NONE ];
+return [ `m`, Blockly.JavaScript.ORDER_NONE ];
 };
 registerRestrictions(blockName, [
     {
