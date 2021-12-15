@@ -4,6 +4,9 @@ oldarray.forEach(js=>{
         array.push(`"discord-tts": "^1.2.1",
         "@discord.js/voice": "^0.7.5",`)
     }
+    if(js.includes(`const { Calculator, Snake, Fight } = require('weky')`)) {
+        array.push(`"weky": "^3.1.8"`)
+    }
     if(js.includes("censor")){
         array.push(`"discord-censor": "^1.0.9"`)
     }
