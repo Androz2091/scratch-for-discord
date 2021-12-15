@@ -167,6 +167,9 @@ fire:null,
                     intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
                     partials: ["REACTION", "CHANNEL"]
                     });
+                    s4d.client.on('ready', () => {
+                        console.log(s4d.client.user.tag + " is alive!")
+                    })
                     ${requiresjscode.join("\n")}         
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
                     return s4d
