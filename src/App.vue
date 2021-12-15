@@ -119,11 +119,10 @@ import "./blocks/frostzzone/useful/"
 import "./blocks/frostzzone/scratch/"
 import "./blocks/frostzzone/github/"
 import "./blocks/better_music/"
+//its me retro :v
+import "./blocks/weky/"
 
 import Theme from '@blockly/theme-modern';
-
-
-
 
 //ahq stuff
 import "./blocks/ahq/";
