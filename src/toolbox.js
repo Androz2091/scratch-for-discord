@@ -603,7 +603,7 @@ export default (Blockly, value) => {
 </category>
 </category>
 
-<category name="Retro and XL83" colour="#AAE941">
+<category name="RetroBtw and XL83" colour="#AAE941">
 <category name="Weky" colour="#5ba58b">
     <block type="snake_js"/>
 </category>
