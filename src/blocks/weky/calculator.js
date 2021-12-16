@@ -74,7 +74,7 @@ const time = Blockly.JavaScript.valueToCode(block, "TIMESTAMP", Blockly.JavaScri
 const disabled = Blockly.JavaScript.valueToCode(block, "DISABLED", Blockly.JavaScript.ORDER_ATOMIC);
 const invalid = Blockly.JavaScript.valueToCode(block, "INVALID", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `
-    await Calculator({
+    await Calculator,({
         message: s4dmessage,
         embed: {
             title: ${title}
