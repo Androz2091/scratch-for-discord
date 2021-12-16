@@ -39,13 +39,13 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "ID"){
-        const code = ["(s4dmessage.channel || {}).id", Blockly.JavaScript.ORDER_NONE];
+        const code = ["(s4dmessage.channel).id", Blockly.JavaScript.ORDER_NONE];
         return code;
     } else if(searchType === "NAME"){
-        const code = ["(s4dmessage.channel || {}).name", Blockly.JavaScript.ORDER_NONE];
+        const code = ["(s4dmessage.channel).name", Blockly.JavaScript.ORDER_NONE];
         return code;
     }	else if(searchType === "TYPE"){
-        const code = ["(s4dmessage.channel || {}).type", Blockly.JavaScript.ORDER_NONE];
+        const code = ["(s4dmessage.channel).type", Blockly.JavaScript.ORDER_NONE];
         return code;
     }
 };
