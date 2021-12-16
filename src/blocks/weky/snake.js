@@ -93,7 +93,7 @@ const cancel = Blockly.JavaScript.valueToCode(block, "CANCEL", Blockly.JavaScrip
 const color = Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC);
 const code = `
     await Snake({
-        s4dmessage: message,
+        message: s4dmessage,
         embed: {
             title: ${title},
             description: 'GG, you scored **{{score}}** points!',
