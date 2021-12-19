@@ -491,7 +491,7 @@ export default (Blockly, value) => {
         <block type="ahq_bdwrd"/>
         <block type="ahq_bdwrd_cn"/>
         </category>
-        <category name="embed" colour="#ff0000">
+        <category name="embed" colour="#993399">
         <block type="make_ahq_embed"/>
         <label text="Embed Creator" web-class="boldtext"></label>
         <block type="title_ahq_embed"/>
