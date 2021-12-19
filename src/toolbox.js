@@ -497,6 +497,7 @@ export default (Blockly, value) => {
         <block type="send_ahq_embed"/>
         <label text="Embed Creator" web-class="boldtext"></label>
         <block type="title_ahq_embed"/>
+        <block type="url_ahq_embed"/>
         <block type="author_ahq_embed"/>
         <block type="color_ahq_embed"/>
         <block type="des_ahq_embed"/>
