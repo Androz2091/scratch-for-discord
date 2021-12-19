@@ -47,7 +47,6 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block) {
-    let extra = "";
     const name = (Blockly.JavaScript.valueToCode(block, "button name", Blockly.JavaScript.ORDER_NONE) || "embed");
     const finaln = name.replace("'", "").replace("'", "");
     const statementsThen = Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE);
