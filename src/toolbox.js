@@ -493,6 +493,8 @@ export default (Blockly, value) => {
         </category>
         <category name="embed" colour="#993399">
         <block type="make_ahq_embed"/>
+        <label text="Embed Send" web-class="boldtext"></label>
+        <block type="send_ahq_embed"/>
         <label text="Embed Creator" web-class="boldtext"></label>
         <block type="title_ahq_embed"/>
         <block type="author_ahq_embed"/>
