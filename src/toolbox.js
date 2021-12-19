@@ -492,6 +492,16 @@ export default (Blockly, value) => {
         <block type="ahq_bdwrd_cn"/>
         </category>
         <category name="embed" colour="#ff0000">
+        <block type="make_ahq_embed"/>
+        <label text="Embed Creator" web-class="boldtext"></label>
+        <block type="title_ahq_embed"/>
+        <block type="author_ahq_embed"/>
+        <block type="color_ahq_embed"/>
+        <block type="des_ahq_embed"/>
+        <block type="fld_ahq_embed"/>
+        <block type="image_ahq_embed"/>
+        <block type="thmb_ahq_embed"/>
+        <block type="footer_ahq_embed"/>
         </category>
         </category>
 	

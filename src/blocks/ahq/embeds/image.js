@@ -1,5 +1,5 @@
 import * as Blockly from "blockly";
-const blockName = "thmb_ahq_embed";
+const blockName = "image_ahq_embed";
 const ahqcolor = ['#3366ff', '#6600cc', '#33cc00', '#ff6666'];
 function listsGetRandomItem(list, remove) {
     var x = Math.floor(Math.random() * list.length);
