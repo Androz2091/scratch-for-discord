@@ -491,6 +491,8 @@ export default (Blockly, value) => {
         <block type="ahq_bdwrd"/>
         <block type="ahq_bdwrd_cn"/>
         </category>
+        <category name="embed" colour="#ff0000">
+        </category>
         </category>
 	
 	<category name="AlexCdDg" colour="#06cfaa">
