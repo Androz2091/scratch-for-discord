@@ -51,6 +51,6 @@ Blockly.JavaScript[blockName] = function(block) {
     const finaln = name.replace("'", "").replace("'", "");
     const statementsThen = Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE);
     const ahq = Blockly.JavaScript.valueToCode(block, "image", Blockly.JavaScript.ORDER_NONE) || "'null'";
-    const code = `${finaln}.addField(${statementsThen}, ${ahq}, ${Blockly.JavaScript.valueToCode(block, "image", Blockly.JavaScript.ORDER_NONE) || false});`;
+    const code = `${finaln}.addField(${statementsThen}, ${ahq}, ${Blockly.JavaScript.valueToCode(block, "ahq", Blockly.JavaScript.ORDER_NONE) || false});`;
     return code;
 };
