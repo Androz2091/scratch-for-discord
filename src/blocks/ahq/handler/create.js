@@ -5,7 +5,7 @@ const blockName = "create_ahq";
 
 const blockData = {
     "type": "block_type",
-    "message0": "Create command handler %1 Prefix %2 %3 OwnerId %4 %5 Owner Only Message %6 %7 Set NSFW channel only message %8 %9 Set moderation permission",
+    "message0": "Create command handler %1 Prefix %2 %3 OwnerId %4 %5 Owner Only Message %6 %7 Set NSFW channel only message %8 %9 Set moderation permission %10 %11 Set not mod message %12",
     "args0": [
         {
             "type": "input_space"
