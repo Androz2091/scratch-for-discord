@@ -514,6 +514,53 @@ export default (Blockly, value) => {
 		</category>
 	</category>
 	
+	<category name="Embeds" colour="#64C9FF">
+		<category name="Jose's Embed" colour="#64C9FF">
+		<label text="Create A Perfect Embed" web-class="boldtext"></label>
+			<block type="s4d_create_embed_then"></block>
+			<label text="%{BKY_COLOR_MESSAGE}"></label>
+			<block type="s4d_create_embed_then_set_color"></block>
+			<block type="s4d_create_embed_then_set_author"></block>
+			<block type="s4d_create_embed_then_set_title"></block>
+			<block type="s4d_create_embed_then_add_link"></block>
+			<block type="s4d_create_embed_then_set_thumbnail"></block>
+			<label text="%{BKY_HYPERLINK_MESSAGE}"></label>
+			<label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
+			<block type="s4d_create_embed_then_set_description"></block>
+			<block type="s4d_create_embed_then_add_field"></block>
+			<block type="s4d_create_embed_then_set_image"></block>
+			<block type="s4d_create_embed_then_set_footer"></block>
+			<label text="%{BKY_SEND_EMBED}"></label>
+			<block type="s4d_create_embed_then_send"></block>
+			</category>
+			<category name="Mrredo's Embed" colour="#64C9FF">
+					<label text="Create A Perfect Embed" web-class="boldtext"></label>
+			<block type="s4d_m_create_embed_then"></block>
+			<label text="%{BKY_COLOR_MESSAGE}"></label>
+			<block type="s4d_m_create_embed_then_set_color"></block>
+			<block type="s4d_m_create_embed_then_set_author"></block>
+			<block type="s4d_m_create_embed_then_set_title"></block>
+			<block type="s4d_m_create_embed_then_set_thumbnail"></block>
+			<label text="%{BKY_HYPERLINK_MESSAGE}"></label>
+			<label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
+			<block type="s4d_m_create_embed_then_set_description"></block>
+			<block type="s4d_m_create_embed_then_add_field"></block>
+			<block type="s4d_m_create_embed_then_add_blankfield"></block>
+			<block type="s4d_m_create_embed_then_set_image"></block>
+			<block type="s4d_m_create_embed_then_set_footer"></block>
+			<block type="s4d_m_create_embed_then_set_time"></block>
+			<label text="%{BKY_SEND_EMBED}"></label>
+			<block type="send_m_embed_string"/>
+			<block type="s4d_m_create_embed_then_send"></block>
+			</category>
+		</category>
+	
+	
+	
+	
+	
+	
+	
 	
 	<category name="henpokpok" colour="#64C9FF">
 		<category name="Reactions" colour="#FF6464">
@@ -906,24 +953,6 @@ export default (Blockly, value) => {
 		<category name="{{ TOOLBOX_JSONREQUEST }}" colour="#00664d">
 			<block type="s4d_http_get_then"/>
 			<block type="s4d_get_string_of_data"/>
-		</category>
-		<category name="{{ EMBED }}" colour="#00664d">
-			<label text="Create A Perfect Embed" web-class="boldtext"></label>
-			<block type="s4d_create_embed_then"></block>
-			<label text="%{BKY_COLOR_MESSAGE}"></label>
-			<block type="s4d_create_embed_then_set_color"></block>
-			<block type="s4d_create_embed_then_set_author"></block>
-			<block type="s4d_create_embed_then_set_title"></block>
-			<block type="s4d_create_embed_then_add_link"></block>
-			<block type="s4d_create_embed_then_set_thumbnail"></block>
-			<label text="%{BKY_HYPERLINK_MESSAGE}"></label>
-			<label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
-			<block type="s4d_create_embed_then_set_description"></block>
-			<block type="s4d_create_embed_then_add_field"></block>
-			<block type="s4d_create_embed_then_set_image"></block>
-			<block type="s4d_create_embed_then_set_footer"></block>
-			<label text="%{BKY_SEND_EMBED}"></label>
-			<block type="s4d_create_embed_then_send"></block>
 		</category>
 		<category name="{{ TOOLBOX_E_DELETED }}" colour="#00664d">
 			<label text="%{BKY_DELETED_RELATED_BLOCKS}" web-class="boldtext"></label>
