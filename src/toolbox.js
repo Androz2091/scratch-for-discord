@@ -508,6 +508,9 @@ export default (Blockly, value) => {
         </category>
         <category name="handler" colour="#ff0000">
         <block type="create_ahq_handler"/>
+        <category name="events" colour="#993399">
+        <label text="Soon!" web-class="boldtext"></label>
+        </category>
         </category>
         </category>
 	
