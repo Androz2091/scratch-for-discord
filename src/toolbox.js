@@ -514,26 +514,7 @@ export default (Blockly, value) => {
 		</category>
 	</category>
 	
-	<category name="Embeds" colour="#64C9FF">
-		<category name="Jose's Embed" colour="#64C9FF">
-		<label text="Create A Perfect Embed" web-class="boldtext"></label>
-			<block type="s4d_create_embed_then"></block>
-			<label text="%{BKY_COLOR_MESSAGE}"></label>
-			<block type="s4d_create_embed_then_set_color"></block>
-			<block type="s4d_create_embed_then_set_author"></block>
-			<block type="s4d_create_embed_then_set_title"></block>
-			<block type="s4d_create_embed_then_add_link"></block>
-			<block type="s4d_create_embed_then_set_thumbnail"></block>
-			<label text="%{BKY_HYPERLINK_MESSAGE}"></label>
-			<label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
-			<block type="s4d_create_embed_then_set_description"></block>
-			<block type="s4d_create_embed_then_add_field"></block>
-			<block type="s4d_create_embed_then_set_image"></block>
-			<block type="s4d_create_embed_then_set_footer"></block>
-			<label text="%{BKY_SEND_EMBED}"></label>
-			<block type="s4d_create_embed_then_send"></block>
-			</category>
-			<category name="Mrredo's Embed" colour="#64C9FF">
+	<category name="Embeds" colour="#64C9FF">			
 					<label text="Create A Perfect Embed" web-class="boldtext"></label>
 			<block type="s4d_m_create_embed_then"></block>
 			<label text="%{BKY_COLOR_MESSAGE}"></label>
@@ -552,6 +533,120 @@ export default (Blockly, value) => {
 			<label text="%{BKY_SEND_EMBED}"></label>
 			<block type="send_m_embed_string"/>
 			<block type="s4d_m_create_embed_then_send"></block>
+		</category>
+		
+		<category name="Events" colour="#64C9FF">			
+			<category name="channel" colour="#00b3ff">
+				<category name="channel permissions update" colour="#00b3ff">
+					<block type="on_channelPermissionsChange"/>
+					<block type="s4d_channel_raw"/>
+					<block type="permissions"/>
+				</category>
+				<category name="channel topic update" colour="#00b3ff">
+					<block type="on_channelTopicChange"/>
+					<block type="s4d_channel_raw"/>
+					<block type="topic"/>
+				</category>
+			</category>
+			<category name="member" colour="#00b3ff">
+				<category name="member boost" colour="#00b3ff">
+					<block type="on_boost"/>
+					<block type="member_raw"/>
+					<block type="member"/>
+				</category>
+				<category name="member unboost" colour="#00b3ff">
+					<block type="on_unboost"/>
+					<block type="member_raw"/>
+					<block type="member"/>
+				</category>
+				<category name="member role add" colour="#00b3ff">
+					<block type="on_roleadd"/>
+					<block type="event-role"/>
+					<block type="member_raw"/>
+					<block type="member"/>
+				</category>
+				<category name="member role remove" colour="#00b3ff">
+					<block type="on_roleremove"/>
+					<block type="event-role"/>
+					<block type="member_raw"/>
+					<block type="member"/>
+				</category>
+			</category>
+			<category name="guild" colour="#00b3ff">
+				<category name="guild boost level up" colour="#00b3ff">
+					<block type="on_up"/>
+					<block type="event-guild"/>
+					<block type="boost"/>
+				</category>
+				<category name="guild boost level down" colour="#00b3ff">
+					<block type="on_down"/>
+					<block type="event-guild"/>
+					<block type="boost"/>
+				</category>
+				<category name="guild banner add" colour="#00b3ff">
+					<block type="on_banner_add"/>
+					<block type="event-guild"/>
+					<block type="banner-url"/>
+				</category>
+				<category name="guild vanity url add" colour="#00b3ff">
+					<block type="on_vanity_add"/>
+					<block type="event-guild"/>
+					<block type="vanity-url"/>
+				</category>
+				<category name="guild vanity url remove" colour="#00b3ff">
+					<block type="on_vanity_remove"/>
+					<block type="event-guild"/>
+					<block type="vanity-url"/>
+				</category>
+				<category name="guild vanity url update" colour="#00b3ff">
+					<block type="on_vanity_update"/>
+					<block type="event-guild"/>
+					<block type="url-update"/>
+				</category>
+			</category>
+			<category name="Reactions" colour="#FF6464">
+			<label text="Reations event" web-class="boldtext"></label>
+			<block type="reaction_added"/>
+			<block type="reaction_removed"/>
+			<label text="React info" web-class="boldtext"></label>
+			<block type="react_member"/>
+			<block type="react_emoji"/>
+			<block type="react_messageId"/>
+		</category>
+		<category name="Event channel" colour="#00b3ff">
+				<block type="on_channelCreate"></block>
+				<block type="cc_name"></block>
+				<block type="cc_channel"></block>
+				<block type="on_channelUpdate"></block>
+				<block type="cu_name"></block>
+				<block type="cu_channel"></block>
+				<block type="on_channelDelete"></block>
+				<block type="cd_name"></block>
+				<block type="cd_channel"></block>
+			</category>
+			<category name="Event emoji" colour="#00b3ff">
+				<block type="on_emojicreate"></block>
+				<block type="ec_name"></block>
+				<block type="on_emojiupdate"></block>
+				<block type="eu_name"></block>
+				<block type="on_emojidelete"></block>
+				<block type="ed_name"></block>
+			</category>
+			<category name="Event role" colour="#00b3ff">
+				<block type="on_rolecreate"></block>
+				<block type="rc_name"></block>
+				<block type="on_roleupdate"></block>
+				<block type="ru_name"></block>
+				<block type="on_roledelete"></block>
+				<block type="rd_name"></block>
+			</category>
+			<category name="Event sticker" colour="#00b3ff">
+				<block type="on_stickercreate"></block>
+				<block type="sc_name"></block>
+				<block type="on_stickerdelete"></block>
+				<block type="sd_name"></block>
+				<block type="on_stickerupdate"></block>
+				<block type="su_name"></block>
 			</category>
 		</category>
 	
@@ -562,17 +657,7 @@ export default (Blockly, value) => {
 	
 	
 	
-	<category name="henpokpok" colour="#64C9FF">
-		<category name="Reactions" colour="#FF6464">
-			<label text="Reations event" web-class="boldtext"></label>
-			<block type="reaction_added"/>
-			<block type="reaction_removed"/>
-			<label text="React info" web-class="boldtext"></label>
-			<block type="react_member"/>
-			<block type="react_emoji"/>
-			<block type="react_messageId"/>
-		</category>
-	</category>
+	
 	<category name="ahq" colour="#ff0000">
 		<category name="member" colour="#006600">
 			<label text="Fetch members of a server" web-class="boldtext"></label>
@@ -814,74 +899,7 @@ export default (Blockly, value) => {
 			<block type="send_on_channel"/>
 		</category>
 		<category name="Events" colour="#00b3ff">
-			<category name="channel" colour="#00b3ff">
-				<category name="channel permissions update" colour="#00b3ff">
-					<block type="on_channelPermissionsChange"/>
-					<block type="s4d_channel_raw"/>
-					<block type="permissions"/>
-				</category>
-				<category name="channel topic update" colour="#00b3ff">
-					<block type="on_channelTopicChange"/>
-					<block type="s4d_channel_raw"/>
-					<block type="topic"/>
-				</category>
-			</category>
-			<category name="member" colour="#00b3ff">
-				<category name="member boost" colour="#00b3ff">
-					<block type="on_boost"/>
-					<block type="member_raw"/>
-					<block type="member"/>
-				</category>
-				<category name="member unboost" colour="#00b3ff">
-					<block type="on_unboost"/>
-					<block type="member_raw"/>
-					<block type="member"/>
-				</category>
-				<category name="member role add" colour="#00b3ff">
-					<block type="on_roleadd"/>
-					<block type="event-role"/>
-					<block type="member_raw"/>
-					<block type="member"/>
-				</category>
-				<category name="member role remove" colour="#00b3ff">
-					<block type="on_roleremove"/>
-					<block type="event-role"/>
-					<block type="member_raw"/>
-					<block type="member"/>
-				</category>
-			</category>
-			<category name="guild" colour="#00b3ff">
-				<category name="guild boost level up" colour="#00b3ff">
-					<block type="on_up"/>
-					<block type="event-guild"/>
-					<block type="boost"/>
-				</category>
-				<category name="guild boost level down" colour="#00b3ff">
-					<block type="on_down"/>
-					<block type="event-guild"/>
-					<block type="boost"/>
-				</category>
-				<category name="guild banner add" colour="#00b3ff">
-					<block type="on_banner_add"/>
-					<block type="event-guild"/>
-					<block type="banner-url"/>
-				</category>
-				<category name="guild vanity url add" colour="#00b3ff">
-					<block type="on_vanity_add"/>
-					<block type="event-guild"/>
-					<block type="vanity-url"/>
-				</category>
-				<category name="guild vanity url remove" colour="#00b3ff">
-					<block type="on_vanity_remove"/>
-					<block type="event-guild"/>
-					<block type="vanity-url"/>
-				</category>
-				<category name="guild vanity url update" colour="#00b3ff">
-					<block type="on_vanity_update"/>
-					<block type="event-guild"/>
-					<block type="url-update"/>
-				</category>
-			</category>
+			
 		</category>
 		<category name="YoutubeNotifier" colour="#00664d">
 			<block type="video_raw"/>
