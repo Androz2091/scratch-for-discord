@@ -3,4 +3,4 @@ import "./buttons/";
 import "./history";
 import "./slash_register/"
 import "./bad_wrds/"
-import "./embeds"
+import "./embeds/"
