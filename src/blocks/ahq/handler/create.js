@@ -196,7 +196,7 @@ Blockly.JavaScript[blockName] = function(block) {
     const value = Blockly.JavaScript.valueToCode(block, "TOKEN", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `const ahqhandler = {
         "prefix": ${value},
-        "owner": ${Number(Blockly.JavaScript.valueToCode(block, "ownerId", Blockly.JavaScript.ORDER_ATOMIC))},
+        "owner": ${(Blockly.JavaScript.valueToCode(block, "ownerId", Blockly.JavaScript.ORDER_ATOMIC))},
         "not-owner": ${Blockly.JavaScript.valueToCode(block, "notowner", Blockly.JavaScript.ORDER_ATOMIC)},
         "nsfw": ${Blockly.JavaScript.valueToCode(block, "ahq", Blockly.JavaScript.ORDER_ATOMIC)},
         "perms-mod": \`${block.getFieldValue("perms")}\`,
