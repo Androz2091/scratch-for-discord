@@ -506,6 +506,9 @@ export default (Blockly, value) => {
         <block type="thmb_ahq_embed"/>
         <block type="footer_ahq_embed"/>
         </category>
+        <category name="handler" colour="#ff0000">
+        <block type="create_ahq_handler"/>
+        </category>
         </category>
 	
 	<category name="AlexCdDg" colour="#06cfaa">

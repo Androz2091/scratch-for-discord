@@ -1,6 +1,6 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "create_ahq";
+const blockName = "create_ahq_handler";
 
 
 const blockData = {
