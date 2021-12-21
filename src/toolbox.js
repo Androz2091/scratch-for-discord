@@ -430,25 +430,13 @@ export default (Blockly, value) => {
 		<block type="s4d_return"></block>
 		<block type="s4d_string_to_number"></block>
 	</category>
-	<category name="henpokpok" colour="#64C9FF">
-		<category name="Reactions" colour="#FF6464">
-			<label text="Reations event" web-class="boldtext"></label>
-			<block type="reaction_added"/>
-			<block type="reaction_removed"/>
-			<label text="React info" web-class="boldtext"></label>
-			<block type="react_member"/>
-			<block type="react_emoji"/>
-			<block type="react_messageId"/>
-		</category>
-	</category>
-	<category name="ahq" colour="#ff0000">
-		<category name="member" colour="#006600">
-			<label text="Fetch members of a server" web-class="boldtext"></label>
-			<block type="s4d_get_rndm"/>
-			<label text="Get random member" web-class="boldtext"></label>
-			<block type="s4d_get_rndmber"/>
-		</category>
-		<category name="button" colour="#ff0019">
+	
+	
+	
+	
+	
+	<category name="Buttons" colour="#64C9FF">
+		<category name="AHQ's Buttons" colour="#64C9FF">
 			<label text="Event" web-class="boldtext"></label>
 			<block type="on_real_button"/>
 			<label text="Button Information" web-class="boldtext"></label>
@@ -469,6 +457,81 @@ export default (Blockly, value) => {
 			<block type="emoji_ahq_button"/>
 			<block type="url_ahq_button"/>
 			<block type="d_ahq_button"/>
+		</category>
+		<category name="Jose's Buttons" colour="#64C9FF">
+			<label text="%{BKY_BUTTON_EVENT}"></label>
+			<block type="s4d_on_click"></block>
+			<label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
+			<block type="s4d_button_click_id"></block>
+			<block type="s4d_button_think"></block>
+			<block type="s4d_button_reply"></block>
+			<block type="s4d_button_edit"></block>
+			<block type="s4d_button_delete_reply"></block>
+			<block type="s4d_update"></block>
+			<label text="%{BKY_BUTTON_BLOCKS}"></label>
+			<block type="s4d_send_button"></block>
+			<block type="s4d_button_style"></block>
+			<block type="s4d_button_row"></block>
+			<block type="s4d_message_row_block"></block>
+		</category>
+		<category name="Mrredo's Buttons" colour="#64C9FF">
+				<label text="%{BKY_T_EDI}"></label>
+			<block type="on_button"></block>
+			<label text="%{BKY_T_BS}"></label>
+			<block type="button_id"></block>
+			<block type="button_author"></block>
+			<block type="button_channel"></block>
+			<block type="button_guild"></block>
+			<block type="b_style"></block>
+			<label text="%{BKY_T_B_SHIP}Reply and edit and send embed"></label>
+			<block type="b_send_msg"></block>
+			<block type="button_reply"></block>
+			<block type="button_edit"></block>
+			<block type="send_m_embed_string"></block>
+			<label text="%{BKY_T_CB}"></label>
+			<block type="b_create">
+				<value name="B_NAME">
+					<shadow type="text">
+						<field name="TEXT">button_name</field>
+					</shadow>
+				</value>
+			</block>
+			<label text="%{BKY_T_BR}"></label>
+			<block type="b_row">
+				<value name="BUTTON_NAME">
+					<shadow type="text">
+						<field name="TEXT">name</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="b_row_comp">
+				<value name="BUTTON">
+					<shadow type="text">
+						<field name="TEXT"></field>
+					</shadow>
+				</value>
+			</block>
+		</category>
+	</category>
+	
+	
+	<category name="henpokpok" colour="#64C9FF">
+		<category name="Reactions" colour="#FF6464">
+			<label text="Reations event" web-class="boldtext"></label>
+			<block type="reaction_added"/>
+			<block type="reaction_removed"/>
+			<label text="React info" web-class="boldtext"></label>
+			<block type="react_member"/>
+			<block type="react_emoji"/>
+			<block type="react_messageId"/>
+		</category>
+	</category>
+	<category name="ahq" colour="#ff0000">
+		<category name="member" colour="#006600">
+			<label text="Fetch members of a server" web-class="boldtext"></label>
+			<block type="s4d_get_rndm"/>
+			<label text="Get random member" web-class="boldtext"></label>
+			<block type="s4d_get_rndmber"/>
 		</category>
 		<category name="cmd register" colour="#6600cc">
 			<label text="Create a slash command" web-class="boldtext"></label>
@@ -892,22 +955,6 @@ export default (Blockly, value) => {
 			<block type="s4d_add_server_icon"></block>
 			<block type="s4d_add_server_owner"/>
 		</category>
-		<category name="{{ TOOLBOX_BUTTON }}" colour="#00664d">
-			<label text="%{BKY_BUTTON_EVENT}"></label>
-			<block type="s4d_on_click"></block>
-			<label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
-			<block type="s4d_button_click_id"></block>
-			<block type="s4d_button_think"></block>
-			<block type="s4d_button_reply"></block>
-			<block type="s4d_button_edit"></block>
-			<block type="s4d_button_delete_reply"></block>
-			<block type="s4d_update"></block>
-			<label text="%{BKY_BUTTON_BLOCKS}"></label>
-			<block type="s4d_send_button"></block>
-			<block type="s4d_button_style"></block>
-			<block type="s4d_button_row"></block>
-			<block type="s4d_message_row_block"></block>
-		</category>
 		<category name="{{ TOOLBOX_MENU }}" colour="#00664d">
 			<label text="%{BKY_BUTTON_EVENT}"></label>
 			<block type="s4d_on_menu_click"></block>
@@ -1040,44 +1087,6 @@ export default (Blockly, value) => {
 			<block type="m_edit"></block>
 			<label text="send embed" web-class="boldtext"></label>
 			<block type="send_m_embed_string"></block>
-		</category>
-		<category name="button" colour="#ff0019">
-			<label text="%{BKY_T_EDI}"></label>
-			<block type="on_button"></block>
-			<label text="%{BKY_T_BS}"></label>
-			<block type="button_id"></block>
-			<block type="button_author"></block>
-			<block type="button_channel"></block>
-			<block type="button_guild"></block>
-			<block type="b_style"></block>
-			<label text="%{BKY_T_B_SHIP}Reply and edit and send embed"></label>
-			<block type="b_send_msg"></block>
-			<block type="button_reply"></block>
-			<block type="button_edit"></block>
-			<block type="send_m_embed_string"></block>
-			<label text="%{BKY_T_CB}"></label>
-			<block type="b_create">
-				<value name="B_NAME">
-					<shadow type="text">
-						<field name="TEXT">button_name</field>
-					</shadow>
-				</value>
-			</block>
-			<label text="%{BKY_T_BR}"></label>
-			<block type="b_row">
-				<value name="BUTTON_NAME">
-					<shadow type="text">
-						<field name="TEXT">name</field>
-					</shadow>
-				</value>
-			</block>
-			<block type="b_row_comp">
-				<value name="BUTTON">
-					<shadow type="text">
-						<field name="TEXT"></field>
-					</shadow>
-				</value>
-			</block>
 		</category>
 		<category name="embed" colour="#40BF4A">
 			<label text="Create A Perfect Embed" web-class="boldtext"></label>
