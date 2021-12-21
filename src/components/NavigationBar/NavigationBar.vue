@@ -109,6 +109,8 @@ export default {
                         "dependencies": {\n
                              "djs-games": "^2.1.10",\n
                             "lyrics-finder": "^21.7.0",\n
+                            "discord.js": "^13.3.1",\n
+                            "easy-json-database": "^1.5.0",\n
                             ${requires.join("\n")}\n
                             
                         },\n
