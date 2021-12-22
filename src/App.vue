@@ -84,6 +84,7 @@ import "./blocks/database/";
 import "./blocks/text/";
 import "./blocks/loops/";
 import "./blocks/other/";
+import "./blocks/weky/";
 import "./prompt";
 //events
 //channel
