@@ -9,7 +9,7 @@ const blockData = {
     {
       "type": "input_value",
       "name": "channel",
-      "Check": "Channel"
+      "check": "Channel"
     },
     {
       "type": "input_dummy"
