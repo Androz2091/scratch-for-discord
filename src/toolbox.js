@@ -769,6 +769,7 @@ export default (Blockly, value) => {
     <block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
     </block>
     </category>
+    </category>
     <category name="Games" colour="#f79400">
     <block type="snake_js"/>
       <block type="s4d_cal"/>
