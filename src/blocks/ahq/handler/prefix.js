@@ -25,6 +25,6 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(){
-    const code = ['(ahqhandler[`prefix`])', Blockly.JavaScript.ORDER_NONE];
+    const code = ['(ahqhandler[`prefix`])', Blockly.JavaScript.ORDER_ATOMIC];
     return code;
 };
