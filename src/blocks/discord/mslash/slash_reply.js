@@ -49,7 +49,7 @@ Blockly.JavaScript[blockName] = function(block){
             const code = `await interaction.reply({ embeds: [${content}], ephemeral: ${boolean}, components: [${button2}] });\n`;
             return code;
         } else if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
-            const code = `s4dmessage.channel.send({${content}});\n`;
+            const code = `await interaction.reply({${content}});\n`;
             return code;
         } else {
             const code = `await interaction.reply({ content: ${content}, ephemeral: ${boolean}, components: [${button2}] });\n`;
