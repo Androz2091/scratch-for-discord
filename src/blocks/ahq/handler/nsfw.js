@@ -26,8 +26,6 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block){
-    let member = Blockly.JavaScript.valueToCode(block, "m", Blockly.JavaScript.ORDER_ATOMIC);
-    let final = member.replace(".author", ".member.user")
     const code = [`(ahqhandler[\`nsfw\`])`, Blockly.JavaScript.ORDER_NULL];
     return code;
 };
