@@ -55,7 +55,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const name = Blockly.JavaScript.valueToCode(block, "button name", Blockly.JavaScript.ORDER_NONE);
     const statementsThen = Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE);
-    const code = `client.chat({message:${statementsThen}, name:${name}, owner:"scratch-for-discord-469-dev-ahqminessyt", user: ${Number(Blockly.JavaScript.valueToCode(block, "user", Blockly.JavaScript.ORDER_NONE).replace("'", "").replace("'", ""))}, language:"en"}).then(reply => {
+    const code = `client.chat({message:${statementsThen}, name:${name}, owner:"scratch-for-discord-469-dev-ahqminessyt", user: 849690256945184828, language:"en"}).then(reply => {
         ${Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_NONE)}.send(String(reply));
         });`;
     return code;
