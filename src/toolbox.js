@@ -665,7 +665,14 @@ export default (Blockly, value) => {
                   <block type="su_name"></block>
               </category>
           </category>
-         
+          <category name="Slash Commands" colour="#00b3ff">
+          <category name="Command Register" colour="#6600cc">
+          <label text="Create a slash command" web-class="boldtext"></label>
+          <block type="s4d_reg_slash"/>
+          <block type="s4d_reg_slash_options"/>
+          <block type="s4d_reg_new_options"/>
+          </category>
+          </category>
           <category name="ahq" colour="#ff0000">
           <category name="profanity" colour="#ff0000">
           <block type="ahq_bdwrd"/>
