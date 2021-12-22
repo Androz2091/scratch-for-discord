@@ -665,21 +665,8 @@ export default (Blockly, value) => {
                   <block type="su_name"></block>
               </category>
           </category>
-
+         
           <category name="ahq" colour="#ff0000">
-          <category name="member" colour="#006600">
-          <label text="Fetch members of a server" web-class="boldtext"></label>
-          <block type="s4d_get_rndm"/>
-          <label text="Get random member" web-class="boldtext"></label>
-          <block type="s4d_get_rndmber"/>
-          </category>
->
-          <category name="cmd register" colour="#6600cc">
-          <label text="Create a slash command" web-class="boldtext"></label>
-          <block type="s4d_reg_slash"/>
-          <block type="s4d_reg_slash_options"/>
-          <block type="s4d_reg_new_options"/>
-          </category>
           <category name="profanity" colour="#ff0000">
           <block type="ahq_bdwrd"/>
           <block type="ahq_bdwrd_cn"/>
