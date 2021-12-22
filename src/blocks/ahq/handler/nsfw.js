@@ -26,6 +26,6 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(){
-    const code = [`(ahqhandler[\`nsfw\`])`, Blockly.JavaScript.ORDER_ATOMIC];
+    const code = [`(ahqhandler[\`nsfw\`])`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };

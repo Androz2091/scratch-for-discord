@@ -32,6 +32,6 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     let member = Blockly.JavaScript.valueToCode(block, "m", Blockly.JavaScript.ORDER_ATOMIC);
     let final = member.replace(".author", ".member.user")
-    const code = [`String(${final}.id) == (ahqhandler[\`owner\`])`, Blockly.JavaScript.Blockly.JavaScript.ORDER_ATOMIC];
+    const code = [`String(${final}.id) == (ahqhandler[\`owner\`])`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
