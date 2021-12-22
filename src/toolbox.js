@@ -672,46 +672,58 @@ export default (Blockly, value) => {
           <block type="s4d_reg_slash_options"/>
           <block type="s4d_reg_new_options"/>
           </category>
+          <category name="When Slash Cmd Is Received" colour="#ff2f00">
+          <label text="%{BKY_T_RS}"></label>
+          <block type="on_slash"></block>
+          <block type="interaction_name"></block>
+          <block type="options">
+          <mutation mode="string"></mutation></block>
+          <block type="interaction_author"></block>
+          <block type="interaction_channel"></block>
+          <block type="interaction_guild"></block>
+          <block type="interaction_voice_channel"></block>
+          <block type="interaction_voice_channel_id"></block>
+          <block type="bot_voice_channel_id"></block>
+          <block type="slash_reply"></block>
+          <block type="slash_edit"></block>
+          <block type="send_m_embed_string"></block>
           </category>
-          <category name="ahq" colour="#ff0000">
-          <category name="profanity" colour="#ff0000">
-          <block type="ahq_bdwrd"/>
-          <block type="ahq_bdwrd_cn"/>
           </category>
-         
-          </category>
-      
-      <category name="AlexCdDg" colour="#06cfaa">
-          
-          <category name="TTS" colour="#1010b5">
-          <label text="Connect and use TTS" web-class="boldtext"></label>
-          <block type="tts-test"/>
-      <block type="tts_channel"/>
-          </category>
-      <category name="Image Finder" colour="#00c7ad">
+          <category name="Image Based" colour="#ff2f00">
+          <category name="Image Finder" colour="#00c7ad">
           <block type="get_image"/>
-      <block type="url_image"/>
+            <block type="url_image"/>
           </category>
-      <category name="Typing" colour="#f79400">
-          <label text="Typing event" web-class="boldtext"></label>
-          <block type="typing_start"/>
-          <label text="Typing blocks" web-class="boldtext"></label>
-          <block type="typing_server"/>
-          <block type="typing_channel"/>
-          <block type="typing_member"/>
-          </category>
-      <category name="Other" colour="#c70e6d">
-          <block type="hig_role"/>
-          <label text="This will detect the color of highest role" web-class="boldtext"></label>
-          <block type="member_color"/>
-          <label text="ㅤ" web-class="boldtext"></label>
-          <block type="role_color"/>
-          <block type="role_name"/>
-          <label text="ㅤ" web-class="boldtext"></label>
-          <block type="get_all_roles"/>
-          <block type="all_roles"/>
-          <label text="ㅤ" web-class="boldtext"></label>
-      </category>
+          <category name="Reddit" colour="#5ba58b">        
+         <block type="ran_red_post"/>
+        <block type="postVars"/>
+        </category>
+        <category name="discord image generation" colour="#00664d">
+        <block type="new_image"/>
+    </category>
+    <category name="image generation" colour="#00664d">
+        <block type="1imagepng">
+        <mutation divisor_input="true"></mutation>
+        </block>
+        <block type="1imagegif"/>
+        <block type="2imagepng"/>
+        <block type="load_gif"/>
+        <block type="load_image"/>
+        <block type="send_on_channel"/>
+    </category>
+    </category>
+    <category name="Typing" colour="#f79400">
+    <label text="Typing event" web-class="boldtext"></label>
+    <block type="typing_start"/>
+    <label text="Typing blocks" web-class="boldtext"></label>
+    <block type="typing_server"/>
+    <block type="typing_channel"/>
+    <block type="typing_member"/>
+    </category>
+
+      <category name="AlexCdDg" colour="#06cfaa">
+    
+   >
       <category name="Channel" colour="#0c97f0">
           <block type="isdm"/>
           <block type="first_channel"/>
@@ -937,19 +949,6 @@ export default (Blockly, value) => {
                           <block type="get_member_invites"/>
                       </category>
                   </category>
-                  <category name="discord image generation" colour="#00664d">
-                      <block type="new_image"/>
-                  </category>
-                  <category name="image generation" colour="#00664d">
-                      <block type="1imagepng">
-                      <mutation divisor_input="true"></mutation>
-                      </block>
-                      <block type="1imagegif"/>
-                      <block type="2imagepng"/>
-                      <block type="load_gif"/>
-                      <block type="load_image"/>
-                      <block type="send_on_channel"/>
-                  </category>
                   <category name="Events" colour="#00b3ff">
                       <category name="channel" colour="#00b3ff">
                           <category name="channel permissions update" colour="#00b3ff">
@@ -1091,24 +1090,6 @@ export default (Blockly, value) => {
                       <block type="s4d_http_get_then"/>
                       <block type="s4d_get_string_of_data"/>
                   </category>
-                          <category name="{{ EMBED }}" colour="#00664d">
-          <label text="Create A Perfect Embed" web-class="boldtext"></label>
-              <block type="s4d_create_embed_then"></block>
-              <label text="%{BKY_COLOR_MESSAGE}"></label>
-              <block type="s4d_create_embed_then_set_color"></block>
-              <block type="s4d_create_embed_then_set_author"></block>
-              <block type="s4d_create_embed_then_set_title"></block>
-              <block type="s4d_create_embed_then_add_link"></block>            
-              <block type="s4d_create_embed_then_set_thumbnail"></block>
-              <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
-              <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
-              <block type="s4d_create_embed_then_set_description"></block>
-              <block type="s4d_create_embed_then_add_field"></block>
-              <block type="s4d_create_embed_then_set_image"></block>
-              <block type="s4d_create_embed_then_set_footer"></block> 
-              <label text="%{BKY_SEND_EMBED}"></label>
-              <block type="s4d_create_embed_then_send"></block>
-      </category>
                               <category name="{{ TOOLBOX_E_DELETED }}" colour="#00664d">
              <label text="%{BKY_DELETED_RELATED_BLOCKS}" web-class="boldtext"></label>
              <label text="%{BKY_DELETED_EVENT}"></label>
@@ -1326,26 +1307,6 @@ export default (Blockly, value) => {
                   </value>
               </block>
           </category>
-          <category name="embed" colour="#40BF4A">
-          <label text="Create A Perfect Embed" web-class="boldtext"></label>
-              <block type="s4d_m_create_embed_then"></block>
-              <label text="%{BKY_COLOR_MESSAGE}"></label>
-              <block type="s4d_m_create_embed_then_set_color"></block>
-              <block type="s4d_m_create_embed_then_set_author"></block>
-              <block type="s4d_m_create_embed_then_set_title"></block>
-              <block type="s4d_m_create_embed_then_set_thumbnail"></block>
-              <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
-              <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
-              <block type="s4d_m_create_embed_then_set_description"></block>
-              <block type="s4d_m_create_embed_then_add_field"></block>
-              <block type="s4d_m_create_embed_then_add_blankfield"></block>
-              <block type="s4d_m_create_embed_then_set_image"></block>
-              <block type="s4d_m_create_embed_then_set_footer"></block> 
-              <block type="s4d_m_create_embed_then_set_time"></block>
-              <label text="%{BKY_SEND_EMBED}"></label>
-              <block type="send_m_embed_string"/>
-              <block type="s4d_m_create_embed_then_send"></block>
-      </category>
                   <category name="edited" colour="#e85a66">
           <label text="%{BKY_T_EDI}" web-class="boldtext"></label>
           <block type="when_message_is_edited"></block>
@@ -1655,7 +1616,6 @@ export default (Blockly, value) => {
               <label text="%{BKY_CHANNEL_ACTIONS}"></label>
               <block type="s4d_is_channel_nsfw"/>
               <block type="slowmode"></block>
-              <block type="set_perms"></block>
               <block type="set_perms_parent"></block>
               <block type="s4d_create_channel"></block>
               <block type="s4d_delete_channel"></block>
@@ -1674,6 +1634,12 @@ export default (Blockly, value) => {
                           <block type="s4d_role_exist"/>
               <block type="s4d_create_role"></block>
               <block type="s4d_set_role_perm"></block>
+              <block type="hig_role"/>
+              <label text="This will detect the color of highest role" web-class="boldtext"></label>
+              <block type="member_color"/>
+              <label text="ㅤ" web-class="boldtext"></label>
+              <block type="role_color"/>
+              <block type="role_name"/>
           </category> 
           <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
               <label text="%{BKY_FIND_MEMBER}"></label>
@@ -1766,6 +1732,17 @@ export default (Blockly, value) => {
                       </shadow>
                   </value>
               </block>
+          </category>
+          <category name="Unsorted" colour="#ff2f00">
+          <category name="profanity" colour="#ff0000">
+          <block type="ahq_bdwrd"/>
+          <block type="ahq_bdwrd_cn"/>
+          </category>
+          <category name="TTS" colour="#1010b5">
+          <label text="Connect and use TTS" web-class="boldtext"></label>
+          <block type="tts-test"/>
+      <block type="tts_channel"/>
+          </category>
           </category>
       </xml>
   `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
