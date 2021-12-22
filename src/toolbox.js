@@ -512,7 +512,12 @@ export default (Blockly, value) => {
         <category name="handler" colour="#ff0000">
         <block type="create_ahq_handler"/>
         <category name="events" colour="#993399">
-        <label text="Soon!" web-class="boldtext"></label>
+        <block type="prefix_ahq_hndler"/>
+        <block type="owner_ahq_hndler"/>
+        <block type="owner_n_ahq_hndler"/>
+        <block type="has_ahq_hndler"/>
+        <block type="not_perms_ahq_hndler"/>
+        <block type="nsfw_ahq_hndler"/>
         </category>
         </category>
         </category>
