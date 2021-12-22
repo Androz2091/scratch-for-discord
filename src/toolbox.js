@@ -720,26 +720,6 @@ export default (Blockly, value) => {
     <block type="typing_channel"/>
     <block type="typing_member"/>
     </category>
-
-      <category name="AlexCdDg" colour="#06cfaa">
-    
-   >
-      <category name="Channel" colour="#0c97f0">
-          <block type="isdm"/>
-          <block type="first_channel"/>
-          <label text="ㅤ" web-class="boldtext"></label>
-          <block type="category_channel"/>
-          <block type="vcategory_channel"/>
-          <label text="ㅤ" web-class="boldtext"></label>
-          <block type="renamec"/>
-          <label text="ㅤ" web-class="boldtext"></label>
-          <block type="channel_perms"/>
-          <block type="everyn"/>
-          <label text="ㅤ" web-class="boldtext"></label>
-          <block type="new_invite"/>
-          <block type="invite_ur"/>
-      </category>
-       </category>
   <category name="frostzzone" colour="#347dfa">
   <category name="Github" colour="#1f1f1f">
   <block type="github_get_then"/>
@@ -1619,6 +1599,19 @@ export default (Blockly, value) => {
               <block type="set_perms_parent"></block>
               <block type="s4d_create_channel"></block>
               <block type="s4d_delete_channel"></block>
+              <block type="isdm"/>
+          <block type="first_channel"/>
+          <label text="ㅤ" web-class="boldtext"></label>
+          <block type="category_channel"/>
+          <block type="vcategory_channel"/>
+          <label text="ㅤ" web-class="boldtext"></label>
+          <block type="renamec"/>
+          <label text="ㅤ" web-class="boldtext"></label>
+          <block type="channel_perms"/>
+          <block type="everyn"/>
+          <label text="ㅤ" web-class="boldtext"></label>
+          <block type="new_invite"/>
+          <block type="invite_ur"/>
           </category>
           <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
               <label text="%{BKY_FIND_ROLE}"></label>
