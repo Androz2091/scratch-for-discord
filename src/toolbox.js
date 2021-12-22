@@ -731,97 +731,63 @@ export default (Blockly, value) => {
     <block type="date_to_unix"/>
     <block type="get_in_date"/>
     </category>
-  <category name="frostzzone" colour="#347dfa">
-  <category name="Github" colour="#1f1f1f">
-  <block type="github_get_then"/>
-  <label text="For profile" web-class="boldtext"></label>
-  <block type="github_what_stat"/>
-  </category>
-  <category name="Scratch" colour="#347dfa">
-  <block type="scratch_get_about_then"/>
-  <block type="scratch_about_user"/>
-  </category>
-  <!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
-  <category name="Messages" colour="#2a46fa">
-  <block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
-  <block type="frost_real_reply">
-  <value name="CONTENT">
-    <shadow type="text">
-      <field name="TEXT">Hey!</field>
-    </shadow>
-  </value>
-  <value name="boolean">
-    <shadow type="logic_boolean">
-                  <field name="Boolean">TRUE</field>
-              </shadow>
-          </value>
-  </block>
-  <block type="frost_real_reply_then">
-  <value name="CONTENT">
-    <shadow type="text">
-      <field name="TEXT">Hey!</field>
-    </shadow>
-  </value>
-  <value name="boolean">
-    <shadow type="logic_boolean">
-                  <field name="Boolean">TRUE</field>
-              </shadow>
-          </value>
-  </block>
-  <block type="frost_real_reply_add_reaction">
-  <value name="REACTION"><shadow type="text"><field name="TEXT">👍</field></shadow></value>
-  </block>
-  <block type="frost_real_reply_edit">
-  <value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
-  </block>
-  <block type="frost_real_reply_delete"/>
-  <block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
-  </block>
-  </category>
-   
-  <category name="Embed" colour="#40bf4a">
-  <label text="For Androz Embed"></label>
-  <block type="frost_create_field"/>
-  <block type="frost_add_field"/>
-  <label text="For Jose Or Redo Embeds"></label>
-  <block type="frost_send_embed_rr"/>
-  </category>
-  </category>
-  <category name="RetroBtw and XL83" colour="#AAE941">
-  <category name="Weky" colour="#5ba58b">
-      <block type="snake_js"/>
+    <category name="Reply" colour="#f79400">
+    <!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
+    <category name="Messages" colour="#2a46fa">
+    <block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
+    <block type="frost_real_reply">
+    <value name="CONTENT">
+      <shadow type="text">
+        <field name="TEXT">Hey!</field>
+      </shadow>
+    </value>
+    <value name="boolean">
+      <shadow type="logic_boolean">
+                    <field name="Boolean">TRUE</field>
+                </shadow>
+            </value>
+    </block>
+    <block type="frost_real_reply_then">
+    <value name="CONTENT">
+      <shadow type="text">
+        <field name="TEXT">Hey!</field>
+      </shadow>
+    </value>
+    <value name="boolean">
+      <shadow type="logic_boolean">
+                    <field name="Boolean">TRUE</field>
+                </shadow>
+            </value>
+    </block>
+    <block type="frost_real_reply_add_reaction">
+    <value name="REACTION"><shadow type="text"><field name="TEXT">👍</field></shadow></value>
+    </block>
+    <block type="frost_real_reply_edit">
+    <value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
+    </block>
+    <block type="frost_real_reply_delete"/>
+    <block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
+    </block>
+    </category>
+    <category name="Games" colour="#f79400">
+    <block type="snake_js"/>
       <block type="s4d_cal"/>
-  </category>
-      <category name="Games" colour="#5ba58b">
-    <label text="Akinator gamemodes: character, animal, object" web-class="boldtext"></label>
-                       <block type="Akinator">
+      <block type="Akinator">
              <value name="MESSAGE">
              <shadow type="aki_gametype">
              </shadow>
              </value>
              </block>
-                      <block type="s4d_snake"/>
-                      </category>
-                  <category name="Reddit" colour="#5ba58b">
-                      
-                       <block type="ran_red_post"/>
-                        <block type="postVars"/>
-      
-                        
-                           <block type="get_about_then"/>
-                          <block type="about_user"/>
-                        </category>
-                        
-                        <category name="Pc/Server Stats" colour="#a5745b">
-                        <block type="ps_os_stats"/>
-                        <block type="get_cpu_uptime"/>
-                        <block type="cpu"/>
-                          
-                          </category>
-                          <category name="Music [retro]" colour="#a5745b">
+    </category>
+    <category name="Pc/Server Stats" colour="#a5745b">
+    <block type="ps_os_stats"/>
+    <block type="get_cpu_uptime"/>
+    <block type="cpu"/>
+      </category>
+      <category name="Music" colour="#a5745b">
+      <category name="Music" colour="#a5745b">
                           <label text="Create a perfect music player" web-class="boldtext"></label>
           <label text="Made with discord-music-player DMP" web-class="boldtext"></label>
-          <label text="WARNING DON'T USE WITH JOSE MUSIC BLOCKS" web-class="boldtext"></label>
       <label text="Events :D" web-class="boldtext"></label>
           <block type="first_track"/>
           <block type="track_start"/>
@@ -853,6 +819,11 @@ export default (Blockly, value) => {
           <block type="better_botvcid"/>
       <block type="song-first"/>
                           </category>
+                          <category name="lyric finder" colour="#5ba58b">
+                          <block type="find_lyric_than"/>
+                         <block type="lyric"/>
+                     </category>
+                          </category>
   <category name="Ticketing System" colour="#5b80a5">
       <label text="You can also type local" web-class="boldtext"></label>
           <block type="ticket_connect"/>
@@ -868,11 +839,7 @@ export default (Blockly, value) => {
           <block type="slash_unarchieve_ticket"/>
   <block type="slash_message_channel"/>
           </category>
-      <category name="lyric finder" colour="#5ba58b">
-           <block type="find_lyric_than"/>
-          <block type="lyric"/>
-      </category>
-  </category>
+  
                  
                       <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
                           ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}
@@ -1738,6 +1705,15 @@ export default (Blockly, value) => {
           <block type="tts-test"/>
       <block type="tts_channel"/>
           </category>
+          <category name="Github" colour="#1f1f1f">
+  <block type="github_get_then"/>
+  <label text="For profile" web-class="boldtext"></label>
+  <block type="github_what_stat"/>
+  </category>
+  <category name="Scratch" colour="#347dfa">
+  <block type="scratch_get_about_then"/>
+  <block type="scratch_about_user"/>
+  </category>
           </category>
       </xml>
   `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
