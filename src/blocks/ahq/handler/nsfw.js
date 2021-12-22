@@ -25,7 +25,7 @@ Blockly.Blocks[blockName] = {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function(){
     const code = [`(ahqhandler[\`nsfw\`])`, Blockly.JavaScript.ORDER_NULL];
     return code;
 };
