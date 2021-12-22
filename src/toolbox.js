@@ -509,17 +509,6 @@ export default (Blockly, value) => {
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>
         </category>
-        <category name="handler" colour="#ff0000">
-        <block type="create_ahq_handler"/>
-        <category name="events" colour="#993399">
-        <block type="prefix_ahq_hndler"/>
-        <block type="owner_ahq_hndler"/>
-        <block type="owner_n_ahq_hndler"/>
-        <block type="has_ahq_hndler"/>
-        <block type="not_perms_ahq_hndler"/>
-        <block type="nsfw_ahq_hndler"/>
-        </category>
-        </category>
         </category>
 	
 	<category name="AlexCdDg" colour="#06cfaa">
