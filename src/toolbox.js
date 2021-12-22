@@ -733,7 +733,7 @@ export default (Blockly, value) => {
     </category>
     <category name="Reply" colour="#f79400">
     <!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
-    <category name="Messages" colour="#2a46fa">
+
     <block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
     <block type="frost_real_reply">
     <value name="CONTENT">
@@ -768,7 +768,6 @@ export default (Blockly, value) => {
     <block type="frost_real_reply_delete"/>
     <block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
     </block>
-    </category>
     </category>
     <category name="Games" colour="#f79400">
     <block type="snake_js"/>
