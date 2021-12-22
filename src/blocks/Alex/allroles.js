@@ -1,13 +1,13 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "url_image";
+const blockName = "all_roles";
 
 const blockData = {
  
-  "message0": "Image URL",
-  "name": "url",
-  "output": ["String"],
-  "colour": "#05a386",
+  "message0": "All roles",
+  "name": "roles",
+  "output": "String",
+  "colour": "#56afdb",
   "tooltip": "",
   "helpUrl": ""
 }
@@ -19,6 +19,6 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-  const code = [`await image_finder.find(query)`, Blockly.JavaScript.ORDER_NONE];
+  const code = [`memberRoles`, Blockly.JavaScript.ORDER_NONE];
   return code;
 };
