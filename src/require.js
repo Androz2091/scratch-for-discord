@@ -1,4 +1,9 @@
 export default async function require(array,code,js) {
+if(js.includes(".chat")) {
+    array.push(`const smartestchatbot = require('smartestchatbot');
+    const client = new smartestchatbot.Client();
+    `)
+}
 if(js.includes("const stream = discordTTS")) {
     array.push(`const discordTTS = require("discord-tts");`)
     array.push(`const {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} = require("@discordjs/voice");`)

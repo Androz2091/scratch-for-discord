@@ -18,54 +18,51 @@ export default `
             </value>
             <value name="B">
               <block type="text" id=";[??XKp36YJf2U}j2_}e">
-                <field name="TEXT">!memes</field>
+                <field name="TEXT">!meme</field>
               </block>
             </value>
           </block>
         </value>
         <statement name="DO0">
-          <block type="ran_red_post" id="|1|.NVlm63=So:ZhuoA,">
+          <block type="ran_red_post" id="e1..)[8{YnYk544d.qi,">
             <value name="MESSAGE">
-              <block type="text" id="tUL3uM~5=+j6GBesj6=J">
+              <block type="text" id="A\`re6qxOWwRMe*#c,O{3">
                 <field name="TEXT">memes</field>
               </block>
             </value>
             <statement name="THEN">
-              <block type="s4d_m_create_embed_then" id="};Ye.(\`#?*+:^gYxI8W5">
+              <block type="s4d_m_create_embed_then" id="3*?tf;_]K;ZMuTQYZ8T\`">
                 <statement name="THEN">
-                  <block type="s4d_m_create_embed_then_set_color" id="Q@}A;C)MnQfp4:~c.?D5">
+                  <block type="s4d_m_create_embed_then_set_color" id="ofvphnGZ=rO+Px2Qjsw\`">
                     <value name="COLOR">
-                      <block type="colour_picker" id="+u!I_D4$x.#hj31x!_oJ">
+                      <block type="colour_picker" id="@MN11t_1Ztz,R}]/Y+Qx">
                         <field name="COLOUR">#ff0000</field>
                       </block>
                     </value>
                     <next>
-                      <block type="s4d_m_create_embed_then_set_title" id="^Zk=MI7NvdSF5iR;Pn*{">
+                      <block type="s4d_m_create_embed_then_set_title" id="i4eJ],GM|!i)S9RDy1@s">
                         <value name="TITLE">
-                          <block type="text" id="[f~lL\`nzMGJbatj9,\`!M">
-                            <field name="TEXT">Click here to go to the post</field>
+                          <block type="postVars" id="/Z=!z~MynQQ71:5N(A8d">
+                            <field name="INFO">postTitle</field>
                           </block>
                         </value>
                         <value name="URL">
-                          <block type="post_Url" id="lTIUsS()PpN_!6VmIALN"></block>
+                          <block type="postVars" id="KBG(G\`_Wl|YrqL??8zGa">
+                            <field name="INFO">postUrl</field>
+                          </block>
                         </value>
                         <next>
-                          <block type="s4d_m_create_embed_then_set_description" id="Dw(RZ[=quR*wEoN9E=mZ">
-                            <value name="DESCRIPTION">
-                              <block type="post_Title" id="|CVH3\`L;mkjU#jL]%NjR"></block>
+                          <block type="s4d_m_create_embed_then_set_image" id="UvdztB)ls:31tro-O0K0">
+                            <value name="IMAGE">
+                              <block type="postVars" id="W66BO%f/G(/*LL/[MVB1">
+                                <field name="INFO">postImg</field>
+                              </block>
                             </value>
                             <next>
-                              <block type="s4d_m_create_embed_then_set_image" id=":~lQJXS6Vy~z7Hf)b7)Q">
-                                <value name="IMAGE">
-                                  <block type="post_Image" id=",_V;j)Zm_J|V_Pm#PB_M"></block>
+                              <block type="s4d_m_create_embed_then_send" id="mzFJ,{)pO-EELq%*zT.,">
+                                <value name="CHANNEL">
+                                  <block type="s4d_message_channel" id="Y8TLYrd%~6E)xn:c!f4_"></block>
                                 </value>
-                                <next>
-                                  <block type="s4d_m_create_embed_then_send" id="BD)k5?R;7uVJ~r7iU)R=">
-                                    <value name="CHANNEL">
-                                      <block type="s4d_message_channel" id="?B?6A^%f.6WHAV?Oj=c@"></block>
-                                    </value>
-                                  </block>
-                                </next>
                               </block>
                             </next>
                           </block>
@@ -81,5 +78,4 @@ export default `
       </block>
     </statement>
   </block>
-</xml>
-`;
+</xml>`
