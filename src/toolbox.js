@@ -513,7 +513,8 @@ export default (Blockly, value) => {
           </category>
       </category>
       
-      <category name="Embeds" colour="#64C9FF">			
+      <category name="Embeds" colour="#64C9FF">
+      <category name="Mrredo's Embeds" colour="#64C9FF">				
                       <label text="Create A Perfect Embed" web-class="boldtext"></label>
               <block type="s4d_m_create_embed_then"></block>
               <label text="%{BKY_COLOR_MESSAGE}"></label>
@@ -532,6 +533,22 @@ export default (Blockly, value) => {
               <label text="%{BKY_SEND_EMBED}"></label>
               <block type="send_m_embed_string"/>
               <block type="s4d_m_create_embed_then_send"></block>
+              </category>
+              <category name="AHQ's Embeds" colour="#64C9FF">
+              <block type="make_ahq_embed"/>
+              <label text="Embed Send" web-class="boldtext"></label>
+              <block type="send_ahq_embed"/>
+              <label text="Embed Creator" web-class="boldtext"></label>
+              <block type="title_ahq_embed"/>
+              <block type="url_ahq_embed"/>
+              <block type="author_ahq_embed"/>
+              <block type="color_ahq_embed"/>
+              <block type="des_ahq_embed"/>
+              <block type="fld_ahq_embed"/>
+              <block type="image_ahq_embed"/>
+              <block type="thmb_ahq_embed"/>
+              <block type="footer_ahq_embed"/>
+              </category>
           </category>
           
           <category name="Events" colour="#64C9FF">			
@@ -649,27 +666,6 @@ export default (Blockly, value) => {
               </category>
           </category>
 
-
-
-
-
-
-
-
-
-
-            <category name="henpokpok" colour="#64C9FF">
-          <category name="Reactions" colour="#FF6464">
-          <label text="Reations event (under construction)" web-class="boldtext"></label>
-          <block type="reaction_added"/>
-          <block type="reaction_removed"/>
-          <label text="React info" web-class="boldtext"></label>
-          <block type="react_member"/>
-          <block type="react_emoji"/>
-          <block type="react_messageId"/>
-          </category>
-          </category>
-         
           <category name="ahq" colour="#ff0000">
           <category name="member" colour="#006600">
           <label text="Fetch members of a server" web-class="boldtext"></label>
@@ -677,28 +673,7 @@ export default (Blockly, value) => {
           <label text="Get random member" web-class="boldtext"></label>
           <block type="s4d_get_rndmber"/>
           </category>
-          <category name="button" colour="#ff0019">
-          <label text="Event" web-class="boldtext"></label>
-          <block type="on_real_button"/>
-          <label text="Button Information" web-class="boldtext"></label>
-          <block type="id_btn_srv"/>
-          <block type="id_btn_ch"/>
-          <block type="id_btn_clkr"/>
-          <block type="id_btn_ahq"/>
-          <block type="embed_btn_ahq"/>
-          <label text="Button Actions" web-class="boldtext"></label>
-          <block type="updte_ahq_button"/>
-          <block type="rply_ahq_button"/>
-          <label text="Send button" web-class="boldtext"></label>
-          <block type="snd_ahq_button"/>
-          <label text="Button Creation Stuff" web-class="boldtext"></label>
-          <block type="make_ahq_button"/>
-          <block type="style_ahq_button"/>
-          <block type="label_ahq_button"/>
-          <block type="emoji_ahq_button"/>
-          <block type="url_ahq_button"/>
-          <block type="d_ahq_button"/>
-          </category>
+>
           <category name="cmd register" colour="#6600cc">
           <label text="Create a slash command" web-class="boldtext"></label>
           <block type="s4d_reg_slash"/>
@@ -709,21 +684,7 @@ export default (Blockly, value) => {
           <block type="ahq_bdwrd"/>
           <block type="ahq_bdwrd_cn"/>
           </category>
-          <category name="embed" colour="#993399">
-          <block type="make_ahq_embed"/>
-          <label text="Embed Send" web-class="boldtext"></label>
-          <block type="send_ahq_embed"/>
-          <label text="Embed Creator" web-class="boldtext"></label>
-          <block type="title_ahq_embed"/>
-          <block type="url_ahq_embed"/>
-          <block type="author_ahq_embed"/>
-          <block type="color_ahq_embed"/>
-          <block type="des_ahq_embed"/>
-          <block type="fld_ahq_embed"/>
-          <block type="image_ahq_embed"/>
-          <block type="thmb_ahq_embed"/>
-          <block type="footer_ahq_embed"/>
-          </category>
+         
           </category>
       
       <category name="AlexCdDg" colour="#06cfaa">
@@ -1746,6 +1707,10 @@ export default (Blockly, value) => {
               <label text="%{BKY_FORMS}"></label>
               <block type="s4d_send_wait_reply_dm"></block>
               <block type="s4d_send_wait_reply_dm_value"></block>
+              <label text="Fetch members of a server" web-class="boldtext"></label>
+              <block type="s4d_get_rndm"/>
+              <label text="Get random member" web-class="boldtext"></label>
+              <block type="s4d_get_rndmber"/>
           </category>
           <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
               <label text="%{BKY_LABEL_READ_DB}"></label>
