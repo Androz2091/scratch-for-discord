@@ -549,6 +549,10 @@ export default (Blockly, value) => {
               <block type="thmb_ahq_embed"/>
               <block type="footer_ahq_embed"/>
               </category>
+              <category name="Frost's Embeds" colour="#64C9FF">	
+            <block type="frost_create_field"/>
+            <block type="frost_add_field"/>
+        <block type="frost_send_embed_rr"/>
           </category>
           
           <category name="Events" colour="#64C9FF">			
@@ -720,6 +724,12 @@ export default (Blockly, value) => {
     <block type="typing_channel"/>
     <block type="typing_member"/>
     </category>
+    <category name="Date/Time" colour="#f79400">
+    <block type="frost_current"/>
+    <block type="unix_to_date"/>
+    <block type="date_to_unix"/>
+    <block type="get_in_date"/>
+    </category>
   <category name="frostzzone" colour="#347dfa">
   <category name="Github" colour="#1f1f1f">
   <block type="github_get_then"/>
@@ -767,9 +777,7 @@ export default (Blockly, value) => {
   <block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
   </block>
   </category>
-    <category name="Time" colour="#00664d">
-    <block type="frost_current"/>
-    </category>
+   
   <category name="Embed" colour="#40bf4a">
   <label text="For Androz Embed"></label>
   <block type="frost_create_field"/>
@@ -882,13 +890,6 @@ export default (Blockly, value) => {
                       <block type="deaf_member"/>
                       <block type="undeaf_member"/>
                       <block type="move_member"/>
-                  </category>
-                  <category name="date" colour="#00664d">
-                      <block type="s4d_current"></block>
-                      <block type="unix_to_date"/>
-                      <block type="date_to_unix"/>
-                      <block type="get_in_date"/>
-              
                   </category>
                   <category name="RegEx" colour="#00664d">
                       <block type="new_regex"/>
