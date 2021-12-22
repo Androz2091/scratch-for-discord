@@ -553,6 +553,7 @@ export default (Blockly, value) => {
             <block type="frost_create_field"/>
             <block type="frost_add_field"/>
         <block type="frost_send_embed_rr"/>
+        </category>
           </category>
           
           <category name="Events" colour="#64C9FF">			
