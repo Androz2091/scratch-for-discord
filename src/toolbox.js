@@ -707,6 +707,18 @@ export default (Blockly) => {
 			<block type="s4d_add_server_icon"></block>
 			<block type="s4d_add_server_owner"/>
 		</category>
+        category name="Message Edited" colour="#e85a66">
+          <label text="%{BKY_T_EDI}" web-class="boldtext"></label>
+          <block type="when_message_is_edited"></block>
+          <block type="s4d_replys"></block>
+          <label text="%{BKY_T_NMS}" web-class="boldtext"></label>
+          <block type="newmsg_channel"></block>
+          <block type="new_message_server"></block>
+          <block type="s4d_newmessage_content"></block>
+          <block type="newmsg_member"></block>
+          <block type="s4d_newmsg_del"></block>
+          <block type="newmsg_timestamp"></block>
+          </category>
           </category>
           <category name="Slash Commands" colour="#00b3ff">
           <category name="Command Register" colour="#6600cc">
@@ -889,49 +901,19 @@ export default (Blockly) => {
       <block type="tts_channel"/>
           </category>
                   </category>
-                  <category name="{{ JOSE }}" colour="#00664d">
-                  <category name="discord together" colour="#00664d">
+                  <category name="Discord Together/Canvas/Backup/Giveaways" colour="#00664d">
+                  <category name="Discord-Together" colour="#00664d">
                       <block type="create_together"/>
                       <block type="invite_code"/>
               <block type="vc_channel"/>
                   </category>
-                  <category name="cooldown" colour="#00664d">
-                      <block type="set_member_cooldown"/>
-                      <block type="delete_member_cooldown"/>
-                      <block type="is_member_on_cooldown"/>
-                  </category>
-                  <category name="invite tracker" colour="#00b3ff">
-                      <category name="joined" colour="#00b3ff">
-                          <block type="userinvited"/>
-                          <block type="Member"/>
-                          <block type="InviteMember"/>
-                          <block type="Server"/>
-                          <block type="Amount"/>
-                      </category>
-                      <category name="leave" colour="#00b3ff">
-                          <block type="UserLeave"/>
-                          <block type="Member"/>
-                          <block type="InviteMember"/>
-                          <block type="Server"/>
-                          <block type="Amount"/>
-                      </category>
-                      <category name="others" colour="#00b3ff">
-                          <block type="get_member_invites"/>
-                      </category>
-                  </category>
-                 
-                  <category name="YoutubeNotifier" colour="#00664d">
-                      <block type="video_raw"/>
-                      <block type="on_newvideo"/>
-                      <block type="add_channel"/>
-                  </category>
-                  <category name="{{ DISCORDBACKUP }}" colour="#00664d">
+                  <category name="Discord-Backup" colour="#00664d">
                       <block type="s4d_create_backup_of_guild_then"/>
                       <block type="s4d_backup_load"/>
                       <block type="s4d_delete_backup"/>
                       <block type="s4d_backup_id"/>
                   </category>
-                  <category name="{{ DISCORDGIVEAWAYS }}" colour="#00664d">
+                  <category name="Discord-Giveaways" colour="#00664d">
                       <block type="s4d_create_giveaway"/> 
                       <block type="s4d_giveaway_id"/>
                       <block type="s4d_reroll_giveaway"/>
@@ -941,7 +923,7 @@ export default (Blockly) => {
                       <block type="s4d_pause_giveaway"/>
                       <block type="s4d_unpause_giveaway"/>
                   </category>
-                  <category name="{{ DISCORDCANVAS }}" colour="#00b3ff">
+                  <category name="Discord-Canvas" colour="#00b3ff">
                       <category name="{{ WELCOME }}" colour="#00b3ff">
                           <block type="s4d_create_welcome_then"/>
                           <block type="s4d_set_username"/>
@@ -986,6 +968,38 @@ export default (Blockly) => {
                           <block type="s4d_set_addon"/>
                           <block type="s4d_send_in_channel"/>
                       </category>
+                  </category>
+                  </category>
+                  <category name="{{ JOSE }}" colour="#00664d">
+                  <category name="cooldown" colour="#00664d">
+                      <block type="set_member_cooldown"/>
+                      <block type="delete_member_cooldown"/>
+                      <block type="is_member_on_cooldown"/>
+                  </category>
+                  <category name="invite tracker" colour="#00b3ff">
+                      <category name="joined" colour="#00b3ff">
+                          <block type="userinvited"/>
+                          <block type="Member"/>
+                          <block type="InviteMember"/>
+                          <block type="Server"/>
+                          <block type="Amount"/>
+                      </category>
+                      <category name="leave" colour="#00b3ff">
+                          <block type="UserLeave"/>
+                          <block type="Member"/>
+                          <block type="InviteMember"/>
+                          <block type="Server"/>
+                          <block type="Amount"/>
+                      </category>
+                      <category name="others" colour="#00b3ff">
+                          <block type="get_member_invites"/>
+                      </category>
+                  </category>
+                 
+                  <category name="YoutubeNotifier" colour="#00664d">
+                      <block type="video_raw"/>
+                      <block type="on_newvideo"/>
+                      <block type="add_channel"/>
                   </category>
                   <category name="{{ TOOLBOX_JSONREQUEST }}" colour="#00664d">
                       <block type="s4d_http_get_then"/>
