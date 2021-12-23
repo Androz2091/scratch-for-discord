@@ -664,6 +664,7 @@ export default (Blockly, value) => {
           <block type="s4d_add_server_icon"></block>
           <block type="s4d_add_server_owner"/>
           </category>
+          </category>
           <category name="Event channel" colour="#00b3ff">
                   <block type="on_channelCreate"></block>
                   <block type="cc_name"></block>
