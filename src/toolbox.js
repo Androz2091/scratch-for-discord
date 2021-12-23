@@ -872,6 +872,10 @@ export default (Blockly) => {
                          <block type="lyric"/>
                      </category>
                           </category>
+                          <category name="Json Request" colour="#00664d">
+                      <block type="s4d_http_get_then"/>
+                      <block type="s4d_get_string_of_data"/>
+                  </category>
   <category name="Ticketing System" colour="#5b80a5">
       <label text="You can also type local" web-class="boldtext"></label>
           <block type="ticket_connect"/>
@@ -900,6 +904,25 @@ export default (Blockly) => {
           <block type="tts-test"/>
       <block type="tts_channel"/>
           </category>
+                  </category>
+                  <category name="Invite Tracker" colour="#00b3ff">
+                      <category name="joined" colour="#00b3ff">
+                          <block type="userinvited"/>
+                          <block type="Member"/>
+                          <block type="InviteMember"/>
+                          <block type="Server"/>
+                          <block type="Amount"/>
+                      </category>
+                      <category name="leave" colour="#00b3ff">
+                          <block type="UserLeave"/>
+                          <block type="Member"/>
+                          <block type="InviteMember"/>
+                          <block type="Server"/>
+                          <block type="Amount"/>
+                      </category>
+                      <category name="others" colour="#00b3ff">
+                          <block type="get_member_invites"/>
+                      </category>
                   </category>
                   <category name="Discord T/C/B/G" colour="#00664d">
                   <category name="Discord-Together" colour="#00664d">
@@ -977,34 +1000,12 @@ export default (Blockly) => {
                       <block type="delete_member_cooldown"/>
                       <block type="is_member_on_cooldown"/>
                   </category>
-                  <category name="invite tracker" colour="#00b3ff">
-                      <category name="joined" colour="#00b3ff">
-                          <block type="userinvited"/>
-                          <block type="Member"/>
-                          <block type="InviteMember"/>
-                          <block type="Server"/>
-                          <block type="Amount"/>
-                      </category>
-                      <category name="leave" colour="#00b3ff">
-                          <block type="UserLeave"/>
-                          <block type="Member"/>
-                          <block type="InviteMember"/>
-                          <block type="Server"/>
-                          <block type="Amount"/>
-                      </category>
-                      <category name="others" colour="#00b3ff">
-                          <block type="get_member_invites"/>
-                      </category>
-                  </category>
+    
                  
                   <category name="YoutubeNotifier" colour="#00664d">
                       <block type="video_raw"/>
                       <block type="on_newvideo"/>
                       <block type="add_channel"/>
-                  </category>
-                  <category name="{{ TOOLBOX_JSONREQUEST }}" colour="#00664d">
-                      <block type="s4d_http_get_then"/>
-                      <block type="s4d_get_string_of_data"/>
                   </category>
             
         
