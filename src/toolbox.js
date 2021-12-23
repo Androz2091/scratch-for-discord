@@ -907,22 +907,6 @@ export default (Blockly) => {
                       <block type="invite_code"/>
               <block type="vc_channel"/>
                   </category>
-                  <category name="Discord-Backup" colour="#00664d">
-                      <block type="s4d_create_backup_of_guild_then"/>
-                      <block type="s4d_backup_load"/>
-                      <block type="s4d_delete_backup"/>
-                      <block type="s4d_backup_id"/>
-                  </category>
-                  <category name="Discord-Giveaways" colour="#00664d">
-                      <block type="s4d_create_giveaway"/> 
-                      <block type="s4d_giveaway_id"/>
-                      <block type="s4d_reroll_giveaway"/>
-                      <block type="s4d_edit_giveaway"/>
-                      <block type="s4d_delete_giveaway"/>
-                      <block type="s4d_end_giveaway"/>
-                      <block type="s4d_pause_giveaway"/>
-                      <block type="s4d_unpause_giveaway"/>
-                  </category>
                   <category name="Discord-Canvas" colour="#00b3ff">
                       <category name="{{ WELCOME }}" colour="#00b3ff">
                           <block type="s4d_create_welcome_then"/>
@@ -969,6 +953,23 @@ export default (Blockly) => {
                           <block type="s4d_send_in_channel"/>
                       </category>
                   </category>
+                  <category name="Discord-Backup" colour="#00664d">
+                      <block type="s4d_create_backup_of_guild_then"/>
+                      <block type="s4d_backup_load"/>
+                      <block type="s4d_delete_backup"/>
+                      <block type="s4d_backup_id"/>
+                  </category>
+                  <category name="Discord-Giveaways" colour="#00664d">
+                      <block type="s4d_create_giveaway"/> 
+                      <block type="s4d_giveaway_id"/>
+                      <block type="s4d_reroll_giveaway"/>
+                      <block type="s4d_edit_giveaway"/>
+                      <block type="s4d_delete_giveaway"/>
+                      <block type="s4d_end_giveaway"/>
+                      <block type="s4d_pause_giveaway"/>
+                      <block type="s4d_unpause_giveaway"/>
+                  </category>
+                  
                   </category>
                   <category name="{{ JOSE }}" colour="#00664d">
                   <category name="cooldown" colour="#00664d">
