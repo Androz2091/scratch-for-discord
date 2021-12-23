@@ -1,4 +1,4 @@
-export default (Blockly, value) => {
+export default (Blockly) => {
     return (`
       <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
           
