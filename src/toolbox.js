@@ -3,7 +3,7 @@ export default (Blockly) => {
       <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
           
       
-      <category name="{{ TOOLBOX_LOGIC }}" colour="#ffd1d1">
+      <category name="{{ TOOLBOX_LOGIC }}" colour="#c5aefe">
               <block type="controls_if" />
               <block type="logic_compare">
                   <field name="OP">EQ</field>
@@ -18,7 +18,8 @@ export default (Blockly) => {
               <block type="logic_null" />
               <block type="logic_ternary" />
           </category>
-          <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
+          <category name="{{ TOOLBOX_LOOPS }}" colour="#bcd8ff
+          ">
               <block type="s4d_forever">
               </block>
               <block type="controls_repeat_ext">
@@ -56,7 +57,7 @@ export default (Blockly) => {
                   <field name="FLOW">BREAK</field>
               </block>
           </category>
-          <category name="{{ TOOLBOX_MATH }}" colour="#ffebd7">
+          <category name="{{ TOOLBOX_MATH }}" colour="#bcffb2">
               <block type="math_number">
                   <field name="NUM">0</field>
               </block>
@@ -156,7 +157,7 @@ export default (Blockly) => {
               </block>
               <block type="math_random_float" />
           </category>
-          <category name="{{ TOOLBOX_TEXT }}" colour="#5ba58c">
+          <category name="{{ TOOLBOX_TEXT }}" colour="#fcffa6">
               <block type="text">
                   <field name="TEXT" />
               </block>
@@ -294,7 +295,7 @@ export default (Blockly) => {
               </block>
                           <block type="text_count"></block>
           </category>
-          <category name="{{ TOOLBOX_LISTS }}" colour="#745ba5">
+          <category name="{{ TOOLBOX_LISTS }}" colour="#ffc7ae">
               <block type="lists_create_with">
                   <mutation items="0" />
               </block>
@@ -371,7 +372,7 @@ export default (Blockly) => {
                   <field name="DIRECTION">1</field>
               </block>
           </category>
-          <category name="{{ TOOLBOX_COLORS }}" colour="#fafdc7">
+          <category name="{{ TOOLBOX_COLORS }}" colour="#ff9fbb">
               <block type="colour_picker">
                   <field name="COLOUR">#ff0000</field>
               </block>
