@@ -1007,6 +1007,7 @@ export default (Blockly) => {
                       <block type="s4d_pause_giveaway"/>
                       <block type="s4d_unpause_giveaway"/>
                   </category>
+                  </category>
                   <category name="Context Menu" colour="#00664d">
                   <category name="Register Context Menu" colour="#65700c">
                   <label text="Register context menu" web-class="boldtext"></label>
