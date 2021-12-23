@@ -736,14 +736,14 @@ export default (Blockly) => {
           <block type="newmsg_timestamp"></block>
           </category>
           </category>
-          <category name="Slash Commands" colour="#00b3ff">
-          <category name="Command Register" colour="#6600cc">
+          <category name="Slash Commands" colour="#c5aefe">
+          <category name="Command Register" colour="#c5aefe">
           <label text="Create a slash command" web-class="boldtext"></label>
           <block type="s4d_reg_slash"/>
           <block type="s4d_reg_slash_options"/>
           <block type="s4d_reg_new_options"/>
           </category>
-          <category name="When Slash Cmd Is Received" colour="#ff2f00">
+          <category name="When Slash Cmd Is Received" colour="#c5aefe">
           <label text="%{BKY_T_RS}"></label>
           <block type="on_slash"></block>
           <block type="interaction_name"></block>
@@ -760,19 +760,19 @@ export default (Blockly) => {
           <block type="send_m_embed_string"></block>
           </category>
           </category>
-          <category name="Image Based" colour="#ff2f00">
-          <category name="Image Finder" colour="#00c7ad">
+          <category name="Image Based" colour="#bcd8ff">
+          <category name="Image Finder" colour="#bcd8ff">
           <block type="get_image"/>
             <block type="url_image"/>
           </category>
-          <category name="Reddit" colour="#5ba58b">        
+          <category name="Reddit" colour="#bcd8ff">        
          <block type="ran_red_post"/>
         <block type="postVars"/>
         </category>
-        <category name="discord image generation" colour="#00664d">
+        <category name="discord image generation" colour="#bcd8ff">
         <block type="new_image"/>
     </category>
-    <category name="image generation" colour="#00664d">
+    <category name="image generation" colour="#bcd8ff">
         <block type="1imagepng">
         <mutation divisor_input="true"></mutation>
         </block>
@@ -782,20 +782,20 @@ export default (Blockly) => {
         <block type="load_image"/>
         <block type="send_on_channel"/>
     </category>
-    <category name="attachment" colour="#00664d">
+    <category name="attachment" colour="#bcd8ff">
                       <block type="att_size"/>
                       <block type="att_name"/>
                       <block type="att_type"/>
                       <block type="att_url"/>
                   </category>
     </category>
-    <category name="Date/Time" colour="#f79400">
+    <category name="Date/Time" colour="#bcffb2">
     <block type="frost_current"/>
     <block type="unix_to_date"/>
     <block type="date_to_unix"/>
     <block type="get_in_date"/>
     </category>
-    <category name="Reply" colour="#f79400">
+    <category name="Reply" colour="#fcffa6">
     <!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
 
     <block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
@@ -833,7 +833,7 @@ export default (Blockly) => {
     <block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
     </block>
     </category>
-    <category name="Games" colour="#f79400">
+    <category name="Games" colour="#ffc7ae">
     <block type="snake_js"/>
       <block type="s4d_cal"/>
       <block type="Akinator">
@@ -843,13 +843,13 @@ export default (Blockly) => {
              </value>
              </block>
     </category>
-    <category name="Pc/Server Stats" colour="#a5745b">
+    <category name="Pc/Server Stats" colour="#ff9fbb">
     <block type="ps_os_stats"/>
     <block type="get_cpu_uptime"/>
     <block type="cpu"/>
       </category>
-      <category name="Music" colour="#a5745b">
-      <category name="Music" colour="#a5745b">
+      <category name="Music" colour="#c5aefe">
+      <category name="Music" colour="#c5aefe">
                           <label text="Create a perfect music player" web-class="boldtext"></label>
           <label text="Made with discord-music-player DMP" web-class="boldtext"></label>
       <label text="Events :D" web-class="boldtext"></label>
@@ -883,16 +883,16 @@ export default (Blockly) => {
           <block type="better_botvcid"/>
       <block type="song-first"/>
                           </category>
-                          <category name="lyric finder" colour="#5ba58b">
+                          <category name="lyric finder" colour="#c5aefe">
                           <block type="find_lyric_than"/>
                          <block type="lyric"/>
                      </category>
                           </category>
-                          <category name="Json Request" colour="#00664d">
+                          <category name="Json Request" colour="#bcd8ff">
                       <block type="s4d_http_get_then"/>
                       <block type="s4d_get_string_of_data"/>
                   </category>
-  <category name="Ticketing System" colour="#5b80a5">
+  <category name="Ticketing System" colour="#bcffb2">
       <label text="You can also type local" web-class="boldtext"></label>
           <block type="ticket_connect"/>
           <label text="Do npm install tickets-discord in shell after running" web-class="boldtext"></label>
@@ -907,47 +907,47 @@ export default (Blockly) => {
           <block type="slash_unarchieve_ticket"/>
   <block type="slash_message_channel"/>
           </category>
-          <category name="Voice Channel" colour="#00664d">
-          <category name="Voice Channel Moderation" colour="#00664d">
+          <category name="Voice Channel" colour="#fcffa6">
+          <category name="Voice Channel Moderation" colour="#fcffa6">
                       <block type="mute_member"/>
                       <block type="unmute_member"/>
                       <block type="deaf_member"/>
                       <block type="undeaf_member"/>
                       <block type="move_member"/>
                       </category>
-                      <category name="TTS" colour="#1010b5">
+                      <category name="TTS" colour="#fcffa6">
           <label text="Connect and use TTS" web-class="boldtext"></label>
           <block type="tts-test"/>
       <block type="tts_channel"/>
           </category>
                   </category>
-                  <category name="Invite Tracker" colour="#00b3ff">
-                      <category name="joined" colour="#00b3ff">
+                  <category name="Invite Tracker" colour="#fec7ae">
+                      <category name="joined" colour="#fec7ae">
                           <block type="userinvited"/>
                           <block type="Member"/>
                           <block type="InviteMember"/>
                           <block type="Server"/>
                           <block type="Amount"/>
                       </category>
-                      <category name="leave" colour="#00b3ff">
+                      <category name="leave" colour="#fec7ae">
                           <block type="UserLeave"/>
                           <block type="Member"/>
                           <block type="InviteMember"/>
                           <block type="Server"/>
                           <block type="Amount"/>
                       </category>
-                      <category name="others" colour="#00b3ff">
+                      <category name="others" colour="#fec7ae">
                           <block type="get_member_invites"/>
                       </category>
                   </category>
-                  <category name="Discord T/C/B/G" colour="#00664d">
-                  <category name="Discord-Together" colour="#00664d">
+                  <category name="Discord T/C/B/G" colour="#ff9fbb">
+                  <category name="Discord-Together" colour="#ff9fbb">
                       <block type="create_together"/>
                       <block type="invite_code"/>
               <block type="vc_channel"/>
                   </category>
-                  <category name="Discord-Canvas" colour="#00b3ff">
-                      <category name="{{ WELCOME }}" colour="#00b3ff">
+                  <category name="Discord-Canvas" colour="#ff9fbb">
+                      <category name="{{ WELCOME }}" colour="#ff9fbb">
                           <block type="s4d_create_welcome_then"/>
                           <block type="s4d_set_username"/>
                           <block type="s4d_set_member_count"/>
@@ -958,7 +958,7 @@ export default (Blockly) => {
                           <block type="s4d_set_color"/>
                           <block type="s4d_send_in_channel"/>
                       </category>
-                      <category name="{{ GOODBYE }}" colour="#00b3ff">
+                      <category name="{{ GOODBYE }}" colour="#ff9fbb">
                           <block type="s4d_create_goodbye_then"/>
                           <block type="s4d_set_username"/>
                           <block type="s4d_set_member_count"/>
@@ -969,7 +969,7 @@ export default (Blockly) => {
                           <block type="s4d_set_color"/>
                           <block type="s4d_send_in_channel"/>
                       </category>
-                      <category name="{{ RANKCARD }}" colour="#00b3ff">
+                      <category name="{{ RANKCARD }}" colour="#ff9fbb">
                           <block type="s4d_create_rankcard_then"/>
                           <block type="s4d_set_badge"/>
                           <block type="s4d_set_xp"/>
@@ -992,13 +992,13 @@ export default (Blockly) => {
                           <block type="s4d_send_in_channel"/>
                       </category>
                   </category>
-                  <category name="Discord-Backup" colour="#00664d">
+                  <category name="Discord-Backup" colour="#ff9fbb">
                       <block type="s4d_create_backup_of_guild_then"/>
                       <block type="s4d_backup_load"/>
                       <block type="s4d_delete_backup"/>
                       <block type="s4d_backup_id"/>
                   </category>
-                  <category name="Discord-Giveaways" colour="#00664d">
+                  <category name="Discord-Giveaways" colour="#ff9fbb">
                       <block type="s4d_create_giveaway"/> 
                       <block type="s4d_giveaway_id"/>
                       <block type="s4d_reroll_giveaway"/>
@@ -1009,13 +1009,13 @@ export default (Blockly) => {
                       <block type="s4d_unpause_giveaway"/>
                   </category>
                   </category>
-                  <category name="Context Menu" colour="#00664d">
-                  <category name="Register Context Menu" colour="#65700c">
+                  <category name="Context Menu" colour="#c5aefe">
+                  <category name="Register Context Menu" colour="#c5aefe">
                   <label text="Register context menu" web-class="boldtext"></label>
                   <block type="register_c_m"></block>
               <block type="register_c_m_g"></block>
                   </category>
-                                  <category name="Context Menu" colour="#f0f255">
+                                  <category name="Context Menu" colour="#c5aefe">
                   <label text="Event" web-class="boldtext"></label>
                   <block type="on_menu"></block>
                   <label text="Stuff" web-class="boldtext"></label>
@@ -1034,7 +1034,7 @@ export default (Blockly) => {
 
 
 
-                  <category name="Webhook" colour="#00664d">
+                  <category name="Webhook" colour="#bcd8ff">
               <block type="s4d_create_webhook_then"></block>
               <block type="s4d_edit_webhook"></block>
               <block type="s4d_webhook_id"></block>
@@ -1043,7 +1043,7 @@ export default (Blockly) => {
               <block type="s4d_get_edit_webhook"></block>
               <block type="s4d_send_webhook"></block>
           </category>
-          <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
+          <category name="{{ TOOLBOX_BASE }}" colour="#bcffb2">
           <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
               <block type="s4d_login">
                   <value name="TOKEN">
@@ -1079,7 +1079,7 @@ export default (Blockly) => {
               <block type="s4d_set_bot_stream"></block>
               <block type="s4d_bot_shutdown"></block>
           </category>
-          <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
+          <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#fcffa6">
               <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
                           <label text="%{BKY_FIND_MESSAGE}"></label>
                           <block type="s4d_get_msg_then"></block>
@@ -1156,7 +1156,7 @@ export default (Blockly) => {
                           <block type="s4d_unpin"/>
               <block type="s4d_message_embed"></block>
           </category>
-          <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
+          <category name="{{ TOOLBOX_E_JOINS }}" colour="#ffc7ae">
               <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
               <label text="%{BKY_DETECT_JOINS}"></label>
               <block type="s4d_on_member_join"></block>
@@ -1167,7 +1167,7 @@ export default (Blockly) => {
               <block type="s4d_joining_member_raw"></block>
               <block type="s4d_joining_guild_raw"></block>
           </category>
-          <category name="{{ TOOLBOX_E_LEAVES }}" colour="#778899">
+          <category name="{{ TOOLBOX_E_LEAVES }}" colour="#ff9fbb">
               <label text="%{BKY_LEAVES_RELATED_BLOCKS}" web-class="boldtext"></label>
               <label text="%{BKY_DETECT_LEAVES}"></label>
               <block type="s4d_on_member_leave"></block>
@@ -1177,7 +1177,7 @@ export default (Blockly) => {
               <block type="s4d_leaving_member_raw"></block>
               <block type="s4d_leaving_guild_raw"></block>
           </category>
-          <category name="{{ TOOLBOX_E_REACTIONS }}" colour="#89674A">
+          <category name="{{ TOOLBOX_E_REACTIONS }}" colour="#c5aefe">
               <label text="%{BKY_REACT_RELATED_BLOCKS}" web-class="boldtext"></label>
               <label text="%{BKY_DETECT_REACT}"></label>
               <block type="s4d_on_react_added"></block>
@@ -1191,7 +1191,7 @@ export default (Blockly) => {
               <block type="s4d_remove_all_reactions"/>
               <block type="s4d_remove_reactions"/>
           </category>
-          <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
+          <category name="{{ TOOLBOX_SERVER }}" colour="#bcd8ff">
               <label text="%{BKY_FIND_SERVER}"></label>
               <block type="s4d_get_server"></block>
               <block type="s4d_get_all_server"></block>
@@ -1209,7 +1209,7 @@ export default (Blockly) => {
               <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
               <block type="s4d_set_server_name"></block>
           </category>
-          <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
+          <category name="{{ TOOLBOX_CHANNELS }}" colour="#bcffb2">
               <label text="%{BKY_FIND_CHANNEL}"></label>
               <block type="s4d_get_channel"></block>
               <block type="s4d_get_all_channel"></block>
@@ -1263,7 +1263,7 @@ export default (Blockly) => {
           <block type="new_invite"/>
           <block type="invite_ur"/>
           </category>
-          <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
+          <category name="{{ TOOLBOX_ROLES }}" colour="#fcffa6">
               <label text="%{BKY_FIND_ROLE}"></label>
               <block type="s4d_get_role"></block>
               <block type="s4d_get_all_role"></block>
@@ -1284,7 +1284,7 @@ export default (Blockly) => {
               <block type="role_color"/>
               <block type="role_name"/>
           </category> 
-          <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
+          <category name="{{ TOOLBOX_MEMBERS }}" colour="#ffc7ae">
               <label text="%{BKY_FIND_MEMBER}"></label>
               <block type="s4d_get_member"></block>
               <block type="s4d_get_all"></block>
@@ -1315,11 +1315,11 @@ export default (Blockly) => {
               <label text="Get random member" web-class="boldtext"></label>
               <block type="s4d_get_rndmber"/>
           </category>
-          <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
-          <category name="Firebase" colour="#00664d">
+          <category name="{{ TOOLBOX_DATABASE }}" colour="#ff9fbb">
+          <category name="Firebase" colour="#ff9fbb">
           <block type="start_db"/>
       </category>
-      <category name="Json Database" colour="#FF0000"> 
+      <category name="Json Database" colour="#ff9fbb"> 
           <label text="%{BKY_LABEL_READ_DB}"></label>
               <block type="s4d_get_data">
                   <value name="KEY">
@@ -1380,7 +1380,7 @@ export default (Blockly) => {
                   </value>
               </block>
           </category>
-          <category name="Mongo" colour="#0db550">
+          <category name="Mongo" colour="#ff9fbb">
           <label text="connect to MongoDB"></label>
           <block type="mongo_on"></block>
           <block type="mongo_connect">
@@ -1474,28 +1474,28 @@ export default (Blockly) => {
           </block>
   </category>
           </category>
-          <category name="Unsorted" colour="#ff2f00">
-          <category name="profanity" colour="#ff0000">
+          <category name="Unsorted" colour="#c5aefe">
+          <category name="profanity" colour="#c5aefe">
           <block type="ahq_bdwrd"/>
           <block type="ahq_bdwrd_cn"/>
           </category>
-          <category name="Github" colour="#1f1f1f">
+          <category name="Github" colour="#c5aefe">
   <block type="github_get_then"/>
   <label text="For profile" web-class="boldtext"></label>
   <block type="github_what_stat"/>
   </category>
-  <category name="Scratch" colour="#347dfa">
+  <category name="Scratch" colour="#c5aefe">
   <block type="scratch_get_about_then"/>
   <block type="scratch_about_user"/>
   </category>
-  <category name="cooldown" colour="#00664d">
+  <category name="cooldown" colour="#c5aefe">
                       <block type="set_member_cooldown"/>
                       <block type="delete_member_cooldown"/>
                       <block type="is_member_on_cooldown"/>
                   </category>
     
                  
-                  <category name="YoutubeNotifier" colour="#00664d">
+                  <category name="YoutubeNotifier" colour="#c5aefe">
                       <block type="video_raw"/>
                       <block type="on_newvideo"/>
                       <block type="add_channel"/>
