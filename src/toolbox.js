@@ -697,7 +697,7 @@ export default (Blockly) => {
 			<block type="s4d_add_server_icon"></block>
 			<block type="s4d_add_server_owner"/>
 		</category>
-		<category name="Bot Removed drom Server" colour="#00664d">
+		<category name="Bot Removed from Server" colour="#00664d">
 			<label text="blocks related to removed" web-class="boldtext"></label>
 			<label text="detect remove"></label>
 			<block type="s4d_on_remove"></block>
