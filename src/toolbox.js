@@ -754,6 +754,12 @@ export default (Blockly) => {
         <block type="load_image"/>
         <block type="send_on_channel"/>
     </category>
+    <category name="attachment" colour="#00664d">
+                      <block type="att_size"/>
+                      <block type="att_name"/>
+                      <block type="att_type"/>
+                      <block type="att_url"/>
+                  </category>
     </category>
     <category name="Date/Time" colour="#f79400">
     <block type="frost_current"/>
@@ -880,12 +886,6 @@ export default (Blockly) => {
                   <category name="RegEx" colour="#00664d">
                       <block type="new_regex"/>
                       <block type="test_regex"/>
-                  </category>
-                  <category name="attachment" colour="#00664d">
-                      <block type="att_size"/>
-                      <block type="att_name"/>
-                      <block type="att_type"/>
-                      <block type="att_url"/>
                   </category>
                   <category name="discord together" colour="#00664d">
                       <block type="create_together"/>
