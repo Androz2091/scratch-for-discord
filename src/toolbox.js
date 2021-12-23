@@ -699,6 +699,14 @@ export default (Blockly, value) => {
            <block type="s4d_add_server_icon"></block>
            <block type="s4d_add_server_owner"/>
            </category>
+           <category name="Typing" colour="#f79400">
+    <label text="Typing event" web-class="boldtext"></label>
+    <block type="typing_start"/>
+    <label text="Typing blocks" web-class="boldtext"></label>
+    <block type="typing_server"/>
+    <block type="typing_channel"/>
+    <block type="typing_member"/>
+    </category>
           </category>
           <category name="Slash Commands" colour="#00b3ff">
           <category name="Command Register" colour="#6600cc">
@@ -746,14 +754,6 @@ export default (Blockly, value) => {
         <block type="load_image"/>
         <block type="send_on_channel"/>
     </category>
-    </category>
-    <category name="Typing" colour="#f79400">
-    <label text="Typing event" web-class="boldtext"></label>
-    <block type="typing_start"/>
-    <label text="Typing blocks" web-class="boldtext"></label>
-    <block type="typing_server"/>
-    <block type="typing_channel"/>
-    <block type="typing_member"/>
     </category>
     <category name="Date/Time" colour="#f79400">
     <block type="frost_current"/>
@@ -869,15 +869,6 @@ export default (Blockly, value) => {
           <block type="slash_unarchieve_ticket"/>
   <block type="slash_message_channel"/>
           </category>
-  
-                 
-                      <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
-                          ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}
-                      </category>
-               
-                  
-                  
-                  
                   <category name="{{ JOSE }}" colour="#00664d">
                   <category name="voice channel" colour="#00664d">
                       <block type="mute_member"/>
