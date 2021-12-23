@@ -511,6 +511,21 @@ export default (Blockly) => {
                   </value>
               </block>
           </category>
+          <category name="Jose's Button Menu" colour="#00664d">
+              <label text="%{BKY_BUTTON_EVENT}"></label>
+              <block type="s4d_on_menu_click"></block>
+              <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
+              <block type="s4d_menu_value"></block>
+              <block type="s4d_menu_click_id"></block>
+              <block type="s4d_menu_reply"></block>
+              <block type="s4d_button_think"></block>
+              <block type="s4d_button_edit"></block>
+              <block type="s4d_button_delete_reply"></block>
+              <block type="s4d_update"></block>
+              <label text="%{BKY_BUTTON_BLOCKS}"></label>
+              <block type="s4d_button_menu"></block>
+              <block type="s4d_message_menu_block"></block>
+          </category>
       </category>
       
       <category name="Embeds" colour="#64C9FF">
@@ -992,40 +1007,32 @@ export default (Blockly) => {
                       <block type="s4d_pause_giveaway"/>
                       <block type="s4d_unpause_giveaway"/>
                   </category>
-                  
+                  <category name="Context Menu" colour="#00664d">
+                  <category name="Register Context Menu" colour="#65700c">
+                  <label text="Register context menu" web-class="boldtext"></label>
+                  <block type="register_c_m"></block>
+              <block type="register_c_m_g"></block>
                   </category>
-                  <category name="{{ JOSE }}" colour="#00664d">
-                  <category name="cooldown" colour="#00664d">
-                      <block type="set_member_cooldown"/>
-                      <block type="delete_member_cooldown"/>
-                      <block type="is_member_on_cooldown"/>
+                                  <category name="Context Menu" colour="#f0f255">
+                  <label text="Event" web-class="boldtext"></label>
+                  <block type="on_menu"></block>
+                  <label text="Stuff" web-class="boldtext"></label>
+                  <block type="m_name"></block>
+                  <block type="m_member"></block>
+                  <block type="m_channel"></block>
+                  <block type="m_guild"></block>
+                  <block type="c_options"></block>
+                  <label text="Reply and Edit" web-class="boldtext"></label>
+                  <block type="m_reply"></block>
+                  <block type="m_edit"></block>
+                  <label text="send embed" web-class="boldtext"></label>
+                  <block type="send_m_embed_string"></block>
                   </category>
-    
-                 
-                  <category name="YoutubeNotifier" colour="#00664d">
-                      <block type="video_raw"/>
-                      <block type="on_newvideo"/>
-                      <block type="add_channel"/>
                   </category>
-            
-        
-        
-          <category name="{{ TOOLBOX_MENU }}" colour="#00664d">
-              <label text="%{BKY_BUTTON_EVENT}"></label>
-              <block type="s4d_on_menu_click"></block>
-              <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
-              <block type="s4d_menu_value"></block>
-              <block type="s4d_menu_click_id"></block>
-              <block type="s4d_menu_reply"></block>
-              <block type="s4d_button_think"></block>
-              <block type="s4d_button_edit"></block>
-              <block type="s4d_button_delete_reply"></block>
-              <block type="s4d_update"></block>
-              <label text="%{BKY_BUTTON_BLOCKS}"></label>
-              <block type="s4d_button_menu"></block>
-              <block type="s4d_message_menu_block"></block>
-          </category>
-          <category name="{{ TOOLBOX_WEBHOOK }}" colour="#00664d">
+
+
+
+                  <category name="Webhook" colour="#00664d">
               <block type="s4d_create_webhook_then"></block>
               <block type="s4d_edit_webhook"></block>
               <block type="s4d_webhook_id"></block>
@@ -1033,80 +1040,6 @@ export default (Blockly) => {
               <block type="s4d_get_webhook_then"></block>
               <block type="s4d_get_edit_webhook"></block>
               <block type="s4d_send_webhook"></block>
-          </category>
-                  </category>
-                  <category name="{{ MRREDO }}" colour="#FF0000">
-
-      <category name="register" colour="#65700c">
-          <label text="Register context menu" web-class="boldtext"></label>
-          <block type="register_c_m"></block>
-      <block type="register_c_m_g"></block>
-          </category>
-                          <category name="context menu" colour="#f0f255">
-          <label text="Event" web-class="boldtext"></label>
-          <block type="on_menu"></block>
-          <label text="Stuff" web-class="boldtext"></label>
-          <block type="m_name"></block>
-          <block type="m_member"></block>
-          <block type="m_channel"></block>
-          <block type="m_guild"></block>
-          <block type="c_options"></block>
-          <label text="Reply and Edit" web-class="boldtext"></label>
-          <block type="m_reply"></block>
-          <block type="m_edit"></block>
-          <label text="send embed" web-class="boldtext"></label>
-          <block type="send_m_embed_string"></block>
-          </category>
-                  <category name="button" colour="#ff0019">
-          <label text="%{BKY_T_EDI}"></label>
-          <block type="on_button"></block>
-          <label text="%{BKY_T_BS}"></label>
-          <block type="button_id"></block>
-          <block type="button_author"></block>
-          <block type="button_channel"></block>
-          <block type="button_guild"></block>
-          <block type="b_style"></block>
-          <label text="%{BKY_T_B_SHIP}Reply and edit and send embed"></label>
-          <block type="b_send_msg"></block>
-          <block type="button_reply"></block>
-          <block type="button_edit"></block>
-          <block type="send_m_embed_string"></block>
-          <label text="%{BKY_T_CB}"></label>
-          <block type="b_create">
-                      <value name="B_NAME">
-                          <shadow type="text">
-                              <field name="TEXT">button_name</field>
-                          </shadow>
-                      </value>
-                  </block>
-          <label text="%{BKY_T_BR}"></label>
-          <block type="b_row">
-                      <value name="BUTTON_NAME">
-                          <shadow type="text">
-                              <field name="TEXT">name</field>
-                          </shadow>
-                      </value>
-                  </block>
-          <block type="b_row_comp">
-                  <value name="BUTTON">
-                      <shadow type="text">
-                          <field name="TEXT"></field>
-                      </shadow>
-                  </value>
-              </block>
-          </category>
-                  <category name="edited" colour="#e85a66">
-          <label text="%{BKY_T_EDI}" web-class="boldtext"></label>
-          <block type="when_message_is_edited"></block>
-          <block type="s4d_replys"></block>
-          <label text="%{BKY_T_NMS}" web-class="boldtext"></label>
-          <block type="newmsg_channel"></block>
-          <block type="new_message_server"></block>
-          <block type="s4d_newmessage_content"></block>
-          <block type="newmsg_member"></block>
-          <block type="s4d_newmsg_del"></block>
-          <block type="newmsg_timestamp"></block>
-          </category>
           </category>
           <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
           <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
@@ -1553,6 +1486,18 @@ export default (Blockly) => {
   <block type="scratch_get_about_then"/>
   <block type="scratch_about_user"/>
   </category>
+  <category name="cooldown" colour="#00664d">
+                      <block type="set_member_cooldown"/>
+                      <block type="delete_member_cooldown"/>
+                      <block type="is_member_on_cooldown"/>
+                  </category>
+    
+                 
+                  <category name="YoutubeNotifier" colour="#00664d">
+                      <block type="video_raw"/>
+                      <block type="on_newvideo"/>
+                      <block type="add_channel"/>
+                  </category>
           </category>
       </xml>
   `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
