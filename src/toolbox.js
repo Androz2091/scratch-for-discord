@@ -717,6 +717,14 @@ export default (Blockly, value) => {
         <block type="send_on_channel"/>
     </category>
     </category>
+    <category name="Typing" colour="#f79400">
+    <label text="Typing event" web-class="boldtext"></label>
+    <block type="typing_start"/>
+    <label text="Typing blocks" web-class="boldtext"></label>
+    <block type="typing_server"/>
+    <block type="typing_channel"/>
+    <block type="typing_member"/>
+    </category>
     <category name="Date/Time" colour="#f79400">
     <block type="frost_current"/>
     <block type="unix_to_date"/>
