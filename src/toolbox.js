@@ -3,7 +3,7 @@ export default (Blockly) => {
       <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
           
       
-      <category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
+      <category name="{{ TOOLBOX_LOGIC }}" colour="#ffd1d1">
               <block type="controls_if" />
               <block type="logic_compare">
                   <field name="OP">EQ</field>
@@ -56,7 +56,7 @@ export default (Blockly) => {
                   <field name="FLOW">BREAK</field>
               </block>
           </category>
-          <category name="{{ TOOLBOX_MATH }}" colour="#5b67a5">
+          <category name="{{ TOOLBOX_MATH }}" colour="#ffebd7">
               <block type="math_number">
                   <field name="NUM">0</field>
               </block>
@@ -371,7 +371,7 @@ export default (Blockly) => {
                   <field name="DIRECTION">1</field>
               </block>
           </category>
-          <category name="{{ TOOLBOX_COLORS }}" colour="#a5745b">
+          <category name="{{ TOOLBOX_COLORS }}" colour="#fafdc7">
               <block type="colour_picker">
                   <field name="COLOUR">#ff0000</field>
               </block>
@@ -411,8 +411,8 @@ export default (Blockly) => {
                   </value>
               </block>
           </category>
-          <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
-          <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
+          <category name="{{ TOOLBOX_VARIABLES }}" colour="#caf9c5" custom="VARIABLE" />
+          <category name="{{ TOOLBOX_FUNCTIONS }}" colour="cffffe" custom="PROCEDURE" />
       
           <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
           
