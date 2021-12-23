@@ -875,18 +875,21 @@ export default (Blockly) => {
           <block type="slash_unarchieve_ticket"/>
   <block type="slash_message_channel"/>
           </category>
-                  <category name="{{ JOSE }}" colour="#00664d">
-                  <category name="voice channel" colour="#00664d">
+          <category name="Voice Channel" colour="#00664d">
+          <category name="Voice Channel Moderation" colour="#00664d">
                       <block type="mute_member"/>
                       <block type="unmute_member"/>
                       <block type="deaf_member"/>
                       <block type="undeaf_member"/>
                       <block type="move_member"/>
+                      </category>
+                      <category name="TTS" colour="#1010b5">
+          <label text="Connect and use TTS" web-class="boldtext"></label>
+          <block type="tts-test"/>
+      <block type="tts_channel"/>
+          </category>
                   </category>
-                  <category name="RegEx" colour="#00664d">
-                      <block type="new_regex"/>
-                      <block type="test_regex"/>
-                  </category>
+                  <category name="{{ JOSE }}" colour="#00664d">
                   <category name="discord together" colour="#00664d">
                       <block type="create_together"/>
                       <block type="invite_code"/>
@@ -1524,11 +1527,6 @@ export default (Blockly) => {
           <category name="profanity" colour="#ff0000">
           <block type="ahq_bdwrd"/>
           <block type="ahq_bdwrd_cn"/>
-          </category>
-          <category name="TTS" colour="#1010b5">
-          <label text="Connect and use TTS" web-class="boldtext"></label>
-          <block type="tts-test"/>
-      <block type="tts_channel"/>
           </category>
           <category name="Github" colour="#1f1f1f">
   <block type="github_get_then"/>
