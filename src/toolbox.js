@@ -707,7 +707,7 @@ export default (Blockly) => {
 			<block type="s4d_add_server_icon"></block>
 			<block type="s4d_add_server_owner"/>
 		</category>
-        category name="Message Edited" colour="#e85a66">
+        <category name="Message Edited" colour="#e85a66">
           <label text="%{BKY_T_EDI}" web-class="boldtext"></label>
           <block type="when_message_is_edited"></block>
           <block type="s4d_replys"></block>
