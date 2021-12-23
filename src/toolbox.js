@@ -901,7 +901,7 @@ export default (Blockly) => {
       <block type="tts_channel"/>
           </category>
                   </category>
-                  <category name="Discord Together/Canvas/Backup/Giveaways" colour="#00664d">
+                  <category name="Discord T/C/B/G" colour="#00664d">
                   <category name="Discord-Together" colour="#00664d">
                       <block type="create_together"/>
                       <block type="invite_code"/>
