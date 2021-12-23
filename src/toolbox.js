@@ -849,9 +849,6 @@ export default (Blockly, value) => {
                   
                   
                   <category name="{{ JOSE }}" colour="#00664d">
-  <category name="firebase" colour="#00664d">
-                      <block type="start_db"/>
-                  </category> 
                   <category name="voice channel" colour="#00664d">
                       <block type="mute_member"/>
                       <block type="unmute_member"/>
@@ -1268,99 +1265,6 @@ export default (Blockly, value) => {
           <block type="s4d_newmsg_del"></block>
           <block type="newmsg_timestamp"></block>
           </category>
-                  <category name="Mongo" colour="#0db550">
-          <label text="connect to MongoDB"></label>
-          <block type="mongo_on"></block>
-          <block type="mongo_connect">
-          <value name="URL">
-          <shadow type="text">
-              <field name="TEXT">mongodb url</field>
-          </shadow>
-      </value>
-          </block>
-          <label text="nerd blocks"></label>
-          <block type="mongo_get_data">
-              <value name="KEY">
-                  <shadow type="text">
-                      <field name="TEXT">hello</field>
-                  </shadow>
-              </value>
-          </block>
-          <block type="mongo_has_data">
-              <value name="KEY">
-                  <shadow type="text">
-                      <field name="TEXT">hello</field>
-                  </shadow>
-              </value>
-          </block>
-          <block type="mongo_set_data">
-              <value name="KEY">
-                  <shadow type="text">
-                      <field name="TEXT">hello</field>
-                  </shadow>
-              </value>
-              <value name="VALUE">
-                  <shadow type="text">
-                      <field name="TEXT">world</field>
-                  </shadow>
-              </value>
-          </block>
-          <block type="mongo_push_data">
-          <value name="KEY">
-              <shadow type="text">
-                  <field name="TEXT">hello</field>
-              </shadow>
-          </value>
-          <value name="VALUE">
-              <shadow type="text">
-                  <field name="TEXT">world</field>
-              </shadow>
-          </value>
-      </block>
-      <block type="mongo_pull_data">
-      <value name="KEY">
-          <shadow type="text">
-              <field name="TEXT">hello</field>
-          </shadow>
-      </value>
-      <value name="VALUE">
-          <shadow type="text">
-              <field name="TEXT">world</field>
-          </shadow>
-      </value>
-  </block>
-          <block type="mongo_delete_data">
-              <value name="KEY">
-                  <shadow type="text">
-                      <field name="TEXT">hello</field>
-                  </shadow>
-              </value>
-          </block>
-          <block type="mongo_add_data">
-              <value name="COUNT">
-                  <shadow type="math_number">
-                      <field name="NUM">1</field>
-                  </shadow>
-              </value>
-              <value name="KEY">
-                  <shadow type="text">
-                      <field name="TEXT">points</field>
-                  </shadow>
-              </value>
-          </block>
-          <block type="mongo_subtract_data">
-              <value name="COUNT">
-                  <shadow type="math_number">
-                      <field name="NUM">1</field>
-                  </shadow>
-              </value>
-              <value name="KEY">
-                  <shadow type="text">
-                      <field name="TEXT">points</field>
-                  </shadow>
-              </value>
-          </block>
-  </category>
           </category>
           <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
           <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
@@ -1635,7 +1539,11 @@ export default (Blockly, value) => {
               <block type="s4d_get_rndmber"/>
           </category>
           <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
-              <label text="%{BKY_LABEL_READ_DB}"></label>
+          <category name="Firebase" colour="#00664d">
+          <block type="start_db"/>
+      </category>
+      <category name="Json Database" colour="#FF0000"> 
+          <label text="%{BKY_LABEL_READ_DB}"></label>
               <block type="s4d_get_data">
                   <value name="KEY">
                       <shadow type="text">
@@ -1694,6 +1602,100 @@ export default (Blockly, value) => {
                       </shadow>
                   </value>
               </block>
+          </category>
+          <category name="Mongo" colour="#0db550">
+          <label text="connect to MongoDB"></label>
+          <block type="mongo_on"></block>
+          <block type="mongo_connect">
+          <value name="URL">
+          <shadow type="text">
+              <field name="TEXT">mongodb url</field>
+          </shadow>
+      </value>
+          </block>
+          <label text="nerd blocks"></label>
+          <block type="mongo_get_data">
+              <value name="KEY">
+                  <shadow type="text">
+                      <field name="TEXT">hello</field>
+                  </shadow>
+              </value>
+          </block>
+          <block type="mongo_has_data">
+              <value name="KEY">
+                  <shadow type="text">
+                      <field name="TEXT">hello</field>
+                  </shadow>
+              </value>
+          </block>
+          <block type="mongo_set_data">
+              <value name="KEY">
+                  <shadow type="text">
+                      <field name="TEXT">hello</field>
+                  </shadow>
+              </value>
+              <value name="VALUE">
+                  <shadow type="text">
+                      <field name="TEXT">world</field>
+                  </shadow>
+              </value>
+          </block>
+          <block type="mongo_push_data">
+          <value name="KEY">
+              <shadow type="text">
+                  <field name="TEXT">hello</field>
+              </shadow>
+          </value>
+          <value name="VALUE">
+              <shadow type="text">
+                  <field name="TEXT">world</field>
+              </shadow>
+          </value>
+      </block>
+      <block type="mongo_pull_data">
+      <value name="KEY">
+          <shadow type="text">
+              <field name="TEXT">hello</field>
+          </shadow>
+      </value>
+      <value name="VALUE">
+          <shadow type="text">
+              <field name="TEXT">world</field>
+          </shadow>
+      </value>
+  </block>
+          <block type="mongo_delete_data">
+              <value name="KEY">
+                  <shadow type="text">
+                      <field name="TEXT">hello</field>
+                  </shadow>
+              </value>
+          </block>
+          <block type="mongo_add_data">
+              <value name="COUNT">
+                  <shadow type="math_number">
+                      <field name="NUM">1</field>
+                  </shadow>
+              </value>
+              <value name="KEY">
+                  <shadow type="text">
+                      <field name="TEXT">points</field>
+                  </shadow>
+              </value>
+          </block>
+          <block type="mongo_subtract_data">
+              <value name="COUNT">
+                  <shadow type="math_number">
+                      <field name="NUM">1</field>
+                  </shadow>
+              </value>
+              <value name="KEY">
+                  <shadow type="text">
+                      <field name="TEXT">points</field>
+                  </shadow>
+              </value>
+          </block>
+  </category>
           </category>
           <category name="Unsorted" colour="#ff2f00">
           <category name="profanity" colour="#ff0000">
