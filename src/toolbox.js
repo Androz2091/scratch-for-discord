@@ -669,44 +669,6 @@ export default (Blockly, value) => {
                   <block type="on_stickerupdate"></block>
                   <block type="su_name"></block>
               </category>
-              <category name="Message Deleted" colour="#00664d">
-              <label text="%{BKY_DELETED_RELATED_BLOCKS}" web-class="boldtext"></label>
-              <label text="%{BKY_DELETED_EVENT}"></label>
-              <block type="s4d_on_deleted"></block>
-              <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
-              <block type="s4d_message_content_deleted"></block>
-              <block type="s4d_message_server_deleted"></block>
-              <block type="s4d_message_channel_deleted"></block>
-              <block type="s4d_message_author_deleted"></block>
-           </category>
-           <category name="Bot Added To Server" colour="#00664d">
-           <label text="%{BKY_ADDED_RELATED_BLOCKS}" web-class="boldtext"></label>
-           <label text="%{BKY_DETECT_ADDED}"></label>
-           <block type="s4d_on_added"></block>
-           <label text="%{BKY_ADDED_INFORMATIONS}"></label>
-           <block type="s4d_add_server_id"></block> 
-           <block type="s4d_add_server_name"></block>
-           <block type="s4d_add_server_icon"></block>
-           <block type="s4d_add_server_owner"/>
-           </category>
-           <category name="Bot Removed From Server" colour="#00664d">
-           <label text="blocks related to removed" web-class="boldtext"></label>
-           <label text="detect remove"></label>
-           <block type="s4d_on_remove"></block>
-           <label text="%{BKY_ADDED_INFORMATIONS}"></label>
-           <block type="s4d_add_server_id"></block> 
-           <block type="s4d_add_server_name"></block>
-           <block type="s4d_add_server_icon"></block>
-           <block type="s4d_add_server_owner"/>
-           </category>
-           <category name="Typing" colour="#f79400">
-    <label text="Typing event" web-class="boldtext"></label>
-    <block type="typing_start"/>
-    <label text="Typing blocks" web-class="boldtext"></label>
-    <block type="typing_server"/>
-    <block type="typing_channel"/>
-    <block type="typing_member"/>
-    </category>
           </category>
           <category name="Slash Commands" colour="#00b3ff">
           <category name="Command Register" colour="#6600cc">
