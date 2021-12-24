@@ -843,11 +843,6 @@ export default (Blockly) => {
              </value>
              </block>
     </category>
-    <category name="Pc/Server Stats" colour="#ff9fbb">
-    <block type="ps_os_stats"/>
-    <block type="get_cpu_uptime"/>
-    <block type="cpu"/>
-      </category>
       <category name="Music" colour="#c5aefe">
       <category name="Music" colour="#c5aefe">
                           <label text="Create a perfect music player" web-class="boldtext"></label>
@@ -1070,6 +1065,9 @@ export default (Blockly) => {
               <label text="%{BKY_BASE_BLOCKS}"></label>
               <block type="s4d_on_connected"></block>
               <label text="%{BKY_BOT_INFORMATIONS}"></label>
+              <block type="ps_os_stats"/>
+              <block type="get_cpu_uptime"/>
+              <block type="cpu"/>
               <block type="s4d_bot_ping"></block>
               <block type="s4d_bot_server_count"></block>
               <block type="s4d_get_bot"></block>
