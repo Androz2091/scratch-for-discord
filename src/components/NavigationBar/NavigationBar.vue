@@ -18,6 +18,7 @@
                 <preBuilds></preBuilds>
                 <TokenModal></TokenModal>
                 <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
+                <b-nav-item onclick = "alert('test')" target="_blank">{{ $t('Credits') }}</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
