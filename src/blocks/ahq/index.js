@@ -6,3 +6,4 @@ import "./bad_wrds/";
 import "./embeds"
 import "./handler"
 import "./chatbot"
+import "./send"

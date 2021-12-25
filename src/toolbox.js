@@ -453,6 +453,7 @@ export default (Blockly, value) => {
        
         <category name="ahq" colour="#ff0000">
         <block type="s4d_history"/>
+        <block type="snd_ahq_choice"/>
         <category name="member" colour="#006600">
         <label text="Fetch members of a server" web-class="boldtext"></label>
         <block type="s4d_get_rndm"/>
