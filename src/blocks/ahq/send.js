@@ -79,6 +79,6 @@ Blockly.JavaScript[blockName] = function(block) {
     } else {
         final = `String("No value")`;
     }
-    const code = `s4d.client.guilds.cache.find(sr => sr.${block.getFieldValue("name")} == ${Blockly.JavaScript.valueToCode(block, "sr", Blockly.JavaScript.ORDER_ATOMIC)}).channels.cache.find(ch => ch.${block.getFieldValue("id")} == ${Blockly.JavaScript.valueToCode(block, "ch", Blockly.JavaScript.ORDER_ATOMIC)}).send(${final}).catch(err => {console.log(err)})`;
+    const code = [`s4d.client.guilds.cache.find(sr => sr.${block.getFieldValue("name")} == ${Blockly.JavaScript.valueToCode(block, "sr", Blockly.JavaScript.ORDER_ATOMIC)}).channels.cache.find(ch => ch.${block.getFieldValue("id")} == ${Blockly.JavaScript.valueToCode(block, "ch", Blockly.JavaScript.ORDER_ATOMIC)}).send(${final}).catch(err => {console.log(err)})`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
