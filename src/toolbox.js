@@ -2,7 +2,509 @@ export default (Blockly) => {
     return (`
       <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
           
-      
+      <category name="{{ TOOLBOX_BASE }}" colour="#bcffb2">
+      <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
+          <block type="s4d_login">
+              <value name="TOKEN">
+                  <shadow type="text">
+                      <field name="TEXT">Your bot token</field>
+                  </shadow>
+              </value>
+          </block>
+      <label text="Repl"></label>
+      <block type="frost_webserver">
+<value name="URL">
+                  <shadow type="text">
+                      <field name="TEXT">This site was created to keep bot on 25/8</field>
+                  </shadow>
+              </value>
+</block>
+      <block type="frost_env">
+<value name="VALUE">
+                  <shadow type="text">
+                      <field name="TEXT">token</field>
+                  </shadow>
+              </value>
+          </block>
+          <label text="%{BKY_BASE_BLOCKS}"></label>
+          <block type="s4d_on_connected"></block>
+          <label text="%{BKY_BOT_INFORMATIONS}"></label>
+          <block type="ps_os_stats"/>
+          <block type="get_cpu_uptime"/>
+          <block type="cpu"/>
+          <block type="s4d_bot_ping"></block>
+          <block type="s4d_bot_server_count"></block>
+          <block type="s4d_get_bot"></block>
+                      <block type="s4d_bot_amount"/>
+          <label text="%{BKY_BOT_ACTIONS}"></label>
+          <block type="s4d_set_bot_game"></block>
+          <block type="s4d_set_bot_stream"></block>
+          <block type="s4d_bot_shutdown"></block>
+      </category>
+      <category name="Buttons" colour="#fcffa6">
+          <category name="AHQ's Buttons" colour="#fcffa6">
+              <label text="Event" web-class="boldtext"></label>
+              <block type="on_real_button"/>
+              <label text="Button Information" web-class="boldtext"></label>
+              <block type="id_btn_srv"/>
+              <block type="id_btn_ch"/>
+              <block type="id_btn_clkr"/>
+              <block type="id_btn_ahq"/>
+              <block type="embed_btn_ahq"/>
+              <label text="Button Actions" web-class="boldtext"></label>
+              <block type="updte_ahq_button"/>
+              <block type="rply_ahq_button"/>
+              <label text="Send button" web-class="boldtext"></label>
+              <block type="snd_ahq_button"/>
+              <label text="Button Creation Stuff" web-class="boldtext"></label>
+              <block type="make_ahq_button"/>
+              <block type="style_ahq_button"/>
+              <block type="label_ahq_button"/>
+              <block type="emoji_ahq_button"/>
+              <block type="url_ahq_button"/>
+              <block type="d_ahq_button"/>
+          </category>
+          <category name="Jose's Buttons" colour="#fcffa6">
+              <label text="%{BKY_BUTTON_EVENT}"></label>
+              <block type="s4d_on_click"></block>
+              <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
+              <block type="s4d_button_click_id"></block>
+              <block type="s4d_button_think"></block>
+              <block type="s4d_button_reply"></block>
+              <block type="s4d_button_edit"></block>
+              <block type="s4d_button_delete_reply"></block>
+              <block type="s4d_update"></block>
+              <label text="%{BKY_BUTTON_BLOCKS}"></label>
+              <block type="s4d_send_button"></block>
+              <block type="s4d_button_style"></block>
+              <block type="s4d_button_row"></block>
+              <block type="s4d_message_row_block"></block>
+          </category>
+          <category name="Mrredo's Buttons" colour="#fcffa6">
+                  <label text="%{BKY_T_EDI}"></label>
+              <block type="on_button"></block>
+              <label text="%{BKY_T_BS}"></label>
+              <block type="button_id"></block>
+              <block type="button_author"></block>
+              <block type="button_channel"></block>
+              <block type="button_guild"></block>
+              <block type="b_style"></block>
+              <label text="%{BKY_T_B_SHIP}Reply and edit and send embed"></label>
+              <block type="b_send_msg"></block>
+              <block type="button_reply"></block>
+              <block type="button_edit"></block>
+              <block type="send_m_embed_string"></block>
+              <label text="%{BKY_T_CB}"></label>
+              <block type="b_create">
+                  <value name="B_NAME">
+                      <shadow type="text">
+                          <field name="TEXT">button_name</field>
+                      </shadow>
+                  </value>
+              </block>
+              <label text="%{BKY_T_BR}"></label>
+              <block type="b_row">
+                  <value name="BUTTON_NAME">
+                      <shadow type="text">
+                          <field name="TEXT">name</field>
+                      </shadow>
+                  </value>
+              </block>
+              <block type="b_row_comp">
+                  <value name="BUTTON">
+                      <shadow type="text">
+                          <field name="TEXT"></field>
+                      </shadow>
+                  </value>
+              </block>
+          </category>
+          <category name="Jose's Button Menu" colour="#fcffa6">
+              <label text="%{BKY_BUTTON_EVENT}"></label>
+              <block type="s4d_on_menu_click"></block>
+              <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
+              <block type="s4d_menu_value"></block>
+              <block type="s4d_menu_click_id"></block>
+              <block type="s4d_menu_reply"></block>
+              <block type="s4d_button_think"></block>
+              <block type="s4d_button_edit"></block>
+              <block type="s4d_button_delete_reply"></block>
+              <block type="s4d_update"></block>
+              <label text="%{BKY_BUTTON_BLOCKS}"></label>
+              <block type="s4d_button_menu"></block>
+              <block type="s4d_message_menu_block"></block>
+          </category>
+      </category>
+      <category name="{{ TOOLBOX_CHANNELS }}" colour="#bcffb2">
+      <label text="%{BKY_FIND_CHANNEL}"></label>
+      <block type="s4d_get_channel"></block>
+      <block type="s4d_get_all_channel"></block>
+      <block type="s4d_get_all_channel_channel"></block>
+      <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
+      <block type="s4d_send_channel"></block>
+      <label text="%{BKY_FORMS}"></label>
+      <block type="s4d_send_wait_reply">
+          <value name="CONTENT">
+              <shadow type="text">
+                  <field name="TEXT">{{ SEND_WAIT_REPLY_EXAMPLE }}</field>
+              </shadow>
+          </value>
+          <value name="TIME">
+              <shadow type="math_number">
+                  <field name="NUM">5</field>
+              </shadow>
+          </value>
+      </block>
+      <block type="s4d_send_wait_reply_value"></block>
+      <block type="reply_mentioned_member"/>
+      <block type="reply_mentioned_role"/>
+      <block type="reply_mentioned_channel"/>
+      <block type="reply_message"/>
+      <label text="%{BKY_CHANNEL_MESSAGE_ACTIONS}"></label>
+      <block type="s4d_channel_exist"/>
+       <block type="s4d_purge">
+          <value name="AMOUNT">
+              <shadow type="math_number">
+                  <field name="NUM">2</field>
+              </shadow>
+          </value> 
+      </block>
+      <label text="%{BKY_CHANNEL_ACTIONS}"></label>
+      <block type="s4d_is_channel_nsfw"/>
+      <block type="slowmode"></block>
+      <block type="set_perms_parent"></block>
+      <block type="s4d_create_channel"></block>
+      <block type="s4d_delete_channel"></block>
+      <block type="isdm"/>
+  <block type="first_channel"/>
+  <label text="ㅤ" web-class="boldtext"></label>
+  <block type="category_channel"/>
+  <block type="vcategory_channel"/>
+  <label text="ㅤ" web-class="boldtext"></label>
+  <block type="renamec"/>
+  <label text="ㅤ" web-class="boldtext"></label>
+  <block type="channel_perms"/>
+  <block type="everyn"/>
+  <label text="ㅤ" web-class="boldtext"></label>
+  <block type="new_invite"/>
+  <block type="invite_ur"/>
+  </category>
+  <category name="{{ TOOLBOX_COLORS }}" colour="#ff9fbb">
+  <block type="colour_picker">
+      <field name="COLOUR">#ff0000</field>
+  </block>
+  <block type="colour_random" />
+  <block type="colour_rgb">
+      <value name="RED">
+          <shadow type="math_number">
+              <field name="NUM">100</field>
+          </shadow>
+      </value>
+      <value name="GREEN">
+          <shadow type="math_number">
+              <field name="NUM">50</field>
+          </shadow>
+      </value>
+      <value name="BLUE">
+          <shadow type="math_number">
+              <field name="NUM">0</field>
+          </shadow>
+      </value>
+  </block>
+  <block type="colour_blend">
+      <value name="COLOUR1">
+          <shadow type="colour_picker">
+              <field name="COLOUR">#ff0000</field>
+          </shadow>
+      </value>
+      <value name="COLOUR2">
+          <shadow type="colour_picker">
+              <field name="COLOUR">#3333ff</field>
+          </shadow>
+      </value>
+      <value name="RATIO">
+          <shadow type="math_number">
+              <field name="NUM">0.5</field>
+          </shadow>
+      </value>
+  </block>
+</category>
+<category name="Context Menu" colour="#c5aefe">
+      <category name="Register Context Menu" colour="#c5aefe">
+      <label text="Register context menu" web-class="boldtext"></label>
+      <block type="register_c_m"></block>
+  <block type="register_c_m_g"></block>
+      </category>
+                      <category name="Context Menu" colour="#c5aefe">
+      <label text="Event" web-class="boldtext"></label>
+      <block type="on_menu"></block>
+      <label text="Stuff" web-class="boldtext"></label>
+      <block type="m_name"></block>
+      <block type="m_member"></block>
+      <block type="m_channel"></block>
+      <block type="m_guild"></block>
+      <block type="c_options"></block>
+      <label text="Reply and Edit" web-class="boldtext"></label>
+      <block type="m_reply"></block>
+      <block type="m_edit"></block>
+      <label text="send embed" web-class="boldtext"></label>
+      <block type="send_m_embed_string"></block>
+      </category>
+      </category>
+      <category name="Date/Time" colour="#bcffb2">
+    <block type="frost_current"/>
+    <block type="unix_to_date"/>
+    <block type="date_to_unix"/>
+    <block type="get_in_date"/>
+    </category>
+    <category name="Reply" colour="#fcffa6">
+    <!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
+
+    <block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
+    <block type="frost_real_reply">
+    <value name="CONTENT">
+      <shadow type="text">
+        <field name="TEXT">Hey!</field>
+      </shadow>
+    </value>
+    <value name="boolean">
+      <shadow type="logic_boolean">
+                    <field name="Boolean">TRUE</field>
+                </shadow>
+            </value>
+    </block>
+    <block type="frost_real_reply_then">
+    <value name="CONTENT">
+      <shadow type="text">
+        <field name="TEXT">Hey!</field>
+      </shadow>
+    </value>
+    <value name="boolean">
+      <shadow type="logic_boolean">
+                    <field name="Boolean">TRUE</field>
+                </shadow>
+            </value>
+    </block>
+    <block type="frost_real_reply_add_reaction">
+    <value name="REACTION"><shadow type="text"><field name="TEXT">👍</field></shadow></value>
+    </block>
+    <block type="frost_real_reply_edit">
+    <value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
+    </block>
+    <block type="frost_real_reply_delete"/>
+    <block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
+    </block>
+    </category>
+    <category name="{{ TOOLBOX_DATABASE }}" colour="#ff9fbb">
+    <category name="Firebase" colour="#ff9fbb">
+    <block type="start_db"/>
+</category>
+<category name="Json Database" colour="#ff9fbb"> 
+    <label text="%{BKY_LABEL_READ_DB}"></label>
+        <block type="s4d_get_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="s4d_has_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <label text="%{BKY_LABEL_UPDATE_DB}"></label>
+        <block type="s4d_set_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="VALUE">
+                <shadow type="text">
+                    <field name="TEXT">world</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="s4d_delete_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="s4d_add_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">points</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="s4d_subtract_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">points</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <category name="Mongo" colour="#ff9fbb">
+    <label text="connect to MongoDB"></label>
+    <block type="mongo_on"></block>
+    <block type="mongo_connect">
+    <value name="URL">
+    <shadow type="text">
+        <field name="TEXT">mongodb url</field>
+    </shadow>
+</value>
+    </block>
+    <label text="nerd blocks"></label>
+    <block type="mongo_get_data">
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">hello</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="mongo_has_data">
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">hello</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="mongo_set_data">
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">hello</field>
+            </shadow>
+        </value>
+        <value name="VALUE">
+            <shadow type="text">
+                <field name="TEXT">world</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="mongo_push_data">
+    <value name="KEY">
+        <shadow type="text">
+            <field name="TEXT">hello</field>
+        </shadow>
+    </value>
+    <value name="VALUE">
+        <shadow type="text">
+            <field name="TEXT">world</field>
+        </shadow>
+    </value>
+</block>
+<block type="mongo_pull_data">
+<value name="KEY">
+    <shadow type="text">
+        <field name="TEXT">hello</field>
+    </shadow>
+</value>
+<value name="VALUE">
+    <shadow type="text">
+        <field name="TEXT">world</field>
+    </shadow>
+</value>
+</block>
+    <block type="mongo_delete_data">
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">hello</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="mongo_add_data">
+        <value name="COUNT">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">points</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="mongo_subtract_data">
+        <value name="COUNT">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">points</field>
+            </shadow>
+        </value>
+    </block>
+</category>
+</category>
+  <category name="{{ TOOLBOX_ROLES }}" colour="#fcffa6">
+      <label text="%{BKY_FIND_ROLE}"></label>
+      <block type="s4d_get_role"></block>
+      <block type="s4d_get_all_role"></block>
+      <block type="s4d_get_all_role_role"></block>
+      <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
+                  <block type="s4d_role_possition"/>
+      <block type="s4d_add_role"></block>
+      <block type="s4d_remove_role"></block>
+      <block type="s4d_delete_role"></block>
+      <block type="s4d_has_role"></block>
+                  <block type="s4d_role_exist"/>
+      <block type="s4d_create_role"></block>
+      <block type="s4d_set_role_perm"></block>
+      <block type="hig_role"/>
+      <label text="This will detect the color of highest role" web-class="boldtext"></label>
+      <block type="member_color"/>
+      <label text="ㅤ" web-class="boldtext"></label>
+      <block type="role_color"/>
+      <block type="role_name"/>
+  </category> 
+  <category name="{{ TOOLBOX_MEMBERS }}" colour="#ffc7ae">
+      <label text="%{BKY_FIND_MEMBER}"></label>
+      <block type="s4d_get_member"></block>
+      <block type="s4d_get_all"></block>
+      <block type="s4d_get_all_member"></block>
+      <label text="%{BKY_MEMBER_INFORMATIONS}"></label>
+      <block type="s4d_member_exist"/>
+      <block type="s4d_member_id"></block>
+      <block type="s4d_member_discriminator"></block>
+      <block type="s4d_member_tag"></block>
+      <block type="s4d_member_username"></block>
+      <block type="s4d_member_nickname"></block>
+      <block type="s4d_member_icon"></block>
+      <block type="s4d_joined_at"></block>
+      <block type="s4d_created_at"></block>
+      <block type="s4d_member_has_permission"></block>
+      <block type="s4d_member_is_bot"></block>
+      <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
+      <block type="s4d_kick_member"></block>
+      <block type="s4d_ban_member"></block>
+      <block type="s4d_unban_member"></block>
+      <block type="s4d_send_member"></block>
+      <block type="s4d_set_member_nickname"></block>
+      <label text="%{BKY_FORMS}"></label>
+      <block type="s4d_send_wait_reply_dm"></block>
+      <block type="s4d_send_wait_reply_dm_value"></block>
+      <label text="Fetch members of a server" web-class="boldtext"></label>
+      <block type="s4d_get_rndm"/>
+      <label text="Get random member" web-class="boldtext"></label>
+      <block type="s4d_get_rndmber"/>
+  </category>
       <category name="{{ TOOLBOX_LOGIC }}" colour="#c5aefe">
               <block type="controls_if" />
               <block type="logic_compare">
@@ -372,46 +874,7 @@ export default (Blockly) => {
                   <field name="DIRECTION">1</field>
               </block>
           </category>
-          <category name="{{ TOOLBOX_COLORS }}" colour="#ff9fbb">
-              <block type="colour_picker">
-                  <field name="COLOUR">#ff0000</field>
-              </block>
-              <block type="colour_random" />
-              <block type="colour_rgb">
-                  <value name="RED">
-                      <shadow type="math_number">
-                          <field name="NUM">100</field>
-                      </shadow>
-                  </value>
-                  <value name="GREEN">
-                      <shadow type="math_number">
-                          <field name="NUM">50</field>
-                      </shadow>
-                  </value>
-                  <value name="BLUE">
-                      <shadow type="math_number">
-                          <field name="NUM">0</field>
-                      </shadow>
-                  </value>
-              </block>
-              <block type="colour_blend">
-                  <value name="COLOUR1">
-                      <shadow type="colour_picker">
-                          <field name="COLOUR">#ff0000</field>
-                      </shadow>
-                  </value>
-                  <value name="COLOUR2">
-                      <shadow type="colour_picker">
-                          <field name="COLOUR">#3333ff</field>
-                      </shadow>
-                  </value>
-                  <value name="RATIO">
-                      <shadow type="math_number">
-                          <field name="NUM">0.5</field>
-                      </shadow>
-                  </value>
-              </block>
-          </category>
+          
           <category name="{{ TOOLBOX_VARIABLES }}" colour="#c5aefe" custom="VARIABLE" />
           <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#bcd8ff" custom="PROCEDURE" />
       
@@ -435,99 +898,7 @@ export default (Blockly) => {
               <block type="s4d_string_to_number"></block>
           </category>
 
-          <category name="Buttons" colour="#fcffa6">
-          <category name="AHQ's Buttons" colour="#fcffa6">
-              <label text="Event" web-class="boldtext"></label>
-              <block type="on_real_button"/>
-              <label text="Button Information" web-class="boldtext"></label>
-              <block type="id_btn_srv"/>
-              <block type="id_btn_ch"/>
-              <block type="id_btn_clkr"/>
-              <block type="id_btn_ahq"/>
-              <block type="embed_btn_ahq"/>
-              <label text="Button Actions" web-class="boldtext"></label>
-              <block type="updte_ahq_button"/>
-              <block type="rply_ahq_button"/>
-              <label text="Send button" web-class="boldtext"></label>
-              <block type="snd_ahq_button"/>
-              <label text="Button Creation Stuff" web-class="boldtext"></label>
-              <block type="make_ahq_button"/>
-              <block type="style_ahq_button"/>
-              <block type="label_ahq_button"/>
-              <block type="emoji_ahq_button"/>
-              <block type="url_ahq_button"/>
-              <block type="d_ahq_button"/>
-          </category>
-          <category name="Jose's Buttons" colour="#fcffa6">
-              <label text="%{BKY_BUTTON_EVENT}"></label>
-              <block type="s4d_on_click"></block>
-              <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
-              <block type="s4d_button_click_id"></block>
-              <block type="s4d_button_think"></block>
-              <block type="s4d_button_reply"></block>
-              <block type="s4d_button_edit"></block>
-              <block type="s4d_button_delete_reply"></block>
-              <block type="s4d_update"></block>
-              <label text="%{BKY_BUTTON_BLOCKS}"></label>
-              <block type="s4d_send_button"></block>
-              <block type="s4d_button_style"></block>
-              <block type="s4d_button_row"></block>
-              <block type="s4d_message_row_block"></block>
-          </category>
-          <category name="Mrredo's Buttons" colour="#fcffa6">
-                  <label text="%{BKY_T_EDI}"></label>
-              <block type="on_button"></block>
-              <label text="%{BKY_T_BS}"></label>
-              <block type="button_id"></block>
-              <block type="button_author"></block>
-              <block type="button_channel"></block>
-              <block type="button_guild"></block>
-              <block type="b_style"></block>
-              <label text="%{BKY_T_B_SHIP}Reply and edit and send embed"></label>
-              <block type="b_send_msg"></block>
-              <block type="button_reply"></block>
-              <block type="button_edit"></block>
-              <block type="send_m_embed_string"></block>
-              <label text="%{BKY_T_CB}"></label>
-              <block type="b_create">
-                  <value name="B_NAME">
-                      <shadow type="text">
-                          <field name="TEXT">button_name</field>
-                      </shadow>
-                  </value>
-              </block>
-              <label text="%{BKY_T_BR}"></label>
-              <block type="b_row">
-                  <value name="BUTTON_NAME">
-                      <shadow type="text">
-                          <field name="TEXT">name</field>
-                      </shadow>
-                  </value>
-              </block>
-              <block type="b_row_comp">
-                  <value name="BUTTON">
-                      <shadow type="text">
-                          <field name="TEXT"></field>
-                      </shadow>
-                  </value>
-              </block>
-          </category>
-          <category name="Jose's Button Menu" colour="#fcffa6">
-              <label text="%{BKY_BUTTON_EVENT}"></label>
-              <block type="s4d_on_menu_click"></block>
-              <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
-              <block type="s4d_menu_value"></block>
-              <block type="s4d_menu_click_id"></block>
-              <block type="s4d_menu_reply"></block>
-              <block type="s4d_button_think"></block>
-              <block type="s4d_button_edit"></block>
-              <block type="s4d_button_delete_reply"></block>
-              <block type="s4d_update"></block>
-              <label text="%{BKY_BUTTON_BLOCKS}"></label>
-              <block type="s4d_button_menu"></block>
-              <block type="s4d_message_menu_block"></block>
-          </category>
-      </category>
+          
       
       <category name="Embeds" colour="#ffc7ae">
       <category name="Mrredo's Embeds" colour="#ffc7ae">				
@@ -810,50 +1181,7 @@ export default (Blockly) => {
                       <block type="att_url"/>
                   </category>
     </category>
-    <category name="Date/Time" colour="#bcffb2">
-    <block type="frost_current"/>
-    <block type="unix_to_date"/>
-    <block type="date_to_unix"/>
-    <block type="get_in_date"/>
-    </category>
-    <category name="Reply" colour="#fcffa6">
-    <!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
-
-    <block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
-    <block type="frost_real_reply">
-    <value name="CONTENT">
-      <shadow type="text">
-        <field name="TEXT">Hey!</field>
-      </shadow>
-    </value>
-    <value name="boolean">
-      <shadow type="logic_boolean">
-                    <field name="Boolean">TRUE</field>
-                </shadow>
-            </value>
-    </block>
-    <block type="frost_real_reply_then">
-    <value name="CONTENT">
-      <shadow type="text">
-        <field name="TEXT">Hey!</field>
-      </shadow>
-    </value>
-    <value name="boolean">
-      <shadow type="logic_boolean">
-                    <field name="Boolean">TRUE</field>
-                </shadow>
-            </value>
-    </block>
-    <block type="frost_real_reply_add_reaction">
-    <value name="REACTION"><shadow type="text"><field name="TEXT">👍</field></shadow></value>
-    </block>
-    <block type="frost_real_reply_edit">
-    <value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
-    </block>
-    <block type="frost_real_reply_delete"/>
-    <block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
-    </block>
-    </category>
+    
     <category name="Games" colour="#ffc7ae">
     <block type="snake_js"/>
       <block type="s4d_cal"/>
@@ -1025,28 +1353,6 @@ export default (Blockly) => {
                       <block type="s4d_unpause_giveaway"/>
                   </category>
                   </category>
-                  <category name="Context Menu" colour="#c5aefe">
-                  <category name="Register Context Menu" colour="#c5aefe">
-                  <label text="Register context menu" web-class="boldtext"></label>
-                  <block type="register_c_m"></block>
-              <block type="register_c_m_g"></block>
-                  </category>
-                                  <category name="Context Menu" colour="#c5aefe">
-                  <label text="Event" web-class="boldtext"></label>
-                  <block type="on_menu"></block>
-                  <label text="Stuff" web-class="boldtext"></label>
-                  <block type="m_name"></block>
-                  <block type="m_member"></block>
-                  <block type="m_channel"></block>
-                  <block type="m_guild"></block>
-                  <block type="c_options"></block>
-                  <label text="Reply and Edit" web-class="boldtext"></label>
-                  <block type="m_reply"></block>
-                  <block type="m_edit"></block>
-                  <label text="send embed" web-class="boldtext"></label>
-                  <block type="send_m_embed_string"></block>
-                  </category>
-                  </category>
 
 
 
@@ -1059,45 +1365,7 @@ export default (Blockly) => {
               <block type="s4d_get_edit_webhook"></block>
               <block type="s4d_send_webhook"></block>
           </category>
-          <category name="{{ TOOLBOX_BASE }}" colour="#bcffb2">
-          <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
-              <block type="s4d_login">
-                  <value name="TOKEN">
-                      <shadow type="text">
-                          <field name="TEXT">Your bot token</field>
-                      </shadow>
-                  </value>
-              </block>
-          <label text="Repl"></label>
-          <block type="frost_webserver">
-  <value name="URL">
-                      <shadow type="text">
-                          <field name="TEXT">This site was created to keep bot on 25/8</field>
-                      </shadow>
-                  </value>
-  </block>
-          <block type="frost_env">
-  <value name="VALUE">
-                      <shadow type="text">
-                          <field name="TEXT">token</field>
-                      </shadow>
-                  </value>
-              </block>
-              <label text="%{BKY_BASE_BLOCKS}"></label>
-              <block type="s4d_on_connected"></block>
-              <label text="%{BKY_BOT_INFORMATIONS}"></label>
-              <block type="ps_os_stats"/>
-              <block type="get_cpu_uptime"/>
-              <block type="cpu"/>
-              <block type="s4d_bot_ping"></block>
-              <block type="s4d_bot_server_count"></block>
-              <block type="s4d_get_bot"></block>
-                          <block type="s4d_bot_amount"/>
-              <label text="%{BKY_BOT_ACTIONS}"></label>
-              <block type="s4d_set_bot_game"></block>
-              <block type="s4d_set_bot_stream"></block>
-              <block type="s4d_bot_shutdown"></block>
-          </category>
+         
           <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#fcffa6">
               <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
                           <label text="%{BKY_FIND_MESSAGE}"></label>
@@ -1206,112 +1474,6 @@ export default (Blockly) => {
               <block type="s4d_leave_server"></block>
               <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
               <block type="s4d_set_server_name"></block>
-          </category>
-          <category name="{{ TOOLBOX_CHANNELS }}" colour="#bcffb2">
-              <label text="%{BKY_FIND_CHANNEL}"></label>
-              <block type="s4d_get_channel"></block>
-              <block type="s4d_get_all_channel"></block>
-              <block type="s4d_get_all_channel_channel"></block>
-              <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
-              <block type="s4d_send_channel"></block>
-              <label text="%{BKY_FORMS}"></label>
-              <block type="s4d_send_wait_reply">
-                  <value name="CONTENT">
-                      <shadow type="text">
-                          <field name="TEXT">{{ SEND_WAIT_REPLY_EXAMPLE }}</field>
-                      </shadow>
-                  </value>
-                  <value name="TIME">
-                      <shadow type="math_number">
-                          <field name="NUM">5</field>
-                      </shadow>
-                  </value>
-              </block>
-              <block type="s4d_send_wait_reply_value"></block>
-              <block type="reply_mentioned_member"/>
-              <block type="reply_mentioned_role"/>
-              <block type="reply_mentioned_channel"/>
-              <block type="reply_message"/>
-              <label text="%{BKY_CHANNEL_MESSAGE_ACTIONS}"></label>
-              <block type="s4d_channel_exist"/>
-               <block type="s4d_purge">
-                  <value name="AMOUNT">
-                      <shadow type="math_number">
-                          <field name="NUM">2</field>
-                      </shadow>
-                  </value> 
-              </block>
-              <label text="%{BKY_CHANNEL_ACTIONS}"></label>
-              <block type="s4d_is_channel_nsfw"/>
-              <block type="slowmode"></block>
-              <block type="set_perms_parent"></block>
-              <block type="s4d_create_channel"></block>
-              <block type="s4d_delete_channel"></block>
-              <block type="isdm"/>
-          <block type="first_channel"/>
-          <label text="ㅤ" web-class="boldtext"></label>
-          <block type="category_channel"/>
-          <block type="vcategory_channel"/>
-          <label text="ㅤ" web-class="boldtext"></label>
-          <block type="renamec"/>
-          <label text="ㅤ" web-class="boldtext"></label>
-          <block type="channel_perms"/>
-          <block type="everyn"/>
-          <label text="ㅤ" web-class="boldtext"></label>
-          <block type="new_invite"/>
-          <block type="invite_ur"/>
-          </category>
-          <category name="{{ TOOLBOX_ROLES }}" colour="#fcffa6">
-              <label text="%{BKY_FIND_ROLE}"></label>
-              <block type="s4d_get_role"></block>
-              <block type="s4d_get_all_role"></block>
-              <block type="s4d_get_all_role_role"></block>
-              <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
-                          <block type="s4d_role_possition"/>
-              <block type="s4d_add_role"></block>
-              <block type="s4d_remove_role"></block>
-              <block type="s4d_delete_role"></block>
-              <block type="s4d_has_role"></block>
-                          <block type="s4d_role_exist"/>
-              <block type="s4d_create_role"></block>
-              <block type="s4d_set_role_perm"></block>
-              <block type="hig_role"/>
-              <label text="This will detect the color of highest role" web-class="boldtext"></label>
-              <block type="member_color"/>
-              <label text="ㅤ" web-class="boldtext"></label>
-              <block type="role_color"/>
-              <block type="role_name"/>
-          </category> 
-          <category name="{{ TOOLBOX_MEMBERS }}" colour="#ffc7ae">
-              <label text="%{BKY_FIND_MEMBER}"></label>
-              <block type="s4d_get_member"></block>
-              <block type="s4d_get_all"></block>
-              <block type="s4d_get_all_member"></block>
-              <label text="%{BKY_MEMBER_INFORMATIONS}"></label>
-              <block type="s4d_member_exist"/>
-              <block type="s4d_member_id"></block>
-              <block type="s4d_member_discriminator"></block>
-              <block type="s4d_member_tag"></block>
-              <block type="s4d_member_username"></block>
-              <block type="s4d_member_nickname"></block>
-              <block type="s4d_member_icon"></block>
-              <block type="s4d_joined_at"></block>
-              <block type="s4d_created_at"></block>
-              <block type="s4d_member_has_permission"></block>
-              <block type="s4d_member_is_bot"></block>
-              <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
-              <block type="s4d_kick_member"></block>
-              <block type="s4d_ban_member"></block>
-              <block type="s4d_unban_member"></block>
-              <block type="s4d_send_member"></block>
-              <block type="s4d_set_member_nickname"></block>
-              <label text="%{BKY_FORMS}"></label>
-              <block type="s4d_send_wait_reply_dm"></block>
-              <block type="s4d_send_wait_reply_dm_value"></block>
-              <label text="Fetch members of a server" web-class="boldtext"></label>
-              <block type="s4d_get_rndm"/>
-              <label text="Get random member" web-class="boldtext"></label>
-              <block type="s4d_get_rndmber"/>
           </category>
           <category name="{{ TOOLBOX_DATABASE }}" colour="#ff9fbb">
           <category name="Firebase" colour="#ff9fbb">
