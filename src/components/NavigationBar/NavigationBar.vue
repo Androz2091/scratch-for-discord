@@ -18,6 +18,7 @@
                 <preBuilds></preBuilds>
                 <TokenModal></TokenModal>
                 <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
+                <Credit></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
@@ -42,6 +43,7 @@ import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
 import preBuilds from "./preBuilds.vue";
 import ToolboxModal from "./ToolboxModal.vue";
+import Credit from "./Credit";
 import localforage from 'localforage';
 import r from "./requires"
 export default {
@@ -54,7 +56,8 @@ export default {
         CodeModal,
         TokenModal,
         preBuilds,
-        ToolboxModal
+        ToolboxModal,
+        Credit
     },
     computed: {
         configurationValidated: function () {
@@ -110,6 +113,7 @@ export default {
                              "djs-games": "^2.1.10",\n
                             "lyrics-finder": "^21.7.0",\n
                             "discord.js": "^13.3.1",\n
+                            "os-utils": "0.0.14",\n
                             "easy-json-database": "^1.5.0",\n
                             ${requires.join("\n")}\n
                             
