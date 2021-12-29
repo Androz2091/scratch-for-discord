@@ -19,8 +19,13 @@ const blockData = {
     {"type": "input_space"},
     {
         "type": "input_value",
-        "name": "member",
+        "name": "time",
         "check": "Number"
+    },
+    {"type": "input_space"},{
+        "type": "input_value",
+        "name": "reason",
+        "check": "String"
     },],
     "colour": listsGetRandomItem(ahqcolor, false),
     "previousStatement": null,
@@ -33,6 +38,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block) {
+    const member = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_NONE);
+    const time = Blockly.JavaScript.valueToCode(block, "time", Blockly.JavaScript.ORDER_NONE);
+    const reason = Blockly.JavaScript.valueToCode(block, "reason", Blockly.JavaScript.ORDER_NONE);
     const code = `${member}.timeout(${time},{reason: String(${reason})})`;
     return code;
 };
