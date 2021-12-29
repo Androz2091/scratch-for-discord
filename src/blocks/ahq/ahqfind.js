@@ -1,5 +1,5 @@
 import * as Blockly from "blockly";
-const blockName = "snd_value";
+const blockName = "ahq_value_snd";
 const ahqcolor = ['#3366ff', '#6600cc', '#33cc00', '#ff6666'];
 function listsGetRandomItem(list, remove) {
     var x = Math.floor(Math.random() * list.length);
@@ -10,14 +10,11 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Channel id/name %1 %2 server id/name %3",
+    "message0": "Channel id/name %1 server id/name %2",
     "args0": [{
         "type": "input_value",
         "name": "value",
         "check": "String"
-    },
-    {
-        "type": "input_space"
     },
     {
         "type": "input_value",
@@ -36,7 +33,7 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block) {
-    let val = [];
+    let val = [""];
     const value = Blockly.JavaScript.valueToCode(block, "value", Blockly.JavaScript.ORDER_NONE);
     const ch = Blockly.JavaScript.valueToCode(block, "ch", Blockly.JavaScript.ORDER_NONE);
     if (Number(value.replace("'", "").replace("'", ""))) {
