@@ -33,19 +33,20 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block) {
-    let val = [""];
+    let val = "";
+    let ahq = "";
     const value = Blockly.JavaScript.valueToCode(block, "value", Blockly.JavaScript.ORDER_NONE);
     const ch = Blockly.JavaScript.valueToCode(block, "ch", Blockly.JavaScript.ORDER_NONE);
     if (Number(value.replace("'", "").replace("'", ""))) {
-        val.push(`s4d.client.guild.cache.find(server => server.id == ${value})`);
+        val = `s4d.client.guild.cache.find(server => server.id == ${value})`;
     } else {
-        val.push(`s4d.client.guild.cache.find(server => server.name == ${value})`);
+        val = `s4d.client.guild.cache.find(server => server.name == ${value})`;
     }
     if (Number(ch.replace("'", "").replace("'", ""))) {
-        val.push(`.channels.cache.find(channel => channel.id == ${ch})`);
+        ahq = `.channels.cache.find(channel => channel.id == ${ch})`;
     } else {
-        val.push(`.channels.cache.find(channel => channel.name == ${ch})`);
+        ahq = `.channels.cache.find(channel => channel.name == ${ch})`;
     }
-    const code =  [`${val.join("")}`, Blockly.JavaScript.ORDER_ATOMIC];
+    const code =  [`${val}${ahq}`, Blockly.JavaScript.ORDER_ATOMIC];
     return code;
 };
