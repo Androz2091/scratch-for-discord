@@ -26,6 +26,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const vol = Blockly.JavaScript.valueToCode(block, "VOLUME", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `guildQueue.setVolume(${vol})`;
+    const code = `guildQueue.setVolume(Number(${vol}))`;
     return code;
 };

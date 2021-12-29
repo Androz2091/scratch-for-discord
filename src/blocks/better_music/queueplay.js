@@ -8,7 +8,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "SEARCH",
-            "check": "MusicSearch"
+            "check": "String"
         }
     ],
     "previousStatement": null,
