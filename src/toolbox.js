@@ -440,7 +440,7 @@ export default (Blockly, value) => {
         <sep class="bt"/>
 
           <category name="henpokpok" colour="#64C9FF">
-          <category name="Reactions" colour="#FF6464">
+          <category name="Mute" colour="#FF6464">
           <block type="mute_ahq"/>
           </category>
         <category name="Reactions" colour="#FF6464">
