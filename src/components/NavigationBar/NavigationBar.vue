@@ -115,11 +115,12 @@ export default {
                             "discord.js": "^13.3.1",\n
                             "os-utils": "0.0.14",\n
                             "easy-json-database": "^1.5.0",\n
+                            "moment": "latest",\n
                             ${requires.join("\n")}\n
                             
                         },\n
                         "devDependencies": {\n
-                            "node": "^16.10.0"\n
+                            "node": "^17"\n
                         }\n
                     }`)
                     zip.generateAsync({
