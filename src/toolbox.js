@@ -581,6 +581,9 @@ export default (Blockly, value) => {
 
 <category name="Messages" colour="#2a46fa">
 <block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
+    
+<block type="frost_slowmode"><value name="CHANNEL"><shadow type="s4d_message_channel"></shadow></value><value name="TIME"><shadow type="math_number"><field name="NUM">5</field></shadow></value><value name="REASON"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value></block>
+
 <block type="frost_real_reply">
 <value name="CONTENT">
   <shadow type="text">
