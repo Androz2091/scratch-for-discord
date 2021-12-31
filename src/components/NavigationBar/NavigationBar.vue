@@ -96,14 +96,29 @@ export default {
                     const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, " ")}.zip`;
                     zip.file("blocks.xml", xmlContent);
                     const javascriptContent = this.getWorkspaceCode();
-                    
+                    if (String(javascriptContent).includes("let serverjs = ")) {
+                        zip.file("server.js", `
+const express = require('express');
+const server = express();
+
+server.all('/', (req, res)=>{
+    res.send('Your bot is alive!')
+})
+function keepAlive(){
+    server.listen(3000, ()=>{console.log("Server is Ready!")});
+}
+keepAlive()`);
+                        zip.file("boot.js", `require("./bot")\nrequire("./server")`);
+                    } else {
+                    zip.file("boot.js", `require("./bot")`);
+                    }
                     zip.file("bot.js", javascriptContent);
                     zip.file(".replit", 'run = "npm start"');
                   zip.file("db.json",await localStorage.getItem('easyjsondatabase'));
                     zip.file("package.json", `{\n
                         "name": "scratch-for-discord-bot",\n
                         "version": "1.0.0",\n
-                        "main": "bot.js",\n
+                        "main": "boot.js",\n
                         "scripts": {\n
                             "start": "node .",\n
                             "node-update": "npm i --save-dev node@17 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",\n

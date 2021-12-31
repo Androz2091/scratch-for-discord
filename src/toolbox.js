@@ -455,6 +455,7 @@ export default (Blockly, value) => {
         </category>
        
         <category name="ahq" colour="#ff0000">
+        <block type="server_file"/>
         <block type="s4d_history"/>
         <block type="snd_ahq"/>
         <block type="ahq_value_snd"/>
