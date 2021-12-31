@@ -7,3 +7,4 @@ import "./get_bot";
 import "./s4d_bot_shutdown";
 import "./set_bot_stream";
 import "./bot_amout";
+import "./start_antispam";
