@@ -213,6 +213,7 @@ export default (Blockly,value) => {
                 </shadow>
             </value>
             </block>
+            <block type="weird-to-normal"/>
             <block type="s4d_starts_with">
                 <value name="STRING">
                     <shadow type="text">
@@ -278,7 +279,7 @@ export default (Blockly,value) => {
                     </block>
                 </value>
             </block>
-            <block type="text_changeCase">
+            <block type="text_changeCase"> 
                 <field name="CASE">UPPERCASE</field>
                 <value name="TEXT">
                     <shadow type="text">
@@ -439,6 +440,20 @@ export default (Blockly,value) => {
                     </category>
 				<sep class="bt"/>
 				<category name="{{ JOSE }}" colour="#00664d">
+                <category name = "embeds pagination" colour="#00664d">
+                    <block type="pagination_embed"/>
+                    <block type="start_pagination"/>
+                </category>
+                <category name = "captcha" colour="#00664d">
+                    <block type="create_captcha"/>
+                    <block type="captcha_image"/>
+                    <block type="captcha_value"/>
+                    <block type="send_captcha"/>
+                </category>
+                <category name = "progess bar" colour = "#00664d">
+                    <block type="filled_bar"/>
+                    <block type="split_bar"/>
+                </category>
                 <category name="firebase" colour="#00664d">
                     <block type="start_db"/>
                 </category> 
@@ -1030,6 +1045,9 @@ export default (Blockly,value) => {
             <block type="s4d_set_bot_game"></block>
             <block type="s4d_set_bot_stream"></block>
             <block type="s4d_bot_shutdown"></block>
+            <label text="{@user} = user ping . {user_tag} = user tag" web-class="boldtext"></label>
+            <block type="start_antispam"/>
+
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -1054,6 +1072,7 @@ export default (Blockly,value) => {
             <block type="s4d_message_channel_raw"></block>
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
+            <block type="anti_spam"/>
             <block type="s4d_reply">
                 <value name="CONTENT">
                     <shadow type="text">

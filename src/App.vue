@@ -48,10 +48,13 @@ import "./blocks/together/";
 import "./blocks/discord/attachment/";
 import "./blocks/discord/bot-event-2/";
 import "./blocks/date/";
-import "./blocks/regex/";
+import "./blocks/regex/"; 
 import "./blocks/list/";
 import "./blocks/firebase/";
 import  "./blocks/discord/voice-channel/";  
+import "./blocks/progess-bar/";
+import "./blocks/captcha/";
+import "./blocks/pagination/";
 //my events
 //channel
 import "./blocks/logs-events/channel/channel-permissions-update/";

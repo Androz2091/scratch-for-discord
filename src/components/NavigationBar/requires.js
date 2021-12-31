@@ -51,6 +51,21 @@ oldarray.forEach(js=>{
     if(js.includes("firebase")){
         array.push(`"firebase":"^9.5.0",`)
     }
+    if(js.includes("string-progressbar")){
+        array.push(`"string-progressbar":"^1.0.4",`)
+    }
+    if(js.includes("weirdToNormalChars")){
+        array.push(`"weird-to-normal-chars":"^1.8.1",`)
+    }
+    if(js.includes("captcha")){
+        array.push(`"@haileybot/captcha-generator":"^1.7.0",`)
+    }
+    if(js.includes("paginationEmbed")){
+        array.push(`"discord-pagination-fixed":"^1.0.0",`)
+    }
+    if(js.includes("AntiSpam")){
+        array.push(`"discord-anti-spam":"^2.6.1"`)
+    }
 })
 array.reverse()
 array[0] = array[0].replace(",","")

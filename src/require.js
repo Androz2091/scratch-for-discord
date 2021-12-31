@@ -98,4 +98,19 @@ if(js.includes("Cooldown")){
 if(js.includes("Regex")){
     array.push(`var Regex = require("regex");`)
 }
+if(js.includes("progressbar")){
+    array.push(`let progressbar = require('string-progressbar')`)
+}
+if(js.includes("weirdToNormalChars")){
+    array.push(`const { weirdToNormalChars } = require('weird-to-normal-chars')`)
+}
+if(js.includes("captcha")){
+    array.push(`const Captcha = require("@haileybot/captcha-generator");`)
+}
+if(js.includes("paginationEmbed")){
+    array.push(`const paginationEmbed = require('discord-pagination-fixed');`)
+}
+if(js.includes("AntiSpam")){
+    array.push(`const AntiSpam = require("discord-anti-spam");`)
+}
 }
