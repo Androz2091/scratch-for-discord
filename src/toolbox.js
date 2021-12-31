@@ -1329,7 +1329,6 @@ export default (Blockly, value) => {
             <block type="s4d_bot_ping"></block>
             <block type="s4d_bot_server_count"></block>
             <block type="s4d_get_bot"></block>
-            <block type="token_s4d"></block>
 						<block type="s4d_bot_amount"/>
             <label text="%{BKY_BOT_ACTIONS}"></label>
             <block type="s4d_set_bot_game"></block>
