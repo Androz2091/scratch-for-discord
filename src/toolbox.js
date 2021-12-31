@@ -1516,8 +1516,8 @@ export default (Blockly, value) => {
             <block type="s4d_get_all_role_role"></block>
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
 						<block type="s4d_role_possition"/>
-            <block type="s4d_add_role"></block>
-            <block type="s4d_remove_role"></block>
+            <block type="s4d_add_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
+            <block type="s4d_remove_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
             <block type="s4d_delete_role"></block>
             <block type="s4d_has_role"></block>
 						<block type="s4d_role_exist"/>

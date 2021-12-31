@@ -56,7 +56,7 @@ Blockly.JavaScript[blockName] = function(block){
         }
     } else {
         if(server !== null){
-            return [ `${server}.roles.cache.find((role) => role.id === ${value})`, Blockly.JavaScript.ORDER_NONE ];
+            return [ `${server}.roles.cache.get(${value})`, Blockly.JavaScript.ORDER_NONE ];
         } else {
             return [ `false`, Blockly.JavaScript.ORDER_NONE ];
         }
