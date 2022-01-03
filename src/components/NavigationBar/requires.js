@@ -8,7 +8,7 @@ oldarray.forEach(js=>{
         "@discord.js/voice": "^0.7.5",`)
     }
     if(js.includes(`const { Calculator, Snake, Fight } = require('weky')`)) {
-        array.push(`"weky": "^3.1.8",`)
+        array.push(`"weky": "git+https://github.com/ahqsoftwares/weky-npm.git",`)
     }
     if(js.includes("censor")){
         array.push(`"discord-censor": "^1.0.9",`)
