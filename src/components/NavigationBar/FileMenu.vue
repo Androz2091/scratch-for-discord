@@ -30,6 +30,28 @@ export default {
             document.querySelector("#load-code").click();
         },
         load(){
+          this.$swal({
+                title: this.$t('file.confirm.title'),
+                text: this.$t('file.confirm.text'),
+                buttons: {
+                    cancel: this.$t('file.confirm.cancel'),
+                    no: {
+                        text: this.$t('file.confirm.no'),
+                        value: false,
+                        className: "red-button"
+                    },
+                    yes: {
+                        text: this.$t('file.confirm.yes'),
+                        value: true
+                    }
+                },
+                closeOnClickOutside: false
+            }).then(result => {
+                if(typeof result == "object"){
+                    return;
+                } else if (result) {
+                    this.$store.state.workspace.getAllBlocks().forEach((block) => block.dispose());
+                }
             const file = document.getElementById("load-code").files[0];
             const documentName = file.name.split(".").slice(0, file.name.split(".").length-1);
             document.querySelector("#docName").textContent = documentName;
@@ -57,6 +79,7 @@ export default {
                 reader.readAsArrayBuffer(file);
                 document.getElementById("load-code").setAttribute("value", "");
             }
+        });
         },
         save(){
             const zip = new JSZip();
