@@ -52,6 +52,9 @@ import "./blocks/regex/";
 import "./blocks/list/";
 import "./blocks/firebase/";
 import  "./blocks/discord/voice-channel/";
+import "./blocks/progess-bar/";
+import "./blocks/captcha/";
+import "./blocks/pagination/";
   
 //my events
 //channel
