@@ -63,7 +63,7 @@ Blockly.JavaScript[blockName] = function(block) {
     const eph = Blockly.JavaScript.valueToCode(block, "button name", Blockly.JavaScript.ORDER_NONE) || false;
     const embed = Blockly.JavaScript.valueToCode(block, "embed val", Blockly.JavaScript.ORDER_NONE);
     if (statementsThen) {
-        ahq = `,\ncomponents: [new MessageActionRow().addComponents(
+        ahq = `components: [new MessageActionRow().addComponents(
             ${statementsThen.replace("'", "").replace("'", "")}
         )],`;
     }
