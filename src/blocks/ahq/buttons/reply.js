@@ -65,14 +65,16 @@ Blockly.JavaScript[blockName] = function(block) {
     if (statementsThen) {
         ahq = `,\ncomponents: [new MessageActionRow().addComponents(
             ${statementsThen.replace("'", "").replace("'", "")}
-        )]`;
+        )],`;
     }
     if (embed) {
-        extra = `,\n${embed}`;
+        extra = `${embed}`;
     }
     const code = `i.reply({
         content: String(${data}),
-        ephemeral: ${eph}${ahq.replace("`", "").replace("`", "")}${extra.replace("`", "").replace("`", "").replace("'", "").replace("'", "")}
+        ephemeral: ${eph},
+        ${ahq.replace("`", "").replace("`", "")}
+        ${extra.replace("`", "").replace("`", "").replace("'", "").replace("'", "")}
         });`;
     return code;
 };
