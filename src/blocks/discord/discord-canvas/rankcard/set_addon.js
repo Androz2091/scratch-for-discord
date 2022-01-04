@@ -37,5 +37,5 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const boolean = Blockly.JavaScript.valueToCode(block, "BOOLEAN", Blockly.JavaScript.ORDER_ATOMIC);
 		const type = block.getFieldValue("TYPE");
-return `.setColor("${type}",${boolean})`
+return `.setAddon("${type}",${boolean})`
 };
