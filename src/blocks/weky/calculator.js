@@ -77,7 +77,7 @@ const invalid = Blockly.JavaScript.valueToCode(block, "INVALID", Blockly.JavaScr
     await Calculator,({
         message: s4dmessage,
         embed: {
-            title: ${title}
+            title: ${title},
             color: ${color},
             footer: ${footer},
             timestamp: ${time}
