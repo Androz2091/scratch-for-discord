@@ -65,9 +65,8 @@ Blockly.JavaScript[blockName] = function(block) {
     const ahq = statementsThen.replace("'", "").replace("'", "");
     const code = `${name}.send({
         content: String(${data}),
-        components: [new MessageActionRow().addComponents(${ahq}
-
-        )]${extra.replace("`", "").replace("`", "").replace("'", "").replace("'", "")}
+        components: [new MessageActionRow().addComponents(${ahq})],
+        ${extra.replace("`", "").replace("`", "").replace("'", "").replace("'", "")}
         });`;
     return code;
 };
