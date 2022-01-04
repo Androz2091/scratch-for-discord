@@ -8,10 +8,15 @@ function listsGetRandomItem(list, remove) {
         return list[x];
     }
 }
-const blockName = "embed_btn_ahq";
+const blockName = "send_ahq_embed_btn";
 //block working now working
 const blockData = {
-    "message0": "Send Jose/Redo Embed",
+    "message0": "Send Embeds %1",
+    "args0": [{
+        "type": "input_value",
+        "name": "Label",
+        "check": "String"
+    }],
     "colour": listsGetRandomItem(ahqcolor, false),
     "output": "ahq",
     "tooltip": "",
@@ -24,7 +29,7 @@ Blockly.Blocks[blockName] = {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(){
-    const code = ['embeds: [embed]', Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript[blockName] = function(block){
+    const code = [`embeds: [${Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE).replace("'", "").replace("'", "")}]`, Blockly.JavaScript.ORDER_ATOMIC];
     return code;
 };

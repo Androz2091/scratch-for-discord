@@ -59,7 +59,7 @@ Blockly.JavaScript[blockName] = function(block) {
     const data = Blockly.JavaScript.valueToCode(block, "button name", Blockly.JavaScript.ORDER_NONE);
     const embed = Blockly.JavaScript.valueToCode(block, "embed val", Blockly.JavaScript.ORDER_NONE);
     if (embed) {
-        extra = `,\nembeds: [embed]`;
+        extra = `${embed}`;
     }
     const statementsThen = Blockly.JavaScript.valueToCode(block, "button val", Blockly.JavaScript.ORDER_NONE);
     const ahq = statementsThen.replace("'", "").replace("'", "");
@@ -67,7 +67,7 @@ Blockly.JavaScript[blockName] = function(block) {
         content: String(${data}),
         components: [new MessageActionRow().addComponents(${ahq}
 
-        )]${extra.replace("`", "").replace("`", "")}
+        )]${extra.replace("`", "").replace("`", "").replace("'", "").replace("'", "")}
         });`;
     return code;
 };

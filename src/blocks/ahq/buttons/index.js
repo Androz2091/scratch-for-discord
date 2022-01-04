@@ -13,3 +13,4 @@ import "./reply";
 import "./update";
 import "./btn_disabled";
 import "./button_send_embed";
+import "./ahq";
