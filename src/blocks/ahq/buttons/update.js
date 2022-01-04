@@ -54,7 +54,7 @@ Blockly.JavaScript[blockName] = function(block) {
     const statementsThen = Blockly.JavaScript.valueToCode(block, "button val", Blockly.JavaScript.ORDER_NONE);
     const embed = Blockly.JavaScript.valueToCode(block, "embed val", Blockly.JavaScript.ORDER_NONE);
     if (statementsThen) {
-        ahq = `,\ncomponents: [new MessageActionRow().addComponents(
+        ahq = `components: [new MessageActionRow().addComponents(
             ${statementsThen.replace("'", "").replace("'", "")}
         )],`;
     }
