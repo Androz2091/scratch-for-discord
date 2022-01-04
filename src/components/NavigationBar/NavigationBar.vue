@@ -194,7 +194,7 @@ load()`);
                         "dependencies": {\n
                              "djs-games": "^2.1.10",\n
                             "lyrics-finder": "^21.7.0",\n
-                            "discord.js": "^13.3.1",\n
+                            "discord.js": "latest",\n
                             "os-utils": "0.0.14",\n
                             "easy-json-database": "^1.5.0",\n
                             "moment": "latest",\n
