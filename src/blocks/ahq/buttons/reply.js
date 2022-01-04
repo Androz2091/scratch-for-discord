@@ -68,11 +68,11 @@ Blockly.JavaScript[blockName] = function(block) {
         )]`;
     }
     if (embed) {
-        extra = `,\nembeds: [embed]`;
+        extra = `,\n${embed}`;
     }
     const code = `i.reply({
         content: String(${data}),
-        ephemeral: ${eph}${ahq.replace("`", "").replace("`", "")}${extra.replace("`", "").replace("`", "")}
+        ephemeral: ${eph}${ahq.replace("`", "").replace("`", "")}${extra.replace("`", "").replace("`", "").replace("'", "").replace("'", "")}
         });`;
     return code;
 };
