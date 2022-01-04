@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "tts-test";
 
 const blockData = {
-  "message0": "Play TTS %1 in channel %2",
+  "message0": "Play TTS %1 in channel %2 in server %3",
   "args0": [
     {
       "type": "input_value",
@@ -14,6 +14,11 @@ const blockData = {
       "type": "input_value",
       "name": "channel",
       "check": "VoiceChannel"
+    },
+    {
+      "type": "input_value",
+      "name": "server",
+      "check": "Server"
     },
   ],
   "colour": "#5153c2",
@@ -33,13 +38,14 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function (block) {
   const playtts = Blockly.JavaScript.valueToCode(block, "tts", Blockly.JavaScript.ORDER_ATOMIC);
     const channel = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
+    const server = Blockly.JavaScript.valueToCode(block, "server", Blockly.JavaScript.ORDER_ATOMIC);
 const code = `const stream=discordTTS.getVoiceStream(${playtts});
         const audioResource=createAudioResource(stream, {inputType: StreamType.Arbitrary, inlineVolume:true});
         if(!voiceConnection || voiceConnection.status===VoiceConnectionStatus.Disconnected){
             voiceConnection = joinVoiceChannel({
                 channelId: ${channel},
-                guildId: s4dmessage.guildId,
-                adapterCreator: s4dmessage.guild.voiceAdapterCreator,
+                guildId: ${server}.id,
+                adapterCreator: ${server}.voiceAdapterCreator,
             });
             voiceConnection=await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5000);
         }
