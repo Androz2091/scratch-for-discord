@@ -64,7 +64,7 @@ Blockly.JavaScript[blockName] = function(block) {
     const code = `i.update({
         content: String(${data}),
         ${ahq.replace("`", "").replace("`", "")}
-        ${extra.replace("`", "").replace("`", "").replace("'", "").replace("'", "")}'
+        ${extra.replace("`", "").replace("`", "").replace("'", "").replace("'", "")}
         });`;
     return code;
 };
