@@ -45,6 +45,13 @@ export const websiteMessages = {
         title: "File",
         javascript: "Export to Javascript",
         open: "Open a file...",
+      confirm: {
+            title: "Delete current blocks?",
+            text: "Would you like to remove the current blocks before importing the file?",
+            cancel: "Cancel",
+            yes: "Yes",
+            no: "No",
+        },
         save: "Save",
     },
     toolbox:{
