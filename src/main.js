@@ -138,6 +138,7 @@ Vue.mixin({
                 (async()=>{
                 let process = require('process');
                 process.on('uncaughtException', function (err) {
+                    console.log(\`𝕖𝕣𝕣𝕠𝕣❕\`);
                     console.log(err);
                   });
                   ${requires.join("\n")}

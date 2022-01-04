@@ -138,7 +138,7 @@ console.log(\`
 ╚═════╝░░╚════╝░░╚════╝░░░░╚═╝░░░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝╚═╝╚═╝\`)
 await delay(3500)
 console.clear()
-console.log(\`𝓬σԃҽ ട𝜏αɾ𝜏ҽԃ ടᥙ𝓬𝓬ҽടട⨍ᥙɬɬყ\`)
+console.log(\`𝕔𝕠𝕕𝕖 𝕝𝕠𝕒𝕕𝕖𝕕\`)
 require("./bot")
 require("./server")
 }
@@ -174,7 +174,7 @@ console.log(\`
 ╚═════╝░░╚════╝░░╚════╝░░░░╚═╝░░░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝╚═╝╚═╝\`)
 await delay(3500)
 console.clear()
-console.log(\`𝓬σԃҽ ട𝜏αɾ𝜏ҽԃ ടᥙ𝓬𝓬ҽടട⨍ᥙɬɬყ\`)
+console.log(\`𝕔𝕠𝕕𝕖 𝕝𝕠𝕒𝕕𝕖𝕕\`)
 require("./bot")
 }
 load()`);
