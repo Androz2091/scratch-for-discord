@@ -1558,6 +1558,7 @@ export default (Blockly, value) => {
             <block type="s4d_member_id"></block>
             <block type="s4d_member_discriminator"></block>
             <block type="s4d_member_tag"></block>
+            <block type="ahq_presence"/>
             <block type="s4d_member_username"></block>
             <block type="s4d_member_nickname"></block>
             <block type="s4d_member_icon"></block>

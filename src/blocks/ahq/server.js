@@ -24,6 +24,6 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function() {
-    const code =  `let serverjs = 'true';`;
+    const code =  `//let serverjs = 'true';\n`;
     return code;
 };
