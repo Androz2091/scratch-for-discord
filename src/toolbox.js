@@ -500,6 +500,10 @@ export default (Blockly, value) => {
         <block type="ahq_bdwrd"/>
         <block type="ahq_bdwrd_cn"/>
         </category>
+        <category name="embed-read" colour="#993399">
+        <block type="ahq_embed_is"/>
+        <block type="ahq_embed_info"/>
+        </category>
         <category name="embed" colour="#993399">
         <block type="make_ahq_embed"/>
         <label text="Embed Send" web-class="boldtext"></label>
