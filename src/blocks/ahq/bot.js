@@ -16,7 +16,7 @@ const blockData = {
         "type": "input_value",
         "name": "member",
         "check": "Member"
-    }],
+    },],
     "colour": listsGetRandomItem(ahqcolor, false),
     "output": "String",
     "tooltip": "",
@@ -30,7 +30,7 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block){
-    const a = Blockly.Javascript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC).replace(".user", "").replace(".author", ".member");
+    const a = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC).replace(".user", "").replace(".author", ".member");
     const code = [`String(${a}.presence.status || "offline")`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
