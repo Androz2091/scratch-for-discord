@@ -11,9 +11,9 @@ export default {
         credit() {
             Swal.fire({
                 position: 'center',
-                icon: 'info',
-                title: 'Androz, snowflake107 - original s4d\n\n7coil - Discord blocks\n\nJose and mrredo - Preview 454',
-                text: 'frostzzone, RetroBTW, XL83, ahq, henpokpok, AlexCdDg, Eruption - Preview 469',
+                icon: 'success',
+                title: 'Androz, snowflake107 - original s4d\n7coil - Discord blocks\nJose and mrredo - Preview 454',
+                text: 'frostzzone, RetroBTW, XL83, AHQ, henpokpok, AlexCdDg, Eruption - Preview 469',
                 showConfirmButton: true
             })
         },
