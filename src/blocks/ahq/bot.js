@@ -30,6 +30,7 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block){
-    const code = [`String(${Blockly.Javascript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC).replace(".user", "").replace(".author", ".member")}.presence.status || "offline")`, Blockly.JavaScript.ORDER_NONE];
+    const a = Blockly.Javascript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC).replace(".user", "").replace(".author", ".member");
+    const code = [`String(${a}.presence.status || "offline")`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
