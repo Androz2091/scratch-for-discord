@@ -518,6 +518,7 @@ export default (Blockly, value) => {
         <block type="image_ahq_embed"/>
         <block type="thmb_ahq_embed"/>
         <block type="footer_ahq_embed"/>
+        <block type="stamp_ahq_embed"/>
         </category>
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>

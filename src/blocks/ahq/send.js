@@ -1,6 +1,6 @@
 import * as Blockly from "blockly";
 const blockName = "snd_ahq";
-const ahqcolor = ['#3366ff', '#6600cc', '#33cc00', '#ff6666'];
+const ahqcolor = ['#3366ff', '#FF10F0', '#33cc00', '#ff6666'];
 function listsGetRandomItem(list, remove) {
     var x = Math.floor(Math.random() * list.length);
     if (remove) {

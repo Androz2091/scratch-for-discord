@@ -1,6 +1,6 @@
 import * as Blockly from "blockly";
-const blockName = "make_ahq_embed";
-const ahqcolor = ['#3366ff', '#FF10F0', '#33cc00', '#ff6666'];
+const blockName = "stamp_ahq_embed";
+const ahqcolor = ['#3366ff', '#6600cc', '#33cc00', '#ff6666'];
 function listsGetRandomItem(list, remove) {
     var x = Math.floor(Math.random() * list.length);
     if (remove) {
@@ -10,22 +10,15 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Make An Embed with name %1 %2 then %3",
+    "message0": "Set Timestamp to Embed %1",
     "args0": [
         {
             "type": "input_value",
             "name": "button name",
-            "check": ["String"]
+            "check": "String"
         },
-        {
-            "type": "input_dummy"
-        },
-        {
-            "type": "input_statement",
-            "name": "STATEMENTS"
-        }
     ],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour":  (listsGetRandomItem(ahqcolor, false)),
     "previousStatement": null,
     "nextStatement": null,
 };
@@ -37,8 +30,7 @@ Blockly.Blocks[blockName] = {
 };
 Blockly.JavaScript[blockName] = function(block) {
     const name = (Blockly.JavaScript.valueToCode(block, "button name", Blockly.JavaScript.ORDER_NONE) || "embed");
-    const finaln = (name.replace("'", "").replace("'", ""));
-    const statementsThen = Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `let ${finaln} = new MessageEmbed()\n${statementsThen}`;
+    const finaln = name.replace("'", "").replace("'", "");
+    const code = `${finaln}.setTimestamp();`;
     return code;
 };
