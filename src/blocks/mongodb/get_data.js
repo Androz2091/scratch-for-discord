@@ -24,5 +24,5 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const key = Blockly.JavaScript.valueToCode(block, "KEY", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `mdb.get(${key})`, Blockly.JavaScript.ORDER_ATOMIC ];
+    return [ `(await(mdb.get(${key})))`, Blockly.JavaScript.ORDER_ATOMIC ];
 };
