@@ -1,6 +1,6 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "";
+const blockName = "edit_msg_by_id";
 
 const blockData = {
     "message0": "Get message with the id of %1 in the channel %2 and edit it to %3",
