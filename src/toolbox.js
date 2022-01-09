@@ -1367,6 +1367,7 @@ export default (Blockly, value) => {
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
 						<label text="%{BKY_FIND_MESSAGE}"></label>
 						<block type="s4d_get_msg_then"></block>
+						<block type="edit_msg_by_id"></block>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
