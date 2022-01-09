@@ -27,4 +27,4 @@ import "./message_member";
 import "./message";
 import "./reply_message";
 import "./anti_spam";
-import "./edit_msg_by_id.js"; 
+import "./edit_msg_by_id"; 
