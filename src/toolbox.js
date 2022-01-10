@@ -555,6 +555,9 @@ export default (Blockly, value) => {
         <block type="get_all_roles"/>
         <block type="all_roles"/>
         <label text="ㅤ" web-class="boldtext"></label>
+        <block type="create_emoji"/>
+        <label text="ㅤ" web-class="boldtext"></label>
+        <block type="vc_kick"/>
 	</category>
 	<category name="Channel" colour="#0c97f0">
         <block type="isdm"/>
