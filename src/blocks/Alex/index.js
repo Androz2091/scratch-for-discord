@@ -1,7 +1,9 @@
 import "./tts";
 import "./image_search";
 import "./url";
-import "./inviteurl"
+import "./inviteurl";
+import "./emoji";
+import "./kick";
 import "./tstart";
 import "./tchannel";
 import "./tmember";
