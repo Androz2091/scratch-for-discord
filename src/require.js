@@ -4,6 +4,19 @@ if(js.includes(".chat")) {
     const client = new smartestchatbot.Client();
     `)
 }
+if(js.includes("tempChannels.registerChannel")) {
+    array.push(`const TempChannels = require("discord-temp-channels");`)
+    array.push(`const db = require("quick.db")`)
+    code.push(`const tempChannels = new TempChannels(s4d.client);`)
+    code.push(`
+    s4d.client.on("ready", () => {
+        if (!db.get("temp-channels")) db.set("temp-channels", []);
+        db.get("temp-channels").forEach((channelData) => {
+            tempChannels.registerChannel(channelData.channelID, channelData.options);
+        });
+    });
+    `)
+}
 if(js.includes("const stream = discordTTS")) {
     array.push(`const discordTTS = require("discord-tts");`)
     array.push(`const {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} = require("@discordjs/voice");`)
