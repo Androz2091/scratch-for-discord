@@ -124,6 +124,7 @@ import "./blocks/frostzzone/github/"
 import "./blocks/better_music/"
 //its me retro :v
 import "./blocks/weky/"
+import "./blocks/temp_channels"
 
 import Theme from '@blockly/theme-modern';
 
