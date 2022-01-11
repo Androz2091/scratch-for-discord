@@ -7,6 +7,10 @@ oldarray.forEach(js=>{
         array.push(`"discord-tts": "^1.2.1",
         "@discord.js/voice": "^0.7.5",`)
     }
+    if(js.includes(`const TempChannels = require("discord-temp-channels");`)) {
+        array.push(`"discord-temp-channels": "^3.0.1",`)
+        array.push(`"quick.db": "^7.1.3",`)
+    }
     if(js.includes(`const { Calculator, Snake, Fight } = require('weky')`)) {
         array.push(`"weky": "git+https://github.com/ahqsoftwares/weky-npm.git",`)
     }
