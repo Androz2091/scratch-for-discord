@@ -32,6 +32,6 @@ Blockly.JavaScript[blockName] = function(block){
   const file = Blockly.JavaScript.valueToCode(block, "FILE", Blockly.JavaScript.ORDER_ATOMIC);
 const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
 
-          const code = `fs.unlink(${file}, function (err) {\n ${statementThen} \n});\n`;
+          const code = `fs.unlinkSync(${file}, function (err) {\n ${statementThen} \n});\n`;
           return code
 };

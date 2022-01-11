@@ -93,6 +93,9 @@ oldarray.forEach(js=>{
     if(js.includes("AntiSpam")){
         array.push(`"discord-anti-spam":"^2.6.1"`)
     }
+  if(js.includes("translate")){
+        array.push(`"translate-google":"^1.5.0"`)
+    }
 })
 array.reverse()
 array[0] = array[0].replace(",","")

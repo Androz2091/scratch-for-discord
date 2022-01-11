@@ -167,4 +167,7 @@ if(js.includes("paginationEmbed")){
 if(js.includes("AntiSpam")){
     array.push(`const AntiSpam = require("discord-anti-spam");`)
 }
+  if(js.includes("translate")){
+    array.push(`const translate = require('translate-google');`)
+}
 }
