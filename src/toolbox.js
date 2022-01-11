@@ -647,6 +647,11 @@ export default (Blockly, value) => {
 </category>
 
 <category name="RetroBtw and XL83" colour="#AAE941">
+<category name="temp channels" colour="#5ba58b">
+    <block type="s4d_temp_register"/>
+    <block type="temp_member_name"/>
+    <block type="s4d_temp_unregister"/>
+</category>
 <category name="Weky" colour="#5ba58b">
     <block type="snake_js"/>
     <block type="s4d_cal"/>
