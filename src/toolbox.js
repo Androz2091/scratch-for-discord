@@ -642,7 +642,14 @@ export default (Blockly, value) => {
 </category>
 <category name="filesystem (fs)" colour="#347dfa">
 <block type="frost_fs_read"/>
+<block type="frost_fs_append"/>
+<block type="frost_fs_write"/>
+<block type="frost_fs_rename"/>
+<block type="frost_fs_delete"/>
+<label text="For open and read (Returns the contents of the file)"></label>
 <block type="frost_fs_data"/>
+<label text="For if you get an error (is a boolean and string)"></label>
+<block type="frost_fs_err"/>
 </category>
 </category>
 
