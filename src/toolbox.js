@@ -816,9 +816,6 @@ export default (Blockly, value) => {
                         <block type="get_member_invites"/>
                     </category>
                 </category>
-                <category name="discord image generation" colour="#00664d">
-                    <block type="new_image"/>
-                </category>
                 <category name="image generation" colour="#00664d">
                     <block type="1imagepng">
                     <mutation divisor_input="true"></mutation>
