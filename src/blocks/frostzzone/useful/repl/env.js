@@ -12,7 +12,7 @@ const blockData = {
         },
 		],
     "tooltip": null,
-    "output": "Env",
+    "output": "String",
     "helpUrl": ""
 };
 
