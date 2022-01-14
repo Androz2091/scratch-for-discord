@@ -45,7 +45,7 @@ Blockly.JavaScript[blockName] = function(block) {
         const code = ["s4dmessage.member.user.username", Blockly.JavaScript.ORDER_NONE];
         return code;
     } else if(searchType === "NICKNAME"){
-        const code = ["(s4dmessage.member.user.username || await s4dmessage.guild.members.fetch(s4dmessage.author.id)).user.nickname", Blockly.JavaScript.ORDER_NONE];
+        const code = ["(s4dmessage.member || await s4dmessage.guild.members.fetch(s4dmessage.author.id)).nickname", Blockly.JavaScript.ORDER_NONE];
         return code;
     }
 };

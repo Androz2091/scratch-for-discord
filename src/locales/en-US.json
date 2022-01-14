@@ -532,7 +532,7 @@
   "RESUME":"resume music in queue %1",
   "PAUSE":"pause music in queue %1",
   "LOOP":"loop music in queue %1 %2",
-  "STRING_TO_NUMBER":"text %1 to number",
+  "STRING_TO_NUMBER":"convert text %1 to number",
   "SKIP":"skip music in queue %1",
   "CURRENT_TRACK":"current track name in queue %1",
   "TRACK_PLAYING":"when track is playing",
