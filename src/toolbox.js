@@ -656,7 +656,7 @@ export default (Blockly, value) => {
 </category>-->
 </category>
 
-<category name="RetroBtw and XL83" colour="#AAE941">
+<category name="Retro and XL83" colour="#AAE941">
 <category name="temp channels" colour="#5ba58b">
     <block type="s4d_temp_register"/>
     <block type="temp_member_name"/>
