@@ -11,7 +11,7 @@ const blockData = {
             "name": "INFO",
             "options": [
                 [ "Operating System", "platform" ],
-                [ "System Uptime", "sysUptime" ],
+                [ "Server Uptime", "sysUptime" ],
                 [ "Free Memory", "freemem" ],
                 [ "Total Memory", "totalmem" ],
             ]
