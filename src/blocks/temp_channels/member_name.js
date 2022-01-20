@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "temp_member_name";
 
 const blockData = {
-    "message0": "name of the member that created the channel",
+    "message0": "name of channel creator",
     "colour": "#40BF4A",
 		"args0": [
 		],
