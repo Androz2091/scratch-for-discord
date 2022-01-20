@@ -125,6 +125,10 @@ import "./blocks/better_music/"
 //its me retro :v
 import "./blocks/weky/"
 import "./blocks/temp_channels"
+//jeremy gaming coolness
+import "./blocks/JeremyGamer13/"
+import "./blocks/JeremyGamer13/jimpBlocks"
+import "./blocks/JeremyGamer13/fileEdit"
 
 import Theme from '@blockly/theme-modern';
 

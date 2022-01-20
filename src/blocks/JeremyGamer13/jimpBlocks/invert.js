@@ -1,0 +1,34 @@
+import Blockly from "blockly/core";
+import { registerRestrictions } from "../../../restrictions";
+
+const blockName = "jg_jimp_invert";
+
+const blockData = {
+    "message0": "Invert Effect",
+    "args0": [],
+    "colour": "#1492cc",
+    "previousStatement": null,
+    "nextStatement": null,
+    "tooltip": "Inverts the colors on the image.",
+    "helpUrl": ""
+};
+
+Blockly.Blocks[blockName] = {
+    init: function() {
+        this.jsonInit(blockData);
+    }
+};
+
+Blockly.JavaScript[blockName] = function() {
+    return `image.invert()\n`;
+}
+
+registerRestrictions(blockName, [
+    {
+        type: "hasparent",
+        message: "RES_JGSAVEIMAGE",
+        types: [
+            "jg_beginJimp"
+        ]
+    }
+]);

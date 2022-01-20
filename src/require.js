@@ -164,6 +164,12 @@ if(js.includes("captcha")){
 if(js.includes("paginationEmbed")){
     array.push(`const paginationEmbed = require('discord-pagination-fixed');`)
 }
+if(js.includes("jimp")){
+    array.push(`let jimp = require('jimp')`)
+}
+if(js.includes("write")){
+    array.push("const write = require('write');")
+}
 if(js.includes("AntiSpam")){
     array.push(`const AntiSpam = require("discord-anti-spam");`)
 }

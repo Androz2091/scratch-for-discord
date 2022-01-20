@@ -270,6 +270,8 @@
   "RES_MUST_BE_IN_ON_ADDED":"This block may only be used in a \"When bot is added a server\" event",
   "RES_SEND_WAIT_REPL_DM_VALUE_PARENT":"This block may only be used in a \"send in user dm\" bl",
   "RES_MUST_BE_CREATE_EMBED_THEN":"This block may only be used in a \"create embed\" bl!",
+  "RES_JGSAVEIMAGE": "This block may only be used in a \"Begin image edits on URL\" block!",
+  "RES_MISSING_CONTENT_GEN": "You must specify a valid type of content to use!",
   "JOINED_AT":"member joined date %1",
   "LEAVE_SERVER":"leave server %1",
   "CREATE_EMBED_THEN_SEND":"send embed in channel %1",

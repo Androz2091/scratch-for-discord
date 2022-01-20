@@ -754,6 +754,32 @@ export default (Blockly, value) => {
 		<block type="lyric"/>
 	</category>
 </category>
+
+<category name="JeremyGamer13" colour="#FFAA00">
+            <block type="jg_beginJimp"/>
+            <block type="jg_saveJimpageAs"/>
+            <block type="jg_sendImage"/>
+            <block type="jg_null"/>
+            <block type="jg_undefined"/>
+            <category name="Jimp Effects" colour="#a81313">
+            <block type="jg_jimp_drawtext"/>
+            <block type="jg_jimp_brightnesscontrast"/>
+            <block type="jg_jimp_grayscale"/>
+            <block type="jg_jimp_invert"/>
+            <block type="jg_jimp_sepia"/>
+            <block type="jg_jimp_resize"/>
+            <block type="jg_jimp_scale"/>
+            <block type="jg_jimp_crop"/>
+            <block type="jg_jimp_flip"/>
+            <block type="jg_jimp_rotate"/>
+            <block type="jg_jimp_jpgqual"/>
+            </category>
+            <category name="File Editing" colour="#FFCC00">
+            <block type="jg_file_create"/>
+            <block type="jg_file_contents"/>
+            </category>
+          </category>
+	  
                 <sep class="bt"/>
                     <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
                         ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}

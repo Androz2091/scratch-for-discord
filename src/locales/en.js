@@ -88,6 +88,7 @@ export const websiteMessages = {
         leveling: "Leveling System",
         button: "Button and Button Row",
 	image_gen: "Image Generation",
+        imgedit: "(JIMP) Image Editing Example",
 	economy: "Economy",
 	aki:"Akinator",
         music: "Music System",
