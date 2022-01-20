@@ -15,6 +15,7 @@
     "@blockly/continuous-toolbox": "^1.0.18",
     "@blockly/field-grid-dropdown": "^1.0.25",
     "@blockly/field-slider": "^2.1.29",
+    "@blockly/plugin-workspace-search": "^5.0.3",
     "@blockly/theme-dark": "^2.0.6",
     "@blockly/theme-modern": "^2.1.10",
     "@blockly/workspace-backpack": "^1.0.9",

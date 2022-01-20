@@ -936,6 +936,11 @@
   resolved "https://registry.npmjs.org/@blockly/field-slider/-/field-slider-2.1.29.tgz"
   integrity sha512-LeWRhMhOhfuwVWoYpbtwovdMXlP48HRVULBz+a+DwqSIAv3qMArgJtYtPK1SDqOg4MBoqjUUdGkeFJeJ3arcfg==
 
+"@blockly/plugin-workspace-search@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@blockly/plugin-workspace-search/-/plugin-workspace-search-5.0.3.tgz#f9146eb90bc3f75c08599f16117725a06c863927"
+  integrity sha512-iWQz23wJhagnvGURhbimqd5JxSyWBGM1nxd8N6g4yqrgDNndI150BQkapqULG1Q7kNQlJ6OIIthhD4jzMQZXqQ==
+
 "@blockly/theme-dark@^2.0.6":
   version "2.0.6"
   resolved "https://registry.npmjs.org/@blockly/theme-dark/-/theme-dark-2.0.6.tgz"
