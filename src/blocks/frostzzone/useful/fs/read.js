@@ -32,6 +32,6 @@ Blockly.JavaScript[blockName] = function(block){
   const file = Blockly.JavaScript.valueToCode(block, "FILE", Blockly.JavaScript.ORDER_ATOMIC);
 const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
 
-          const code = `fs.readFileSync(${file}, function(err, data) {\n ${statementThen} \n});\n`;
+          const code = `await fs.readFile(${file}, function(err, data) {\n ${statementThen} \n});\n`;
           return code
 };

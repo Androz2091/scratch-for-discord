@@ -13,6 +13,7 @@ import Blockly from "blockly";
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
 import {Backpack} from '@blockly/workspace-backpack';
+import {WorkspaceSearch} from '@blockly/plugin-workspace-search';
 import theme from '@blockly/theme-dark';
 import Load from '../backpack-save-load.js';
 import localforage from "localforage";
@@ -446,6 +447,10 @@ function svgToPng_(data, width, height, callback) {
 						disablePreconditionChecks: true,
 					},
 				};
+        const workspaceSearch = new WorkspaceSearch(workspace);
+        workspaceSearch.init();
+        workspaceSearch.close();
+
 				const backpack = new Backpack(workspace,defaultOptions);
 				backpack.init();
                 Load(backpack)

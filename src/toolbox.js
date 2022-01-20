@@ -578,13 +578,14 @@ export default (Blockly, value) => {
 
 <category name="frostzzone" colour="#347dfa">
 
-<category name="Github" colour="#1f1f1f">
+<category name="Scratch and Github" colour="#1f1f1f">
+<label text="Github" web-class="boldtext"></label>
 <block type="github_get_then"/>
 <label text="For profile" web-class="boldtext"></label>
 <block type="github_what_stat"/>
-</category>
-
-<category name="Scratch" colour="#347dfa">
+<label text="" web-class="boldtext"></label>
+<label text="" web-class="boldtext"></label>
+<label text="Scratch" web-class="boldtext"></label>
 <block type="scratch_get_about_then"/>
 <block type="scratch_about_user"/>
 </category>
@@ -630,9 +631,7 @@ export default (Blockly, value) => {
 <block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
 </block>
 </category>
-  <category name="Time" colour="#00664d">
-  <block type="frost_current"/>
-  </category>
+
 <category name="Embed" colour="#40bf4a">
 <label text="For Androz Embed"></label>
 <block type="frost_create_field"/>
@@ -640,6 +639,7 @@ export default (Blockly, value) => {
 <label text="For Jose Or Redo Embeds"></label>
 <block type="frost_send_embed_rr"/>
 </category>
+
 <category name="filesystem (fs)" colour="#347dfa">
 <block type="frost_fs_read"/>
 <block type="frost_fs_append"/>
@@ -651,6 +651,13 @@ export default (Blockly, value) => {
 <label text="For if you get an error (is a boolean and string)"></label>
 <block type="frost_fs_err"/>
 </category>
+
+<category name="Other" colour="#5ba58b">
+<block type="frost_fs_err"/>
+<block type="frost_current"/>
+<block type="frost_json_to_string"/>
+</category>
+
 <!--<category name="Translate">
 <block name="frost_translate"/>
 </category>-->
@@ -1617,6 +1624,7 @@ export default (Blockly, value) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_get_all_data"/>
             <label text="%{BKY_LABEL_UPDATE_DB}"></label>
             <block type="s4d_set_data">
                 <value name="KEY">
@@ -1686,6 +1694,7 @@ export default (Blockly, value) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_get_all_data2"/>
             <label text="%{BKY_LABEL_UPDATE_DB}"></label>
             <block type="s4d_set_data2">
                 <value name="KEY">
@@ -1730,11 +1739,12 @@ export default (Blockly, value) => {
                     </shadow>
                 </value>
             </block>
-            <block type="s4d_get_all_data2"/>
+            <block type="s4d_delete_all_data2"/>
         </category>
 
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
       return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
     }))
+    
 }

@@ -1,9 +1,9 @@
 import Blockly from "blockly/core";
 
-const blockName = "s4d_get_all_data2";
+const blockName = "s4d_get_all_data";
 
 const blockData = {
-    "message0": "Get all data from dootabase",
+    "message0": "Get all data from database",
     "args0": [
     ],
     "output": [ "String", "Number" ],
@@ -18,5 +18,5 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    return [ 'JSON.stringify(dootabase.all())', Blockly.JavaScript.ORDER_ATOMIC ];
+    return [ 'JSON.stringify(s4d.database.all())', Blockly.JavaScript.ORDER_ATOMIC ];
 };
