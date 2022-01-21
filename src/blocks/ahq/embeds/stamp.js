@@ -1,6 +1,6 @@
 import * as Blockly from "blockly";
 const blockName = "stamp_ahq_embed";
-const ahqcolor = ['#3366ff', '#6600cc', '#33cc00', '#ff6666'];
+const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
 function listsGetRandomItem(list, remove) {
     var x = Math.floor(Math.random() * list.length);
     if (remove) {
