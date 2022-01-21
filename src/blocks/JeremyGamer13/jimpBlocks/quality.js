@@ -15,7 +15,7 @@ const blockData = {
     "colour": "#a81313",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Scale the image by a number factor. Can only use Numbers, Variables, or Env secrets. Please use the Convert text to number block here!",
+    "tooltip": "Set the quality for JPG files. Can only use Numbers, Variables, or Env secrets.",
     "helpUrl": ""
 };
 
