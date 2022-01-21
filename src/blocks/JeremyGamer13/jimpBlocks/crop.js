@@ -34,7 +34,7 @@ const blockData = {
     "colour": "#a81313",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Crop the image at a specific point and using a Width and Height. Can only use Numbers, Variables, or Env secrets. Please use the Convert text to number block here!",
+    "tooltip": "Crop the image at a specific point and using a Width and Height. Can only use Numbers, Variables, or Env secrets.",
     "helpUrl": ""
 };
 
