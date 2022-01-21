@@ -35,7 +35,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const JimpURL = Blockly.JavaScript.valueToCode(block, "JimpURL", Blockly.JavaScript.ORDER_ATOMIC);
     const JimpCode = Blockly.JavaScript.statementToCode(block, "beginJimp");
-    const code = `jimp.read(` + JimpURL + `, (err, image) => {
+    const code = `jimp.read(` + JimpURL + `, async (err, image) => {
       if (err) throw err;
       ${JimpCode}
       });`;
