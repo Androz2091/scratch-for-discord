@@ -22,6 +22,10 @@
                 <Credit></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
+                <RunModal></RunModal>
+                <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
+                <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
+                </b-button>
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
                 <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
                 </b-button>
@@ -34,6 +38,7 @@
 </template>
 
 <script>
+import RunModal from "./RunModal.vue";
 import Blockly from "blockly";
 import JSZip from "jszip";
 import TokenModal from "./TokenModal.vue";
@@ -139,7 +144,7 @@ console.log(\`
 ██╔══██╗██║░░██║██║░░██║░░░██║░░░██║██║╚████║██║░░╚██╗░░░░░░░░░
 ██████╦╝╚█████╔╝╚█████╔╝░░░██║░░░██║██║░╚███║╚██████╔╝██╗██╗██╗
 ╚═════╝░░╚════╝░░╚════╝░░░░╚═╝░░░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝╚═╝╚═╝\`)
-await delay(200)
+await delay(2000)
 console.log(\`𝕔𝕠𝕕𝕖 𝕝𝕠𝕒𝕕𝕖𝕕\`)
 require("./bot")
 require("./server")
@@ -182,7 +187,7 @@ load()`);
                     }
                     zip.file("bot.js", javascriptContent);
                     zip.file(".replit", 'run = "npm start"');
-                  zip.file("db.json",await localStorage.getItem('easyjsondatabase'));
+                  zip.file("database.json",await localStorage.getItem('easyjsondatabase'));
                     zip.file("package.json", `{\n
                         "name": "scratch-for-discord-bot",\n
                         "version": "1.0.0",\n

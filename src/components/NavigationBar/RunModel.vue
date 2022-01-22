@@ -5,7 +5,7 @@
                 <b-row v-if="!electronApp">
                     <i18n path="run_modal.disabled" tag="h5">
                         <template v-slot:here>
-                            <a href="https://androz2091.github.io/scratch-for-discord/download/index.html" target="_blank">{{ $t('run_modal.here') }}</a>
+                            <a href="https://ahqsoftwares.github.io/scratch-for-discord-app/" target="_blank">{{ $t('run_modal.here') }}</a>
                         </template>
                     </i18n>
                 </b-row>
@@ -38,8 +38,16 @@
                     import Database  from "easy-json-database"
                     import logs from 'discord-logs'
                     import moment  from 'moment'
-                     //const { DB } = require("quickmongo");
-										import canvas from "discord-canvas"
+                    import { DB } from "quickmongo"
+                    import smartestchatbot from "smartestchatbot"
+                    import TempChannels from "TempChannels"
+                    import db from "quick.db"
+                    import discordTTS from "discord-tts"
+                    import Blockly from "blockly";
+                    import {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} from ("@discordjs/voice")
+					import { Calculator, Snake, Fight } from "weky";
+                    import censor from "discord-censor";
+                                        import canvas from "discord-canvas"
                     import { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }from 'discord.js'
 										import https from "https"
                     import { GiveawaysManager }from 'discord-giveaways'
@@ -96,30 +104,15 @@ export default {
         },
         async start(){
             this.botStarting = true;
-            const finalCode = beautify.js(this.getWorkspaceCode(), {
+            const finalCode = beautify.js(Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)(), {
                 indent_size: 4,
                 space_in_empty_paren: true
             });
-                let c = finalCode.replace(`const { DB } = require("quickmongo");`,'')
-let c2 = c.replace(`const moment = require('moment');`,'')
-let c3 = c2.replace(`const Database = require("easy-json-database");`,'')
-let c4 = c3.replace(`const Discord = require("discord.js");`,'')
-let c5 = c4.replace(`const { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu } = require('discord.js')`,'')
-let c6 = c5.replace(`const { Player,QueueRepeatMode } = require("discord-player")`,'')
-    let c7 = c6.replace(`const canvas = require("discord-canvas")`,'')
-    let c8 = c7.replace(`const DIG = require("discord-image-generation");`,'')
-    let c9 = c8.replace(`const backup = require("discord-backup");`,'')
-    let c10 = c9.replace(`const { GiveawaysManager } = require('discord-giveaways');`,'')
-    let c11 = c10.replace(`const ytnotifier = require('youtube-notification-module');`,'')
-    let c12 = c11.replace(`const logs = require('discord-logs');`,'')
-    let c13 = c12.replace(`(async () => {`,"module.exports = async function s4d() {")
-    let c14 = c13.replace("})();",'}')
-    let code = c14.replace('let https = require("https")','')
                 const vm = new NodeVM({
     console: 'inherit',
-    sandbox: {https,GiveawaysManager,canvas,ytnotifier,logs,DIG,DB,moment,Database,Discord,MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu,Player,QueueRepeatMode},
+    sandbox: {censor, Calculator, Snake, Fight, discordTTS, AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChanneldiscordTTS, db, smartestchatbot, TempChannels, https,GiveawaysManager,canvas,ytnotifier,logs,DIG,DB,moment,Database,Discord,MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu,Player,QueueRepeatMode},
 });
-                let s4d = await vm.run(code,'vm.js');
+                let s4d = await vm.run(finalCode,'vm.js');
                 let result = await s4d()
                 setTimeout(() => {
                     try {
