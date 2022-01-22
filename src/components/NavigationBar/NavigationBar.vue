@@ -22,10 +22,6 @@
                 <Credit></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
-                <RunModal></RunModal>
-                <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
-                <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
-                </b-button>
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
                 <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
                 </b-button>
@@ -38,7 +34,6 @@
 </template>
 
 <script>
-import RunModal from "./RunModel.vue";
 import Blockly from "blockly";
 import JSZip from "jszip";
 import TokenModal from "./TokenModal.vue";
@@ -65,8 +60,7 @@ export default {
         preBuilds,
         ToolboxModal,
         Credit,
-        Socials,
-        RunModal
+        Socials
     },
     computed: {
         configurationValidated: function () {
