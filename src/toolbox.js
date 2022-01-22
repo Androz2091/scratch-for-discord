@@ -454,7 +454,11 @@ export default (Blockly, value) => {
         <block type="react_messageId"/>
         </category>
         </category>
-       
+        <category name="test" colour="#ff0000">
+        <block type="str_to_num"/>
+        </category>
+
+
         <category name="ahq" colour="#ff0000">
         <block type="server_file"/>
         <block type="s4d_history"/>

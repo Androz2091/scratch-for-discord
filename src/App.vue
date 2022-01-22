@@ -112,6 +112,7 @@ import "./blocks/events/sticker/stickerUpdate/";
 import "./blocks/events/sticker/stickerDelete/";
 //469 stuff
 import "./blocks/games/"
+import "./blocks/testing/"
 import "./blocks/reddit/"
 import "./blocks/p-s_stats/"
 import "./blocks/ticket_system/"
