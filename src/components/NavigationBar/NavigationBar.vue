@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import RunModal from "./RunModal.vue";
+import RunModal from "./RunModel.vue";
 import Blockly from "blockly";
 import JSZip from "jszip";
 import TokenModal from "./TokenModal.vue";
