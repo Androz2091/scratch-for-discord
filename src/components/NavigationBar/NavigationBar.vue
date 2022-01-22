@@ -65,7 +65,8 @@ export default {
         preBuilds,
         ToolboxModal,
         Credit,
-        Socials
+        Socials,
+        RunModal
     },
     computed: {
         configurationValidated: function () {
