@@ -44,7 +44,7 @@
                     import db from "quick.db"
                     import discordTTS from "discord-tts"
                     import Blockly from "blockly";
-                    import {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} from ("@discordjs/voice")
+                    import {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} from "@discordjs/voice"
 					import { Calculator, Snake, Fight } from "weky";
                     import censor from "discord-censor";
                                         import canvas from "discord-canvas"
