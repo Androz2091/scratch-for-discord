@@ -40,7 +40,7 @@
                     import moment  from 'moment'
                     import { DB } from "quickmongo"
                     import smartestchatbot from "smartestchatbot"
-                    import TempChannels from "TempChannels"
+                    import TempChannels from "discord-temp-channels"
                     import discordTTS from "discord-tts"
                     import Blockly from "blockly";
                     import {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} from "@discordjs/voice"
