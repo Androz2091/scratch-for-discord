@@ -70,6 +70,7 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "node": "^17"
     "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@babel/preset-env": "^7.13.10",
     "@vue/cli-plugin-babel": "^4.5.11",
