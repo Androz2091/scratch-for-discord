@@ -11,6 +11,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "discord-buttons": "latest",
+    "ffmpeg-static": "latest",
     "@discordjs/voice": "latest",
     "discord-temp-channels": "git+https://github.com/ahqsoftwares/discord-temp-channels.git",
     "discord-canvas": "latest",
