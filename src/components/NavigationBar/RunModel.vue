@@ -41,7 +41,6 @@
                     import { DB } from "quickmongo"
                     import smartestchatbot from "smartestchatbot"
                     import TempChannels from "TempChannels"
-                    import db from "quick.db"
                     import discordTTS from "discord-tts"
                     import Blockly from "blockly";
                     import {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} from "@discordjs/voice"
