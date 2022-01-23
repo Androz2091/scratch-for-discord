@@ -54,7 +54,7 @@ import ToolboxModal from "./ToolboxModal.vue";
 import Socials from "./socials.vue";
 import Credit from "./Credit";
 import localforage from 'localforage';
-import RunModal from "./RunModal.vue";
+import RunModal from "./RunModel.vue";
 import r from "./requires"
 export default {
     name: "navbar",
@@ -68,7 +68,8 @@ export default {
         preBuilds,
         ToolboxModal,
         Credit,
-        Socials
+        Socials,
+        RunModal
     },
     computed: {
         configurationValidated: function () {
