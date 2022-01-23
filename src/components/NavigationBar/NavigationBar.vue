@@ -22,6 +22,13 @@
                 <Credit></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
+                <RunModal></RunModal>
+                <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
+                <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
+                </b-button>
+                <b-button id="v-step-1" :disabled="!configurationValidated" style="border-right-color: #161719; border-radius: 0em;" v-b-modal.run-modal>
+                    <b-icon-play></b-icon-play>
+                </b-button>
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
                 <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
                 </b-button>
@@ -47,6 +54,7 @@ import ToolboxModal from "./ToolboxModal.vue";
 import Socials from "./socials.vue";
 import Credit from "./Credit";
 import localforage from 'localforage';
+import RunModal from "./RunModal.vue";
 import r from "./requires"
 export default {
     name: "navbar",
