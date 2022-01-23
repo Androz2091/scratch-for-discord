@@ -11,6 +11,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "mongquick": "git+https://github.com/ahqsoftwares/quickmongo.git",
     "discord-buttons": "latest",
     "ffmpeg-static": "latest",
     "@discordjs/voice": "latest",
