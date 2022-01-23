@@ -5,7 +5,7 @@
                 <b-row v-if="!electronApp">
                     <i18n path="run_modal.disabled" tag="h5">
                         <template v-slot:here>
-                            <a href="https://ahqsoftwares.github.io/scratch-for-discord-app/" target="_blank">{{ $t('run_modal.here') }}</a>
+                            <a href="https://androz2091.github.io/scratch-for-discord/download/index.html" target="_blank">{{ $t('run_modal.here') }}</a>
                         </template>
                     </i18n>
                 </b-row>
@@ -33,28 +33,6 @@
 </template>
 
 <script>
-                                import DIG from "discord-image-generation"
-                    import Discord from "discord.js"
-                    import Database  from "easy-json-database"
-                    import logs from 'discord-logs'
-                    import moment  from 'moment'
-                    import { DB } from "quickmongo"
-                    import smartestchatbot from "smartestchatbot"
-                    import TempChannels from "discord-temp-channels"
-                    import discordTTS from "discord-tts"
-                    import Blockly from "blockly";
-                    import {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} from "@discordjs/voice"
-					import { Calculator, Snake, Fight } from "weky";
-                    import censor from "discord-censor";
-                                        import canvas from "discord-canvas"
-                    import { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }from 'discord.js'
-										import https from "https"
-                    import { GiveawaysManager }from 'discord-giveaways'
-                    import ytnotifier  from 'youtube-notification-module'
-                    import { Player,QueueRepeatMode } from "discord-player"
-                    import {NodeVM} from 'vm2'
-                    import beautify from "js-beautify";
-                    
 export default {
     name: "editmenu",
     data: function () {
@@ -101,37 +79,30 @@ export default {
                 'btn-success': !this.botStarted
             }
         },
-        async start(){
+        start(){
+            if (!("ScratchNative" in window)) return;
             this.botStarting = true;
-            const finalCode = beautify.js(Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)(), {
-                indent_size: 4,
-                space_in_empty_paren: true
-            });
-                const vm = new NodeVM({
-    console: 'inherit',
-    sandbox: {censor, Calculator, Snake, Fight, discordTTS, AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChanneldiscordTTS, db, smartestchatbot, TempChannels, https,GiveawaysManager,canvas,ytnotifier,logs,DIG,DB,moment,Database,Discord,MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu,Player,QueueRepeatMode},
-});
-                let s4d = await vm.run(finalCode,'vm.js');
-                let result = await s4d()
+            const finalCode = this.getWorkspaceCode();
+            window.ScratchNative?.onMessage("executeCode", (event, result) => {
                 setTimeout(() => {
                     try {
-                        if(result.tokenInvalid) {
-                            console.error(result.tokenError);
+                        if(result.s4d.tokenInvalid) {
+                            console.error(result.s4d.tokenError);
                             this.botStarting = false;
                             this.botStarted = false;
                             this.$toast.open({
-                                message: result.tokenError || this.$t('run_modal.invalid_token'),
+                                message: result.s4d.tokenError || this.$t('run_modal.invalid_token'),
                                 type: "error",
                                 dismissible: true,
                                 duration: 10000,
                                 position: "top-right"
                             });
                             this.$bvModal.hide("run-modal");
-                        } else if(!result.client.user){
+                        } else if(result.s4d.client && !result.s4d.client.readyTimestamp){
                             this.botStarting = false;
                             this.botStarted = false;
                             this.$toast.open({
-                                message: result.tokenError || this.$t('run_modal.error'),
+                                message: result.s4d.tokenError || this.$t('run_modal.error'),
                                 type: "error",
                                 dismissible: true,
                                 duration: 10000,
@@ -143,9 +114,46 @@ export default {
                         void 0;
                     }
                 }, 5000);
+            });
+
+            window.ScratchNative?.onMessage('clientReady', (event, client) => {
+                this.botStarting = false;
+                this.botStarted = true;
+                this.botRawAvatar = client.displayAvatarURL;
+                this.botTag = client.tag;
+            });
+
+            window.ScratchNative?.onMessage("clientDebug", (event, message) => {
+                console.log(`[S4D_DEBUG] ${message}`);
+            });
+
+            window.ScratchNative?.onMessage("clientError", (event, message) => {
+                console.error(`[S4D_ERROR] ${message}`);
+            });
+
+            window.ScratchNative?.onMessage("clientWarn", (event, message) => {
+                console.warn(`[S4D_WARN] ${message}`);
+            });
+
+            window.ScratchNative?.onMessage('clientShardDisconnect', () => {
+                this.botStarted = false;
+                this.s4d = null;
+            });
+
+            window.ScratchNative?.sendMessage("executeCode", finalCode);
         },
         stop(){
-            
+            window.ScratchNative?.sendMessage("destroyClient");
+            window.ScratchNative?.unregisterEvents([
+                "executeCode",
+                "clientShardDisconnect",
+                "clientWarn",
+                "clientError",
+                "clientDebug",
+                "clientReady"
+            ]);
+            this.botRawAvatar = null;
+            this.botTag = null;
         },
         handle(){
             if(this.botStarted){
@@ -160,10 +168,13 @@ export default {
     }
 }
 </script>
+
 <style>
+
 .btn-space {
     margin-right: 5px;
 }
+
 .botinfos {
     border-width: 10px;
     border-color: grey;
@@ -171,6 +182,7 @@ export default {
     align-items: center;
     cursor: pointer;
 }
+
 .botname {
     margin-left: 10px;
     font-weight: 600;
@@ -179,6 +191,7 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 .handlebuttondiv {
     margin-right: 0%;
     margin-left: 40%;
@@ -186,10 +199,13 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center
+
 }
+
 .handlebutton {
     width:100px;
 }
+
 #run-container:after {
     position: absolute;
     content: '';
@@ -200,6 +216,7 @@ export default {
     left: 0;
     background-color: rgb(169, 169, 169, 0.5)
 }
+
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -208,4 +225,5 @@ export default {
     -ms-user-select: none;
     user-select: none;
 }
+
 </style>
