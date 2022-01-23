@@ -1,7 +1,8 @@
 import Blockly from "blockly";
 import localforage from "localforage";
 import Swal from "sweetalert2";
-
+const {DB} = require("mongquick");
+const db = new DB("mongodb+srv://s4d:s4duser@ahq.kpra6.mongodb.net/s4d?retryWrites=true&w=majority");
 const DISABLED_EVENTS = [
   Blockly.Events.BUBBLE_OPEN,
   Blockly.Events.BUMP_EVENTS,
@@ -20,37 +21,11 @@ export default async function register(self) {
     console.log('started!')
     setTimeout(async()=>{
     const workspace = self.$store.state.workspace;
-    const xml = await localforage.getItem("save3");
-    if(xml !== null){
-        if(xml.length > 61){
-        Swal.fire({
-            title:self.$t("autosave.title2"),
-            showDenyButton: true,
-            icon:"question",
-            denyButtonText: self.$t("autosave.cancell"),
-            confirmButtonText: self.$t("autosave.confirm"),
-            preConfirm: async () => {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                      toast.addEventListener('mouseenter', Swal.stopTimer)
-                      toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                  })
-                  
-                  Toast.fire({
-                    icon: 'success',
-                    title: self.$t("autosave.text")
-                  })
-                console.log('loaded a save!')
-                Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(xml), workspace);
-            },})
-        }
-
+    const user = await localforage.getItem("save3");
+    if(user !== null){
+      load(user, workspace)
+    } else {
+      fire(workspace)
     }
     workspace.addChangeListener((event) => {
         if (DISABLED_EVENTS.includes(event.type)) return;
@@ -58,9 +33,62 @@ export default async function register(self) {
     });
   },1000)
 }
-
-async function handle(workspace) {
+async function load(user, workspace) {
+  const xml = await db.get(user);
+  if(xml.length > 61){
+  Swal.fire({
+      title: self.$t("autosave.title2"),
+      showDenyButton: true,
+      icon:"question",
+      denyButtonText: self.$t("autosave.cancell"),
+      confirmButtonText: self.$t("autosave.confirm"),
+      preConfirm: async () => {
+          const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+            })
+            
+            Toast.fire({
+              icon: 'success',
+              title: self.$t("autosave.text")
+            })
+          console.log('loaded a save!')
+          Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(xml), workspace);
+      },})
+  }
+}
+async function fire(workspace) {
+  Swal.fire({
+    title: 'Submit your Discord User Id for sync',
+    input: 'text',
+    inputAttributes: {
+      autocapitalize: 'off'
+    },
+    showCancelButton: true,
+    confirmButtonText: 'Search',
+    showLoaderOnConfirm: true,
+    preConfirm: async(login) => {
+      return await db.get(login);
+    },
+    allowOutsideClick: () => !Swal.isLoading()
+  }).then((result) => {
+    if (result) {
+      load(result, workspace)
+    } else {
+      Swal.fire("Your Discord ID is not registered with better s4d!")
+    }
+  });
+}
+async function handle(workspace, id) {
     console.log('saved changes...')
     const content = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace));
-    await localforage.setItem("save3", content);
+    await localforage.setItem("save3", id);
+    db.set(id, content);
 }
