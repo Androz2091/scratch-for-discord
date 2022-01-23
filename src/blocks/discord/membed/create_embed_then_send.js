@@ -13,7 +13,7 @@ const blockData = {
     {
         "type": "input_value",
         "name": "TEXT",
-        "check": "STRING"
+        "check": "String"
     }],
     "colour": "#40BF4A",
     "previousStatement": null,
