@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_member_nickname";
 
 const blockData = {
-    "message0": "nickname of member %1",
+    "message0": "nickname of member (or, username if no nickname) %1",
     "args0": [
         {
             "type": "input_value",
@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${member}.nickname`, Blockly.JavaScript.ORDER_NONE ];
+    return [ `(${member.replace(".user", "").replace(".author", ".member")}.nickname || ${member}.user.username)`, Blockly.JavaScript.ORDER_NONE ];
 };
 
 registerRestrictions(blockName, [

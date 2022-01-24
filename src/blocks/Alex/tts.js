@@ -43,7 +43,7 @@ const code = `const stream=discordTTS.getVoiceStream(${playtts});
         const audioResource=createAudioResource(stream, {inputType: StreamType.Arbitrary, inlineVolume:true});
         if(!voiceConnection || voiceConnection.status===VoiceConnectionStatus.Disconnected){
             voiceConnection = joinVoiceChannel({
-                channelId: ${channel},
+                channelId: ${channel}.id,
                 guildId: ${server}.id,
                 adapterCreator: ${server}.voiceAdapterCreator,
             });
