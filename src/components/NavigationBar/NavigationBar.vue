@@ -47,7 +47,8 @@ import ToolboxModal from "./ToolboxModal.vue";
 import Socials from "./socials.vue";
 import Credit from "./Credit";
 import localforage from 'localforage';
-import r from "./requires"
+import r from "./requires";
+import swal from "sweetalert2";
 export default {
     name: "navbar",
     components: {
@@ -99,6 +100,10 @@ export default {
                     const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, " ")}.zip`;
                     zip.file("blocks.xml", xmlContent);
                     const javascriptContent = this.getWorkspaceCode();
+                    if (javascriptContent.includes("queue.join") && javascriptContent.includes("queue.connect")) {
+                        swal.fire("Sorry But Retro and Jose Music Cant work together")
+                        return;
+                    }
                     if (String(javascriptContent).includes("let serverjs = ")) {
                         zip.file("server.js", `
 const express = require('express');
@@ -118,20 +123,6 @@ entering BIOS please wait....\`)
 await delay(500)
 console.clear()
 await delay(500)
-console.log(\`
-                ░██████╗░░██╗██╗██████╗░
-                ██╔════╝░██╔╝██║██╔══██╗
-                ╚█████╗░██╔╝░██║██║░░██║
-                ░╚═══██╗███████║██║░░██║
-                ██████╔╝╚════██║██████╔╝
-                ╚═════╝░░░░░░╚═╝╚═════╝░
-
-                ░░██╗██╗░█████╗░░█████╗░
-                ░██╔╝██║██╔═══╝░██╔══██╗
-                ██╔╝░██║██████╗░╚██████║
-                ███████║██╔══██╗░╚═══██║
-                ╚════██║╚█████╔╝░█████╔╝
-                ░░░░░╚═╝░╚════╝░░╚════╝░\`)
 console.log(\`
 ██████╗░░█████╗░░█████╗░████████╗██╗███╗░░██╗░██████╗░░░░░░░░░░
 ██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██║████╗░██║██╔════╝░░░░░░░░░░
@@ -153,20 +144,6 @@ entering BIOS please wait....\`)
 await delay(350)
 console.clear()
 await delay(500)
-console.log(\`
-                ░██████╗░░██╗██╗██████╗░
-                ██╔════╝░██╔╝██║██╔══██╗
-                ╚█████╗░██╔╝░██║██║░░██║
-                ░╚═══██╗███████║██║░░██║
-                ██████╔╝╚════██║██████╔╝
-                ╚═════╝░░░░░░╚═╝╚═════╝░
-
-                ░░██╗██╗░█████╗░░█████╗░
-                ░██╔╝██║██╔═══╝░██╔══██╗
-                ██╔╝░██║██████╗░╚██████║
-                ███████║██╔══██╗░╚═══██║
-                ╚════██║╚█████╔╝░█████╔╝
-                ░░░░░╚═╝░╚════╝░░╚════╝░\`)
 console.log(\`
 ██████╗░░█████╗░░█████╗░████████╗██╗███╗░░██╗░██████╗░░░░░░░░░░
 ██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██║████╗░██║██╔════╝░░░░░░░░░░
