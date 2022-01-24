@@ -1,9 +1,8 @@
 export default (Blockly, value) => {
   return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-        
-	
-	<category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
+    <category name="Logic" colour="#000099">
+            <label text="Logic Functions" web-class="boldtext"/>
             <block type="controls_if" />
             <block type="logic_compare">
                 <field name="OP">EQ</field>
@@ -17,7 +16,6 @@ export default (Blockly, value) => {
             </block>
             <block type="logic_null" />
             <block type="logic_ternary" />
-        </category>
         <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
             <block type="s4d_forever">
             </block>
@@ -55,6 +53,46 @@ export default (Blockly, value) => {
             <block type="controls_flow_statements">
                 <field name="FLOW">BREAK</field>
             </block>
+        </category>
+        </category>
+        <category name="Basic" colour="#009900">
+        <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
+        <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
+            <block type="s4d_login">
+                <value name="TOKEN">
+                    <shadow type="text">
+                        <field name="TEXT">Your bot token</field>
+                    </shadow>
+                </value>
+            </block>
+	    <label text="Repl"></label>
+	    <block type="frost_webserver">
+<value name="URL">
+                    <shadow type="text">
+                        <field name="TEXT">This site was created to keep bot on 25/8</field>
+                    </shadow>
+                </value>
+</block>
+	    <block type="frost_env">
+<value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">env-name</field>
+                    </shadow>
+                </value>
+            </block>
+            <label text="%{BKY_BASE_BLOCKS}"></label>
+            <block type="s4d_on_connected"></block>
+            <label text="%{BKY_BOT_INFORMATIONS}"></label>
+            <block type="s4d_bot_ping"></block>
+            <block type="s4d_bot_server_count"></block>
+            <block type="s4d_get_bot"></block>
+						<block type="s4d_bot_amount"/>
+            <label text="%{BKY_BOT_ACTIONS}"></label>
+            <block type="s4d_set_bot_game"></block>
+            <block type="s4d_set_bot_stream"></block>
+            <block type="s4d_bot_shutdown"></block>
+<label text="{@user} = user ping . {user_tag} = user tag" web-class="boldtext"></label>
+            <block type="start_antispam"/>
         </category>
         <category name="{{ TOOLBOX_MATH }}" colour="#5b67a5">
             <block type="math_number">
@@ -415,11 +453,12 @@ export default (Blockly, value) => {
                 </value>
             </block>
         </category>
-        <sep class="bt" />
+        </category>
+        <category name="Misc" colour="#663366">
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
 	
-        <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
+        <category name="{{ TOOLBOX_OTHER }}" colour="#D14081">
         
             <block type="anti_link"/>
 	  
@@ -438,8 +477,11 @@ export default (Blockly, value) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
         </category>
+        <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
+                        ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}
+        </category>
+        </category>
         <sep class="bt"/>
-
           <category name="henpokpok" colour="#64C9FF">
           <category name="Timeout" colour="#FF6464">
           <block type="mute_ahq"/>
@@ -779,12 +821,6 @@ export default (Blockly, value) => {
             <block type="jg_file_contents"/>
             </category>
           </category>
-	  
-                <sep class="bt"/>
-                    <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
-                        ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}
-                    </category>
-				<sep class="bt"/>
 				
 				
 				
@@ -1373,44 +1409,6 @@ export default (Blockly, value) => {
 </category>
 		</category>
         <sep class="bt"/>
-        <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
-        <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
-            <block type="s4d_login">
-                <value name="TOKEN">
-                    <shadow type="text">
-                        <field name="TEXT">Your bot token</field>
-                    </shadow>
-                </value>
-            </block>
-	    <label text="Repl"></label>
-	    <block type="frost_webserver">
-<value name="URL">
-                    <shadow type="text">
-                        <field name="TEXT">This site was created to keep bot on 25/8</field>
-                    </shadow>
-                </value>
-</block>
-	    <block type="frost_env">
-<value name="VALUE">
-                    <shadow type="text">
-                        <field name="TEXT">env-name</field>
-                    </shadow>
-                </value>
-            </block>
-            <label text="%{BKY_BASE_BLOCKS}"></label>
-            <block type="s4d_on_connected"></block>
-            <label text="%{BKY_BOT_INFORMATIONS}"></label>
-            <block type="s4d_bot_ping"></block>
-            <block type="s4d_bot_server_count"></block>
-            <block type="s4d_get_bot"></block>
-						<block type="s4d_bot_amount"/>
-            <label text="%{BKY_BOT_ACTIONS}"></label>
-            <block type="s4d_set_bot_game"></block>
-            <block type="s4d_set_bot_stream"></block>
-            <block type="s4d_bot_shutdown"></block>
-<label text="{@user} = user ping . {user_tag} = user tag" web-class="boldtext"></label>
-            <block type="start_antispam"/>
-        </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
 						<label text="%{BKY_FIND_MESSAGE}"></label>
@@ -1594,8 +1592,8 @@ export default (Blockly, value) => {
             <block type="s4d_get_all_role_role"></block>
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
 						<block type="s4d_role_possition"/>
-            <block type="s4d_add_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
-            <block type="s4d_remove_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
+            <block type="s4d_add_role"></block>
+            <block type="s4d_remove_role"></block>
             <block type="s4d_delete_role"></block>
             <block type="s4d_has_role"></block>
 						<block type="s4d_role_exist"/>
@@ -1633,7 +1631,8 @@ export default (Blockly, value) => {
         </category>
         <sep class="bt"/>
         <sep class="bt"/>
-				<sep class="bt"/>
+		<sep class="bt"/>
+        <category name="DB" colour="">
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>
             <block type="s4d_get_data">
@@ -1766,6 +1765,7 @@ export default (Blockly, value) => {
                 </value>
             </block>
             <block type="s4d_delete_all_data2"/>
+        </category>
         </category>
 
     </xml>
