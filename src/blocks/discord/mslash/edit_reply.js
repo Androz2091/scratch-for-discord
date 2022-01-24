@@ -41,10 +41,10 @@ Blockly.JavaScript[blockName] = function(block){
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
-        if((contentType === "Embed") || (!contentType && typeof contentType === "object")){
+        if((contentType === "Embed")){
             const code = `await interaction.editReply({ embeds: [${content}], components: [${button2}] });\n`;
             return code;
-        } else if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
+        } else if((contentType === "MessageEmbed")) {
             const code = `await interaction.editReply({${content}});\n`;
             return code;
         } else {
