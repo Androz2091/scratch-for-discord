@@ -68,9 +68,9 @@ Blockly.JavaScript[blockName] = function(block){
     }else if(type === "ROLES"){
         code = `${server}.roles.cache.size`
     }else if(type === "VOICE"){
-        code = `${server}.channels.cache.filter(m => m.type === "voice").size`
+        code = `${server}.channels.cache.filter(m => m.type === "GUILD_VOICE").size`
     }else if(type === "TEXT"){
-        code = `${server}.channels.cache.filter(m=>m.type === "text").size`
+        code = `${server}.channels.cache.filter(m=>m.type === "GUILD_TEXT").size`
     }
     return [ code , Blockly.JavaScript.ORDER_NONE ];
 };
