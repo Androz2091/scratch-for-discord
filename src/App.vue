@@ -166,7 +166,68 @@ export default {
         }
     },
     data() {
+      //month starts at 0 day starts at 1
+      if ((new Date().getMonth()) == 3 && ((new Date().getDate())) == 1) {
         return {
+            options: {
+                renderer: "zelos",
+                theme: Theme,
+                  collapse : true, 
+	comments : true, 
+	disable : true, 
+	maxBlocks : Infinity, 
+	trashcan : true, 
+	horizontalLayout : false, 
+    rtl: true,
+                zoom: {
+                    controls: true,
+                    startScale: 0.9,
+                    maxScale: 3,
+                    minScale: 0.3,
+                    scaleSpeed: 1.2
+                }
+            },
+            move:{
+        scrollbars: {
+          horizontal: true,
+          vertical: true
+        },
+        drag: true,
+        wheel: true},
+            vueTourOptions: {
+                labels: {
+                    buttonSkip: this.$t('tour.skip'),
+                    buttonPrevious: this.$t('tour.previous'),
+                    buttonNext: this.$t('tour.next'),
+                    buttonStop: this.$t('tour.finish')
+                },
+                steps: [
+                    {
+                        target: '#v-step-0',
+                        content: this.$t('tour.steps.load_examples'),
+                        params: {
+                            enableScrolling: false
+                        }
+                    },
+                    {
+                        target: '#v-step-1',
+                        content: this.$t('tour.steps.run_test'),
+                        params: {
+                            enableScrolling: false
+                        }
+                    },
+                    {
+                        target: '#v-step-2',
+                        content: this.$t('tour.steps.export_code'),
+                        params: {
+                            enableScrolling: false
+                        }
+                    }
+                ]
+            }
+        }
+           } else {
+      return {
             options: {
                 renderer: "zelos",
                 theme: Theme,
@@ -217,6 +278,7 @@ export default {
                 ]
             }
         }
+           }
     }
 }
 

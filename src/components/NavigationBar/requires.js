@@ -1,5 +1,8 @@
 export default async function require(array,oldarray) {
 oldarray.forEach(js=>{
+    if (js.includes("const ticket = require('tickets-discord');")) {
+        array.push(`"tickets-discord": "^3.0.0",`)
+    }
     if (js.includes(".chat")) {
         array.push(`"smartestchatbot": "^2.0.1",`)
     }
