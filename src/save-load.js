@@ -67,6 +67,9 @@ export default async function register(self) {
           return (await(db.get(login)))
         } else {
           throw new Error("Login not found!")
+          Swal.showValidationMessage(
+            `Request failed: not found`
+          )
         }
       },
       allowOutsideClick: () => !Swal.isLoading()
