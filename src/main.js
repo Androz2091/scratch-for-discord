@@ -8,7 +8,7 @@ import Blockly from "blockly";
 import VueToast from 'vue-toast-notification';
 import VueTour from 'vue-tour';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import savenload from './save-load';
+import savenload from './save-load-legacy';
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
