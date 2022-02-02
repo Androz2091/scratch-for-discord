@@ -158,7 +158,7 @@ require("./bot")
 load()`);
                     }
                     zip.file("bot.js", javascriptContent);
-                    zip.file(".replit", 'run = "npm start"');
+                    zip.file(".replit", 'run = "npm start" \n entrypoint = "bot.js"');
                   zip.file("database.json", "{}");
                     zip.file("package.json", `{\n
                         "name": "scratch-for-discord-bot",\n
