@@ -18,5 +18,5 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    return [ 'JSON.stringify(s4d.database.all())', Blockly.JavaScript.ORDER_ATOMIC ];
+    return [ 's4d.database.all()', Blockly.JavaScript.ORDER_ATOMIC ];
 };

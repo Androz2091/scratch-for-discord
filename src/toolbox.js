@@ -314,6 +314,7 @@ export default (Blockly, value) => {
             </block>
             <block type="lists_length" />
             <block type="lists_isEmpty" />
+            <block type="list_contains"/>
             <block type="lists_sort"/>
 						<block type="lists_reverse"/>
             <block type="lists_indexOf">
@@ -590,7 +591,7 @@ export default (Blockly, value) => {
 <block type="scratch_about_user"/>
 </category>
 
-<!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
+<category name="Useless" colour="#2a46fa" hidden="true"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>
 
 <category name="Messages" colour="#2a46fa">
 <block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
@@ -632,6 +633,12 @@ export default (Blockly, value) => {
 </block>
 </category>
 
+<category name="Category" colour="#2f64fa" hidden="true">
+<block type="frost_message_category"/>
+<block type="frost_category_get"/>
+<block type="frost_category_id"/>
+</category>
+
 <category name="Embed" colour="#40bf4a">
 <label text="For Androz Embed"></label>
 <block type="frost_create_field"/>
@@ -658,9 +665,9 @@ export default (Blockly, value) => {
 <block type="frost_json_to_string"/>
 </category>
 
-<!--<category name="Translate">
+<category name="Translate" hidden="true">
 <block name="frost_translate"/>
-</category>-->
+</category>
 </category>
 
 <category name="Retro and XL83" colour="#AAE941">

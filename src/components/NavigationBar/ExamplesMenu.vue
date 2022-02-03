@@ -3,6 +3,7 @@
         <b-dropdown-item @click="load('ping-pong')">{{ $t('examples.ping_pong') }}</b-dropdown-item>
         <b-dropdown-item @click="load('command-parsing')">{{ $t('examples.command_parsing') }}</b-dropdown-item>
       <b-dropdown-item @click="load('bettercmd')">{{$t('examples.bettercmd')}}</b-dropdown-item>
+      <b-dropdown-item @click="load('cooldown')">{{$t('examples.cooldown')}}</b-dropdown-item>
         <b-dropdown-item @click="load('leveling')">{{ $t('examples.leveling') }}</b-dropdown-item>
       <b-dropdown-item @click="load('aki')">{{ $t('examples.aki') }}</b-dropdown-item>
         <b-dropdown-item @click="load('music')">{{ $t('examples.music') }}</b-dropdown-item>
@@ -33,6 +34,7 @@ import random from "../../examples/random";
   import reddit from "../../examples/reddit";
   import ticket from "../../examples/ticket";
   import button from "../../examples/button";
+  import cooldown from "../../examples/cooldown"
 
 const examples = {
     "ping-pong": PingPongExample,
@@ -47,7 +49,8 @@ const examples = {
   "aki": aki,
   "reddit": reddit,
   "ticket": ticket,
-  "button": button
+  "button": button,
+  "cooldown": cooldown
 };
 
 export default {

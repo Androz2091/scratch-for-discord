@@ -1,6 +1,6 @@
-<xml xmlns="https://developers.google.com/blockly/xml">
+export default `<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
-    <variable id="I*b*0O.`b99|e1]#u*tB">member_unix</variable>
+    <variable id="I*b*0O.\`b99|e1]#u*tB">member_unix</variable>
   </variables>
   <block type="s4d_login" id="B.nyBu?(;^qihO+NnN%N" x="0" y="0">
     <value name="TOKEN">
@@ -11,7 +11,7 @@
   </block>
   <block type="s4d_on_message" id=")todf5S$%tIsG,|HGW0+" x="0" y="104">
     <statement name="STATEMENTS">
-      <block type="controls_if" id="34s+$!vr`ERcQ)ESCuZ=">
+      <block type="controls_if" id="34s+$!vr\`ERcQ)ESCuZ=">
         <value name="IF0">
           <block type="logic_negate" id="7.DwGeU9I.OA7*.b8+YT">
             <value name="BOOL">
@@ -28,7 +28,7 @@
             <value name="IF0">
               <block type="logic_negate" id="3tNsl^bG?6)Fu!-Z{aSp">
                 <value name="BOOL">
-                  <block type="s4d_has_data2" id="Idg%6%}Gl.$wS6l#v`6h">
+                  <block type="s4d_has_data2" id="Idg%6%}Gl.$wS6l#v\`6h">
                     <value name="KEY">
                       <shadow type="text" id="0J1f)WY.k/cea^n!Lw5t">
                         <field name="TEXT">hello</field>
@@ -76,7 +76,7 @@
                   </block>
                 </value>
                 <value name="VALUE">
-                  <shadow type="text" id="O;q)`HzC%Qx;GYH${,qi">
+                  <shadow type="text" id="O;q)\`HzC%Qx;GYH$\{,qi">
                     <field name="TEXT">world</field>
                   </shadow>
                   <block type="frost_current" id="ctd!0V^Yu/!;jl*-oP*M">
@@ -87,7 +87,7 @@
             </statement>
             <next>
               <block type="variables_set" id="]4bNvCmTn]lqWSKw/QXi">
-                <field name="VAR" id="I*b*0O.`b99|e1]#u*tB">member_unix</field>
+                <field name="VAR" id="I*b*0O.\`b99|e1]#u*tB">member_unix</field>
                 <value name="VALUE">
                   <block type="s4d_get_data2" id="D]v35eEPy9_9YH8Of8{2">
                     <value name="KEY">
@@ -104,7 +104,7 @@
                           </block>
                         </value>
                         <value name="ADD1">
-                          <block type="text" id="MyKt}q^17`i[JH.FuJaf">
+                          <block type="text" id="MyKt}q^17\`i[JH.FuJaf">
                             <field name="TEXT">-cooldown_test</field>
                           </block>
                         </value>
@@ -115,9 +115,9 @@
                 <next>
                   <block type="controls_if" id="s@=Dpy$I0!ft9M2$+HRV">
                     <value name="IF0">
-                      <block type="s4d_starts_with" id="KCs`r++4?Nl~-E)2S?Fb">
+                      <block type="s4d_starts_with" id="KCs\`r++4?Nl~-E)2S?Fb">
                         <value name="STRING">
-                          <shadow type="text" id="THCk7FWg`7w3C?F;X#jq">
+                          <shadow type="text" id="THCk7FWg\`7w3C?F;X#jq">
                             <field name="TEXT">abc</field>
                           </shadow>
                           <block type="text_changeCase" id="uY;PUIH_B~!Yx-cl[-Y/">
@@ -126,26 +126,26 @@
                               <shadow type="text" id="*./}%30EUOYXyJ0y)Pt(">
                                 <field name="TEXT">abc</field>
                               </shadow>
-                              <block type="s4d_message_content" id="So5hudG3xPbyx-W,:!V`"></block>
+                              <block type="s4d_message_content" id="So5hudG3xPbyx-W,:!V\`"></block>
                             </value>
                           </block>
                         </value>
                         <value name="SUBSTRING">
-                          <shadow type="text" id=")7@K.YcmTeV`M6+B[(Z5">
+                          <shadow type="text" id=")7@K.YcmTeV\`M6+B[(Z5">
                             <field name="TEXT">!test</field>
                           </shadow>
                         </value>
                       </block>
                     </value>
                     <statement name="DO0">
-                      <block type="controls_if" id="u4#{:+pQYIGy$~l$QDr`">
+                      <block type="controls_if" id="u4#{:+pQYIGy$~l$QDr\`">
                         <mutation else="1"></mutation>
                         <value name="IF0">
                           <block type="logic_compare" id="gyj_6jy:sh:CiY,PZ?U#">
                             <field name="OP">LTE</field>
                             <value name="A">
                               <block type="variables_get" id="%ORuc:O@:2u:=]-3fBu^">
-                                <field name="VAR" id="I*b*0O.`b99|e1]#u*tB">member_unix</field>
+                                <field name="VAR" id="I*b*0O.\`b99|e1]#u*tB">member_unix</field>
                               </block>
                             </value>
                             <value name="B">
@@ -156,7 +156,7 @@
                           </block>
                         </value>
                         <statement name="DO0">
-                          <block type="s4d_reply" id="^`mJhti@/PxF7?lh+;L~">
+                          <block type="s4d_reply" id="^\`mJhti@/PxF7?lh+;L~">
                             <value name="CONTENT">
                               <shadow type="text" id="swWnjD+/fEW9mc{I{M#5">
                                 <field name="TEXT">Done, you now can't use this command for 5 seconds</field>
@@ -168,12 +168,12 @@
                                   <shadow type="text">
                                     <field name="TEXT">hello</field>
                                   </shadow>
-                                  <block type="text_join" id="KYJ:a`v|Frh?Y+1GX6Uc">
+                                  <block type="text_join" id="KYJ:a\`v|Frh?Y+1GX6Uc">
                                     <mutation items="2"></mutation>
                                     <value name="ADD0">
                                       <block type="s4d_member_id" id="mDUyfyWX|jEI^!uge?71">
                                         <value name="MEMBER">
-                                          <block type="s4d_message_author" id=",32-4`*1z8DV)b{M|Pgf"></block>
+                                          <block type="s4d_message_author" id=",32-4\`*1z8DV)b{M|Pgf"></block>
                                         </value>
                                       </block>
                                     </value>
@@ -185,7 +185,7 @@
                                   </block>
                                 </value>
                                 <value name="VALUE">
-                                  <shadow type="text" id="`OaNnG]rt?wtPe?7bz,`">
+                                  <shadow type="text" id="\`OaNnG]rt?wtPe?7bz,\`">
                                     <field name="TEXT">world</field>
                                   </shadow>
                                   <block type="math_arithmetic" id="}Mjj4925x=J0%,CF#/xS">
@@ -219,7 +219,7 @@
                                 <mutation items="3"></mutation>
                                 <value name="ADD0">
                                   <block type="text" id="wD80jp^RXr/L3Sx+]Xh9">
-                                    <field name="TEXT">You are on cooldown wait `</field>
+                                    <field name="TEXT">You are on cooldown wait \`</field>
                                   </block>
                                 </value>
                                 <value name="ADD1">
@@ -230,7 +230,7 @@
                                         <field name="NUM">1</field>
                                       </shadow>
                                       <block type="variables_get" id="J#KVX?FO[kQ0d3)#BOqu">
-                                        <field name="VAR" id="I*b*0O.`b99|e1]#u*tB">member_unix</field>
+                                        <field name="VAR" id="I*b*0O.\`b99|e1]#u*tB">member_unix</field>
                                       </block>
                                     </value>
                                     <value name="B">
@@ -245,7 +245,7 @@
                                 </value>
                                 <value name="ADD2">
                                   <block type="text" id=";3wRe.^#-W6)Igyll:1p">
-                                    <field name="TEXT">` more seconds</field>
+                                    <field name="TEXT">\` more seconds</field>
                                   </block>
                                 </value>
                               </block>
@@ -263,4 +263,4 @@
       </block>
     </statement>
   </block>
-</xml>
+</xml>`;

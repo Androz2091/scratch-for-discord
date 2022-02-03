@@ -1,13 +1,14 @@
 import Blockly from "blockly/core";
 
-const blockName = "s4d_get_all_data2";
+const blockName = "frost_message_category";
 
 const blockData = {
-    "message0": "Get all data from dootabase",
+    "message0": "Message Channel Category",
     "args0": [
     ],
-    "output": [ "String", "Number" ],
-    "colour": "#5ba58b",
+    "output": "Category",
+    "colour": "#D14081",
+    "tooltip": "",
     "helpUrl": ""
 };
 
@@ -18,5 +19,5 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    return [ 'dootabase.all()', Blockly.JavaScript.ORDER_ATOMIC ];
+    return [`s4dmessage.channel.parent`, Blockly.JavaScript.ORDER_NONE ];
 };

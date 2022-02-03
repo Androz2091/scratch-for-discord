@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "crosspost";
 
 const blockData = {
-    "message0": "Crosspost recived message (only works on anouncment channels)",
+    "message0": "Crosspost recived message (only anouncment channels)",
     "args0": [
     ],
     "colour": "#D14081",
