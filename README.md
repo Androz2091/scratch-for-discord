@@ -52,3 +52,5 @@ The discord.js guide has [instructions for setting up a bot application](https:/
 * Discord.js ([discordjs/discord.js](https://github.com/discordjs/discord.js))
 * Blockly ([google/blockly](https://github.com/google/blockly))
 * And, of course, Discordblocks ([7coil/discordblocks](https://github.com/7coil/discord-blocks))
+* The original S4D ([Androz2091/Scratch-For-Discord](https://github.com/Androz2091/scratch-for-discord/))
+* Pull request 454 (S4D) ([mrredo-and-josetrindade1/Scratch-For-Discord](https://github.com/mrredo-and-josetrindade1/scratch-for-discord))
