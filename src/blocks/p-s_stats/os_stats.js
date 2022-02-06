@@ -31,6 +31,10 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const info = block.getFieldValue("INFO");
+    if (info == "sysUptime") {
+        const code = [`secondsToDhms(os.sysUptime()).toString()`, Blockly.JavaScript.ORDER_NONE];   
+    } else {
     const code = [`os.${info}()`, Blockly.JavaScript.ORDER_NONE];
+    }
     return code;
 };
