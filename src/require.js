@@ -135,6 +135,17 @@ if(js.includes("s4d.client.discordTogether")){
  if(js.includes("SnakeGame")){
     array.push(`const SnakeGame = require('snakecord')`)
 }
+ if(js.includes("os.sysUptime()")){
+    code.push(`function secondsToDhms(seconds) {
+var days = Math.floor(seconds / (3600*24));
+seconds  -= days*3600*24;
+var hrs   = Math.floor(seconds / 3600);
+seconds  -= hrs*3600;
+var mnts = Math.floor(seconds / 60);
+seconds  -= mnts*60;
+return Math.floor(days)+" days, "+Math.floor(hrs)+" Hrs, "+Math.floor(mnts)+" Minutes, "+Math.floor(seconds)+" Seconds"
+}`)
+}    
 if(js.includes("Cooldown")){
     code.push(`let Cooldown = ""
     if(s4d.database.has('cooldown')){
