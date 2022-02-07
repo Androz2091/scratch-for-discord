@@ -1703,6 +1703,76 @@ export default (Blockly, value) => {
                 </value>
             </block>
         </category>
+	        <category name="Dootabase" colour="#FF0000">
+            <label text="%{BKY_LABEL_READ_DB}"></label>
+<block type="s4d_set_db2">
+<value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">database</field>
+                    </shadow>
+                </value>
+                </block>
+            <block type="s4d_get_data2">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_has_data2">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_get_all_data2"/>
+            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
+            <block type="s4d_set_data2">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_delete_data2">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_add_data2">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_subtract_data2">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_delete_all_data2"/>
+        </category>
 
         
     </xml>
