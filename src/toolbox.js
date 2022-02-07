@@ -439,24 +439,16 @@ export default (Blockly, value) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
         </category>
-        <sep class="bt"/>
-
-          <category name="henpokpok" colour="#64C9FF">
-          <category name="Timeout" colour="#FF6464">
-          <block type="mute_ahq"/>
-          </category>
-        <category name="Reactions" colour="#FF6464">
-        <label text="Reations event (under construction)" web-class="boldtext"></label>
-        <block type="reaction_added"/>
-        <block type="reaction_removed"/>
-        <label text="React info" web-class="boldtext"></label>
-        <block type="react_member"/>
-        <block type="react_emoji"/>
-        <block type="react_messageId"/>
-        </category>
-        </category>
        
-        <category name="ahq" colour="#ff0000">
+	  
+                <sep class="bt"/>
+                    <category name="Favorites" colour="#FFFF00" css-icon="customIcon fa fa-star">
+                        ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}
+                    </category>
+				<sep class="bt"/>
+				
+			<category name="member's blocks">
+				<category name="ahq" colour="#ff0000">
         <block type="server_file"/>
         <block type="s4d_history"/>
         <block type="snd_ahq"/>
@@ -523,6 +515,21 @@ export default (Blockly, value) => {
         </category>
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>
+        </category>
+        </category>
+
+        <category name="henpokpok" colour="#64C9FF">
+          <category name="Timeout" colour="#FF6464">
+          <block type="mute_ahq"/>
+          </category>
+        <category name="Reactions" colour="#FF6464">
+        <label text="Reations event (under construction)" web-class="boldtext"></label>
+        <block type="reaction_added"/>
+        <block type="reaction_removed"/>
+        <label text="React info" web-class="boldtext"></label>
+        <block type="react_member"/>
+        <block type="react_emoji"/>
+        <block type="react_messageId"/>
         </category>
         </category>
 	
@@ -633,10 +640,12 @@ export default (Blockly, value) => {
 </block>
 </category>
 
-<category name="Category" colour="#2f64fa" hidden="true">
+<category name="Category" colour="#2f64fa" hidden="false">
 <block type="frost_message_category"/>
 <block type="frost_category_get"/>
 <block type="frost_category_id"/>
+<block type="create_category_then"/>
+<block type="frost_created_cat"/>
 </category>
 
 <category name="Embed" colour="#40bf4a">
@@ -786,15 +795,7 @@ export default (Blockly, value) => {
             <block type="jg_file_contents"/>
             </category>
           </category>
-	  
-                <sep class="bt"/>
-                    <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
-                        ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}
-                    </category>
-				<sep class="bt"/>
-				
-				
-				
+          
 				<category name="{{ JOSE }}" colour="#00664d">
 <category name = "embeds pagination" colour="#00664d">
                     <block type="pagination_embed"/>
@@ -1378,6 +1379,7 @@ export default (Blockly, value) => {
             </value>
         </block>
 </category>
+</category>
 		</category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
@@ -1639,8 +1641,6 @@ export default (Blockly, value) => {
             <block type="s4d_send_wait_reply_dm_value"></block>
         </category>
         <sep class="bt"/>
-        <sep class="bt"/>
-				<sep class="bt"/>
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>
             <block type="s4d_get_data">
@@ -1704,77 +1704,7 @@ export default (Blockly, value) => {
             </block>
         </category>
 
-        <category name="Dootabase" colour="#FF0000">
-            <label text="%{BKY_LABEL_READ_DB}"></label>
-<block type="s4d_set_db2">
-<value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">database</field>
-                    </shadow>
-                </value>
-                </block>
-            <block type="s4d_get_data2">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_has_data2">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_get_all_data2"/>
-            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
-            <block type="s4d_set_data2">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="VALUE">
-                    <shadow type="text">
-                        <field name="TEXT">world</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_delete_data2">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_add_data2">
-                <value name="COUNT">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">points</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_subtract_data2">
-                <value name="COUNT">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">points</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_delete_all_data2"/>
-        </category>
-
+        
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
       return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
