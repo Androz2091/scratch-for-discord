@@ -3,47 +3,47 @@ import Blockly from "blockly/core";
 const blockName = "frost_category_id";
 
 const blockData = {
-    "message0": "Category %1 ID",
-    "args0": [
+  "message0": "Get the %1 of category  %2",
+  "args0": [
     {
-        "type": "input_value",
-        "name": "STRING",
-        "check": "Category"
-    },
-      {
-        "type": "field_dropdown",
-        "name": "TYPE",
-        "options": [
-          [
-            "ID",
-            "id"
-          ],
-          [
-            "Name",
-            "name"
-          ],
-          [
-            "Position",
-            "position"
-          ],
-          [
-            "Guild",
-            "guild"
-          ],
-          [
-            "Guild ID",
-            "guild.id"
-          ],
-          [
-            "Created at (date)"
-          ]
+      "type": "field_dropdown",
+      "name": "type",
+      "options": [
+        [
+          "ID",
+          "id"
+        ],
+        [
+          "Name",
+          "name"
+        ],
+        [
+          "Position",
+          "position"
+        ],
+        [
+          "Guild",
+          "guild"
+        ],
+        [
+          "Guild ID",
+          "guild.id"
         ]
-      }
-    ],
-    "output": "Number",
-    "colour": "#D14081",
-    "tooltip": "",
-    "helpUrl": ""
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "CATEGORY",
+      "check": "Category"
+    }
+  ],
+  "output": [
+    "String",
+    "Number"
+  ],
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
 };
 
 Blockly.Blocks[blockName] = {
@@ -53,6 +53,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-    const code = Blockly.JavaScript.valueToCode(block, "STRING", Blockly.JavaScript.ORDER_ATOMIC);
-    return [`${code}.id`, Blockly.JavaScript.ORDER_NONE ];
+    var extention = block.getFieldValue('type');
+  var code = Blockly.JavaScript.valueToCode(block, 'CATEGORY', Blockly.JavaScript.ORDER_ATOMIC);
+ 
+    return [`${code}.${extention}`, Blockly.JavaScript.ORDER_NONE ];
 };
