@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="blocklyDiv" ref="blocklyDiv" id="blocklyDiv"></div>
-        <xml ref="blocklyToolbox" style=" font-family: 'Roboto Slab', serif;">
+        <xml ref="blocklyToolbox" style=" font-family: sans-serif;">
             <slot></slot>
         </xml>
     </div>
@@ -494,7 +494,7 @@ function svgToPng_(data, width, height, callback) {
 .huerotate { filter: hue-rotate(180deg); }
 .rss.opacity { filter: opacity(50%); }
 .blocklyText, .blocklyHtmlInput, .blocklyTreeLabel {
-  font-family: "lato", sans-serif !important;
+  font-family: sans-serif !important;
 }
 
                         .blocklyTreeIcon {
@@ -510,16 +510,16 @@ filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118
 filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
 }
 body{
-    font-family: "lato", sans-serif;
+    font-family: sans-serif;
 }
 .blocklyDiv {
-    font-family: 'lato', serif;
+    font-family: sans-serif;
     height: 100%;
     width: 100%;
     text-align: left;
 }
 .blocklyToolboxCategory{
-    font-family: 'lato', serif;
+    font-family: sans-serif;
 	color: rgb(204, 204, 204)
 }
 </style>
