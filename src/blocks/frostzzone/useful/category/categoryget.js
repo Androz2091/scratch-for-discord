@@ -32,7 +32,7 @@ const blockData = {
     }
   ],
   "colour": "#a55b80",
-  "output": "Category",
+  "output": ["Category", "Channel"],
   "tooltip": "",
   "helpUrl": ""
 };

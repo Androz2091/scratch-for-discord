@@ -5,7 +5,7 @@ const blockName = "frost_created_cat";
 const blockData = {
   "message0": "Created Category/Channel",
   "output": ["Category", "Channel"],
-  "colour": 230,
+  "colour": "#a55b80",
   "tooltip": "",
   "helpUrl": ""
 };

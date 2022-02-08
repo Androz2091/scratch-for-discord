@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "frost_category_id";
 
 const blockData = {
-  "message0": "Get the %1 of category  %2",
+  "message0": "Get the %1 of Category/Channel %2",
   "args0": [
     {
       "type": "field_dropdown",
@@ -41,7 +41,7 @@ const blockData = {
     "String",
     "Number"
   ],
-  "colour": 230,
+  "colour": "#a55b80",
   "tooltip": "",
   "helpUrl": ""
 };

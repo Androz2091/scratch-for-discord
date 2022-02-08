@@ -7,7 +7,7 @@ const blockData = {
     "args0": [
     ],
     "output": "Category",
-    "colour": "#D14081",
+    "colour": "#a55b80",
     "tooltip": "",
     "helpUrl": ""
 };
