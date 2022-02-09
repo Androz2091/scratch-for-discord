@@ -516,6 +516,9 @@ export default (Blockly, value) => {
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>
         </category>
+        <category name="mod" colour="#ff0880">
+        <block type="ahq-mod"/>
+        </category>
         </category>
 
         <category name="henpokpok" colour="#64C9FF">

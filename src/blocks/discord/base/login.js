@@ -26,6 +26,14 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const value = Blockly.JavaScript.valueToCode(block, "TOKEN", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `await s4d.client.login(${value}).catch((e) => { s4d.tokenInvalid = true; s4d.tokenError = e; console.log('Your provided token is invalid. Please check if the Token is right!') });\n`;
+    const code = `await s4d.client.login(${value}).catch((e) => { 
+        s4d.tokenInvalid = true;
+        s4d.tokenError = e;
+        if (e.toString().toLowerCase().includes("token")) {
+            console.log("An invalid token was provided!")
+        } else {
+            console.log("Intents are not turned on!")
+        }
+    });\n`;
     return code;
 };

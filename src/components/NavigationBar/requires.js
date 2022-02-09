@@ -1,5 +1,13 @@
 export default async function require(array,oldarray) {
 oldarray.forEach(js=>{
+    if (js.includes("//ahq mod api")) {
+        array.push(`"discord-anti-spam": "git+https://github.com/ahqsoftwares/discord-anti-spam.git",
+        "discord-antiraid": "^2",
+        "gif-frames": "^1.0.1",`)
+    }
+    if (js.includes("const deepai = require('deepai')")) {
+        array.push(`"deepai": "^1.0.17",`)
+    }
     if (js.includes("const ticket = require('tickets-discord');")) {
         array.push(`"tickets-discord": "^3.0.0",`)
     }
