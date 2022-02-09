@@ -447,7 +447,7 @@ export default (Blockly, value) => {
                     </category>
 				<sep class="bt"/>
 				
-			<category name="member's blocks">
+			<category name="Member's Blocks">
 				<category name="ahq" colour="#ff0000">
         <block type="server_file"/>
         <block type="s4d_history"/>
