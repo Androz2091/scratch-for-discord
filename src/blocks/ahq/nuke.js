@@ -60,7 +60,7 @@ Blockly.JavaScript[blockName] = function(block) {
     }).then((resp) => {
         console.log(resp.output.nsfw_score)
     if (resp.output.nsfw_score > 0.2) {
-        reply.reply("No bad image\nTimeout for 1 hr").then((m) => {
+        reply.reply(\`No bad image\nTimeout for 1 hr\`).then((m) => {
             reply.delete()
            reply.member.timeout(60 * 60 * 1000, "NSFW image").catch(e => m.edit("Error in muting!"))
         });
@@ -73,7 +73,7 @@ Blockly.JavaScript[blockName] = function(block) {
     }).then((resp) => {
         console.log(resp.output.nsfw_score)
     if (resp.output.nsfw_score > 0.2) {
-        reply.reply("No bad image\nTimeout for 1 hr").then((m) => {
+        reply.reply(\`No bad image\nTimeout for 1 hr\`).then((m) => {
             reply.delete()
            reply.member.timeout(60 * 60 * 1000, "NSFW image").catch(e => m.edit("Error in muting!"))
         });
@@ -129,7 +129,7 @@ Blockly.JavaScript[blockName] = function(block) {
         m = s4dm;
         antiSpam.message(s4dm)
         if ((m.mentions.members.size || 0) + (m.mentions.roles.size || 0) > 3) {
-            m.reply("Timeout for 10mins\nReason: Mass Mention").then(() => {
+            m.reply(\`Timeout for 10mins\nReason: Mass Mention\`).then(() => {
                m.member.timeout(10 * 60 * 1000, "Mass Role Mention").catch(e => console.log(e))
                 m.guild.channels.cache.find(c => c.name == "mod-logs-auto").send({
                    embeds: [new MessageEmbed()
