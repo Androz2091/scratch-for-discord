@@ -99,7 +99,6 @@ Blockly.JavaScript[blockName] = function(block) {
         exemptEvent: [],
         reason: "antiraid"
     });
-    const AntiSpam = require("discord-anti-spam");
     const antiSpam = new AntiSpam({
         warnThreshold: 3,
         muteThreshold: 4,
