@@ -6,7 +6,7 @@ oldarray.forEach(js=>{
         "gif-frames": "^1.0.1",`)
     }
     if (js.includes("const deepai = require('deepai')")) {
-        array.push(`"deepai": "^1.0.17",`)
+        array.push(`"deepai": "^1.0.21",`)
     }
     if (js.includes("const ticket = require('tickets-discord');")) {
         array.push(`"tickets-discord": "^3.0.0",`)
