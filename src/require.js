@@ -90,10 +90,6 @@ if(js.includes("DB")){
 if(js.includes("canvas")){
     array.push(`let canvas = require("discord-canvas") `)
 }
-if(js.includes("images")){
-    array.push(`const Images = require("discord-images")`)
-    code.push(`const images = new Images.Client()`)
-}
 if(js.includes("https")){
     array.push(`let https = require("https")`)
 }
