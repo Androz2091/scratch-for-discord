@@ -71,9 +71,6 @@ oldarray.forEach(js=>{
     if(js.includes("discord-inviter-tracker")){
         array.push(`"discord-inviter-tracker":"^1.0.3",`)
     }
-    if(js.includes("discord-images")){
-        array.push(`"discord-images": "^0.1.6",`)
-    }
     if(js.includes("moment")){
         array.push(`"moment": "^2.29.1",`)
     }
