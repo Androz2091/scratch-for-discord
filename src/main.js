@@ -149,7 +149,7 @@ let fs = require('fs');
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                     const s4d = {
                         Discord,
-                        database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/database.json\`),
+                        database: new Database(\`./database.json\`),
 fire:null,
                         joiningMember:null,
                         reply:null,
