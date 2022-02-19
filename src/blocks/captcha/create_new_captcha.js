@@ -20,6 +20,6 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = `let captcha = new Captcha()\n`
+    const code = `let captcha = new Captcha();\n`
     return code;
 };
