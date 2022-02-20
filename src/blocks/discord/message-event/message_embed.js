@@ -119,7 +119,7 @@ Blockly.JavaScript["s4d_message_embed"] = function(block){
         field = `\n.addField(${Blockly.JavaScript.statementToCode(block, "FIELD")})`;
     }
     return [ `
-            embeds: [new MessageEmbed()${title}${color}${image}${description}${footer}${thumbnail}${field}]
+            embeds: [new MessageEmbed()${title}${color}${image}${description}${footer}${thumbnail}${field}
             ],
     `, Blockly.JavaScript.ORDER_ATOMIC ];
 };
