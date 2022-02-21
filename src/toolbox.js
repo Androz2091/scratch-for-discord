@@ -1566,6 +1566,7 @@ export default (Blockly, value) => {
 	    <block type="get_all_channel_channel_name"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
             <block type="s4d_send_channel"></block>
+	    <label text="Channel Info"></label>
 	    <block type="s4d_channel_ahq_name"></block>
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply">
