@@ -11,7 +11,7 @@ const blockData = {
             "check": "Channel"
         }
     ],
-    "colour": "#e07e6c",
+    "colour": "#4C97FF",
     "output": "String",
     "tooltip": "",
     "helpUrl": ""
