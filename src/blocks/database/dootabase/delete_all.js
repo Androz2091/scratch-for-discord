@@ -19,5 +19,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    return [ 'dootabase.clear()', Blockly.JavaScript.ORDER_ATOMIC ];
+   const code ='dootabase.clear()'
+
+
+  return code
 };
