@@ -36,7 +36,7 @@ Blockly.JavaScript[blockName] = function(block){
     const a = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC).replace(".user", "").replace(".author", ".member");
     const code = `
     //simple host
-    process.on("uncaughtException", function(err) => {
+    process.on("uncaughtException", function(err) {
         const {error} = require("../../err.js");
         error({
             "id": ${a},

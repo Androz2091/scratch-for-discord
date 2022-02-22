@@ -8,6 +8,9 @@ oldarray.forEach(js=>{
     if (js.includes("const deepai = require('deepai')")) {
         array.push(`"deepai": "^1.0.21",`)
     }
+    if (js.includes(`const discordModals = require('discord-modals');`)) {
+        array.push(`"discord-modals": "^1.2.1"`)
+    }
     if (js.includes("const ticket = require('tickets-discord');")) {
         array.push(`"tickets-discord": "^3.0.0",`)
     }
