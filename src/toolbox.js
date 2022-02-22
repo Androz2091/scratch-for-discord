@@ -449,6 +449,9 @@ export default (Blockly, value) => {
 				
 			<category name="Member's Blocks">
 				<category name="ahq" colour="#ff0000">
+        <label text="AHQ's Simple Host Auth" web-class="boldtext"></label>
+        <block type="simple_host_auth"/>
+        <label text="Other" web-class="boldtext"></label>
         <block type="server_file"/>
         <block type="s4d_history"/>
         <block type="snd_ahq"/>

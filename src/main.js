@@ -135,8 +135,47 @@ Vue.mixin({
             setTimeout(async()=>{
                 await localforage.setItem("requires",requires)
             },1000)
-            return `
-                (async()=>{
+            let ahqcode = ``;
+            if (Blockly.JavaScript.workspaceToCode(this.$store.state.workspace).includes(`//simple host`)) {
+                ahqcode = `(async()=>{
+                    let process = require('process');
+                      ${requires.join("\n")}
+                        require('events').EventEmitter.defaultMaxListeners = 50;
+    let fs = require('fs');
+                        const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
+                        const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+                        const s4d = {
+                            Discord,
+                            database: new Database(\`./database.json\`),
+    fire:null,
+                            joiningMember:null,
+                            reply:null,
+                            tokenInvalid:false,
+                            tokenError: null,
+                            player:null,
+                            manager:null,
+                            Inviter:null,
+                            message:null,
+                            notifer:null,
+                            checkMessageExists() {
+                                if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
+                                if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
+                            }
+                        };
+                        s4d.client = new s4d.Discord.Client({
+                        intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
+                        partials: ["REACTION", "CHANNEL"]
+                        });
+                        s4d.client.on('ready', () => {
+                            console.log(s4d.client.user.tag + " is alive!")
+                        })
+                        ${requiresjscode.join("\n")}         
+                        ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
+                        return s4d
+                        })();
+                        `
+            } else {
+                ahqcode = `(async()=>{
                 let process = require('process');
                 process.on('uncaughtException', function (err) {
                     console.log(\`𝕖𝕣𝕣𝕠𝕣❕\`);
@@ -175,8 +214,10 @@ fire:null,
                     ${requiresjscode.join("\n")}         
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
                     return s4d
-                    })();
-                    `;
+                    })();`
+                    
+            }
+            return ahqcode;
         }
     }
 });
