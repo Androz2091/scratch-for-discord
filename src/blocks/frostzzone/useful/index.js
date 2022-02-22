@@ -5,6 +5,7 @@ import "./slowmode"
 import "./jsontostring"
 import "./crosspost"
 import "./listcontains"
+import "./get_member"
 
 //folders
 import "./repl/"
@@ -13,6 +14,7 @@ import "./category/"
 import "./time/"
 import "./embed/"
 import "./fs/"
+import "./emoji/"
 
 //may remove later
 import "./translate/"

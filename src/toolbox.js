@@ -447,8 +447,8 @@ export default (Blockly, value) => {
                     </category>
 				<sep class="bt"/>
 				
-			<category name="Member's Blocks">
-				<category name="ahq" colour="#ff0000">
+			<category name="Member's Blocks" expanded="true">
+				<category name="ahq" colour="#ff0000" disabled="true">
         <label text="AHQ's Simple Host Auth" web-class="boldtext"></label>
         <block type="simple_host_auth"/>
         <label text="Other" web-class="boldtext"></label>
@@ -674,6 +674,10 @@ export default (Blockly, value) => {
 <block type="frost_fs_data"/>
 <label text="For if you get an error (is a boolean and string)"></label>
 <block type="frost_fs_err"/>
+</category>
+
+<category name="Emoji" colour="#808080" hidden="true">
+<block type="create_emoji" disabled="true"/>
 </category>
 
 <category name="Other" colour="#5ba58b">
