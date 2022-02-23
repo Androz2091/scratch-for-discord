@@ -1,4 +1,5 @@
 import * as Blockly from "blockly";
+import { registerRestrictions } from "../../../restrictions";
 const blockName = "make_ahq_modal";
 const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
 function listsGetRandomItem(list, remove) {
@@ -10,12 +11,15 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Make A Form with name %1 %2 title %3 %4 id %5 %6 then %7",
+    "message0": "Make A Form with name %1 %2 %3 Title %4 %5 %6 Id %7 %8 %9 Then %10",
     "args0": [
         {
             "type": "input_value",
             "name": "button name",
             "check": "String"
+        },
+        {
+            "type": "input_space"
         },
         {
             "type": "input_dummy"
@@ -26,12 +30,18 @@ const blockData = {
             "check": "String"
         },
         {
+            "type": "input_space"
+        },
+        {
             "type": "input_dummy"
         },
         {
             "type": "input_value",
             "name": "id",
             "check": "String"
+        },
+        {
+            "type": "input_space"
         },
         {
             "type": "input_dummy"
@@ -59,6 +69,18 @@ Blockly.JavaScript[blockName] = function(block) {
     const code = `let ${finaln} = new Modal()
     .setCustomId(${Blockly.JavaScript.valueToCode(block, "id", Blockly.JavaScript.ORDER_NONE)})
     .setTitle(${Blockly.JavaScript.valueToCode(block, "title", Blockly.JavaScript.ORDER_NONE)})
-    .addComponents(${statementsThen})`;
+    .addComponents(\n${statementsThen})`;
     return code;
 };
+registerRestrictions(blockName, [
+    {
+        type: "notempty",
+        message: "RES_MISSING_AHQ_CONTENT",
+        types: [
+          "button name",
+          "id",
+          "title",
+          "STATEMENTS"
+        ]
+    }
+]);

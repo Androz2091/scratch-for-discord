@@ -101,7 +101,7 @@ if(id !== null) code += `.setCustomId(${id})\n`
 if(url !== null) code += `.setURL(${url})\n`
 if(label !== null)code += `.setLabel(${label})\n`
 if(emoji !== null) code += `.setEmoji(${emoji})\n`
-if(style === null) code += ".setStyle('red')"
+if(style === null) code += ".setStyle('SECONDARY')"
 if(style !== null) code += `.setStyle(${style})`
 code +=",\n"
 return code

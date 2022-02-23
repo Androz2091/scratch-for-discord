@@ -462,6 +462,14 @@ export default (Blockly, value) => {
         <label text="Get random member" web-class="boldtext"></label>
         <block type="s4d_get_rndmber"/>
         </category>
+        <category name="forms" colour="#ff1119">
+        <label text="Make Forms" web-class="boldtext"></label>
+        <block type="make_ahq_modal"/>
+        <block type="make_ahq_modal_text"/>
+        <block type="style_ahq_modal"/>
+        <label text="Send Forms" web-class="boldtext"></label>
+        <block type="snd_ahq_modal"/>
+        </category>
         <category name="button" colour="#ff0019">
         <label text="Event" web-class="boldtext"></label>
         <block type="on_real_button"/>
