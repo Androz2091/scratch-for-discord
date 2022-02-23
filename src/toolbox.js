@@ -676,8 +676,15 @@ export default (Blockly, value) => {
 <block type="frost_fs_err"/>
 </category>
 
-<category name="Emoji" colour="#808080" hidden="true">
-<block type="create_emoji" disabled="true"/>
+<category name="Emoji" colour="#808080" hidden="false">
+<label text="This category is 'locked' just to tease you"></label>
+<label text="If you figure out how to cheese it Good job"></label>
+<block type="fz_get_emoji" disabled="true"/>
+<block type="fz_create_emoji" disabled="true"/>
+<block type="fz_emoji_animated" disabled="true"/>
+<block type="fz_emoji_exist" disabled="true"/>
+<block type="fz_get_all_emoji" disabled="true"/>
+<block type="fz_get_all_emoj" disabled="true"/>
 </category>
 
 <category name="Other" colour="#5ba58b">

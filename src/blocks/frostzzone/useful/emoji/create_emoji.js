@@ -1,9 +1,9 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "create_emoji";
+const blockName = "fz_create_emoji";
 
 const blockData = {
-  "message0": "Create emoji %1 with image %2 on server %3Then %4 (optional) %5",
+  "message0": "Create emoji %1 with image %2 on server %3 Then %4 (optional) %5",
   "args0": [
     {
       "type": "input_value",

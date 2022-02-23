@@ -1,10 +1,10 @@
 import * as Blockly from "blockly/core";
-import { registerRestrictions } from "../../../restrictions";
+import { registerRestrictions } from "../../../../restrictions";
 
-const blockName = "s4d_get_member";
+const blockName = "fz_get_emoji";
 
 const blockData = {
-    "message0": "%{BKY_GET_MEMBER}",
+    "message0": "Get emoji with the %2 equal to %1 on server (optional) %3",
     "args0": [
         {
             "type": "input_value",
@@ -16,8 +16,8 @@ const blockData = {
             "name": "SEARCH_TYPE",
             "options": [
                 [
-                    "%{BKY_USERNAME}",
-                    "USERNAME"
+                    "Name",
+                    "NAME"
                 ],
                 [
                     "id",
@@ -32,8 +32,8 @@ const blockData = {
         }
     ],
     "colour": "#187795",
-    "output": "Member",
-    "tooltip": "",
+    "output": "Emoji",
+    "tooltip": "Leave server blank to find emojis in every server the bot is in",
     "helpUrl": ""
 };
 
@@ -46,27 +46,24 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_ATOMIC);
     const searchType = block.getFieldValue("SEARCH_TYPE");
-    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    let server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+  if ((server || null) == null)
+  {
+    server = `(s4d.client)`
+  }
     if(searchType === "USERNAME"){
-        return [ `${server}.members.cache.find((m) => m.user.username === ${value}).user`, Blockly.JavaScript.ORDER_NONE ];
+        return [ `${server}.emojis.cache.find(emoji => emoji.name === ${value})`, Blockly.JavaScript.ORDER_NONE ];
     } else {
-        return [ `(${server}.members.cache.get(${value}) || await ${server}.members.fetch(${value})).user`, Blockly.JavaScript.ORDER_NONE ];
+        return [ `${server}.emojis.cache.find(emoji => emoji.id === ${value})`, Blockly.JavaScript.ORDER_NONE ];
     }
 };
 
 registerRestrictions(blockName, [
     {
         type: "notempty",
-        message: "RES_GET_MEMBER_VALUE",
+        message: "RES_GET_EMOJI_VALUE",
         types: [
             "VALUE"
-        ]
-    },
-    {
-        type: "notempty",
-        message: "RES_GET_MEMBER_SERVER",
-        types: [
-            "SERVER"
         ]
     }
 ]);
