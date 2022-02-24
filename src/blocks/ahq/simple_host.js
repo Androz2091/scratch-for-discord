@@ -42,6 +42,13 @@ Blockly.JavaScript[blockName] = function(block){
             "id": ${a},
             "error": String(err)
         });
-    });`
+    });
+    while (s4d.client && s4d.client.token) {
+    await delay(2000)
+    const {stop} = require("../../power.js");
+        if (await(stop(${a}))) {
+            s4d.client.destroy()
+        }
+    }`
     return code;
 };

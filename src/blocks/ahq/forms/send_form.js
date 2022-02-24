@@ -54,7 +54,7 @@ Blockly.JavaScript[blockName] = function(block) {
     const name = block.getFieldValue("Label");
     const data = Blockly.JavaScript.valueToCode(block, "form", Blockly.JavaScript.ORDER_NONE);
     const ahq = data.replace("'", "").replace("'", "");
-    const code = `showmodal(${ahq}, {
+    const code = `showModal(${ahq}, {
         client: s4d.client,
         interaction: ${name}
     })`;
