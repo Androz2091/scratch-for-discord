@@ -44,11 +44,12 @@ Blockly.JavaScript[blockName] = function(block){
         });
     });
     while (s4d.client && s4d.client.token) {
-    await delay(2000)
+    await delay(2000);
     const {stop} = require("../../power.js");
         if (await(stop(${a}))) {
             s4d.client.destroy()
         }
-    }`
+    }
+    console.log("a")`
     return code;
 };
