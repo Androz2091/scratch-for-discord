@@ -27,7 +27,8 @@ registerRestrictions(blockName, [
         type: "toplevelparent",
         message: "RES_MUST_BE_IN_ON_ADDED",
         types: [
-            "s4d_on_added"
+            "s4d_on_added",
+            "s4d_on_remove"
         ]
     }
 ]);
