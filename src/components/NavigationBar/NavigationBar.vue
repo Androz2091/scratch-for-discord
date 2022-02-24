@@ -2,7 +2,7 @@
     <b-navbar toggleable="lg" type="dark" style="background-color:#161719;user-select:none;" id="navbar nav-main">
         <b-navbar-brand>
             <img src="scratch.png" width="40" draggable="false">
-            Better Scratch For Discord
+            Scratch For Discord
         </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -22,12 +22,8 @@
                 <Credit></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
-                <RunModal></RunModal>
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
                 <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
-                </b-button>
-                <b-button id="v-step-1" :disabled="!configurationValidated" style="border-right-color: #161719; border-radius: 0em;" v-b-modal.run-modal>
-                    <b-icon-play></b-icon-play>
                 </b-button>
                 <b-button id="v-step-2" :disabled="!configurationValidated" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
                     <b-icon-download></b-icon-download>
@@ -51,8 +47,8 @@ import ToolboxModal from "./ToolboxModal.vue";
 import Socials from "./socials.vue";
 import Credit from "./Credit";
 import localforage from 'localforage';
-import RunModal from "./RunModel.vue";
-import r from "./requires"
+import r from "./requires";
+import swal from "sweetalert2";
 export default {
     name: "navbar",
     components: {
@@ -65,8 +61,7 @@ export default {
         preBuilds,
         ToolboxModal,
         Credit,
-        Socials,
-        RunModal
+        Socials
     },
     computed: {
         configurationValidated: function () {
@@ -105,6 +100,10 @@ export default {
                     const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, " ")}.zip`;
                     zip.file("blocks.xml", xmlContent);
                     const javascriptContent = this.getWorkspaceCode();
+                    if (javascriptContent.includes("queue.join") && javascriptContent.includes("queue.connect")) {
+                        swal.fire("Sorry But Retro and Jose Music Cant work together")
+                        return;
+                    }
                     if (String(javascriptContent).includes("let serverjs = ")) {
                         zip.file("server.js", `
 const express = require('express');
@@ -124,20 +123,6 @@ entering BIOS please wait....\`)
 await delay(500)
 console.clear()
 await delay(500)
-console.log(\`
-                ░██████╗░░██╗██╗██████╗░
-                ██╔════╝░██╔╝██║██╔══██╗
-                ╚█████╗░██╔╝░██║██║░░██║
-                ░╚═══██╗███████║██║░░██║
-                ██████╔╝╚════██║██████╔╝
-                ╚═════╝░░░░░░╚═╝╚═════╝░
-
-                ░░██╗██╗░█████╗░░█████╗░
-                ░██╔╝██║██╔═══╝░██╔══██╗
-                ██╔╝░██║██████╗░╚██████║
-                ███████║██╔══██╗░╚═══██║
-                ╚════██║╚█████╔╝░█████╔╝
-                ░░░░░╚═╝░╚════╝░░╚════╝░\`)
 console.log(\`
 ██████╗░░█████╗░░█████╗░████████╗██╗███╗░░██╗░██████╗░░░░░░░░░░
 ██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██║████╗░██║██╔════╝░░░░░░░░░░
@@ -160,20 +145,6 @@ await delay(350)
 console.clear()
 await delay(500)
 console.log(\`
-                ░██████╗░░██╗██╗██████╗░
-                ██╔════╝░██╔╝██║██╔══██╗
-                ╚█████╗░██╔╝░██║██║░░██║
-                ░╚═══██╗███████║██║░░██║
-                ██████╔╝╚════██║██████╔╝
-                ╚═════╝░░░░░░╚═╝╚═════╝░
-
-                ░░██╗██╗░█████╗░░█████╗░
-                ░██╔╝██║██╔═══╝░██╔══██╗
-                ██╔╝░██║██████╗░╚██████║
-                ███████║██╔══██╗░╚═══██║
-                ╚════██║╚█████╔╝░█████╔╝
-                ░░░░░╚═╝░╚════╝░░╚════╝░\`)
-console.log(\`
 ██████╗░░█████╗░░█████╗░████████╗██╗███╗░░██╗░██████╗░░░░░░░░░░
 ██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██║████╗░██║██╔════╝░░░░░░░░░░
 ██████╦╝██║░░██║██║░░██║░░░██║░░░██║██╔██╗██║██║░░██╗░░░░░░░░░░
@@ -187,23 +158,21 @@ require("./bot")
 load()`);
                     }
                     zip.file("bot.js", javascriptContent);
-                    zip.file(".replit", 'run = "npm start"');
+                    zip.file(".replit", 'run = "npm start"\nentrypoint = "bot.js"');
                   zip.file("database.json", "{}");
                     zip.file("package.json", `{\n
                         "name": "scratch-for-discord-bot",\n
                         "version": "1.0.0",\n
                         "main": "boot.js",\n
                         "scripts": {\n
-                            "start": "node .",\n
+                            "start": "npm i && node .",\n
                             "node-update": "npm i --save-dev node@17 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",\n
                             "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i"\n
                         },\n
                         "dependencies": {\n
                              "djs-games": "^2.1.10",\n
                             "lyrics-finder": "^21.7.0",\n
-                            "discord.js": "latest",\n
                             "os-utils": "0.0.14",\n
-                            "easy-json-database": "^1.5.0",\n
                             "moment": "latest",\n
                             ${requires.join("\n")}\n
                             

@@ -30,7 +30,11 @@ export const disableUnapplicable = (workspace) => {
   
         for (let restriction of restrictions[block.type]) {
             if (!validateConfiguration(block, restriction)) continue;
-    
+            if (!(Blockly.Msg[restriction.message])) {
+                if (restriction.message == "RES_MISSING_AHQ_CONTENT") {
+                    Blockly.Msg[restriction.message] = "All the blocks should be filled!"
+                }
+            }
             if (!validateRestriction(block, blocks, restriction)) {
                 if (restriction.message){
                     if(Blockly.Msg[restriction.message]){

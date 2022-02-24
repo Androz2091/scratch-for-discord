@@ -1,10 +1,18 @@
+//not impotant enough
 import "./poll"
-import "./getcurrent"
-import "./repl/"
-import "./real_reply/"
-import "./embed"
 import "./channeltypes"
 import "./slowmode"
-import "./fs"
-import "./translate"
 import "./jsontostring"
+import "./crosspost"
+import "./listcontains"
+
+//folders
+import "./repl/"
+import "./real_reply/"
+import "./category/"
+import "./time/"
+import "./embed/"
+import "./fs/"
+
+//may remove later
+import "./translate/"

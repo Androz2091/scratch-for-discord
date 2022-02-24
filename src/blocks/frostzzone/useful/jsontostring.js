@@ -8,12 +8,12 @@ const blockData = {
     {
         "type": "input_value",
         "name": "STRING",
-        "check": [ "Number", "String" ]
+        "check": "JSON"
     }
     ],
     "output": "Number",
     "colour": "#D14081",
-    "tooltip": "",
+    "tooltip": "Converts JSON to a string",
     "helpUrl": ""
 };
 

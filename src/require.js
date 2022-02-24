@@ -4,6 +4,11 @@ if(js.includes(".chat")) {
     const client = new smartestchatbot.Client();
     `)
 }
+if (js.includes("new Modal()")) {
+    array.push(`const discordModals = require('discord-modals');
+    discordModals(s4d.client);
+    const { Modal, TextInputComponent, showModal } = require('discord-modals');`)
+}
 if(js.includes("tempChannels.registerChannel")) {
     array.push(`const TempChannels = require("discord-temp-channels");`)
     array.push(`const db = require("quick.db")`)
@@ -34,7 +39,7 @@ if(js.includes("moment")){
 }
 if(js.includes("queue.join")) { 
     array.push(`let { Player, RepeatMode } = require("discord-music-player");`)
-    code.push(`const player = new Player(s4d.client, { leaveOnEmpty: false, deafenOnJoin: true, });`)
+    code.push(`let player = new Player(s4d.client, { leaveOnEmpty: false, deafenOnJoin: true, });`)
     code.push(`s4d.client.player = player;`)
 }
 if(js.includes("backup")){
@@ -90,10 +95,6 @@ if(js.includes("DB")){
 if(js.includes("canvas")){
     array.push(`let canvas = require("discord-canvas") `)
 }
-if(js.includes("images")){
-    array.push(`const Images = require("discord-images")`)
-    code.push(`const images = new Images.Client()`)
-}
 if(js.includes("https")){
     array.push(`let https = require("https")`)
 }
@@ -135,6 +136,18 @@ if(js.includes("s4d.client.discordTogether")){
  if(js.includes("SnakeGame")){
     array.push(`const SnakeGame = require('snakecord')`)
 }
+ if(js.includes("os.sysUptime()")){
+    code.push(`function dhm(ms) {
+  const days = Math.floor(ms / (24*60*60*1000));
+  const daysms = ms % (24*60*60*1000);
+  const hours = Math.floor(daysms / (60*60*1000));
+  const hoursms = ms % (60*60*1000);
+  const minutes = Math.floor(hoursms / (60*1000));
+  const minutesms = ms % (60*1000);
+  const sec = Math.floor(minutesms / 1000);
+  return days+" days, "+hours+" Hrs, "+minutes+" Minutes, "+sec+" Seconds"
+}`)
+}    
 if(js.includes("Cooldown")){
     code.push(`let Cooldown = ""
     if(s4d.database.has('cooldown')){

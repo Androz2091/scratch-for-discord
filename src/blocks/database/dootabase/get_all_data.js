@@ -6,8 +6,9 @@ const blockData = {
     "message0": "Get all data from dootabase",
     "args0": [
     ],
-    "output": [ "String", "Number" ],
+    "output": "JSON",
     "colour": "#5ba58b",
+    "tooltip": "Gets all data from dootabase\nOutputs a JSON map",
     "helpUrl": ""
 };
 
@@ -18,5 +19,5 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    return [ 'JSON.stringify(dootabase.all())', Blockly.JavaScript.ORDER_ATOMIC ];
+    return [ 'dootabase.all()', Blockly.JavaScript.ORDER_ATOMIC ];
 };

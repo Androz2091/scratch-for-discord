@@ -1,5 +1,19 @@
 export default async function require(array,oldarray) {
 oldarray.forEach(js=>{
+    if (js.includes("//ahq mod api")) {
+        array.push(`"discord-anti-spam": "git+https://github.com/ahqsoftwares/discord-anti-spam.git",
+        "discord-antiraid": "^2",
+        "gif-frames": "^1.0.1",`)
+    }
+    if (js.includes("const deepai = require('deepai')")) {
+        array.push(`"deepai": "^1.0.21",`)
+    }
+    if (js.includes(`const discordModals = require('discord-modals');`)) {
+        array.push(`"discord-modals": "^1.2.1"`)
+    }
+    if (js.includes("const ticket = require('tickets-discord');")) {
+        array.push(`"tickets-discord": "^3.0.0",`)
+    }
     if (js.includes(".chat")) {
         array.push(`"smartestchatbot": "^2.0.1",`)
     }
@@ -59,9 +73,6 @@ oldarray.forEach(js=>{
     }
     if(js.includes("discord-inviter-tracker")){
         array.push(`"discord-inviter-tracker":"^1.0.3",`)
-    }
-    if(js.includes("discord-images")){
-        array.push(`"discord-images": "^0.1.6",`)
     }
     if(js.includes("moment")){
         array.push(`"moment": "^2.29.1",`)

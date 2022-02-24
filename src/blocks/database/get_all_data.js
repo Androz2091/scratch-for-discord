@@ -6,8 +6,9 @@ const blockData = {
     "message0": "Get all data from database",
     "args0": [
     ],
-    "output": [ "String", "Number" ],
+    "output": "JSON",
     "colour": "#5ba58b",
+    "tooltip": "Gets all data from database\nOutputs a JSON map",
     "helpUrl": ""
 };
 
@@ -18,5 +19,5 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    return [ 'JSON.stringify(s4d.database.all())', Blockly.JavaScript.ORDER_ATOMIC ];
+    return [ 's4d.database.all()', Blockly.JavaScript.ORDER_ATOMIC ];
 };

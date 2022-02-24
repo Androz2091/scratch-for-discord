@@ -1,8 +1,9 @@
 export default (Blockly, value) => {
   return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-    <category name="Logic" colour="#000099">
-            <label text="Logic Functions" web-class="boldtext"/>
+        
+	
+	<category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
             <block type="controls_if" />
             <block type="logic_compare">
                 <field name="OP">EQ</field>
@@ -16,6 +17,7 @@ export default (Blockly, value) => {
             </block>
             <block type="logic_null" />
             <block type="logic_ternary" />
+        </category>
         <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
             <block type="s4d_forever">
             </block>
@@ -53,46 +55,6 @@ export default (Blockly, value) => {
             <block type="controls_flow_statements">
                 <field name="FLOW">BREAK</field>
             </block>
-        </category>
-        </category>
-        <category name="Basic" colour="#009900">
-        <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
-        <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
-            <block type="s4d_login">
-                <value name="TOKEN">
-                    <shadow type="text">
-                        <field name="TEXT">Your bot token</field>
-                    </shadow>
-                </value>
-            </block>
-	    <label text="Repl"></label>
-	    <block type="frost_webserver">
-<value name="URL">
-                    <shadow type="text">
-                        <field name="TEXT">This site was created to keep bot on 25/8</field>
-                    </shadow>
-                </value>
-</block>
-	    <block type="frost_env">
-<value name="VALUE">
-                    <shadow type="text">
-                        <field name="TEXT">env-name</field>
-                    </shadow>
-                </value>
-            </block>
-            <label text="%{BKY_BASE_BLOCKS}"></label>
-            <block type="s4d_on_connected"></block>
-            <label text="%{BKY_BOT_INFORMATIONS}"></label>
-            <block type="s4d_bot_ping"></block>
-            <block type="s4d_bot_server_count"></block>
-            <block type="s4d_get_bot"></block>
-						<block type="s4d_bot_amount"/>
-            <label text="%{BKY_BOT_ACTIONS}"></label>
-            <block type="s4d_set_bot_game"></block>
-            <block type="s4d_set_bot_stream"></block>
-            <block type="s4d_bot_shutdown"></block>
-<label text="{@user} = user ping . {user_tag} = user tag" web-class="boldtext"></label>
-            <block type="start_antispam"/>
         </category>
         <category name="{{ TOOLBOX_MATH }}" colour="#5b67a5">
             <block type="math_number">
@@ -352,6 +314,7 @@ export default (Blockly, value) => {
             </block>
             <block type="lists_length" />
             <block type="lists_isEmpty" />
+            <block type="list_contains"/>
             <block type="lists_sort"/>
 						<block type="lists_reverse"/>
             <block type="lists_indexOf">
@@ -453,12 +416,11 @@ export default (Blockly, value) => {
                 </value>
             </block>
         </category>
-        </category>
-        <category name="Misc" colour="#663366">
+        <sep class="bt" />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
 	
-        <category name="{{ TOOLBOX_OTHER }}" colour="#D14081">
+        <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
         
             <block type="anti_link"/>
 	  
@@ -477,27 +439,19 @@ export default (Blockly, value) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
         </category>
-        <category name="favorite" colour="#FFFF00" css-icon="customIcon fa fa-star">
-                        ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}
-        </category>
-        </category>
-        <sep class="bt"/>
-          <category name="henpokpok" colour="#64C9FF">
-          <category name="Timeout" colour="#FF6464">
-          <block type="mute_ahq"/>
-          </category>
-        <category name="Reactions" colour="#FF6464">
-        <label text="Reations event (under construction)" web-class="boldtext"></label>
-        <block type="reaction_added"/>
-        <block type="reaction_removed"/>
-        <label text="React info" web-class="boldtext"></label>
-        <block type="react_member"/>
-        <block type="react_emoji"/>
-        <block type="react_messageId"/>
-        </category>
-        </category>
        
-        <category name="ahq" colour="#ff0000">
+	  
+                <sep class="bt"/>
+                    <category name="Favorites" colour="#FFFF00" css-icon="customIcon fa fa-star">
+                        ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}
+                    </category>
+				<sep class="bt"/>
+				
+			<category name="Member's Blocks">
+				<category name="ahq" colour="#ff0000">
+        <label text="AHQ's Simple Host Auth" web-class="boldtext"></label>
+        <block type="simple_host_auth"/>
+        <label text="Other" web-class="boldtext"></label>
         <block type="server_file"/>
         <block type="s4d_history"/>
         <block type="snd_ahq"/>
@@ -507,6 +461,21 @@ export default (Blockly, value) => {
         <block type="s4d_get_rndm"/>
         <label text="Get random member" web-class="boldtext"></label>
         <block type="s4d_get_rndmber"/>
+        </category>
+        <category name="forms" colour="#ff1119">
+        <block type="on_real_form"/>
+        <label text="Form Info" web-class="boldtext"></label>
+        <block type="id_form_ahq"/>
+        <block type="id_textbox_ahq"/>
+        <block type="clkr_form_ahq"/>
+        <block type="channel_form_ahq"/>
+        <block type="server_form_ahq"/>
+        <label text="Make Forms" web-class="boldtext"></label>
+        <block type="make_ahq_modal"/>
+        <block type="make_ahq_modal_text"/>
+        <block type="style_ahq_modal"/>
+        <label text="Send Forms" web-class="boldtext"></label>
+        <block type="snd_ahq_modal"/>
         </category>
         <category name="button" colour="#ff0019">
         <label text="Event" web-class="boldtext"></label>
@@ -564,6 +533,24 @@ export default (Blockly, value) => {
         </category>
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>
+        </category>
+        <category name="mod" colour="#ff0880">
+        <block type="ahq-mod"/>
+        </category>
+        </category>
+
+        <category name="henpokpok" colour="#64C9FF">
+          <category name="Timeout" colour="#FF6464">
+          <block type="mute_ahq"/>
+          </category>
+        <category name="Reactions" colour="#FF6464">
+        <label text="Reations event (under construction)" web-class="boldtext"></label>
+        <block type="reaction_added"/>
+        <block type="reaction_removed"/>
+        <label text="React info" web-class="boldtext"></label>
+        <block type="react_member"/>
+        <block type="react_emoji"/>
+        <block type="react_messageId"/>
         </category>
         </category>
 	
@@ -632,12 +619,9 @@ export default (Blockly, value) => {
 <block type="scratch_about_user"/>
 </category>
 
-<!--<category name="Useless" colour="#2a46fa"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>-->
+<category name="Useless" colour="#2a46fa" hidden="true"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>
 
 <category name="Messages" colour="#2a46fa">
-<block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
-    
-<block type="frost_slowmode"><value name="CHANNEL"><shadow type="s4d_message_channel"></shadow></value><value name="TIME"><shadow type="math_number"><field name="NUM">5</field></shadow></value><value name="REASON"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value></block>
 
 <block type="frost_real_reply">
 <value name="CONTENT">
@@ -674,6 +658,19 @@ export default (Blockly, value) => {
 </block>
 </category>
 
+<category name="Category/Channel" colour="#2f64fa" hidden="false">
+
+<block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
+<block type="crosspost"/>
+<block type="frost_slowmode"><value name="CHANNEL"><shadow type="s4d_message_channel"></shadow></value><value name="TIME"><shadow type="math_number"><field name="NUM">5</field></shadow></value><value name="REASON"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value></block>
+
+<block type="frost_message_category"/>
+<block type="frost_category_get"/>
+<block type="frost_category_id"/>
+<block type="create_category_then"/>
+<block type="frost_created_cat"/>
+</category>
+
 <category name="Embed" colour="#40bf4a">
 <label text="For Androz Embed"></label>
 <block type="frost_create_field"/>
@@ -700,9 +697,9 @@ export default (Blockly, value) => {
 <block type="frost_json_to_string"/>
 </category>
 
-<!--<category name="Translate">
+<category name="Translate" hidden="true">
 <block name="frost_translate"/>
-</category>-->
+</category>
 </category>
 
 <category name="Retro and XL83" colour="#AAE941">
@@ -821,9 +818,7 @@ export default (Blockly, value) => {
             <block type="jg_file_contents"/>
             </category>
           </category>
-				
-				
-				
+          
 				<category name="{{ JOSE }}" colour="#00664d">
 <category name = "embeds pagination" colour="#00664d">
                     <block type="pagination_embed"/>
@@ -1407,8 +1402,47 @@ export default (Blockly, value) => {
             </value>
         </block>
 </category>
+</category>
 		</category>
         <sep class="bt"/>
+        <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
+        <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
+            <block type="s4d_login">
+                <value name="TOKEN">
+                    <shadow type="text">
+                        <field name="TEXT">Your bot token</field>
+                    </shadow>
+                </value>
+            </block>
+	    <label text="Repl"></label>
+	    <block type="frost_webserver">
+<value name="URL">
+                    <shadow type="text">
+                        <field name="TEXT">This site was created to keep bot on 25/8</field>
+                    </shadow>
+                </value>
+</block>
+	    <block type="frost_env">
+<value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">env-name</field>
+                    </shadow>
+                </value>
+            </block>
+            <label text="%{BKY_BASE_BLOCKS}"></label>
+            <block type="s4d_on_connected"></block>
+            <label text="%{BKY_BOT_INFORMATIONS}"></label>
+            <block type="s4d_bot_ping"></block>
+            <block type="s4d_bot_server_count"></block>
+            <block type="s4d_get_bot"></block>
+						<block type="s4d_bot_amount"/>
+            <label text="%{BKY_BOT_ACTIONS}"></label>
+            <block type="s4d_set_bot_game"></block>
+            <block type="s4d_set_bot_stream"></block>
+            <block type="s4d_bot_shutdown"></block>
+<label text="{@user} = user ping . {user_tag} = user tag" web-class="boldtext"></label>
+            <block type="start_antispam"/>
+        </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
 						<label text="%{BKY_FIND_MESSAGE}"></label>
@@ -1547,8 +1581,11 @@ export default (Blockly, value) => {
             <block type="s4d_get_channel"></block>
             <block type="s4d_get_all_channel"></block>
             <block type="s4d_get_all_channel_channel"></block>
+	    <block type="get_all_channel_channel_name"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
             <block type="s4d_send_channel"></block>
+	    <label text="Channel Info"></label>
+	    <block type="s4d_channel_ahq_name"></block>
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply">
                 <value name="CONTENT">
@@ -1592,8 +1629,8 @@ export default (Blockly, value) => {
             <block type="s4d_get_all_role_role"></block>
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
 						<block type="s4d_role_possition"/>
-            <block type="s4d_add_role"></block>
-            <block type="s4d_remove_role"></block>
+            <block type="s4d_add_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
+            <block type="s4d_remove_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
             <block type="s4d_delete_role"></block>
             <block type="s4d_has_role"></block>
 						<block type="s4d_role_exist"/>
@@ -1630,9 +1667,6 @@ export default (Blockly, value) => {
             <block type="s4d_send_wait_reply_dm_value"></block>
         </category>
         <sep class="bt"/>
-        <sep class="bt"/>
-		<sep class="bt"/>
-        <category name="DB" colour="">
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>
             <block type="s4d_get_data">
@@ -1695,8 +1729,7 @@ export default (Blockly, value) => {
                 </value>
             </block>
         </category>
-
-        <category name="Dootabase" colour="#FF0000">
+	        <category name="Dootabase" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>
 <block type="s4d_set_db2">
 <value name="KEY">
@@ -1766,8 +1799,8 @@ export default (Blockly, value) => {
             </block>
             <block type="s4d_delete_all_data2"/>
         </category>
-        </category>
 
+        
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
       return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];

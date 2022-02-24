@@ -95,6 +95,7 @@ export const websiteMessages = {
 	backup:"Backup",
       reddit:"Reddit",
       ticket:"Ticket",
+      cooldown: "Cooldown",
     },
     download: {
         title: "Download your bot?",

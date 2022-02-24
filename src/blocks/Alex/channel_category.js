@@ -16,7 +16,7 @@ const blockData = {
     {
       "type": "input_value",
       "name": "id",
-      "check": "String"
+      "check": [ "String", "Category" ]
     },
     {
       "type": "input_space"

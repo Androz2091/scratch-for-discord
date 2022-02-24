@@ -34,7 +34,7 @@ Blockly.JavaScript[blockName] = function(block) {
     const server = Blockly.JavaScript.valueToCode(block, "GUILD", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `const queue = s4d.player.createQueue(${server}, {metadata: {channel: ${channel}}, async onBeforeCreateStream(track, source, _queue) {
         if (source === "youtube") {
-            return (await playdl.stream(track.url)).stream;
+            return (await playdl.stream(track.url, { discordPlayerCompatibility : true })).stream;
         }
     }
 });\n`;

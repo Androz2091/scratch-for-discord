@@ -23,6 +23,6 @@ Blockly.Blocks[blockName] = {
 };
 Blockly.JavaScript[blockName] = function(block) {
     const statementsThen = Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_NONE);
-    const code = `s4d.client.on('interactionCreate', async (i) => {\nlet member = i.guild.members.cache.get(i.member.user.id)\nif (!(i.isButton())) return;\n${statementsThen}\n});\n`;
+    const code = `s4d.client.on('interactionCreate', async (i) => {\nlet member = i.guild.members.cache.get(i.member.user.id)\nlet interaction = i; if (!(i.isButton())) return;\n${statementsThen}\n});\n`;
     return code;
 };
