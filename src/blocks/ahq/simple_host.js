@@ -36,14 +36,18 @@ Blockly.JavaScript[blockName] = function(block){
     const a = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC).replace(".user", "").replace(".author", ".member");
     const code = `
     //simple host
+    const {error} = require("../../err.js");
     process.on("uncaughtException", function(err) {
-        const {error} = require("../../err.js");
         error({
             "id": ${a},
             "error": String(err)
         });
     });
     s4d.client.on("ready", async() => {
+    error({
+    "id": ${a},
+    "error": String("Alert: Bot turned on!")
+    });
     while (s4d.client && s4d.client.token) {
         await delay(2000)
         const {
