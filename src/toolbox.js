@@ -466,6 +466,7 @@ export default (Blockly, value) => {
         <block type="on_real_form"/>
         <block type="ahq_ahq_modal"/>
         <block type="ahq_ahq_ahq_modal"/>
+        <block type="ahqq_ahq_modal"/>
         <label text="Form Info" web-class="boldtext"></label>
         <block type="id_form_ahq"/>
         <block type="id_textbox_ahq"/>

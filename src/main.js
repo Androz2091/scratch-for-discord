@@ -131,7 +131,7 @@ Vue.mixin({
             `let dootabase = new Database("./database.json")`
             ]
             let requiresjscode = [`logs(s4d.client);`]
-            r(requires,requiresjscode,Blockly.JavaScript.workspaceToCode(this.$store.state.workspace))
+            r(requires,requiresjscode,Blockly.JavaScript.workspaceToCode(this.$store.state.workspace), requiresjscode)
             setTimeout(async()=>{
                 await localforage.setItem("requires",requires)
             },1000)

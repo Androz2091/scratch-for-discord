@@ -30,9 +30,9 @@ Blockly.JavaScript[blockName] = function(block) {
         s4d.tokenInvalid = true;
         s4d.tokenError = e;
         if (e.toString().toLowerCase().includes("token")) {
-            console.log("An invalid token was provided!")
+            throw new Error("An invalid token was provided!")
         } else {
-            console.log("Intents are not turned on!")
+            throw new Error("Intents are not turned on!")
         }
     });\n`;
     return code;

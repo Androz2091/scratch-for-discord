@@ -1,5 +1,5 @@
 import * as Blockly from "blockly";
-const blockName = "ahq_ahq_modal";
+const blockName = "ahqq_ahq_modal";
 const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
 function listsGetRandomItem(list, remove) {
     var x = Math.floor(Math.random() * list.length);
@@ -10,13 +10,8 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Send embeds %1",
+    "message0": "Send jose/redo embeds",
     "args0": [
-        {
-      "type": "input_value",
-      "name": "Label",
-      "check": "String",
-    }
     ],
     "output": "ahq_type",
     "colour": listsGetRandomItem(ahqcolor, false),
@@ -27,8 +22,7 @@ Blockly.Blocks[blockName] = {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block) {
-    const statementsThen = Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE);
-    const code = [`${statementsThen}`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript[blockName] = function() {
+    const code = [`embed`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };

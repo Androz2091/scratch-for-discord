@@ -69,7 +69,7 @@ Blockly.JavaScript[blockName] = function(block) {
     const code = `let ${finaln} = new Modal()
     .setCustomId(${Blockly.JavaScript.valueToCode(block, "id", Blockly.JavaScript.ORDER_NONE)})
     .setTitle(${Blockly.JavaScript.valueToCode(block, "title", Blockly.JavaScript.ORDER_NONE)})
-    .addComponents(\n${statementsThen})`;
+    .addComponents(\n${statementsThen});`;
     return code;
 };
 registerRestrictions(blockName, [
