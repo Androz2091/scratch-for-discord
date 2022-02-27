@@ -39,7 +39,7 @@ Blockly.JavaScript[blockName] = function(block){
         null;
         if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
           if(contentType === "MessageEmbed"){
-            const code = `s4dmessage.reply({${content} allowedMentions: {
+            const code = `s4dmessage.reply({${content}, allowedMentions: {
         repliedUser: ${boolean}
     }});\n`;
             return code;
