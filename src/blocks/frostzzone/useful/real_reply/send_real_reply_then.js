@@ -43,7 +43,7 @@ Blockly.JavaScript[blockName] = function(block){
         block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
         null;
         if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            const code = `s4dmessage.reply({${content} allowedMentions: {
+            const code = `s4dmessage.reply({${content}, allowedMentions: {
         repliedUser: ${boolean}
     }}).then(async (s4dfrost_real_reply) =>{\n ${statementThen} \n});\n`;
             return code;
