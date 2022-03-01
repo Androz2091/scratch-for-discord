@@ -120,6 +120,6 @@ Blockly.JavaScript["s4d_message_embed"] = function(block){
     }
     return [ `
             embeds: [new MessageEmbed()${title}${color}${image}${description}${footer}${thumbnail}${field}
-            ],
+            ]
     `, Blockly.JavaScript.ORDER_ATOMIC ];
 };
