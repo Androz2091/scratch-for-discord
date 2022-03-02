@@ -66,7 +66,7 @@ oldarray.forEach(js=>{
         array.push(`"discord-badges": "0.0.0",`)
     }
     if(js.includes("discord-together")){
-        array.push(`"discord-together":"^1.3.0",`)
+        array.push(`"discord-together":"^1.3.3",`)
     }
     if(js.includes("anti-link-for-discord")){
         array.push(`"anti-link-for-discord":"^5.0.0",`)
