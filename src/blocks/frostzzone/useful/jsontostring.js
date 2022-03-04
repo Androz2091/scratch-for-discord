@@ -11,7 +11,7 @@ const blockData = {
         "check": "JSON"
     }
     ],
-    "output": "Number",
+    "output": "String",
     "colour": "#D14081",
     "tooltip": "Converts JSON to a string",
     "helpUrl": ""

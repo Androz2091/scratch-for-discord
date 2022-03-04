@@ -104,7 +104,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const searchType = block.getFieldValue("SEARCH");
-    const code = [`['${searchType}'],`, Blockly.JavaScript.ORDER_NONE];
+    const code = `['${searchType}'],`
     return code;
 
 };

@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "fz_get_all_emoji";
 
 const blockData = {
-    "message0": "In server (optional) %1 get all emojis then %2 for each emoji %3",
+    "message0": "In server (optional) %1 get all emojis then %2 for each cached emoji %3",
     "args0": [
         {
             "type": "input_value",

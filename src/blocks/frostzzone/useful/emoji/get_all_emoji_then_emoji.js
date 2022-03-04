@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../../restrictions";
 const blockName = "fz_get_all_emoj";
 
 const blockData = {
-    "message0": "Emoji",
+    "message0": "created emoji/cached emoji",
     "args0": [
     ],
     "colour": "#187795",

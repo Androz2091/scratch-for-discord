@@ -661,10 +661,10 @@ export default (Blockly, value) => {
 <block type="frost_real_reply_delete"/>
 <block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
 </block>
+<label text="ㅤ" web-class="boldtext"></label>
 </category>
 
 <category name="Category/Channel" colour="#2f64fa" hidden="false">
-
 <block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
 <block type="crosspost"/>
 <block type="frost_slowmode"><value name="CHANNEL"><shadow type="s4d_message_channel"></shadow></value><value name="TIME"><shadow type="math_number"><field name="NUM">5</field></shadow></value><value name="REASON"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value></block>
@@ -674,6 +674,7 @@ export default (Blockly, value) => {
 <block type="frost_category_id"/>
 <block type="create_category_then"/>
 <block type="frost_created_cat"/>
+<label text="ㅤ" web-class="boldtext"></label>
 </category>
 
 <category name="Embed" colour="#40bf4a">
@@ -682,29 +683,34 @@ export default (Blockly, value) => {
 <block type="frost_add_field"/>
 <label text="For Jose Or Redo Embeds"></label>
 <block type="frost_send_embed_rr"/>
+<label text="ㅤ" web-class="boldtext"></label>
 </category>
 
 <category name="filesystem (fs)" colour="#347dfa">
-<block type="frost_fs_read"/>
-<block type="frost_fs_append"/>
-<block type="frost_fs_write"/>
-<block type="frost_fs_rename"/>
-<block type="frost_fs_delete"/>
+<block type="frost_fs_read"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
+<block type="frost_fs_append"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
+<block type="frost_fs_write"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
+<block type="frost_fs_rename"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
+<block type="frost_fs_delete"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
 <label text="For open and read (Returns the contents of the file)"></label>
 <block type="frost_fs_data"/>
 <label text="For if you get an error (is a boolean and string)"></label>
 <block type="frost_fs_err"/>
+<label text="ㅤ" web-class="boldtext"></label>
 </category>
 
-<category name="Emoji" colour="#808080" hidden="false">
-<label text="This category is 'locked' just to tease you"></label>
-<label text="If you figure out how to cheese it Good job"></label>
-<block type="fz_get_emoji" disabled="true"/>
-<block type="fz_create_emoji" disabled="true"/>
-<block type="fz_emoji_animated" disabled="true"/>
-<block type="fz_emoji_exist" disabled="true"/>
-<block type="fz_get_all_emoji" disabled="true"/>
-<block type="fz_get_all_emoj" disabled="true"/>
+<category name="Emoji" colour="#347dfa" hidden="false">
+<label text="Welcome to emojis"></label>
+<block type="fz_get_emoji"/>
+<block type="fz_create_emoji"/>
+<block type="fz_delete_emoji"/>
+<block type="fz_emoji_animated"/>
+<block type="fz_emoji_exist"/>
+<block type="fz_get_all_emoji"/>
+<block type="fz_get_all_emoj"/>
+<block type="fz_unlock_emoji"/>
+<block type="fz_lock_emoji"/>
+<label text="ㅤ" web-class="boldtext"></label>
 </category>
 
 <category name="Other" colour="#5ba58b">
@@ -1537,6 +1543,7 @@ export default (Blockly, value) => {
 						<block type="s4d_pin"/>
 						<block type="s4d_unpin"/>
             <block type="s4d_message_embed"></block>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -1572,6 +1579,7 @@ export default (Blockly, value) => {
 			<block type="s4d_react_count"></block>
             <block type="s4d_remove_all_reactions"/>
             <block type="s4d_remove_reactions"/>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
@@ -1591,6 +1599,7 @@ export default (Blockly, value) => {
             <block type="s4d_leave_server"></block>
             <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
             <block type="s4d_set_server_name"></block>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
             <label text="%{BKY_FIND_CHANNEL}"></label>
@@ -1602,6 +1611,11 @@ export default (Blockly, value) => {
             <block type="s4d_send_channel"></block>
 	    <label text="Channel Info"></label>
 	    <block type="s4d_channel_ahq_name"></block>
+      <block type="s4d_channel_id"/>
+      <block type="s4d_channel_guild_id"/>
+      <block type="s4d_channel_parent_id"/>
+      <block type="s4d_channel_message_id"/>
+      <block type="s4d_channel_topic"/>
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply">
                 <value name="CONTENT">
@@ -1633,10 +1647,11 @@ export default (Blockly, value) => {
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
             <block type="s4d_is_channel_nsfw"/>
             <block type="slowmode"></block>
-            <block type="set_perms"></block>
+            
             <block type="set_perms_parent"></block>
             <block type="s4d_create_channel"></block>
             <block type="s4d_delete_channel"></block>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
             <label text="%{BKY_FIND_ROLE}"></label>
@@ -1652,6 +1667,7 @@ export default (Blockly, value) => {
 						<block type="s4d_role_exist"/>
             <block type="s4d_create_role"></block>
             <block type="s4d_set_role_perm"></block>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category> 
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
             <label text="%{BKY_FIND_MEMBER}"></label>
@@ -1681,6 +1697,7 @@ export default (Blockly, value) => {
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply_dm"></block>
             <block type="s4d_send_wait_reply_dm_value"></block>
+          <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">

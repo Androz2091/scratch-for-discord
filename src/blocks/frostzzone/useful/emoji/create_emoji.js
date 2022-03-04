@@ -50,7 +50,7 @@ Blockly.JavaScript[blockName] = function(block) {
   if ((statements_then || null) == null) {
   code = `${value_server}.emojis.create(${value_image},${value_name});\n`;
   } else {
-    code = `${value_server}.emojis.create(${value_image},${value_name}).then(emoji =>{
+    code = `${value_server}.emojis.create(${value_image},${value_name}).then(emoj =>{
 ${statements_then}});\n`;
   }
   return code;
