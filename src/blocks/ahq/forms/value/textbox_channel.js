@@ -13,7 +13,7 @@ const blockName = "channel_form_ahq";
 const blockData = {
     "message0": "Form Channel",
     "colour": listsGetRandomItem(ahqcolor, false),
-    "output": "String",
+    "output": "Channel",
     "tooltip": "",
     "helpUrl": ""
 };

@@ -447,8 +447,8 @@ export default (Blockly, value) => {
                     </category>
 				<sep class="bt"/>
 				
-			<category name="Member's Blocks">
-				<category name="ahq" colour="#ff0000">
+			<category name="Member's Blocks" expanded="true">
+				<category name="ahq" colour="#ff0000" disabled="true">
         <label text="AHQ's Simple Host Auth" web-class="boldtext"></label>
         <block type="simple_host_auth"/>
         <label text="Other" web-class="boldtext"></label>
@@ -462,14 +462,19 @@ export default (Blockly, value) => {
         <label text="Get random member" web-class="boldtext"></label>
         <block type="s4d_get_rndmber"/>
         </category>
-        <category name="forms" colour="#ff1119">
+        <category name="forms" colour="#66ffff">
         <block type="on_real_form"/>
+        <block type="ahq_ahq_modal"/>
+        <block type="ahq_ahq_ahq_modal"/>
+        <block type="ahqq_ahq_modal"/>
         <label text="Form Info" web-class="boldtext"></label>
         <block type="id_form_ahq"/>
         <block type="id_textbox_ahq"/>
         <block type="clkr_form_ahq"/>
         <block type="channel_form_ahq"/>
         <block type="server_form_ahq"/>
+        <block type="reply_ahq_modal_text"/>
+        <block type="something_modal"/>
         <label text="Make Forms" web-class="boldtext"></label>
         <block type="make_ahq_modal"/>
         <block type="make_ahq_modal_text"/>
@@ -689,6 +694,17 @@ export default (Blockly, value) => {
 <block type="frost_fs_data"/>
 <label text="For if you get an error (is a boolean and string)"></label>
 <block type="frost_fs_err"/>
+</category>
+
+<category name="Emoji" colour="#808080" hidden="false">
+<label text="This category is 'locked' just to tease you"></label>
+<label text="If you figure out how to cheese it Good job"></label>
+<block type="fz_get_emoji" disabled="true"/>
+<block type="fz_create_emoji" disabled="true"/>
+<block type="fz_emoji_animated" disabled="true"/>
+<block type="fz_emoji_exist" disabled="true"/>
+<block type="fz_get_all_emoji" disabled="true"/>
+<block type="fz_get_all_emoj" disabled="true"/>
 </category>
 
 <category name="Other" colour="#5ba58b">

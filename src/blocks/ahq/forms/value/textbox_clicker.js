@@ -13,7 +13,7 @@ const blockName = "clkr_form_ahq";
 const blockData = {
     "message0": "Form Clicker",
     "colour": listsGetRandomItem(ahqcolor, false),
-    "output": "String",
+    "output": "Member",
     "tooltip": "",
     "helpUrl": ""
 };

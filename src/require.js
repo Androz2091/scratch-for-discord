@@ -1,11 +1,11 @@
-export default async function require(array,code,js) {
+export default async function require(array,code,js, ahq) {
 if(js.includes(".chat")) {
     array.push(`const smartestchatbot = require('smartestchatbot');
     const client = new smartestchatbot.Client();
     `)
 }
 if (js.includes("new Modal()")) {
-    array.push(`const discordModals = require('discord-modals');
+    ahq.push(`const discordModals = require('discord-modals');
     discordModals(s4d.client);
     const { Modal, TextInputComponent, showModal } = require('discord-modals');`)
 }

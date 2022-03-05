@@ -1,5 +1,6 @@
 import  * as Blockly from "blockly";
 import BaseBlockly from "blockly";
+import { registerRestrictions } from "../../../../restrictions";
 const blockName = "reply_ahq_modal_text";
 const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
 function listsGetRandomItem(list, remove) {
@@ -10,13 +11,18 @@ function listsGetRandomItem(list, remove) {
         return list[x];
     }
 }
-const BORDER_FIELDS = ["Content" , "EMBED", "BUTTON"];
+const BORDER_FIELDS = ["CONTENT" , "EMBED", "BUTTON"];
 
-const BORDER_TYPES = ["String",  ["MessageEmbed", "Embed"], ["MessageButton"]];
+const BORDER_TYPES = ["String",  "ahq_type", "ahq_button"];
 const names = ["Content", "Embed", "Button (AHQ Button)"];
 
 const blockData = {
-    "message0": "Add a text box",
+    "message0": "Reply ephemeral %1",
+    "args0": [{
+        "type": "input_value",
+        "name": "ephemeral",
+        "check": "Boolean"
+    }],
     "colour": listsGetRandomItem(ahqcolor, false),
     "mutator": "s4d_ahq_mutator_t",
     "tooltip": "",
@@ -38,7 +44,7 @@ Blockly.Blocks["s4d_ahq_mutator_t"] = {
     }
 };
 const BORDER_MUTATOR_MIXIN = {
-    inputs_: [true, true, true, true, true, false, true],
+    inputs_: [false, false, false],
 
 
     mutationToDom: function() {
@@ -98,19 +104,28 @@ const BORDER_MUTATOR_MIXIN = {
 
 Blockly.Extensions.registerMutator("s4d_ahq_mutator_t", BORDER_MUTATOR_MIXIN, null, [""]);
 Blockly.JavaScript[blockName] = function(block) {
-    let code = ["await i.reply({"];
-    const Id = Blockly.JavaScript.valueToCode(block, "Content", Blockly.JavaScript.ORDER_ATOMIC);
-    const Lavbel = Blockly.JavaScript.valueToCode(block, "EMBED", Blockly.JavaScript.ORDER_ATOMIC);
-    const Style = Blockly.JavaScript.valueToCode(block, "BUTTON", Blockly.JavaScript.ORDER_ATOMIC) || "'SHORT'";
+    let code = [`await i.reply({`];
+    const Id = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_NONE);
+    const Lavbel = Blockly.JavaScript.valueToCode(block, "EMBED", Blockly.JavaScript.ORDER_NONE);
+    const Style = Blockly.JavaScript.valueToCode(block, "BUTTON", Blockly.JavaScript.ORDER_NONE);
     if (Id) {
         code.push(`content: String(${Id}),`)
     } 
     if (Lavbel) {
-    code.push(`embeds: [${Lavbel}],`)
+    code.push(`embeds: [${Lavbel.replace("'", "").replace("'", "")}],`)
     }
     if (Style) {
-    code.push(`components: [],`)
+    code.push(`components: [new MessageActionRow().addComponents(${Style.replace("'", "").replace("'", "").replace("(", "").replace(")", "")})],`)
     }
-    code.push(`})`)
+    code.push(`ephemeral: ${Blockly.JavaScript.valueToCode(block, "ephemeral", Blockly.JavaScript.ORDER_NONE)}\n})`)
     return code.join("\n");
 };
+registerRestrictions(blockName, [
+    {
+        type: "notempty",
+        message: "RES_MISSING_AHQ_CONTENT",
+        types: [
+            "ephemeral"
+        ]
+    }
+]);

@@ -1,5 +1,6 @@
-import * as Blockly from "blockly/core";
-const ahqcolor = ['#33cc00', '#33cc00', '#33cc00', '#33cc00'];
+import * as Blockly from "blockly";
+const blockName = "ahqq_ahq_modal";
+const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
 function listsGetRandomItem(list, remove) {
     var x = Math.floor(Math.random() * list.length);
     if (remove) {
@@ -8,23 +9,20 @@ function listsGetRandomItem(list, remove) {
         return list[x];
     }
 }
-const blockName = "server_form_ahq";
-//block working now working
 const blockData = {
-    "message0": "Form Server",
+    "message0": "Send jose/redo embeds",
+    "args0": [
+    ],
+    "output": "ahq_type",
     "colour": listsGetRandomItem(ahqcolor, false),
-    "output": "Server",
-    "tooltip": "",
-    "helpUrl": ""
 };
-
 
 Blockly.Blocks[blockName] = {
     init: function() {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(){
-    const code = ['(i.guild)', Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript[blockName] = function() {
+    const code = [`embed`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
