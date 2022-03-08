@@ -1,14 +1,28 @@
 import Blockly from "blockly/core";
 
-const blockName = "is_not_number";
+const blockName = "is_a_number_or_string";
 
 const blockData = {
-    "message0": "%1 is not a number",
+    "message0": "%1 is a %2",
     "args0": [
     {
         "type": "input_value",
         "name": "STRING",
-        "check": [ "Number", "String" ]
+        "check": [ "Number", "String" ],
+    },
+    {
+        "type": "field_dropdown",
+        "name": "DATA_TYPE",
+        "options": [
+            [
+              "number", 
+              "NUMBER"
+            ],
+            [
+                  "string",
+                  "STRING"
+              ],
+            ]
     }
     ],
     "output": "Boolean",
@@ -24,6 +38,11 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
+    const dataType = block.getFieldValue("DATA_TYPE");
     const code = Blockly.JavaScript.valueToCode(block, "STRING", Blockly.JavaScript.ORDER_ATOMIC);
-    return [`isNaN(${code})`, Blockly.JavaScript.ORDER_NONE ];
+  if (dataType == "NUMBER") {
+    return [`typeof (${code}) == "number"`, Blockly.JavaScript.ORDER_NONE ];
+  } else if (dataType == "STRING") {
+    return [`typeof (${code}) == "string"`, Blockly.JavaScript.ORDER_NONE ];
+  }
 };
