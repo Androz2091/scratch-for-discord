@@ -7,4 +7,5 @@ import "./text_to_number";
 import "./print";
 import "./exec";
 import "./antilink";
+import "./is_a_number_or_string"
 

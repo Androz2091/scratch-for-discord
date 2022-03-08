@@ -438,6 +438,7 @@ export default (Blockly, value) => {
             <block type="s4d_try_and_catch"></block>
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
+	    <block type="is_a_number_or_string"></block>
         </category>
        
 	  
