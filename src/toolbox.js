@@ -674,6 +674,7 @@ export default (Blockly, value) => {
 <block type="frost_category_get"/>
 <block type="frost_category_id"/>
 <block type="create_category_then"/>
+<block type="fz_channel"/>
 <block type="frost_created_cat"/>
 <label text="ㅤ" web-class="boldtext"></label>
 </category>
@@ -705,6 +706,7 @@ export default (Blockly, value) => {
 <block type="fz_get_emoji"/>
 <block type="fz_create_emoji"/>
 <block type="fz_delete_emoji"/>
+<block type="fz_emoji_info"/>
 <block type="fz_emoji_animated"/>
 <block type="fz_emoji_exist"/>
 <block type="fz_get_all_emoji"/>

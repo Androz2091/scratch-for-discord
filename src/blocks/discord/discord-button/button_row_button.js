@@ -2,9 +2,9 @@ import BaseBlockly from "blockly";
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const BORDER_FIELDS = ["STYLE" , "LABEL", "EMOJI","URL", "CUSTOM_ID"];
+const BORDER_FIELDS = ["STYLE" , "LABEL", "EMOJI","URL", "CUSTOM_ID", "DISABLED"];
 
-const BORDER_TYPES = ["ButtonStyle",  "String", "String" ,"String", "String" ];
+const BORDER_TYPES = ["ButtonStyle",  "String", "String" ,"String", "String" , "Boolean"];
 
 
 const s4d_message_row_block = {
@@ -32,7 +32,7 @@ Blockly.Blocks["s4d_message_row_block_mutator"] = {
 };
 
 const BORDER_MUTATOR_MIXIN = {
-    inputs_: [false, true, false, false, false],
+    inputs_: [true, true, false, false, false, false],
 
 
     mutationToDom: function() {
@@ -96,11 +96,13 @@ Blockly.JavaScript["s4d_message_row_block"] = function(block){
     let emoji = Blockly.JavaScript.valueToCode(block, "EMOJI", Blockly.JavaScript.ORDER_ATOMIC) || null
     let label = Blockly.JavaScript.valueToCode(block, "LABEL", Blockly.JavaScript.ORDER_ATOMIC) || null
     let style = Blockly.JavaScript.valueToCode(block, "STYLE", Blockly.JavaScript.ORDER_ATOMIC) || null
+  let disabled = Blockly.JavaScript.valueToCode(block, "DISABLED", Blockly.JavaScript.ORDER_ATOMIC) || null
     let code = `new MessageButton()\n`
 if(id !== null) code += `.setCustomId(${id})\n`
 if(url !== null) code += `.setURL(${url})\n`
 if(label !== null)code += `.setLabel(${label})\n`
 if(emoji !== null) code += `.setEmoji(${emoji})\n`
+if(disabled !== null) code += `.setDisabled(${disabled})\n`
 if(style === null) code += ".setStyle('SECONDARY')"
 if(style !== null) code += `.setStyle(${style})`
 code +=",\n"

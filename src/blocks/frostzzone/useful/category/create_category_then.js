@@ -68,11 +68,6 @@ Blockly.JavaScript[blockName] = function (block) {
   const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
   const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
   var then = Blockly.JavaScript.statementToCode(block, 'THEN');
-  const code = `${server}.channels.create(${name}, {
-        type: '${type}'
-    })
-    .then(async cat => {
-      ${then}
-    });\n`;
+  const code = `${server}.channels.create(${name}, { type: '${type}' }).then(async cat => {${then}});\n`;
   return code;
 };
