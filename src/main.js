@@ -146,7 +146,7 @@ Vue.mixin({
                         const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                         const s4d = {
                             Discord,
-                            database: new Database(\`\${__dirname}./database.json\`),
+                            database: new Database(\`\${__dirname}/database.json\`),
     fire:null,
                             joiningMember:null,
                             reply:null,
