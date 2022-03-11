@@ -33,6 +33,10 @@ export const disableUnapplicable = (workspace) => {
             if (!(Blockly.Msg[restriction.message])) {
                 if (restriction.message == "RES_MISSING_AHQ_CONTENT") {
                     Blockly.Msg[restriction.message] = "All the blocks should be filled!"
+                } else if (restriction.message == "RES_MISSING_AHQ_SUPER_CONTENT") {
+                    Blockly.Msg[restriction.message] = "You should place it in the block \"Make a convert task\""
+                } else if (restriction.message == "RES_MISSING_AHQ_BLOCK") {
+                    Blockly.Msg[restriction.message] = "The block \"Save Converted File\" must be used"
                 }
             }
             if (!validateRestriction(block, blocks, restriction)) {
@@ -70,6 +74,8 @@ function validateRestriction(block, blocks, restriction) {
             return (restriction.types.includes(getTopLevelParent(block).type)) !== reverse;
         case "blockexists":
             return (blocks.filter(b => restriction.types.includes(b.type) && !b.disabled).length > 0) !== reverse;
+        case "notblockexists":
+            return (blocks.filter(b => restriction.types.includes(b.type) && !b.disabled).length > 0) !== reverse;
         case "parent":
             return (restriction.types.includes(block.getParent().type)) !== reverse;
         case "hasparent":
@@ -100,6 +106,7 @@ function validateConfiguration(block, restriction) {
         case "!parent":
             return block.getParent() && !block.getParent().disabled;
         case "hasparent":
+        case "notblockexists":
         case "custom":
         case "notempty":
             return true;

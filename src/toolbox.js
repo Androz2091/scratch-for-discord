@@ -543,6 +543,18 @@ export default (Blockly, value) => {
         <category name="mod" colour="#ff0880">
         <block type="ahq-mod"/>
         </category>
+        <category name="Convert API" colour="#3333ff">
+        <label text="API starter" web-class="boldtext"></label>
+        <block type="convert_api_code"/>
+        <label text="Resources" web-class="boldtext"></label>
+        <block type="convert_button"/>
+        <block type="convert_embed"/>
+        <label text="Main blocks" web-class="boldtext"></label>
+        <block type="convert_api_task"/>
+        <block type="save_api_code"/>
+        <block type="convert_api_file"/>
+        <block type="send_ahq_converted"/>
+        </category>
         </category>
 
         <category name="henpokpok" colour="#64C9FF">

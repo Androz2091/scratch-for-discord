@@ -128,7 +128,7 @@ Vue.mixin({
             `let Database  = require("easy-json-database")`,
               `let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")`,
             `let logs = require("discord-logs")`,
-            `let dootabase = new Database("./database.json")`
+            `let dootabase = new Database(\`\${__dirname}/database.json\`)`
             ]
             let requiresjscode = [`logs(s4d.client);`]
             r(requires,requiresjscode,Blockly.JavaScript.workspaceToCode(this.$store.state.workspace), requiresjscode)
@@ -146,7 +146,7 @@ Vue.mixin({
                         const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                         const s4d = {
                             Discord,
-                            database: new Database(\`./database.json\`),
+                            database: new Database(\`\${__dirname}/database.json\`),
     fire:null,
                             joiningMember:null,
                             reply:null,
