@@ -32,7 +32,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const tof = Blockly.JavaScript.valueToCode(block, "TRUEORFALSE", Blockly.JavaScript.ORDER_ATOMIC);
     const reply = Blockly.JavaScript.valueToCode(block, "REPLY", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `await i.reply({content:${reply},ephemeral:${tof}})\n`
+    const code = `await i.reply({content:${reply},ephemeral:${tof}});\n`
     return code;
 };
 
