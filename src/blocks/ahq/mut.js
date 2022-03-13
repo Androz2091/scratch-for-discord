@@ -41,7 +41,7 @@ Blockly.JavaScript[blockName] = function(block) {
     const member = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_NONE);
     const time = Blockly.JavaScript.valueToCode(block, "time", Blockly.JavaScript.ORDER_NONE);
     const reason = Blockly.JavaScript.valueToCode(block, "reason", Blockly.JavaScript.ORDER_NONE);
-    const code = `${member.replace(".user", "")}.timeout((${time} * 1000), ${reason})
+    const code = `${member.replace(".user", "").replace(".user", "")}.timeout((${time} * 1000), ${reason})
     `;
     return code;
 };
