@@ -62,7 +62,7 @@ if(js.includes("s4d.Inviter")){
 if(js.includes("URL")){
     array.push(`let URL = require('url')`)
 }
-if(js.includes("ticket")){
+if(js.includes("ticket.start")){
     array.push(`const ticket = require('tickets-discord');`)
     array.push(`const { start, login } = require('tickets-discord');`)
 }
