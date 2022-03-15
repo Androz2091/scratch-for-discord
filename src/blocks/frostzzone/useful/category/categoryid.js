@@ -34,7 +34,7 @@ const blockData = {
     {
       "type": "input_value",
       "name": "CATEGORY",
-      "check": "Category"
+      "check": [ "Category", "Channel" ]
     }
   ],
   "output": [
