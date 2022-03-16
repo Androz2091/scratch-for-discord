@@ -73,6 +73,6 @@ const cid = Blockly.JavaScript.valueToCode(block, "id", Blockly.JavaScript.ORDER
   const type = block.getFieldValue("TYPE");
 const server = Blockly.JavaScript.valueToCode(block, "server", Blockly.JavaScript.ORDER_ATOMIC);
 const then = Blockly.JavaScript.statementToCode(block, "THEN", Blockly.JavaScript.ORDER_ATOMIC)
-    const code = `${server}.channels.create(${name}, { type: ${type}, parent: ${cid} }).then(async cat =>{${then}});`;
+    const code = `${server}.channels.create(${name}, { type: "${type}", parent: ${cid} }).then(async cat =>{${then}});`;
     return code;
 };
