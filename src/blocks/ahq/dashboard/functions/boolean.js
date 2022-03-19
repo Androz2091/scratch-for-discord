@@ -58,7 +58,7 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block){
-    const code = `s4d.client.dashboard.addSelectorInput(${Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_NONE)}, ${Blockly.JavaScript.valueToCode(block, "desc", Blockly.JavaScript.ORDER_NONE)}, async function() {${Blockly.JavaScript.statementToCode(block, "set")}}, async function() {
+    const code = `s4d.client.dashboard.addSelectorInput(${Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_NONE)}, ${Blockly.JavaScript.valueToCode(block, "desc", Blockly.JavaScript.ORDER_NONE)}, async function(client, guild, value) {${Blockly.JavaScript.statementToCode(block, "set")}}, async function(client, guild) {
         await delay(200);
         return (${Blockly.JavaScript.valueToCode(block, "getter", Blockly.JavaScript.ORDER_NONE)})
     });`

@@ -11,8 +11,8 @@
 import Blockly from "blockly";
 
 import { disableUnapplicable } from "../restrictions";
-import toolbox from "../toolbox";
-//import toolbox from "../easter-toolbox"
+//import toolbox from "../toolbox";
+import toolbox from "../easter-toolbox";
 import {Backpack} from '@blockly/workspace-backpack';
 import {WorkspaceSearch} from '@blockly/plugin-workspace-search';
 import theme from '@blockly/theme-dark';

@@ -39,6 +39,8 @@ export const disableUnapplicable = (workspace) => {
                     Blockly.Msg[restriction.message] = "The block \"Save Converted File\" must be used"
                 } else if (restriction.message == "RES_MISSING_AHQ_DASH_CONTENT") {
                     Blockly.Msg[restriction.message] = "The block \"Make Cookie...\" must be used"
+                } else if (restriction.message == "RES_MISSING_AHQ_DASH_C_CONTENT") {
+                    Blockly.Msg[restriction.message] = "The block(s) \"Add ... (dashboard blocks)\" must be used"
                 }
             }
             if (!validateRestriction(block, blocks, restriction)) {

@@ -566,6 +566,9 @@ export default (Blockly, value) => {
           <block type="add_text_dash"/>
           <block type="add_color_dash"/>
           <block type="add_boolean_dash"/>
+          <label text="Dashboard Config" web-class="boldtext"></label>
+          <block type="dash_g"/>
+          <block type="dash_v"/>
           </category>
           </category>
   
