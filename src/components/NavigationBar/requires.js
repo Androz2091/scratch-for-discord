@@ -14,6 +14,9 @@ oldarray.forEach(js=>{
     if (js.includes("const ticket = require('tickets-discord');")) {
         array.push(`"tickets-discord": "^3.0.0",`)
     }
+    if (js.includes("s4d.client.dashboard =")) {
+        array.push(`"discord-easy-dashboard": "git+https://github.com/ahqsoftwares/discord-easy-dashboard-2.git",`)
+    }
     if (js.includes(".chat")) {
         array.push(`"smartestchatbot": "^2.0.1",`)
     }

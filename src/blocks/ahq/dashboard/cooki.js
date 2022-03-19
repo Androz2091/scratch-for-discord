@@ -1,6 +1,6 @@
 import * as Blockly from "blockly/core";
 const ahqcolor = ['#0EB22B', '#0EB22B', '#0EB22B', '#0EB22B'];
-import { registerRestrictions } from "../../../../restrictions";
+import { registerRestrictions } from "../../../restrictions";
 
 function listsGetRandomItem(list, remove) {
     var x = Math.floor(Math.random() * list.length);
@@ -10,11 +10,11 @@ function listsGetRandomItem(list, remove) {
         return list[x];
     }
 }
-const blockName = "convert_api_code";
+const blockName = "make_cookie";
 //block working now working
 const blockData = {
     "type": "block_type",
-    "message0": "Load convert api %1 api key %2 ",
+    "message0": "Make cookie %1 Mongo URL %2 ",
     "args0": [{
         "type": "input_dummy"
     },
@@ -24,7 +24,7 @@ const blockData = {
         "check": "String"
     }],
     "colour": listsGetRandomItem(ahqcolor, false),
-    "tooltip": "",
+    "tooltip": "Add cookies to dash using mongodb",
     "helpUrl": ""
 };
 
@@ -35,9 +35,24 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block){
-    const code = `const CloudConvert = require('cloudconvert');
-    const ahqfs = require("fs");
-    const cloudConvert = new CloudConvert(${Blockly.JavaScript.valueToCode(block, "api", Blockly.JavaScript.ORDER_ATOMIC)});`
+    const code = `var cookieParser = require('cookie-parser');
+    var session = require('express-session');
+    var MongoStore = require('connect-mongo');
+    var mongoose = require('mongoose');
+    
+    const cookies_config = {
+        secret: 'nuke-protector',
+        resave: true,
+        saveUninitialized: true,
+        cookie: { maxAge: 24 * 60 * 60 * 1000 },
+        store: MongoStore.create({
+          mongooseConnection: mongoose,
+          collections: 'sessions', 
+          mongoUrl: ${Blockly.JavaScript.valueToCode(block, "api", Blockly.JavaScript.ORDER_ATOMIC)},
+          autoRemove: 'interval',
+          autoRemoveInterval: 60
+        })
+    };`
 return code;
 };
 
