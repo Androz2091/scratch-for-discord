@@ -15,6 +15,7 @@ import "./time/"
 import "./embed/"
 import "./fs/"
 import "./emoji/"
+import "./events"
 
 //may remove later
 import "./translate/"

@@ -139,8 +139,8 @@ Vue.mixin({
             if (Blockly.JavaScript.workspaceToCode(this.$store.state.workspace).includes(`//simple host`)) {
                 ahqcode = `(async()=>{
                     let process = require('process');
+                    const events = require('events');
                       ${requires.join("\n")}
-                        require('events').EventEmitter.defaultMaxListeners = 50;
     let fs = require('fs');
                         const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                         const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -181,8 +181,8 @@ Vue.mixin({
                     console.log(\`𝕖𝕣𝕣𝕠𝕣❕\`);
                     console.log(err);
                   });
+                  const events = require('events');
                   ${requires.join("\n")}
-                    require('events').EventEmitter.defaultMaxListeners = 50;
 let fs = require('fs');
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

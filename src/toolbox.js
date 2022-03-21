@@ -728,6 +728,11 @@ export default (Blockly, value) => {
 <label text="ㅤ" web-class="boldtext"></label>
 </category>
 
+<category name="event" colour="#ffffff">
+<block type="create_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
+<block type="emit_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
+</category>
+
 <category name="Other" colour="#5ba58b">
 <block type="frost_fs_err"/>
 <block type="frost_current"/>

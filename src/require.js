@@ -186,4 +186,7 @@ if(js.includes("write")){
 if(js.includes("AntiSpam")){
     array.push(`const AntiSpam = require("discord-anti-spam");`)
 }
+if(js.includes("eventEmitter")){
+  array.push(`var eventEmitter = new events.EventEmitter();`);
+}
 }
