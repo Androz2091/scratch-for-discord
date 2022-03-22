@@ -555,6 +555,16 @@ export default (Blockly, value) => {
         <block type="convert_api_file"/>
         <block type="send_ahq_converted"/>
         </category>
+        <category name="Voice" colour="#000099">
+        <block type="voice_event"/>
+        <block type="voice_switch"/>
+        <block type="voice_leave"/>
+        <label text="Properties" web-class="boldtext"></label>
+        <block type="prop_voice"/>
+        <label text="Methods" web-class="boldtext"></label>
+        <block type="disconnect_voice"/>
+        <block type="act_voice"/>
+        </category>
         </category>
 
         <category name="henpokpok" colour="#64C9FF">
