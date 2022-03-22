@@ -7,3 +7,6 @@ import "./has_data";
 import "./set_data";
 import "./set_db";
 import "./subtract_data";
+
+import "./multiply_data";
+import "./divide_data";

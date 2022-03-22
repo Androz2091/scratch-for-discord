@@ -189,4 +189,8 @@ if(js.includes("AntiSpam")){
 if(js.includes("eventEmitter")){
   array.push(`var eventEmitter = new events.EventEmitter();`);
 }
+  if(js.includes("dootabase")){
+    array.push(`const dootabase = require("easy-db-json");
+dootabase.setFile("./database.json");`)
+  }
 }

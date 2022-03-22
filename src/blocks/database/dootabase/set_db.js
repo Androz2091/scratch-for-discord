@@ -25,5 +25,5 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const key = Blockly.JavaScript.valueToCode(block, "KEY", Blockly.JavaScript.ORDER_ATOMIC);
-    return `dootabase = new Database(\`\${__dirname}\` + "/" + ${key} + ".json");\n`;
+    return `dootabase.setFile("./"+ ${key}+".json");\n`;
 };

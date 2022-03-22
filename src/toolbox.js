@@ -728,7 +728,7 @@ export default (Blockly, value) => {
 <label text="ㅤ" web-class="boldtext"></label>
 </category>
 
-<category name="event" colour="#ffffff">
+<category name="event" colour="230">
 <block type="create_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
 <block type="emit_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
 </category>
@@ -1781,6 +1781,8 @@ export default (Blockly, value) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_delete_all_data"/>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
 	        <category name="Dootabase" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>
@@ -1850,7 +1852,32 @@ export default (Blockly, value) => {
                     </shadow>
                 </value>
             </block>
+<block type="s4d_multi_data2">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+            </block>
+<block type="s4d_divide_data2">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="s4d_delete_all_data2"/>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
 
         
