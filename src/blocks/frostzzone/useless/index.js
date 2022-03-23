@@ -5,4 +5,5 @@ import "./send_image"
 import "./drop"
 import "./starttyping"
 //folders
-import "./base"
+import "./base/"
+import "./events/"

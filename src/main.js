@@ -127,8 +127,7 @@ Vue.mixin({
             `let Discord = require("discord.js")`,
             `let Database  = require("easy-json-database")`,
               `let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")`,
-            `let logs = require("discord-logs")`,
-            `let dootabase = new Database(\`\${__dirname}/database.json\`)`
+            `let logs = require("discord-logs")`
             ]
             let requiresjscode = [`logs(s4d.client);`]
             r(requires,requiresjscode,Blockly.JavaScript.workspaceToCode(this.$store.state.workspace), requiresjscode)
@@ -139,8 +138,8 @@ Vue.mixin({
             if (Blockly.JavaScript.workspaceToCode(this.$store.state.workspace).includes(`//simple host`)) {
                 ahqcode = `(async()=>{
                     let process = require('process');
+                    const events = require('events');
                       ${requires.join("\n")}
-                        require('events').EventEmitter.defaultMaxListeners = 50;
     let fs = require('fs');
                         const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                         const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -181,8 +180,8 @@ Vue.mixin({
                     console.log(\`𝕖𝕣𝕣𝕠𝕣❕\`);
                     console.log(err);
                   });
+                  const events = require('events');
                   ${requires.join("\n")}
-                    require('events').EventEmitter.defaultMaxListeners = 50;
 let fs = require('fs');
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

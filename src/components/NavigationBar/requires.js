@@ -107,6 +107,9 @@ oldarray.forEach(js=>{
     if(js.includes("AntiSpam")){
         array.push(`"discord-anti-spam":"^2.6.1"`)
     }
+    if(js.includes("easy-db-json")){
+        array.push(`"easy-db-json": "^1.1.1"`)
+    }
 })
 array.reverse()
 array[0] = array[0].replace(",","")
