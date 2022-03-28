@@ -1492,6 +1492,7 @@ export default (Blockly, value) => {
             <block type="s4d_set_bot_game"></block>
             <block type="s4d_set_bot_stream"></block>
             <block type="s4d_bot_shutdown"></block>
+	    <block type="setbot"/>
 <label text="{@user} = user ping . {user_tag} = user tag" web-class="boldtext"></label>
             <block type="start_antispam"/>
         </category>
