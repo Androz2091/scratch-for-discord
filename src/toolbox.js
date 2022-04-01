@@ -847,6 +847,7 @@ export default (Blockly, value) => {
 </category>
 
 <category name="JeremyGamer13" colour="#FFAA00">
+<block type="jg_banana"/>
             <block type="jg_beginJimp"/>
             <block type="jg_saveJimpageAs"/>
             <block type="jg_sendImage"/>

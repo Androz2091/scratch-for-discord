@@ -2,8 +2,10 @@ import "./sendTestconsole"
 import "./beginJimpEdits"
 import "./saveImageTo"
 import "./sendImage"
-//import "./banana"
-//no banana block or no merge :(
+//the return on april fools
+import "./banana"
+//--no banana block or no merge :(--
+//he is back
 import "./beginJimpImage"
 import "./nullBlock"
 import "./undefinedBlock"
