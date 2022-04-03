@@ -847,12 +847,9 @@ export default (Blockly, value) => {
 </category>
 
 <category name="JeremyGamer13" colour="#FFAA00">
-<block type="jg_banana"/>
             <block type="jg_beginJimp"/>
             <block type="jg_saveJimpageAs"/>
             <block type="jg_sendImage"/>
-            <block type="jg_null"/>
-            <block type="jg_undefined"/>
             <category name="Jimp Effects" colour="#a81313">
             <block type="jg_jimp_drawtext"/>
             <block type="jg_jimp_brightnesscontrast"/>
@@ -870,6 +867,9 @@ export default (Blockly, value) => {
             <block type="jg_file_create"/>
             <block type="jg_file_contents"/>
             </category>
+<category name="yoinky sploinkys" colour="69">
+  <block type="jg_banana"/>
+</category>
           </category>
           
 				<category name="{{ JOSE }}" colour="#00664d">
