@@ -53,6 +53,6 @@ Blockly.JavaScript[blockName] = function(block){
         name: ${server},
         description: ${des},
         options: [${statementThen}]        
-    })`;
+    });`;
     return code;
 };
