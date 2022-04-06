@@ -122,7 +122,6 @@ console.log(\`
 entering BIOS please wait....\`)
 await delay(500)
 console.clear()
-await delay(500)
 console.log(\`
 ██████╗░░█████╗░░█████╗░████████╗██╗███╗░░██╗░██████╗░░░░░░░░░░
 ██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██║████╗░██║██╔════╝░░░░░░░░░░
@@ -143,7 +142,6 @@ console.log(\`
 entering BIOS please wait....\`)
 await delay(350)
 console.clear()
-await delay(500)
 console.log(\`
 ██████╗░░█████╗░░█████╗░████████╗██╗███╗░░██╗░██████╗░░░░░░░░░░
 ██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██║████╗░██║██╔════╝░░░░░░░░░░
@@ -158,7 +156,7 @@ require("./bot")
 load()`);
                     }
                     zip.file("bot.js", javascriptContent);
-                    zip.file(".replit", 'run = "npm start"\nentrypoint = "bot.js"');
+                    zip.file(".replit", 'run = "npm start"');
                   zip.file("database.json", "{}");
                     zip.file("package.json", `{\n
                         "name": "scratch-for-discord-bot",\n
