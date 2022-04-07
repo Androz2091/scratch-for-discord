@@ -46,7 +46,7 @@ Blockly.JavaScript[blockName] = function(block){
         null;
         if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
           if(contentType === "MessageEmbed"){
-            const code = `await i.update({${content}components:[${button}]}).then(m=>{
+            const code = `await i.update({${content},components:[${button}]}).then(m=>{
                 ${statements}
             });\n`;
             return code;
