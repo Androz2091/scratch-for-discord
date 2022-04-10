@@ -755,6 +755,10 @@ export default (Blockly, value) => {
 </category>
 
 <category name="Retro and XL83" colour="#AAE941">
+<category name="QR Code" color="#5ba58b">
+    <block type="create_qr_then"/>
+    <block type="qr"/>
+</category>
 <category name="temp channels" colour="#5ba58b">
     <block type="s4d_temp_register"/>
     <block type="temp_member_name"/>

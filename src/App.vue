@@ -122,9 +122,9 @@ import "./blocks/frostzzone/useful/"
 import "./blocks/frostzzone/scratch/"
 import "./blocks/frostzzone/github/"
 import "./blocks/better_music/"
-//its me retro :v
 import "./blocks/weky/"
 import "./blocks/temp_channels"
+import "./blocks/qr-generator"
 //jeremy gaming coolness
 import "./blocks/JeremyGamer13/"
 import "./blocks/JeremyGamer13/jimpBlocks"
