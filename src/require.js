@@ -9,6 +9,9 @@ if (js.includes("new Modal()")) {
     discordModals(s4d.client);
     const { Modal, TextInputComponent, showModal } = require('discord-modals');`)
 }
+if(js.includes('QRCode.toString')) {
+    array.push(`const QRCode = require('qrcode')`)
+}
 if(js.includes("tempChannels.registerChannel")) {
     array.push(`const TempChannels = require("discord-temp-channels");`)
     array.push(`const db = require("quick.db")`)
