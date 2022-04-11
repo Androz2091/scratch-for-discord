@@ -752,16 +752,6 @@ export default (Blockly, value) => {
 <block type="emit_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
 </category>
 
-<category name="Variables" colour="#a55b80">
-
-<block type="import_all"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
-
-<block type="express_var"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
-
-<label text="Use this for variables"></label>
-<block type="blank"><field name="TEXT"/></block>
-</category>
-
 <category name="Other" colour="#5ba58b">
 <block type="frost_fs_err"/>
 <block type="frost_current"/>
