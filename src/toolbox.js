@@ -417,7 +417,17 @@ export default (Blockly, value) => {
             </block>
         </category>
         <sep class="bt" />
-        <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
+        <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE"/>
+<category name="{{ TOOLBOX_VARIABLES }}-expanded" colour="#a55b80">
+<label text="Make global/local variables for functions and other stuff"></label>
+<label text="Compatible with variables category"></label>
+<block type="import_all"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
+
+<block type="express_var"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
+
+<block type="blank"><field name="TEXT"/></block>
+</category>
+
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
 	
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
@@ -634,7 +644,6 @@ export default (Blockly, value) => {
  	</category>
 
 <category name="frostzzone" colour="#347dfa">
-
 <category name="Scratch and Github" colour="#1f1f1f">
 <label text="Github" web-class="boldtext"></label>
 <block type="github_get_then"/>
@@ -741,6 +750,16 @@ export default (Blockly, value) => {
 <category name="event" colour="230">
 <block type="create_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
 <block type="emit_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
+</category>
+
+<category name="Variables" colour="#a55b80">
+
+<block type="import_all"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
+
+<block type="express_var"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
+
+<label text="Use this for variables"></label>
+<block type="blank"><field name="TEXT"/></block>
 </category>
 
 <category name="Other" colour="#5ba58b">
