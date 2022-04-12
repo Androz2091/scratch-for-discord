@@ -443,6 +443,7 @@ export default (Blockly, value) => {
                     </shadow>
                 </value>
             </block>
+<block type="blank_code"><field name="TEXT"/></block>
             <block type="s4d_eval"></block>
 						<block type="s4d_exec"/>
             <block type="s4d_try_and_catch"></block>

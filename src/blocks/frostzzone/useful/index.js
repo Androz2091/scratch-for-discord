@@ -6,6 +6,7 @@ import "./jsontostring"
 import "./crosspost"
 import "./listcontains"
 import "./get_member"
+import "./code"
 
 //folders
 import "./repl/"
