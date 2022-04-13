@@ -5,9 +5,10 @@ const blockName = "blank_code";
 const blockData = {
     "message0": "Insert code⠀ %1 ⠀",
     "args0": [{
-        "type": "field_input",
+        "type": "field_multilinetext",
         "name": "TEXT",
-        "text": "code"
+        "text": "code",
+      "spellcheck": false
     }],
     "colour": "#d14081",
   "previousStatement": null,
@@ -24,6 +25,6 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     var text = block.getFieldValue('TEXT');
   if ((text == null)||(text == undefined)) return ``
-    var code = `${text}`;
+    var code = `${text}\n`;
     return code;
 };
