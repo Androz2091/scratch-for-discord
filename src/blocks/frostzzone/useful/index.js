@@ -8,6 +8,12 @@ import "./listcontains"
 import "./get_member"
 import "./code"
 
+//role
+import "./role_info_text"
+import "./role_info_bool"
+import "./role_info_num"
+import "./role_info_color"
+
 //folders
 import "./repl/"
 import "./real_reply/"

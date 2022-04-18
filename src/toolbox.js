@@ -1705,7 +1705,10 @@ export default (Blockly, value) => {
             <block type="s4d_get_all_role"></block>
             <block type="s4d_get_all_role_role"></block>
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
-						<block type="s4d_role_possition"/>
+<block type="fz_role_info_text"/>
+<block type="fz_role_info_num"/>
+						<block type="fz_role_info_bool"/>
+<block type="fz_role_info_color"/>
             <block type="s4d_add_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
             <block type="s4d_remove_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
             <block type="s4d_delete_role"></block>
