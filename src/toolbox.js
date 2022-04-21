@@ -881,6 +881,25 @@ export default (Blockly, value) => {
             <block type="jg_file_create"/>
             <block type="jg_file_contents"/>
             </category>
+	    
+	    <category name="Conversion" colour="90">
+  <label text="Encoding text" web-class="boldtext"></label>
+            <block type="jg_encode_main">
+          <value name="type">
+           <shadow type="jg_bDI_encodedecodetype">
+           </shadow>
+           </value>
+<value name="type2">
+           <shadow type="jg_bDI_encodedecodetype">
+           </shadow>
+           </value>
+<value name="encode">
+           <shadow type="text">
+           </shadow>
+           </value>
+           </block>
+</category>
+	    
 <category name="yoinky sploinkys" colour="69">
   <block type="jg_banana"/>
 </category>
