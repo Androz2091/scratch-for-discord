@@ -116,7 +116,7 @@ Blockly.JavaScript["s4d_message_embed"] = function(block){
         thumbnail = `\n.setThumbnail(String(${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC)}))`;
     }
   if ((Blockly.JavaScript.statementToCode(block, "FIELD", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
-        field = `\n.addField(${Blockly.JavaScript.statementToCode(block, "FIELD")})`;
+        field = `\n.addFields(${Blockly.JavaScript.statementToCode(block, "FIELD")})`;
     }
     return [ `
             embeds: [new MessageEmbed()${title}${color}${image}${description}${footer}${thumbnail}${field}
