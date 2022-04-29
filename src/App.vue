@@ -33,7 +33,7 @@ import "./blocks/loops/";
 import "./blocks/other/";
 import "./prompt";
 
-import Theme from '@blockly/theme-modern';
+import Theme from './theme';
 
 export default {
     name: "app",
@@ -76,6 +76,14 @@ export default {
                     maxScale: 3,
                     minScale: 0.3,
                     scaleSpeed: 1.2
+                   },
+                move: {
+                    scrollbars: {
+                        horizontal:true,
+                        vertical:true
+                    },
+                    drag:true,
+                    wheel:true
                 }
             },
             vueTourOptions: {
@@ -126,7 +134,7 @@ export default {
 #blocklySpace {
     position: absolute;
     width: 100%;
-    height: 94%;
+    height: calc(100% - 66px);
 }
 
 .boldtext {
