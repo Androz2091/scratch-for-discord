@@ -18,6 +18,7 @@ Blockly.Tooltip.HOVER_MS = 100;
 
 import "./blocks/discord/base/";
 import "./blocks/discord/message-event/";
+import "./blocks/discord/message-event/message_embed/";
 import "./blocks/discord/join-event/";
 import "./blocks/discord/leave-event/";
 import "./blocks/discord/reaction-event/";
