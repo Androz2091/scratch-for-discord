@@ -452,6 +452,12 @@ export default (Blockly) => {
             </block>
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
+            <category name="Embed" colour="#40BF4A">
+                <block type="s4d_embed_create"></block>
+                <block type="s4d_embed_set_color"></block>
+                <block type="s4d_embed_set_author"></block>
+                <block type="s4d_embed_set_title"></block>
+            </category>
         </category>
         <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
