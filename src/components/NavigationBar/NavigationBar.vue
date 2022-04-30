@@ -2,7 +2,7 @@
     <b-navbar toggleable="lg" type="dark" style="background-color:#161719;user-select:none;" id="navbar nav-main">
         <b-navbar-brand>
             <img src="scratch.png" width="40" draggable="false">
-            Scratch For Discord
+            Scratch For Discord <span style="font-family: 'Oleo Script', cursive; font-weight: normal">495</span>
         </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -14,7 +14,7 @@
                 <EditMenu></EditMenu>
                 <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
-                <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
+                <b-nav-item href="https://discord.com/users/699420041103540264" target="_blank">Made by Eruption</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
