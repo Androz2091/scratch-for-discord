@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { registerRestrictions } from "../../../../restrictions";
 
 const blockName = "s4d_embed_set_color";
 
@@ -29,3 +30,13 @@ Blockly.JavaScript[blockName] = function(block){
     const code = `embed.setColor(${color}) \n`;
     return code;
 };
+
+  registerRestrictions(blockName, [
+    {
+        type: "hasparent",
+        message: "RES_MUST_BE_CREATE_EMBED_THEN",
+        types: [
+            "s4d_embed_create"
+        ]
+    }
+]);
