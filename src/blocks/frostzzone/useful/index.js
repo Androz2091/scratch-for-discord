@@ -7,6 +7,7 @@ import "./crosspost"
 import "./listcontains"
 import "./get_member"
 import "./code"
+import "./color"
 
 //role
 import "./role_info_text"

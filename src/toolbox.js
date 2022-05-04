@@ -381,6 +381,7 @@ export default (Blockly, value) => {
                 <field name="COLOUR">#ff0000</field>
             </block>
             <block type="colour_random" />
+            <block type="fz_color"/>
             <block type="colour_rgb">
                 <value name="RED">
                     <shadow type="math_number">

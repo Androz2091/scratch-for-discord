@@ -7,3 +7,5 @@ import "./starttyping"
 //folders
 import "./base/"
 import "./events/"
+
+import './test'
