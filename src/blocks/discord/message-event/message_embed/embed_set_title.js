@@ -1,19 +1,18 @@
 import * as Blockly from "blockly/core";
+import { registerRestrictions } from "../../../../restrictions";
 
 const blockName = "s4d_embed_set_title";
 
 const blockData = {
-    "message0": "set embed title %1 add url %2",
+    "message0": "set embed title %1 add url (optional) %2",
     "args0": [
       {
         "type": "input_value",
-        "name": "TITLE",
-        "check": "String"
+        "name": "TITLE"
       },
       {
         "type": "input_value",
-        "name": "HYPERLINK",
-        "check": "String"
+        "name": "HYPERLINK"
       }
     ],
     "previousStatement": null,
@@ -32,6 +31,20 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const title = Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC);
     const hyperlink = Blockly.JavaScript.valueToCode(block, "HYPERLINK", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `embed.setTitle(${title}) \n embed.setURL(${hyperlink})`; 
-    return code;
+    if (hyperlink.length == 0) {
+      const code = `embed.setTitle(String(${title})) \n`; 
+    return code; 
+    }
+    const code = `embed.setTitle(String(${title})) \n embed.setURL(String(${hyperlink})) \n`; 
+    return code; 
 };
+
+registerRestrictions(blockName, [
+    {
+        type: "hasparent",
+        message: "RES_MUST_BE_CREATE_EMBED_THEN",
+        types: [
+            "s4d_embed_create"
+        ]
+    }
+]);
