@@ -29,6 +29,10 @@ const blockData = {
         [
           "Binary",
           "'Binary'"
+        ],
+        [
+          "Hex",
+          "'Hex'"
         ]
       ],
     },
