@@ -1,6 +1,7 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
+
 const blockName = "jg_file_create";
 
 const blockData = {
@@ -31,7 +32,7 @@ const blockData = {
             ],
         },
     ],
-    "colour": "#a69000",
+    "colour": 45,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "The file name and content for a file. Be careful with this though, this saves as an actual file on your bot!",
@@ -48,20 +49,7 @@ Blockly.JavaScript[blockName] = function(block) {
   const fileName = Blockly.JavaScript.valueToCode(block, "fileName", Blockly.JavaScript.ORDER_ATOMIC);
   const fileContent = Blockly.JavaScript.valueToCode(block, "fileContent", Blockly.JavaScript.ORDER_ATOMIC);
   const tralse = block.getFieldValue("truefalse");
-  const contentType = block.getInput("fileContent").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
-        block.getInput("fileContent").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
-        null;
-  if ((contentType === null)) {
-    return `write.sync(` + fileName + `, String(` + fileContent + `), { overwrite: ` + tralse + ` });`;
-    // works for variables and also maybe fixes errors
-  } else if ((contentType === "Number")) {
-    return `write.sync(` + fileName + `, \`` + fileContent + `\`, { overwrite: ` + tralse + ` });`;
-  } else if ((contentType === "Env")) {
-    return `write.sync(` + fileName + `, ` + fileContent + `, { overwrite: ` + tralse + ` });`;
-    //checking individual types just incase i want to edit how they are handled
-  } else {
-    return `write.sync(` + fileName + `, ` + fileContent + `, { overwrite: ` + tralse + ` });`;
-  }
+  return `write.sync(String(` + fileName + `), String(` + fileContent + `), { overwrite: ` + tralse + ` });`;
 }
 
 registerRestrictions(blockName, [

@@ -881,6 +881,10 @@ export default (Blockly, value) => {
             <category name="File Editing" colour="#FFCC00">
             <block type="jg_file_create"/>
             <block type="jg_file_contents"/>
+            <block type="jg_file_extension"/>
+            <block type="jg_file_metadata"/>
+            <block type="jg_file_foreachfile"/>
+            <block type="jg_file_foreachfileinput"/>
             </category>
 	    
 	    <category name="Conversion" colour="90">
