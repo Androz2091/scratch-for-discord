@@ -21,8 +21,7 @@ const blockData = {
         }
     ],
     "colour": 260,
-    "previousStatement": null,
-    "nextStatement": null,
+    "output": ["String", "Colour"],
     "tooltip": "Get a certain pixel in the image and output its color. The color outputs as RGBA (ex: 0xFFFFFFFF) and the position can only use Numbers, Variables, or Env secrets.",
     "helpUrl": ""
 };
@@ -36,8 +35,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
   const xpos = Blockly.JavaScript.valueToCode(block, "x", Blockly.JavaScript.ORDER_ATOMIC);
   const ypos = Blockly.JavaScript.valueToCode(block, "y", Blockly.JavaScript.ORDER_ATOMIC);
-    return `image.getPixelColor(${xpos}, ${ypos})
-`;
+    return [`image.getPixelColor(${xpos}, ${ypos})`, Blockly.JavaScript.ORDER_NONE ];
 }
 
 registerRestrictions(blockName, [
