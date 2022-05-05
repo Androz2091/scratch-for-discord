@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "fz_color";
 const defaultColor = "#a5745b";
 const blockData = {
-    "message0": "Color %1",
+    "message0": "colour %1",
   "args0": [
     {
       "type": "field_input",
@@ -38,7 +38,8 @@ Blockly.Blocks[blockName] = {
   }
 };
 
-Blockly.JavaScript[blockName] = function() {
-    const code = `/*hi*/`;
+Blockly.JavaScript[blockName] = function(block) {
+  const color = block.getFieldValue("COLOR");
+    const code = `${color}`;
     return code;
 };
