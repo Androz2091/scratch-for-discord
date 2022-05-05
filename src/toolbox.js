@@ -900,10 +900,7 @@ export default (Blockly, value) => {
            </value>
            </block>
 </category>
-	    
-<category name="yoinky sploinkys" colour="69">
-  <block type="jg_banana"/>
-</category>
+	   
           </category>
           
 				<category name="{{ JOSE }}" colour="#00664d">
