@@ -878,7 +878,7 @@ export default (Blockly, value) => {
             <block type="jg_jimp_rotate"/>
             <block type="jg_jimp_jpgqual"/>
             </category>
-            <category name="File Editing" colour="#FFCC00">
+            <category name="File Editing" colour="45">
             <block type="jg_file_create"/>
             <block type="jg_file_contents"/>
             <block type="jg_file_extension"/>
