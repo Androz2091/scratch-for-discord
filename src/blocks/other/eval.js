@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "s4d_eval";
 
 const blockData = {
-    "message0": "%{BKY_EVAL}",
+    "message0": "run code %1",
     "args0": [
         {
             "type": "input_value",
@@ -26,5 +26,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const code = Blockly.JavaScript.valueToCode(block, "EVAL", Blockly.JavaScript.ORDER_ATOMIC);
-    return ` eval(${code});\n`;
+    return `eval(${code});
+    `;
 };

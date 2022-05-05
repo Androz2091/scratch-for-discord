@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "s4d_try_and_catch";
 
 const blockData = {
-    "message0": "%{BKY_TRY_AND_CATCH}",
+    "message0": "try %1 %2 if error %3 %4",
     "args0": [
         {
             "type": "input_dummy"
@@ -37,5 +37,10 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const tryy = Blockly.JavaScript.statementToCode(block, "try");
     const catchh = Blockly.JavaScript.statementToCode(block, "catch");
-    return `try{\n${tryy}\n}catch(err){\n${catchh}\n};\n`;
+    return `try{
+        ${tryy}
+    }catch(err){
+        ${catchh}
+    };
+    `;
 };

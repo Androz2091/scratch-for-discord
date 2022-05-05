@@ -151,7 +151,7 @@
   "MESSAGE_RELATED_BLOCKS": "Blocks related to messages",
   "CREATE_WEBHOOK_THEN":"create webhook in channel %1 then %2 %3",
   "EDIT_WEBHOOK":"edit webhook name %1 avatar %2 channel %3",
-  "TRY_AND_CATCH":"try %1 %2 catch %3 %4",
+  "TRY_AND_CATCH":"try %1 %2 if error %3 %4",
   "REPLY_MSG": "reply %1",
   "DELETE_REPLY":"delete reply",
   "WEBHOOK_ID":"webhook id",

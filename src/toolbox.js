@@ -297,6 +297,9 @@ export default (Blockly, value) => {
                 </value>
             </block>
 						<block type="text_count"></block>
+						<block type="jg_text_isboolean"/>
+						<block type="jg_text_booleanfrom"/>
+						<block type="jg_text_hasnumber"/>
         </category>
         <category name="{{ TOOLBOX_LISTS }}" colour="#745ba5">
             <block type="lists_create_with">
@@ -429,11 +432,10 @@ export default (Blockly, value) => {
 <block type="blank"><field name="TEXT"/></block>
 </category>
 
-        <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
+        <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE"/>
 	
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
         
-            <block type="anti_link"/>
 	  
             <block type="s4d_print"></block>
             <block type="s4d_run_save_output"></block>
@@ -446,7 +448,6 @@ export default (Blockly, value) => {
             </block>
 <block type="blank_code"><field name="TEXT"/></block>
             <block type="s4d_eval"></block>
-						<block type="s4d_exec"/>
             <block type="s4d_try_and_catch"></block>
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
@@ -1962,6 +1963,14 @@ export default (Blockly, value) => {
             </block>
             <block type="s4d_delete_all_data2"/>
             <label text="ㅤ" web-class="boldtext"></label>
+        </category>
+
+        <sep class="bt"/>
+
+        <category name="Community" colour="195">
+            <category name="Unknown Developers" colour="#505050">
+                <block type="anti_link"/>
+            </category>
         </category>
 
         
