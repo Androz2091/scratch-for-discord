@@ -1,25 +1,11 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "jg_jimp_crop";
+const blockName = "jg_jimp_resizeMethods";
 
 const blockData = {
-    "message0": "Crop Image:%1 X: %2 Y: %3 Width %4 Height %5",
+    "message0": "Resize Image using Width %1 Height %2 and method %3",
     "args0": [
-        {
-            "type": "input_dummy"
-            // only exists to push the other part of the block down, xD
-        },
-        {
-            "type": "input_value",
-            "name": "X",
-            "check": [ "Number", "var", "Env"]
-        },
-        {
-            "type": "input_value",
-            "name": "Y",
-            "check": [ "Number", "var", "Env"]
-        },
         {
             "type": "input_value",
             "name": "Width",
@@ -29,12 +15,38 @@ const blockData = {
             "type": "input_value",
             "name": "Height",
             "check": [ "Number", "var", "Env"]
+        },
+        {
+            "type": "field_dropdown",
+            "name": "method",
+            "options": [
+              [
+                "Nearest Neighbor",
+                'jimp.RESIZE_NEAREST_NEIGHBOR'
+              ],
+              [
+                "Bilinear",
+                'jimp.RESIZE_BILINEAR'
+              ],
+              [
+                "Bicubic",
+                'jimp.RESIZE_BICUBIC'
+              ],
+              [
+                "Hermite",
+                'jimp.RESIZE_HERMITE'
+              ],
+              [
+                "Bezier",
+                'jimp.RESIZE_BEZIER'
+              ]
+            ],
         }
     ],
     "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Crop the image at a specific point and using a Width and Height. Can only use Numbers, Variables, or Env secrets.",
+    "tooltip": "Resize the image to a specific Width and Height. Can only use Numbers, Variables, or Env secrets.",
     "helpUrl": ""
 };
 
@@ -45,11 +57,10 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-  const xpos = Blockly.JavaScript.valueToCode(block, "X", Blockly.JavaScript.ORDER_ATOMIC);
-  const ypos = Blockly.JavaScript.valueToCode(block, "Y", Blockly.JavaScript.ORDER_ATOMIC);
   const wide = Blockly.JavaScript.valueToCode(block, "Width", Blockly.JavaScript.ORDER_ATOMIC);
   const high = Blockly.JavaScript.valueToCode(block, "Height", Blockly.JavaScript.ORDER_ATOMIC);
-    return `image.crop( Number(` + xpos + `), Number(` + ypos + `), Number(` + wide + `), Number(` + high + `))\n`;
+  const method = block.getFieldValue("method");
+    return `image.resize( Number(` + wide + `), Number(` + high + `), ` + method + `)\n`;
 }
 
 registerRestrictions(blockName, [

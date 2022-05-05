@@ -1,16 +1,16 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "jg_jimp_grayscale";
+const blockName = "jg_jimp_unused";
 
 const blockData = {
-    "message0": "Grayscale Effect",
+    "message0": "UnusedBlock Effect",
     "args0": [],
     "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Adds a grayscale effect to the image.",
-    "helpUrl": ""
+    "tooltip": "Dithers the image and reduces the color space to 16-bits.",
+    "helpUrl": "https://www.npmjs.com/package/jimp#methods"
 };
 
 Blockly.Blocks[blockName] = {
@@ -20,7 +20,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    return `image.greyscale()\n`;
+    return `image.dither565()\n`;
 }
 
 registerRestrictions(blockName, [

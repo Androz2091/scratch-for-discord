@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "jg_jimp_drawtext";
 
 const blockData = {
-    "message0": "Display %1 on image file %5 placed X: %2 Y: %3 using font size %4",
+    "message0": "Display %1 placed X: %2 Y: %3 using font size %4",
     "args0": [
         {
             "type": "input_value",
@@ -58,17 +58,12 @@ const blockData = {
                 '128'
               ]
             ],
-        },
-        {
-            "type": "input_value",
-            "name": "fileName",
-            "check": [ "String", "Number", "var", "Env"]
         }
     ],
-    "colour": "#a81313",
+    "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Adds text onto to the image at a certain point. Just note that your bot may send the image before the text is done being added!",
+    "tooltip": "Adds text onto to the image at a certain point. Make sure to create your bot with the note that this block DOES save the image after the text is added.",
     "helpUrl": "https://www.npmjs.com/package/jimp#writing-text"
 };
 
@@ -83,10 +78,9 @@ Blockly.JavaScript[blockName] = function(block) {
   const xpos = Blockly.JavaScript.valueToCode(block, "xpos", Blockly.JavaScript.ORDER_ATOMIC);
   const ypos = Blockly.JavaScript.valueToCode(block, "ypos", Blockly.JavaScript.ORDER_ATOMIC);
   const fontSize = block.getFieldValue("fontSize");
-  const fileName = Blockly.JavaScript.valueToCode(block, "fileName", Blockly.JavaScript.ORDER_ATOMIC);
-    return `jimp.loadFont(jimp.FONT_SANS_` + fontSize + `_BLACK).then(font => {
-  image.print(font, Number(` + xpos + `), Number(` + ypos + `), String(` + text + `));
-  image.write(` + fileName + `);
+    return `await jimp.loadFont(jimp.FONT_SANS_` + fontSize + `_BLACK).then(async font => {
+  await image.print(font, Number(` + xpos + `), Number(` + ypos + `), String(` + text + `));
+  await image.writeAsync(String(JimpImageBlock));
 });\n`;
 }
 
@@ -98,8 +92,7 @@ registerRestrictions(blockName, [
           "text",
           "xpos",
           "ypos",
-          "fontSize",
-          "fileName"
+          "fontSize"
         ]
     },
     {

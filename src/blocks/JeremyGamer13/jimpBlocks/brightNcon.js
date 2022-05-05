@@ -30,7 +30,7 @@ const blockData = {
             "check": [ "Number", "var", "Env"]
         }
     ],
-    "colour": "#a600ff",
+    "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "Changes the brightness or contrast on the image by -100 to 100. Color effects change the color by -360 to 360.",
@@ -47,11 +47,11 @@ Blockly.JavaScript[blockName] = function(block) {
   const type = block.getFieldValue("type");
   const amount = Blockly.JavaScript.valueToCode(block, "amount", Blockly.JavaScript.ORDER_ATOMIC);
   if ((String(type) === '"brightness"')) {
-    return `image.brightness( (` + amount + ` / 100) )\n`;
+    return `await image.brightness( (` + amount + ` / 100) )\n`;
   } else if ((String(type) === '"contrast"')) {
-    return `image.contrast((` + amount + ` / 100))\n`;
+    return `await image.contrast((` + amount + ` / 100))\n`;
   } else {
-    return `image.color([
+    return `await image.color([
   { apply: 'hue', params: [` + amount + `] }
 ]);\n`;
   }

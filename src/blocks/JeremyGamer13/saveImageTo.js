@@ -12,7 +12,7 @@ const blockData = {
             "check": [ "Number", "String", "var", "Env"]
         }
     ],
-    "colour": "#a81313",
+    "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "The file name of the Jimp image output. Be careful with this though, this saves as an actual file on your bot!",
@@ -27,7 +27,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
   const fileName = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    return `image.write(` + fileName + `);`;
+    return `await image.writeAsync(` + fileName + `);`;
 }
 
 registerRestrictions(blockName, [

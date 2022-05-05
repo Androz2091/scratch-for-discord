@@ -12,7 +12,7 @@ const blockData = {
             "check": [ "Number", "var", "Env"]
         }
     ],
-    "colour": "#a81313",
+    "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "Set the quality for JPG files. Can only use Numbers, Variables, or Env secrets.",

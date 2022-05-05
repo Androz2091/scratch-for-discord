@@ -6,7 +6,7 @@ const blockName = "jg_jimp_sepia";
 const blockData = {
     "message0": "Sepia Effect",
     "args0": [],
-    "colour": "#660000",
+    "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "Adds a warm brown color on the image.",

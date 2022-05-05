@@ -5,7 +5,8 @@ import { registerRestrictions } from "../../restrictions";
 const blockName = "jg_sendImage";
 
 const blockData = {
-    "message0": "Send file in directory %1 to channel %2",
+    "message0": "Send file %1 to channel %2",
+    "inputsInline": true,
     "args0": [
       {
             "type": "input_value",
@@ -18,7 +19,7 @@ const blockData = {
             "check": [ "Channel"]
         }
     ],
-    "colour": "#00AAFF",
+    "colour": 210,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "This sends the file with the matching file name, extension, and directory for a file saved in your bot's files.",
@@ -34,7 +35,8 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
   const fileNameandLocation = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
   const fileSendChannel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
-  const code = `${fileSendChannel}.send({ files: [${fileNameandLocation}] });\n`;
+  const code = `await ${fileSendChannel}.send({ files: [${fileNameandLocation}] });
+  `;
   return code;
 }
 

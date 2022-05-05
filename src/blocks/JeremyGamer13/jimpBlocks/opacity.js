@@ -1,24 +1,21 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "jg_jimp_scale";
+const blockName = "jg_jimp_opacity";
 
 const blockData = {
-    "message0": "Scale Image:%1 Scale %2",
+    "message0": "Opacity level %1",
     "args0": [
         {
-            "type": "input_dummy"
-        },
-        {
             "type": "input_value",
-            "name": "Scale",
+            "name": "val",
             "check": [ "Number", "var", "Env"]
         }
     ],
     "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Scale the image by a number factor. Can only use Numbers, Variables, or Env secrets.",
+    "tooltip": "Multiplies the opacity channel by the number. Goes from 0 to 100. Can only use Numbers, Variables, or Env secrets.",
     "helpUrl": ""
 };
 
@@ -29,8 +26,9 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-  const scale = Blockly.JavaScript.valueToCode(block, "Scale", Blockly.JavaScript.ORDER_ATOMIC);
-    return `image.scale( Number(` + scale + `) )\n`;
+  const val = Blockly.JavaScript.valueToCode(block, "val", Blockly.JavaScript.ORDER_ATOMIC);
+    return `image.opacity( Number( (` + val + `) / 100 ) )
+`;
 }
 
 registerRestrictions(blockName, [

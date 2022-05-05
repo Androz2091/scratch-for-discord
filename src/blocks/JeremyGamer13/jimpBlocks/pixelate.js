@@ -1,14 +1,19 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "jg_jimp_crop";
+const blockName = "jg_jimp_pixelate";
 
 const blockData = {
-    "message0": "Crop Image:%1 X: %2 Y: %3 Width %4 Height %5",
+    "message0": "Pixelate Image:%1 Amount: %2 X: %3 Y: %4 Width %5 Height %6",
     "args0": [
         {
             "type": "input_dummy"
             // only exists to push the other part of the block down, xD
+        },
+        {
+            "type": "input_value",
+            "name": "Size",
+            "check": [ "Number", "var", "Env"]
         },
         {
             "type": "input_value",
@@ -45,11 +50,13 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
+  const size = Blockly.JavaScript.valueToCode(block, "Size", Blockly.JavaScript.ORDER_ATOMIC);
   const xpos = Blockly.JavaScript.valueToCode(block, "X", Blockly.JavaScript.ORDER_ATOMIC);
   const ypos = Blockly.JavaScript.valueToCode(block, "Y", Blockly.JavaScript.ORDER_ATOMIC);
   const wide = Blockly.JavaScript.valueToCode(block, "Width", Blockly.JavaScript.ORDER_ATOMIC);
   const high = Blockly.JavaScript.valueToCode(block, "Height", Blockly.JavaScript.ORDER_ATOMIC);
-    return `image.crop( Number(` + xpos + `), Number(` + ypos + `), Number(` + wide + `), Number(` + high + `))\n`;
+    return `image.pixelate( Number(` + size + `), Number(` + xpos + `), Number(` + ypos + `), Number(` + wide + `), Number(` + high + `))
+`;
 }
 
 registerRestrictions(blockName, [

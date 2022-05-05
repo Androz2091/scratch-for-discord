@@ -19,7 +19,7 @@ const blockData = {
         }
         
     ],
-    "colour": "#a81313",
+    "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "Place this before placing any other Jimp editing block.",
@@ -35,9 +35,11 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const JimpURL = Blockly.JavaScript.valueToCode(block, "JimpURL", Blockly.JavaScript.ORDER_ATOMIC);
     const JimpCode = Blockly.JavaScript.statementToCode(block, "beginJimp");
-    const code = `jimp.read(` + JimpURL + `, async (err, image) => {
+    const code = `var JimpImageBlock = ` + JimpURL + `;
+    jimp.read(` + JimpURL + `, async (err, image) => {
       if (err) throw err;
       ${JimpCode}
-      });`;
+      });
+`;
     return code;
 };

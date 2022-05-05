@@ -6,7 +6,7 @@ const blockData = {
     "message0": "null",
     "args0": [],
     "output": "Number",
-    "colour": "#202020",
+    "colour": "#FF0000",
     "tooltip": "Returns as null.",
     "helpUrl": ""
 };

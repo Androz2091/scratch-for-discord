@@ -1,25 +1,22 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "jg_jimp_scale";
+const blockName = "jg_jimp_convolute";
 
 const blockData = {
-    "message0": "Scale Image:%1 Scale %2",
+    "message0": "Convolute image using kernel %1",
     "args0": [
         {
-            "type": "input_dummy"
-        },
-        {
             "type": "input_value",
-            "name": "Scale",
-            "check": [ "Number", "var", "Env"]
+            "name": "val",
+            "check": [ "String", "var", "Env"]
         }
     ],
     "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Scale the image by a number factor. Can only use Numbers, Variables, or Env secrets.",
-    "helpUrl": ""
+    "tooltip": "Uses the specified convolution kernel on the image. I'm gonna be honest and say that not even I know how to use this. Can only use Text, Variables, or Env secrets.",
+    "helpUrl": "https://en.wikipedia.org/wiki/Kernel_(image_processing)"
 };
 
 Blockly.Blocks[blockName] = {
@@ -29,8 +26,9 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-  const scale = Blockly.JavaScript.valueToCode(block, "Scale", Blockly.JavaScript.ORDER_ATOMIC);
-    return `image.scale( Number(` + scale + `) )\n`;
+  const val = Blockly.JavaScript.valueToCode(block, "val", Blockly.JavaScript.ORDER_ATOMIC);
+    return `image.convolute( eval('[' + ${val} + ']'))
+`;
 }
 
 registerRestrictions(blockName, [

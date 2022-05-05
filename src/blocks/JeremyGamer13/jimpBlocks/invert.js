@@ -6,7 +6,7 @@ const blockName = "jg_jimp_invert";
 const blockData = {
     "message0": "Invert Effect",
     "args0": [],
-    "colour": "#1492cc",
+    "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "Inverts the colors on the image.",

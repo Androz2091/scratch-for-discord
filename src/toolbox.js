@@ -862,21 +862,55 @@ export default (Blockly, value) => {
 </category>
 
 <category name="JeremyGamer13" colour="#FFAA00">
+<label text="Need help? Go to this master document:" web-class="boldtext"></label>
+          <label text="shorturl.at/nCFV7" web-class="boldtext"></label>
             <block type="jg_beginJimp"/>
             <block type="jg_saveJimpageAs"/>
             <block type="jg_sendImage"/>
-            <category name="Jimp Effects" colour="#a81313">
+            <block type="jg_typing"/>
+            <category name="Jimp Effects" colour="260">
             <block type="jg_jimp_drawtext"/>
             <block type="jg_jimp_brightnesscontrast"/>
-            <block type="jg_jimp_grayscale"/>
-            <block type="jg_jimp_invert"/>
-            <block type="jg_jimp_sepia"/>
+            <block type="jg_jimp_basicE"/>
+            <block type="jg_jimp_tpixels"/>
+            <block type="jg_jimp_opacity"/>
+            <block type="jg_jimp_width"/>
+            <block type="jg_jimp_height"/>
             <block type="jg_jimp_resize"/>
+            <block type="jg_jimp_resizeMethods"/>
             <block type="jg_jimp_scale"/>
             <block type="jg_jimp_crop"/>
             <block type="jg_jimp_flip"/>
             <block type="jg_jimp_rotate"/>
+            <block type="jg_jimp_blit"/>
+            <block type="jg_jimp_composite"/>
+            <block type="jg_jimp_mask"/>
+            <block type="jg_jimp_pixelate">
+<value name="X">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+<value name="Y">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+<value name="Width">
+      <block type="jg_jimp_width"/>
+    </value>
+<value name="Height">
+      <block type="jg_jimp_height"/>
+    </value>
+            </block>
+            <block type="jg_jimp_qblur"/>
+            <block type="jg_jimp_sblur"/>
+            <block type="jg_jimp_poster"/>
             <block type="jg_jimp_jpgqual"/>
+            <block type="jg_jimp_convolute"/>
+            <block type="jg_jimp_kernels"/>
+            <block type="jg_jimp_setpixel"/>
+            <block type="jg_jimp_getpixel"/>
             </category>
             <category name="File Editing" colour="45">
             <block type="jg_file_create"/>

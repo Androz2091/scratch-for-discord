@@ -1,10 +1,10 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "jg_jimp_blit";
+const blockName = "jg_jimp_mask";
 
 const blockData = {
-    "message0": "Blit image %1 at point X: %2 Y: %3",
+    "message0": "Mask image %1 at point X: %2 Y: %3",
     "inputsInline": true,
     "args0": [
         {
@@ -26,7 +26,7 @@ const blockData = {
     "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Adds another image onto the main image at a specific point. The image can use Strings, Numbers, Variables, and Env secrets, while X and Y cannot use strings.",
+    "tooltip": "Masks an image onto another image using the brightness in the second image. The image can use Strings, Numbers, Variables, and Env secrets, while X and Y cannot use strings.",
     "helpUrl": ""
 };
 
@@ -41,7 +41,8 @@ Blockly.JavaScript[blockName] = function(block) {
   const xpos = Blockly.JavaScript.valueToCode(block, "xpos", Blockly.JavaScript.ORDER_ATOMIC);
   const ypos = Blockly.JavaScript.valueToCode(block, "ypos", Blockly.JavaScript.ORDER_ATOMIC);
     return `var JimpImage2 = await jimp.read(String(` + img + `));
-    await image.blit( JimpImage2, Number(` + xpos + `), Number(` + ypos + `))\n`;
+    await image.mask( JimpImage2, Number(` + xpos + `), Number(` + ypos + `))
+`;
 }
 
 registerRestrictions(blockName, [

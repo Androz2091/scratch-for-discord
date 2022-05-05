@@ -20,7 +20,7 @@ const blockData = {
             "check": [ "Number", "var", "Env"]
         }
     ],
-    "colour": "#a81313",
+    "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "Resize the image to a specific Width and Height. Can only use Numbers, Variables, or Env secrets.",

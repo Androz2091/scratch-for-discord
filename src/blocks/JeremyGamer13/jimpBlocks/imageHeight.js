@@ -1,15 +1,15 @@
+//"output": "Boolean",
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "jg_jimp_grayscale";
+const blockName = "jg_jimp_height";
 
 const blockData = {
-    "message0": "Grayscale Effect",
+    "message0": "Height of image",
     "args0": [],
     "colour": 260,
-    "previousStatement": null,
-    "nextStatement": null,
-    "tooltip": "Adds a grayscale effect to the image.",
+    "output": "Number",
+    "tooltip": "Returns the Height of the image.",
     "helpUrl": ""
 };
 
@@ -20,7 +20,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    return `image.greyscale()\n`;
+    const code = [`image.bitmap.height`, Blockly.JavaScript.ORDER_NONE ];
+    return code;
 }
 
 registerRestrictions(blockName, [

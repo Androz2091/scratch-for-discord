@@ -26,7 +26,7 @@ const blockData = {
             ]
         }
     ],
-    "colour": "#a81313",
+    "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "Rotate the image clockwise a certain amount of degrees, and you can choose whether to automatically resize the image to fit the rotation, or not to. Can only use Numbers, Variables, or Env secrets.",
