@@ -406,6 +406,7 @@
   "RES_GET_ALL_SERVER_PARENT":"This block can only be used in a \"Get all server\" bl!",
   "RES_GET_ALL_CHANNEL_PARENT":"This block can only be used in a \"Get all channel\" bl!",
   "RES_GET_ALL_ROLES_PARENT":"This block can only be used in a \"Get all role\" bl!",
+  "RES_GET_ALL_INPUT_PARENT":"This block can only be used in its parent block!",
   "TOOLBOX_E_DELETED":"deleted",
   "ON_DELETED":"when a message is deleted",
   "GET_WEBHOOK_THEN":"get webhook with id %1 and token %2 then %3 %4",
