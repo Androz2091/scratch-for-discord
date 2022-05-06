@@ -297,9 +297,34 @@ export default (Blockly, value) => {
                 </value>
             </block>
 						<block type="text_count"></block>
-						<block type="jg_text_isboolean"/>
-						<block type="jg_text_booleanfrom"/>
-						<block type="jg_text_hasnumber"/>
+						<block type="jg_text_randomletter">
+                            <value name="TEXT">
+                                <shadow type="text">
+                                    <field name="TEXT">abcdefghijklmnopqrstuvwxyz</field>
+                                </shadow>
+                            </value>
+                        </block>
+						<block type="jg_text_isboolean">
+                            <value name="TEXT">
+                                <shadow type="text">
+                                    <field name="TEXT">true</field>
+                                </shadow>
+                            </value>
+                        </block>
+						<block type="jg_text_booleanfrom">
+                            <value name="TEXT">
+                                <shadow type="text">
+                                    <field name="TEXT">true</field>
+                                </shadow>
+                            </value>
+                        </block>
+						<block type="jg_text_hasnumber">
+                            <value name="TEXT">
+                                <shadow type="text">
+                                    <field name="TEXT">abc123</field>
+                                </shadow>
+                            </value>
+                        </block>
         </category>
         <category name="{{ TOOLBOX_LISTS }}" colour="#745ba5">
             <block type="lists_create_with">
