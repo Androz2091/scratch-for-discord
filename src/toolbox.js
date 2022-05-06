@@ -448,6 +448,7 @@ export default (Blockly, value) => {
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
 	    <block type="is_a_number_or_string"></block>
+        <block type="anti_link"/>
         </category>
        
 	  
@@ -1959,15 +1960,6 @@ export default (Blockly, value) => {
             </block>
             <block type="s4d_delete_all_data2"/>
             <label text="ㅤ" web-class="boldtext"></label>
-        </category>
-
-        <sep class="bt"/>
-
-        <category name="Community" colour="195">
-            <category name="Message Functions" colour="105">
-                <label text="Unknown Developers" web-class="boldtext"></label>
-                <block type="anti_link"/>
-            </category>
         </category>
 
         
