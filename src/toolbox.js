@@ -374,10 +374,6 @@ export default (Blockly, value) => {
                     </shadow>
                 </value>
             </block>
-            <block type="lists_sort">
-                <field name="TYPE">NUMERIC</field>
-                <field name="DIRECTION">1</field>
-            </block>
         </category>
         <category name="{{ TOOLBOX_COLORS }}" colour="#a5745b">
             <block type="colour_picker">
@@ -1968,7 +1964,8 @@ export default (Blockly, value) => {
         <sep class="bt"/>
 
         <category name="Community" colour="195">
-            <category name="Unknown Developers" colour="#505050">
+            <category name="Message Functions" colour="105">
+                <label text="Unknown Developers" web-class="boldtext"></label>
                 <block type="anti_link"/>
             </category>
         </category>

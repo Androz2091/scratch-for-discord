@@ -3,7 +3,8 @@ import Blockly from "blockly/core";
 const blockName = "list_contains";
 
 const blockData = {
-  "message0": "List %1 contains %2",
+  "message0": "list %1 contains %2",
+  "inputsInline": true,
   "args0": [
     {
       "type": "input_value",
@@ -20,7 +21,7 @@ const blockData = {
     }
   ],
   "output": "Boolean",
-  "colour": 230,
+  "colour": "%{BKY_LISTS_HUE}",
   "inline": true,
   "tooltip": "",
   "helpUrl": ""

@@ -1,23 +1,14 @@
 import * as Blockly from "blockly/core";
-const ahqcolor = ['#3366ff', '#3366ff', '#3366ff', '#3366ff'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
 const blockName = "ahq_presence";
 //block working now working
 const blockData = {
-    "message0": "Presence of member %1",
+    "message0": "presence of member %1",
     "args0": [{
         "type": "input_value",
         "name": "member",
         "check": "Member"
     },],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": "#50a6c9",
     "output": "String",
     "tooltip": "",
     "helpUrl": ""

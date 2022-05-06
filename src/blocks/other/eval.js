@@ -17,7 +17,6 @@ const blockData = {
     "tooltip": "",
     "helpUrl": ""
 };
-
 Blockly.Blocks[blockName] = {
     init: function() {
         this.jsonInit(blockData);

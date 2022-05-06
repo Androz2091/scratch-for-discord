@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "blank_code";
 
 const blockData = {
-    "message0": "Insert code⠀ %1 ⠀",
+    "message0": "insert code⠀ %1 ⠀",
     "args0": [{
         "type": "field_multilinetext",
         "name": "TEXT",
