@@ -12,7 +12,6 @@
                 <CodeModal></CodeModal>
                 <FileMenu></FileMenu>
                 <EditMenu></EditMenu>
-                <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
                 <b-nav-item href="https://discord.com/users/699420041103540264" target="_blank">Made by Eruption</b-nav-item>
             </b-navbar-nav>
@@ -31,19 +30,15 @@
 <script>
 import Blockly from "blockly";
 import JSZip from "jszip";
-
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
-import LanguageMenu from "./LanguageMenu.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal";
-
 export default {
     name: "navbar",
     components: {
         FileMenu,
         EditMenu,
-        LanguageMenu,
         ExamplesMenu,
         CodeModal
     },
