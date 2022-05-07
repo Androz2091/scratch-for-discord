@@ -297,13 +297,6 @@ export default (Blockly, value) => {
                 </value>
             </block>
 						<block type="text_count"></block>
-						<block type="jg_text_randomletter">
-                            <value name="TEXT">
-                                <shadow type="text">
-                                    <field name="TEXT">abcdefghijklmnopqrstuvwxyz</field>
-                                </shadow>
-                            </value>
-                        </block>
 						<block type="jg_text_isboolean">
                             <value name="TEXT">
                                 <shadow type="text">
