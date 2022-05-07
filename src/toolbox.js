@@ -482,7 +482,6 @@ export default (Blockly, value) => {
         <block type="simple_host_auth"/>
         <label text="Other" web-class="boldtext"></label>
         <block type="server_file"/>
-        <block type="s4d_history"/>
         <block type="snd_ahq"/>
         <block type="ahq_value_snd"/>
         <category name="member" colour="#006600">
