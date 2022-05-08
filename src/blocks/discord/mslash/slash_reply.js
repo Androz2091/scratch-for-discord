@@ -19,7 +19,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "BUTTON",
-            "check": [ "String" ]
+            "check": [ "String", "ButtonRow" ]
         },
     ],
     "colour": "#4C97FF",
@@ -52,11 +52,11 @@ Blockly.JavaScript[blockName] = function(block){
             const code = `await interaction.reply({${content}});\n`;
             return code;
         } else {
-            const code = `await interaction.reply({ content: ${content}, ephemeral: ${boolean}, components: [${button2}] });\n`;
+            const code = `await interaction.reply({ content: ${content}, ephemeral: ${boolean} || false, components: [${button2}] });\n`;
             return code;
         }
     } else {
-        const code = `await interaction.reply({ content: ${content}, ephemeral: ${boolean}, components: [${button2}] });\n`;
+        const code = `await interaction.reply({ content: ${content}, ephemeral: ${boolean} , components: [${button2}] });\n`;
         return code;
     }
 };
