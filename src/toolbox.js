@@ -392,6 +392,7 @@ export default (Blockly) => {
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081">
             <block type="s4d_current"></block>
             <block type="s4d_run_save_output"></block>
+            <block type="s4d_typeof"></block>
             <block type="s4d_wait_seconds">
                 <value name="TIME">
                     <shadow type="math_number">
@@ -399,6 +400,24 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <label text="Blocks mainly used for debugging" web-class="boldtext"></label>
+            <block type="s4d_try_catch"></block>
+            <block type="s4d_error"></block>
+            <block type="s4d_print">
+              <value name="PRINT">
+                <block type="text">
+                    <field name="TEXT">Hello world!</field>
+                </block>
+              </value>
+            </block>
+            <block type="s4d_eval"><value name="EVAL">
+                <block type="text">
+                    <field name="TEXT">console.log('Hi')</field>
+                </block>
+              </value></block>
+            <block type="s4d_insert_code"></block>
+            <label text="Advanced JavaScript functions" web-class="boldtext"></label>
+            <block type="s4d_js_function"></block>
         </category>
         <sep />
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
@@ -419,6 +438,7 @@ export default (Blockly) => {
             <block type="s4d_set_bot_game"></block>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
+            <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
@@ -437,17 +457,17 @@ export default (Blockly) => {
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
             <block type="s4d_reply">
                 <value name="CONTENT">
-                    <shadow type="text">
+                    <block type="text">
                         <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
-                    </shadow>
+                    </block>
                 </value>
             </block>
             <block type="s4d_delete"></block>
             <block type="s4d_add_reaction">
                 <value name="REACTION">
-                    <shadow type="text">
+                    <block type="text">
                         <field name="TEXT">👍</field>
-                    </shadow>
+                    </block>
                 </value>
             </block>
             <label text="%{BKY_TOOLS}"></label>
