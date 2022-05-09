@@ -12,6 +12,9 @@
         <meta name="theme-color" content="#f6bc34" />
         <meta name="google-site-verification" content="cpALYx5PHSXOgLtp-1pxqyELC6zIekO0RDQnWmFvhXI" />
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
+          
+          /* Customize the scrollbar */
             ::-webkit-scrollbar {
                 width: 1px;
                 height: 1px;
@@ -23,6 +26,57 @@
             ::-webkit-scrollbar-corner {
                 background-color: #161719;
                 color: #161719;
+            }
+
+
+          /* Customize blockly elements */
+            .blocklyToolboxContents[role="group"] {
+              padding-left: 3px;
+              overflow: hidden;
+              width: 150px;
+            }
+          
+            .blocklyTreeIcon {
+              background-position: -32px -1px!important;
+            }
+
+            .blocklyTreeSeparator {
+              border-bottom: solid #555555 1px;
+              height: 0;
+              margin: 5px 0;
+            }
+
+            .blocklyTreeRow {
+              margin-bottom: 3px;
+              transition-duration: 100ms;
+              padding-left: 0!important;
+            }
+
+            .blocklyTreeRow:hover {
+              border-radius: 4px;
+            }
+
+            .blocklyToolboxDiv {
+              overflow-x: hidden;
+              width: 150px;
+            }
+            
+            .bt {
+                border-bottom: solid #555555 1px;
+                height: 0;
+                margin: 5px 0;
+              }
+
+
+          /* Other customizations */
+            /* Hide netlify's watermark */
+            #__next {
+               display: none !important;
+            }
+
+            /* Customize the "Scratch For Discord" text */
+            .navbar-brand {
+              font-weight: bold;
             }
         </style>
     </head>
