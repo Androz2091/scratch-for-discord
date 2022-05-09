@@ -438,7 +438,6 @@ export default (Blockly) => {
             <block type="s4d_set_bot_game"></block>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
-            <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
