@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 
 Blockly.JavaScript[blockName] = function(block) {
-    let channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${channel}.nsfw`
-    return code
+  var channel = Blockly.JavaScript.valueToCode(block, 'CHANNEL', Blockly.JavaScript.ORDER_ATOMIC);
+  var code =`${channel}.nsfw`
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };

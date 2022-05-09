@@ -65,9 +65,8 @@ Blockly.JavaScript[blockName] = function(block) {
     const vab = Blockly.JavaScript.valueToCode(block, "VAR", Blockly.JavaScript.ORDER_ATOMIC);
     const vab2 = vab.substring(1, (vab.length - 1));
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    const content2 = content.substring(1, (content.length - 1));
     const colon = block.getFieldValue("COLON");
-    const code = `${type} ${vab2} = ${content2}${colon}
+    const code = `${type} ${vab2} = ${content}${colon}
 `
     return code
 };
