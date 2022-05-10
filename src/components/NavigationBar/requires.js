@@ -83,8 +83,8 @@ oldarray.forEach(js=>{
     if(js.includes("moment")){
         array.push(`"moment": "^2.29.1",`)
     }
-    if(js.includes("quickmongo")){
-        array.push(`"quickmongo": "git+https://github.com/mrredo/quickmongo.git",`)
+    if(js.includes("mongquick")){
+        array.push(`"mongquick": "git+https://github.com/ahqsoftwares/quickmongo.git",`)
     }
     if(js.includes("discord-image-generation")){
         array.push(`"discord-image-generation":"^1.4.9",`)
