@@ -89,7 +89,7 @@ if(js.includes("DIG")){
     array.push(`let firebase = require("firebase")`)
 }
 if(js.includes("DB")){
-    array.push(`let { DB } = require("quickmongo");`)
+    array.push(`let { DB } = require("mongquick");`)
 }
  if(js.includes("tictactoe")){
     array.push(`const TicTacToe = require('discord-tictactoe');`)
