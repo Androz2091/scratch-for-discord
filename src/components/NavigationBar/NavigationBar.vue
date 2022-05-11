@@ -13,7 +13,7 @@
                 <FileMenu></FileMenu>
                 <EditMenu></EditMenu>
                 <ToolboxModal></ToolboxModal>
-                <LanguageMenu></LanguageMenu>
+                <!--<LanguageMenu></LanguageMenu>-->
                 <ExamplesMenu></ExamplesMenu>
                 <preBuilds></preBuilds>
                 <TokenModal></TokenModal>
@@ -39,7 +39,7 @@ import JSZip from "jszip";
 import TokenModal from "./TokenModal.vue";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
-import LanguageMenu from "./LanguageMenu.vue";
+//import LanguageMenu from "./LanguageMenu.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
 import preBuilds from "./preBuilds.vue";
@@ -54,7 +54,7 @@ export default {
     components: {
         FileMenu,
         EditMenu,
-        LanguageMenu,
+        //LanguageMenu,
         ExamplesMenu,
         CodeModal,
         TokenModal,
