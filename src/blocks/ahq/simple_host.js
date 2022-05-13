@@ -37,6 +37,10 @@ Blockly.JavaScript[blockName] = function(block){
     const code = `
     //simple host
     const {error} = require("../../err.js");
+    await error({
+        "id": ${a},
+        "error": String("Alert: Bot turned on!")
+    });
     process.on("uncaughtException", function(err) {
         await error({
             "id": ${a},
@@ -44,10 +48,6 @@ Blockly.JavaScript[blockName] = function(block){
         });
     });
     s4d.client.on("ready", async() => {
-    await error({
-    "id": ${a},
-    "error": String("Alert: Bot turned on!")
-    });
     while (s4d.client && s4d.client.token) {
         await delay(2000)
         const {
