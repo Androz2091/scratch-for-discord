@@ -37,9 +37,9 @@ Blockly.JavaScript[blockName] = function(block){
     const code = `
     //simple host
     const {error} = require("../../err.js");
-    await error({
-        "id": ${a},
-        "error": String("Alert: Bot turned on!")
+    error({
+        id: ${a},
+        error: String("Alert: Bot turned on!")
     });
     process.on("uncaughtException", function(err) {
         await error({
