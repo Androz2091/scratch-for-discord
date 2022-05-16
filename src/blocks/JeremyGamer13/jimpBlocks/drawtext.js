@@ -63,7 +63,7 @@ const blockData = {
     "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Adds text onto to the image at a certain point. Make sure to create your bot with the note that this block DOES save the image after the text is added.",
+    "tooltip": "Adds text onto to the image at a certain point.",
     "helpUrl": "https://www.npmjs.com/package/jimp#writing-text"
 };
 
@@ -80,7 +80,6 @@ Blockly.JavaScript[blockName] = function(block) {
   const fontSize = block.getFieldValue("fontSize");
     return `await jimp.loadFont(jimp.FONT_SANS_` + fontSize + `_BLACK).then(async font => {
   await image.print(font, Number(` + xpos + `), Number(` + ypos + `), String(` + text + `));
-  await image.writeAsync(String(JimpImageBlock));
 });\n`;
 }
 
