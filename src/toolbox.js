@@ -939,10 +939,34 @@ export default (Blockly, value) => {
             <block type="jg_file_foreachfile"/>
             <block type="jg_file_foreachfileinput"/>
             </category>
-            <!-- <category name="Graphs" colour="90">
+
+
+            <category name="Data Blocks" colour="230">
+            <block type="jg_imghttps"/>
+            <block type="jg_web_currentdata"/>
+            <block type="jg_web_valueofkey"/>
+						<block type="jg_web_keywithvalue"/>
+            <block type="jg_web_valueofflkey"/>
+            <block type="jg_web_haskey"/>
+            <block type="jg_web_allkey"/>
+						<block type="jg_web_allval"/>
+            <block type="jg_web_keycount"/>
+            <block type="jg_web_keynumber"/>
+<label text="Loops" web-class="boldtext"></label>
+            <block type="jg_web_foreachkey"/>
+            <block type="jg_web_foreachkeyinput"/>
+            </category>
+
+
+<!--
+
+            <category name="Graphs" colour="90">
             <block type="jg_saveGraph_file"/>
-            </category> -->
-	    
+            <block type="jg_saveGraph_convert"/>
+            </category>
+
+-->
+
 	    <category name="Encoding and Securing" colour="195">
         <label text="Output blocks" web-class="boldtext"></label>
   <label text="Encoding text" web-class="boldtext"></label>
@@ -993,6 +1017,18 @@ export default (Blockly, value) => {
            
            <!-- <label text="Functions" web-class="boldtext"></label> -->
 
+</category>
+<category name="Public Experiments" colour="120">
+    <block type="jg_experiments_xml2json">
+        <value name="CONTENT">
+            <shadow type="text">
+            </shadow>
+        </value>
+        <value name="CONTENT2">
+            <shadow type="text">
+            </shadow>
+        </value>
+    </block>
 </category>
 	   
           </category>

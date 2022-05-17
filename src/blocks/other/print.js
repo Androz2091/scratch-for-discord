@@ -8,7 +8,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "PRINT",
-            "check": [ "Number", "String" ]
+            "check": null
         }
     ],
     "colour": "#D14081",

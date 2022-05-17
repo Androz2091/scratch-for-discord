@@ -198,6 +198,10 @@ if(js.includes("ChartJSImage")){
 if(js.includes("bcrypt.")){
   array.push(`const bcrypt = require("bcrypt");`)
 }
+if(js.includes("xml2json({")){
+  array.push(`const xml2json = require('xml-to-json')`)
+}
+
   if(js.includes("dootabase")){
     array.push(`const dootabase = require("easy-db-json");
 dootabase.setFile("./database.json");`)

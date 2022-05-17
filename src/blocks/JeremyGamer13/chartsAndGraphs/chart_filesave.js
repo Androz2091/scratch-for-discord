@@ -8,13 +8,13 @@ const blockData = {
       {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "Number", "String", "var", "Env"]
+            "check": ["Number", "String", "var", "Env"]
         }
     ],
     "colour": 90,
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Save the file with the file name of the Chart/Graph you made. Be careful with this though, this saves as an actual file on your bot!",
+    "tooltip": "Save the graph as an image using the file name you entered. Be careful with this though, this saves as an actual file on your bot!",
     "helpUrl": ""
 };
 
@@ -26,6 +26,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
   const fileName = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    return `line_chart_S4D_generated_992731990318.toFile('${fileName}');
-    `;
+  const code = `line_chart_S4D_generated_992731990318.toFile(String(${fileName}));\n`;
+  return code
 }
