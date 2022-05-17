@@ -986,6 +986,7 @@ export default (Blockly, value) => {
           <label text="shorturl.at/nCFV7" web-class="boldtext"></label>
 <category name="Messaging" colour="210">
             <block type="jg_sendImage"/>
+            <block type="jg_sendImageMSG"/>
             <block type="jg_typing"/>
             </category>
             <category name="Image Editing" colour="260">

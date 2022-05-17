@@ -2,6 +2,7 @@ import "./sendTestconsole"
 import "./beginJimpEdits"
 import "./saveImageTo"
 import "./sendImage"
+import "./sendImageMSG"
 //the return on april fools
 import "./banana"
 //--no banana block or no merge :(--
