@@ -879,11 +879,15 @@ export default (Blockly, value) => {
 <category name="JeremyGamer13" colour="#FFAA00">
 <label text="Need help? Go to this master document:" web-class="boldtext"></label>
           <label text="shorturl.at/nCFV7" web-class="boldtext"></label>
-            <block type="jg_beginJimp"/>
-            <block type="jg_saveJimpageAs"/>
+<category name="Messaging" colour="210">
             <block type="jg_sendImage"/>
             <block type="jg_typing"/>
-            <category name="Jimp Effects" colour="260">
+            </category>
+            <category name="Image Editing" colour="260">
+            <label text="Getting started" web-class="boldtext"></label>
+            <block type="jg_beginJimp"/>
+            <block type="jg_saveJimpageAs"/>
+            <label text="Effects and extras" web-class="boldtext"></label>
             <block type="jg_jimp_drawtext"/>
             <block type="jg_jimp_brightnesscontrast"/>
             <block type="jg_jimp_basicE"/>
@@ -935,8 +939,12 @@ export default (Blockly, value) => {
             <block type="jg_file_foreachfile"/>
             <block type="jg_file_foreachfileinput"/>
             </category>
+            <!-- <category name="Graphs" colour="90">
+            <block type="jg_saveGraph_file"/>
+            </category> -->
 	    
-	    <category name="Conversion" colour="90">
+	    <category name="Encoding and Securing" colour="195">
+        <label text="Output blocks" web-class="boldtext"></label>
   <label text="Encoding text" web-class="boldtext"></label>
             <block type="jg_encode_main">
           <value name="type">
@@ -952,6 +960,39 @@ export default (Blockly, value) => {
            </shadow>
            </value>
            </block>
+
+           <label text="Securing text" web-class="boldtext"></label>
+
+
+           <block type="jg_encode_hash">
+           <value name="encode">
+                      <shadow type="text">
+                      </shadow>
+                      </value>
+           
+           <value name="rounds">
+                      <shadow type="math_number">
+                                   <field name="NUM">10</field>
+                      </shadow>
+                      </value>
+           </block>
+
+
+           <block type="jg_encode_checkhash">
+           <value name="hash">
+                      <shadow type="text">
+                      </shadow>
+                      </value>
+           
+           <value name="test">
+                      <shadow type="text">
+                      </shadow>
+                      </value>
+           </block>
+
+           
+           <!-- <label text="Functions" web-class="boldtext"></label> -->
+
 </category>
 	   
           </category>
