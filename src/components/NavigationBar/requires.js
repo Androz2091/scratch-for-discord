@@ -113,6 +113,15 @@ oldarray.forEach(js=>{
     if(js.includes("easy-db-json")){
         array.push(`"easy-db-json": "^1.1.1"`)
     }
+  if(js.includes("lyricsFinder")){
+    array.push(`"lyrics-finder": "^21.7.0"`)
+  }
+  if(js.includes("os")){
+    array.push(`"os-utils": "0.0.14"`)
+  }
+  if(js.inludes("synchronizeSlashCommands")){
+    array.push(`"@frostzzone/discord-sync-commands": "^0.3.0"`)
+  }
 })
 array.reverse()
 array[0] = array[0].replace(",","")

@@ -11,7 +11,7 @@ const blockData = {
       {
             "type": "input_value",
             "name": "NAME",
-            "check": [ "Number", "String", "var", "Env"]
+            "check": [ "Number", "String", "var", "Env", "Attachment"]
         },
         {
             "type": "input_value",

@@ -8,9 +8,6 @@ S4D 469 is forked from [the original S4D](https://scratch-for-discord.netlify.ap
 
 * 🖥️ No code knowledge required!  
 * ⏩ Make a bot in less than 2 minutes!  
-* 🧪 Start and test your bot directly on the site!
-* 🇫🇷 French is supported!
-* 📦 Android, MacOS, Windows and Linux apps
 
 ## Example
 

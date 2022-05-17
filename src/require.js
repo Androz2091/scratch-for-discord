@@ -51,10 +51,12 @@ if(js.includes("backup")){
 if(js.includes("akinator")){
     array.push(`const akinator = require("discord.js-akinator");`)
 }
-
+if(js.includes("os")){
     array.push(`const os = require("os-utils");`)
-
+}
+  if(js.includes("lyricsFinder")){
 array.push(`const lyricsFinder = require('lyrics-finder');`)
+  }
 if(js.includes("s4d.Inviter")){
     array.push(`let Invite = require("discord-inviter-tracker")`)
     code.push("s4d.Inviter = new Invite(s4d.client)")
@@ -205,5 +207,8 @@ if(js.includes("xml2json({")){
   if(js.includes("dootabase")){
     array.push(`const dootabase = require("easy-db-json");
 dootabase.setFile("./database.json");`)
+  }
+  if(js.includes("synchronizeSlashCommands")){
+    array.push(`const synchronizeSlashCommands = require('@frostzzone/discord-sync-commands');`)
   }
 }

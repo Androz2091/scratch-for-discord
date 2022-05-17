@@ -23,8 +23,9 @@ import "./time/"
 import "./embed/"
 import "./fs/"
 import "./emoji/"
-import "./var"
-//import "./json/"
+import "./var/"
+import "./slash/"
+import "./attachment/"
 
 //may remove later
 import "./translate/"

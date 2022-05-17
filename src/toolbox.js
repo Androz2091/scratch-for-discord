@@ -713,6 +713,111 @@ export default (Blockly, value) => {
 <label text="ㅤ" web-class="boldtext"></label>
 </category>
 
+<category name="Slash command stuff" colour="4c97ff">
+<label text='⚠️ Deletes commands set by "Slash command GUI" ⚠️'></label>
+<label text='Only one "Create slash comamnds" block'></label>
+<label text='If not it breaks'></label>
+<block type="frost_slash_register"/>
+<block type="frost_slash_command">
+<value name="NAME">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+<value name="DESC">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+</block>
+<block type="frost_slash_sub_command_group">
+<value name="NAME">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+<value name="DESC">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+</block>
+<block type="frost_slash_sub_command">
+<value name="NAME">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+<value name="DESC">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+</block>
+<block type="frost_slash_options1">
+<value name="NAME">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+<value name="DESC">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+<value name="REQUIRED">
+  <shadow type="logic_boolean">
+    <field name="BOOL">TRUE</field>
+  </shadow>
+</value>
+</block>
+<block type="frost_slash_options2">
+<value name="NAME">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+<value name="DESC">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+<value name="REQUIRED">
+  <shadow type="logic_boolean">
+    <field name="BOOL">TRUE</field>
+  </shadow>
+</value>
+</block>
+<block type="frost_slash_choices">
+<value name="NAME">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+<value name="OPTION_NAME">
+  <shadow type="text">
+    <field name="TEXT"></field>
+  </shadow>
+</value>
+</block>
+<block type="fz_attachment_info"/>
+<block type="fz_attachment_info2"/>
+<label text="Mrredo stuff for slash comamnds"></label>
+        <block type="on_slash"></block>
+        <block type="interaction_name"></block>
+        <block type="options">
+        <mutation mode="string"></mutation></block>
+        <block type="interaction_author"></block>
+        <block type="interaction_channel"></block>
+        <block type="interaction_guild"></block>
+        <block type="interaction_voice_channel"></block>
+        <block type="interaction_voice_channel_id"></block>
+        <block type="bot_voice_channel_id"></block>
+        <block type="slash_reply"></block>
+        <block type="slash_edit"></block>
+<label text="ㅤ" web-class="boldtext"></label>
+</category>
+
 <category name="Category/Channel" colour="#2f64fa" hidden="false">
 <block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
 <block type="crosspost"/>

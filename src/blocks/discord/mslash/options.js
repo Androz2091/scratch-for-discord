@@ -39,6 +39,10 @@ Blockly.Blocks[blockName] = {
                     "subcommand group",
                     "SubcommandGroup"
                 ],
+                [
+                    "Attachment",
+                    "Attachment"
+                ],
             ],
             function(newMode) {
               thisBlock.updateType_(newMode);
@@ -92,7 +96,9 @@ Blockly.Blocks[blockName] = {
 
             this.setOutput(true,'String');
 
-        } 
+        } else if (newMode == 'attachment') {
+          this.setOutput(true,'Attachment');
+        }
       },
       mutationToDom: function() {
         var container = Blockly.utils.xml.createElement('mutation');

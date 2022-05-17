@@ -168,9 +168,6 @@ load()`);
                             "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i"\n
                         },\n
                         "dependencies": {\n
-                             "djs-games": "^2.1.10",\n
-                            "lyrics-finder": "^21.7.0",\n
-                            "os-utils": "0.0.14",\n
                             "moment": "latest",\n
                             ${requires.join("\n")}\n
                             
