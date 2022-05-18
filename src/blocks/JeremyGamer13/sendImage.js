@@ -11,7 +11,7 @@ const blockData = {
       {
             "type": "input_value",
             "name": "NAME",
-            "check": [ "Number", "String", "var", "Env", "Attachment"]
+            "check": [ "Number", "String", "var", "Env", "Array", "List", "Attachment"]
         },
         {
             "type": "input_value",
@@ -35,7 +35,13 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
   const fileNameandLocation = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
   const fileSendChannel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
-  const code = `await ${fileSendChannel}.send({ files: [${fileNameandLocation}] });
+  var stored = `[${fileNameandLocation}]`
+  if (fileNameandLocation.includes("['")) {
+    stored = fileNameandLocation
+  }
+  const code = `await ${fileSendChannel}.send({ 
+      files: ${stored}
+    });
   `;
   return code;
 }
