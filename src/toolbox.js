@@ -1933,6 +1933,7 @@ export default (Blockly, value) => {
             <block type="reply_mentioned_role"/>
             <block type="reply_mentioned_channel"/>
             <block type="reply_message"/>
+            <block type="reply_message_id"/>
             <label text="%{BKY_CHANNEL_MESSAGE_ACTIONS}"></label>
             <block type="s4d_channel_exist"/>
              <block type="s4d_purge">
