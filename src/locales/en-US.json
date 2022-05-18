@@ -280,7 +280,7 @@
   "CREATE_EMBED_THEN_SET_AUTHOR":"set embed author %1 pfp %2",
   "CREATE_EMBED_THEN_SET_DESCRIPTION":"set embed description %1",
   "DESCRIPTION":"description",
-  "BUTTON_MENU":"message button menu id %3 placeholder %4",
+  "BUTTON_MENU":"message button menu id %3 placeholder %4 button disabled? %5",
   "MESSAGE_MENU_BLOCK":"create button menu",
   "CREATE_EMBED_THEN_SET_THUMBNAIL":"set embed thumbnail %1",
   "CREATE_EMBED_THEN_ADD_FIELD":"add embed field %1 field title %2 field description %3 inline %4",
