@@ -5,6 +5,7 @@
         <b-dropdown-item v-b-modal.code-modal>{{ $t('file.javascript') }}</b-dropdown-item>
         <b-dropdown-item @click="copy">{{ $t('file.copy')}}</b-dropdown-item>
         <b-dropdown-item @click="save">{{ $t('file.save') }}</b-dropdown-item>
+        <b-dropdown-item @click="saveas">{{ 'Replace' }}</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
 
@@ -100,6 +101,27 @@ export default {
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
             });
+        },
+        saveas(){
+            const zip = new JSZip();
+            const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
+            zip.file("blocks.xml", xmlContent);
+            zip.generateAsync({
+                type: "blob"
+            })
+            .then(async (blob) => {
+                const fileHandle = await window.showSaveFilePicker({
+                types: [{
+                  description: "S4D Bot File",
+                  accept: {"application/zip": [".s4d"]}
+                }]
+                });
+                const fileStream = await fileHandle.createWritable();
+ 
+                await fileStream.write(blob);
+                await fileStream.close();
+            },
+          )
         }
     }
 }
