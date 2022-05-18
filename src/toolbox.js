@@ -1436,6 +1436,7 @@ export default (Blockly, value) => {
             <block type="s4d_button_think"></block>
             <block type="s4d_button_edit"></block>
             <block type="s4d_button_delete_reply"></block>
+	    <block type="s4d_send_button"></block>
             <block type="s4d_update"></block>
             <label text="%{BKY_BUTTON_BLOCKS}"></label>
             <block type="s4d_button_menu"></block>
