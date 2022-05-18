@@ -91,7 +91,7 @@ export default {
                     confirm: this.$t('download.confirm')
                 },
             }).then(async result => {
-                let requires = [`"discord.js": "^13.1.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
+                let requires = [`"discord.js": "^13.7.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
                 let oldrequires = await localforage.getItem("requires")
                 r(requires,oldrequires)
                 if(result){

@@ -89,6 +89,6 @@ Blockly.JavaScript[blockName] = function(block){
       choices: [
         ${choices}
       ]
-}`;
+},`;
     return code;
 };

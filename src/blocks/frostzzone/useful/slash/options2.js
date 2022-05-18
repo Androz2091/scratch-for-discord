@@ -93,6 +93,6 @@ Blockly.JavaScript[blockName] = function(block){
 			name: ${name},
 			description: ${desc},
 			required: ${required||false}
-}`;
+},`;
     return code;
 };

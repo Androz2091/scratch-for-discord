@@ -715,8 +715,8 @@ export default (Blockly, value) => {
 
 <category name="Slash command stuff" colour="4c97ff">
 <label text='⚠️ Deletes commands set by "Slash command GUI" ⚠️'></label>
-<label text='Only one "Create slash comamnds" block'></label>
-<label text='If not it breaks'></label>
+<label text='⚠️ Make sure your on discord.js 13.7.0 or higher ⚠️'></label>
+<label text='Only one "Create slash commands" block (the first yellow one) If not it breaks'></label>
 <block type="frost_slash_register"/>
 <block type="frost_slash_command">
 <value name="NAME">
