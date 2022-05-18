@@ -43,7 +43,7 @@ Blockly.JavaScript[blockName] = function(block) {
     guild = `guildID=${gild}`
   }
   // TODO: Assemble JavaScript into code variable.
-  var code = `synchronizeSlashCommands(s4dclient, [
+  var code = `synchronizeSlashCommands(s4d.client, [
 ${options}
 ],{
     debug: false,
