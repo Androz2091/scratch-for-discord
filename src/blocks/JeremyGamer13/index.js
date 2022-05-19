@@ -3,6 +3,8 @@ import "./beginJimpEdits"
 import "./saveImageTo"
 import "./sendImage"
 import "./sendImageMSG"
+import "./sendImagerow"
+import "./sendImageMSGrow"
 //the return on april fools
 import "./banana"
 //--no banana block or no merge :(--
@@ -17,3 +19,4 @@ import "./text"
 import "./chartsAndGraphs"
 import "./experiments"
 import "./misc"
+import "./slashandbutton"

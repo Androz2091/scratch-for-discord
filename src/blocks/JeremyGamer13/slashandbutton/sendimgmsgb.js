@@ -1,11 +1,11 @@
 //jimp.write('edited.jpg');
 import * as Blockly from "blockly/core";
-import { registerRestrictions } from "../../restrictions";
+import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "jg_sendImageMSG";
+const blockName = "jg_slash_button_sendImageMSG";
 
 const blockData = {
-    "message0": "Send file %1 and message %3 to channel %2",
+    "message0": "Send file %1 and message %3 with button row %4 as hidden? %2",
     "inputsInline": true,
     "args0": [
         {
@@ -15,19 +15,24 @@ const blockData = {
         },
         {
             "type": "input_value",
-            "name": "CHANNEL",
-            "check": [ "Channel"]
+            "name": "HIDE",
+            "check": [ "Boolean", "var", "Env" ]
         },
         {
             "type": "input_value",
             "name": "MESSAGE",
             "check": [ "String", "var", "Env", "Number", "Embed", "MessageEmbed" ]
+        },
+        {
+            "type": "input_value",
+            "name": "ROW",
+            "check": [ "String", "var", "Env" ]
         }
     ],
-    "colour": 210,
+    "colour": 240,
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "This sends the file with the matching file name, extension, and directory for a file saved in your bot's files. Supports (most) embeds and normal text.",
+    "tooltip": "This sends the file with the matching file name, extension, and directory for a file saved in your bot's files. Supports (most) embeds and normal text. (Slash command block)",
     "helpUrl": ""
 };
 
@@ -40,7 +45,10 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     //embeds: [
   const fileNameandLocation = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
-  const fileSendChannel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
+  const hidden = Blockly.JavaScript.valueToCode(block, "HIDE", Blockly.JavaScript.ORDER_ATOMIC);
+  var buttonraw = Blockly.JavaScript.valueToCode(block, "ROW", Blockly.JavaScript.ORDER_ATOMIC);
+  var buttonraw2 = String(buttonraw).replaceAll("\"", "")
+  const row = String(buttonraw2).replaceAll("'", "")
   var msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
   var code, embed;
   var stored = `[${fileNameandLocation}]`
@@ -53,14 +61,18 @@ Blockly.JavaScript[blockName] = function(block) {
     embed = false
   }
   if (embed) {
-    code = `await ${fileSendChannel}.send({
+    code = `interaction.reply({
         files: ${stored},
+        ephemeral: ${hidden},
+        components: [${row}],
         ${msg}
      });
    `;
   } else {
-    code = `await ${fileSendChannel}.send({
+    code = `interaction.reply({
         files: ${stored},
+        ephemeral: ${hidden},
+        components: [${row}],
         content: String(${msg})
      });
    `;
@@ -73,14 +85,7 @@ registerRestrictions(blockName, [
         type: "notempty",
         message: "RES_MISSING_CONTENT_GEN",
         types: [
-          "NAME", "MESSAGE"
-        ]
-    },
-    {
-        type: "notempty",
-        message: "RES_SEND_CHANNEL_CHANNEL",
-        types: [
-          "CHANNEL"
+          "NAME", "MESSAGE", "HIDE"
         ]
     }
 ]);

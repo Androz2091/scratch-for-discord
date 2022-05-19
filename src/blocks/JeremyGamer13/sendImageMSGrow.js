@@ -2,10 +2,10 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../restrictions";
 
-const blockName = "jg_sendImageMSG";
+const blockName = "jg_button_sendImageMSG";
 
 const blockData = {
-    "message0": "Send file %1 and message %3 to channel %2",
+    "message0": "Send file %1 and message %3 with button row %4 to channel %2",
     "inputsInline": true,
     "args0": [
         {
@@ -22,9 +22,14 @@ const blockData = {
             "type": "input_value",
             "name": "MESSAGE",
             "check": [ "String", "var", "Env", "Number", "Embed", "MessageEmbed" ]
+        },
+        {
+            "type": "input_value",
+            "name": "ROW",
+            "check": [ "String", "var", "Env" ]
         }
     ],
-    "colour": 210,
+    "colour": 220,
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "This sends the file with the matching file name, extension, and directory for a file saved in your bot's files. Supports (most) embeds and normal text.",
@@ -41,6 +46,9 @@ Blockly.JavaScript[blockName] = function(block) {
     //embeds: [
   const fileNameandLocation = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
   const fileSendChannel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
+  var buttonraw = Blockly.JavaScript.valueToCode(block, "ROW", Blockly.JavaScript.ORDER_ATOMIC);
+  var buttonraw2 = String(buttonraw).replaceAll("\"", "")
+  const row = String(buttonraw2).replaceAll("'", "")
   var msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
   var code, embed;
   var stored = `[${fileNameandLocation}]`
@@ -55,12 +63,14 @@ Blockly.JavaScript[blockName] = function(block) {
   if (embed) {
     code = `await ${fileSendChannel}.send({
         files: ${stored},
+        components: [${row}]
         ${msg}
      });
    `;
   } else {
     code = `await ${fileSendChannel}.send({
         files: ${stored},
+        components: [${row}]
         content: String(${msg})
      });
    `;

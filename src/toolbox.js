@@ -985,9 +985,138 @@ export default (Blockly, value) => {
 <label text="Need help? Go to this master document:" web-class="boldtext"></label>
           <label text="shorturl.at/nCFV7" web-class="boldtext"></label>
 <category name="Messaging" colour="210">
-            <block type="jg_sendImage"/>
-            <block type="jg_sendImageMSG"/>
             <block type="jg_typing"/>
+            <block type="jg_sendImage">
+                <value name="NAME">
+                  <block type="text">
+                    <field name="TEXT">file.txt</field>
+                  </block>
+                </value>
+                <value name="CHANNEL">
+                  <block type="s4d_message_channel"/>
+                </value>
+            </block>
+            <block type="jg_sendImageMSG">
+                <value name="NAME">
+                  <block type="text">
+                    <field name="TEXT">file.txt</field>
+                  </block>
+                </value>
+                <value name="MESSAGE">
+                  <block type="text">
+                    <field name="TEXT">Hey!</field>
+                  </block>
+                </value>
+                <value name="CHANNEL">
+                  <block type="s4d_message_channel"/>
+                </value>
+            </block>
+            <label text="Button row support:" web-class="boldtext"></label>
+            <block type="jg_button_sendImage">
+                <value name="NAME">
+                  <block type="text">
+                    <field name="TEXT">file.txt</field>
+                  </block>
+                </value>
+                <value name="ROW">
+                  <block type="text">
+                    <field name="TEXT">buttons</field>
+                  </block>
+                </value>
+                <value name="CHANNEL">
+                  <block type="s4d_message_channel"/>
+                </value>
+            </block>
+            <block type="jg_button_sendImageMSG">
+                <value name="NAME">
+                  <block type="text">
+                    <field name="TEXT">file.txt</field>
+                  </block>
+                </value>
+                <value name="ROW">
+                  <block type="text">
+                    <field name="TEXT">buttons</field>
+                  </block>
+                </value>
+                <value name="MESSAGE">
+                  <block type="text">
+                    <field name="TEXT">Hey!</field>
+                  </block>
+                </value>
+                <value name="CHANNEL">
+                  <block type="s4d_message_channel"/>
+                </value>
+            </block>
+            <label text="For use in slash commands:" web-class="boldtext"></label>
+            <block type="jg_slash_sendImage">
+                <value name="NAME">
+                  <block type="text">
+                    <field name="TEXT">file.txt</field>
+                  </block>
+                </value>
+                <value name="HIDE">
+                  <block type="logic_boolean">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+            </block>
+            <block type="jg_slash_sendImageMSG">
+                <value name="NAME">
+                  <block type="text">
+                    <field name="TEXT">file.txt</field>
+                  </block>
+                </value>
+                <value name="MESSAGE">
+                  <block type="text">
+                    <field name="TEXT">Hey!</field>
+                  </block>
+                </value>
+                <value name="HIDE">
+                  <block type="logic_boolean">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+            </block>
+            <label text="Slash button row support:" web-class="boldtext"></label>
+            <block type="jg_slash_button_sendImage">
+                <value name="NAME">
+                  <block type="text">
+                    <field name="TEXT">file.txt</field>
+                  </block>
+                </value>
+                <value name="ROW">
+                  <block type="text">
+                    <field name="TEXT">buttons</field>
+                  </block>
+                </value>
+                <value name="HIDE">
+                  <block type="logic_boolean">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+            </block>
+            <block type="jg_slash_button_sendImageMSG">
+                <value name="NAME">
+                  <block type="text">
+                    <field name="TEXT">file.txt</field>
+                  </block>
+                </value>
+                <value name="MESSAGE">
+                  <block type="text">
+                    <field name="TEXT">Hey!</field>
+                  </block>
+                </value>
+                <value name="ROW">
+                  <block type="text">
+                    <field name="TEXT">buttons</field>
+                  </block>
+                </value>
+                <value name="HIDE">
+                  <block type="logic_boolean">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+            </block>
             </category>
             <category name="Image Editing" colour="260">
             <label text="Getting started" web-class="boldtext"></label>
