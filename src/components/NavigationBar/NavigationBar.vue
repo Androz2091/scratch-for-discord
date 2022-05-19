@@ -198,6 +198,21 @@ load()`);
             });
         },
         indexjs(){
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = `<h6>Explanations:</h6><ul><li style='text-align:left'>"index.js" contains your bot's code.</li><li style='text-align:left'>"package.json" contains all of the packages needed for hosting on your computer.</li></ul>`;
+            this.$swal({
+                title: "Which file are you downloading?",
+                showDenyButton: true,
+                showCancelButton: true,
+                showConfirmButton: true,
+                content: wrapper,
+                buttons: {
+                    cancel: "Nevermind...",
+                    deny: "package.json",
+                    confirm: "index.js",
+                },
+            }).then(async result => {
+if(result.isConfirmed){
             const javascriptContent = this.getWorkspaceCode();
             const blob = new Blob([javascriptContent])
             const a = document.createElement("a");
@@ -209,6 +224,43 @@ load()`);
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
+}
+else if (result.isDenied)
+{
+                let requires = [`"discord.js": "^13.7.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
+                let oldrequires = await localforage.getItem("requires")
+                r(requires,oldrequires)
+            const javascriptContent = `{\n
+                        "name": "scratch-for-discord-bot",\n
+                        "version": "1.0.0",\n
+                        "main": "boot.js",\n
+                        "scripts": {\n
+                            "start": "npm i && node .",\n
+                            "node-update": "npm i --save-dev node@17 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",\n
+                            "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i"\n
+                        },\n
+                        "dependencies": {\n
+                            "moment": "latest",\n
+                            ${requires.join("\n")}\n
+                            
+                        },\n
+                        "devDependencies": {\n
+                            "node": "^17"\n
+                        }\n
+                    }`;
+            const blob = new Blob([javascriptContent])
+            const a = document.createElement("a");
+                a.style = "display: none";
+                document.body.appendChild(a);
+                const url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = "package.json";
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+
+}
+            })
         }
     }
 }
