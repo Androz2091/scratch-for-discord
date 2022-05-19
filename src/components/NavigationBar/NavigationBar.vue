@@ -26,11 +26,11 @@
                 <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
                 </b-button>
                 <!-- border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em -->
-                <b-button id="v-step-2" :disabled="!configurationValidated" style="border-right-color: #161719; border-radius: 0em" @click="exportToCode">
-                    <b-icon-download></b-icon-download>
-                </b-button>
-                <b-button id="v-step-3" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="indexjs">
+                <b-button id="v-step-2" :disabled="!configurationValidated" style="border-right-color: #161719; border-radius: 0em" @click="indexjs">
                     <b-icon-file-code></b-icon-file-code>
+                </b-button>
+                <b-button id="v-step-3" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
+                    <b-icon-download></b-icon-download>
                 </b-button>
             </b-navbar-nav>
         </b-collapse>
