@@ -985,7 +985,11 @@ export default (Blockly, value) => {
 <label text="Need help? Go to this master document:" web-class="boldtext"></label>
           <label text="shorturl.at/nCFV7" web-class="boldtext"></label>
 <category name="Messaging" colour="210">
-            <block type="jg_typing"/>
+            <block type="jg_typingChannel">
+                <value name="CHANNEL">
+                    <block type="s4d_message_channel"/>
+                </value>
+            </block>
             <block type="jg_sendImage">
                 <value name="NAME">
                   <block type="text">
