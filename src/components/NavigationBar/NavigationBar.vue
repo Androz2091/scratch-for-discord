@@ -25,8 +25,12 @@
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
                 <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
                 </b-button>
-                <b-button id="v-step-2" :disabled="!configurationValidated" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
+                <!-- border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em -->
+                <b-button id="v-step-2" :disabled="!configurationValidated" style="border-right-color: #161719; border-radius: 0em" @click="exportToCode">
                     <b-icon-download></b-icon-download>
+                </b-button>
+                <b-button id="v-step-3" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="indexjs">
+                    <b-icon-file-code></b-icon-file-code>
                 </b-button>
             </b-navbar-nav>
         </b-collapse>
@@ -192,6 +196,19 @@ load()`);
                     });
                 }
             });
+        },
+        indexjs(){
+            const javascriptContent = this.getWorkspaceCode();
+            const blob = new Blob([javascriptContent])
+            const a = document.createElement("a");
+                a.style = "display: none";
+                document.body.appendChild(a);
+                const url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = "index.js";
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
         }
     }
 }
