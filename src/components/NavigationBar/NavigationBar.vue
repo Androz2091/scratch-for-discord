@@ -26,6 +26,9 @@
                 <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
                 </b-button>
                 <!-- border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em -->
+                <b-button id="v-step-4" style="border-right-color: #161719; border-radius: 0em" @click="runbot">
+                    <b-icon-play></b-icon-play>
+                </b-button>
                 <b-button id="v-step-2" style="border-right-color: #161719; border-radius: 0em" @click="indexjs">
                     <b-icon-file-code></b-icon-file-code>
                 </b-button>
@@ -333,6 +336,97 @@ load()`])
                 document.body.removeChild(a);
 
 }
+            })
+        },
+        runbot(){
+            // const wrapper = document.createElement('div');
+            // wrapper.innerHTML = `<!--<h6>Run your bot?</h6>
+            // <ul>
+            //     <li style='text-align:left'>${this.$t('download.content.unzipFile')}</li>
+            //     <li style='text-align:left'>${this.$t('download.content.node')}</li>
+            //     <li style='text-align:left'>${this.$t('download.content.start')}</li>
+            //     <li style='text-align:left'>${this.$t('download.content.done')}</li>
+            // </ul>-->`;
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = `<h6>You will have to manually stop your bot in Discord!</h6>`
+            this.$swal({
+                title: "Start your bot?",
+                icon: "warning",
+                content: wrapper,
+                buttons: {
+                    cancel: "Cancel",
+                    run: "Yes!"
+                },
+            }).then(async (result) => {
+                if (result == "run") {
+                    console.log("johnathan: run the bot bro")
+                    console.log("barry: mk lemme just package up the code they made")
+                    console.log("johnathan: ok tell me when your done")
+                    console.log("barry: ok")
+                    const javascriptContent = this.getWorkspaceCode();
+                    // http.createServer((req, res) => {
+                    // let serverjs = 'true'
+                    const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
+                    // block type="frost_env"
+                    // block type="frost_webserver"
+                    if (
+                        javascriptContent.includes("process.env") ||
+                        javascriptContent.includes("http.createServer((req, res) => {") ||
+                        xmlContent.includes("block type=\"frost_webserver\"") ||
+                        xmlContent.includes("block type=\"frost_env\"")
+                    ) {
+                        swal.fire("Your bot contains a replit block. Please remove it before continuing.", "You may have a process.env block or a webserver block placed somewhere.", "error")
+                        console.log("barry: ok so i finished but the user has incompatible blocks")
+                        console.log("johnathan: damn")
+                        return;
+                    } else if (
+                        xmlContent.includes("block type=\"blank_code\"") ||
+                        xmlContent.includes("block type=\"s4d_eval\"")
+                    ) {
+                        swal.fire("Your bot contains blocks that run or insert code.", "Remove any \"insert code\" or \"run code\" blocks before running.", "error")
+                        console.log("barry: ok so i finished but the user has custom code blocks")
+                        console.log("johnathan: damn")
+                        return;
+                    }
+                    console.log("barry: done")
+                    console.log("johnathan: ok go send the post request")
+                    console.log("barry: ok")
+                    console.log("epic server: now going to be sending POST request to JeremyGamer13s dumb and insecure API!!1!1!!")
+                    const requestOptions = {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                             key: process.env.key, 
+                             code: javascriptContent 
+                             })
+                    };
+                    try {
+                        fetch('https://469runtest.jeremygamer13.repl.co/?imbored=true', requestOptions)
+                        .then(async (response) => {
+                            console.log(response)
+                        })
+                        console.log("epic server: POST request sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
+                        console.log("barry: done")
+                        console.log("johnathan: nice, now lets get back to work")
+                    }
+                    catch (err)
+                    {
+                        swal.fire(
+                            "An error occurred!",
+                            String(err),
+                            "error"
+                        )
+                        console.log("*zapping sounds come from epic server*")
+                        console.log("epic server: FUCK AHJGJEUYGE*&TIUG#*&IUKJNGUYEFJE(O")
+                        console.log("barry: epic server what happened?")
+                        console.log(`epic server: ${err}`)
+                        console.log("johnathan: damn we gotta get back to work barry")
+                        console.log("barry: sorry epic server but we gotta go for now")
+                    }
+                    // .then(response => response.json())
+                    // .then(data => element.innerHTML = data.id );
+                    
+                }
             })
         }
     }
