@@ -38,6 +38,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Blockly from "blockly";
 import JSZip from "jszip";
 import TokenModal from "./TokenModal.vue";
@@ -195,18 +196,31 @@ load()`);
         },
         indexjs(){
             const wrapper = document.createElement('div');
-            wrapper.innerHTML = `<h6>Explanations:</h6><ul><li style='text-align:left'>"index.js" contains your bot's code.</li><li style='text-align:left'>"package.json" contains all of the packages needed for hosting on your computer.</li></ul>`;
+            wrapper.innerHTML = `<h6>Explanations:</h6>
+            <ul>
+                <li style='text-align:left'>"index.js" contains your bot's code.</li>
+                <li style='text-align:left'>"package.json" contains all of the packages needed for hosting on your computer.</li>
+                <li style='text-align:left'>"blocks.xml" contains all of your blocks used to create your bot.</li>
+                <li style='text-align:left'>".replit" allows the bot to start with a certain command. Not required if the bot file is named "index.js".</li>
+                <li style='text-align:left'>"database.json" is an empty database ready for you to fill.</li>
+            </ul>`;
+                //     zip.file(".replit", 'run = "npm start"');
+                //   zip.file("database.json", "{}");
             this.$swal({
                 title: "Which file are you downloading?",
                 content: wrapper,
+                icon: 'warning',
                 buttons: {
                     cancel: "Nevermind...",
-                    deny: "package.json",
-                    confirm: "index.js",
+                    file1: "index.js",
+                    file2: "package.json",
+                    file3: "blocks.xml",
+                    file4: ".replit",
+                    file5: "database.json"
                 },
             }).then(async (result) => {
                 console.log(result)
-if ((result == true)) {
+if ((result == "file1")) {
             const javascriptContent = this.getWorkspaceCode();
             const blob = new Blob([javascriptContent])
             const a = document.createElement("a");
@@ -218,9 +232,7 @@ if ((result == true)) {
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
-}
-else if ((result != null) && (String(result) == "deny"))
-{
+} else if ((result == "file2")) {
                 let requires = [`"discord.js": "^13.7.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
                 let oldrequires = await localforage.getItem("requires")
                 r(requires,oldrequires)
@@ -249,6 +261,44 @@ else if ((result != null) && (String(result) == "deny"))
                 const url = window.URL.createObjectURL(blob);
                 a.href = url;
                 a.download = "package.json";
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+
+} else if ((result == "file3")) {
+            const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
+            const blob = new Blob([xmlContent])
+            const a = document.createElement("a");
+                a.style = "display: none";
+                document.body.appendChild(a);
+                const url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = "blocks.xml";
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+
+} else if ((result == "file4")) {
+            const blob = new Blob(['run = "npm start"'])
+            const a = document.createElement("a");
+                a.style = "display: none";
+                document.body.appendChild(a);
+                const url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = "\\.replit";
+                // you cant save it as .replit for some reason, _.replit is the best option for this
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+
+} else if ((result == "file5")) {
+            const blob = new Blob(["{}"])
+            const a = document.createElement("a");
+                a.style = "display: none";
+                document.body.appendChild(a);
+                const url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = "database.json";
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
