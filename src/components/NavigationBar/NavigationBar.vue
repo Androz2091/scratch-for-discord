@@ -198,11 +198,12 @@ load()`);
             const wrapper = document.createElement('div');
             wrapper.innerHTML = `<h6>Explanations:</h6>
             <ul>
-                <li style='text-align:left'>"index.js" contains your bot's code.</li>
+                <li style='text-align:left'>"bot.js" contains your bot's code.</li>
                 <li style='text-align:left'>"package.json" contains all of the packages needed for hosting on your computer.</li>
                 <li style='text-align:left'>"blocks.xml" contains all of your blocks used to create your bot.</li>
                 <li style='text-align:left'>".replit" allows the bot to start with a certain command. Not required if the bot file is named "index.js".</li>
                 <li style='text-align:left'>"database.json" is an empty database ready for you to fill.</li>
+                <li style='text-align:left'>"boot.js" literally just runs the bot.js file.</li>
             </ul>`;
                 //     zip.file(".replit", 'run = "npm start"');
                 //   zip.file("database.json", "{}");
@@ -212,11 +213,12 @@ load()`);
                 icon: 'warning',
                 buttons: {
                     cancel: "Nevermind...",
-                    file1: "index.js",
+                    file1: "bot.js",
                     file2: "package.json",
                     file3: "blocks.xml",
                     file4: ".replit",
-                    file5: "database.json"
+                    file5: "database.json",
+                    file6: "boot.js"
                 },
             }).then(async (result) => {
                 console.log(result)
@@ -228,7 +230,7 @@ if ((result == "file1")) {
                 document.body.appendChild(a);
                 const url = window.URL.createObjectURL(blob);
                 a.href = url;
-                a.download = "index.js";
+                a.download = "bot.js";
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
@@ -299,6 +301,33 @@ if ((result == "file1")) {
                 const url = window.URL.createObjectURL(blob);
                 a.href = url;
                 a.download = "database.json";
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+
+} else if ((result == "file6")) {
+            const blob = new Blob([`const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+async function load(){
+console.log(\`
+entering BIOS please wait....\`)
+console.clear()
+console.log(\`
+██████╗░░█████╗░░█████╗░████████╗██╗███╗░░██╗░██████╗░░░░░░░░░░
+██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██║████╗░██║██╔════╝░░░░░░░░░░
+██████╦╝██║░░██║██║░░██║░░░██║░░░██║██╔██╗██║██║░░██╗░░░░░░░░░░
+██╔══██╗██║░░██║██║░░██║░░░██║░░░██║██║╚████║██║░░╚██╗░░░░░░░░░
+██████╦╝╚█████╔╝╚█████╔╝░░░██║░░░██║██║░╚███║╚██████╔╝██╗██╗██╗
+╚═════╝░░╚════╝░░╚════╝░░░░╚═╝░░░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝╚═╝╚═╝\`)
+console.log(\`𝕔𝕠𝕕𝕖 𝕝𝕠𝕒𝕕𝕖𝕕\`)
+require("./bot")
+}
+load()`])
+            const a = document.createElement("a");
+                a.style = "display: none";
+                document.body.appendChild(a);
+                const url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = "boot.js";
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
