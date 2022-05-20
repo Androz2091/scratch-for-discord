@@ -198,17 +198,15 @@ load()`);
             wrapper.innerHTML = `<h6>Explanations:</h6><ul><li style='text-align:left'>"index.js" contains your bot's code.</li><li style='text-align:left'>"package.json" contains all of the packages needed for hosting on your computer.</li></ul>`;
             this.$swal({
                 title: "Which file are you downloading?",
-                showDenyButton: true,
-                showCancelButton: true,
-                showConfirmButton: true,
                 content: wrapper,
                 buttons: {
                     cancel: "Nevermind...",
                     deny: "package.json",
                     confirm: "index.js",
                 },
-            }).then(async result => {
-if(result.isConfirmed){
+            }).then(async (result) => {
+                console.log(result)
+if ((result == true)) {
             const javascriptContent = this.getWorkspaceCode();
             const blob = new Blob([javascriptContent])
             const a = document.createElement("a");
@@ -221,7 +219,7 @@ if(result.isConfirmed){
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
 }
-else if (result.isDenied)
+else if ((result != null) && (String(result) == "deny"))
 {
                 let requires = [`"discord.js": "^13.7.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
                 let oldrequires = await localforage.getItem("requires")

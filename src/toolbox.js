@@ -55,6 +55,26 @@ export default (Blockly, value) => {
             <block type="controls_flow_statements">
                 <field name="FLOW">BREAK</field>
             </block>
+            <label text="More Options" web-class="boldtext"></label>
+            <block type="s4d_forever2">
+                <value name="LOG">
+                    <shadow type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_forever3">
+                <value name="LOG">
+                    <shadow type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </shadow>
+                </value>
+                <value name="DELAY">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+            </block>
         </category>
         <category name="{{ TOOLBOX_MATH }}" colour="#5b67a5">
             <block type="math_number">
