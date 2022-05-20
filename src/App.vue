@@ -145,6 +145,9 @@ export default {
         this.$root.$i18n.locale = this.$store.state.blocklyLocale;
     },
     mounted(){
+        console.log("...wait a second... a user?")
+        console.log("i gotta tell them!")
+        console.warn("CAREFUL WHAT YOU TYPE IN CONSOLE! barry and johnathan are watching all of your moves...")
         if (!("ScratchNative" in window) && window.parent?.ScratchNative) window.ScratchNative = window.parent.ScratchNative;
         const tourDone = localStorage.getItem('tourDone');
         if (tourDone !== null) this.$store.commit('setTour', {

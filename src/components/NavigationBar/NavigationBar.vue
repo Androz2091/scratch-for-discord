@@ -378,6 +378,7 @@ load()`])
                         swal.fire("Your bot contains a replit block. Please remove it before continuing.", "You may have a process.env block or a webserver block placed somewhere.", "error")
                         console.log("barry: ok so i finished but the user has incompatible blocks")
                         console.log("johnathan: damn")
+                        console.error("barry and johnathan found replit blocks...")
                         return;
                     } else if (
                         xmlContent.includes("block type=\"blank_code\"") ||
@@ -386,6 +387,7 @@ load()`])
                         swal.fire("Your bot contains blocks that run or insert code.", "Remove any \"insert code\" or \"run code\" blocks before running.", "error")
                         console.log("barry: ok so i finished but the user has custom code blocks")
                         console.log("johnathan: damn")
+                        console.error("barry and johnathan found insert or run code blocks...")
                         return;
                     }
                     console.log("barry: done")
