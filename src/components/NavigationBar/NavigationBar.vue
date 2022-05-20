@@ -396,9 +396,9 @@ load()`])
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                             key: process.env.key, 
-                             code: javascriptContent 
-                             })
+                                key: process.env.VUE_APP_KEY,
+                                code: javascriptContent
+                            })
                     };
                     try {
                         fetch('https://469runtest.jeremygamer13.repl.co/?imbored=true', requestOptions)
