@@ -393,16 +393,8 @@ load()`])
                         console.error("barry and johnathan found insert or run code blocks...")
                         return;
                     }
-                    var modifiedJScontent = javascriptContent
                     var botID = String((Math.floor(Math.random() * 8999) + 1000))
-                    modifiedJScontent = modifiedJScontent.replaceAll(`process.on('uncaughtException', function(err) {
-        console.log(\`𝕖𝕣𝕣𝕠𝕣❕\`);
-        console.log(err);
-    });`, `process.on('uncaughtException', function(err) {
-        console.log(\`𝕖𝕣𝕣𝕠𝕣❕\`);
-        console.log(err);
-        fs.appendFileSync('./server/console.rbs', (${botID} + String(err)), function(err) {});
-    });`)
+                    var modifiedJScontent = javascriptContent.replaceAll(`process.on('uncaughtException', function(err) {`, `let aijpfheiowfoiewfhewoiufewoifjopq = require('fs');\nprocess.on('uncaughtException', function(err) {\naijpfheiowfoiewfhewoiufewoifjopq.appendFileSync('./server/console.rbs', (${botID} + String(err)), function(err) {});`)
                     console.log("barry: done")
                     console.log("johnathan: ok go send the post request")
                     console.log("barry: ok")
