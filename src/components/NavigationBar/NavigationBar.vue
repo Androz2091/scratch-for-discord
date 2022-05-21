@@ -29,9 +29,11 @@
                 <b-button id="v-step-4" style="border-right-color: #161719; border-radius: 0em" @click="runbot">
                     <b-icon-play></b-icon-play>
                 </b-button>
+                <!--
                 <b-button id="v-step-5" style="border-right-color: #161719; border-radius: 0em" @click="console">
                     <b-icon-newspaper></b-icon-newspaper>
                 </b-button>
+                -->
                 <b-button id="v-step-2" style="border-right-color: #161719; border-radius: 0em" @click="indexjs">
                     <b-icon-file-code></b-icon-file-code>
                 </b-button>
@@ -415,9 +417,16 @@ load()`])
                         console.log("epic server: POST request sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
                         console.log("barry: done")
                         console.log("johnathan: nice, now lets get back to work")
+                        /*
                         swal.fire(
                             "Nice!",
                             `Your bot should go online soon.<br>To see any errors that occur in your bot, click the button with the 📰 icon,<br>and then look for any error that starts with the number <b>${botID}.</b>`,
+                            "success"
+                        )
+                        */
+                        swal.fire(
+                            "Nice!",
+                            `Your bot should go online soon.`,
                             "success"
                         )
                     }
