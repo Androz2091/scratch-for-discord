@@ -214,7 +214,7 @@ load()`);
                 <li style='text-align:left'>"boot.js" literally just runs the bot.js file.</li>
             </ul>
             
-  <input type="checkbox" id="file1">
+  <input type="checkbox" id="file1" checked="checked">
   <label for="file1"> bot.js </label>
   <input type="checkbox" id="file2">
   <label for="file2"> package.json </label>
