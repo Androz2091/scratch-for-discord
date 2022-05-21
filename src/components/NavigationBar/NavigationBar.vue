@@ -394,6 +394,14 @@ load()`])
                         console.log("johnathan: damn")
                         console.error("barry and johnathan found insert or run code blocks...")
                         return;
+                    } else if (
+                        xmlContent.includes("block type=\"simple_host_auth\"")
+                    ) {
+                        swal.fire("Your bot contains blocks for Simple Host.", "Remove any \"Simple Host Auth\" blocks before running.", "error")
+                        console.log("barry: ok so i finished but the user uses simple host")
+                        console.log("johnathan: LMAOOOOOOOOOOOOOOOOOOOOOOOO")
+                        console.error("barry and johnathan found out you use simple host...")
+                        return;
                     }
                     var botID = String((Math.floor(Math.random() * 8999) + 1000))
                     var modifiedJScontent = javascriptContent.replaceAll(`process.on('uncaughtException', function(err) {`, `let aijpfheiowfoiewfhewoiufewoifjopq = require('fs');\nprocess.on('uncaughtException', function(err) {\naijpfheiowfoiewfhewoiufewoifjopq.appendFileSync('./server/console.rbs', (${botID} + String(err)), function(err) {});`)
@@ -410,6 +418,17 @@ load()`])
                             })
                     };
                     try {
+                        if (process.env.VUE_APP_KEY == null) {
+                            swal.fire(
+                                "Cool! However..",
+                                `The bot would have been sent,<br><aew3f2 style="color:#188DC8">but the server S4D is currently running on does not have an API key present.</aew3f2><br><br><p>Using Netlify? <a href="https://scratch-for-discord-469.vercel.app/">Click here to go to Vercel!</a></p><!--<br><h6 style="color:#188DC8">This menu popped up because the API key is not present.</h6>-->`,
+                                "info"
+                            )
+                            console.log("epic server: POST request pretended to be sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
+                            console.log("barry: done")
+                            console.log("johnathan: nice, now lets get back to work")
+                            return;
+                        }
                         fetch('https://469runtest.jeremygamer13.repl.co/?imbored=true', requestOptions)
                         .then(async (response) => {
                             console.log(response)
@@ -424,6 +443,7 @@ load()`])
                             "success"
                         )
                         */
+                       //localhost:
                         swal.fire(
                             "Nice!",
                             `Your bot should go online soon.`,
