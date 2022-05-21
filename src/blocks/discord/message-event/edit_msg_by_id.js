@@ -43,6 +43,7 @@ Blockly.JavaScript[blockName] = function(block){
        msg.edit({
                     content: String(${edit})
                 })
-})`;
+})
+`;
     return code;
 };
