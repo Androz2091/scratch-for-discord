@@ -212,7 +212,22 @@ load()`);
                 <li style='text-align:left'>".replit" allows the bot to start with a certain command. Not required if the bot file is named "index.js".</li>
                 <li style='text-align:left'>"database.json" is an empty database ready for you to fill.</li>
                 <li style='text-align:left'>"boot.js" literally just runs the bot.js file.</li>
-            </ul>`;
+            </ul>
+            
+  <input type="checkbox" id="file1">
+  <label for="file1"> bot.js </label>
+  <input type="checkbox" id="file2">
+  <label for="file2"> package.json </label>
+  <input type="checkbox" id="file3">
+  <label for="file3"> blocks.xml</label><br>
+  <input type="checkbox" id="file4">
+  <label for="file4"> .replit </label>
+  <input type="checkbox" id="file5">
+  <label for="file5"> database.json </label>
+  <input type="checkbox" id="file6">
+  <label for="file6"> boot.js</label><!--<br><br>
+  <input type="checkbox" id="ZIP">
+  <label for="ZIP"> ZIP Files</label>-->`;
                 //     zip.file(".replit", 'run = "npm start"');
                 //   zip.file("database.json", "{}");
             this.$swal({
@@ -221,16 +236,33 @@ load()`);
                 icon: 'warning',
                 buttons: {
                     cancel: "Nevermind...",
-                    file1: "bot.js",
-                    file2: "package.json",
-                    file3: "blocks.xml",
-                    file4: ".replit",
-                    file5: "database.json",
-                    file6: "boot.js"
+                    confirm: "Download"
+                //     file1: "bot.js",
+                //     file2: "package.json",
+                //     file3: "blocks.xml",
+                //     file4: ".replit",
+                //     file5: "database.json",
+                //     file6: "boot.js"
                 },
             }).then(async (result) => {
                 console.log(result)
-if ((result == "file1")) {
+if ((result == true)) {
+    var file1 = document.getElementById('file1').checked
+    var file2 = document.getElementById('file2').checked
+    var file3 = document.getElementById('file3').checked
+    var file4 = document.getElementById('file4').checked
+    var file5 = document.getElementById('file5').checked
+    var file6 = document.getElementById('file6').checked
+    //var zip = document.getElementById('ZIP').checked
+
+                console.log(file1)
+                console.log(file2)
+                console.log(file3)
+                console.log(file4)
+                console.log(file5)
+                console.log(file6)
+                //console.log(zip)
+if (file1) {
             const javascriptContent = this.getWorkspaceCode();
             const blob = new Blob([javascriptContent])
             const a = document.createElement("a");
@@ -242,7 +274,8 @@ if ((result == "file1")) {
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
-} else if ((result == "file2")) {
+}
+if ((file2)) {
                 let requires = [`"discord.js": "^13.7.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
                 let oldrequires = await localforage.getItem("requires")
                 r(requires,oldrequires)
@@ -275,7 +308,8 @@ if ((result == "file1")) {
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
 
-} else if ((result == "file3")) {
+}
+if (file3) {
             const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
             const blob = new Blob([xmlContent])
             const a = document.createElement("a");
@@ -288,7 +322,8 @@ if ((result == "file1")) {
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
 
-} else if ((result == "file4")) {
+}
+if (file4) {
             const blob = new Blob(['run = "npm start"'])
             const a = document.createElement("a");
                 a.style = "display: none";
@@ -301,7 +336,8 @@ if ((result == "file1")) {
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
 
-} else if ((result == "file5")) {
+}
+if (file5) {
             const blob = new Blob(["{}"])
             const a = document.createElement("a");
                 a.style = "display: none";
@@ -313,7 +349,8 @@ if ((result == "file1")) {
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
 
-} else if ((result == "file6")) {
+}
+if (file6) {
             const blob = new Blob([`const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function load(){
 console.log(\`
@@ -341,7 +378,7 @@ load()`])
                 document.body.removeChild(a);
 
 }
-            })
+            }})
         },
         runbot(){
             // const wrapper = document.createElement('div');

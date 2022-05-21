@@ -492,7 +492,6 @@ export default (Blockly, value) => {
             <block type="s4d_string_to_number"></block>
 	    <block type="is_a_number_or_string"></block>
         <block type="jg_object_getvalue"/>
-        <block type="jg_other_setvalue"></block>
         <block type="anti_link"/>
         </category>
        
@@ -1917,9 +1916,10 @@ export default (Blockly, value) => {
             <block type="s4d_bot_server_count"></block>
             <block type="s4d_get_bot"></block>
 						<block type="s4d_bot_amount"/>
+                        <block type="jg_s4duptime"/>
             <label text="%{BKY_BOT_ACTIONS}"></label>
             <block type="s4d_set_bot_game"></block>
-            <block type="s4d_set_bot_stream"></block>
+            <block type="s4d_set_bot_stream_text"></block>
             <block type="s4d_bot_shutdown"></block>
 	    <block type="setbot"/>
 <label text="{@user} = user ping . {user_tag} = user tag" web-class="boldtext"></label>
