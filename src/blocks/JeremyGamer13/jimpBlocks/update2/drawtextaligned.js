@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../../restrictions";
 const blockName = "jg_jimp_U2_drawtext";
 
 const blockData = {
-    "message0": "Display %1 placed X: %2 Y: %3 using font size %4",
+    "message0": "Display %1 placed X: %2 Y: %3 using font size %4 aligned ",
     "args0": [
         {
             "type": "input_value",
@@ -79,7 +79,8 @@ Blockly.JavaScript[blockName] = function(block) {
   const ypos = Blockly.JavaScript.valueToCode(block, "ypos", Blockly.JavaScript.ORDER_ATOMIC);
   const fontSize = block.getFieldValue("fontSize");
     return `await jimp.loadFont(jimp.FONT_SANS_` + fontSize + `_BLACK).then(async font => {
-  await image.print(font, Number(` + xpos + `), Number(` + ypos + `), String(` + text + `));
+  await image.print(
+      font, Number(${xpos}), Number(${ypos}), String(${text}));
 });\n`;
 }
 
