@@ -29,6 +29,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    const code = `let embed = new Discord.MessageEmbed() \n ${statementThen}\n`;
+    const code = `var embed = new Discord.MessageEmbed() \n ${statementThen}\n`;
     return code;
 };
