@@ -1,5 +1,5 @@
 <template>
-        <b-nav-item @click="credit">{{ $t('Credit') }}</b-nav-item>
+        <b-nav-item @click="credit">Credit</b-nav-item>
 </template>
 
 <script>

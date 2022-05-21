@@ -151,7 +151,11 @@ export default {
         }
         console.log("...wait a second... a user?")
         console.log("i gotta tell them!")
-        console.warn("CAREFUL WHAT YOU TYPE IN CONSOLE! barry and johnathan are watching all of your moves...")
+        console.log(
+            "%cCAREFUL WHAT YOU TYPE IN CONSOLE! %cbarry and johnathan are watching all of your moves...",
+            "color:red;font-family:system-ui;font-size:2rem;-webkit-text-stroke: 1px black;font-weight:bold",
+            "color:DarkRed;font-family:system-ui;font-size:2rem;-webkit-text-stroke: 1px black;font-weight:bold"
+        )
         if (!("ScratchNative" in window) && window.parent?.ScratchNative) window.ScratchNative = window.parent.ScratchNative;
         const tourDone = localStorage.getItem('tourDone');
         if (tourDone !== null) this.$store.commit('setTour', {
