@@ -1,6 +1,7 @@
 import "./run_save_output";
 import "./wait_seconds";
 import "./eval";
+import "./eval2";
 import "./try_and_catch";
 import "./return";
 import "./text_to_number";
@@ -8,4 +9,4 @@ import "./print";
 import "./exec";
 import "./antilink";
 import "./is_a_number_or_string"
-
+import "./setvalto"

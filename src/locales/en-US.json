@@ -48,7 +48,7 @@
   "END_GIVEAWAY":"end giveaway id %1 then %2 %3",
   "REROLL_GIVEAWAY":"reroll giveaway id %1 then %2 %3",
   "DISCORDGIVEAWAYS":"discord-giveaways",
-  "CREATE_GIVEAWAY":"create giveaway on channel %1 duration %2 numbers of winners %3 prize %4 then %5 %6",
+  "CREATE_GIVEAWAY":"create giveaway on channel %1 duration in milliseconds %2 numbers of winners %3 prize %4 then %5 %6",
   "EDIT_GIVEAWAY":"edit giveaway id %1 add time %2 new numbers of winners %3 new prize %4 then %5 %6",
   "DELETE_GIVEAWAY":"delete giveaway id %1 then %2 %3",
   "MESSAGE_MEMBER":"message member",

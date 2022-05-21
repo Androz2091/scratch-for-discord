@@ -467,6 +467,10 @@ export default (Blockly, value) => {
 </category>
 
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE"/>
+
+        <!--<category name="Objects" colour="#cc59e3">
+            <block type="jg_object_getvalue"/>
+        </category> -->
 	
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
         
@@ -482,10 +486,13 @@ export default (Blockly, value) => {
             </block>
 <block type="blank_code"><field name="TEXT"/></block>
             <block type="s4d_eval"></block>
+            <block type="s4d_eval2"></block>
             <block type="s4d_try_and_catch"></block>
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
 	    <block type="is_a_number_or_string"></block>
+        <block type="jg_object_getvalue"/>
+        <block type="jg_other_setvalue"></block>
         <block type="anti_link"/>
         </category>
        
@@ -1457,12 +1464,12 @@ export default (Blockly, value) => {
                 <category name="{{ DISCORDGIVEAWAYS }}" colour="#ed5aed">
                     <block type="s4d_create_giveaway"/> 
                     <block type="s4d_giveaway_id"/>
-                    <block type="s4d_reroll_giveaway"/>
-                    <block type="s4d_edit_giveaway"/>
+                    <block type="s4d_dd_giveaway"/>
+                    <block type="s4d_giveaway_data"/><!--
                     <block type="s4d_delete_giveaway"/>
                     <block type="s4d_end_giveaway"/>
                     <block type="s4d_pause_giveaway"/>
-                    <block type="s4d_unpause_giveaway"/>
+                    <block type="s4d_unpause_giveaway"/>-->
                 </category>
 				<category name="{{ DISCORDCANVAS }}" colour="#ed5abc">
 					<category name="{{ WELCOME }}" colour="#e83aa5">
