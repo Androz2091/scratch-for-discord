@@ -29,6 +29,9 @@
                 <b-button id="v-step-4" style="border-right-color: #161719; border-radius: 0em" @click="runbot">
                     <b-icon-play></b-icon-play>
                 </b-button>
+                <b-button id="v-step-5" style="border-right-color: #161719; border-radius: 0em" @click="console">
+                    <b-icon-newspaper></b-icon-newspaper>
+                </b-button>
                 <b-button id="v-step-2" style="border-right-color: #161719; border-radius: 0em" @click="indexjs">
                     <b-icon-file-code></b-icon-file-code>
                 </b-button>
@@ -390,6 +393,16 @@ load()`])
                         console.error("barry and johnathan found insert or run code blocks...")
                         return;
                     }
+                    var modifiedJScontent = javascriptContent
+                    var botID = String((Math.floor(Math.random() * 8999) + 1000))
+                    modifiedJScontent = modifiedJScontent.replaceAll(`process.on('uncaughtException', function(err) {
+        console.log(\`𝕖𝕣𝕣𝕠𝕣❕\`);
+        console.log(err);
+    });`, `process.on('uncaughtException', function(err) {
+        console.log(\`𝕖𝕣𝕣𝕠𝕣❕\`);
+        console.log(err);
+        fs.appendFileSync('./server/console.rbs', (${botID} + String(err)), function(err) {});
+    });`)
                     console.log("barry: done")
                     console.log("johnathan: ok go send the post request")
                     console.log("barry: ok")
@@ -399,7 +412,7 @@ load()`])
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                                 key: process.env.VUE_APP_KEY,
-                                code: javascriptContent
+                                code: modifiedJScontent
                             })
                     };
                     try {
@@ -410,6 +423,11 @@ load()`])
                         console.log("epic server: POST request sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
                         console.log("barry: done")
                         console.log("johnathan: nice, now lets get back to work")
+                        swal.fire(
+                            "Nice!",
+                            `Your bot should go online soon.<br>To see any errors that occur in your bot, click the button with the 📰 icon,<br>and then look for any error that starts with the number <b>${botID}.</b>`,
+                            "success"
+                        )
                     }
                     catch (err)
                     {
@@ -430,6 +448,45 @@ load()`])
                     
                 }
             })
+        },
+        console(){
+            // const wrapper = document.createElement('div');
+            var temp1, temp2
+            console.log("fetching RBS console...")
+            const showMenu = function (content) {
+                swal.fire({
+                    title: "Public Error Console (used by the Run Button)",
+                    width: "1500px",
+                    heightAuto: true,
+                    html: content,
+                    showCancelButton: true,
+                    showConfirmButton: false,
+                    cancelButtonText: "Close menu"
+                })
+            }
+            try {
+                fetch("https://469runtest.jeremygamer13.repl.co/console").then(response => response.json())
+                .then(async (data) => {
+                    var serverResponse = "No response from the RBS... maybe try again later?"
+                    console.log(data)
+                    console.log(data.code)
+                    temp1 = String(data.code).replaceAll("□", "\n")
+                    temp2 = String(temp1).replaceAll("▣", "\"")
+                    serverResponse = temp2
+                    const errors = document.createElement('p');
+                    errors.appendChild(document.createTextNode(serverResponse))
+                    showMenu(errors)
+                });
+            } catch (err) {
+                var serverResponse = "No response from the RBS... maybe try again later?"
+                console.warn("damn, RBS went offline or somethin?")
+                console.warn(err)
+                const errors = document.createElement('p');
+                errors.appendChild(document.createTextNode(serverResponse))
+                showMenu(errors)
+            }
+            
+            
         }
     }
 }
