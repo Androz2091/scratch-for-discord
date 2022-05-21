@@ -17,6 +17,6 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["Inviter", Blockly.JavaScript.ORDER_NONE];
+    const code = ["inviter", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
