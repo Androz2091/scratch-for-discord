@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../../restrictions";
 const blockName = "jg_jimp_U2_drawtext";
 
 const blockData = {
-    "message0": "Display %1 placed X: %2 Y: %3 using font size %4 aligned ",
+    "message0": "Display %1 placed X: %2 Y: %3 using font size %4 %5 and %6 using font color %7",
     "args0": [
         {
             "type": "input_value",
@@ -58,12 +58,62 @@ const blockData = {
                 '128'
               ]
             ],
+        },
+        {
+            "type": "field_dropdown",
+            "name": "alignx",
+            "options": [
+              [
+                "Align to Left",
+                'jimp.HORIZONTAL_ALIGN_LEFT'
+              ],
+              [
+                "Align to Center",
+                'jimp.HORIZONTAL_ALIGN_CENTER'
+              ],
+              [
+                "Align to Right",
+                'jimp.HORIZONTAL_ALIGN_RIGHT'
+              ]
+            ],
+        },
+        {
+            "type": "field_dropdown",
+            "name": "aligny",
+            "options": [
+              [
+                "Align to Top",
+                'jimp.VERTICAL_ALIGN_TOP'
+              ],
+              [
+                "Align to Middle",
+                'jimp.VERTICAL_ALIGN_MIDDLE'
+              ],
+              [
+                "Align to Bottom",
+                'jimp.VERTICAL_ALIGN_BOTTOM'
+              ]
+            ],
+        },
+        {
+            "type": "field_dropdown",
+            "name": "color",
+            "options": [
+              [
+                "Black",
+                'BLACK'
+              ],
+              [
+                "White",
+                'WHITE'
+              ]
+            ],
         }
     ],
     "colour": 260,
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Adds text onto to the image at a certain point.",
+    "tooltip": "Adds text onto to the image at a certain point with the specified parameters.",
     "helpUrl": "https://www.npmjs.com/package/jimp#writing-text"
 };
 
@@ -78,9 +128,21 @@ Blockly.JavaScript[blockName] = function(block) {
   const xpos = Blockly.JavaScript.valueToCode(block, "xpos", Blockly.JavaScript.ORDER_ATOMIC);
   const ypos = Blockly.JavaScript.valueToCode(block, "ypos", Blockly.JavaScript.ORDER_ATOMIC);
   const fontSize = block.getFieldValue("fontSize");
-    return `await jimp.loadFont(jimp.FONT_SANS_` + fontSize + `_BLACK).then(async font => {
+  const alignx = block.getFieldValue("alignx");
+  const aligny = block.getFieldValue("aligny");
+  const color = block.getFieldValue("color");
+    return `await jimp.loadFont(jimp.FONT_SANS_${fontSize}_${color}).then(async font => {
   await image.print(
-      font, Number(${xpos}), Number(${ypos}), String(${text}));
+      font,
+      Number(${xpos}),
+      Number(${ypos}),
+      {
+        text: String(${text}),
+        alignmentX: ${alignx},
+        alignmentY: ${aligny}
+      },
+      
+      );
 });\n`;
 }
 

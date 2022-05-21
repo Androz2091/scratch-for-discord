@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../restrictions";
 const blockName = "jg_saveJimpageAs";
 
 const blockData = {
-    "message0": "Save Jimp Image as %1",
+    "message0": "Save Image as %1",
     "args0": [
       {
             "type": "input_value",

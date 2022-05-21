@@ -55,6 +55,7 @@ import  "./blocks/discord/voice-channel/";
 import "./blocks/progess-bar/";
 import "./blocks/captcha/";
 import "./blocks/pagination/";
+import "./blocks/discord/thread-event"
   
 //my events
 //channel
