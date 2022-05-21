@@ -10,3 +10,4 @@ import "./exec";
 import "./antilink";
 import "./is_a_number_or_string"
 import "./setvalto"
+import "./consoleclear"

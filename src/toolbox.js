@@ -476,6 +476,7 @@ export default (Blockly, value) => {
         
 	  
             <block type="s4d_print"></block>
+            <block type="s4d_clearconsole"/>
             <block type="s4d_run_save_output"></block>
             <block type="s4d_wait_seconds">
                 <value name="TIME">
@@ -1154,6 +1155,7 @@ export default (Blockly, value) => {
             <block type="jg_saveJimpageAs"/>
             <label text="Effects and extras" web-class="boldtext"></label>
             <block type="jg_jimp_drawtext"/>
+            <!--<block type="jg_jimp_U2_drawtext"/>-->
             <block type="jg_jimp_brightnesscontrast"/>
             <block type="jg_jimp_basicE"/>
             <block type="jg_jimp_tpixels"/>

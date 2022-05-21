@@ -37,3 +37,4 @@ import "./composite"
 //finally added the thing i said i made so long ago
 import "./setpixel"
 import "./getpixel"
+import "./update2"
