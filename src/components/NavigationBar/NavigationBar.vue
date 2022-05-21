@@ -206,7 +206,7 @@ load()`);
             const wrapper = document.createElement('div');
             wrapper.innerHTML = `<h6>Explanations:</h6>
             <ul>
-                <li style='text-align:left'>"bot.js" contains your bot's code.</li>
+                <li style='text-align:left'>"bot.js" contains your bot's code. <p style="color:#9f54bf">Simple Host also requires this file only when hosting.</p></li>
                 <li style='text-align:left'>"package.json" contains all of the packages needed for hosting on your computer.</li>
                 <li style='text-align:left'>"blocks.xml" contains all of your blocks used to create your bot.</li>
                 <li style='text-align:left'>".replit" allows the bot to start with a certain command. Not required if the bot file is named "index.js".</li>
@@ -425,7 +425,7 @@ load()`])
                                 "info"
                             )
                             console.log("epic server: POST request pretended to be sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
-                            console.log("barry: done")
+                            console.log("barry: technically done")
                             console.log("johnathan: nice, now lets get back to work")
                             return;
                         }
