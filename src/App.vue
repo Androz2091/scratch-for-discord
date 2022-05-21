@@ -146,6 +146,9 @@ export default {
         this.$root.$i18n.locale = this.$store.state.blocklyLocale;
     },
     mounted(){
+        if (window.location.pathname == "/v2") {
+            window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0"
+        }
         console.log("...wait a second... a user?")
         console.log("i gotta tell them!")
         console.warn("CAREFUL WHAT YOU TYPE IN CONSOLE! barry and johnathan are watching all of your moves...")
