@@ -94,6 +94,10 @@ export default {
     },
     methods: {
         exportToCode(){
+            console.log("barry: hey johnathan come over here")
+            console.log("johnathan: what")
+            console.log("barry: the user might be planning to download their zip file")
+            console.log("johnathan: ok")
             const wrapper = document.createElement('div');
             wrapper.innerHTML = `<h6>${this.$t('download.content.title')}</h6><ul><li style='text-align:left'>${this.$t('download.content.unzipFile')}</li><li style='text-align:left'>${this.$t('download.content.node')}</li><li style='text-align:left'>${this.$t('download.content.start')}</li><li style='text-align:left'>${this.$t('download.content.done')}</li></ul>`;
             this.$swal({
@@ -199,10 +203,20 @@ load()`);
                         window.URL.revokeObjectURL(url);
                         document.body.removeChild(a);
                     });
+            console.log("barry: well we are done, lets get back to managing the blocks")
+            console.log("johnathan: ok")
+                }
+                else
+                {
+                    
+            console.log("barry: nvm lol")
                 }
             });
         },
         indexjs(){
+            console.log("barry: hey what file do you want to download?")
+            console.log("johnathan: dude they cant hear us")
+            console.log("barry: oh right i forgot")
             const wrapper = document.createElement('div');
             wrapper.innerHTML = `<h6>Explanations:</h6>
             <ul>
@@ -263,6 +277,8 @@ if ((result == true)) {
                 console.log(file6)
                 //console.log(zip)
 if (file1) {
+            console.log("barry: hey can you go grab their code")
+            console.log("johnathan: ok")
             const javascriptContent = this.getWorkspaceCode();
             const blob = new Blob([javascriptContent])
             const a = document.createElement("a");
@@ -274,8 +290,11 @@ if (file1) {
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
+            console.log("johnathan: done")
 }
 if ((file2)) {
+            console.log("johnathan: hey can you grab the packages")
+            console.log("barry: on it")
                 let requires = [`"discord.js": "^13.7.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
                 let oldrequires = await localforage.getItem("requires")
                 r(requires,oldrequires)
@@ -307,9 +326,12 @@ if ((file2)) {
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
+            console.log("barry: done")
 
 }
 if (file3) {
+            console.log("barry: im gonna start getting their blocks")
+            console.log("johnathan: ok")
             const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
             const blob = new Blob([xmlContent])
             const a = document.createElement("a");
@@ -321,9 +343,12 @@ if (file3) {
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
+            console.log("barry: finished")
 
 }
 if (file4) {
+            console.log("barry: lemme just type in a couple things real quick")
+            console.log("johnathan: ok")
             const blob = new Blob(['run = "npm start"'])
             const a = document.createElement("a");
                 a.style = "display: none";
@@ -335,9 +360,12 @@ if (file4) {
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
+            console.log("barry: oh damn i accidentally added an underscore")
+            console.log("johnathan: again?")
 
 }
 if (file5) {
+            console.log("barry: im gonna grab one of our sample databases")
             const blob = new Blob(["{}"])
             const a = document.createElement("a");
                 a.style = "display: none";
@@ -348,9 +376,12 @@ if (file5) {
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
+            console.log("barry: done")
 
 }
 if (file6) {
+            console.log("barry: johnathan can you help me get the boot file out of the acid pool?")
+            console.log("johnathan: ok")
             const blob = new Blob([`const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function load(){
 console.log(\`
@@ -376,8 +407,11 @@ load()`])
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
+            console.log("barry: thanks")
 
 }
+            console.log("barry: welp guess we are done")
+            console.log("johnathan: lets get back to work, shall we?")
             }})
         },
         runbot(){
