@@ -9,7 +9,7 @@
 
 <script>
 import Blockly from "blockly";
-
+/* eslint-disable */
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
 //import toolbox from "../easter-toolbox";
@@ -28,9 +28,11 @@ export default {
         }
     },
     async mounted() {
-                async function reloadWorkspace2(workspace){
+                async function reloadWorkspace2(workspace, abc){
                                 Blockly.ContextMenuRegistry.registry.unregister("fav")
             Blockly.ContextMenuRegistry.registry.unregister("refav")
+
+
             let val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
                         
             // Convert it to a dom string
@@ -60,7 +62,7 @@ export default {
         },
         drag: true,
         wheel: true},
-                toolbox: toolbox(Blockly,val)
+                toolbox: toolbox(Blockly,val,abc)
             });
                            Blockly.ContextMenuRegistry.registry.register({
       displayText: 'Add to favorite',
@@ -135,10 +137,29 @@ export default {
             // Update the workspace in the vuex store
             
 ;				
+
+// try{
+
+// Blockly.ContextMenuRegistry.registry.register({
+//       displayText: 'Search for block',
+//       preconditionFn: function() {
+//          return "enabled"
+//       },
+//       callback: function() {
+//            reloadWorkspace2(newWorkspace, true)
+//             Blockly.Xml.domToWorkspace(dom, newWorkspace)
+//       },
+//       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+//       id: 'searchblock',
+//       weight: 99,
+//     });
+// }catch{}
         }
         async function reloadWorkspace(workspace, abc){
             Blockly.ContextMenuRegistry.registry.unregister("fav")
             Blockly.ContextMenuRegistry.registry.unregister("refav")
+
+
             let val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
                         
             // Convert it to a dom string
@@ -190,13 +211,13 @@ export default {
                          await localforage.setItem("fav",[type])
                          val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
 
-        reloadWorkspace2(newWorkspace)
+        reloadWorkspace2(newWorkspace, false)
                     }else{
                         val.push(type)
                         await localforage.setItem("fav",val)
                         val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
 
-        reloadWorkspace2(newWorkspace)
+        reloadWorkspace2(newWorkspace, false)
                     }
       },
       scopeType: Blockly.ContextMenuRegistry.ScopeType.BLOCK,
@@ -227,11 +248,11 @@ export default {
     if(arrayRemove(await localforage.getItem("fav"),type).length === 0){
         await localforage.setItem("fav",null)
         val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
-        reloadWorkspace2(newWorkspace)
+        reloadWorkspace2(newWorkspace, false)
     }else{
         await localforage.setItem("fav",arrayRemove(await localforage.getItem("fav"),type))
         val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
-        reloadWorkspace2(newWorkspace)
+        reloadWorkspace2(newWorkspace, false)
     }
       },
       scopeType: Blockly.ContextMenuRegistry.ScopeType.BLOCK,
@@ -242,7 +263,43 @@ export default {
             // Update the workspace in the vuex store
             
 ;				
+
+// try{
+// Blockly.ContextMenuRegistry.registry.register({
+//       displayText: 'Search for block',
+//       preconditionFn: function() {
+//          return "enabled"
+//       },
+//       callback: function() {
+//            reloadWorkspace2(newWorkspace, true)
+//             Blockly.Xml.domToWorkspace(dom, newWorkspace)
+//       },
+//       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+//       id: 'searchblock',
+//       weight: 99,
+//     });
+
+// }catch{}
         }
+
+
+
+
+// Blockly.ContextMenuRegistry.registry.register({
+//       displayText: 'Search for block',
+//       preconditionFn: function() {
+//          return "enabled"
+//       },
+//       callback: function() {
+//            reloadWorkspace(workspace, true)
+//       },
+//       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+//       id: 'searchblock',
+//       weight: 99,
+//     });
+
+
+
         let val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
         setInterval(async()=>{
             val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
@@ -357,6 +414,8 @@ function svgToPng_(data, width, height, callback) {
                 toolbox: toolbox(Blockly,val),
             }
         });
+        try{Blockly.ContextMenuRegistry.registry.unregister("fav")}catch{}
+                                
             Blockly.ContextMenuRegistry.registry.register({
       displayText: 'Add to favorite',
       preconditionFn: function(scope) {
@@ -402,20 +461,10 @@ function svgToPng_(data, width, height, callback) {
       id: 'image',
       weight: 100,
     });
-    /*
-    Blockly.ContextMenuRegistry.registry.register({
-      displayText: 'Search for block',
-      preconditionFn: function() {
-         return "enabled"
-      },
-      callback: function() {
-           reloadWorkspace(workspace, true)
-      },
-      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
-      id: 'searchblock',
-      weight: 99,
-    });
-    */
+    
+    
+        try{Blockly.ContextMenuRegistry.registry.unregister("refav")}catch{}
+    
         Blockly.ContextMenuRegistry.registry.register({
       displayText: 'Remove from favorite',
       preconditionFn: function(scope) {

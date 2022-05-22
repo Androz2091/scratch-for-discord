@@ -17,6 +17,7 @@ export default (Blockly, value, searching) => {
         var newblocks = []
         var check;
         var searchparam = prompt("Search for a block with:")
+        var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_")
         var repeat_end = defaultblocks.length;
         for (var count = 0; count < repeat_end; count++) {
             check = defaultblocks[count];
@@ -25,16 +26,16 @@ export default (Blockly, value, searching) => {
             }
         }
         if (newblocks.length > 0) {
-            var CATEGORYCONTENT = "<block type=\"" + newblocks.join("\"/>\n<block type=\"") + "\"/>"
+            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}" web-class="boldtext"></label><block type="${newblocks.join("\"/>\n<block type=\"")}"/>`
         } else {
-            var CATEGORYCONTENT = ""
+            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
         }
     } else {
         var newblocks = defaultblocks
         if (newblocks.length > 0) {
             var CATEGORYCONTENT = "<block type=\"" + newblocks.join("\"/>\n<block type=\"") + "\"/>"
         } else {
-            var CATEGORYCONTENT = ""
+            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
         }
     }
   return (`
@@ -2429,8 +2430,8 @@ export default (Blockly, value, searching) => {
                     <label text="Touch: Hold on the workspace > Search for block"></label>
                         ${CATEGORYCONTENT}
                     </category>
-
-                    -->
+-->
+                    
 
         
     </xml>
