@@ -80,7 +80,7 @@ Blockly.JavaScript['member_channel_perms'] = function(block) {
     var dropdown_name = block.getFieldValue('NAME');
     var channel = Blockly.JavaScript.valueToCode(block, 'channel', Blockly.JavaScript.ORDER_ATOMIC);
 
-    var code = `perms.includes(${channel}.permissionsFor(${member}).toArray().filter(x => x == '${dropdown_name}')[0])`;
+    var code = `ShsHSjJSjSJSJSGHkkhdjdmns.includes(${channel}.permissionsFor(${member}).toArray().filter(x => x == '${dropdown_name}')[0])`;
 
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
