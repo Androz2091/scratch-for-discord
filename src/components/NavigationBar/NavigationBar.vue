@@ -111,6 +111,10 @@ export default {
                 let requires = [`"discord.js": "^13.7.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
                 let oldrequires = await localforage.getItem("requires")
                 r(requires,oldrequires)
+                var requireUsed = requires.join("\n")
+                if ((requireUsed.charAt(requireUsed.length - 1)) == ",") {
+                    requireUsed = requireUsed.substring(0, (requireUsed.length - 1))
+                }
                 if(result){
                     const zip = new JSZip();
                     const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
@@ -182,7 +186,7 @@ load()`);
                         },\n
                         "dependencies": {\n
                             "moment": "latest",\n
-                            ${requires.join("\n")}\n
+                            ${requireUsed}\n
                             
                         },\n
                         "devDependencies": {\n
@@ -298,6 +302,10 @@ if ((file2)) {
                 let requires = [`"discord.js": "^13.7.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
                 let oldrequires = await localforage.getItem("requires")
                 r(requires,oldrequires)
+                var requireUsed = requires.join("\n")
+                if ((requireUsed.charAt(requireUsed.length - 1)) == ",") {
+                    requireUsed = requireUsed.substring(0, (requireUsed.length - 1))
+                }
             const javascriptContent = `{\n
                         "name": "scratch-for-discord-bot",\n
                         "version": "1.0.0",\n
@@ -309,7 +317,7 @@ if ((file2)) {
                         },\n
                         "dependencies": {\n
                             "moment": "latest",\n
-                            ${requires.join("\n")}\n
+                            ${requireUsed}\n
                             
                         },\n
                         "devDependencies": {\n

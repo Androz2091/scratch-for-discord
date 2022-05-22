@@ -1,4 +1,42 @@
-export default (Blockly, value) => {
+export default (Blockly, value, searching) => {
+    var CATEGORYCONTENT;
+    /* eslint-disable */
+    const defaultblocks = [
+        "controls_if",
+        "logic_compare",
+        "logic_operation",
+        "logic_negate",
+        "logic_boolean",
+        "logic_null",
+        "logic_ternary",
+        "s4d_forever",
+        "controls_repeat_ext",
+        "controls_whileUntil",
+    ]
+    if (searching) {
+        var newblocks = []
+        var check;
+        var searchparam = prompt("Search for a block with:")
+        var repeat_end = defaultblocks.length;
+        for (var count = 0; count < repeat_end; count++) {
+            check = defaultblocks[count];
+            if (String(check).includes(String(searchparam))) {
+                newblocks.push(check);
+            }
+        }
+        if (newblocks.length > 0) {
+            var CATEGORYCONTENT = "<block type=\"" + newblocks.join("\"/>\n<block type=\"") + "\"/>"
+        } else {
+            var CATEGORYCONTENT = ""
+        }
+    } else {
+        var newblocks = defaultblocks
+        if (newblocks.length > 0) {
+            var CATEGORYCONTENT = "<block type=\"" + newblocks.join("\"/>\n<block type=\"") + "\"/>"
+        } else {
+            var CATEGORYCONTENT = ""
+        }
+    }
   return (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
         
@@ -2383,6 +2421,16 @@ export default (Blockly, value) => {
             <block type="s4d_delete_all_data2"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
+<!--
+        <sep class="bt"/>
+                    <category name="🔍 Search" colour="#42556e">
+                    <label text="Want to search?"></label>
+                    <label text="PC: Right click on the workspace > Search for block"></label>
+                    <label text="Touch: Hold on the workspace > Search for block"></label>
+                        ${CATEGORYCONTENT}
+                    </category>
+
+                    -->
 
         
     </xml>

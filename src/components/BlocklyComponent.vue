@@ -82,13 +82,13 @@ export default {
                          await localforage.setItem("fav",[type])
                          val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
 
-        reloadWorkspace(newWorkspace)
+        reloadWorkspace(newWorkspace,false)
                     }else{
                         val.push(type)
                         await localforage.setItem("fav",val)
                         val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
 
-        reloadWorkspace(newWorkspace)
+        reloadWorkspace(newWorkspace,false)
                     }
       },
       scopeType: Blockly.ContextMenuRegistry.ScopeType.BLOCK,
@@ -119,11 +119,11 @@ export default {
     if(arrayRemove(await localforage.getItem("fav"),type).length === 0){
         await localforage.setItem("fav",null)
         val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
-        reloadWorkspace(newWorkspace)
+        reloadWorkspace(newWorkspace,false)
     }else{
         await localforage.setItem("fav",arrayRemove(await localforage.getItem("fav"),type))
         val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
-        reloadWorkspace(newWorkspace)
+        reloadWorkspace(newWorkspace,false)
     }
       },
       scopeType: Blockly.ContextMenuRegistry.ScopeType.BLOCK,
@@ -136,7 +136,7 @@ export default {
             
 ;				
         }
-        async function reloadWorkspace(workspace){
+        async function reloadWorkspace(workspace, abc){
             Blockly.ContextMenuRegistry.registry.unregister("fav")
             Blockly.ContextMenuRegistry.registry.unregister("refav")
             let val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
@@ -168,7 +168,7 @@ export default {
         },
         drag: true,
         wheel: true},
-                toolbox: toolbox(Blockly,val)
+                toolbox: toolbox(Blockly,val,abc)
             });
                Blockly.ContextMenuRegistry.registry.register({
       displayText: 'Add to favorite',
@@ -377,13 +377,13 @@ function svgToPng_(data, width, height, callback) {
                          await localforage.setItem("fav",[type])
                          val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
 
-        reloadWorkspace(workspace)
+        reloadWorkspace(workspace, false)
                     }else{
                         val.push(type)
                         await localforage.setItem("fav",val)
                         val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
 
-        reloadWorkspace(workspace)
+        reloadWorkspace(workspace, false)
                     }
       },
       scopeType: Blockly.ContextMenuRegistry.ScopeType.BLOCK,
@@ -402,6 +402,20 @@ function svgToPng_(data, width, height, callback) {
       id: 'image',
       weight: 100,
     });
+    /*
+    Blockly.ContextMenuRegistry.registry.register({
+      displayText: 'Search for block',
+      preconditionFn: function() {
+         return "enabled"
+      },
+      callback: function() {
+           reloadWorkspace(workspace, true)
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'searchblock',
+      weight: 99,
+    });
+    */
         Blockly.ContextMenuRegistry.registry.register({
       displayText: 'Remove from favorite',
       preconditionFn: function(scope) {
@@ -426,11 +440,11 @@ function svgToPng_(data, width, height, callback) {
     if(arrayRemove(await localforage.getItem("fav"),type).length === 0){
         await localforage.setItem("fav",null)
         val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
-        reloadWorkspace(workspace)
+        reloadWorkspace(workspace, false)
     }else{
         await localforage.setItem("fav",arrayRemove(await localforage.getItem("fav"),type))
         val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
-        reloadWorkspace(workspace)
+        reloadWorkspace(workspace, false)
     }
       },
       scopeType: Blockly.ContextMenuRegistry.ScopeType.BLOCK,
