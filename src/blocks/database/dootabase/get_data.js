@@ -12,7 +12,7 @@ const blockData = {
         }
     ],
     "output": [ "String", "Number" ],
-    "colour": "#5ba58b",
+    "colour": "#50a153",
     "helpUrl": ""
 };
 
