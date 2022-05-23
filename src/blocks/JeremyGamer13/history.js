@@ -154,6 +154,6 @@ Blockly.JavaScript[blockName] = function(){
     14. https://www.youtube.com/watch?v=dQw4w9WgXcQ
     
     Official s4d4d4s4ds44ds server:- https://discord.gg/cB2g5f4Ypq
-    s4r34 69 sex official server:- https://discord.gg/A7yttWszfD\``, (((((((((((((((((((((((((((Blockly.JavaScript.ORDER_LOGICAL_OR)))))))))))))))))))))))))))];
+    s4r34 69 furry segs official server:- https://discord.gg/nsfw\``, (((((((((((((((((((((((((((Blockly.JavaScript.ORDER_LOGICAL_OR)))))))))))))))))))))))))))];
     return ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((code))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
 };
