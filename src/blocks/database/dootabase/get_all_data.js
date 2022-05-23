@@ -7,7 +7,7 @@ const blockData = {
     "args0": [
     ],
     "output": "JSON",
-    "colour": "#5ba58b",
+    "colour": "#50a153",
     "tooltip": "Gets all data from dootabase\nOutputs a JSON map",
     "helpUrl": ""
 };
