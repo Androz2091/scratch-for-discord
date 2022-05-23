@@ -527,7 +527,16 @@ export default (Blockly, value, searching) => {
 <block type="blank_code"><field name="TEXT"/></block>
             <block type="s4d_eval"></block>
             <block type="s4d_eval2"></block>
-            <block type="s4d_try_and_catch"></block>
+            <block type="s4d_try_and_catch">
+                <value name="catch">
+                    <block type="s4d_print">
+                        <value name="PRINT">
+                            <block type="frost_other_err"/>
+                        </value>
+                    </block>
+                </value>
+            </block>
+            <block type="frost_other_err"/>
             <block type="s4d_return"></block>
             <block type="s4d_string_to_number"></block>
 	    <block type="is_a_number_or_string"></block>
