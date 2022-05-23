@@ -137,23 +137,24 @@ export default {
             // Update the workspace in the vuex store
             
 ;				
+/*
+try{
 
-// try{
-
-// Blockly.ContextMenuRegistry.registry.register({
-//       displayText: 'Search for block',
-//       preconditionFn: function() {
-//          return "enabled"
-//       },
-//       callback: function() {
-//            reloadWorkspace2(newWorkspace, true)
-//             Blockly.Xml.domToWorkspace(dom, newWorkspace)
-//       },
-//       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
-//       id: 'searchblock',
-//       weight: 99,
-//     });
-// }catch{}
+Blockly.ContextMenuRegistry.registry.register({
+      displayText: 'Search for block',
+      preconditionFn: function() {
+         return "enabled"
+      },
+      callback: function() {
+           reloadWorkspace2(newWorkspace, true)
+            Blockly.Xml.domToWorkspace(dom, newWorkspace)
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'searchblock',
+      weight: 99,
+    });
+}catch{}
+*/
         }
         async function reloadWorkspace(workspace, abc){
             Blockly.ContextMenuRegistry.registry.unregister("fav")
@@ -263,40 +264,42 @@ export default {
             // Update the workspace in the vuex store
             
 ;				
+/*
+try{
+Blockly.ContextMenuRegistry.registry.register({
+      displayText: 'Search for block',
+      preconditionFn: function() {
+         return "enabled"
+      },
+      callback: function() {
+           reloadWorkspace2(newWorkspace, true)
+            Blockly.Xml.domToWorkspace(dom, newWorkspace)
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'searchblock',
+      weight: 99,
+    });
 
-// try{
-// Blockly.ContextMenuRegistry.registry.register({
-//       displayText: 'Search for block',
-//       preconditionFn: function() {
-//          return "enabled"
-//       },
-//       callback: function() {
-//            reloadWorkspace2(newWorkspace, true)
-//             Blockly.Xml.domToWorkspace(dom, newWorkspace)
-//       },
-//       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
-//       id: 'searchblock',
-//       weight: 99,
-//     });
-
-// }catch{}
+}catch{}
+*/
         }
 
 
 
-
-// Blockly.ContextMenuRegistry.registry.register({
-//       displayText: 'Search for block',
-//       preconditionFn: function() {
-//          return "enabled"
-//       },
-//       callback: function() {
-//            reloadWorkspace(workspace, true)
-//       },
-//       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
-//       id: 'searchblock',
-//       weight: 99,
-//     });
+/*
+Blockly.ContextMenuRegistry.registry.register({
+      displayText: 'Search for block',
+      preconditionFn: function() {
+         return "enabled"
+      },
+      callback: function() {
+           reloadWorkspace(workspace, true)
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'searchblock',
+      weight: 99,
+    });
+*/
 
 
 
