@@ -12,6 +12,10 @@ import Blockly from "blockly";
 /* eslint-disable */
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
+var renderer = "zelos"
+if (window.location.pathname == "/r/ge") {
+    renderer = "geras"
+}
 //import toolbox from "../easter-toolbox";
 import {Backpack} from '@blockly/workspace-backpack';
 import {WorkspaceSearch} from '@blockly/plugin-workspace-search';
@@ -47,7 +51,7 @@ export default {
                     length: 3,
                     colour: "#ccc",
                 },
-                renderer: "zelos",
+                renderer: renderer,
                 theme: theme,
                 zoom: {
                     controls: true,
@@ -194,7 +198,7 @@ Blockly.ContextMenuRegistry.registry.register({
                     length: 3,
                     colour: "#ccc",
                 },
-                renderer: "zelos",
+                renderer: renderer,
                 theme: theme,
                 zoom: {
                     controls: true,
@@ -428,7 +432,7 @@ function svgToPng_(data, width, height, callback) {
         const workspace = Blockly.inject(this.$refs["blocklyDiv"], {
             ...options,
             ...{
-                                renderer: "zelos",
+                                renderer: renderer,
                                                 grid: {
                     spacing: 25,
                     length: 3,

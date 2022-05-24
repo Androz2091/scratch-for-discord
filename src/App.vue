@@ -151,6 +151,9 @@ export default {
         if (window.location.pathname == "/v2") {
             window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0"
         }
+        if (window.location.pathname == "/broken") {
+            window.location.href = "https://scratch-for-discord-broken.jeremygamer13.repl.co/"
+        }
         console.log("...wait a second... a user?")
         console.log("i gotta tell them!")
         console.log(
