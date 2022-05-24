@@ -1,46 +1,33 @@
 export default (Blockly, value, searching) => {
-    var CATEGORYCONTENT;
     /* eslint-disable */
-    const defaultblocks = [
-        "controls_if",
-        "logic_compare",
-        "logic_operation",
-        "logic_negate",
-        "logic_boolean",
-        "logic_null",
-        "logic_ternary",
-        "s4d_forever",
-        "controls_repeat_ext",
-        "controls_whileUntil",
-    ]
-    if (searching) {
-        var newblocks = []
-        var check;
-        var searchparam = prompt("Search for a block with:")
-        var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_")
-        var repeat_end = defaultblocks.length;
-        for (var count = 0; count < repeat_end; count++) {
-            check = defaultblocks[count];
-            if (String(check).includes(String(searchparam))) {
-                newblocks.push(check);
-            }
-        }
-        if (newblocks.length > 0) {
-            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}" web-class="boldtext"></label><block type="${newblocks.join("\"/>\n<block type=\"")}"/>`
-        } else {
-            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
-        }
-    } else {
-        var newblocks = defaultblocks
-        if (newblocks.length > 0) {
-            var CATEGORYCONTENT = "<block type=\"" + newblocks.join("\"/>\n<block type=\"") + "\"/>"
-        } else {
-            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
-        }
-    }
-  return (`
+
+const allow_toolbox_search = false
+
+if (allow_toolbox_search) {
+    var toolbox_search_category = `
+    <sep class="bt"/>
+    <category name="🔍 Search" colour="#42556e">
+    <label text="Want to search?"></label>
+    <label text="PC: Right click on the workspace > Search for block"></label>
+    <label text="Touch: Hold on the workspace > Search for block"></label>
+        <!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->
+    </category>
+    `
+} else {
+    var toolbox_search_category = ``
+}
+
+  var toolbox_xml_contents = (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
         
+    <!--
+    <category name="Tests" colour="#ff0000" popoooopp="LINE HIDDEN FROM SEARCH">
+        <block type="jg_tests_doubleDropdown" popoooopp="LINE HIDDEN FROM SEARCH"/>
+        <block type="jg_tests_typeChange" popoooopp="LINE HIDDEN FROM SEARCH"/>
+        <block type="jg_tests_deleteInput" popoooopp="LINE HIDDEN FROM SEARCH"/>
+        <block type="jg_tests_validator" popoooopp="LINE HIDDEN FROM SEARCH"/>
+    </category>
+    -->
 	
 	<category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
             <block type="controls_if" />
@@ -748,7 +735,20 @@ export default (Blockly, value, searching) => {
 <block type="scratch_about_user"/>
 </category>
 
-<category name="Useless" colour="#2a46fa" hidden="true"><block type="frost_image"/><block type="frost_drop1"/><block type="poll"><value name="title"><shadow type="text"><field name="TEXT">Poll time</field></shadow></value><value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><block type="colour_picker"></block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><field name="TEXT">👎</field></shadow></value></block></category>
+<category name="Useless" colour="#2a46fa" hidden="true"><!-- LINE HIDDEN FROM SEARCH -->
+<block type="frost_image"/><!-- LINE HIDDEN FROM SEARCH -->
+<block type="frost_drop1"/><!-- LINE HIDDEN FROM SEARCH -->
+<block type="poll"><!-- LINE HIDDEN FROM SEARCH -->
+<value name="title"><!-- LINE HIDDEN FROM SEARCH -->
+<shadow type="text"><!-- LINE HIDDEN FROM SEARCH -->
+<field name="TEXT">Poll time</field><!-- LINE HIDDEN FROM SEARCH -->
+</shadow></value><!-- LINE HIDDEN FROM SEARCH -->
+<value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><!-- LINE HIDDEN FROM SEARCH -->
+<block type="colour_picker"><!-- LINE HIDDEN FROM SEARCH -->
+</block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><!-- LINE HIDDEN FROM SEARCH -->
+<field name="TEXT">👎</field></shadow></value><!-- LINE HIDDEN FROM SEARCH -->
+</block><!-- LINE HIDDEN FROM SEARCH -->
+</category><!-- LINE HIDDEN FROM SEARCH -->
 
 <category name="Messages" colour="#2a46fa">
 
@@ -2432,15 +2432,9 @@ export default (Blockly, value, searching) => {
             <block type="s4d_delete_all_data2"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-<!--
-        <sep class="bt"/>
-                    <category name="🔍 Search" colour="#42556e">
-                    <label text="Want to search?"></label>
-                    <label text="PC: Right click on the workspace > Search for block"></label>
-                    <label text="Touch: Hold on the workspace > Search for block"></label>
-                        ${CATEGORYCONTENT}
-                    </category>
--->
+
+        ${toolbox_search_category}
+
                     
 
         
@@ -2448,5 +2442,77 @@ export default (Blockly, value, searching) => {
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
       return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
     }))
+
+// preparing variables for searching
+
+    const default_max_length = 250
+    var CATEGORYCONTENT;
+
+// set default blocks from BlocklyComponent function code
+
+const toolboxArray = toolbox_xml_contents.split('\n');
+            var blocks = []
+            var pushed
+            var repeat_end = toolboxArray.length;
+            for (var count = 0; count < repeat_end; count++) {
+                if ((toolboxArray[count].includes('<block type="')) && !(toolboxArray[count].includes('LINE HIDDEN FROM SEARCH'))) {
+                    pushed = (((toolboxArray[count].replaceAll(" ", "")).replaceAll('blocktype="', "")).replaceAll("/", "").replaceAll("<", "").replaceAll('"', "")).replaceAll("'", "").replaceAll("\t", "")
+                    pushed = pushed.slice(0, pushed.indexOf('>'));
+                    if (!(blocks.includes(pushed))) {
+                        blocks.push(pushed)
+                    }
+                }
+            }
+
+// set the default blocks and run the searching code
+
+const defaultblocks = blocks
+
+    if (searching) {
+        var newblocks = []
+        var check;
+        var searchparam = prompt("Search for a block with:")
+        if (!(searchparam)) {
+            searchparam = "null"
+        }
+        var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_")
+        searchparam = searchparam.replaceAll(" ", "_").toLowerCase()
+        var repeat_end = defaultblocks.length;
+        for (var count = 0; count < repeat_end; count++) {
+            check = defaultblocks[count];
+            if (String(check).includes(String(searchparam)) && !(String(check).includes("LINE HIDDEN FROM SEARCH"))) {
+                newblocks.push(check);
+            }
+        }
+        if (newblocks.length > 1) {
+            var s = "s"
+        } else {
+            var s = ""
+        }
+        if (newblocks.length > 0) {
+            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}, found ${newblocks.length} block${s} that matched" web-class="boldtext"></label><block type="${newblocks.join("\"/>\n<block type=\"")}"/>`
+        } else {
+            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
+        }
+    } else {
+        var length_lessthan_350 = true
+        if (defaultblocks.length < default_max_length) {
+            var newblocks = defaultblocks
+        } else {
+            length_lessthan_350 = false
+            var newblocks = defaultblocks.slice(0, default_max_length)
+        }
+        if (newblocks.length > 0) {
+            var CATEGORYCONTENT = "<block type=\"" + newblocks.join("\"/>\n<block type=\"") + "\"/>"
+            if (length_lessthan_350 == false) {
+                CATEGORYCONTENT = CATEGORYCONTENT + `<label text="${defaultblocks.length - default_max_length} blocks left..." web-class="boldtext"></label>`
+            }
+        } else {
+            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
+        }
+    }
+    toolbox_xml_contents = toolbox_xml_contents.replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", CATEGORYCONTENT)
+
+    return toolbox_xml_contents
     
 }

@@ -38,7 +38,7 @@ Blockly.prompt = function(msg, defaultValue, callback) {
 			autocapitalize: "off"
 		},
 		showCancelButton: true,
-		confirmButtonText: "Look up",
+		confirmButtonText: "Confirm",
 		showLoaderOnConfirm: true,
 		allowOutsideClick: () => !Swal.isLoading()
 	}).then(result => {

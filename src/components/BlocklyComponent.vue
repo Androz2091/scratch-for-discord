@@ -28,6 +28,7 @@ export default {
         }
     },
     async mounted() {
+        const allow_toolbox_search = false
                 async function reloadWorkspace2(workspace, abc){
                                 Blockly.ContextMenuRegistry.registry.unregister("fav")
             Blockly.ContextMenuRegistry.registry.unregister("refav")
@@ -137,7 +138,7 @@ export default {
             // Update the workspace in the vuex store
             
 ;				
-/*
+if (allow_toolbox_search) {
 try{
 
 Blockly.ContextMenuRegistry.registry.register({
@@ -147,14 +148,33 @@ Blockly.ContextMenuRegistry.registry.register({
       },
       callback: function() {
            reloadWorkspace2(newWorkspace, true)
-            Blockly.Xml.domToWorkspace(dom, newWorkspace)
       },
       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
       id: 'searchblock',
       weight: 99,
     });
 }catch{}
-*/
+}
+        }
+        async function logtoolblocks(remove_underscore) {
+            const toolxml = toolbox(Blockly,null,false)
+            const toolboxArray = toolxml.split('\n');
+            var blocks = []
+            var loop = 0
+            var pushed
+            var repeat_end = toolboxArray.length;
+            for (var count = 0; count < repeat_end; count++) {
+                if (toolboxArray[loop].includes('<block type="')) {
+                    pushed = (((toolboxArray[loop].replaceAll(" ", "")).replaceAll('blocktype="', "")).replaceAll("/", "").replaceAll("<", "").replaceAll('"', "")).replaceAll("'", "").replaceAll("\t", "")
+                    pushed = pushed.slice(0, pushed.indexOf('>'));
+                    if (remove_underscore) {
+                        pushed = pushed.replaceAll("_", " ")
+                    }
+                    blocks.push(pushed)
+                }
+                loop++
+            }
+            console.log(blocks)
         }
         async function reloadWorkspace(workspace, abc){
             Blockly.ContextMenuRegistry.registry.unregister("fav")
@@ -264,7 +284,7 @@ Blockly.ContextMenuRegistry.registry.register({
             // Update the workspace in the vuex store
             
 ;				
-/*
+if (allow_toolbox_search) {
 try{
 Blockly.ContextMenuRegistry.registry.register({
       displayText: 'Search for block',
@@ -273,7 +293,6 @@ Blockly.ContextMenuRegistry.registry.register({
       },
       callback: function() {
            reloadWorkspace2(newWorkspace, true)
-            Blockly.Xml.domToWorkspace(dom, newWorkspace)
       },
       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
       id: 'searchblock',
@@ -281,12 +300,12 @@ Blockly.ContextMenuRegistry.registry.register({
     });
 
 }catch{}
-*/
+}
         }
 
 
 
-/*
+if (allow_toolbox_search) {
 Blockly.ContextMenuRegistry.registry.register({
       displayText: 'Search for block',
       preconditionFn: function() {
@@ -299,8 +318,24 @@ Blockly.ContextMenuRegistry.registry.register({
       id: 'searchblock',
       weight: 99,
     });
-*/
+}
 
+// Comment this context menu out later!
+// 👍
+/*
+Blockly.ContextMenuRegistry.registry.register({
+      displayText: 'Log all Toolbox blocks',
+      preconditionFn: function() {
+         return "enabled"
+      },
+      callback: function() {
+           logtoolblocks(true)
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'logtoolblocks',
+      weight: 150,
+    });
+*/
 
 
         let val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")

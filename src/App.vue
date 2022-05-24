@@ -130,6 +130,8 @@ import "./blocks/qr-generator"
 import "./blocks/JeremyGamer13/"
 import "./blocks/JeremyGamer13/jimpBlocks"
 import "./blocks/JeremyGamer13/fileEdit"
+// p
+import "./blocks/unlocked_blockly"
 
 import Theme from '@blockly/theme-modern';
 
