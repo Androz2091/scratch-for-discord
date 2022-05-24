@@ -219,7 +219,7 @@ load()`);
         },
         indexjs(){
             if (window.location.pathname == "/spooky") {
-                var random = Math.floor(Math.random() * 10)
+                var random = Math.floor(Math.random() * 100)
                 if (random == 0) {
                     var app = document.getElementById("app")
                     app.remove()
