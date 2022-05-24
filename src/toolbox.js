@@ -1978,6 +1978,9 @@ if (allow_toolbox_search) {
 	    <block type="setbot"/>
 <label text="{@user} = user ping . {user_tag} = user tag" web-class="boldtext"></label>
             <block type="start_antispam"/>
+            <label text="Some more advanced features" web-class="boldtext"></label>
+            <block type="jg_when_ran"/>
+            <block type="jg_rbs_isRunButton"/>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>

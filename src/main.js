@@ -194,6 +194,7 @@ Vue.mixin({
                          
                          ]
                   const events = require('events');
+                  const S4D_APP_RUN_BUTTON = false
                   ${requires.join("\n")}
 let fs = require('fs');
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;

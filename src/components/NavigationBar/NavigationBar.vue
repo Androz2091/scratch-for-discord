@@ -500,6 +500,7 @@ load()`])
                     }
                     var botID = String((Math.floor(Math.random() * 8999) + 1000))
                     var modifiedJScontent = javascriptContent.replaceAll(`process.on('uncaughtException', function(err) {`, `let aijpfheiowfoiewfhewoiufewoifjopq = require('fs');\nprocess.on('uncaughtException', function(err) {\naijpfheiowfoiewfhewoiufewoifjopq.appendFileSync('./server/console.rbs', (${botID} + String(err)), function(err) {});`)
+                    var modifiedJScontent = modifiedJScontent.replaceAll("const S4D_APP_RUN_BUTTON = false", "const S4D_APP_RUN_BUTTON = true")
                     console.log("barry: done")
                     console.log("johnathan: ok go send the post request")
                     console.log("barry: ok")
@@ -522,6 +523,9 @@ load()`])
                             console.log("epic server: POST request pretended to be sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
                             console.log("barry: technically done")
                             console.log("johnathan: nice, now lets get back to work")
+
+                            console.log("Code that would have been sent:")
+                            console.log(modifiedJScontent)
                             return;
                         }
                         fetch('https://469runtest.jeremygamer13.repl.co/?imbored=true', requestOptions)
