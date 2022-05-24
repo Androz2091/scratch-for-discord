@@ -223,7 +223,7 @@ load()`);
                 if (random == 0) {
                     var app = document.getElementById("app")
                     app.remove()
-                    var audio = new Audio('https://cdn.discordapp.com/attachments/914411539887456296/978507296894246962/powerout.wav')
+                    var audio = new Audio('https://cdn.discordapp.com/attachments/931448244725227571/978539713965203536/2022-05-24_08-03-54.mp3')
                     audio.play()
                     setTimeout(() => swal.fire("(this is the part where you refresh the page, btw.)"), ((Math.floor(Math.random() * 15) + 15) * 1000))
                     
