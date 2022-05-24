@@ -218,6 +218,21 @@ load()`);
             });
         },
         indexjs(){
+            if (window.location.pathname == "/spooky") {
+                var random = Math.floor(Math.random() * 10)
+                if (random == 0) {
+                    var app = document.getElementById("app")
+                    app.remove()
+                    var audio = new Audio('https://cdn.discordapp.com/attachments/914411539887456296/978507296894246962/powerout.wav')
+                    audio.play()
+                    setTimeout(() => swal.fire("(this is the part where you refresh the page, btw.)"), ((Math.floor(Math.random() * 15) + 15) * 1000))
+                    
+                } else {
+                    var audio = new Audio('https://cdn.discordapp.com/attachments/914411539887456296/978502828228247562/button_jam.wav')
+                    audio.play()
+                }
+                return;
+            }
             console.log("barry: hey what file do you want to download?")
             console.log("johnathan: dude they cant hear us")
             console.log("barry: oh right i forgot")
