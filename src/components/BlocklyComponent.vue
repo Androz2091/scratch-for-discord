@@ -422,22 +422,49 @@ Blockly.ContextMenuRegistry.registry.register({
     });
 }
 
-// Comment this context menu out later!
-// 👍
-/*
+console.log(window.location.pathname)
+if (window.location.pathname == "/debug") {
 Blockly.ContextMenuRegistry.registry.register({
-      displayText: 'Log all Toolbox blocks',
+      displayText: 'Spawn block via Internal name',
       preconditionFn: function() {
          return "enabled"
       },
       callback: function() {
-           logtoolblocks(true)
+        let input = prompt("Block Internal Name")
+        if (!input) {
+            return
+        }
+        let xml = Blockly.Xml.textToDom('<xml><block type="' + input + '"></block></xml>');
+        try {
+            Blockly.Xml.appendDomToWorkspace(xml, workspace)
+        } catch {
+            console.log("could not spawn block!")
+            alert(`Block ${String(input)} does not exist or was not defined`)
+        }
       },
       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
-      id: 'logtoolblocks',
-      weight: 150,
+      id: 'spawnblock',
+      weight: 500,
     });
-*/
+}
+
+// Comment this context menu out later!
+// 👍
+// jk no!!
+if (window.location.pathname == "/debug") {
+    Blockly.ContextMenuRegistry.registry.register({
+          displayText: 'Log all Toolbox blocks',
+          preconditionFn: function() {
+             return "enabled"
+          },
+          callback: function() {
+               logtoolblocks(true)
+          },
+          scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+          id: 'logtoolblocks',
+          weight: 500,
+        });
+}
 
 
         let val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
