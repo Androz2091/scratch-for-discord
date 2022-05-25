@@ -1,4 +1,13 @@
 {
+  "S_EVENT_NAME":"Name",
+  "S_EVENT_START":"Start Time",
+  "S_EVENT_END":"End Time",
+  "S_PRIV_LVL":"Privacy level",
+  "S_NTITI_TYPE":"Entity type",
+  "S_EVENT_DESC":"Description",
+  "S_EVENT_CHANNEL":"Channel",
+  "S_METADATA":"Metadata",
+  "S_REASON":"Reason",
   "warnThreshold":"warnThreshold", 
   "muteThreshold":"muteThreshold", 
   "kickThreshold":"kickThreshold", 

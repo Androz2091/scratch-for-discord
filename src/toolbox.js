@@ -2231,7 +2231,7 @@ if (allow_toolbox_search) {
             <block type="s4d_delete_channel"></block>
             <label text="ㅤ" web-class="boldtext"></label>
 	    
-	     <category name="Scheduled Events" colour="#af4abd">
+
                 <label text="Create a new perfect event!"/>
                 <label text="⚠ You need to have discord.js update 13.4 or higher!"/>
                 <label text="⚠ ISO 8601 is needed for the dates! You can find it at : unixtimestamp.com"/>
@@ -2242,7 +2242,7 @@ if (allow_toolbox_search) {
                 <block type="entitytype"/>
                 <label text="Delete perfect event..."/>
                 <block type="delete_sch_event"> <value name="amongus"> <shadow type="text"> </shadow> </value> </block>
-            </category>
+
         </category>
         <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
             <label text="%{BKY_FIND_ROLE}"></label>
