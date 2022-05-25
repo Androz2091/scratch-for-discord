@@ -235,12 +235,20 @@ load()`);
             if (window.location.pathname == "/spooky") {
                 var random = Math.floor(Math.random() * 100)
                 if (random == 0) {
-                    var app = document.getElementById("app")
+                    let app = document.getElementById("app")
                     app.remove()
                     var audio = new Audio('https://cdn.discordapp.com/attachments/931448244725227571/978539713965203536/2022-05-24_08-03-54.mp3')
                     audio.play()
-                    setTimeout(() => swal.fire("(this is the part where you refresh the page, btw.)"), ((Math.floor(Math.random() * 15) + 15) * 1000))
-                    
+                    function imag() {
+                        let div = document.createElement("div")
+                        div.innerHTML = "<img width=\"676\" height=\"676\" src=\"https://media.discordapp.net/attachments/914411539887456296/978925855071932446/spook.png?width=676&height=676\"></img>"
+                    }
+                    function spooky() {
+                        var audio = new Audio('https://cdn.discordapp.com/attachments/914411539887456296/978918581708414976/fnaf_power_beforedie.wav')
+                        audio.play()
+                        setTimeout(() => imag(), (Math.floor(Math.random() * 2) * 1000))
+                    }
+                    setTimeout(() => spooky(), ((Math.floor(Math.random() * 5) + 10) * 1000))
                 } else {
                     var audio = new Audio('https://cdn.discordapp.com/attachments/914411539887456296/978502828228247562/button_jam.wav')
                     audio.play()
