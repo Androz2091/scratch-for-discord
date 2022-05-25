@@ -493,6 +493,17 @@ load()`])
                     const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
                     // block type="frost_env"
                     // block type="frost_webserver"
+                    const banned_music_blocks = [
+                        `<block type="first_track"`,
+                        `<block type="track_start"`,
+                        `<block type="empty"`,
+                        `<block type="kicked"`,
+                        `<block type="queue_error"`,
+                        `<block type="track_added"`,
+                        `<block type="discord_connect"`,
+                        `<block type="better_stop"`,
+                        `<block type="better_play"`,
+                    ]
                     if (
                         javascriptContent.includes("process.env") ||
                         javascriptContent.includes("http.createServer((req, res) => {") ||
@@ -523,6 +534,15 @@ load()`])
                         console.error("barry and johnathan found out you use simple host...")
                         return;
                     }
+                    //  else if (
+                    //     banned_music_blocks.includes(xmlContent)
+                    // ) {
+                    //     swal.fire("Your bot contains Music blocks.", "Remove any music blocks before running.", "error")
+                    //     console.log("barry: ok so i finished but the user has music blocks")
+                    //     console.log("johnathan: bruh")
+                    //     console.error("barry and johnathan found music blocks...")
+                    //     return;
+                    // }
                     var botID = String((Math.floor(Math.random() * 8999) + 1000))
                     var modifiedJScontent = javascriptContent.replaceAll(`process.on('uncaughtException', function(err) {`, `let aijpfheiowfoiewfhewoiufewoifjopq = require('fs');\nprocess.on('uncaughtException', function(err) {\naijpfheiowfoiewfhewoiufewoifjopq.appendFileSync('./server/console.rbs', (${botID} + String(err)), function(err) {});`)
                     var modifiedJScontent = modifiedJScontent.replaceAll("const S4D_APP_RUN_BUTTON = false", "const S4D_APP_RUN_BUTTON = true")

@@ -441,7 +441,51 @@ Blockly.ContextMenuRegistry.registry.register({
     });
 }
 
-console.log(window.location.pathname)
+/*
+Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
+  var point = Blockly.mouseToSvg(e, this.getParentSvg(),  this.getInverseScreenCTM());
+  var rel = this.getOriginOffsetInPixels();
+  this.mouseX = (point.x - rel.x) / this.scale;
+  this.mouseY = (point.y - rel.y) / this.scale;
+}
+*/
+
+window.addEventListener('keydown', (e) => {
+    if ((e.altKey)) {
+        if (
+            (e.key == "t") ||
+            (e.key == "n")
+        ) {
+            if (e.key == "t") {
+                var blockToPlace = "text"
+            } else if (e.key == "n") {
+                var blockToPlace = "math_number"
+            }
+            let workspace_xml = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace))
+            let xml_blocks = workspace_xml.split('\n');
+            var xpos = []
+            var ypos = []
+            for (var count = 0; count < xml_blocks.length; count++) {
+                var current = xml_blocks[count]
+                if ((current.includes('<block type="')) && (current.includes('x="')) && (current.includes('y="'))) {
+                    xpos.push(current.substring(current.indexOf('x="') + 3, current.indexOf(' y="') - 1))
+                    ypos.push(current.substring(current.indexOf('y="') + 3, current.indexOf('">')))
+                }
+            }
+            if (xpos && ypos) {
+                var dx = xpos.slice(-1)[0]
+                var dy = ypos.slice(-1)[0]
+            } else {
+                var dx = 0
+                var dy = 0
+            }
+            let xml = Blockly.Xml.textToDom(`<block type="${blockToPlace}" x="500" y="500"></block>`);
+            let block = Blockly.Xml.domToBlock(xml, workspace)
+            block.moveBy(dx, dy)
+        }
+    }
+});
+
 if (window.location.pathname == "/debug") {
 Blockly.ContextMenuRegistry.registry.register({
       displayText: 'Spawn block via Internal name',
