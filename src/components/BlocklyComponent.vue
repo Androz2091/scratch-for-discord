@@ -454,12 +454,33 @@ window.addEventListener('keydown', (e) => {
     if ((e.altKey)) {
         if (
             (e.key == "t") ||
-            (e.key == "n")
+            (e.key == "n") ||
+            (e.key == "m") ||
+            (e.key == "c") ||
+            (e.key == "e") ||
+            (e.key == "a") ||
+            (e.key == "w") ||
+            (e.key == "b") ||
+            (e.key == "i")
         ) {
             if (e.key == "t") {
                 var blockToPlace = "text"
             } else if (e.key == "n") {
                 var blockToPlace = "math_number"
+            } else if (e.key == "m") {
+                var blockToPlace = "s4d_message_content"
+            } else if (e.key == "c") {
+                var blockToPlace = "colour_picker"
+            } else if (e.key == "e") {
+                var blockToPlace = "frost_other_err"
+            } else if (e.key == "a") {
+                var blockToPlace = "s4d_message_author"
+            } else if (e.key == "w") {
+                var blockToPlace = "s4d_on_message"
+            } else if (e.key == "b") {
+                var blockToPlace = "logic_boolean"
+            } else if (e.key == "i") {
+                var blockToPlace = "controls_if"
             }
             let workspace_xml = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace))
             let xml_blocks = workspace_xml.split('\n');
@@ -481,7 +502,9 @@ window.addEventListener('keydown', (e) => {
             }
             let xml = Blockly.Xml.textToDom(`<block type="${blockToPlace}"></block>`);
             let block = Blockly.Xml.domToBlock(xml, workspace)
-            block.moveBy(Number(dx), Number(dy))
+            if (Number(dx) && Number(dy)) {
+                block.moveBy(Number(dx), Number(dy))
+            }
         }
     }
 });
