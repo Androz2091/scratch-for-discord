@@ -104,7 +104,24 @@ const defaultblocks = blocks
             var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
         }
     }
+
+
+
     var returned_stuff = toolbox_content.replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", CATEGORYCONTENT)
+
+    // for custom categories
+let urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('customXML')) {
+    var custom_xml = urlParams.get("customXML")
+    let temp1 = String(custom_xml).replaceAll("□", "\n")
+    let temp2 = String(temp1).replaceAll("▣", "#")
+    custom_xml = temp2
+    if (urlParams.has('no-base-category') && (urlParams.get("no-base-category") == "true")) {
+        returned_stuff = (`<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">` + custom_xml + `</xml>`).replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", CATEGORYCONTENT)
+    } else {
+        returned_stuff = ((returned_stuff.replace("</xml>", "") + custom_xml) + "</xml>").replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", CATEGORYCONTENT)
+    }
+}
     // .replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
     //   return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
     // })
@@ -114,18 +131,7 @@ const defaultblocks = blocks
 
 returned_stuff = returned_stuff.replace("<!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->", (favorites === null ? "" : favorites.map(c => `<block type="${c}"/>`)))
 
-// for custom categories
-let urlParams = new URLSearchParams(window.location.search);
-if (urlParams.has('customXML')) {
-    let custom_xml = urlParams.get("customXML")
-    fetch(custom_xml).then(response => response.json()).then(async (data) => {
-        var serverResponse = ""
-        temp1 = String(data.xml).replaceAll("□", "\n")
-        temp2 = String(temp1).replaceAll("▣", "\"")
-        serverResponse = temp2
-        returned_stuff = (returned_stuff.replace("</xml>", "") + serverResponse) + "</xml>"
-    })
-}
+
 
     return String(returned_stuff)
             
