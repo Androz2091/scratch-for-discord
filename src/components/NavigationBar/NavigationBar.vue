@@ -91,6 +91,21 @@ export default {
         element.spellcheck = false;
         element.focus(); 
         element.blur();
+        if (window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app")) {
+            this.$swal({
+                title: "Hey!",
+                content: "<p>You seem to be using the wrong site for <b>Scratch For Discord!</b></p>",
+                icon: 'warning',
+                buttons: {
+                    cancel: "I'm fine",
+                    confirm: "Go to Vercel"
+                },
+            }).then(async (result) => {
+                if ((result == true) || (result == "confirm")) {
+                    window.location.href = "https://scratch-for-discord-469.vercel.app/"
+                }
+            })
+        }
     },
     methods: {
         exportToCode(){
