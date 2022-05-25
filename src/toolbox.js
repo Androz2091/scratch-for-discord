@@ -7,7 +7,7 @@ const allow_toolbox_search = true
 if (allow_toolbox_search) {
     var toolbox_search_category = `
     
-    <category name="🔍 Search" colour="#42556e">
+    <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">
     <label text="Search category! Version 1.0"></label>
     <label text=""></label>
     <label text="Want to search?"></label>
