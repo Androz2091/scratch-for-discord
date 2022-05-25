@@ -114,6 +114,19 @@ const defaultblocks = blocks
 
 returned_stuff = returned_stuff.replace("<!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->", (favorites === null ? "" : favorites.map(c => `<block type="${c}"/>`)))
 
+// for custom categories
+let urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('customXML')) {
+    let custom_xml = urlParams.get("customXML")
+    fetch(custom_xml).then(response => response.json()).then(async (data) => {
+        var serverResponse = ""
+        temp1 = String(data.xml).replaceAll("□", "\n")
+        temp2 = String(temp1).replaceAll("▣", "\"")
+        serverResponse = temp2
+        returned_stuff = (returned_stuff.replace("</xml>", "") + serverResponse) + "</xml>"
+    })
+}
+
     return String(returned_stuff)
             
         }
