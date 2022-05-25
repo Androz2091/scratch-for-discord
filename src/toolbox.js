@@ -1,17 +1,21 @@
+    /* eslint-disable */
 export default (Blockly, value, searching) => {
     /* eslint-disable */
 
-const allow_toolbox_search = false
+const allow_toolbox_search = true
 
 if (allow_toolbox_search) {
     var toolbox_search_category = `
-    <sep class="bt"/>
+    
     <category name="🔍 Search" colour="#42556e">
+    <label text="Search category! Version 1.0"></label>
+    <label text=""></label>
     <label text="Want to search?"></label>
     <label text="PC: Right click on the workspace > Search for block"></label>
     <label text="Touch: Hold on the workspace > Search for block"></label>
         <!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->
     </category>
+    <sep class="bt"/>
     `
 } else {
     var toolbox_search_category = ``
@@ -29,6 +33,8 @@ if (allow_toolbox_search) {
     </category>
     -->
 	
+    ${toolbox_search_category}
+
 	<category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
             <block type="controls_if" />
             <block type="logic_compare">
@@ -534,7 +540,7 @@ if (allow_toolbox_search) {
 	  
                 <sep class="bt"/>
                     <category name="Favorites" colour="#FFFF00" css-icon="customIcon fa fa-star">
-                        ${value === null ? "" : value.map(c => `<block type="${c}"/>`)}
+                        <!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->
                     </category>
 				<sep class="bt"/>
 				
@@ -2436,7 +2442,7 @@ if (allow_toolbox_search) {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
 
-        ${toolbox_search_category}
+        
 
                     
 
@@ -2445,6 +2451,9 @@ if (allow_toolbox_search) {
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
       return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
     }))
+
+    // OLD searching code
+/*
 
 // preparing variables for searching
 
@@ -2516,6 +2525,10 @@ const defaultblocks = blocks
     }
     toolbox_xml_contents = toolbox_xml_contents.replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", CATEGORYCONTENT)
 
+*/
+
+
     return toolbox_xml_contents
     
+
 }
