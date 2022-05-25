@@ -93,8 +93,7 @@ export default {
         element.blur();
         if (window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app")) {
             this.$swal({
-                title: "Hey!",
-                content: "<p>You seem to be using the wrong site for <b>Scratch For Discord!</b></p>",
+                title: "Hey! You are not using the right site for S4D!",
                 icon: 'warning',
                 buttons: {
                     cancel: "I'm fine",
