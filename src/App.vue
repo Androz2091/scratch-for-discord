@@ -130,6 +130,7 @@ import "./blocks/qr-generator"
 import "./blocks/JeremyGamer13/"
 import "./blocks/JeremyGamer13/jimpBlocks"
 import "./blocks/JeremyGamer13/fileEdit"
+import "./blocks/discord/scheduled-events/scheduled-events"
 // p
 import "./blocks/unlocked_blockly"
 
