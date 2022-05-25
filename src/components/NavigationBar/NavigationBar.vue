@@ -94,6 +94,10 @@ export default {
         element.spellcheck = false;
         element.focus(); 
         element.blur();
+        this.$store.commit("setLocale", {
+            newLocale: "en"
+        });
+        this.setLanguage("en");
         if (window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app")) {
             this.$swal({
                 title: "Hey! You are not using the right site for S4D!",
