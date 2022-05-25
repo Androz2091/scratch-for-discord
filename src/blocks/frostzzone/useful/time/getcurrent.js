@@ -49,6 +49,10 @@ const blockData = {
                 "UNIX",
                 "UNIX"
                 ],
+                [
+                  "UNIX (ms)",
+                  "UNIX_ms"
+                  ],
               [
                 "UTC millisecond",
                 "UTC_MILLISECOND"
@@ -118,6 +122,8 @@ Blockly.JavaScript[blockName] = function(block) {
         return ["new Date()", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UNIX"){
         return ["Math.floor(new Date().getTime()/1000)", Blockly.JavaScript.ORDER_NONE];
+    }else if(dataType === "UNIX_ms"){
+          return ["new Date().getTime()", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC_MILLISECOND"){
     return ["(new Date().getUTCMilliseconds())", Blockly.JavaScript.ORDER_NONE];
     }else if(dataType === "UTC_SECOND"){
