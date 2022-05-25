@@ -479,9 +479,9 @@ window.addEventListener('keydown', (e) => {
                 var dx = 0
                 var dy = 0
             }
-            let xml = Blockly.Xml.textToDom(`<block type="${blockToPlace}" x="500" y="500"></block>`);
+            let xml = Blockly.Xml.textToDom(`<block type="${blockToPlace}"></block>`);
             let block = Blockly.Xml.domToBlock(xml, workspace)
-            block.moveBy(dx, dy)
+            block.moveBy(Number(dx), Number(dy))
         }
     }
 });
