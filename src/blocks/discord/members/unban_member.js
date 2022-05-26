@@ -30,24 +30,10 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-    let data = ""
+
     const memberr = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    let member = memberr.replace(".user","").replace(".author", ".member");
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    if (member.includes("#")) {
-        data = "tag"
-    } else if (Number(member)) {
-        data = "id"
-    } else {
-        data = "username"
-    }
-    const code = `${server}.fetchBans().then(bans=> {
-        if(bans.size != 0) {
-        let bUser = bans.find(b => b.user.${data} == ${member})
-        if(bUser){
-        ${server}.members.unban(bUser.user)
-        }
-    }
-  })\n`;
+    const code = `${server}.members.unban(${memberr})\n`;
     return code;
 };
+
