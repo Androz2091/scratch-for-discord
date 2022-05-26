@@ -505,8 +505,8 @@ window.addEventListener('keydown', (e) => {
             }
             if (Blockly.selected) {
                 let selected = Blockly.selected.toCopyData()
-                var dx = selected.xml.attributes.getNamedItem("x").value
-                var dy = selected.xml.attributes.getNamedItem("y").value
+                var dx = selected.saveInfo.x
+                var dy = selected.saveInfo.y
             }
             let xml = Blockly.Xml.textToDom(`<block type="${blockToPlace}"></block>`);
             let block = Blockly.Xml.domToBlock(xml, workspace)
@@ -518,8 +518,8 @@ window.addEventListener('keydown', (e) => {
                 let xml = Blockly.Xml.blockToDom(Blockly.selected)
                 let block = Blockly.Xml.domToBlock(xml, workspace)
                 let selected = Blockly.selected.toCopyData()
-                let dx = selected.xml.attributes.getNamedItem("x").value
-                let dy = selected.xml.attributes.getNamedItem("y").value
+                let dx = selected.saveInfo.x
+                let dy = selected.saveInfo.y
                 block.moveBy(Number(dx) + 5, Number(dy) + 5)
                 
             }
@@ -624,7 +624,7 @@ function svgToPng_(data, width, height, callback) {
     var context = canvas.getContext("2d");
     var img = new Image();
   
-    var pixelDensity = 10;
+    var pixelDensity = 5;
     canvas.width = width * pixelDensity;
     canvas.height = height * pixelDensity;
     img.onload = function() {
