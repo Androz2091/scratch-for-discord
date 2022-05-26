@@ -68,7 +68,7 @@ const defaultblocks = blocks
         if (!(searchparam)) {
             searchparam = "null"
         }
-        var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_")
+        var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_").replaceAll("\"", "_")
         searchparam = searchparam.replaceAll(" ", "_").toLowerCase()
         var repeat_end = defaultblocks.length;
         for (var count = 0; count < repeat_end; count++) {
