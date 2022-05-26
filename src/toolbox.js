@@ -2235,8 +2235,15 @@ if (allow_toolbox_search) {
             <label text="%{BKY_CHANNEL_MESSAGE_ACTIONS}"></label>
             <block type="s4d_channel_exist"/>
              <block type="s4d_purge">
-	     
-	     <block type="set_afk_channel">
+
+                <value name="AMOUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">2</field>
+                    </shadow>
+                </value> 
+            </block>
+	    
+	    <block type="set_afk_channel">
                 
                 <value name="server">
                 <block type="s4d_message_guild">
@@ -2273,13 +2280,6 @@ if (allow_toolbox_search) {
                 </value>
 
                 </block>
-
-                <value name="AMOUNT">
-                    <shadow type="math_number">
-                        <field name="NUM">2</field>
-                    </shadow>
-                </value> 
-            </block>
 
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
             <block type="s4d_is_channel_nsfw"/>
