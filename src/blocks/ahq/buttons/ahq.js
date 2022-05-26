@@ -1,24 +1,16 @@
 import * as Blockly from "blockly/core";
-const ahqcolor = ['#33cc00', '#33cc00', '#33cc00', '#33cc00'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
-const blockName = "send_ahq_embed_btn";
-//block working now working
+
+const blockName = "embed_send_round";
+
 const blockData = {
-    "message0": "Send Embeds %1",
+    "message0": "Send Embed %1",
     "args0": [{
         "type": "input_value",
         "name": "Label",
         "check": "String"
     }],
-    "colour": listsGetRandomItem(ahqcolor, false),
-    "output": "ahq",
+    "colour": "#54CF83",
+    "output": "",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -30,6 +22,11 @@ Blockly.Blocks[blockName] = {
     }
 };
 Blockly.JavaScript[blockName] = function(block){
-    const code = [`embeds: [${Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE).replace("'", "").replace("'", "")}]`, Blockly.JavaScript.ORDER_ATOMIC];
+    var name = Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE)
+    name = name.split(" ")
+    name = name.join('_')
+    name = name.toLowerCase()
+    name = name.replace("'","").replace("'","")
+    const code = [`embeds: [${name}]`, Blockly.JavaScript.ORDER_ATOMIC];
     return code;
 };
