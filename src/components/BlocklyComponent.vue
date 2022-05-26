@@ -604,6 +604,14 @@ function blockCounter() {
         rgb = "255, 60, 60"
         bold = ["<b><strong>","</strong></b>"]
     }
+    if (Number(blocks) >= 5000) {
+        rgb = "255, 35, 35"
+        bold = ["<b style=\"font-size: 110%\"><strong>","</strong></b>"]
+    }
+    if (Number(blocks) >= 10000) {
+        rgb = "255, 20, 20"
+        bold = ["<b style=\"font-size: 125%\"><strong>","</strong></b>"]
+    }
     let s = "s"
     if (Number(blocks) == 1) {
         s = ""

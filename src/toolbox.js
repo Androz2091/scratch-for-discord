@@ -497,7 +497,11 @@ if (allow_toolbox_search) {
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
         
 	  
-            <block type="s4d_print"></block>
+            <block type="s4d_print">
+                <value name="PRINT">
+                    <block type="frost_other_err"/>
+                </value>
+            </block>
             <block type="s4d_clearconsole"/>
             <block type="s4d_run_save_output"></block>
             <block type="s4d_wait_seconds">
