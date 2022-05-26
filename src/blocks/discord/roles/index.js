@@ -9,3 +9,4 @@ import "./get_all_roles_then";
 import "./get_all_roles_then_roles";
 import "./role_exist";
 import "./role_possition";
+import "./set_role_icon";

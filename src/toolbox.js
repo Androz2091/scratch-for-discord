@@ -2235,12 +2235,51 @@ if (allow_toolbox_search) {
             <label text="%{BKY_CHANNEL_MESSAGE_ACTIONS}"></label>
             <block type="s4d_channel_exist"/>
              <block type="s4d_purge">
+
                 <value name="AMOUNT">
                     <shadow type="math_number">
                         <field name="NUM">2</field>
                     </shadow>
                 </value> 
             </block>
+	    
+	    <block type="set_afk_channel">
+                
+                <value name="server">
+                <block type="s4d_message_guild">
+                </block>
+                </value>
+
+                <value name="reason">
+                <block type="text">
+                </block>
+                </value>
+
+                <value name="channel">
+                    <block type="s4d_message_channel">
+                    </block>
+                </value>
+
+                </block>
+
+                <block type="set_afk_channel_time">
+
+                <value name="reason">
+                    <block type="text">
+                    </block>
+                </value>
+
+                <value name="time">
+                <block type="math_number">
+                </block>
+                </value>
+
+                <value name="server">
+                <block type="s4d_message_guild">
+                </block>
+                </value>
+
+                </block>
 
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
             <block type="s4d_is_channel_nsfw"/>
@@ -2254,7 +2293,14 @@ if (allow_toolbox_search) {
 
                 <label text="Create a new perfect event!"/>
                 <label text="⚠ ISO 8601 is needed for the dates! You can find it at : unixtimestamp.com"/>
-                <block type="create_new_event"> <value name="event_id"> <shadow type="text"> </shadow> </value></block>
+                <block type="create_new_event"> <value name="event_id"> <block type="text"> </block> </value></block>
+		<block type="edit_s_event">
+
+                    <value name="event_id">
+                        <block type="text"/>
+                    </value>
+
+                </block>
                 <block type="event_set_options"/>
                 <label text="Event options"/>
                 <block type="privacylevel"/>
@@ -2280,6 +2326,7 @@ if (allow_toolbox_search) {
 						<block type="s4d_role_exist"/>
             <block type="s4d_create_role"></block>
             <block type="s4d_set_role_perm"></block>
+	    <block type="set_role_icon"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category> 
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
