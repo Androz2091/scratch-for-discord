@@ -129,7 +129,7 @@ const blockData = {
     "mutator": "2imagepng_mutator"
 }; 
 
-Blockly.Constants.Math.IS_DIVISIBLEBY_MUTATOR_MIXIN = {
+Blockly.constants.IS_DIVISIBLEBY_MUTATOR_MIXIN = {
     /**
      * Create XML to represent whether the 'divisorInput' should be present.
      * @return {!Element} XML storage element.
@@ -169,7 +169,7 @@ Blockly.Constants.Math.IS_DIVISIBLEBY_MUTATOR_MIXIN = {
       }
     }
   };
-  Blockly.Constants.Math.IS_DIVISIBLE_MUTATOR_EXTENSION = function() {
+  Blockly.constants.IS_DIVISIBLE_MUTATOR_EXTENSION = function() {
     this.getField('INFO').setValidator(function(option) {
       var divisorInput = (option == 'Blur');
       this.getSourceBlock().updateShape_(divisorInput);
@@ -177,8 +177,8 @@ Blockly.Constants.Math.IS_DIVISIBLEBY_MUTATOR_MIXIN = {
   };
   
   Blockly.Extensions.registerMutator('2imagepng_mutator',
-      Blockly.Constants.Math.IS_DIVISIBLEBY_MUTATOR_MIXIN,
-      Blockly.Constants.Math.IS_DIVISIBLE_MUTATOR_EXTENSION);
+      Blockly.constants.IS_DIVISIBLEBY_MUTATOR_MIXIN,
+      Blockly.constants.IS_DIVISIBLE_MUTATOR_EXTENSION);
 Blockly.Blocks[blockName] = {
     init: function() {
         this.jsonInit(blockData);

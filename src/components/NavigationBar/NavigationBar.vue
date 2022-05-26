@@ -23,7 +23,7 @@
                 <Credit></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
-
+<!--<p id="block-counter" style="color:rgb(182, 182, 182); margin-right: 5px;">0 blocks</p>-->
 <b-nav-item
           class="theme-changer"
           style="width: 32px; height: 32px; margin-top: 5px; margin-right: 5px;"
