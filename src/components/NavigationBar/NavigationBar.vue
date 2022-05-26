@@ -1,7 +1,7 @@
 <template>
     <b-navbar toggleable="lg" type="dark" style="background-color:#161719;user-select:none;" id="navbar nav-main">
-        <b-navbar-brand>
-            <img src="scratch.png" width="40" draggable="false">
+        <b-navbar-brand style="font-size: 120%;">
+            <img src="scratch.png" width="35" draggable="false">
             Scratch For Discord
         </b-navbar-brand>
 
@@ -10,23 +10,23 @@
         <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
                 <CodeModal></CodeModal>
-                <FileMenu></FileMenu>
-                <EditMenu></EditMenu>
-                <ToolboxModal></ToolboxModal>
+                <FileMenu style="font-size: small;"></FileMenu>
+                <EditMenu style="font-size: small;"></EditMenu>
+                <ToolboxModal style="font-size: small;"></ToolboxModal>
                 <!--<LanguageMenu></LanguageMenu>-->
-                <ExamplesMenu></ExamplesMenu>
-                <preBuilds></preBuilds>
-                <TokenModal></TokenModal>
-                <Socials></Socials>
-                <changelog></changelog>
-                <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
-                <Credit></Credit>
+                <ExamplesMenu style="font-size: small;"></ExamplesMenu>
+                <preBuilds style="font-size: small;"></preBuilds>
+                <TokenModal style="font-size: small;"></TokenModal>
+                <Socials style="font-size: small;"></Socials>
+                <changelog style="font-size: small;"></changelog>
+                <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank" style="font-size: small;">{{ $t('help') }}</b-nav-item>
+                <Credit style="font-size: small;"></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
-<p id="block-counter" style="color:rgb(182, 182, 182); margin-right: 5px;">0 blocks</p>
+<p id="block-counter" style="color:rgb(182, 182, 182); margin-right: 5px; font-size: 90%">0 blocks</p>
 <b-nav-item
           class="theme-changer"
-          style="width: 32px; height: 32px; margin-top: 5px; margin-right: 5px;"
+          style="width: 32px; height: 32px; margin-top: 2px; margin-right: 5px;"
           @click="changeTheme"
         ></b-nav-item>
 
