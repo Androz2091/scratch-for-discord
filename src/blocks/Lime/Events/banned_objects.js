@@ -55,12 +55,32 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript['banned_objects'] = function(block) {
     var dropdown_options = block.getFieldValue('options');
     var code = ``;
-    if (dropdown_options == "ID"){code = `String(ban.guild.id)`}
-    if (dropdown_options == "NAME"){code = `String(ban.guild.name)`}
-    if (dropdown_options == "USERNAME"){code = `String(ban.user.username)`}
-    if (dropdown_options == "DISCRIMINATOR"){code = `String(ban.user.discriminator)`}
-    if (dropdown_options == "MEMBER_ID"){code = `String(ban.user.id)`}
-    if (dropdown_options == "REASON"){code = `String(ban.reason)`}
+    switch(dropdown_options) {
+        case "ID":
+            code = `String(ban.guild.id)`
+        break;
+        case "NAME":
+            code = `String(ban.guild.name)`
+        break;
+        case "USERNAME":
+            code = `String(ban.user.username)`
+        break;
+        case "DISCRIMINATOR":
+            code = `String(ban.user.discriminator)`
+        break;
+        case "MEMBER_ID":
+            code = `String(ban.user.id)`
+        break;
+        case "REASON":
+            code = `String(ban.reason)`
+        break;
+    }
+//     if (dropdown_options == "ID"){code = `String(ban.guild.id)`}
+//     if (dropdown_options == "NAME"){code = `String(ban.guild.name)`}
+//     if (dropdown_options == "USERNAME"){code = `String(ban.user.username)`}
+//     if (dropdown_options == "DISCRIMINATOR"){code = `String(ban.user.discriminator)`}
+//     if (dropdown_options == "MEMBER_ID"){code = `String(ban.user.id)`}
+//     if (dropdown_options == "REASON"){code = `String(ban.reason)`}
 
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
