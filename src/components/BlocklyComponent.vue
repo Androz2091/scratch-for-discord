@@ -580,12 +580,19 @@ Blockly.ContextMenuRegistry.registry.register({
     });
 
 }
-/*
-function blockCounter(workspace) {
-    let blocks = workspace.getAllBlocks(false)
+
+function blockCounter() {
+    let blocks = workspace.getAllBlocks()
     let counter = document.getElementById("block-counter")
     counter.innerHTML = `${String(blocks.length)} blocks`
 }
+window.addEventListener("click", () => {
+    blockCounter()
+})
+window.addEventListener('keydown', () => {
+    blockCounter()
+})
+/*
 Blockly.getMainWorkspace().addChangeListener(blockCounter(Blockly.getMainWorkspace()))
 */
 // Comment this context menu out later!

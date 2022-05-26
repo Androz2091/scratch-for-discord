@@ -224,17 +224,7 @@ if (allow_toolbox_search) {
                     <shadow type="text">
                         <field name="TEXT">abc</field>
                     </shadow>
-                </value>
-                <value name="REPLACE">
-                    <shadow type="text">
-                        <field name="TEXT">a</field>
-                    </shadow>
-                </value>
-                <value name="WITH">
-                    <shadow type="text">
-                        <field name="TEXT">b</field>
-                    </shadow>
-                </value>                
+                </value>               
             </block>
 						<block type="text_isEmpty"/>
 						<block type="text_reverse"/>
