@@ -592,9 +592,25 @@ Blockly.ContextMenuRegistry.registry.register({
 }
 
 function blockCounter() {
-    let blocks = workspace.getAllBlocks()
+    let blocks = String(workspace.getAllBlocks().length)
     let counter = document.getElementById("block-counter")
-    counter.innerHTML = `${String(blocks.length)} blocks`
+    var rgb = "182, 182, 182"
+    var bold = ["",""]
+    if (Number(blocks) >= 300) {
+        rgb = "255, 125, 125"
+        bold = ["<b>","</b>"]
+    }
+    if (Number(blocks) >= 750) {
+        rgb = "255, 60, 60"
+        bold = ["<b><strong>","</strong></b>"]
+    }
+    let s = "s"
+    if (Number(blocks) == 1) {
+        s = ""
+    } else {
+        s = "s"
+    }
+    counter.innerHTML = bold[0] + `<p style="color:rgb(${rgb});">${blocks} block${s}</p>` + bold[1]
 }
 window.addEventListener("click", () => {
     blockCounter()
