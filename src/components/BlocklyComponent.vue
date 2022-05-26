@@ -454,6 +454,7 @@ window.addEventListener('keydown', (e) => {
     // console.log(e)
     // console.log(e.key)
     if ((e.altKey)) {
+        console.log(e.key)
         if (
             (e.key == "t") ||
             (e.key == "n") ||
@@ -463,18 +464,21 @@ window.addEventListener('keydown', (e) => {
             (e.key == "a") ||
             (e.key == "w") ||
             (e.key == "b") ||
-            (e.key == "i")
+            (e.key == "i") ||
+            (e.key == "=") ||
+            (e.key == "n") ||
+            (e.key == "N")
         ) {
             if (e.key == "t") {
                 var blockToPlace = "text"
-            } else if (e.key == "n") {
-                var blockToPlace = "math_number"
             } else if (e.key == "m") {
                 var blockToPlace = "s4d_message_content"
             } else if (e.key == "c") {
                 var blockToPlace = "colour_picker"
             } else if (e.key == "e") {
                 var blockToPlace = "frost_other_err"
+            } else if ((e.key == "a") && (e.ctrlKey)) {
+                var blockToPlace = "logic_operation"
             } else if (e.key == "a") {
                 var blockToPlace = "s4d_message_author"
             } else if (e.key == "w") {
@@ -483,8 +487,13 @@ window.addEventListener('keydown', (e) => {
                 var blockToPlace = "logic_boolean"
             } else if (e.key == "i") {
                 var blockToPlace = "controls_if"
+            } else if (e.key == "=") {
+                var blockToPlace = "logic_compare"
+            } else if ((e.key == "N") && (e.shiftKey)) {
+                var blockToPlace = "logic_negate"
+            } else if (e.key == "n") {
+                var blockToPlace = "math_number"
             }
-            
             let workspace_xml = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace))
             let xml_blocks = workspace_xml.split('\n');
             var xpos = []
@@ -513,7 +522,7 @@ window.addEventListener('keydown', (e) => {
             if (Number(dx) && Number(dy)) {
                 block.moveBy(Number(dx), Number(dy))
             }
-        } else if (e.key == "Enter") {
+        } else if (e.ctrlKey) {
             if (Blockly.selected) {
                 let xml = Blockly.Xml.blockToDom(Blockly.selected)
                 let block = Blockly.Xml.domToBlock(xml, workspace)
