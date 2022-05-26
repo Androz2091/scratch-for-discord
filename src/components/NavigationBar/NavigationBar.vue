@@ -23,6 +23,13 @@
                 <Credit></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
+
+<b-nav-item
+          class="theme-changer"
+          style="width: 32px; height: 32px; margin-top: 5px; margin-right: 5px;"
+          @click="changeTheme"
+        ></b-nav-item>
+
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
                 <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
                 </b-button>
@@ -656,7 +663,30 @@ load()`])
             }
             
             
+        },
+        changeTheme() {
+      if (localStorage.getItem("theme") === "dark") {
+        localStorage.setItem("theme", "light");
+        document.querySelector("html").classList.add("light-them");
+        console.log("changed theme to light");
+      } else {
+        localStorage.setItem("theme", "dark");
+        document.querySelector("html").classList.remove("light-them");
+        console.log("changed theme to dark");
+      }
         }
     }
 }
+if(localStorage.getItem("theme") == null){
+    localStorage.setItem("theme", "dark");
+  }
+  (async() => {
+  if (localStorage.getItem("theme") === "light") {
+    document.querySelector("html").classList.add("light-them");
+      } else {
+          const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    await delay(1 * 1000);
+     document.querySelector("html").classList.remove("light-them");
+      }
+       })()
 </script>
