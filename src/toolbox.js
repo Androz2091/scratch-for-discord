@@ -2254,7 +2254,14 @@ if (allow_toolbox_search) {
 
                 <label text="Create a new perfect event!"/>
                 <label text="⚠ ISO 8601 is needed for the dates! You can find it at : unixtimestamp.com"/>
-                <block type="create_new_event"> <value name="event_id"> <shadow type="text"> </shadow> </value></block>
+                <block type="create_new_event"> <value name="event_id"> <block type="text"> </block> </value></block>
+		<block type="edit_s_event">
+
+                    <value name="event_id">
+                        <block type="text"/>
+                    </value>
+
+                </block>
                 <block type="event_set_options"/>
                 <label text="Event options"/>
                 <block type="privacylevel"/>
