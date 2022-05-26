@@ -467,7 +467,8 @@ window.addEventListener('keydown', (e) => {
             (e.key == "i") ||
             (e.key == "=") ||
             (e.key == "n") ||
-            (e.key == "N")
+            (e.key == "N") ||
+            (e.key == "A")
         ) {
             if (e.key == "t") {
                 var blockToPlace = "text"
@@ -477,7 +478,7 @@ window.addEventListener('keydown', (e) => {
                 var blockToPlace = "colour_picker"
             } else if (e.key == "e") {
                 var blockToPlace = "frost_other_err"
-            } else if ((e.key == "a") && (e.ctrlKey)) {
+            } else if ((e.key == "A") && (e.shiftKey)) {
                 var blockToPlace = "logic_operation"
             } else if (e.key == "a") {
                 var blockToPlace = "s4d_message_author"
