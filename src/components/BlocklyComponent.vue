@@ -451,16 +451,40 @@ Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
 */
 
 window.addEventListener('keydown', (e) => {
+    // console.log(e)
+    // console.log(e.key)
     if ((e.altKey)) {
         if (
             (e.key == "t") ||
-            (e.key == "n")
+            (e.key == "n") ||
+            (e.key == "m") ||
+            (e.key == "c") ||
+            (e.key == "e") ||
+            (e.key == "a") ||
+            (e.key == "w") ||
+            (e.key == "b") ||
+            (e.key == "i")
         ) {
             if (e.key == "t") {
                 var blockToPlace = "text"
             } else if (e.key == "n") {
                 var blockToPlace = "math_number"
+            } else if (e.key == "m") {
+                var blockToPlace = "s4d_message_content"
+            } else if (e.key == "c") {
+                var blockToPlace = "colour_picker"
+            } else if (e.key == "e") {
+                var blockToPlace = "frost_other_err"
+            } else if (e.key == "a") {
+                var blockToPlace = "s4d_message_author"
+            } else if (e.key == "w") {
+                var blockToPlace = "s4d_on_message"
+            } else if (e.key == "b") {
+                var blockToPlace = "logic_boolean"
+            } else if (e.key == "i") {
+                var blockToPlace = "controls_if"
             }
+            
             let workspace_xml = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace))
             let xml_blocks = workspace_xml.split('\n');
             var xpos = []
@@ -479,9 +503,26 @@ window.addEventListener('keydown', (e) => {
                 var dx = 0
                 var dy = 0
             }
+            if (Blockly.selected) {
+                let selected = Blockly.selected.toCopyData()
+                var dx = selected.xml.attributes.getNamedItem("x").value
+                var dy = selected.xml.attributes.getNamedItem("y").value
+            }
             let xml = Blockly.Xml.textToDom(`<block type="${blockToPlace}"></block>`);
             let block = Blockly.Xml.domToBlock(xml, workspace)
-            block.moveBy(Number(dx), Number(dy))
+            if (Number(dx) && Number(dy)) {
+                block.moveBy(Number(dx), Number(dy))
+            }
+        } else if (e.key == "Enter") {
+            if (Blockly.selected) {
+                let xml = Blockly.Xml.blockToDom(Blockly.selected)
+                let block = Blockly.Xml.domToBlock(xml, workspace)
+                let selected = Blockly.selected.toCopyData()
+                let dx = selected.xml.attributes.getNamedItem("x").value
+                let dy = selected.xml.attributes.getNamedItem("y").value
+                block.moveBy(Number(dx) + 5, Number(dy) + 5)
+                
+            }
         }
     }
 });
