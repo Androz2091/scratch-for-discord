@@ -560,7 +560,13 @@ if (allow_toolbox_search) {
         </category>
         <category name="forms" colour="#66ffff">
         <block type="on_real_form"/>
-        <block type="ahq_ahq_modal"/>
+        <block type="embed_send_round">
+        <value name="Label">
+            <shadow type="text">
+                <field name="TEXT"></field>
+            </shadow>
+        </value>
+        </block>
         <block type="ahq_ahq_ahq_modal"/>
         <block type="ahqq_ahq_modal"/>
         <label text="Form Info" web-class="boldtext"></label>
@@ -588,7 +594,13 @@ if (allow_toolbox_search) {
         <block type="id_btn_ahq"/>
         <label text="Embed Information" web-class="boldtext"></label>
         <block type="embed_btn_ahq"/>
-        <block type="send_ahq_embed_btn"/>
+        <block type="embed_send_round">
+        <value name="Label">
+            <shadow type="text">
+                <field name="TEXT"></field>
+            </shadow>
+        </value>
+        </block>
         <label text="Button Actions" web-class="boldtext"></label>
         <block type="updte_ahq_button"/>
         <block type="rply_ahq_button"/>
@@ -616,21 +628,29 @@ if (allow_toolbox_search) {
         <block type="ahq_embed_is"/>
         <block type="ahq_embed_info"/>
         </category>
-        <category name="embed" colour="#993399">
-        <block type="make_ahq_embed"/>
-        <label text="Embed Send" web-class="boldtext"></label>
-        <block type="send_ahq_embed"/>
-        <label text="Embed Creator" web-class="boldtext"></label>
-        <block type="title_ahq_embed"/>
-        <block type="url_ahq_embed"/>
-        <block type="author_ahq_embed"/>
-        <block type="color_ahq_embed"/>
-        <block type="des_ahq_embed"/>
-        <block type="fld_ahq_embed"/>
-        <block type="image_ahq_embed"/>
-        <block type="thmb_ahq_embed"/>
-        <block type="footer_ahq_embed"/>
-        <block type="stamp_ahq_embed"/>
+        <category name="V2 Embeds" colour="#cc60db">
+                <block type="s4d_embed_create"/>
+                <block type="s4d_message_embed_lime"/>
+                <block type="s4d_embed_edit"/>
+                <block type="s4d_embed_send">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT"></field>
+                </shadow>
+            </value>
+                </block>
+                <block type="embed_send_round">
+                <value name="Label">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                </block>
         </category>
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>
@@ -2285,6 +2305,10 @@ if (allow_toolbox_search) {
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
             <block type="s4d_unban_member"></block>
+	    <block type="banned_event"/>
+            <block type="banned_objects"/>
+            <block type="unbanned_event"/>
+            <block type="unbanned_objects"/>
             <block type="s4d_send_member"></block>
 
             <block type="s4d_set_member_nickname"></block>

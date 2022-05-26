@@ -13,7 +13,7 @@ function listsGetRandomItem(list, remove) {
 }
 const BORDER_FIELDS = ["CONTENT" , "EMBED", "BUTTON"];
 
-const BORDER_TYPES = ["String",  "ahq_type", "ahq_button"];
+const BORDER_TYPES = ["String",  "", "ahq_button"];
 const names = ["Content", "Embed", "Button (AHQ Button)"];
 
 const blockData = {

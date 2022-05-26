@@ -42,7 +42,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "embed val",
-            "check": "ahq"
+            "check": ""
         },
     ],
     "colour": listsGetRandomItem(ahqcolor, false),
