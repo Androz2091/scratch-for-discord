@@ -451,8 +451,9 @@ Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
 */
 
 window.addEventListener('keydown', (e) => {
+    // console.log(e)
+    // console.log(e.key)
     if ((e.altKey)) {
-        console.log(e.key)
         if (
             (e.key == "t") ||
             (e.key == "n") ||
