@@ -2280,6 +2280,7 @@ if (allow_toolbox_search) {
 						<block type="s4d_role_exist"/>
             <block type="s4d_create_role"></block>
             <block type="s4d_set_role_perm"></block>
+	    <block type="set_role_icon"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category> 
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
