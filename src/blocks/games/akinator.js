@@ -31,5 +31,6 @@ Blockly.JavaScript[blockName] = function(block){
         childMode: true,
         gameType: ${message},
         useButtons: true
-})`;
+})
+`;
 };
