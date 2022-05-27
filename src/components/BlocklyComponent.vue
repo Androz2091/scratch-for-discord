@@ -6,16 +6,26 @@
         </xml>
     </div>
 </template>
+<!--<script src="./renderers/cwest.js"></script>-->
 
 <script>
-import Blockly from "blockly";
 /* eslint-disable */
+import Blockly from "blockly";
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
 var renderer = "zelos"
 if (window.location.pathname == "/r/ge") {
     renderer = "geras"
 }
+else if (window.location.pathname == "/r/mi") {
+    renderer = "minimalist"
+}
+else if (window.location.pathname == "/r/th") {
+    renderer = "thrasos"
+}/*
+else if (window.location.pathname == "/r/cw") {
+    renderer = "cwest"
+}*/
 //import toolbox from "../easter-toolbox";
 import {Backpack} from '@blockly/workspace-backpack';
 import {WorkspaceSearch} from '@blockly/plugin-workspace-search';
