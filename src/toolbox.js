@@ -1590,10 +1590,10 @@ if (allow_toolbox_search) {
 						<block type="s4d_send_in_channel"/>
 					</category>
 				</category>
-				<category name="{{ TOOLBOX_JSONREQUEST }}" colour="#ed5a8b">
+				<!--<category name="{{ TOOLBOX_JSONREQUEST }}" colour="#ed5a8b">
 					<block type="s4d_http_get_then"/>
 					<block type="s4d_get_string_of_data"/>
-				</category>
+				</category>-->
 				        <category name="{{ EMBED }}" colour="#ed5a5a">
         <label text="Create A Perfect Embed" web-class="boldtext"></label>
             <block type="s4d_create_embed_then"></block>
@@ -2358,6 +2358,92 @@ if (allow_toolbox_search) {
             <block type="s4d_send_wait_reply_dm_value"></block>
           <label text="ㅤ" web-class="boldtext"></label>
         </category>
+        <sep class="bt"/>
+    <category name="Web Requests" colour="#4C97FF">
+        <category name="Simple" colour="#4c8bff">
+            <block type="s4d_http_get_then"/>
+            <block type="s4d_get_string_of_data"/>
+        </category>
+        <category name="Advanced" colour="#4c79ff">
+            <block type="jg_web_request_advanced_send_request">
+                <value name="URL">
+                    <block type="text">
+                        <field name="TEXT">https://jsonplaceholder.typicode.com/posts</field>
+                    </block>
+                </value>
+                <value name="HEADERS">
+                    <block type="jg_web_request_advanced_header">
+                        <value name="KEY">
+                            <block type="text">
+                                <field name="TEXT">content-type</field>
+                            </block>
+                        </value>
+                        <value name="VALUE">
+                            <block type="text">
+                                <field name="TEXT">application/json</field>
+                            </block>
+                        </value>
+                    </block>
+                </value>
+                <value name="BODY">
+                    <block type="jg_web_request_advanced_data">
+                        <value name="KEY">
+                            <block type="text">
+                                <field name="TEXT">key</field>
+                            </block>
+                        </value>
+                        <value name="VALUE">
+                            <block type="text">
+                                <field name="TEXT">value</field>
+                            </block>
+                        </value>
+                    </block>
+                </value>
+                <value name="IF_ERROR">
+                    <block type="s4d_print">
+                        <value name="PRINT">
+                            <block type="frost_other_err"/>
+                        </value>
+                    </block>
+                </value>
+            </block>
+            <block type="jg_web_request_advanced_header">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">content-type</field>
+                    </block>
+                </value>
+                <value name="VALUE">
+                    <block type="text">
+                        <field name="TEXT">application/json</field>
+                    </block>
+                </value>
+            </block>
+            <block type="jg_web_request_advanced_data">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">key</field>
+                    </block>
+                </value>
+                <value name="VALUE">
+                    <block type="text">
+                        <field name="TEXT">value</field>
+                    </block>
+                </value>
+            </block>
+            <block type="jg_web_request_advanced_get_response_data">
+                <value name="VALUE">
+                    <block type="text">
+                        <field name="TEXT">key</field>
+                    </block>
+                </value>
+            </block>
+            <block type="jg_web_request_advanced_response"/>
+            <block type="jg_web_request_advanced_response_status"/>
+            <block type="jg_web_request_advanced_response_headers"/>
+            <block type="jg_web_request_advanced_response_data"/>
+        </category>
+    </category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>

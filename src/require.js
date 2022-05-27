@@ -203,6 +203,9 @@ if(js.includes("bcrypt.")){
 if(js.includes("xml2json({")){
   array.push(`const xml2json = require('xml-to-json')`)
 }
+if(js.includes("S4D_APP_PKG_axios")){
+    array.push(`const S4D_APP_PKG_axios = require('axios')`)
+}
 
   if(js.includes("dootabase")){
     array.push(`const dootabase = require("easy-db-json");
