@@ -1,9 +1,9 @@
 import Blockly from "blockly/core";
 
-const blockName = "jg_minecraft_getjava";
+const blockName = "jg_minecraft_bedrock_get";
 
 const blockData = {
-    "message0": "get java minecraft server with IP %1 port %2 then %3 %4",
+    "message0": "get bedrock minecraft server with IP %1 port %2 then %3 %4",
     "args0": [
         {
             "type": "input_value", 
@@ -24,10 +24,10 @@ const blockData = {
         }
         
     ],
-    "colour": 120,
+    "colour": 190,
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Get a java minecraft server to grab it's information.",
+    "tooltip": "Get a minecraft bedrock server to grab it's information.",
     "helpUrl": ""
 };
 
@@ -41,14 +41,13 @@ Blockly.JavaScript[blockName] = function(block) {
     const ip = Blockly.JavaScript.valueToCode(block, "IP", Blockly.JavaScript.ORDER_ATOMIC);
     const port = Blockly.JavaScript.valueToCode(block, "PORT", Blockly.JavaScript.ORDER_ATOMIC);
     const then = Blockly.JavaScript.statementToCode(block, "THEN");
-    const code = `let S4D_APP_MC_GET_OPTIONS = {
+    const code = `let S4D_APP_MC_GET_BEDROCK_OPTIONS = {
         timeout: 5000
     };
-    S4D_APP_MC_GET.status(String(${ip}), Number(${port}), S4D_APP_MC_GET_OPTIONS)
-    .then((result_java) => {
+    S4D_APP_MC_GET.statusBedrock(String(${ip}), Number(${port}), S4D_APP_MC_GET_BEDROCK_OPTIONS)
+    .then((result_bedrock) => {
         ${then}
-    })
-    .catch((error) => console.error(error));
+    });
     `;
     return code;
 };

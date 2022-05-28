@@ -2444,6 +2444,97 @@ if (allow_toolbox_search) {
             <block type="jg_web_request_advanced_response_data"/>
         </category>
     </category>
+    <category name="Applications" colour="#4c79ff">
+        <category name="Minecraft" colour="110">
+            <category name="Java" colour="120">
+                <label text="Start by grabbing the server to get data from." web-class="boldtext"></label>
+                <block type="jg_minecraft_getjava">
+                    <value name="IP">
+                        <block type="text">
+                            <field name="TEXT">server ip</field>
+                        </block>
+                    </value>
+                    <value name="PORT">
+                        <block type="math_number">
+                            <field name="NUM">25565</field>
+                        </block>
+                    </value>
+                </block>
+                <label text="The blocks below will get data from the server." web-class="boldtext"></label>
+                <block type="jg_minecraft_java_motd"/>
+                <block type="jg_minecraft_java_players"/>
+                <block type="jg_minecraft_java_version"/>
+                <block type="jg_minecraft_java_data"/>
+                <label text="The blocks below will only work if the server has enabled query." web-class="boldtext"></label>
+                <block type="jg_minecraft_queryjava">
+                    <value name="IP">
+                        <block type="text">
+                            <field name="TEXT">server ip</field>
+                        </block>
+                    </value>
+                    <value name="PORT">
+                        <block type="math_number">
+                            <field name="NUM">25565</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="jg_minecraft_query_player_list"/>
+                <block type="jg_minecraft_query_version"/>
+                <block type="jg_minecraft_query_software"/>
+                <block type="jg_minecraft_query_plugin_list"/>
+                <block type="jg_minecraft_query_map"/>
+                <block type="jg_minecraft_query_data"/>
+            </category>
+            <category name="Java (RCON)" colour="160">
+                <label text="Run operator commands on your Minecraft Java server." web-class="boldtext"></label>
+                <label text="You'll need to enable and setup RCON on your server for these to work." web-class="boldtext"></label>
+                <block type="jg_minecraft_rcon_create_client">
+                    <value name="IP">
+                        <block type="text">
+                            <field name="TEXT">server ip</field>
+                        </block>
+                    </value>
+                    <value name="PORT">
+                        <block type="math_number">
+                            <field name="NUM">25575</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="jg_minecraft_rcon_send_command">
+                    <value name="COMMAND">
+                        <block type="text">
+                            <field name="TEXT">time set day</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="jg_minecraft_rcon_disconnect"/>
+                <block type="jg_minecraft_rcon_when_command_response"/>
+                <block type="jg_minecraft_rcon_command_response"/>
+            </category>
+            <category name="Bedrock" colour="190">
+                <label text="Start by grabbing the server to get data from." web-class="boldtext"></label>
+                <block type="jg_minecraft_bedrock_get">
+                    <value name="IP">
+                        <block type="text">
+                            <field name="TEXT">server ip</field>
+                        </block>
+                    </value>
+                    <value name="PORT">
+                        <block type="math_number">
+                            <field name="NUM">19132</field>
+                        </block>
+                    </value>
+                </block>
+                <label text="The blocks below will get data from the server." web-class="boldtext"></label>
+                <block type="jg_minecraft_bedrock_motd"/>
+                <block type="jg_minecraft_bedrock_players"/>
+                <block type="jg_minecraft_bedrock_server_info"/>
+                <block type="jg_minecraft_bedrock_version"/>
+                <block type="jg_minecraft_bedrock_edition"/>
+                <block type="jg_minecraft_bedrock_data"/>
+            </category>
+        </category>
+    </category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>

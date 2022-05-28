@@ -13,8 +13,11 @@ export default {
             Swal.fire({
                 position: 'center',
                 icon: 'info',
-                width: "700px",
+                width: "900px",
                 html:`
+                <h3>Hopefully you like Minecraft, because we have some <b>Minecraft Blocks</b> now!</h3>
+                <img src='https://media.discordapp.net/attachments/914411539887456296/980028856176111626/unknown.png?width=797&height=676' width='797' height='676'>
+                <h5>Bedrock blocks are limited until Minecraft allows more server features.</h5>
                 <h2>Advanced JSON Request is here!</h2>
                 <img src='https://media.discordapp.net/attachments/914411539887456296/979818169176829972/unknown.png?width=569&height=676' width='569' height='676'>
                 <h5>Blocks in the member categories will also be moved out soon, obviously starting with the JSON request blocks.</h5>

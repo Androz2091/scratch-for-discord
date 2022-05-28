@@ -206,7 +206,9 @@ if(js.includes("xml2json({")){
 if(js.includes("S4D_APP_PKG_axios")){
     array.push(`const S4D_APP_PKG_axios = require('axios')`)
 }
-
+if(js.includes("S4D_APP_MC_GET")){
+    array.push(`const S4D_APP_MC_GET = require('minecraft-server-util');`)
+}
   if(js.includes("dootabase")){
     array.push(`const dootabase = require("easy-db-json");
 dootabase.setFile("./database.json");`)
