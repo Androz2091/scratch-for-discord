@@ -119,7 +119,7 @@ oldarray.forEach(js=>{
   if(js.includes("os")){
     array.push(`"os-utils": "0.0.14"`)
   }
-  if(js.inludes("synchronizeSlashCommands")){
+  if(js.includes("synchronizeSlashCommands")){
     array.push(`"@frostzzone/discord-sync-commands": "^0.3.0"`)
   }
 })

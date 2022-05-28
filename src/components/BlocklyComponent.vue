@@ -6,16 +6,26 @@
         </xml>
     </div>
 </template>
+<!--<script src="./renderers/cwest.js"></script>-->
 
 <script>
-import Blockly from "blockly";
 /* eslint-disable */
+import Blockly from "blockly";
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
 var renderer = "zelos"
 if (window.location.pathname == "/r/ge") {
     renderer = "geras"
 }
+else if (window.location.pathname == "/r/mi") {
+    renderer = "minimalist"
+}
+else if (window.location.pathname == "/r/th") {
+    renderer = "thrasos"
+}/*
+else if (window.location.pathname == "/r/cw") {
+    renderer = "cwest"
+}*/
 //import toolbox from "../easter-toolbox";
 import {Backpack} from '@blockly/workspace-backpack';
 import {WorkspaceSearch} from '@blockly/plugin-workspace-search';
@@ -68,7 +78,7 @@ const defaultblocks = blocks
         if (!(searchparam)) {
             searchparam = "null"
         }
-        var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_")
+        var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_").replaceAll("\"", "_")
         searchparam = searchparam.replaceAll(" ", "_").toLowerCase()
         var repeat_end = defaultblocks.length;
         for (var count = 0; count < repeat_end; count++) {
@@ -454,6 +464,7 @@ window.addEventListener('keydown', (e) => {
     // console.log(e)
     // console.log(e.key)
     if ((e.altKey)) {
+        console.log(e.key)
         if (
             (e.key == "t") ||
             (e.key == "n") ||
@@ -463,18 +474,22 @@ window.addEventListener('keydown', (e) => {
             (e.key == "a") ||
             (e.key == "w") ||
             (e.key == "b") ||
-            (e.key == "i")
+            (e.key == "i") ||
+            (e.key == "=") ||
+            (e.key == "n") ||
+            (e.key == "N") ||
+            (e.key == "A")
         ) {
             if (e.key == "t") {
                 var blockToPlace = "text"
-            } else if (e.key == "n") {
-                var blockToPlace = "math_number"
             } else if (e.key == "m") {
                 var blockToPlace = "s4d_message_content"
             } else if (e.key == "c") {
                 var blockToPlace = "colour_picker"
             } else if (e.key == "e") {
                 var blockToPlace = "frost_other_err"
+            } else if ((e.key == "A") && (e.shiftKey)) {
+                var blockToPlace = "logic_operation"
             } else if (e.key == "a") {
                 var blockToPlace = "s4d_message_author"
             } else if (e.key == "w") {
@@ -483,8 +498,13 @@ window.addEventListener('keydown', (e) => {
                 var blockToPlace = "logic_boolean"
             } else if (e.key == "i") {
                 var blockToPlace = "controls_if"
+            } else if (e.key == "=") {
+                var blockToPlace = "logic_compare"
+            } else if ((e.key == "N") && (e.shiftKey)) {
+                var blockToPlace = "logic_negate"
+            } else if (e.key == "n") {
+                var blockToPlace = "math_number"
             }
-            
             let workspace_xml = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace))
             let xml_blocks = workspace_xml.split('\n');
             var xpos = []
@@ -505,21 +525,21 @@ window.addEventListener('keydown', (e) => {
             }
             if (Blockly.selected) {
                 let selected = Blockly.selected.toCopyData()
-                var dx = selected.xml.attributes.getNamedItem("x").value
-                var dy = selected.xml.attributes.getNamedItem("y").value
+                var dx = selected.saveInfo.x
+                var dy = selected.saveInfo.y
             }
             let xml = Blockly.Xml.textToDom(`<block type="${blockToPlace}"></block>`);
             let block = Blockly.Xml.domToBlock(xml, workspace)
             if (Number(dx) && Number(dy)) {
                 block.moveBy(Number(dx), Number(dy))
             }
-        } else if (e.key == "Enter") {
+        } else if (e.ctrlKey) {
             if (Blockly.selected) {
                 let xml = Blockly.Xml.blockToDom(Blockly.selected)
                 let block = Blockly.Xml.domToBlock(xml, workspace)
                 let selected = Blockly.selected.toCopyData()
-                let dx = selected.xml.attributes.getNamedItem("x").value
-                let dy = selected.xml.attributes.getNamedItem("y").value
+                let dx = selected.saveInfo.x
+                let dy = selected.saveInfo.y
                 block.moveBy(Number(dx) + 5, Number(dy) + 5)
                 
             }
@@ -581,6 +601,44 @@ Blockly.ContextMenuRegistry.registry.register({
 
 }
 
+function blockCounter() {
+    let blocks = String(workspace.getAllBlocks().length)
+    let counter = document.getElementById("block-counter")
+    var rgb = "182, 182, 182"
+    var bold = ["",""]
+    if (Number(blocks) >= 300) {
+        rgb = "255, 125, 125"
+        bold = ["<b>","</b>"]
+    }
+    if (Number(blocks) >= 750) {
+        rgb = "255, 60, 60"
+        bold = ["<b><strong>","</strong></b>"]
+    }
+    if (Number(blocks) >= 5000) {
+        rgb = "255, 35, 35"
+        bold = ["<b style=\"font-size: 110%\"><strong>","</strong></b>"]
+    }
+    if (Number(blocks) >= 10000) {
+        rgb = "255, 20, 20"
+        bold = ["<b style=\"font-size: 125%\"><strong>","</strong></b>"]
+    }
+    let s = "s"
+    if (Number(blocks) == 1) {
+        s = ""
+    } else {
+        s = "s"
+    }
+    counter.innerHTML = bold[0] + `<p style="color:rgb(${rgb});">${blocks} block${s}</p>` + bold[1]
+}
+window.addEventListener("click", () => {
+    blockCounter()
+})
+window.addEventListener('keydown', () => {
+    blockCounter()
+})
+/*
+Blockly.getMainWorkspace().addChangeListener(blockCounter(Blockly.getMainWorkspace()))
+*/
 // Comment this context menu out later!
 // 👍
 // jk no!!
@@ -610,7 +668,7 @@ function svgToPng_(data, width, height, callback) {
     var context = canvas.getContext("2d");
     var img = new Image();
   
-    var pixelDensity = 10;
+    var pixelDensity = 5;
     canvas.width = width * pixelDensity;
     canvas.height = height * pixelDensity;
     img.onload = function() {

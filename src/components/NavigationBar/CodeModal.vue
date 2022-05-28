@@ -1,5 +1,5 @@
 <template>
-    <b-modal id="code-modal" :title="$t('code_modal.title')" ok-only>
+    <b-modal id="code-modal" :title="$t('code_modal.title')" cancel-title="Close" ok-title="Copy to Clipboard" @ok="copy">
         <textarea disabled :value="content" id="code">
         </textarea>
   </b-modal>
@@ -16,6 +16,15 @@ export default {
                 indent_size: 4,
                 space_in_empty_paren: true
             });
+        }
+    },
+    methods: {
+        copy() {
+            var url = beautify.js(this.getWorkspaceCode(), {
+                indent_size: 4,
+                space_in_empty_paren: true
+            });
+           navigator.clipboard.writeText(url)
         }
     }
 }

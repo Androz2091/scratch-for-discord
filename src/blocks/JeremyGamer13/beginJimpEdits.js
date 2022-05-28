@@ -10,9 +10,9 @@ const blockData = {
             "name": "beginJimp"
         },
         {
-        "type": "input_value", 
-        "name": "JimpURL",
-        "check": ["String","var"]
+            "type": "input_value", 
+            "name": "JimpURL",
+            "check": ["String","var"]
         },
         {
             "type": "input_dummy"

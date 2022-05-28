@@ -1,6 +1,7 @@
 import Blockly from "blockly";
 import localforage from "localforage";
 import Swal from "sweetalert2";
+/* eslint-disable */
 
 const DISABLED_EVENTS = [
   Blockly.Events.BUBBLE_OPEN,
@@ -35,11 +36,7 @@ export default async function register(self) {
                     position: 'top-end',
                     showConfirmButton: false,
                     timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                      toast.addEventListener('mouseenter', Swal.stopTimer)
-                      toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
+                    timerProgressBar: true
                   })
                   
                   Toast.fire({

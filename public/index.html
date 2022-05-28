@@ -34,21 +34,98 @@
       margin: 5px 0;
 		}
 		
-                 .blocklyTreeIcon {
+        .blocklyTreeIcon {
 			filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
 		}
-		
+
 		#blocklyTreeIcon {
 			filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
 		}
-		
+
 		.blocklyTreeIconClosed {
 		filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%)!important;
 		}
-		
+
 		#blocklyTreeIconClosed {
 		filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
 		}
+
+		.light-them .blocklyTreeIcon {
+			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+		}
+		
+		.light-them #blocklyTreeIcon {
+			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+		}
+		
+		.light-them .blocklyTreeIconClosed {
+			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+		}
+		
+		.light-them #blocklyTreeIconClosed {
+			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+		}
+
+
+		.light-them .blocklyFlyoutLabelText {
+      transition: all 0.5s ease-in-out;
+      fill: #575e75 !important;
+    }
+
+    .light-them .blocklyToolboxDiv {
+      transition: all 0.5s ease-in-out;
+      background-color: #ddd !important;
+    }
+
+    .light-them .blocklyTreeLabel {
+      transition: all 0.5s ease-in-out;
+      color: black !important;
+    }
+
+    .light-them .blocklyTreeSeparator {
+      transition: all 0.5s ease-in-out;
+      border-bottom: solid #ebf0f4 1px;
+      height: 0;
+      margin: 5px 0;
+    }
+
+    .light-them .btgr {
+      transition: border-bottom 0.5s ease-in-out;
+      border-bottom: solid #bbb 1px !important;
+    }
+
+    .light-them .blocklySvg {
+      transition: background-color 0.5s ease-in-out;
+      background-color: white !important;
+    }
+
+    .light-them .blocklyFlyoutBackground {
+      transition: fill 0.5s ease-in-out;
+      fill: #e4e4e4!important;
+    }
+
+    .light-them #navSpace {
+      transition: all 0.5s ease-in-out;
+      background-color: #666 !important;
+    }
+
+
+
+    
+    .theme-changer {
+      transition: all 0.5s ease-in-out;
+      background-image: url("/moon.png");
+      filter: invert(0.6);
+      background-size: 24px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .light-them .theme-changer {
+      transition: all 0.5s ease-in-out;
+      background-image: url("/sun.png")
+    }
+
 
 		.customIcon {
 		  padding: 3px;
@@ -59,9 +136,17 @@
 		  color: white
 		}
 
+		.light-them .customIcon2 {
+			color: black
+		}
+
 		/* Makes our label white. */
 		.blocklyTreeLabel {
 		  color: white;
+		}
+
+		.light-them .blocklyTreeLabel {
+			color:black
 		}
 
 		/* Adds padding around the group of categories and separators. */
@@ -106,7 +191,7 @@
 	</head>
 	<body style="background-color: black">
 		<noscript>
-	    	<strong>We're sorry but Scratch For Discord doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+	    	<strong style="color: white">We're sorry but Scratch For Discord doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
 		</noscript>
 		<div id="app"></div>
 		<!-- built files will be auto injected -->

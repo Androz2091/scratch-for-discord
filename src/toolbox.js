@@ -224,17 +224,7 @@ if (allow_toolbox_search) {
                     <shadow type="text">
                         <field name="TEXT">abc</field>
                     </shadow>
-                </value>
-                <value name="REPLACE">
-                    <shadow type="text">
-                        <field name="TEXT">a</field>
-                    </shadow>
-                </value>
-                <value name="WITH">
-                    <shadow type="text">
-                        <field name="TEXT">b</field>
-                    </shadow>
-                </value>                
+                </value>               
             </block>
 						<block type="text_isEmpty"/>
 						<block type="text_reverse"/>
@@ -507,7 +497,11 @@ if (allow_toolbox_search) {
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
         
 	  
-            <block type="s4d_print"></block>
+            <block type="s4d_print">
+                <value name="PRINT">
+                    <block type="frost_other_err"/>
+                </value>
+            </block>
             <block type="s4d_clearconsole"/>
             <block type="s4d_run_save_output"></block>
             <block type="s4d_wait_seconds">
@@ -1596,10 +1590,10 @@ if (allow_toolbox_search) {
 						<block type="s4d_send_in_channel"/>
 					</category>
 				</category>
-				<category name="{{ TOOLBOX_JSONREQUEST }}" colour="#ed5a8b">
+				<!--<category name="{{ TOOLBOX_JSONREQUEST }}" colour="#ed5a8b">
 					<block type="s4d_http_get_then"/>
 					<block type="s4d_get_string_of_data"/>
-				</category>
+				</category>-->
 				        <category name="{{ EMBED }}" colour="#ed5a5a">
         <label text="Create A Perfect Embed" web-class="boldtext"></label>
             <block type="s4d_create_embed_then"></block>
@@ -2343,6 +2337,7 @@ if (allow_toolbox_search) {
             <block type="s4d_member_username"></block>
             <block type="s4d_member_nickname"></block>
             <block type="s4d_member_icon"></block>
+            <block type="s4d_member_dynamic_icon"></block>
             <block type="s4d_joined_at"></block>
             <block type="s4d_created_at"></block>
             <block type="s4d_member_has_permission"></block>
@@ -2364,6 +2359,183 @@ if (allow_toolbox_search) {
             <block type="s4d_send_wait_reply_dm_value"></block>
           <label text="ㅤ" web-class="boldtext"></label>
         </category>
+        <sep class="bt"/>
+    <category name="Web Requests" colour="#4C97FF">
+        <category name="Simple" colour="#4c8bff">
+            <block type="s4d_http_get_then"/>
+            <block type="s4d_get_string_of_data"/>
+        </category>
+        <category name="Advanced" colour="#4c79ff">
+            <block type="jg_web_request_advanced_send_request">
+                <value name="URL">
+                    <block type="text">
+                        <field name="TEXT">https://jsonplaceholder.typicode.com/posts</field>
+                    </block>
+                </value>
+                <value name="HEADERS">
+                    <block type="jg_web_request_advanced_header">
+                        <value name="KEY">
+                            <block type="text">
+                                <field name="TEXT">content-type</field>
+                            </block>
+                        </value>
+                        <value name="VALUE">
+                            <block type="text">
+                                <field name="TEXT">application/json</field>
+                            </block>
+                        </value>
+                    </block>
+                </value>
+                <value name="BODY">
+                    <block type="jg_web_request_advanced_data">
+                        <value name="KEY">
+                            <block type="text">
+                                <field name="TEXT">key</field>
+                            </block>
+                        </value>
+                        <value name="VALUE">
+                            <block type="text">
+                                <field name="TEXT">value</field>
+                            </block>
+                        </value>
+                    </block>
+                </value>
+                <value name="IF_ERROR">
+                    <block type="s4d_print">
+                        <value name="PRINT">
+                            <block type="frost_other_err"/>
+                        </value>
+                    </block>
+                </value>
+            </block>
+            <block type="jg_web_request_advanced_header">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">content-type</field>
+                    </block>
+                </value>
+                <value name="VALUE">
+                    <block type="text">
+                        <field name="TEXT">application/json</field>
+                    </block>
+                </value>
+            </block>
+            <block type="jg_web_request_advanced_data">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">key</field>
+                    </block>
+                </value>
+                <value name="VALUE">
+                    <block type="text">
+                        <field name="TEXT">value</field>
+                    </block>
+                </value>
+            </block>
+            <block type="jg_web_request_advanced_get_response_data">
+                <value name="VALUE">
+                    <block type="text">
+                        <field name="TEXT">key</field>
+                    </block>
+                </value>
+            </block>
+            <block type="jg_web_request_advanced_response"/>
+            <block type="jg_web_request_advanced_response_status"/>
+            <block type="jg_web_request_advanced_response_headers"/>
+            <block type="jg_web_request_advanced_response_data"/>
+        </category>
+    </category>
+    <category name="Applications" colour="#4c79ff">
+        <category name="Minecraft" colour="110">
+            <category name="Java" colour="120">
+                <label text="Start by grabbing the server to get data from." web-class="boldtext"></label>
+                <block type="jg_minecraft_getjava">
+                    <value name="IP">
+                        <block type="text">
+                            <field name="TEXT">server ip</field>
+                        </block>
+                    </value>
+                    <value name="PORT">
+                        <block type="math_number">
+                            <field name="NUM">25565</field>
+                        </block>
+                    </value>
+                </block>
+                <label text="The blocks below will get data from the server." web-class="boldtext"></label>
+                <block type="jg_minecraft_java_motd"/>
+                <block type="jg_minecraft_java_players"/>
+                <block type="jg_minecraft_java_version"/>
+                <block type="jg_minecraft_java_data"/>
+                <label text="The blocks below will only work if the server has enabled query." web-class="boldtext"></label>
+                <block type="jg_minecraft_queryjava">
+                    <value name="IP">
+                        <block type="text">
+                            <field name="TEXT">server ip</field>
+                        </block>
+                    </value>
+                    <value name="PORT">
+                        <block type="math_number">
+                            <field name="NUM">25565</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="jg_minecraft_query_player_list"/>
+                <block type="jg_minecraft_query_version"/>
+                <block type="jg_minecraft_query_software"/>
+                <block type="jg_minecraft_query_plugin_list"/>
+                <block type="jg_minecraft_query_map"/>
+                <block type="jg_minecraft_query_data"/>
+            </category>
+            <category name="Java (RCON)" colour="160">
+                <label text="Run operator commands on your Minecraft Java server." web-class="boldtext"></label>
+                <label text="You'll need to enable and setup RCON on your server for these to work." web-class="boldtext"></label>
+                <block type="jg_minecraft_rcon_create_client">
+                    <value name="IP">
+                        <block type="text">
+                            <field name="TEXT">server ip</field>
+                        </block>
+                    </value>
+                    <value name="PORT">
+                        <block type="math_number">
+                            <field name="NUM">25575</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="jg_minecraft_rcon_send_command">
+                    <value name="COMMAND">
+                        <block type="text">
+                            <field name="TEXT">time set day</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="jg_minecraft_rcon_disconnect"/>
+                <block type="jg_minecraft_rcon_when_command_response"/>
+                <block type="jg_minecraft_rcon_command_response"/>
+            </category>
+            <category name="Bedrock" colour="190">
+                <label text="Start by grabbing the server to get data from." web-class="boldtext"></label>
+                <block type="jg_minecraft_bedrock_get">
+                    <value name="IP">
+                        <block type="text">
+                            <field name="TEXT">server ip</field>
+                        </block>
+                    </value>
+                    <value name="PORT">
+                        <block type="math_number">
+                            <field name="NUM">19132</field>
+                        </block>
+                    </value>
+                </block>
+                <label text="The blocks below will get data from the server." web-class="boldtext"></label>
+                <block type="jg_minecraft_bedrock_motd"/>
+                <block type="jg_minecraft_bedrock_players"/>
+                <block type="jg_minecraft_bedrock_server_info"/>
+                <block type="jg_minecraft_bedrock_version"/>
+                <block type="jg_minecraft_bedrock_edition"/>
+                <block type="jg_minecraft_bedrock_data"/>
+            </category>
+        </category>
+    </category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>
