@@ -2337,6 +2337,7 @@ if (allow_toolbox_search) {
             <block type="s4d_member_username"></block>
             <block type="s4d_member_nickname"></block>
             <block type="s4d_member_icon"></block>
+            <block type="s4d_member_dynamic_icon"></block>
             <block type="s4d_joined_at"></block>
             <block type="s4d_created_at"></block>
             <block type="s4d_member_has_permission"></block>
