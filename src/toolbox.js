@@ -2191,6 +2191,18 @@ if (allow_toolbox_search) {
             <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
             <block type="s4d_set_server_name"></block>
             <label text="ㅤ" web-class="boldtext"></label>
+	    
+	    <block type="set_server_something">
+                    <value name="reason">
+                        <shadow type ="text">
+                            <field name="TEXT"> </field>
+                        </shadow>
+                    </value>
+                </block>
+	    <block type="explicit_content_filter"/>
+                <block type="default_notif_lvl"/>
+                <block type="set_verification_level"/>
+                
         </category>
         <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
             <label text="%{BKY_FIND_CHANNEL}"></label>
