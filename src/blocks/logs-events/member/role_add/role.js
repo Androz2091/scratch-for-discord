@@ -1,4 +1,4 @@
-import * as Blockly from "blockly";
+import Blockly from "blockly/core";
 
 
 const blockName = "event-role";
