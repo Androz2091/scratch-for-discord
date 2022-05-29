@@ -2249,44 +2249,7 @@ if (allow_toolbox_search) {
                 </value> 
             </block>
 	    
-	    <block type="set_afk_channel">
-                
-                <value name="server">
-                <block type="s4d_message_guild">
-                </block>
-                </value>
-
-                <value name="reason">
-                <block type="text">
-                </block>
-                </value>
-
-                <value name="channel">
-                    <block type="s4d_message_channel">
-                    </block>
-                </value>
-
-                </block>
-
-                <block type="set_afk_channel_time">
-
-                <value name="reason">
-                    <block type="text">
-                    </block>
-                </value>
-
-                <value name="time">
-                <block type="math_number">
-                </block>
-                </value>
-
-                <value name="server">
-                <block type="s4d_message_guild">
-                </block>
-                </value>
-
-                </block>
-
+	    
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
             <block type="s4d_is_channel_nsfw"/>
             <block type="slowmode"></block>
