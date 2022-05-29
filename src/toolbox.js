@@ -2179,6 +2179,14 @@ if (allow_toolbox_search) {
             <block type="s4d_get_all_server"></block>
             <block type="s4d_get_all_server_server"></block>
             <label text="%{BKY_LABEL_SERVER_INFOS}"></label>
+	    <block type="server_attributes"/>
+	    <block type="set_server_something">
+                   <value name="reason">
+                       <shadow type ="text">
+                           <field name="TEXT"> </field>
+                        </shadow>
+                   </value>
+               </block>
             <block type="s4d_server_name"></block>
             <block type="s4d_member_count"></block>
             <block type="s4d_icon_url"></block>
@@ -2249,44 +2257,7 @@ if (allow_toolbox_search) {
                 </value> 
             </block>
 	    
-	    <block type="set_afk_channel">
-                
-                <value name="server">
-                <block type="s4d_message_guild">
-                </block>
-                </value>
-
-                <value name="reason">
-                <block type="text">
-                </block>
-                </value>
-
-                <value name="channel">
-                    <block type="s4d_message_channel">
-                    </block>
-                </value>
-
-                </block>
-
-                <block type="set_afk_channel_time">
-
-                <value name="reason">
-                    <block type="text">
-                    </block>
-                </value>
-
-                <value name="time">
-                <block type="math_number">
-                </block>
-                </value>
-
-                <value name="server">
-                <block type="s4d_message_guild">
-                </block>
-                </value>
-
-                </block>
-
+	    
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
             <block type="s4d_is_channel_nsfw"/>
             <block type="slowmode"></block>
