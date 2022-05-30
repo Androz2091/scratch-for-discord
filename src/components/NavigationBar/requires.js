@@ -122,6 +122,9 @@ export default async function require(array, oldarray) {
         if (js.includes("synchronizeSlashCommands")) {
             array.push(`"@frostzzone/discord-sync-commands": "^0.3.0",`)
         }
+        if (js.includes("S4D_APP_NOBLOX")) {
+            array.push(`"noblox.js": "^4.13.1",`)
+        }
     })
     // array.reverse()
     // array[0] = array[0].replace(",","")

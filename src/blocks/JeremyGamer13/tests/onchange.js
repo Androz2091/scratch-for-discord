@@ -1,9 +1,9 @@
 import Blockly from "blockly/core";
 
-const blockName = "jg_tests_validator";
+const blockName = "jg_tests_onchange";
 
 const blockData = {
-    "message0": "Validator %1",
+    "message0": "On change %1",
     "args0": [
         {
             "type": "field_dropdown",
@@ -11,15 +11,15 @@ const blockData = {
             "options": [
                 [
                     "A1",
-                    "0"
+                    '"a1"'
                 ],
                 [
                     "A2",
-                    "1"
+                    '"a2"'
                 ],
                 [
                     "A3",
-                    "2"
+                    '"a3"'
                 ]
             ],
         }
@@ -34,13 +34,8 @@ Blockly.Blocks[blockName] = {
         this.jsonInit(blockData);
     },
     onchange: function () {
-        let A = this.getFieldValue("A");
-        console.log(A);
-        if (A != 1) {
-            this.setColour(0);
-            return;
-        }
-        this.setColour(90);
+        console.log("something");
+        this.setColour(Math.floor(Math.random() * 360))
     }
 };
 
