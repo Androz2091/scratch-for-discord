@@ -6,14 +6,14 @@ const blockData = {
     "message0": "query java minecraft server with IP %1 port %2 then %3 %4",
     "args0": [
         {
-            "type": "input_value", 
+            "type": "input_value",
             "name": "IP",
-            "check": ["String","var","Env"]
+            "check": ["String", "var", "Env"]
         },
         {
-            "type": "input_value", 
+            "type": "input_value",
             "name": "PORT",
-            "check": ["String","var","Env","Number"]
+            "check": ["String", "var", "Env", "Number"]
         },
         {
             "type": "input_dummy"
@@ -22,7 +22,7 @@ const blockData = {
             "type": "input_statement",
             "name": "THEN"
         }
-        
+
     ],
     "colour": 85,
     "previousStatement": null,
@@ -32,12 +32,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const ip = Blockly.JavaScript.valueToCode(block, "IP", Blockly.JavaScript.ORDER_ATOMIC);
     const port = Blockly.JavaScript.valueToCode(block, "PORT", Blockly.JavaScript.ORDER_ATOMIC);
     const then = Blockly.JavaScript.statementToCode(block, "THEN");
@@ -46,7 +46,7 @@ Blockly.JavaScript[blockName] = function(block) {
         timeout: 5000
     };
     S4D_APP_MC_GET.queryFull(String(${ip}), Number(${port}), S4D_APP_MC_GET_OPTIONS)
-    .then((result_query_java) => {
+    .then(async (result_query_java) => {
         ${then}
     });
     `;
