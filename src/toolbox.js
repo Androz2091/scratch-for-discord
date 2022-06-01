@@ -538,8 +538,7 @@ export default (Blockly, value, searching) => {
                     </category>
 				<sep class="bt"/>
 				
-			<category name="
-'s Blocks" expanded="true">
+			<category name="Member's Blocks" expanded="true">
 			<category name="Eruption" colour="#ff4000">
 				<category name="Embed" colour="#40BF4A">
                 <label text="Create a perfect embed" web-class="boldtext"></label>
