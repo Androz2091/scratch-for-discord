@@ -37,7 +37,7 @@ Blockly.JavaScript[blockName] = function(block){
     return `
     const musakui = require('musakui');
     musakui(${message})
-  .then(result => {
+  .then(async (result) => {
   var postTitle = result.title
   var postUrl = result.reddit_url
   var postImg = result.media_url
