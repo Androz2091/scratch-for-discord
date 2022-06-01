@@ -22,7 +22,7 @@ export default {
                     <span style="color:#73ad39">XL83</span>,
                     <span style="color:#e83131">AHQ</span>,
                     <span style="color:#ff7b00">JeremyGamer13</span>,
-                    <span style="color:#D276F7">LimeNade</span>,
+                    <span style="color:#58a326">LimeNade</span>,
                     <span style="color:#26a39d">henpokpok</span>,
                     <span style="color:#e3aa24">AlexCdDg</span>,
                     <span style="color:#e88f68">Eruption</span>,
