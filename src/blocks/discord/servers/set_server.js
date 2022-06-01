@@ -1,5 +1,4 @@
 import * as Blockly from "blockly/core";
-import '@blockly/field-grid-dropdown';
 
 const blockName = "set_server_something"
 
@@ -8,17 +7,9 @@ const blockData = {
     "message0": "Set server %1 %2 to %3 with reason %4 on server %5",
     "args0": [
     {
-        "type": "field_grid_dropdown",
+        "type": "field_dropdown",
         "name": "parameter",
         "options": [
-        [
-                "AFK channel",
-                "AFK_CHANNEL"
-        ],
-        [
-                "AFK channel timeout",
-                "AFK_CHANNEL_TIMEOUT"
-        ],
         [
             "banner",
             "SET_BANNER"
@@ -108,15 +99,6 @@ Blockly.JavaScript['set_server_something'] = function(block) {
     
     var code = ``;
     switch(parameters) {
-
-        case 'AFK_CHANNEL_TIMEOUT':
-            code = `${server}.setAFKTimeout(${value},${reason})\n`
-            break;
-        
-        case 'AFK_CHANNEL':
-            code = `${server}.setAFKChannel(${value},${reason})\n`
-            break;
-
         case 'SET_BANNER':
             code = `${server}.setBanner(${value},${reason})\n`
             break;

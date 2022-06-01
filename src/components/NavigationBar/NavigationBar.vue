@@ -95,10 +95,7 @@ export default {
     },
     mounted(){
         document.getElementById("docName").addEventListener("input", function() {
-            if (document.querySelector("#docName").textContent == "") {
-                document.querySelector("#docName").textContent = "Untitled document"
-            }
-            document.title = `Scratch For Discord 469 - ${document.querySelector("#docName").textContent}`;
+            document.title = `Scratch For Discord - ${document.querySelector("#docName").textContent}`;
         }, false);
         const element = document.querySelector("#docName");
         element.spellcheck = false;

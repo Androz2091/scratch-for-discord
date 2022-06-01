@@ -9,18 +9,18 @@ const blockData = {
             "type": "field_dropdown",
             "name": "A",
             "options": [
-                [
-                    "A1",
-                    "0"
-                ],
-                [
-                    "A2",
-                    "1"
-                ],
-                [
-                    "A3",
-                    "2"
-                ]
+              [
+                "A1",
+                '"a1"'
+              ],
+              [
+                "A2",
+                '"a2"'
+              ],
+              [
+                "A3",
+                '"a3"'
+              ]
             ],
         }
     ],
@@ -30,21 +30,22 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function () {
+    init: function() {
         this.jsonInit(blockData);
     },
-    onchange: function () {
-        let A = this.getFieldValue("A");
-        console.log(A);
-        if (A != 1) {
-            this.setColour(0);
-            return;
+    onchange: function() {
+        this.validate(this.getFieldValue('A'));
+        this.setColour(Math.floor(Math.random()) * 360)
+    },
+    validate: function(A) {
+        console.log(A)
+        if (A == "a2") {
+            this.getSourceBlock().setColour(Math.floor((Math.random())) * 360)
         }
-        this.setColour(90);
     }
 };
 
-Blockly.JavaScript[blockName] = function (block) {
+Blockly.JavaScript[blockName] = function(block){
     const A = block.getFieldValue("A");
     const code = `${A}`;
     return code;
