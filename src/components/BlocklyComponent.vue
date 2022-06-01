@@ -547,7 +547,7 @@ window.addEventListener('keydown', (e) => {
     }
 });
 
-if (window.location.pathname == "/debug" && (!window.location.href.includes("scratch-for-discord-469.vercel.app") && !window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app"))) {
+if (window.location.pathname == "/debug") {
 Blockly.ContextMenuRegistry.registry.register({
       displayText: 'Spawn block via Internal name',
       preconditionFn: function() {
@@ -642,7 +642,7 @@ Blockly.getMainWorkspace().addChangeListener(blockCounter(Blockly.getMainWorkspa
 // Comment this context menu out later!
 // 👍
 // jk no!!
-if (window.location.pathname == "/debug" && (!window.location.href.includes("scratch-for-discord-469.vercel.app") && !window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app"))) {
+if (window.location.pathname == "/debug") {
     Blockly.ContextMenuRegistry.registry.register({
           displayText: 'Log all Toolbox blocks',
           preconditionFn: function() {
