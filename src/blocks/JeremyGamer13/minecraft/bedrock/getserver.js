@@ -41,10 +41,7 @@ Blockly.JavaScript[blockName] = function (block) {
     const ip = Blockly.JavaScript.valueToCode(block, "IP", Blockly.JavaScript.ORDER_ATOMIC);
     const port = Blockly.JavaScript.valueToCode(block, "PORT", Blockly.JavaScript.ORDER_ATOMIC);
     const then = Blockly.JavaScript.statementToCode(block, "THEN");
-    const code = `let S4D_APP_MC_GET_BEDROCK_OPTIONS = {
-        timeout: 5000
-    };
-    S4D_APP_MC_GET.statusBedrock(String(${ip}), Number(${port}), S4D_APP_MC_GET_BEDROCK_OPTIONS)
+    const code = `S4D_APP_MC_BEDROCK_GET.statusBedrock({ ip: String(${ip}), port: Number(${port}) })
     .then(async (result_bedrock) => {
         ${then}
     });

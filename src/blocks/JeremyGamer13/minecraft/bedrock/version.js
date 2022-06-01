@@ -9,17 +9,17 @@ const blockData = {
     "args0": [],
     "colour": 190,
     "output": "String",
-    "tooltip": "Get the game version of the server.",
+    "tooltip": "Get the version of the server.",
     "helpUrl": ""
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
-    const code = [`result_bedrock.version.name`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript[blockName] = function () {
+    const code = [`result_bedrock.version`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };

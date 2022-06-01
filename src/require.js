@@ -209,6 +209,9 @@ export default async function require(array, code, js, ahq) {
     if (js.includes("S4D_APP_MC_GET")) {
         array.push(`const S4D_APP_MC_GET = require('minecraft-server-util');`)
     }
+    if (js.includes("S4D_APP_MC_BEDROCK_GET")) {
+        array.push(`const S4D_APP_MC_BEDROCK_GET = require('minecraft-server-status-simple');`)
+    }
     if (js.includes("S4D_APP_NOBLOX")) {
         array.push(`const S4D_APP_NOBLOX = require("noblox.js");`)
     }

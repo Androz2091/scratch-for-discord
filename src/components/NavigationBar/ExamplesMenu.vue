@@ -36,7 +36,7 @@ import random from "../../examples/random";
   import ticket from "../../examples/ticket";
   import button from "../../examples/button";
   import cooldown from "../../examples/cooldown";
-  import slash from "../../examples/slash"
+  import slash from "../../examples/slash";
 
 const examples = {
     "ping-pong": PingPongExample,
