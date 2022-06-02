@@ -8,9 +8,9 @@ const blockData = {
         {
             "type": "input_value",
             "name": "DATE",
-            "check":  "Number" 
+            "check": "Number"
         },
-       
+
     ],
     "output": "Number",
     "colour": "#5ba58b",
@@ -19,13 +19,13 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const date = Blockly.JavaScript.valueToCode(block, "DATE", Blockly.JavaScript.ORDER_ATOMIC);
-    let code = `Math.floor(${date}.getTime()/1000);`
+    let code = [`Math.floor(${date}.getTime()/1000)`, Blockly.JavaScript.ORDER_NONE];
     return code
 };
