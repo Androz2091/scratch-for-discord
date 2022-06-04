@@ -554,6 +554,9 @@ export default (Blockly, value, searching) => {
         </category>
         <category name="forms" colour="#66ffff">
         <block type="on_real_form"/>
+        <!--
+            <block type="ahq_ahq_modal"/>
+        -->
         <block type="embed_send_round">
         <value name="Label">
             <shadow type="text">
@@ -622,6 +625,33 @@ export default (Blockly, value, searching) => {
         <block type="ahq_embed_is"/>
         <block type="ahq_embed_info"/>
         </category>
+<!--
+
+
+
+
+<category name="embed" colour="#993399">
+        <block type="make_ahq_embed"/>
+        <label text="Embed Send" web-class="boldtext"></label>
+        <block type="send_ahq_embed"/>
+        <label text="Embed Creator" web-class="boldtext"></label>
+        <block type="title_ahq_embed"/>
+        <block type="url_ahq_embed"/>
+        <block type="author_ahq_embed"/>
+        <block type="color_ahq_embed"/>
+        <block type="des_ahq_embed"/>
+        <block type="fld_ahq_embed"/>
+        <block type="image_ahq_embed"/>
+        <block type="thmb_ahq_embed"/>
+        <block type="footer_ahq_embed"/>
+        <block type="stamp_ahq_embed"/>
+        </category>
+
+
+
+
+-->
+
         <category name="V2 Embeds" colour="#cc60db">
                 <block type="s4d_embed_create"/>
                 <block type="s4d_message_embed_lime"/>
@@ -1055,6 +1085,7 @@ export default (Blockly, value, searching) => {
         <block type="better_botvcid"/>
 	<block type="song-first"/>
 					    </category>
+<!--
 <category name="Ticketing System" colour="#5b80a5">
 	<label text="You can also type local" web-class="boldtext"></label>
 		<block type="ticket_connect"/>
@@ -1070,6 +1101,7 @@ export default (Blockly, value, searching) => {
 		<block type="slash_unarchieve_ticket"/>
 <block type="slash_message_channel"/>
         </category>
+-->
 	<category name="lyric finder" colour="#5ba58b">
 	 	<block type="find_lyric_than"/>
 		<block type="lyric"/>
