@@ -1,15 +1,15 @@
-// result_bedrock
+// roblox_user_info
 
 import Blockly from "blockly/core";
 
-const blockName = "jg_minecraft_bedrock_edition";
+const blockName = "jg_roblox_user_group_rank";
 
 const blockData = {
-    "message0": "bedrock server world name",
+    "message0": "roblox user group rank",
     "args0": [],
-    "colour": 190,
+    "colour": 0,
     "output": "String",
-    "tooltip": "Checks what the servers world name is.",
+    "tooltip": "The roblox player's rank in the group.",
     "helpUrl": ""
 };
 
@@ -20,6 +20,6 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function () {
-    const code = [`result_bedrock.map`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`roblox_group_rank`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };

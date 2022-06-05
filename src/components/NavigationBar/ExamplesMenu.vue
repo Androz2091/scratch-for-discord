@@ -15,7 +15,6 @@
       <b-dropdown-item @click="load('reddit')">{{ $t('examples.reddit') }}</b-dropdown-item>
       <b-dropdown-item @click="load('button')">{{ $t('examples.button') }}</b-dropdown-item>
       <b-dropdown-item @click="load('slash')">{{ "Slash comamnd" }}</b-dropdown-item>
-      <b-dropdown-item @click="load('replit')">{{ "Replit 24/7 Online" }}</b-dropdown-item>
       
       </b-nav-item-dropdown>
 </template>
@@ -38,7 +37,6 @@ import random from "../../examples/random";
   import button from "../../examples/button";
   import cooldown from "../../examples/cooldown";
   import slash from "../../examples/slash";
-  import replit from "../../examples/replit"
 
 const examples = {
     "ping-pong": PingPongExample,
@@ -55,8 +53,7 @@ const examples = {
   "ticket": ticket,
   "button": button,
   "cooldown": cooldown,
-  "slash": slash,
-  "replit": replit
+  "slash": slash
 };
 
 export default {

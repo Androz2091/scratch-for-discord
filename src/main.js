@@ -177,7 +177,7 @@ Vue.mixin({
                 ahqcode = `(async()=>{
                 let process = require('process');
                 process.on('uncaughtException', function (err) {
-                    console.log(\`𝕖𝕣𝕣𝕠𝕣❕\`);
+                    console.log(\`Error!\`);
                     console.log(err);
                   });
                                   const ShsHSjJSjSJSJSGHkkhdjdmns = ['CREATE_INSTANT_INVITE','MANAGE_CHANNELS','ADD_REACTIONS','STREAM','VIEW_CHANNEL','SEND_MESSAGES','SEND_TTS_MESSAGES','MANAGE_MESSAGES','EMBED_LINKS','ATTACH_FILES','READ_MESSAGE_HISTORY','MENTION_EVERYONE','USE_EXTERNAL_EMOJIS','CONNECT','SPEAK','USE_VAD','CHANGE_NICKNAME','MANAGE_ROLES','MANAGE_WEBHOOKS','USE_APPLICATION_COMMANDS','REQUEST_TO_SPEAK','MANAGE_THREADS','USE_PUBLIC_THREADS','CREATE_PUBLIC_THREADS','USE_PRIVATE_THREADS','CREATE_PRIVATE_THREADS','USE_EXTERNAL_STICKERS','SEND_MESSAGES_IN_THREADS','START_EMBEDDED_ACTIVITIES'

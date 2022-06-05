@@ -1,11 +1,11 @@
-    /* eslint-disable */
+/* eslint-disable */
 export default (Blockly, value, searching) => {
     /* eslint-disable */
 
-const allow_toolbox_search = true
+    const allow_toolbox_search = true
 
-if (allow_toolbox_search) {
-    var toolbox_search_category = `
+    if (allow_toolbox_search) {
+        var toolbox_search_category = `
     
     <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">
     <label text="Search category! Version 1.0"></label>
@@ -17,11 +17,11 @@ if (allow_toolbox_search) {
     </category>
     <sep class="bt"/>
     `
-} else {
-    var toolbox_search_category = ``
-}
+    } else {
+        var toolbox_search_category = ``
+    }
 
-  var toolbox_xml_contents = (`
+    var toolbox_xml_contents = (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
         
     <!--
@@ -572,6 +572,9 @@ if (allow_toolbox_search) {
         </category>
         <category name="forms" colour="#66ffff">
         <block type="on_real_form"/>
+        <!--
+            <block type="ahq_ahq_modal"/>
+        -->
         <block type="embed_send_round">
         <value name="Label">
             <shadow type="text">
@@ -640,6 +643,31 @@ if (allow_toolbox_search) {
         <block type="ahq_embed_is"/>
         <block type="ahq_embed_info"/>
         </category>
+
+
+
+
+<category name="embed" colour="#993399">
+        <block type="make_ahq_embed"/>
+        <label text="Embed Send" web-class="boldtext"></label>
+        <block type="send_ahq_embed"/>
+        <label text="Embed Creator" web-class="boldtext"></label>
+        <block type="title_ahq_embed"/>
+        <block type="url_ahq_embed"/>
+        <block type="author_ahq_embed"/>
+        <block type="color_ahq_embed"/>
+        <block type="des_ahq_embed"/>
+        <block type="fld_ahq_embed"/>
+        <block type="image_ahq_embed"/>
+        <block type="thmb_ahq_embed"/>
+        <block type="footer_ahq_embed"/>
+        <block type="stamp_ahq_embed"/>
+        </category>
+
+
+
+
+
         <category name="V2 Embeds" colour="#cc60db">
                 <block type="s4d_embed_create"/>
                 <block type="s4d_message_embed_lime"/>
@@ -1073,6 +1101,7 @@ if (allow_toolbox_search) {
         <block type="better_botvcid"/>
 	<block type="song-first"/>
 					    </category>
+<!--
 <category name="Ticketing System" colour="#5b80a5">
 	<label text="You can also type local" web-class="boldtext"></label>
 		<block type="ticket_connect"/>
@@ -1088,6 +1117,7 @@ if (allow_toolbox_search) {
 		<block type="slash_unarchieve_ticket"/>
 <block type="slash_message_channel"/>
         </category>
+-->
 	<category name="lyric finder" colour="#5ba58b">
 	 	<block type="find_lyric_than"/>
 		<block type="lyric"/>
@@ -1470,6 +1500,7 @@ if (allow_toolbox_search) {
                     <block type="load_gif"/>
                     <block type="load_image"/>
                     <block type="send_on_channel"/>
+                    <block type="jose_send_image_slash"/>
                 </category>
                 <category name="Events" colour="#5a5aed">
                     <category name="channel" colour="#1d6ff2">
@@ -2197,6 +2228,14 @@ if (allow_toolbox_search) {
             <block type="s4d_get_all_server"></block>
             <block type="s4d_get_all_server_server"></block>
             <label text="%{BKY_LABEL_SERVER_INFOS}"></label>
+	    <block type="server_attributes"/>
+	    <block type="set_server_something">
+                   <value name="reason">
+                       <shadow type ="text">
+                           <field name="TEXT"> </field>
+                        </shadow>
+                   </value>
+               </block>
             <block type="s4d_server_name"></block>
             <block type="s4d_member_count"></block>
             <block type="s4d_icon_url"></block>
@@ -2267,44 +2306,7 @@ if (allow_toolbox_search) {
                 </value> 
             </block>
 	    
-	    <block type="set_afk_channel">
-                
-                <value name="server">
-                <block type="s4d_message_guild">
-                </block>
-                </value>
-
-                <value name="reason">
-                <block type="text">
-                </block>
-                </value>
-
-                <value name="channel">
-                    <block type="s4d_message_channel">
-                    </block>
-                </value>
-
-                </block>
-
-                <block type="set_afk_channel_time">
-
-                <value name="reason">
-                    <block type="text">
-                    </block>
-                </value>
-
-                <value name="time">
-                <block type="math_number">
-                </block>
-                </value>
-
-                <value name="server">
-                <block type="s4d_message_guild">
-                </block>
-                </value>
-
-                </block>
-
+	    
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
             <block type="s4d_is_channel_nsfw"/>
             <block type="slowmode"></block>
@@ -2565,6 +2567,53 @@ if (allow_toolbox_search) {
                 <block type="jg_minecraft_bedrock_data"/>
             </category>
         </category>
+        <category name="Roblox" colour="0">
+            <label text="Version 1.1 of Roblox Blocks" web-class="boldtext"></label>
+            <label text="User info" web-class="boldtext"></label>
+            <block type="jg_roblox_get_user_id_from_username"/>
+            <block type="jg_roblox_user_id"/>
+            <block type="jg_roblox_get_user_info"/>
+            <block type="jg_roblox_user_info"/>
+            <block type="jg_roblox_get_user_thumbnail"/>
+            <block type="jg_roblox_user_thumbnail_info"/>
+            <block type="jg_roblox_U2_get_users_avatar_asset_ids"/>
+            <block type="jg_roblox_U2_users_avatar_asset_ids"/>
+            <label text="Groups" web-class="boldtext"></label>
+            <block type="jg_roblox_get_user_group"/>
+            <block type="jg_roblox_group_info"/>
+            <block type="jg_roblox_get_group_icon"/>
+            <block type="jg_roblox_group_icon"/>
+            <block type="jg_roblox_get_user_group_rank"/>
+            <block type="jg_roblox_user_group_rank"/>
+            <label text="Blocks that require login" web-class="boldtext"></label>
+            <label text="You will need to get your .ROBLOSECURITY cookie for these." web-class="boldtext"></label>
+            <label text="You can probably find tutorials online, but make sure to hide the cookie once you have it." web-class="boldtext"></label>
+            <block type="jg_roblox_U2_login_with_security_cookie">
+                <value name="COOKIE">
+                    <block type="frost_env">
+                        <value name="VALUE">
+                            <block type="text">
+                                <field name="TEXT">roblox_cookie</field>
+                            </block>
+                        </value>
+                    </block>
+                </value>
+            </block>
+            <label text="The blocks below are marked with a star to show they need a login." web-class="boldtext"></label>
+            <block type="jg_roblox_U2_currently_logged_in_users"/>
+            <block type="jg_roblox_U2_wear_list_of_assets"/>
+            <block type="jg_roblox_U2_set_avatar_type"/>
+            <block type="jg_roblox_U2_remove_asset_id_from_avatar"/>
+            <block type="jg_roblox_U2_accept_friend_request"/>
+            <block type="jg_roblox_U2_decline_friend_request"/>
+            <block type="jg_roblox_U2_decline_all_friend_requests"/>
+            <block type="jg_roblox_U2_block_user"/>
+            <block type="jg_roblox_U2_unblock_user"/>
+            <!--<block type="jg_roblox_U2_follow_user_id"/>-->
+            <block type="jg_roblox_U2_unfollow_user_id"/>
+            <block type="jg_roblox_U2_send_message_to_user_id"/>
+            <block type="jg_roblox_U2_send_friend_request"/>
+        </category>
     </category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
@@ -2734,86 +2783,86 @@ if (allow_toolbox_search) {
         
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
-      return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
+        return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
     }))
 
     // OLD searching code
-/*
-
-// preparing variables for searching
-
-    const default_max_length = 250
-    var CATEGORYCONTENT;
-
-// set default blocks from BlocklyComponent function code
-
-const toolboxArray = toolbox_xml_contents.split('\n');
-            var blocks = []
-            var pushed
-            var repeat_end = toolboxArray.length;
-            for (var count = 0; count < repeat_end; count++) {
-                if ((toolboxArray[count].includes('<block type="')) && !(toolboxArray[count].includes('LINE HIDDEN FROM SEARCH'))) {
-                    pushed = (((toolboxArray[count].replaceAll(" ", "")).replaceAll('blocktype="', "")).replaceAll("/", "").replaceAll("<", "").replaceAll('"', "")).replaceAll("'", "").replaceAll("\t", "")
-                    pushed = pushed.slice(0, pushed.indexOf('>'));
-                    if (!(blocks.includes(pushed))) {
-                        blocks.push(pushed)
+    /*
+    
+    // preparing variables for searching
+    
+        const default_max_length = 250
+        var CATEGORYCONTENT;
+    
+    // set default blocks from BlocklyComponent function code
+    
+    const toolboxArray = toolbox_xml_contents.split('\n');
+                var blocks = []
+                var pushed
+                var repeat_end = toolboxArray.length;
+                for (var count = 0; count < repeat_end; count++) {
+                    if ((toolboxArray[count].includes('<block type="')) && !(toolboxArray[count].includes('LINE HIDDEN FROM SEARCH'))) {
+                        pushed = (((toolboxArray[count].replaceAll(" ", "")).replaceAll('blocktype="', "")).replaceAll("/", "").replaceAll("<", "").replaceAll('"', "")).replaceAll("'", "").replaceAll("\t", "")
+                        pushed = pushed.slice(0, pushed.indexOf('>'));
+                        if (!(blocks.includes(pushed))) {
+                            blocks.push(pushed)
+                        }
                     }
                 }
+    
+    // set the default blocks and run the searching code
+    
+    const defaultblocks = blocks
+    
+        if (searching) {
+            var newblocks = []
+            var check;
+            var searchparam = prompt("Search for a block with:")
+            if (!(searchparam)) {
+                searchparam = "null"
             }
-
-// set the default blocks and run the searching code
-
-const defaultblocks = blocks
-
-    if (searching) {
-        var newblocks = []
-        var check;
-        var searchparam = prompt("Search for a block with:")
-        if (!(searchparam)) {
-            searchparam = "null"
-        }
-        var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_")
-        searchparam = searchparam.replaceAll(" ", "_").toLowerCase()
-        var repeat_end = defaultblocks.length;
-        for (var count = 0; count < repeat_end; count++) {
-            check = defaultblocks[count];
-            if (String(check).includes(String(searchparam)) && !(String(check).includes("LINE HIDDEN FROM SEARCH"))) {
-                newblocks.push(check);
+            var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_")
+            searchparam = searchparam.replaceAll(" ", "_").toLowerCase()
+            var repeat_end = defaultblocks.length;
+            for (var count = 0; count < repeat_end; count++) {
+                check = defaultblocks[count];
+                if (String(check).includes(String(searchparam)) && !(String(check).includes("LINE HIDDEN FROM SEARCH"))) {
+                    newblocks.push(check);
+                }
             }
-        }
-        if (newblocks.length > 1) {
-            var s = "s"
-        } else {
-            var s = ""
-        }
-        if (newblocks.length > 0) {
-            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}, found ${newblocks.length} block${s} that matched" web-class="boldtext"></label><block type="${newblocks.join("\"/>\n<block type=\"")}"/>`
-        } else {
-            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
-        }
-    } else {
-        var length_lessthan_350 = true
-        if (defaultblocks.length < default_max_length) {
-            var newblocks = defaultblocks
-        } else {
-            length_lessthan_350 = false
-            var newblocks = defaultblocks.slice(0, default_max_length)
-        }
-        if (newblocks.length > 0) {
-            var CATEGORYCONTENT = "<block type=\"" + newblocks.join("\"/>\n<block type=\"") + "\"/>"
-            if (length_lessthan_350 == false) {
-                CATEGORYCONTENT = CATEGORYCONTENT + `<label text="${defaultblocks.length - default_max_length} blocks left..." web-class="boldtext"></label>`
+            if (newblocks.length > 1) {
+                var s = "s"
+            } else {
+                var s = ""
+            }
+            if (newblocks.length > 0) {
+                var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}, found ${newblocks.length} block${s} that matched" web-class="boldtext"></label><block type="${newblocks.join("\"/>\n<block type=\"")}"/>`
+            } else {
+                var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
             }
         } else {
-            var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
+            var length_lessthan_350 = true
+            if (defaultblocks.length < default_max_length) {
+                var newblocks = defaultblocks
+            } else {
+                length_lessthan_350 = false
+                var newblocks = defaultblocks.slice(0, default_max_length)
+            }
+            if (newblocks.length > 0) {
+                var CATEGORYCONTENT = "<block type=\"" + newblocks.join("\"/>\n<block type=\"") + "\"/>"
+                if (length_lessthan_350 == false) {
+                    CATEGORYCONTENT = CATEGORYCONTENT + `<label text="${defaultblocks.length - default_max_length} blocks left..." web-class="boldtext"></label>`
+                }
+            } else {
+                var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
+            }
         }
-    }
-    toolbox_xml_contents = toolbox_xml_contents.replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", CATEGORYCONTENT)
-
-*/
+        toolbox_xml_contents = toolbox_xml_contents.replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", CATEGORYCONTENT)
+    
+    */
 
 
     return toolbox_xml_contents
-    
+
 
 }
