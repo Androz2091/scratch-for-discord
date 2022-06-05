@@ -1484,6 +1484,7 @@ export default (Blockly, value, searching) => {
                     <block type="load_gif"/>
                     <block type="load_image"/>
                     <block type="send_on_channel"/>
+                    <block type="jose_send_image_slash"/>
                 </category>
                 <category name="Events" colour="#5a5aed">
                     <category name="channel" colour="#1d6ff2">
