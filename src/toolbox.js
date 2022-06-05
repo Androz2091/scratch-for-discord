@@ -625,7 +625,6 @@ export default (Blockly, value, searching) => {
         <block type="ahq_embed_is"/>
         <block type="ahq_embed_info"/>
         </category>
-<!--
 
 
 
@@ -650,7 +649,6 @@ export default (Blockly, value, searching) => {
 
 
 
--->
 
         <category name="V2 Embeds" colour="#cc60db">
                 <block type="s4d_embed_create"/>
