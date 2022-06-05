@@ -14,7 +14,7 @@ const blockData = {
             "height": 15,
             "alt": "*",
             "flipRtl": false
-          }
+        }
     ],
     "colour": 85,
     "output": ["Array", "List"],
@@ -23,12 +23,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
+Blockly.JavaScript[blockName] = function () {
     const code = `result_query_java.players.list`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };

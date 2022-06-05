@@ -2551,7 +2551,7 @@ export default (Blockly, value, searching) => {
             </category>
         </category>
         <category name="Roblox" colour="0">
-            <label text="Version 1.0 of Roblox Blocks" web-class="boldtext"></label>
+            <label text="Version 1.1 of Roblox Blocks" web-class="boldtext"></label>
             <label text="User info" web-class="boldtext"></label>
             <block type="jg_roblox_get_user_id_from_username"/>
             <block type="jg_roblox_user_id"/>
@@ -2559,6 +2559,8 @@ export default (Blockly, value, searching) => {
             <block type="jg_roblox_user_info"/>
             <block type="jg_roblox_get_user_thumbnail"/>
             <block type="jg_roblox_user_thumbnail_info"/>
+            <block type="jg_roblox_U2_get_users_avatar_asset_ids"/>
+            <block type="jg_roblox_U2_users_avatar_asset_ids"/>
             <label text="Groups" web-class="boldtext"></label>
             <block type="jg_roblox_get_user_group"/>
             <block type="jg_roblox_group_info"/>
@@ -2566,6 +2568,34 @@ export default (Blockly, value, searching) => {
             <block type="jg_roblox_group_icon"/>
             <block type="jg_roblox_get_user_group_rank"/>
             <block type="jg_roblox_user_group_rank"/>
+            <label text="Blocks that require login" web-class="boldtext"></label>
+            <label text="You will need to get your .ROBLOSECURITY cookie for these." web-class="boldtext"></label>
+            <label text="You can probably find tutorials online, but make sure to hide the cookie once you have it." web-class="boldtext"></label>
+            <block type="jg_roblox_U2_login_with_security_cookie">
+                <value name="COOKIE">
+                    <block type="frost_env">
+                        <value name="VALUE">
+                            <block type="text">
+                                <field name="TEXT">roblox_cookie</field>
+                            </block>
+                        </value>
+                    </block>
+                </value>
+            </block>
+            <label text="The blocks below are marked with a star to show they need a login." web-class="boldtext"></label>
+            <block type="jg_roblox_U2_currently_logged_in_users"/>
+            <block type="jg_roblox_U2_wear_list_of_assets"/>
+            <block type="jg_roblox_U2_set_avatar_type"/>
+            <block type="jg_roblox_U2_remove_asset_id_from_avatar"/>
+            <block type="jg_roblox_U2_accept_friend_request"/>
+            <block type="jg_roblox_U2_decline_friend_request"/>
+            <block type="jg_roblox_U2_decline_all_friend_requests"/>
+            <block type="jg_roblox_U2_block_user"/>
+            <block type="jg_roblox_U2_unblock_user"/>
+            <!--<block type="jg_roblox_U2_follow_user_id"/>-->
+            <block type="jg_roblox_U2_unfollow_user_id"/>
+            <block type="jg_roblox_U2_send_message_to_user_id"/>
+            <block type="jg_roblox_U2_send_friend_request"/>
         </category>
     </category>
         <sep class="bt"/>
