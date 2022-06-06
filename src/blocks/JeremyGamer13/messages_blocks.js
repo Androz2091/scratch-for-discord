@@ -1,4 +1,5 @@
 import Blockly from "blockly/core";
+import '@blockly/field-grid-dropdown';
 Blockly.Blocks["jg_messages_id_of_message"] = {
     init: function () {
         this.jsonInit(
@@ -143,12 +144,24 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                         "check": "Message"
                     },
                     {
-                        "type": "field_dropdown",
+                        "type": "field_grid_dropdown",
                         "name": "TYPE",
                         "options": [
                             [
                                 "mentions everyone?",
                                 'mentions.everyone'
+                            ],
+                            [
+                                "mentions members?",
+                                'mentions.users.size > 0'
+                            ],
+                            [
+                                "mentions roles?",
+                                'mentions.roles.size > 0'
+                            ],
+                            [
+                                "mentions channels?",
+                                'mentions._channels != null'
                             ],
                             [
                                 "is a system message?",
@@ -161,6 +174,10 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             [
                                 "is text to speech?",
                                 'tts'
+                            ],
+                            [
+                                "is edited?",
+                                'editedTimestamp != null'
                             ],
                             [
                                 "has embeds?",
