@@ -2016,11 +2016,19 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
             <block type="s4d_message_content"></block>
             <block type="s4d_message_id"></block>
+            <!--
+            <block type="jg_messages_id_of_message"/>
+            -->
             <block type="s4d_message_author"></block>
             <block type="s4d_message_member"/>
             <block type="s4d_mentioned_member"></block>
             <block type="s4d_mentioned_channel"></block>
             <block type="s4d_mentioned_role"></block>
+            <block type="jg_messages_message_is_value">
+                <value name="MSG">
+                    <shadow type="Message"/>
+                </value>
+            </block>
             <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
             <block type="Message"/>
             <block type="s4d_message_channel"></block>
@@ -2564,7 +2572,9 @@ export default (Blockly, value, searching) => {
             <block type="jg_roblox_U2_decline_all_friend_requests"/>
             <block type="jg_roblox_U2_block_user"/>
             <block type="jg_roblox_U2_unblock_user"/>
-            <!--<block type="jg_roblox_U2_follow_user_id"/>-->
+            <!--
+            <block type="jg_roblox_U2_follow_user_id"/>
+            -->
             <block type="jg_roblox_U2_unfollow_user_id"/>
             <block type="jg_roblox_U2_send_message_to_user_id"/>
             <block type="jg_roblox_U2_send_friend_request"/>
