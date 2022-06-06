@@ -19,7 +19,7 @@ export default {
                     <b><p>
                     <span style="color:#2aa9bd">frostzzone</span>,
                     <span style="color:#ad6f39">RetroBTW</span>,
-                    <span style="color:#73ad39">XL83</span>,
+                    <span style="color:#73ad39">cat soup</span>,
                     <span style="color:#e83131">AHQ</span>,
                     <span style="color:#ff7b00">JeremyGamer13</span>,
                     <span style="color:#D276F7">LimeNade</span>,
