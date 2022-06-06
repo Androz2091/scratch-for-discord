@@ -161,6 +161,22 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             [
                                 "is text to speech?",
                                 'tts'
+                            ],
+                            [
+                                "has embeds?",
+                                'embeds.length > 0'
+                            ],
+                            [
+                                "has buttons or menus?",
+                                'components.length > 0'
+                            ],
+                            [
+                                "has attachments?",
+                                'attachments.size > 0'
+                            ],
+                            [
+                                "has stickers?",
+                                'stickers.size > 0'
                             ]
                         ],
                     }
@@ -177,5 +193,75 @@ Blockly.JavaScript["jg_messages_message_is_value"] = function (block) {
     const message = Blockly.JavaScript.valueToCode(block, "MSG", Blockly.JavaScript.ORDER_ATOMIC);
     const property = block.getFieldValue("TYPE")
     const code = [`${message}.${property}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+// next block
+Blockly.Blocks["jg_channel_get_last_messages_in_channel_then"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get last %1 messages in channel %2 then %3 %4",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "AMOUNT",
+                        "check": "Number"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "CHANNEL",
+                        "check": "Channel"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ],
+                "colour": "#a55b80",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "Get the last number of messages in the channel and run the blocks below.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_channel_get_last_messages_in_channel_then"] = function (block) {
+    const amount = Blockly.JavaScript.valueToCode(block, "AMOUNT", Blockly.JavaScript.ORDER_ATOMIC);
+    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `${channel}.messages.fetch({ limit: ${amount} }).then((last_messages_in_channel) => {
+    ${statements}
+});
+`;
+    return code;
+};
+// next block
+Blockly.Blocks["jg_channel_last_message_number"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "last message #%1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "INDEX",
+                        "check": "Number"
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": "Message",
+                "tooltip": "Get the last message at the index in the channel.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_channel_last_message_number"] = function (block) {
+    const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`last_messages_in_channel.at(${index} - 1)`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
