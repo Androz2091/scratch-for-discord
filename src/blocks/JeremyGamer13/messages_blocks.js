@@ -161,7 +161,7 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             ],
                             [
                                 "mentions channels?",
-                                'mentions._channels != null'
+                                'mentions.channels.size > 0'
                             ],
                             [
                                 "is a system message?",
@@ -441,5 +441,107 @@ Blockly.JavaScript["jg_attachment_get_attachment_property"] = function (block) {
     const property = block.getFieldValue("PROPERTY")
     const attach = Blockly.JavaScript.valueToCode(block, "ATTACH", Blockly.JavaScript.ORDER_ATOMIC);
     const code = [`${attach}.${property}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+// ------------------
+//
+// back to normal shit
+//
+// ------------------
+Blockly.Blocks["jg_message_mentioned_member_number_on_message"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get mentioned %3 #%1 on message %2",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "INDEX",
+                        "check": "Number"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "MESSAGE",
+                        "check": "Message"
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "member",
+                                'users'
+                            ],
+                            [
+                                "role",
+                                'roles'
+                            ],
+                            [
+                                "channel",
+                                'channels'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#187795",
+                "output": ["Member", "Role", "Channel"],
+                "tooltip": "Get a specific mentioned member, role or channel on the message.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_message_mentioned_member_number_on_message"] = function (block) {
+    const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
+    const msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const type = block.getFieldValue("TYPE")
+    const code = [`${msg}.mentions.${type}.at(${index})`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+// next blok
+Blockly.Blocks["jg_message_amount_of_mentioned_members_on_message"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of mentioned %2 on message %1",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MESSAGE",
+                        "check": "Message"
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "members",
+                                'users'
+                            ],
+                            [
+                                "roles",
+                                'roles'
+                            ],
+                            [
+                                "channels",
+                                'channels'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#187795",
+                "output": "Number",
+                "tooltip": "Get the amount of members, roles, or channels mentioned in a message.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_message_amount_of_mentioned_members_on_message"] = function (block) {
+    const msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const type = block.getFieldValue("TYPE")
+    const code = [`${msg}.mentions.${type}.size`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };

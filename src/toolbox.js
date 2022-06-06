@@ -2018,6 +2018,21 @@ export default (Blockly, value, searching) => {
             <block type="s4d_mentioned_member"></block>
             <block type="s4d_mentioned_channel"></block>
             <block type="s4d_mentioned_role"></block>
+            <block type="jg_message_mentioned_member_number_on_message">
+                <value name="INDEX">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="MESSAGE">
+                    <shadow type="Message"/>
+                </value>
+            </block>
+            <block type="jg_message_amount_of_mentioned_members_on_message">
+                <value name="MESSAGE">
+                    <shadow type="Message"/>
+                </value>
+            </block>
             <block type="jg_message_user_replied_to_in_message">
                 <value name="MSG">
                     <shadow type="Message"/>
