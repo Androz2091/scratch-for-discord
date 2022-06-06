@@ -24,7 +24,7 @@ And you're done!
 
 To run Scratch For Discord, follow these steps:
 
-* Clone the project. Run `git clone https://github.com/Androz2091/scratch-for-discord`.
+* Clone the project. Run `git clone https://github.com/frostzzone/scratch-for-discord`.
 * Run `yarn install` to install project dependencies.
 * Run `yarn start` to start the development server.
 * Go to `http://localhost:3000`!
