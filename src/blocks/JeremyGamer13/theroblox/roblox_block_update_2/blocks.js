@@ -554,6 +554,7 @@ Blockly.JavaScript["jg_roblox_U2_send_message_to_user_id"] = function (block) {
     const code = [`S4D_APP_NOBLOX.message(Number(${user}), String(${subject}), String(${body}))`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+// adcnieb
 Blockly.Blocks["jg_roblox_U2_send_friend_request"] = {
     init: function () {
         this.jsonInit(
@@ -588,3 +589,4 @@ Blockly.JavaScript["jg_roblox_U2_send_friend_request"] = function (block) {
     const code = [`S4D_APP_NOBLOX.sendFriendRequest(Number(${user}))`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+// adcnieb

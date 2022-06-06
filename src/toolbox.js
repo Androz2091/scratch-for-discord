@@ -2011,6 +2011,8 @@ export default (Blockly, value, searching) => {
 						<label text="%{BKY_FIND_MESSAGE}"></label>
 						<block type="s4d_get_msg_then"></block>
 						<block type="edit_msg_by_id"></block>
+            <label text="Find a message if you only have the message itself"></label>
+            <block type="jg_messages_id_of_message"/>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
@@ -2022,6 +2024,11 @@ export default (Blockly, value, searching) => {
             <block type="s4d_mentioned_member"></block>
             <block type="s4d_mentioned_channel"></block>
             <block type="s4d_mentioned_role"></block>
+            <block type="jg_messages_message_is_value">
+                <value name="MSG">
+                    <shadow type="Message"/>
+                </value>
+            </block>
             <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
             <block type="Message"/>
             <block type="s4d_message_channel"></block>
@@ -2232,6 +2239,25 @@ export default (Blockly, value, searching) => {
       <block type="s4d_channel_parent_id"/>
       <block type="s4d_channel_message_id"/>
       <block type="s4d_channel_topic"/>
+            <block type="s4d_channel_exist"/>
+            
+            <label text="Finding content in the channel"></label>
+
+            <block type="jg_channel_get_last_messages_in_channel_then">
+                <value name="AMOUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">2</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_channel_last_message_number">
+                <value name="INDEX">
+                    <shadow type="math_number">
+                        <field name="NUM">2</field>
+                    </shadow>
+                </value>
+            </block>
+
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply">
                 <value name="CONTENT">
@@ -2252,7 +2278,6 @@ export default (Blockly, value, searching) => {
             <block type="reply_message"/>
             <block type="reply_message_id"/>
             <label text="%{BKY_CHANNEL_MESSAGE_ACTIONS}"></label>
-            <block type="s4d_channel_exist"/>
              <block type="s4d_purge">
 
                 <value name="AMOUNT">
@@ -2565,7 +2590,9 @@ export default (Blockly, value, searching) => {
             <block type="jg_roblox_U2_decline_all_friend_requests"/>
             <block type="jg_roblox_U2_block_user"/>
             <block type="jg_roblox_U2_unblock_user"/>
-            <!--<block type="jg_roblox_U2_follow_user_id"/>-->
+            <!--
+            <block type="jg_roblox_U2_follow_user_id"/>
+            -->
             <block type="jg_roblox_U2_unfollow_user_id"/>
             <block type="jg_roblox_U2_send_message_to_user_id"/>
             <block type="jg_roblox_U2_send_friend_request"/>
