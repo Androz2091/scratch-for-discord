@@ -911,6 +911,9 @@ export default (Blockly, value, searching) => {
         <block type="bot_voice_channel_id"></block>
         <block type="slash_reply"></block>
         <block type="slash_edit"></block>
+        <label text="Send an embed in slash"></label>
+        <label text="(for named embeds, the name has to be just called embed)"></label>
+        <block type="send_m_embed_string"></block>
 <label text="ㅤ" web-class="boldtext"></label>
 </category>
 
@@ -1774,7 +1777,10 @@ export default (Blockly, value, searching) => {
         <block type="bot_voice_channel_id"></block>
         <block type="slash_reply"></block>
         <block type="slash_edit"></block>
+        <label text="Send an embed in slash"></label>
+        <label text="(for named embeds, the name has to be just called embed)"></label>
         <block type="send_m_embed_string"></block>
+        <label text="ㅤ"></label>
         </category>
 				        <category name="context menu" colour="#f0f255">
         <label text="Event" web-class="boldtext"></label>
@@ -2300,6 +2306,7 @@ export default (Blockly, value, searching) => {
       <block type="s4d_channel_message_id"/>
       <block type="s4d_channel_topic"/>
             <block type="s4d_channel_exist"/>
+            <block type="s4d_is_channel_nsfw"/>
 
             <label text="Finding content in the channel"></label>
 
@@ -2349,7 +2356,6 @@ export default (Blockly, value, searching) => {
 	    
 	    
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
-            <block type="s4d_is_channel_nsfw"/>
             <block type="slowmode"></block>
             
             <block type="set_perms_parent"></block>
