@@ -48,6 +48,6 @@ export default {
 }
 /*
 title: 'Androz, snowflake107 - Original S4D\n7coil - Discord Blocks\nJose and mrredo - Preview 454',
-text: 'frostzzone, RetroBTW, XL83, AHQ, JeremyGamer13, LimeNade, henpokpok, AlexCdDg, Eruption - Preview 469',
+text: 'frostzzone, RetroBTW, cat soup, AHQ, JeremyGamer13, LimeNade, henpokpok, AlexCdDg, Eruption - Preview 469',
 */
 </script>
