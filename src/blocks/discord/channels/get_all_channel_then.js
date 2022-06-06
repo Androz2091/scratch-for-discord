@@ -4,8 +4,7 @@ const blockName = "s4d_get_all_channel";
 
 const blockData = {
     "message0": "%{BKY_GET_ALL_CHANNEL}",
-    "args0": [
-        {
+    "args0": [{
             "type": "input_value",
             "name": "SERVER",
             "check": "Server"
@@ -31,9 +30,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function(block) {
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    let code = `${server}.channels.cache.forEach(c =>{ \n ${statementThen} \n})\n`;
+    let code = `${server}.channels.cache.forEach(async (c) =>{ \n ${statementThen} \n})\n`;
     return code;
 };
