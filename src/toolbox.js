@@ -981,7 +981,7 @@ export default (Blockly, value, searching) => {
 </category>
 </category>
 
-<category name="Retro and XL83" colour="#AAE941">
+<category name="Retro and cat soup" colour="#AAE941">
 <category name="QR Code" color="#5ba58b">
     <block type="create_qr_then"/>
     <block type="qr"/>
