@@ -180,6 +180,14 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                                 'editedTimestamp != null'
                             ],
                             [
+                                "is from webhook?",
+                                'webhookId != null'
+                            ],
+                            [
+                                "is a reply?",
+                                'type == "REPLY"'
+                            ],
+                            [
                                 "has embeds?",
                                 'embeds.length > 0'
                             ],
@@ -280,6 +288,32 @@ Blockly.Blocks["jg_channel_last_message_number"] = {
 Blockly.JavaScript["jg_channel_last_message_number"] = function (block) {
     const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
     const code = [`last_messages_in_channel.at(${index} - 1)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+// next block
+Blockly.Blocks["jg_message_user_replied_to_in_message"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "user replied to in message %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MSG",
+                        "check": "Message"
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": "Member",
+                "tooltip": "Get the user that was replied to in the message.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_message_user_replied_to_in_message"] = function (block) {
+    const msg = Blockly.JavaScript.valueToCode(block, "MSG", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${msg}.mentions.repliedUser`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 // ------------------
