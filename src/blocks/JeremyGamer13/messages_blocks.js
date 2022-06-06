@@ -419,6 +419,10 @@ Blockly.Blocks["jg_attachment_get_attachment_property"] = {
                                 'id'
                             ],
                             [
+                                "is spoiler?",
+                                'spoiler'
+                            ],
+                            [
                                 "width (type dependent)",
                                 'attachments.size > 0'
                             ],
