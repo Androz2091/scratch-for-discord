@@ -265,3 +265,130 @@ Blockly.JavaScript["jg_channel_last_message_number"] = function (block) {
     const code = [`last_messages_in_channel.at(${index} - 1)`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+// ------------------
+//
+// Attachment Blocks
+//
+// ------------------
+Blockly.Blocks["jg_attachment_amount_of_attachments_on_message"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of attachments on message %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MESSAGE",
+                        "check": "Message"
+                    }
+                ],
+                "colour": "#187795",
+                "output": "Number",
+                "tooltip": "Get the number of attachments on a message.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_attachment_amount_of_attachments_on_message"] = function (block) {
+    const msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${msg}.attachments.size`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_attachment_get_attachment_number"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get attachment #%1 on message %2",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "INDEX",
+                        "check": "Number"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "MESSAGE",
+                        "check": "Message"
+                    }
+                ],
+                "colour": "#187795",
+                "output": "Attachment",
+                "tooltip": "Get the specific attachment on the message.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_attachment_get_attachment_number"] = function (block) {
+    const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
+    const msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${msg}.attachments.at(${index})`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_attachment_get_attachment_property"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get attachment %1 property: %2",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "ATTACH",
+                        "check": "Attachment"
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "PROPERTY",
+                        "options": [
+                            [
+                                "URL",
+                                'url'
+                            ],
+                            [
+                                "name",
+                                'name'
+                            ],
+                            [
+                                "size (in bytes)",
+                                'size'
+                            ],
+                            [
+                                "MIME type",
+                                'contentType'
+                            ],
+                            [
+                                "hidden",
+                                'ephemeral'
+                            ],
+                            [
+                                "ID",
+                                'id'
+                            ],
+                            [
+                                "width (type dependent)",
+                                'attachments.size > 0'
+                            ],
+                            [
+                                "height (type dependent)",
+                                'stickers.size > 0'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#187795",
+                "output": null,
+                "tooltip": "Get the specific property from the attachment. You can see what MIME types apply to what file extension by Right Clicking on the block and pressing \"Help\". Width and Height only apply to certain types of attachment types.",
+                "helpUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types"
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_attachment_get_attachment_property"] = function (block) {
+    const property = block.getFieldValue("PROPERTY")
+    const attach = Blockly.JavaScript.valueToCode(block, "ATTACH", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${attach}.${property}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};

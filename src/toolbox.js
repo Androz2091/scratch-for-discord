@@ -1411,12 +1411,6 @@ export default (Blockly, value, searching) => {
                     <block type="new_regex"/>
                     <block type="test_regex"/>
                 </category>
-                <category name="attachment" colour="#5aed8b">
-                    <block type="att_size"/>
-                    <block type="att_name"/>
-                    <block type="att_type"/>
-                    <block type="att_url"/>
-                </category>
                 <category name="discord together" colour="#5aedbc">
                     <block type="create_together"/>
                     <block type="invite_code"/>
@@ -2029,6 +2023,47 @@ export default (Blockly, value, searching) => {
                     <shadow type="Message"/>
                 </value>
             </block>
+            <label text="Get attachments on the message" web-class="boldtext"></label>
+                
+                    <block type="att_size">
+                        <value name="MESSAGE">
+                            <shadow type="Message"/>
+                        </value>
+                    </block>
+                    <block type="jg_attachment_amount_of_attachments_on_message">
+                        <value name="MESSAGE">
+                            <shadow type="Message"/>
+                        </value>
+                    </block>
+                    <block type="jg_attachment_get_attachment_number">
+                        <value name="INDEX">
+                            <shadow type="math_number">
+                                <field name="NUM">1</field>
+                            </shadow>
+                        </value>
+                        <value name="MESSAGE">
+                            <shadow type="Message"/>
+                        </value>
+                    </block>
+                    <block type="jg_attachment_get_attachment_property">
+                        <value name="ATTACH">       
+                            <shadow type="jg_attachment_get_attachment_number">
+                                <value name="INDEX">
+                                    <shadow type="math_number">
+                                        <field name="NUM">1</field>
+                                    </shadow>
+                                </value>
+                                <value name="MESSAGE">
+                                    <shadow type="Message"/>
+                                </value>
+                            </shadow>
+                        </value>
+                    </block>
+                    <!--
+                    <block type="att_name"/>
+                    <block type="att_type"/>
+                    <block type="att_url"/>
+                    -->
             <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
             <block type="Message"/>
             <block type="s4d_message_channel"></block>
@@ -2092,6 +2127,11 @@ export default (Blockly, value, searching) => {
 						<block type="s4d_pin"/>
 						<block type="s4d_unpin"/>
             <block type="s4d_message_embed"></block>
+            
+                    
+            
+                
+
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Threads" colour="#2a97b8">
@@ -2240,7 +2280,7 @@ export default (Blockly, value, searching) => {
       <block type="s4d_channel_message_id"/>
       <block type="s4d_channel_topic"/>
             <block type="s4d_channel_exist"/>
-            
+
             <label text="Finding content in the channel"></label>
 
             <block type="jg_channel_get_last_messages_in_channel_then">
