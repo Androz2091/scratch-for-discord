@@ -478,7 +478,7 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt" />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE"/>
-<category name="{{ TOOLBOX_VARIABLES }}-expanded" colour="#a55b80">
+<category name="Expanded {{ TOOLBOX_VARIABLES }}" colour="#a55b80">
 <label text="Make global/local variables for functions and other stuff"></label>
 <label text="Compatible with variables category"></label>
 <block type="import_all"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
@@ -703,14 +703,7 @@ export default (Blockly, value, searching) => {
         <block type="get_image"/>
 	<block type="url_image"/>
         </category>
-	<category name="Typing" colour="#f79400">
-        <label text="Typing event" web-class="boldtext"></label>
-        <block type="typing_start"/>
-        <label text="Typing blocks" web-class="boldtext"></label>
-        <block type="typing_server"/>
-        <block type="typing_channel"/>
-        <block type="typing_member"/>
-        </category>
+	
 	<category name="Other" colour="#c70e6d">
         <block type="hig_role"/>
         <label text="This will detect the color of highest role" web-class="boldtext"></label>
@@ -2156,6 +2149,9 @@ export default (Blockly, value, searching) => {
             
                     
             
+        <label text="Blocks for handling typing" web-class="boldtext"></label>
+        <block type="typing_start"/>
+        <block type="jg_typing_typing_attribute"/>
                 
 
             <label text="ㅤ" web-class="boldtext"></label>

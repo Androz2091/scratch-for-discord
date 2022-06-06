@@ -545,3 +545,74 @@ Blockly.JavaScript["jg_message_amount_of_mentioned_members_on_message"] = functi
     const code = [`${msg}.mentions.${type}.size`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+// -----------------------------------------------------------------------------------
+//
+//
+// T Y P I N G
+// B L O C K S
+//
+//
+// -----------------------------------------------------------------------------------
+Blockly.Blocks["jg_typing_typing_attribute"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "typing %1",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "ATT",
+                        "options": [
+                            [
+                                "server member",
+                                'member'
+                            ],
+                            [
+                                "user",
+                                'user'
+                            ],
+                            [
+                                "channel",
+                                'channel'
+                            ],
+                            [
+                                "server",
+                                'guild'
+                            ],
+                            [
+                                "started time (UNIX)",
+                                'startedAt'
+                            ],
+                            [
+                                "is in a server?",
+                                '123'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#1392ed",
+                "output": ["Member", "Channel", "Server", "Guild", "Number"],
+                "tooltip": "Grab information about someone typing.",
+                "helpUrl": ""
+            }
+        );
+    },
+    onchange: function () {
+        if (String(this.getFieldValue("ATT")) == "123") {
+            this.setOutput(true, "Boolean")
+        } else {
+            this.setOutput(true, ["Member", "Channel", "Server", "Guild", "Number"])
+        }
+    }
+}
+Blockly.JavaScript["jg_typing_typing_attribute"] = function (block) {
+    const type = block.getFieldValue("ATT")
+    var code
+    if (type == 123) {
+        code = [`s4dTyping.inGuild()`, Blockly.JavaScript.ORDER_NONE];
+    } else {
+        code = [`s4dTyping.${type}`, Blockly.JavaScript.ORDER_NONE];
+    }
+    return code;
+};
