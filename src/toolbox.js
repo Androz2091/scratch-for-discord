@@ -2662,6 +2662,11 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+            <block type="sha256">
+            <value name="encode">
+            <shadow type="text"/>
+        </value>
+        </block>
             
   <label text="Encoding text" web-class="boldtext"></label>
             <block type="jg_encode_main">
