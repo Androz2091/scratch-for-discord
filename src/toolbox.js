@@ -2256,6 +2256,18 @@ export default (Blockly, value, searching) => {
 	    <block type="get_all_channel_channel_name"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
             <block type="s4d_send_channel"></block>
+            <block type="jg_channels_send_in_channel_with_allowed_list_of_pings_on_users_on_roles">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">No user ping here!</field>
+                    </shadow>
+                </value>
+                <value name="USERS">
+                    <block type="lists_create_with">
+                        <mutation items="0"/>
+                    </block>
+                </value>
+            </block>
 	    <label text="Channel Info"></label>
 	    <block type="s4d_channel_ahq_name"></block>
       <block type="s4d_channel_id"/>

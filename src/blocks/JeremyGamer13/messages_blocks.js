@@ -911,3 +911,158 @@ registerRestrictions("jg_messages_reply_with_allowed_list_of_pings_on_users_on_r
         ]
     }
 ]);
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+// AFAFDWTGF^&
+Blockly.Blocks["jg_channels_send_in_channel_with_allowed_list_of_pings_on_users_on_roles"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "send %1 in channel %2 with allowed list of pings %3 on user IDs %4 on role IDs %5",
+                "inputsInline": false,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "CONTENT",
+                        "check": ["MessageEmbed", "String", "Number", "embed", "var"]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "CHANNEL",
+                        "check": "Channel"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "USERS",
+                        "check": ["Array", "List"]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "ROLES",
+                        "check": ["Array", "List"]
+                    }
+                ],
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "Send a message in a specific channel but only ping the members and roles with the IDs in the list. If you dont want to ping anyone or any roles, just put an empty list. If you want to ping all members or all roles, just leave the input empty with no block there.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_channels_send_in_channel_with_allowed_list_of_pings_on_users_on_roles"] = function (block) {
+    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
+    const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
+    const users = Blockly.JavaScript.valueToCode(block, "USERS", Blockly.JavaScript.ORDER_ATOMIC);
+    const roles = Blockly.JavaScript.valueToCode(block, "ROLES", Blockly.JavaScript.ORDER_ATOMIC);
+    var usableA = ""
+    var usableB = ""
+    if (!((users === null) || (users === ""))) {
+        usableA = `users: ${users},`
+    }
+    if (!((roles === null) || (roles === ""))) {
+        usableB = `roles: ${roles},`
+    }
+    if (block.getInput("CONTENT").connection.targetConnection) {
+        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
+            block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
+            null;
+        if ((contentType === "var")) {
+            const code = `${channel}.send({
+                content: String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
+            return code;
+        } else if ((contentType === "embed") || (!contentType && typeof contentType === "object")) {
+            const code = `${channel}.send({
+                embeds:[${content}],
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
+            return code;
+        } else if ((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
+            const code = `${channel}.send({
+                ${content},
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
+            return code;
+        } else {
+            const code = `${channel}.send({
+                content:String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+        });
+            `;
+            return code;
+        }
+    } else {
+        const code = `${channel}.send({
+            content: String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+        });
+        `;
+        return code;
+    }
+};
+
+registerRestrictions("jg_channels_send_in_channel_with_allowed_list_of_pings_on_users_on_roles", [
+    {
+        type: "notempty",
+        message: "RES_SEND_CHANNEL_CONTENT",
+        types: [
+            "CONTENT"
+        ]
+    },
+    {
+        type: "notempty",
+        message: "RES_SEND_CHANNEL_CHANNEL",
+        types: [
+            "CHANNEL"
+        ]
+    }
+]);
