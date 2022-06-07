@@ -478,7 +478,7 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt" />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE"/>
-<category name="Expanded {{ TOOLBOX_VARIABLES }}" colour="#a55b80">
+<category name="Expanded {{ TOOLBOX_VARIABLES }}" colour="#ad5a84">
 <label text="Make global/local variables for functions and other stuff"></label>
 <label text="Compatible with variables category"></label>
 <block type="import_all"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
@@ -489,6 +489,80 @@ export default (Blockly, value, searching) => {
 </category>
 
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE"/>
+
+        <category name="Collections" colour="#a354b3">
+        <label text="Collections are able to hold data." web-class="boldtext"></label>
+        <label text="It's like a list, but you can put the data under a label." web-class="boldtext"></label>
+        <label text="The label is the key, and the data can be gained using that key." web-class="boldtext"></label>
+            <block type="collections_create_new_collection"/>
+            <block type="collections_set_to_key_in_collection">
+                <value name="VALUE">
+                    <block type="math_number">
+                        <field name="NUM">123</field>
+                    </block>
+                </value>
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_get_from_collection">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_remove_key_in_collection">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_clear_collection">
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_collection_has_key">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_size_of_collection">
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+        </category>
 
         <!--<category name="Objects" colour="#cc59e3">
             <block type="jg_object_getvalue"/>
