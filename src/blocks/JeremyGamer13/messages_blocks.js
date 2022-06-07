@@ -830,11 +830,12 @@ Blockly.JavaScript["jg_messages_reply_with_allowed_list_of_pings_on_users_on_rol
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
     const users = Blockly.JavaScript.valueToCode(block, "USERS", Blockly.JavaScript.ORDER_ATOMIC);
     const roles = Blockly.JavaScript.valueToCode(block, "ROLES", Blockly.JavaScript.ORDER_ATOMIC);
-    var usableA, usableB;
-    if (!(users === null)) {
+    var usableA = ""
+    var usableB = ""
+    if (!((users === null) || (users === ""))) {
         usableA = `users: ${users},`
     }
-    if (!(roles === null)) {
+    if (!((roles === null) || (roles === ""))) {
         usableB = `roles: ${roles},`
     }
     if (block.getInput("CONTENT").connection.targetConnection) {
