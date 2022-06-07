@@ -1,7 +1,7 @@
 import * as Blockly from "blockly";
 const blockName = "mute_ahq";
 const blockData = {
-    "message0": "timeout member %1 %2 time %3 %4 reason %5",
+    "message0": "timeout member %1 %2 for seconds %3 %4 reason %5",
     "args0": [{
         "type": "input_value",
         "name": "member",
