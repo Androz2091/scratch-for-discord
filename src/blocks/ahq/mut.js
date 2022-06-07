@@ -1,43 +1,34 @@
 import * as Blockly from "blockly";
 const blockName = "mute_ahq";
-const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
 const blockData = {
-    "message0": "Mute Member %1 %2 Time %3 %4 Reason %5",
+    "message0": "timeout member %1 %2 time %3 %4 reason %5",
     "args0": [{
         "type": "input_value",
         "name": "member",
         "check": "Member"
     },
-    {"type": "input_space"},
+    { "type": "input_space" },
     {
         "type": "input_value",
         "name": "time",
         "check": "Number"
     },
-    {"type": "input_space"},{
+    { "type": "input_space" }, {
         "type": "input_value",
         "name": "reason",
         "check": "String"
     },],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": "#4C97FF",
     "previousStatement": null,
     "nextStatement": null,
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const member = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_NONE);
     const time = Blockly.JavaScript.valueToCode(block, "time", Blockly.JavaScript.ORDER_NONE);
     const reason = Blockly.JavaScript.valueToCode(block, "reason", Blockly.JavaScript.ORDER_NONE);

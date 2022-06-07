@@ -751,11 +751,11 @@ export default (Blockly, value, searching) => {
         </category>
         </category>
 
-        <category name="henpokpok" colour="#64C9FF">
-          <category name="Timeout" colour="#FF6464">
-          <block type="mute_ahq"/>
-          </category>
-        <category name="Reactions" colour="#FF6464">
+        <!--<category name="henpokpok" colour="#64C9FF">
+          <category name="Timeout" colour="#FF6464">-->
+          <!--</category>-->
+        
+        <!--  <category name="Reactions" colour="#FF6464">
         <label text="Reations event (under construction)" web-class="boldtext"></label>
         <block type="reaction_added"/>
         <block type="reaction_removed"/>
@@ -764,7 +764,7 @@ export default (Blockly, value, searching) => {
         <block type="react_emoji"/>
         <block type="react_messageId"/>
         </category>
-        </category>
+        </category>-->
 	
 	<category name="AlexCdDg" colour="#06cfaa">
         
@@ -2478,6 +2478,7 @@ export default (Blockly, value, searching) => {
             </block>
 
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
+            <block type="mute_ahq"/>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
             <block type="s4d_unban_member"></block>
