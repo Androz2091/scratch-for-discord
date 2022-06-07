@@ -2042,7 +2042,6 @@ export default (Blockly, value, searching) => {
             <block type="s4d_message_channel_raw"></block>
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
-<block type="anti_spam"></block>
             <block type="s4d_reply">
                 <value name="CONTENT">
                     <shadow type="text">
@@ -2050,7 +2049,20 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+            <block type="jg_messages_reply_with_allowed_list_of_pings_on_users_on_roles">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">No user ping here!</field>
+                    </shadow>
+                </value>
+                <value name="USERS">
+                    <block type="lists_create_with">
+                        <mutation items="0"/>
+                    </block>
+                </value>
+            </block>
             <block type="s4d_delete"></block>
+            <block type="anti_spam"></block>
             <block type="s4d_remove_all_reactions"/>
             <block type="s4d_remove_reactions"/>
             <block type="s4d_add_reaction">
@@ -2662,7 +2674,12 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
-            
+            <block type="catsoup_encryption_sha256">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+            </block>
+
   <label text="Encoding text" web-class="boldtext"></label>
             <block type="jg_encode_main">
           <value name="type">

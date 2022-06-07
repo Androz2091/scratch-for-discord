@@ -796,6 +796,7 @@ Blockly.Blocks["jg_messages_reply_with_allowed_list_of_pings_on_users_on_roles"]
         this.jsonInit(
             {
                 "message0": "reply %1 with allowed list of pings %2 on user IDs %3 on role IDs %4",
+                "inputsInline": false,
                 "args0": [
                     {
                         "type": "input_value",
@@ -819,7 +820,7 @@ Blockly.Blocks["jg_messages_reply_with_allowed_list_of_pings_on_users_on_roles"]
                 "colour": "#4C97FF",
                 "previousStatement": null,
                 "nextStatement": null,
-                "tooltip": "Send a message but only ping the members and roles with the IDs in the list. If you dont want to ping anyone or any roles, just put an empty list.",
+                "tooltip": "Send a message but only ping the members and roles with the IDs in the list. If you dont want to ping anyone or any roles, just put an empty list. If you want to ping all members or all roles, just leave the input empty with no block there.",
                 "helpUrl": ""
             }
         );
@@ -827,25 +828,69 @@ Blockly.Blocks["jg_messages_reply_with_allowed_list_of_pings_on_users_on_roles"]
 };
 Blockly.JavaScript["jg_messages_reply_with_allowed_list_of_pings_on_users_on_roles"] = function (block) {
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
+    const users = Blockly.JavaScript.valueToCode(block, "USERS", Blockly.JavaScript.ORDER_ATOMIC);
+    const roles = Blockly.JavaScript.valueToCode(block, "ROLES", Blockly.JavaScript.ORDER_ATOMIC);
+    var usableA, usableB;
+    if (!(users === null)) {
+        usableA = `users: ${users},`
+    }
+    if (!(roles === null)) {
+        usableB = `roles: ${roles},`
+    }
     if (block.getInput("CONTENT").connection.targetConnection) {
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
             block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
             null;
         if ((contentType === null)) {
-            const code = `s4dmessage.channel.send({content: String(${content})});\n`;
+            const code = `s4dmessage.channel.send({
+                content: String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
             return code;
         } else if ((contentType === "embed") || (!contentType && typeof contentType === "object")) {
-            const code = `s4dmessage.channel.send({ embeds:[${content}]});\n`;
+            const code = `s4dmessage.channel.send({
+                 embeds:[${content}],
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+                });
+                `;
             return code;
         } else if ((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
-            const code = `s4dmessage.channel.send({${content}});\n`;
+            const code = `s4dmessage.channel.send({
+                ${content},
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
             return code;
         } else {
-            const code = `s4dmessage.channel.send({content:String(${content})});\n`;
+            const code = `s4dmessage.channel.send({
+                content: String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
             return code;
         }
     } else {
-        const code = `s4dmessage.channel.send({content:String(${content})});\n`;
+        const code = `s4dmessage.channel.send({
+            content:String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+        });
+        `;
         return code;
     }
 };
