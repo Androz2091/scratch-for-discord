@@ -1305,57 +1305,7 @@ export default (Blockly, value, searching) => {
 
 -->
 
-	    <category name="Encoding and Securing" colour="195">
-        <label text="Output blocks" web-class="boldtext"></label>
-  <label text="Encoding text" web-class="boldtext"></label>
-            <block type="jg_encode_main">
-          <value name="type">
-           <shadow type="jg_bDI_encodedecodetype">
-           </shadow>
-           </value>
-<value name="type2">
-           <shadow type="jg_bDI_encodedecodetype">
-           </shadow>
-           </value>
-<value name="encode">
-           <shadow type="text">
-           </shadow>
-           </value>
-           </block>
-
-           <label text="Securing text" web-class="boldtext"></label>
-
-
-           <block type="jg_encode_hash">
-           <value name="encode">
-                      <shadow type="text">
-                      </shadow>
-                      </value>
-           
-           <value name="rounds">
-                      <shadow type="math_number">
-                                   <field name="NUM">10</field>
-                      </shadow>
-                      </value>
-           </block>
-
-
-           <block type="jg_encode_checkhash">
-           <value name="hash">
-                      <shadow type="text">
-                      </shadow>
-                      </value>
-           
-           <value name="test">
-                      <shadow type="text">
-                      </shadow>
-                      </value>
-           </block>
-
-           
-           <!-- <label text="Functions" web-class="boldtext"></label> -->
-
-</category>
+	    
 <category name="Public Experiments" colour="120">
     <block type="jg_experiments_xml2json">
         <value name="CONTENT">
@@ -2415,9 +2365,9 @@ export default (Blockly, value, searching) => {
             <block type="s4d_member_dynamic_icon"></block>
             <block type="s4d_joined_at"></block>
             <block type="s4d_created_at"></block>
-            <block type="s4d_member_has_permission"></block>
-	    <block type="member_channel_perms"/>
-            <block type="s4d_member_is_bot"></block>
+            <block type="s4d_member_is_bot"/>
+            <block type="s4d_member_has_permission"/>
+	        <block type="member_channel_perms"/>
             <block type="jg_status_does_member_have_a_status_for_device">
                 <value name="MEMBER">
                     <shadow type="s4d_message_member"/>
@@ -2671,6 +2621,67 @@ export default (Blockly, value, searching) => {
             <block type="jg_roblox_U2_send_friend_request"/>
         </category>
     </category>
+    <category name="Securing" colour="#4c61ff">
+        <label text="Output blocks" web-class="boldtext"></label>
+
+           <label text="Securing text" web-class="boldtext"></label>
+
+
+            <block type="jg_encode_hash">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+                <value name="rounds">
+                    <shadow type="math_number">
+                        <field name="NUM">10</field>
+                    </shadow>
+                </value>
+            </block>
+
+
+            <block type="jg_encode_checkhash">
+                <value name="hash">
+                    <shadow type="text"/>
+                </value>
+                <value name="test">
+                    <shadow type="text"/>
+                </value>
+            </block>
+
+            <block type="jg_encryption_encrypt_text">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+                <value name="key">
+                    <shadow type="frost_env">
+                        <value name="VALUE">
+                            <shadow type="text">
+                                <field name="TEXT">encryptionKey</field>
+                            </shadow>
+                        </value>
+                    </shadow>
+                </value>
+            </block>
+            
+  <label text="Encoding text" web-class="boldtext"></label>
+            <block type="jg_encode_main">
+          <value name="type">
+           <shadow type="jg_bDI_encodedecodetype">
+           </shadow>
+           </value>
+<value name="type2">
+           <shadow type="jg_bDI_encodedecodetype">
+           </shadow>
+           </value>
+<value name="encode">
+           <shadow type="text">
+           </shadow>
+           </value>
+           </block>
+           
+           <!--<label text="Functions" web-class="boldtext"></label>-->
+
+</category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>

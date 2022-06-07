@@ -206,6 +206,9 @@ export default async function require(array, code, js, ahq) {
     if (js.includes("S4D_APP_NOBLOX")) {
         array.push(`const S4D_APP_NOBLOX = require("noblox.js");`)
     }
+    if (js.includes("S4D_APP_CRYPTOJS")) {
+        array.push(`const S4D_APP_CRYPTOJS = require("crypto-js");`)
+    }
     if (js.includes("dootabase")) {
         array.push(`const dootabase = require("easy-db-json");
 dootabase.setFile("./database.json");`)
