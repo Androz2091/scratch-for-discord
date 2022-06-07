@@ -620,3 +620,173 @@ Blockly.JavaScript["jg_typing_typing_attribute"] = function (block) {
     }
     return code;
 };
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+// my my
+
+Blockly.Blocks["jg_status_does_member_have_a_status_for_device"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "does member %1 have a status for discord %2?",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": "Member"
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "desktop app",
+                                'desktop'
+                            ],
+                            [
+                                "website",
+                                'web'
+                            ],
+                            [
+                                "mobile app",
+                                'mobile'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#187795",
+                "output": "Boolean",
+                "tooltip": "Can be used to see what devices the member is using. If the member is not using the device, it'll be false.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_status_does_member_have_a_status_for_device"] = function (block) {
+    var member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    if (member.endsWith(".user")) {
+        member = member.substring(0, member.length - 5)
+    }
+    if (member.endsWith(".user)")) {
+        member = member.substring(0, member.length - 6) + ")"
+    }
+    const type = block.getFieldValue("TYPE")
+    const code = [`${member}.presence.clientStatus.${type} != null`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_status_member_status_on_discord"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "member %1 status on discord %2",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": "Member"
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "desktop app",
+                                'desktop'
+                            ],
+                            [
+                                "website",
+                                'web'
+                            ],
+                            [
+                                "mobile app",
+                                'mobile'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#187795",
+                "output": "String",
+                "tooltip": "Can be used to see what devices the member is using. This can be online, idle, or dnd.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_status_member_status_on_discord"] = function (block) {
+    var member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    if (member.endsWith(".user")) {
+        member = member.substring(0, member.length - 5)
+    }
+    if (member.endsWith(".user)")) {
+        member = member.substring(0, member.length - 6) + ")"
+    }
+    const type = block.getFieldValue("TYPE")
+    const code = [`${member}.presence.clientStatus.${type}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};

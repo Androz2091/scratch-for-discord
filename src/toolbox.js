@@ -2418,6 +2418,17 @@ export default (Blockly, value, searching) => {
             <block type="s4d_member_has_permission"></block>
 	    <block type="member_channel_perms"/>
             <block type="s4d_member_is_bot"></block>
+            <block type="jg_status_does_member_have_a_status_for_device">
+                <value name="MEMBER">
+                    <shadow type="s4d_message_member"/>
+                </value>
+            </block>
+            <block type="jg_status_member_status_on_discord">
+                <value name="MEMBER">
+                    <shadow type="s4d_message_member"/>
+                </value>
+            </block>
+
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
