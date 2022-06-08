@@ -34,7 +34,7 @@ export default (Blockly, value, searching) => {
 	
     ${toolbox_search_category}
     <category name="Favorites" colour="#FFFF00" css-icon="customIcon fa fa-star">
-    	<label text="Add your favorite blocks here by right clicking them and press "Add to favorite"!"></label>
+    	<label text="Add your favorite blocks here by right clicking them and press Add to favorite!"></label>
                         <!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->
     </category>
     <sep class="bt"/>
