@@ -159,6 +159,28 @@
 		  padding: 0px;
 		  margin-bottom: 3px;
 		}
+		
+		/* Rotate effect */
+			     .blocklyTreeIcon {
+              background-position: -32px -1px!important;
+            }
+
+            .blocklyTreeIconOpen {
+              transform:rotate(90deg);
+              transition: transform 3s
+    }
+
+            .blocklyTreeIcon[style="visibility: visible; display: inline-block;"] {
+              margin-left: 3px;
+              transition-duration: 300ms;
+              filter: invert(100%) sepia(33%) saturate(312%) hue-rotate(55deg) brightness(100%) contrast(106%);
+            }
+          
+            .blocklyTreeSeparator {
+              border-bottom: solid #555555 1px;
+              height: 0;
+              margin: 5px 0;
+            }
 /* Adds cool animations to the categories */
         .blocklyTreeRow:hover, .blocklyTreeRow:focus {
 		  border-radius: 4px;
