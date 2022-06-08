@@ -2050,6 +2050,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_messages_id_of_message"/>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
+            <block type="jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"></block>
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
             <block type="s4d_message_content"></block>
             <block type="s4d_message_id"></block>

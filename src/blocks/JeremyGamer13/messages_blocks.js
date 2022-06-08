@@ -1081,7 +1081,36 @@ registerRestrictions("jg_channels_send_in_channel_with_allowed_list_of_pings_on_
 // abc
 // abc
 
-
+Blockly.Blocks["jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "When a message is recieved & author isnt a bot %1 %2",
+                "colour": "#F5AB1A",
+                "args0": [
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"] = function (block) {
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `s4d.client.on('messageCreate', async (s4dmessage) => {
+        if (s4dmessage.author.bot) {
+            return;
+        }
+        ${statements}
+    });
+    `;
+    return code;
+};
 
 // abc
 // abc
