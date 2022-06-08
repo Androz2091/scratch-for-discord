@@ -2083,7 +2083,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_when_ran"/>
             <block type="jg_rbs_isRunButton"/>
             <block type="jg_unused_floating_comment">
-                <field name="TEXT">This is a floating comment.</field>
+                <field name="TEXT">This is a floating comment,&amp;#10;with new lines too!</field>
             </block>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
