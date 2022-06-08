@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "Message";
 
 const blockData = {
-    "message0": "Message",
+    "message0": "message",
     "colour": "#a55b80",
     "output": "Message",
     "tooltip": "",
@@ -11,12 +11,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
+Blockly.JavaScript[blockName] = function () {
     const code = ["s4dmessage", Blockly.JavaScript.ORDER_NONE];
     return code;
 };

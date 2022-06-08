@@ -67,13 +67,15 @@ export default {
                 .then((text) => {
                     const xml = Blockly.Xml.textToDom(text);
                     Blockly.Xml.domToWorkspace(xml, this.$store.state.workspace);
-                }).catch(() => {
+                })
+                .catch((err) => {
                     this.$toast.open({
                         message: this.$t('load.error'),
                         type: "error",
                         dismissible: true,
                         duration: 10000
                     });
+                    console.warn("An error occurred when loading a file!", String(err).substring(0, 250))
                 });
             };
             if (file) {

@@ -4,8 +4,7 @@ const blockName = "s4d_get_all_role";
 
 const blockData = {
     "message0": "%{BKY_GET_ALL_ROLE}",
-    "args0": [
-        {
+    "args0": [{
             "type": "input_value",
             "name": "SERVER",
             "check": "Server"
@@ -31,9 +30,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function(block) {
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    let code = `${server}.roles.cache.forEach(ro =>{ \n ${statementThen} \n})\n`;
+    let code = `${server}.roles.cache.forEach(async (ro) =>{ \n ${statementThen} \n})\n`;
     return code;
 };

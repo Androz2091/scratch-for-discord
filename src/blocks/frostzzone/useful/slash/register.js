@@ -28,19 +28,19 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-    }
+  init: function () {
+    this.jsonInit(blockData);
+  }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
   var gild = Blockly.JavaScript.valueToCode(block, 'GUILD', Blockly.JavaScript.ORDER_ATOMIC);
   var options = Blockly.JavaScript.statementToCode(block, 'OPTIONS');
   var guild
-  if (gild == undefined||gild == null||!gild.length){
+  if (gild == undefined || gild == null || !gild.length) {
     guild = ``
   } else {
-    guild = `guildID=${gild}`
+    guild = `guildID: ${gild}`
   }
   // TODO: Assemble JavaScript into code variable.
   var code = `synchronizeSlashCommands(s4d.client, [

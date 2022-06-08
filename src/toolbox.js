@@ -478,7 +478,7 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt" />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE"/>
-<category name="{{ TOOLBOX_VARIABLES }}-expanded" colour="#a55b80">
+<category name="Expanded {{ TOOLBOX_VARIABLES }}" colour="#ad5a84">
 <label text="Make global/local variables for functions and other stuff"></label>
 <label text="Compatible with variables category"></label>
 <block type="import_all"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
@@ -489,6 +489,80 @@ export default (Blockly, value, searching) => {
 </category>
 
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE"/>
+
+        <category name="Collections" colour="#a354b3">
+        <label text="Collections are able to hold data." web-class="boldtext"></label>
+        <label text="It's like a list, but you can put the data under a label." web-class="boldtext"></label>
+        <label text="The label is the key, and the data can be gained using that key." web-class="boldtext"></label>
+            <block type="collections_create_new_collection"/>
+            <block type="collections_set_to_key_in_collection">
+                <value name="VALUE">
+                    <block type="math_number">
+                        <field name="NUM">123</field>
+                    </block>
+                </value>
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_get_from_collection">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_remove_key_in_collection">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_clear_collection">
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_collection_has_key">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_size_of_collection">
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+        </category>
 
         <!--<category name="Objects" colour="#cc59e3">
             <block type="jg_object_getvalue"/>
@@ -665,33 +739,6 @@ export default (Blockly, value, searching) => {
         </category>
 
 
-
-
-
-        <category name="V2 Embeds" colour="#cc60db">
-                <block type="s4d_embed_create"/>
-                <block type="s4d_message_embed_lime"/>
-                <block type="s4d_embed_edit"/>
-                <block type="s4d_embed_send">
-                <value name="NAME">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-                <value name="TEXT">
-                <shadow type="text">
-                    <field name="TEXT"></field>
-                </shadow>
-            </value>
-                </block>
-                <block type="embed_send_round">
-                <value name="Label">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-                </block>
-        </category>
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>
         </category>
@@ -722,11 +769,11 @@ export default (Blockly, value, searching) => {
         </category>
         </category>
 
-        <category name="henpokpok" colour="#64C9FF">
-          <category name="Timeout" colour="#FF6464">
-          <block type="mute_ahq"/>
-          </category>
-        <category name="Reactions" colour="#FF6464">
+        <!--<category name="henpokpok" colour="#64C9FF">
+          <category name="Timeout" colour="#FF6464">-->
+          <!--</category>-->
+        
+        <!--  <category name="Reactions" colour="#FF6464">
         <label text="Reations event (under construction)" web-class="boldtext"></label>
         <block type="reaction_added"/>
         <block type="reaction_removed"/>
@@ -735,7 +782,7 @@ export default (Blockly, value, searching) => {
         <block type="react_emoji"/>
         <block type="react_messageId"/>
         </category>
-        </category>
+        </category>-->
 	
 	<category name="AlexCdDg" colour="#06cfaa">
         
@@ -748,14 +795,7 @@ export default (Blockly, value, searching) => {
         <block type="get_image"/>
 	<block type="url_image"/>
         </category>
-	<category name="Typing" colour="#f79400">
-        <label text="Typing event" web-class="boldtext"></label>
-        <block type="typing_start"/>
-        <label text="Typing blocks" web-class="boldtext"></label>
-        <block type="typing_server"/>
-        <block type="typing_channel"/>
-        <block type="typing_member"/>
-        </category>
+	
 	<category name="Other" colour="#c70e6d">
         <block type="hig_role"/>
         <label text="This will detect the color of highest role" web-class="boldtext"></label>
@@ -956,6 +996,9 @@ export default (Blockly, value, searching) => {
         <block type="bot_voice_channel_id"></block>
         <block type="slash_reply"></block>
         <block type="slash_edit"></block>
+        <label text="Send an embed in slash"></label>
+        <label text="(for named embeds, the name has to be just called embed)"></label>
+        <block type="send_m_embed_string"></block>
 <label text="ㅤ" web-class="boldtext"></label>
 </category>
 
@@ -1026,7 +1069,7 @@ export default (Blockly, value, searching) => {
 </category>
 </category>
 
-<category name="Retro and XL83" colour="#AAE941">
+<category name="Retro and cat soup" colour="#AAE941">
 <category name="QR Code" color="#5ba58b">
     <block type="create_qr_then"/>
     <block type="qr"/>
@@ -1354,57 +1397,7 @@ export default (Blockly, value, searching) => {
 
 -->
 
-	    <category name="Encoding and Securing" colour="195">
-        <label text="Output blocks" web-class="boldtext"></label>
-  <label text="Encoding text" web-class="boldtext"></label>
-            <block type="jg_encode_main">
-          <value name="type">
-           <shadow type="jg_bDI_encodedecodetype">
-           </shadow>
-           </value>
-<value name="type2">
-           <shadow type="jg_bDI_encodedecodetype">
-           </shadow>
-           </value>
-<value name="encode">
-           <shadow type="text">
-           </shadow>
-           </value>
-           </block>
-
-           <label text="Securing text" web-class="boldtext"></label>
-
-
-           <block type="jg_encode_hash">
-           <value name="encode">
-                      <shadow type="text">
-                      </shadow>
-                      </value>
-           
-           <value name="rounds">
-                      <shadow type="math_number">
-                                   <field name="NUM">10</field>
-                      </shadow>
-                      </value>
-           </block>
-
-
-           <block type="jg_encode_checkhash">
-           <value name="hash">
-                      <shadow type="text">
-                      </shadow>
-                      </value>
-           
-           <value name="test">
-                      <shadow type="text">
-                      </shadow>
-                      </value>
-           </block>
-
-           
-           <!-- <label text="Functions" web-class="boldtext"></label> -->
-
-</category>
+	    
 <category name="Public Experiments" colour="120">
     <block type="jg_experiments_xml2json">
         <value name="CONTENT">
@@ -1455,12 +1448,6 @@ export default (Blockly, value, searching) => {
                 <category name="RegEx" colour="#5aed5a">
                     <block type="new_regex"/>
                     <block type="test_regex"/>
-                </category>
-                <category name="attachment" colour="#5aed8b">
-                    <block type="att_size"/>
-                    <block type="att_name"/>
-                    <block type="att_type"/>
-                    <block type="att_url"/>
                 </category>
                 <category name="discord together" colour="#5aedbc">
                     <block type="create_together"/>
@@ -1825,7 +1812,10 @@ export default (Blockly, value, searching) => {
         <block type="bot_voice_channel_id"></block>
         <block type="slash_reply"></block>
         <block type="slash_edit"></block>
+        <label text="Send an embed in slash"></label>
+        <label text="(for named embeds, the name has to be just called embed)"></label>
         <block type="send_m_embed_string"></block>
+        <label text="ㅤ"></label>
         </category>
 				        <category name="context menu" colour="#f0f255">
         <label text="Event" web-class="boldtext"></label>
@@ -2056,16 +2046,85 @@ export default (Blockly, value, searching) => {
 						<label text="%{BKY_FIND_MESSAGE}"></label>
 						<block type="s4d_get_msg_then"></block>
 						<block type="edit_msg_by_id"></block>
+            <label text="Find a message if you only have the message itself"></label>
+            <block type="jg_messages_id_of_message"/>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
             <block type="s4d_message_content"></block>
             <block type="s4d_message_id"></block>
+	    <block type="s4d_message_ts"></block>
             <block type="s4d_message_author"></block>
             <block type="s4d_message_member"/>
             <block type="s4d_mentioned_member"></block>
             <block type="s4d_mentioned_channel"></block>
             <block type="s4d_mentioned_role"></block>
+            <block type="jg_message_mentioned_member_number_on_message">
+                <value name="INDEX">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="MESSAGE">
+                    <shadow type="Message"/>
+                </value>
+            </block>
+            <block type="jg_message_amount_of_mentioned_members_on_message">
+                <value name="MESSAGE">
+                    <shadow type="Message"/>
+                </value>
+            </block>
+            <block type="jg_message_user_replied_to_in_message">
+                <value name="MSG">
+                    <shadow type="Message"/>
+                </value>
+            </block>
+            <block type="jg_messages_message_is_value">
+                <value name="MSG">
+                    <shadow type="Message"/>
+                </value>
+            </block>
+            <label text="Get attachments on the message" web-class="boldtext"></label>
+                
+                    <block type="att_size">
+                        <value name="MESSAGE">
+                            <shadow type="Message"/>
+                        </value>
+                    </block>
+                    <block type="jg_attachment_amount_of_attachments_on_message">
+                        <value name="MESSAGE">
+                            <shadow type="Message"/>
+                        </value>
+                    </block>
+                    <block type="jg_attachment_get_attachment_number">
+                        <value name="INDEX">
+                            <shadow type="math_number">
+                                <field name="NUM">1</field>
+                            </shadow>
+                        </value>
+                        <value name="MESSAGE">
+                            <shadow type="Message"/>
+                        </value>
+                    </block>
+                    <block type="jg_attachment_get_attachment_property">
+                        <value name="ATTACH">       
+                            <shadow type="jg_attachment_get_attachment_number">
+                                <value name="INDEX">
+                                    <shadow type="math_number">
+                                        <field name="NUM">1</field>
+                                    </shadow>
+                                </value>
+                                <value name="MESSAGE">
+                                    <shadow type="Message"/>
+                                </value>
+                            </shadow>
+                        </value>
+                    </block>
+                    <!--
+                    <block type="att_name"/>
+                    <block type="att_type"/>
+                    <block type="att_url"/>
+                    -->
             <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
             <block type="Message"/>
             <block type="s4d_message_channel"></block>
@@ -2075,7 +2134,6 @@ export default (Blockly, value, searching) => {
             <block type="s4d_message_channel_raw"></block>
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
-<block type="anti_spam"></block>
             <block type="s4d_reply">
                 <value name="CONTENT">
                     <shadow type="text">
@@ -2083,7 +2141,20 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+            <block type="jg_messages_reply_with_allowed_list_of_pings_on_users_on_roles">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">No user ping here!</field>
+                    </shadow>
+                </value>
+                <value name="USERS">
+                    <block type="lists_create_with">
+                        <mutation items="0"/>
+                    </block>
+                </value>
+            </block>
             <block type="s4d_delete"></block>
+            <block type="anti_spam"></block>
             <block type="s4d_remove_all_reactions"/>
             <block type="s4d_remove_reactions"/>
             <block type="s4d_add_reaction">
@@ -2129,6 +2200,14 @@ export default (Blockly, value, searching) => {
 						<block type="s4d_pin"/>
 						<block type="s4d_unpin"/>
             <block type="s4d_message_embed"></block>
+            
+                    
+            
+        <label text="Blocks for handling typing" web-class="boldtext"></label>
+        <block type="typing_start"/>
+        <block type="jg_typing_typing_attribute"/>
+                
+
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Threads" colour="#2a97b8">
@@ -2269,6 +2348,18 @@ export default (Blockly, value, searching) => {
 	    <block type="get_all_channel_channel_name"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
             <block type="s4d_send_channel"></block>
+            <block type="jg_channels_send_in_channel_with_allowed_list_of_pings_on_users_on_roles">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">No user ping here!</field>
+                    </shadow>
+                </value>
+                <value name="USERS">
+                    <block type="lists_create_with">
+                        <mutation items="0"/>
+                    </block>
+                </value>
+            </block>
 	    <label text="Channel Info"></label>
 	    <block type="s4d_channel_ahq_name"></block>
       <block type="s4d_channel_id"/>
@@ -2276,6 +2367,26 @@ export default (Blockly, value, searching) => {
       <block type="s4d_channel_parent_id"/>
       <block type="s4d_channel_message_id"/>
       <block type="s4d_channel_topic"/>
+            <block type="s4d_channel_exist"/>
+            <block type="s4d_is_channel_nsfw"/>
+
+            <label text="Finding content in the channel"></label>
+
+            <block type="jg_channel_get_last_messages_in_channel_then">
+                <value name="AMOUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">2</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_channel_last_message_number">
+                <value name="INDEX">
+                    <shadow type="math_number">
+                        <field name="NUM">2</field>
+                    </shadow>
+                </value>
+            </block>
+
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply">
                 <value name="CONTENT">
@@ -2296,7 +2407,6 @@ export default (Blockly, value, searching) => {
             <block type="reply_message"/>
             <block type="reply_message_id"/>
             <label text="%{BKY_CHANNEL_MESSAGE_ACTIONS}"></label>
-            <block type="s4d_channel_exist"/>
              <block type="s4d_purge">
 
                 <value name="AMOUNT">
@@ -2308,7 +2418,6 @@ export default (Blockly, value, searching) => {
 	    
 	    
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
-            <block type="s4d_is_channel_nsfw"/>
             <block type="slowmode"></block>
             
             <block type="set_perms_parent"></block>
@@ -2372,10 +2481,22 @@ export default (Blockly, value, searching) => {
             <block type="s4d_member_dynamic_icon"></block>
             <block type="s4d_joined_at"></block>
             <block type="s4d_created_at"></block>
-            <block type="s4d_member_has_permission"></block>
-	    <block type="member_channel_perms"/>
-            <block type="s4d_member_is_bot"></block>
+            <block type="s4d_member_is_bot"/>
+            <block type="s4d_member_has_permission"/>
+	        <block type="member_channel_perms"/>
+            <block type="jg_status_does_member_have_a_status_for_device">
+                <value name="MEMBER">
+                    <shadow type="s4d_message_member"/>
+                </value>
+            </block>
+            <block type="jg_status_member_status_on_discord">
+                <value name="MEMBER">
+                    <shadow type="s4d_message_member"/>
+                </value>
+            </block>
+
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
+            <block type="mute_ahq"/>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
             <block type="s4d_unban_member"></block>
@@ -2609,12 +2730,80 @@ export default (Blockly, value, searching) => {
             <block type="jg_roblox_U2_decline_all_friend_requests"/>
             <block type="jg_roblox_U2_block_user"/>
             <block type="jg_roblox_U2_unblock_user"/>
-            <!--<block type="jg_roblox_U2_follow_user_id"/>-->
+            <!--
+            <block type="jg_roblox_U2_follow_user_id"/>
+            -->
             <block type="jg_roblox_U2_unfollow_user_id"/>
             <block type="jg_roblox_U2_send_message_to_user_id"/>
             <block type="jg_roblox_U2_send_friend_request"/>
         </category>
     </category>
+    <category name="Securing" colour="#4c61ff">
+        <label text="Output blocks" web-class="boldtext"></label>
+
+           <label text="Securing text" web-class="boldtext"></label>
+
+
+            <block type="jg_encode_hash">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+                <value name="rounds">
+                    <shadow type="math_number">
+                        <field name="NUM">10</field>
+                    </shadow>
+                </value>
+            </block>
+
+
+            <block type="jg_encode_checkhash">
+                <value name="hash">
+                    <shadow type="text"/>
+                </value>
+                <value name="test">
+                    <shadow type="text"/>
+                </value>
+            </block>
+
+            <block type="jg_encryption_encrypt_text">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+                <value name="key">
+                    <shadow type="frost_env">
+                        <value name="VALUE">
+                            <shadow type="text">
+                                <field name="TEXT">encryptionKey</field>
+                            </shadow>
+                        </value>
+                    </shadow>
+                </value>
+            </block>
+            <block type="catsoup_encryption_sha256">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+            </block>
+
+  <label text="Encoding text" web-class="boldtext"></label>
+            <block type="jg_encode_main">
+          <value name="type">
+           <shadow type="jg_bDI_encodedecodetype">
+           </shadow>
+           </value>
+<value name="type2">
+           <shadow type="jg_bDI_encodedecodetype">
+           </shadow>
+           </value>
+<value name="encode">
+           <shadow type="text">
+           </shadow>
+           </value>
+           </block>
+           
+           <!--<label text="Functions" web-class="boldtext"></label>-->
+
+</category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>
