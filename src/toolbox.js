@@ -2761,11 +2761,13 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+
             <block type="catsoup_encryption_sha256">
                 <value name="encode">
                     <shadow type="text"/>
                 </value>
             </block>
+
 
   <label text="Encoding text" web-class="boldtext"></label>
             <block type="jg_encode_main">
