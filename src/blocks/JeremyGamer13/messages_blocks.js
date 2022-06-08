@@ -1085,7 +1085,7 @@ Blockly.Blocks["jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bo
     init: function () {
         this.jsonInit(
             {
-                "message0": "When a message is recieved & author isnt a bot %1 %2",
+                "message0": "When a message is recieved & author isn't a bot %1 %2",
                 "colour": "#F5AB1A",
                 "args0": [
                     {
@@ -1109,6 +1109,44 @@ Blockly.JavaScript["jg_event_message_when_a_message_is_recieved_and_author_isnt_
         ${statements}
     });
     `;
+    return code;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+Blockly.Blocks["jg_unused_floating_comment"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "ㅤ%1ㅤ",
+                "colour": "#DDAA00",
+                "args0": [
+                    {
+                        "type": "field_multilinetext",
+                        "name": "TEXT",
+                        "spellcheck": false
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_unused_floating_comment"] = function (block) {
+    var text = block.getFieldValue('TEXT');
+    text = text.replaceAll("*/", "* /")
+    const code = `/*
+    ${text}
+    */`;
     return code;
 };
 

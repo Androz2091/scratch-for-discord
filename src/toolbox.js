@@ -2040,6 +2040,10 @@ export default (Blockly, value, searching) => {
             <label text="Some more advanced features" web-class="boldtext"></label>
             <block type="jg_when_ran"/>
             <block type="jg_rbs_isRunButton"/>
+            <block type="jg_unused_floating_comment">
+                <field name="TEXT">This is a floating comment.</field>
+            </block>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>

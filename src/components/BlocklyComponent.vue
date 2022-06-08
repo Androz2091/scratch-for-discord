@@ -669,8 +669,26 @@ function svgToPng_(data, width, height, callback) {
     var img = new Image();
   
     var pixelDensity = 5;
-    canvas.width = width * pixelDensity;
-    canvas.height = height * pixelDensity;
+    let maxScaleI = 4096
+    var highestCScale = 0
+    var newWidth = width * pixelDensity
+    var newHeight = height * pixelDensity
+
+    if ((newWidth > maxScaleI) || (newHeight > maxScaleI)) {
+        if (newWidth > newHeight) {
+            highestCScale = newWidth
+        } else {
+            highestCScale = newHeight
+        }
+        newWidth = Math.round((newWidth / highestCScale) * maxScaleI)
+        newHeight = Math.round((newHeight / highestCScale) * maxScaleI)
+    }
+
+    // newWidth = 4096
+    // newHeight = 4096
+
+    canvas.width = newWidth;
+    canvas.height = newHeight;
     img.onload = function() {
       context.drawImage(
           img, 0, 0, width, height, 0, 0, canvas.width, canvas.height);
