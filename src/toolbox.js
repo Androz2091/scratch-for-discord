@@ -638,12 +638,14 @@ export default (Blockly, value, searching) => {
         <block type="server_file"/>
         <block type="snd_ahq"/>
         <block type="ahq_value_snd"/>
+        <!--
         <category name="member" colour="#006600">
         <label text="Fetch members of a server" web-class="boldtext"></label>
         <block type="s4d_get_rndm"/>
         <label text="Get random member" web-class="boldtext"></label>
         <block type="s4d_get_rndmber"/>
         </category>
+        -->
         <category name="forms" colour="#66ffff">
         <block type="on_real_form"/>
         <!--
@@ -2517,6 +2519,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_get_member"></block>
             <block type="s4d_get_all"></block>
             <block type="s4d_get_all_member"></block>
+            <block type="ahq_members_get_random_member_in_server"/>
             <label text="%{BKY_MEMBER_INFORMATIONS}"></label>
             <block type="s4d_member_exist"/>
             <block type="s4d_member_id"></block>
