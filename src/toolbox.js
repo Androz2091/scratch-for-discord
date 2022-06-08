@@ -2085,9 +2085,6 @@ export default (Blockly, value, searching) => {
             <label text="Some more advanced features" web-class="boldtext"></label>
             <block type="jg_when_ran"/>
             <block type="jg_rbs_isRunButton"/>
-            <block type="jg_unused_floating_comment">
-                <field name="TEXT">This is a floating comment,&amp;#10;with new lines too!</field>
-            </block>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
@@ -2858,92 +2855,7 @@ export default (Blockly, value, searching) => {
 
 </category>
         <sep class="bt"/>
-        <category name="SQLite DB" colour="#FF0000">
-            <label text="%{BKY_LABEL_READ_DB}"></label>
-            <block type="qdb_get">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_all"/>
-            <block type="qdb_has_data">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
-            <block type="qdb_set_data">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="VALUE">
-                    <shadow type="text">
-                        <field name="TEXT">world</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_delete_data">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_add_data">
-                <value name="COUNT">
-                    <shadow type="math_number">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_subtract">
-                <value name="COUNT">
-                    <shadow type="math_number">
-                        <field name="TEXT">1</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_push">
-                <value name="DATA">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">world</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_pull">
-                <value name="DATA">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">world</field>
-                    </shadow>
-                </value>
-            </block>
-        </category>
+        
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>
             <block type="s4d_get_data">
@@ -3103,11 +3015,120 @@ export default (Blockly, value, searching) => {
             <block type="s4d_delete_all_data2"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
+<category name="SQLite DB" colour="#FF0000">
+            <label text="%{BKY_LABEL_READ_DB}"></label>
+            <block type="qdb_get">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_all"/>
+            <block type="qdb_has_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
+            <block type="qdb_set_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_delete_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_add_data">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_subtract">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="TEXT">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_push">
+                <value name="DATA">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_pull">
+                <value name="DATA">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
 
-        
 
-                    
 
+
+
+
+
+
+
+
+
+
+
+
+
+        <sep class="bt"/>
+        <category name="Comments" colour="#DDAA00">
+            <label text="Comments allow you to explain what your blocks do."></label>
+            <label text="You can add comments onto specific blocks by going on a block, then Right Click > Add Comment"></label>
+            <label text="However, these floating comments allow you to place them anywhere and be always visible!"></label>
+            <block type="jg_unused_floating_comment">
+                <field name="TEXT">This is a floating comment,&amp;#10;with new lines too!</field>
+            </block>
+            <block type="jg_comments_floating_arrow"/>
+            <block type="jg_comments_floating_image">
+                <field name="TEXT">https://media.discordapp.net/attachments/914411539887456296/984121680458829835/ef5d4de4c598bda58c6edc09e9478b2d.png</field>
+            </block>
+        </category>
         
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {

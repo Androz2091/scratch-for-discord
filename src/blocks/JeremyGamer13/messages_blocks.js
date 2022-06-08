@@ -1149,6 +1149,127 @@ Blockly.JavaScript["jg_unused_floating_comment"] = function (block) {
     */`;
     return code;
 };
+Blockly.Blocks["jg_comments_floating_arrow"] = {
+    init: function () {
+        let imgsize = 64
+        this.jsonInit(
+            {
+                "message0": "%1",
+                "colour": "#DDAA00",
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "arrow",
+                        "options": [
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067831064846396/down.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "down"
+                                },
+                                "down"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067832717393940/up.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "up"
+                                },
+                                "up"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067832088231966/right.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "right"
+                                },
+                                "right"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067831589117952/left.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "left"
+                                },
+                                "left"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067830775427082/dleft.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "down left"
+                                },
+                                "down left"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067831358427166/dright.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "down right"
+                                },
+                                "down right"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067832373469254/uleft.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "up left"
+                                },
+                                "up left"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067832948072458/uright.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "up right"
+                                },
+                                "up right"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_comments_floating_arrow"] = function () {
+    const code = ``;
+    return code;
+};
+// #DDAA00
+Blockly.Blocks["jg_comments_floating_image"] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Image URL:")
+            .appendField(new Blockly.FieldTextInput("https://www.gstatic.com/codesite/ph/images/star_on.gif"), "TEXT")
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage("https://www.gstatic.com/codesite/ph/images/star_on.gif", 512, 512, { alt: "Custom Image", flipRtl: "FALSE" }), "IMG");
+        this.setInputsInline(false);
+        this.setColour("#DDAA00");
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+
+    ,
+    onchange: function () {
+        let url = String(this.getFieldValue("TEXT"))
+        this.getField("IMG").setValue(url)
+        this.setTooltip("An image comment using url " + url + ".")
+    }
+
+}
+Blockly.JavaScript["jg_comments_floating_image"] = function () {
+    const code = ``;
+    return code;
+};
 
 // abc
 // abc
