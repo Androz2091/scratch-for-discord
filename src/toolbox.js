@@ -492,8 +492,8 @@ export default (Blockly, value, searching) => {
 
         <category name="Collections" colour="#a354b3">
         <label text="Collections are able to hold data." web-class="boldtext"></label>
-        <label text="It's like a list, but you can put the data under a label." web-class="boldtext"></label>
-        <label text="The label is the key, and the data can be gained using that key." web-class="boldtext"></label>
+        <label text="It's like a list, but you attach a key to the data." web-class="boldtext"></label>
+        <label text="You can then grab the data using the key later." web-class="boldtext"></label>
             <block type="collections_create_new_collection"/>
             <block type="collections_set_to_key_in_collection">
                 <value name="VALUE">
