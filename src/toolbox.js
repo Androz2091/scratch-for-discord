@@ -613,6 +613,24 @@ export default (Blockly, value, searching) => {
 				<sep class="bt"/>
 				
 			<category name="Member's Blocks" expanded="true">
+			<category name="Eruption" colour="#ff4000">
+				<category name="Embed" colour="#40BF4A">
+                <label text="Create a perfect embed" web-class="boldtext"></label>
+                <block type="s4d_embed_create"></block>
+                <block type="s4d_embed_set_color"></block>
+                <block type="s4d_embed_set_author"></block>
+                <block type="s4d_embed_set_title"></block>
+                <block type="s4d_embed_set_desc"></block>
+                <block type="s4d_embed_set_thumb"></block>
+                <block type="s4d_embed_add_field"></block>
+                <block type="s4d_embed_set_image"></block>
+                <block type="s4d_embed_set_footer"></block>
+                <label text="Custom date format: MM-DD-YYYY" web-class="boldtext"></label>
+                <block type="s4d_embed_set_timestamp"></block>
+                <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
+                <block type="s4d_embed_send"></block>
+            </category>
+			</category>
 				<category name="ahq" colour="#ff0000" disabled="true">
         <label text="AHQ's Simple Host Auth" web-class="boldtext"></label>
         <block type="simple_host_auth"/>

@@ -146,6 +146,10 @@ import Theme from '@blockly/theme-modern';
 //ahq stuff
 import "./blocks/ahq/";
 import "./blocks/henpokpok/";
+
+//Eruption
+import "./blocks/Eruption/message_embed/"
+
 export default {
     name: "app",
     components: {
