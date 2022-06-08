@@ -1,5 +1,5 @@
 import * as Blockly from "blockly/core";
-import { registerRestrictions } from "../../../../restrictions";
+import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_embed_send";
 
