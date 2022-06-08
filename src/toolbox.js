@@ -738,6 +738,48 @@ export default (Blockly, value, searching) => {
         <block type="stamp_ahq_embed"/>
         </category>
 
+<!--
+
+
+
+
+
+
+
+<category name="V2 Embeds" colour="#cc60db">
+                <block type="s4d_embed_create"/>
+                <block type="s4d_message_embed_lime"/>
+                <block type="s4d_embed_edit"/>
+                <block type="s4d_embed_send">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT"></field>
+                </shadow>
+            </value>
+                </block>
+                <block type="embed_send_round">
+                <value name="Label">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                </block>
+        </category>
+
+
+
+
+
+
+
+
+-->
+
 
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>

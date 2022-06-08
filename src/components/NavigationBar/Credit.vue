@@ -40,6 +40,10 @@ export default {
                     <span style="color:#429139">jose_trindade</span>,
                     <span style="color:#9c2525">MrRedo</span>
                     </p></b>
+                    <h5>Extras:</h5>
+                    <b><p>
+                    <span style="color:#69b0d6">Monaco</span>
+                    </p></b>
                 `,
                 showConfirmButton: true
             })
