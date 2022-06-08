@@ -15,7 +15,6 @@ export default (Blockly, value, searching) => {
     <label text="Touch: Hold on the workspace > Search for block"></label>
         <!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->
     </category>
-    <sep class="bt"/>
     `
     } else {
         var toolbox_search_category = ``
@@ -34,6 +33,11 @@ export default (Blockly, value, searching) => {
     -->
 	
     ${toolbox_search_category}
+    <category name="Favorites" colour="#FFFF00" css-icon="customIcon fa fa-star">
+    	<label text="Add your favorite blocks here by right clicking them and press "Add to favorite"!"></label>
+                        <!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->
+    </category>
+    <sep class="bt"/>
 
 	<category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
             <block type="controls_if" />
@@ -607,10 +611,6 @@ export default (Blockly, value, searching) => {
        
 	  
                 <sep class="bt"/>
-                    <category name="Favorites" colour="#FFFF00" css-icon="customIcon fa fa-star">
-                        <!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->
-                    </category>
-				<sep class="bt"/>
 				
 			<category name="Member's Blocks" expanded="true">
 			<category name="Eruption" colour="#ff4000">
