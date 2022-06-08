@@ -25,6 +25,10 @@ export default async function require(array, code, js, ahq) {
     });
     `)
     }
+    if(js.includes(`qdb.set`)) {
+        array.push(`const { QuickDB } = require('quick.db')`)
+        code.push(`const qdb = new QuickDB()`)
+    }
     if (js.includes("const stream = discordTTS")) {
         array.push(`const discordTTS = require("discord-tts");`)
         array.push(`const {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} = require("@discordjs/voice");`)

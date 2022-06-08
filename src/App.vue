@@ -150,6 +150,10 @@ import "./blocks/henpokpok/";
 //Eruption
 import "./blocks/Eruption/message_embed/"
 
+
+import "./blocks/quickdb"
+
+
 export default {
     name: "app",
     components: {
