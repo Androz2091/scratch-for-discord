@@ -492,8 +492,8 @@ export default (Blockly, value, searching) => {
 
         <category name="Collections" colour="#a354b3">
         <label text="Collections are able to hold data." web-class="boldtext"></label>
-        <label text="It's like a list, but you can put the data under a label." web-class="boldtext"></label>
-        <label text="The label is the key, and the data can be gained using that key." web-class="boldtext"></label>
+        <label text="It's like a list, but you attach a key to the data." web-class="boldtext"></label>
+        <label text="You can then grab the data using the key later." web-class="boldtext"></label>
             <block type="collections_create_new_collection"/>
             <block type="collections_set_to_key_in_collection">
                 <value name="VALUE">
@@ -638,12 +638,14 @@ export default (Blockly, value, searching) => {
         <block type="server_file"/>
         <block type="snd_ahq"/>
         <block type="ahq_value_snd"/>
+        <!--
         <category name="member" colour="#006600">
         <label text="Fetch members of a server" web-class="boldtext"></label>
         <block type="s4d_get_rndm"/>
         <label text="Get random member" web-class="boldtext"></label>
         <block type="s4d_get_rndmber"/>
         </category>
+        -->
         <category name="forms" colour="#66ffff">
         <block type="on_real_form"/>
         <!--
@@ -737,6 +739,48 @@ export default (Blockly, value, searching) => {
         <block type="footer_ahq_embed"/>
         <block type="stamp_ahq_embed"/>
         </category>
+
+<!--
+
+
+
+
+
+
+
+<category name="V2 Embeds" colour="#cc60db">
+                <block type="s4d_embed_create"/>
+                <block type="s4d_message_embed_lime"/>
+                <block type="s4d_embed_edit"/>
+                <block type="s4d_embed_send">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT"></field>
+                </shadow>
+            </value>
+                </block>
+                <block type="embed_send_round">
+                <value name="Label">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                </block>
+        </category>
+
+
+
+
+
+
+
+
+-->
 
 
         <category name="chatbot" colour="#ff0000">
@@ -2025,6 +2069,7 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_BASE_BLOCKS}"></label>
             <block type="s4d_on_connected"></block>
             <label text="%{BKY_BOT_INFORMATIONS}"></label>
+            <block type="jg_base_bot"/>
             <block type="s4d_bot_ping"></block>
             <block type="s4d_bot_server_count"></block>
             <block type="s4d_get_bot"></block>
@@ -2040,6 +2085,10 @@ export default (Blockly, value, searching) => {
             <label text="Some more advanced features" web-class="boldtext"></label>
             <block type="jg_when_ran"/>
             <block type="jg_rbs_isRunButton"/>
+            <block type="jg_unused_floating_comment">
+                <field name="TEXT">This is a floating comment,&amp;#10;with new lines too!</field>
+            </block>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -2050,6 +2099,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_messages_id_of_message"/>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
+            <block type="jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"></block>
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
             <block type="s4d_message_content"></block>
             <block type="s4d_message_id"></block>
@@ -2469,6 +2519,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_get_member"></block>
             <block type="s4d_get_all"></block>
             <block type="s4d_get_all_member"></block>
+            <block type="ahq_members_get_random_member_in_server"/>
             <label text="%{BKY_MEMBER_INFORMATIONS}"></label>
             <block type="s4d_member_exist"/>
             <block type="s4d_member_id"></block>
@@ -2779,11 +2830,13 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+
             <block type="catsoup_encryption_sha256">
                 <value name="encode">
                     <shadow type="text"/>
                 </value>
             </block>
+
 
   <label text="Encoding text" web-class="boldtext"></label>
             <block type="jg_encode_main">
@@ -2805,6 +2858,92 @@ export default (Blockly, value, searching) => {
 
 </category>
         <sep class="bt"/>
+        <category name="SQLite DB" colour="#FF0000">
+            <label text="%{BKY_LABEL_READ_DB}"></label>
+            <block type="qdb_get">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_all"/>
+            <block type="qdb_has_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
+            <block type="qdb_set_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_delete_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_add_data">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_subtract">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="TEXT">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_push">
+                <value name="DATA">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_pull">
+                <value name="DATA">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>
             <block type="s4d_get_data">

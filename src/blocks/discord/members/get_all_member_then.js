@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "s4d_get_all";
 
 const blockData = {
-    "message0": "%{BKY_GET_ALL}",
+    "message0": "in server %1 get all members then for each %2 %3",
     "args0": [
         {
             "type": "input_value",
@@ -26,14 +26,17 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    let code = `${server}.members.cache.forEach(async m =>{ \n ${statementThen} \n})\n`;
+    let code = `${server}.members.cache.forEach(async m =>{
+         ${statementThen} 
+        })
+        `;
     return code;
 };

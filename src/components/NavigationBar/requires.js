@@ -8,6 +8,9 @@ export default async function require(array, oldarray) {
         if (js.includes("const deepai = require('deepai')")) {
             array.push(`"deepai": "^1.0.21",`)
         }
+        if(js.includes("const qdb = new QuickDB()")) {
+            array.push(`"quick.db": "9.0.2",`)
+        }
         if (js.includes("const QRCode = require('qrcode')")) {
             array.push(`"qrcode": "^1.5.0",`)
         }

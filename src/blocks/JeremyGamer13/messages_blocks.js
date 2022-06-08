@@ -1066,3 +1066,101 @@ registerRestrictions("jg_channels_send_in_channel_with_allowed_list_of_pings_on_
         ]
     }
 ]);
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+
+Blockly.Blocks["jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "When a message is recieved & author isn't a bot %1 %2",
+                "colour": "#F5AB1A",
+                "args0": [
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"] = function (block) {
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `s4d.client.on('messageCreate', async (s4dmessage) => {
+        if (s4dmessage.author.bot) {
+            return;
+        }
+        ${statements}
+    });
+    `;
+    return code;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+Blockly.Blocks["jg_unused_floating_comment"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "ㅤ%1ㅤ",
+                "colour": "#DDAA00",
+                "args0": [
+                    {
+                        "type": "field_multilinetext",
+                        "name": "TEXT",
+                        "spellcheck": false
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_unused_floating_comment"] = function (block) {
+    var text = block.getFieldValue('TEXT');
+    text = text.replaceAll("*/", "* /")
+    const code = `/*
+    ${text}
+    */`;
+    return code;
+};
+
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
+// abc
