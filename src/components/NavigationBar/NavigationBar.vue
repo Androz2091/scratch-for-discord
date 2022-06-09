@@ -507,17 +507,17 @@ load()`])
                     const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
                     // block type="frost_env"
                     // block type="frost_webserver"
-                    const banned_music_blocks = [
-                        `<block type="first_track"`,
-                        `<block type="track_start"`,
-                        `<block type="empty"`,
-                        `<block type="kicked"`,
-                        `<block type="queue_error"`,
-                        `<block type="track_added"`,
-                        `<block type="discord_connect"`,
-                        `<block type="better_stop"`,
-                        `<block type="better_play"`,
-                    ]
+                    // const banned_music_blocks = [
+                    //     `<block type="first_track"`,
+                    //     `<block type="track_start"`,
+                    //     `<block type="empty"`,
+                    //     `<block type="kicked"`,
+                    //     `<block type="queue_error"`,
+                    //     `<block type="track_added"`,
+                    //     `<block type="discord_connect"`,
+                    //     `<block type="better_stop"`,
+                    //     `<block type="better_play"`,
+                    // ]
                     if (
                         javascriptContent.includes("process.env") ||
                         javascriptContent.includes("http.createServer((req, res) => {") ||
@@ -557,6 +557,8 @@ load()`])
                     //     console.error("barry and johnathan found music blocks...")
                     //     return;
                     // }
+
+                    let api_key = process.env.VUE_APP_KEY
                     var botID = String((Math.floor(Math.random() * 8999) + 1000))
                     var modifiedJScontent = javascriptContent.replaceAll(`process.on('uncaughtException', function(err) {`, `let aijpfheiowfoiewfhewoiufewoifjopq = require('fs');\nprocess.on('uncaughtException', function(err) {\naijpfheiowfoiewfhewoiufewoifjopq.appendFileSync('./server/console.rbs', (${botID} + String(err)), function(err) {});`)
                     var modifiedJScontent = modifiedJScontent.replaceAll("const S4D_APP_RUN_BUTTON = false", "const S4D_APP_RUN_BUTTON = true")
@@ -568,12 +570,12 @@ load()`])
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                                key: process.env.VUE_APP_KEY,
-                                code: modifiedJScontent
-                            })
+                            key: api_key,
+                            code: modifiedJScontent
+                        })
                     };
                     try {
-                        if (process.env.VUE_APP_KEY == null) {
+                        if (api_key == null) {
                             swal.fire(
                                 "Cool! However..",
                                 `The bot would have been sent,<br><aew3f2 style="color:#188DC8">but the server S4D is currently running on does not have an API key present.</aew3f2><br><br><p>Using Netlify? <a href="https://scratch-for-discord-469.vercel.app/">Click here to go to Vercel!</a></p><!--<br><h6 style="color:#188DC8">This menu popped up because the API key is not present.</h6>-->`,
@@ -588,25 +590,44 @@ load()`])
                             return;
                         }
                         fetch('https://469runtest.jeremygamer13.repl.co/?imbored=true', requestOptions)
+                        // fetch('https://469runtest.jeremygamer13.repl.co/?imbored=true')
                         .then(async (response) => {
                             console.log(response)
+                            console.log("S4D sent a request, the response status code is", response.status)
+                            if ((response.status >= 300) && (response.status < 400)) {
+                                console.log("epic server: oopsie poopsie something happen")
+                                console.log("barry: idk something happen")
+                                console.log("johnathan: thats not good but we cant do much")
+                                console.log("barry: true :(")
+                                swal.fire(
+                                    "Uhh..",
+                                    `Something may have gone wrong with the request. The server responded with status code ${String(response.status)}. You could check if your bot went online? You can also try to refresh.`,
+                                    "warning"
+                                )
+                            } else if (response.status >= 400) {
+                                console.log("epic server: broken")
+                                console.log("barry: bruh it broken")
+                                console.log("johnathan: :(")
+                                console.log("barry: :(")
+                                let morestuffIDK = response
+                                response.text().then((repons) => {
+                                    swal.fire(
+                                        "Whoops!",
+                                        `Something went wrong with the request. The server responded with status code <b>${String(morestuffIDK.status)}</b>. You may need to refresh the page or try again later as the server could be down.<br><br>Server Response:<br><code>${repons}</code>`,
+                                        "error"
+                                    )
+                                })
+                            } else {
+                                console.log("epic server: POST request sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
+                                console.log("barry: done")
+                                console.log("johnathan: nice, now lets get back to work")
+                                swal.fire(
+                                    "Nice!",
+                                    `Your bot should go online soon.`,
+                                    "success"
+                                )
+                            }
                         })
-                        console.log("epic server: POST request sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
-                        console.log("barry: done")
-                        console.log("johnathan: nice, now lets get back to work")
-                        /*
-                        swal.fire(
-                            "Nice!",
-                            `Your bot should go online soon.<br>To see any errors that occur in your bot, click the button with the 📰 icon,<br>and then look for any error that starts with the number <b>${botID}.</b>`,
-                            "success"
-                        )
-                        */
-                       //localhost:
-                        swal.fire(
-                            "Nice!",
-                            `Your bot should go online soon.`,
-                            "success"
-                        )
                     }
                     catch (err)
                     {

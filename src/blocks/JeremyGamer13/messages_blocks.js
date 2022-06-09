@@ -1505,7 +1505,14 @@ Blockly.Blocks["jg_events_all_label"] = {
         this.setColour(color, "#000000")
     }
 }
-Blockly.JavaScript["jg_events_all_label"] = function () {
-    const code = ``
+Blockly.JavaScript["jg_events_all_label"] = function (block) {
+    const label = block.getFieldValue("LABEL")
+    let event = block.getFieldValue("EVENT")
+    // const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `/*
+        ${label.replaceAll("*/", "* /")}
+    */
+   ${event}
+   `
     return code;
 };
