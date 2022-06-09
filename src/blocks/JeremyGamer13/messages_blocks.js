@@ -1270,6 +1270,168 @@ Blockly.JavaScript["jg_comments_floating_image"] = function () {
     const code = ``;
     return code;
 };
+Blockly.Blocks["jg_comments_connected_comment"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "ㅤ%1ㅤ",
+                "colour": "#DDAA00",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "field_multilinetext",
+                        "name": "TEXT",
+                        "spellcheck": false
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_comments_connected_comment"] = function (block) {
+    var text = block.getFieldValue('TEXT');
+    text = text.replaceAll("*/", "* /")
+    const code = `
+    /*
+    ${text}
+    */
+   `;
+    return code;
+};
+Blockly.Blocks["jg_comments_connected_arrow"] = {
+    init: function () {
+        let imgsize = 64
+        this.jsonInit(
+            {
+                "message0": "%1",
+                "colour": "#DDAA00",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "arrow",
+                        "options": [
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067831064846396/down.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "down"
+                                },
+                                "down"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067832717393940/up.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "up"
+                                },
+                                "up"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067832088231966/right.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "right"
+                                },
+                                "right"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067831589117952/left.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "left"
+                                },
+                                "left"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067830775427082/dleft.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "down left"
+                                },
+                                "down left"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067831358427166/dright.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "down right"
+                                },
+                                "down right"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067832373469254/uleft.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "up left"
+                                },
+                                "up left"
+                            ],
+                            [
+                                {
+                                    "src": "https://media.discordapp.net/attachments/977302952530305045/984067832948072458/uright.png",
+                                    "width": imgsize,
+                                    "height": imgsize,
+                                    "alt": "up right"
+                                },
+                                "up right"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_comments_connected_arrow"] = function (block) {
+    let arrow = block.getFieldValue("arrow")
+    const code = `/*
+    ${arrow}
+    */`;
+    return code;
+};
+Blockly.Blocks["jg_comments_connected_image"] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Image URL:")
+            .appendField(new Blockly.FieldTextInput("https://media.discordapp.net/attachments/977302952530305045/984125455881863208/load.png"), "TEXT")
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage("https://media.discordapp.net/attachments/977302952530305045/984125455881863208/load.png", 256, 256, { alt: "Custom Image", flipRtl: "FALSE" }), "IMG");
+        this.setInputsInline(false);
+        this.setColour("#DDAA00");
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+
+    ,
+    onchange: function () {
+        let url = String(this.getFieldValue("TEXT"))
+        this.getField("IMG").setValue(url)
+        this.setTooltip("An image comment using url " + url + ".")
+    }
+
+}
+Blockly.JavaScript["jg_comments_connected_image"] = function (block) {
+    let url = block.getFieldValue("TEXT")
+    const code = `
+    /*
+    Image URL:
+    ${url.replaceAll("*/", "* /")}
+    */
+    `;
+    return code;
+};
 
 // abc
 // abc
@@ -1285,3 +1447,65 @@ Blockly.JavaScript["jg_comments_floating_image"] = function () {
 // abc
 // abc
 // abc
+
+Blockly.Blocks["jg_events_all_label"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 %2 %3 %4 %5 %6",
+                "args0": [
+                    {
+                        "type": "field_multilinetext",
+                        "name": "LABEL",
+                        "text": "Label this event..."
+                    },
+                    {
+                        "type": "field_colour",
+                        "name": "COLOR",
+                        "colour": "#ffcc00"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "EVENT",
+                        "options": [
+                            [
+                                "When the bot is connected",
+                                "ready"
+                            ],
+                            [
+                                "When a message is received",
+                                "messageCreate"
+                            ],
+                            [
+                                "When a message is received & author isn't bot",
+                                "messageCreate2"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ],
+                "inputsInline": false,
+                "colour": "#000000",
+                "tooltip": "Get the specific attachment on the message.",
+                "helpUrl": ""
+            }
+        );
+    },
+    onchange: function () {
+        let color = this.getFieldValue("COLOR")
+        this.setColour(color, "#000000")
+    }
+}
+Blockly.JavaScript["jg_events_all_label"] = function () {
+    const code = ``
+    return code;
+};

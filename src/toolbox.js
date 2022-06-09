@@ -873,17 +873,6 @@ export default (Blockly, value, searching) => {
  	</category>
 
 <category name="frostzzone" colour="#347dfa">
-<category name="Scratch and Github" colour="#1f1f1f">
-<label text="Github" web-class="boldtext"></label>
-<block type="github_get_then"/>
-<label text="For profile" web-class="boldtext"></label>
-<block type="github_what_stat"/>
-<label text="" web-class="boldtext"></label>
-<label text="" web-class="boldtext"></label>
-<label text="Scratch" web-class="boldtext"></label>
-<block type="scratch_get_about_then"/>
-<block type="scratch_about_user"/>
-</category>
 
 <category name="Useless" colour="#2a46fa" hidden="true"><!-- LINE HIDDEN FROM SEARCH -->
 <block type="frost_image"/><!-- LINE HIDDEN FROM SEARCH -->
@@ -1137,15 +1126,6 @@ export default (Blockly, value, searching) => {
            </block>
 					<block type="s4d_snake"/>
 					</category>
-				<category name="Reddit" colour="#5ba58b">
-					
-					 <block type="ran_red_post"/>
-					  <block type="postVars"/>
-	
-					  
-					     <block type="get_about_then"/>
-					    <block type="about_user"/>
-					  </category>
 					  
 					  <category name="Pc/Server Stats" colour="#a5745b">
 					  <block type="ps_os_stats"/>
@@ -2785,6 +2765,23 @@ export default (Blockly, value, searching) => {
             <block type="jg_roblox_U2_send_message_to_user_id"/>
             <block type="jg_roblox_U2_send_friend_request"/>
         </category>
+		<category name="Reddit" colour="#5ba58b">
+		    <block type="ran_red_post"/>
+			<block type="postVars"/>
+	        <block type="get_about_then"/>
+			<block type="about_user"/>
+		</category>
+        <category name="Scratch and Github" colour="#1f1f1f">
+            <label text="Github" web-class="boldtext"></label>
+            <block type="github_get_then"/>
+            <label text="For profile" web-class="boldtext"></label>
+            <block type="github_what_stat"/>
+            <label text="" web-class="boldtext"></label>
+            <label text="" web-class="boldtext"></label>
+            <label text="Scratch" web-class="boldtext"></label>
+            <block type="scratch_get_about_then"/>
+            <block type="scratch_about_user"/>
+        </category>
     </category>
     <category name="Securing" colour="#4c61ff">
         <label text="Output blocks" web-class="boldtext"></label>
@@ -3126,6 +3123,14 @@ export default (Blockly, value, searching) => {
             </block>
             <block type="jg_comments_floating_arrow"/>
             <block type="jg_comments_floating_image">
+                <field name="TEXT">https://media.discordapp.net/attachments/914411539887456296/984121680458829835/ef5d4de4c598bda58c6edc09e9478b2d.png</field>
+            </block>
+            <label text="If you want a connected comment but always visible..."></label>
+            <block type="jg_comments_connected_comment">
+                <field name="TEXT">This is a connected comment,&amp;#10;but it'll always be visible!</field>
+            </block>
+            <block type="jg_comments_connected_arrow"/>
+            <block type="jg_comments_connected_image">
                 <field name="TEXT">https://media.discordapp.net/attachments/914411539887456296/984121680458829835/ef5d4de4c598bda58c6edc09e9478b2d.png</field>
             </block>
         </category>
