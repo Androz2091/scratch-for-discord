@@ -740,47 +740,47 @@ export default (Blockly, value, searching) => {
         <block type="stamp_ahq_embed"/>
         </category>
 
+
+
+
+
+
+
+
 <!--
-
-
-
-
-
-
-
-<category name="V2 Embeds" colour="#cc60db">
-                <block type="s4d_embed_create"/>
+            <category name="V2 Embeds" colour="#cc60db">
+                <block type="lime_s4d_embed_create"/>
                 <block type="s4d_message_embed_lime"/>
                 <block type="s4d_embed_edit"/>
-                <block type="s4d_embed_send">
-                <value name="NAME">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-                <value name="TEXT">
-                <shadow type="text">
-                    <field name="TEXT"></field>
-                </shadow>
-            </value>
+                <block type="lime_s4d_embed_send">
+                    <value name="NAME">
+                        <shadow type="text">
+                            <field name="TEXT"></field>
+                        </shadow>
+                    </value>
+                    <value name="TEXT">
+                        <shadow type="text">
+                            <field name="TEXT"></field>
+                        </shadow>
+                    </value>
                 </block>
                 <block type="embed_send_round">
-                <value name="Label">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
+                    <value name="Label">
+                        <shadow type="text">
+                            <field name="TEXT"></field>
+                        </shadow>
+                    </value>
                 </block>
-        </category>
-
-
-
-
-
-
-
-
+            </category>
 -->
+
+
+
+
+
+
+
+
 
 
         <category name="chatbot" colour="#ff0000">
@@ -830,11 +830,15 @@ export default (Blockly, value, searching) => {
 	
 	<category name="AlexCdDg" colour="#06cfaa">
         
+        <!--
         <category name="TTS" colour="#1010b5">
         <label text="Connect and use TTS" web-class="boldtext"></label>
         <block type="tts-test"/>
 	<block type="tts_channel"/>
         </category>
+        -->
+
+        
 	<category name="Image Finder" colour="#00c7ad">
         <block type="get_image"/>
 	<block type="url_image"/>
@@ -931,6 +935,9 @@ export default (Blockly, value, searching) => {
 <label text='⚠️ Deletes commands set by "Slash command GUI" ⚠️'></label>
 <label text='Only one "Create slash comamnds" block'></label>
 <label text='If not it breaks'></label>
+
+<label text="You also need to invite your bot with applications.commands enabled!" web-class="boldtext"></label>
+
 <block type="frost_slash_register"/>
 <block type="frost_slash_command">
 <value name="NAME">
