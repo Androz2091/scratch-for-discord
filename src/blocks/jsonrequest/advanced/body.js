@@ -9,12 +9,12 @@ const blockData = {
     "inputsInline": true,
     "args0": [
         {
-            "type": "input_value", 
+            "type": "input_value",
             "name": "KEY",
-            "check": ["String","var","Env"]
+            "check": ["String", "var", "Env"]
         },
         {
-            "type": "input_value", 
+            "type": "input_value",
             "name": "VALUE",
             "check": null
         },
@@ -22,17 +22,17 @@ const blockData = {
     "colour": "#4C97FF",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "Data with a name and a value. Placed in the body section of the send request block.",
+    "tooltip": "Data with a name and a value. Placed in data sections in the send request block.",
     "helpUrl": ""
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     var key = Blockly.JavaScript.valueToCode(block, "KEY", Blockly.JavaScript.ORDER_ATOMIC).replaceAll("'", "").replaceAll('"', "")
     if (key.charAt(0) == "(") {
         key.replace("(", "")

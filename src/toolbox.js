@@ -2554,7 +2554,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_get_string_of_data"/>
         </category>
         <category name="Advanced" colour="#4c79ff">
-            <block type="jg_web_request_advanced_send_request">
+            <block type="jg_web_request_advanced_new_send_request">
                 <value name="URL">
                     <block type="text">
                         <field name="TEXT">https://jsonplaceholder.typicode.com/posts</field>
@@ -2575,15 +2575,20 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
                 <value name="BODY">
-                    <block type="jg_web_request_advanced_data">
-                        <value name="KEY">
-                            <block type="text">
-                                <field name="TEXT">key</field>
-                            </block>
-                        </value>
-                        <value name="VALUE">
-                            <block type="text">
-                                <field name="TEXT">value</field>
+                    <block type="jg_web_request_advanced_data_section">
+                        <field name="LABEL">body</field>
+                        <value name="STATEMENTS">
+                            <block type="jg_web_request_advanced_data">
+                                <value name="KEY">
+                                    <block type="text">
+                                        <field name="TEXT">key</field>
+                                    </block>
+                                </value>
+                                <value name="VALUE">
+                                    <block type="text">
+                                        <field name="TEXT">value</field>
+                                    </block>
+                                </value>
                             </block>
                         </value>
                     </block>
