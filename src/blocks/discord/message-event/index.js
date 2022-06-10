@@ -30,3 +30,4 @@ import "./anti_spam";
 import "./edit_msg_by_id";
 import "./message_ts";
 import "./lime_pin"
+import "./lime_message_author_attributes"
