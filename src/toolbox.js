@@ -2522,6 +2522,13 @@ export default (Blockly, value, searching) => {
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
+            <block type="jg_members_get_member_by_id">
+                <value name="ID">
+                    <shadow type="text">
+                        <field name="TEXT">12345</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="s4d_get_all"></block>
             <block type="s4d_get_all_member"></block>
             <block type="ahq_members_get_random_member_in_server"/>

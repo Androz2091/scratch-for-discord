@@ -1573,3 +1573,30 @@ Blockly.JavaScript["jg_members_list_of_known_member_ids"] = function () {
     const code = [`JSON.parse(JSON.stringify(s4d.client)).users`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+
+Blockly.Blocks["jg_members_get_member_by_id"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get user by ID %1",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "ID",
+                        "check": ["String", "var", "Var", "Env", "env"]
+                    }
+                ],
+                "colour": "#187795",
+                "output": "Member",
+                "tooltip": "Get a user by their ID. This probably wont let you do server actions with the user however, like giving them a role.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_get_member_by_id"] = function (block) {
+    const id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`s4d.client.users.cache.get(String(${id}))`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
