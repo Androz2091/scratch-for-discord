@@ -87,6 +87,9 @@ import "./blocks/discord/mslash/";
 import "./blocks/discord/wmise/";
 import "./blocks/mongodb/";
 
+// orang
+import "./blocks/LaserCat/switch";
+
 import "./blocks/jsonrequest";
 import "./blocks/database/";
 import "./blocks/text/";
