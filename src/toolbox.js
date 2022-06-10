@@ -2550,6 +2550,7 @@ export default (Blockly, value, searching) => {
                     <shadow type="s4d_message_member"/>
                 </value>
             </block>
+            <block type="jg_members_list_of_known_member_ids"/>
 
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
             <block type="mute_ahq"/>
