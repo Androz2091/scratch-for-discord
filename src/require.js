@@ -25,6 +25,10 @@ export default async function require(array, code, js, ahq) {
     });
     `)
     }
+    if (js.includes(`qdb.set`)) {
+        array.push(`const { QuickDB } = require('quick.db')`)
+        code.push(`const qdb = new QuickDB()`)
+    }
     if (js.includes("const stream = discordTTS")) {
         array.push(`const discordTTS = require("discord-tts");`)
         array.push(`const {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} = require("@discordjs/voice");`)
@@ -176,8 +180,8 @@ export default async function require(array, code, js, ahq) {
     if (js.includes("jimp")) {
         array.push(`const jimp = require('jimp')`)
     }
-    if (js.includes("write")) {
-        array.push("const write = require('write');")
+    if (js.includes("S4D_APP_write")) {
+        array.push("const S4D_APP_write = require('write');")
     }
     if (js.includes("AntiSpam")) {
         array.push(`const AntiSpam = require("discord-anti-spam");`)
@@ -205,6 +209,9 @@ export default async function require(array, code, js, ahq) {
     }
     if (js.includes("S4D_APP_NOBLOX")) {
         array.push(`const S4D_APP_NOBLOX = require("noblox.js");`)
+    }
+    if (js.includes("S4D_APP_CRYPTOJS")) {
+        array.push(`const S4D_APP_CRYPTOJS = require("crypto-js");`)
     }
     if (js.includes("dootabase")) {
         array.push(`const dootabase = require("easy-db-json");

@@ -18,6 +18,10 @@ import BlocklyComponent from "./components/BlocklyComponent.vue";
 Blockly.Tooltip.HOVER_MS = 100;
 
 // Load blocks
+// load the entire folder mf
+import "./blocks/"
+
+// anyways heres some other manual loading because im not gonna add all of these to blocks's index.js file
 
 import "./blocks/discord/base/";
 import "./blocks/discord/message-event/";
@@ -142,6 +146,14 @@ import Theme from '@blockly/theme-modern';
 //ahq stuff
 import "./blocks/ahq/";
 import "./blocks/henpokpok/";
+
+//Eruption
+import "./blocks/Eruption/message_embed/"
+
+
+import "./blocks/quickdb"
+
+
 export default {
     name: "app",
     components: {

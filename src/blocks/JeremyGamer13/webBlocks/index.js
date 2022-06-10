@@ -4,6 +4,7 @@ import "./blockinputs/encodedecodetype"
 import "./encode/mainblock"
 import "./encode/hash"
 import "./encode/hashequalstring"
+import "./encode/encryption"
 //jggvgvgvwdqd7ygewfygfewf87gefewfewuiuhiuiuhiuhiuhiuhiuhiuhiuhiuhiuhiuhiuhybguhbwhbeijnokmeoip
 //uhbuhbygvygvygvygvygvygvygvygvygvygvygvygvygvygvygvygvygvygvygvygvygvygvubiuyvfwiuyvfe8yg87
 import "./grabimghttps"

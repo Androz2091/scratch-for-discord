@@ -1,6 +1,6 @@
-import * as Blockly from "blockly/core";
+import Blockly from "blockly/core";
 
-const blockName = "s4d_embed_create";
+const blockName = "lime_s4d_embed_create";
 
 const blockData = {
   "type": "s4d_embed_create",
@@ -25,19 +25,19 @@ const blockData = {
 }
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-    }
+  init: function () {
+    this.jsonInit(blockData);
+  }
 };
 
-Blockly.JavaScript['s4d_embed_create'] = function(block) {
+Blockly.JavaScript['s4d_embed_create'] = function (block) {
   let name_value = Blockly.JavaScript.valueToCode(block, 'name_value', Blockly.JavaScript.ORDER_ATOMIC);
   let statements_then = Blockly.JavaScript.statementToCode(block, 'THEN');
   name_value = name_value.split(" ")
   name_value = name_value.join('_')
   name_value = name_value.toLowerCase()
-  name_value = name_value.replace("'","")
-  name_value = name_value.replace("'","")
+  name_value = name_value.replace("'", "")
+  name_value = name_value.replace("'", "")
   let code = `let ${name_value} = new Discord.MessageEmbed() \n ${statements_then}\n`;
   return code;
 };

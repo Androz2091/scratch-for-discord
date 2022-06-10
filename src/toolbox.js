@@ -13,9 +13,9 @@ export default (Blockly, value, searching) => {
     <label text="Want to search?"></label>
     <label text="PC: Right click on the workspace > Search for block"></label>
     <label text="Touch: Hold on the workspace > Search for block"></label>
+    <label text=""></label>
         <!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->
     </category>
-    <sep class="bt"/>
     `
     } else {
         var toolbox_search_category = ``
@@ -34,6 +34,11 @@ export default (Blockly, value, searching) => {
     -->
 	
     ${toolbox_search_category}
+    <category name="Favorites" colour="#FFFF00" css-icon="customIcon fa fa-star">
+    	<label text="Add your favorite blocks here by right clicking them and pressing &quot;Add to favorite!&quot;"></label>
+                        <!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->
+    </category>
+    <sep class="bt"/>
 
 	<category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
             <block type="controls_if" />
@@ -360,6 +365,14 @@ export default (Blockly, value, searching) => {
                                 </shadow>
                             </value>
                         </block>
+						<block type="jg_text_for_each_letter_in_text_do">
+                            <value name="TEXT">
+                                <shadow type="text">
+                                    <field name="TEXT">abc</field>
+                                </shadow>
+                            </value>
+                        </block>
+						<block type="jg_text_for_each_letter_in_text_do_letter"/>
         </category>
         <category name="{{ TOOLBOX_LISTS }}" colour="#745ba5">
             <block type="lists_create_with">
@@ -478,7 +491,7 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt" />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE"/>
-<category name="{{ TOOLBOX_VARIABLES }}-expanded" colour="#a55b80">
+<category name="Expanded {{ TOOLBOX_VARIABLES }}" colour="#ad5a84">
 <label text="Make global/local variables for functions and other stuff"></label>
 <label text="Compatible with variables category"></label>
 <block type="import_all"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
@@ -489,6 +502,93 @@ export default (Blockly, value, searching) => {
 </category>
 
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE"/>
+
+        <category name="Collections" colour="#a354b3">
+        <label text="Collections are able to hold data." web-class="boldtext"></label>
+        <label text="It's like a list, but you attach a key to the data." web-class="boldtext"></label>
+        <label text="You can then grab the data using the key later." web-class="boldtext"></label>
+            <block type="collections_create_new_collection"/>
+            <block type="collections_set_to_key_in_collection">
+                <value name="VALUE">
+                    <block type="math_number">
+                        <field name="NUM">123</field>
+                    </block>
+                </value>
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_get_from_collection">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_remove_key_in_collection">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_clear_collection">
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_collection_has_key">
+                <value name="KEY">
+                    <block type="text">
+                        <field name="TEXT">abc</field>
+                    </block>
+                </value>
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="collections_size_of_collection">
+                <value name="MAP">
+                    <block type="variables_get">
+                        <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                    </block>
+                </value>
+            </block>
+            <label text="When storing a collection to a database, it gets converted." web-class="boldtext"></label>
+            <label text="This block can be used to bring it back to a usable collection." web-class="boldtext"></label>
+            <block type="jg_collections_convert_database_collection_to_collection">
+                <value name="DBCOLLECT">
+                    <block type="s4d_get_data">
+                        <value name="KEY">
+                            <shadow type="text">
+                                <field name="TEXT">collection</field>
+                            </shadow>
+                        </value>
+                    </block>
+                </value>
+            </block>
+        </category>
 
         <!--<category name="Objects" colour="#cc59e3">
             <block type="jg_object_getvalue"/>
@@ -533,25 +633,38 @@ export default (Blockly, value, searching) => {
        
 	  
                 <sep class="bt"/>
-                    <category name="Favorites" colour="#FFFF00" css-icon="customIcon fa fa-star">
-                        <!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->
-                    </category>
-				<sep class="bt"/>
 				
 			<category name="Member's Blocks" expanded="true">
+			<category name="Eruption" colour="#ff4000">
+				<category name="Embed" colour="#40BF4A">
+                <label text="Create a perfect embed" web-class="boldtext"></label>
+                <block type="s4d_embed_create"></block>
+                <block type="s4d_embed_set_color"></block>
+                <block type="s4d_embed_set_author"></block>
+                <block type="s4d_embed_set_title"></block>
+                <block type="s4d_embed_set_desc"></block>
+                <block type="s4d_embed_set_thumb"></block>
+                <block type="s4d_embed_add_field"></block>
+                <block type="s4d_embed_set_image"></block>
+                <block type="s4d_embed_set_footer"></block>
+                <label text="Custom date format: MM-DD-YYYY" web-class="boldtext"></label>
+                <block type="s4d_embed_set_timestamp"></block>
+                <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
+                <block type="s4d_embed_send"></block>
+            </category>
+			</category>
 				<category name="ahq" colour="#ff0000" disabled="true">
-        <label text="AHQ's Simple Host Auth" web-class="boldtext"></label>
-        <block type="simple_host_auth"/>
+        <label text="AHQ's Simple Host Auth has been moved to Applications category!" web-class="boldtext"></label>
         <label text="Other" web-class="boldtext"></label>
-        <block type="server_file"/>
-        <block type="snd_ahq"/>
         <block type="ahq_value_snd"/>
+        <!--
         <category name="member" colour="#006600">
         <label text="Fetch members of a server" web-class="boldtext"></label>
         <block type="s4d_get_rndm"/>
         <label text="Get random member" web-class="boldtext"></label>
         <block type="s4d_get_rndmber"/>
         </category>
+        -->
         <category name="forms" colour="#66ffff">
         <block type="on_real_form"/>
         <!--
@@ -611,16 +724,23 @@ export default (Blockly, value, searching) => {
         <block type="url_ahq_button"/>
         <block type="d_ahq_button"/>
         </category>
+
+        <!--
+
         <category name="cmd register" colour="#6600cc">
         <label text="Create a slash command" web-class="boldtext"></label>
         <block type="s4d_reg_slash"/>
         <block type="s4d_reg_slash_options"/>
         <block type="s4d_reg_new_options"/>
         </category>
+
         <category name="profanity" colour="#ff0000">
         <block type="ahq_bdwrd"/>
         <block type="ahq_bdwrd_cn"/>
         </category>
+        
+        -->
+
         <category name="embed-read" colour="#993399">
         <block type="ahq_embed_is"/>
         <block type="ahq_embed_info"/>
@@ -647,24 +767,61 @@ export default (Blockly, value, searching) => {
         </category>
 
 
+
+
+
+
+
+
+<!--
+            <category name="V2 Embeds" colour="#cc60db">
+                <block type="lime_s4d_embed_create"/>
+                <block type="s4d_message_embed_lime"/>
+                <block type="s4d_embed_edit"/>
+                <block type="lime_s4d_embed_send">
+                    <value name="NAME">
+                        <shadow type="text">
+                            <field name="TEXT"></field>
+                        </shadow>
+                    </value>
+                    <value name="TEXT">
+                        <shadow type="text">
+                            <field name="TEXT"></field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="embed_send_round">
+                    <value name="Label">
+                        <shadow type="text">
+                            <field name="TEXT"></field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+-->
+
+
+
+
+
+
+
+
+
+
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>
         </category>
+
+<!--
+
         <category name="mod" colour="#ff0880">
         <block type="ahq-mod"/>
         </category>
-        <category name="Convert API" colour="#3333ff">
-        <label text="API starter" web-class="boldtext"></label>
-        <block type="convert_api_code"/>
-        <label text="Resources" web-class="boldtext"></label>
-        <block type="convert_button"/>
-        <block type="convert_embed"/>
-        <label text="Main blocks" web-class="boldtext"></label>
-        <block type="convert_api_task"/>
-        <block type="save_api_code"/>
-        <block type="convert_api_file"/>
-        <block type="send_ahq_converted"/>
-        </category>
+
+-->
+
+       
         <category name="Voice" colour="#000099">
         <block type="voice_event"/>
         <block type="voice_switch"/>
@@ -677,11 +834,11 @@ export default (Blockly, value, searching) => {
         </category>
         </category>
 
-        <category name="henpokpok" colour="#64C9FF">
-          <category name="Timeout" colour="#FF6464">
-          <block type="mute_ahq"/>
-          </category>
-        <category name="Reactions" colour="#FF6464">
+        <!--<category name="henpokpok" colour="#64C9FF">
+          <category name="Timeout" colour="#FF6464">-->
+          <!--</category>-->
+        
+        <!--  <category name="Reactions" colour="#FF6464">
         <label text="Reations event (under construction)" web-class="boldtext"></label>
         <block type="reaction_added"/>
         <block type="reaction_removed"/>
@@ -690,27 +847,24 @@ export default (Blockly, value, searching) => {
         <block type="react_emoji"/>
         <block type="react_messageId"/>
         </category>
-        </category>
+        </category>-->
 	
 	<category name="AlexCdDg" colour="#06cfaa">
         
+        <!--
         <category name="TTS" colour="#1010b5">
         <label text="Connect and use TTS" web-class="boldtext"></label>
         <block type="tts-test"/>
 	<block type="tts_channel"/>
         </category>
+        -->
+
+        
 	<category name="Image Finder" colour="#00c7ad">
         <block type="get_image"/>
 	<block type="url_image"/>
         </category>
-	<category name="Typing" colour="#f79400">
-        <label text="Typing event" web-class="boldtext"></label>
-        <block type="typing_start"/>
-        <label text="Typing blocks" web-class="boldtext"></label>
-        <block type="typing_server"/>
-        <block type="typing_channel"/>
-        <block type="typing_member"/>
-        </category>
+	
 	<category name="Other" colour="#c70e6d">
         <block type="hig_role"/>
         <label text="This will detect the color of highest role" web-class="boldtext"></label>
@@ -744,17 +898,6 @@ export default (Blockly, value, searching) => {
  	</category>
 
 <category name="frostzzone" colour="#347dfa">
-<category name="Scratch and Github" colour="#1f1f1f">
-<label text="Github" web-class="boldtext"></label>
-<block type="github_get_then"/>
-<label text="For profile" web-class="boldtext"></label>
-<block type="github_what_stat"/>
-<label text="" web-class="boldtext"></label>
-<label text="" web-class="boldtext"></label>
-<label text="Scratch" web-class="boldtext"></label>
-<block type="scratch_get_about_then"/>
-<block type="scratch_about_user"/>
-</category>
 
 <category name="Useless" colour="#2a46fa" hidden="true"><!-- LINE HIDDEN FROM SEARCH -->
 <block type="frost_image"/><!-- LINE HIDDEN FROM SEARCH -->
@@ -813,6 +956,9 @@ export default (Blockly, value, searching) => {
 <label text='⚠️ Deletes commands set by "Slash command GUI" ⚠️'></label>
 <label text='Only one "Create slash comamnds" block'></label>
 <label text='If not it breaks'></label>
+
+<label text="You also need to invite your bot with applications.commands enabled!" web-class="boldtext"></label>
+
 <block type="frost_slash_register"/>
 <block type="frost_slash_command">
 <value name="NAME">
@@ -911,6 +1057,9 @@ export default (Blockly, value, searching) => {
         <block type="bot_voice_channel_id"></block>
         <block type="slash_reply"></block>
         <block type="slash_edit"></block>
+        <label text="Send an embed in slash"></label>
+        <label text="(for named embeds, the name has to be just called embed)"></label>
+        <block type="send_m_embed_string"></block>
 <label text="ㅤ" web-class="boldtext"></label>
 </category>
 
@@ -1005,15 +1154,6 @@ export default (Blockly, value, searching) => {
            </block>
 					<block type="s4d_snake"/>
 					</category>
-				<category name="Reddit" colour="#5ba58b">
-					
-					 <block type="ran_red_post"/>
-					  <block type="postVars"/>
-	
-					  
-					     <block type="get_about_then"/>
-					    <block type="about_user"/>
-					  </category>
 					  
 					  <category name="Pc/Server Stats" colour="#a5745b">
 					  <block type="ps_os_stats"/>
@@ -1309,57 +1449,7 @@ export default (Blockly, value, searching) => {
 
 -->
 
-	    <category name="Encoding and Securing" colour="195">
-        <label text="Output blocks" web-class="boldtext"></label>
-  <label text="Encoding text" web-class="boldtext"></label>
-            <block type="jg_encode_main">
-          <value name="type">
-           <shadow type="jg_bDI_encodedecodetype">
-           </shadow>
-           </value>
-<value name="type2">
-           <shadow type="jg_bDI_encodedecodetype">
-           </shadow>
-           </value>
-<value name="encode">
-           <shadow type="text">
-           </shadow>
-           </value>
-           </block>
-
-           <label text="Securing text" web-class="boldtext"></label>
-
-
-           <block type="jg_encode_hash">
-           <value name="encode">
-                      <shadow type="text">
-                      </shadow>
-                      </value>
-           
-           <value name="rounds">
-                      <shadow type="math_number">
-                                   <field name="NUM">10</field>
-                      </shadow>
-                      </value>
-           </block>
-
-
-           <block type="jg_encode_checkhash">
-           <value name="hash">
-                      <shadow type="text">
-                      </shadow>
-                      </value>
-           
-           <value name="test">
-                      <shadow type="text">
-                      </shadow>
-                      </value>
-           </block>
-
-           
-           <!-- <label text="Functions" web-class="boldtext"></label> -->
-
-</category>
+	    
 <category name="Public Experiments" colour="120">
     <block type="jg_experiments_xml2json">
         <value name="CONTENT">
@@ -1376,6 +1466,8 @@ export default (Blockly, value, searching) => {
         </category>
         
 				<category name="{{ JOSE }}" colour="#00664d">
+            <label text="Note!"></label>
+            <label text="Some blocks here are outdated and have yet to be updated."></label>
 <category name = "embeds pagination" colour="#ed5a5a">
                     <block type="pagination_embed"/>
                     <block type="start_pagination"/>
@@ -1774,7 +1866,10 @@ export default (Blockly, value, searching) => {
         <block type="bot_voice_channel_id"></block>
         <block type="slash_reply"></block>
         <block type="slash_edit"></block>
+        <label text="Send an embed in slash"></label>
+        <label text="(for named embeds, the name has to be just called embed)"></label>
         <block type="send_m_embed_string"></block>
+        <label text="ㅤ"></label>
         </category>
 				        <category name="context menu" colour="#f0f255">
         <label text="Event" web-class="boldtext"></label>
@@ -1984,6 +2079,7 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_BASE_BLOCKS}"></label>
             <block type="s4d_on_connected"></block>
             <label text="%{BKY_BOT_INFORMATIONS}"></label>
+            <block type="jg_base_bot"/>
             <block type="s4d_bot_ping"></block>
             <block type="s4d_bot_server_count"></block>
             <block type="s4d_get_bot"></block>
@@ -1999,6 +2095,7 @@ export default (Blockly, value, searching) => {
             <label text="Some more advanced features" web-class="boldtext"></label>
             <block type="jg_when_ran"/>
             <block type="jg_rbs_isRunButton"/>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -2009,6 +2106,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_messages_id_of_message"/>
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
+            <block type="jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"></block>
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
             <block type="s4d_message_content"></block>
             <block type="s4d_message_id"></block>
@@ -2018,6 +2116,26 @@ export default (Blockly, value, searching) => {
             <block type="s4d_mentioned_member"></block>
             <block type="s4d_mentioned_channel"></block>
             <block type="s4d_mentioned_role"></block>
+            <block type="jg_message_mentioned_member_number_on_message">
+                <value name="INDEX">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="MESSAGE">
+                    <shadow type="Message"/>
+                </value>
+            </block>
+            <block type="jg_message_amount_of_mentioned_members_on_message">
+                <value name="MESSAGE">
+                    <shadow type="Message"/>
+                </value>
+            </block>
+            <block type="jg_message_user_replied_to_in_message">
+                <value name="MSG">
+                    <shadow type="Message"/>
+                </value>
+            </block>
             <block type="jg_messages_message_is_value">
                 <value name="MSG">
                     <shadow type="Message"/>
@@ -2073,7 +2191,6 @@ export default (Blockly, value, searching) => {
             <block type="s4d_message_channel_raw"></block>
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
-<block type="anti_spam"></block>
             <block type="s4d_reply">
                 <value name="CONTENT">
                     <shadow type="text">
@@ -2081,7 +2198,20 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+            <block type="jg_messages_reply_with_allowed_list_of_pings_on_users_on_roles">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">No user ping here!</field>
+                    </shadow>
+                </value>
+                <value name="USERS">
+                    <block type="lists_create_with">
+                        <mutation items="0"/>
+                    </block>
+                </value>
+            </block>
             <block type="s4d_delete"></block>
+            <block type="anti_spam"></block>
             <block type="s4d_remove_all_reactions"/>
             <block type="s4d_remove_reactions"/>
             <block type="s4d_add_reaction">
@@ -2129,6 +2259,9 @@ export default (Blockly, value, searching) => {
             
                     
             
+        <label text="Blocks for handling typing" web-class="boldtext"></label>
+        <block type="typing_start"/>
+        <block type="jg_typing_typing_attribute"/>
                 
 
             <label text="ㅤ" web-class="boldtext"></label>
@@ -2271,6 +2404,18 @@ export default (Blockly, value, searching) => {
 	    <block type="get_all_channel_channel_name"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
             <block type="s4d_send_channel"></block>
+            <block type="jg_channels_send_in_channel_with_allowed_list_of_pings_on_users_on_roles">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">No user ping here!</field>
+                    </shadow>
+                </value>
+                <value name="USERS">
+                    <block type="lists_create_with">
+                        <mutation items="0"/>
+                    </block>
+                </value>
+            </block>
 	    <label text="Channel Info"></label>
 	    <block type="s4d_channel_ahq_name"></block>
       <block type="s4d_channel_id"/>
@@ -2279,6 +2424,7 @@ export default (Blockly, value, searching) => {
       <block type="s4d_channel_message_id"/>
       <block type="s4d_channel_topic"/>
             <block type="s4d_channel_exist"/>
+            <block type="s4d_is_channel_nsfw"/>
 
             <label text="Finding content in the channel"></label>
 
@@ -2328,7 +2474,6 @@ export default (Blockly, value, searching) => {
 	    
 	    
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
-            <block type="s4d_is_channel_nsfw"/>
             <block type="slowmode"></block>
             
             <block type="set_perms_parent"></block>
@@ -2378,8 +2523,16 @@ export default (Blockly, value, searching) => {
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
+            <block type="jg_members_get_member_by_id">
+                <value name="ID">
+                    <shadow type="text">
+                        <field name="TEXT">12345</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="s4d_get_all"></block>
             <block type="s4d_get_all_member"></block>
+            <block type="ahq_members_get_random_member_in_server"/>
             <label text="%{BKY_MEMBER_INFORMATIONS}"></label>
             <block type="s4d_member_exist"/>
             <block type="s4d_member_id"></block>
@@ -2392,10 +2545,23 @@ export default (Blockly, value, searching) => {
             <block type="s4d_member_dynamic_icon"></block>
             <block type="s4d_joined_at"></block>
             <block type="s4d_created_at"></block>
-            <block type="s4d_member_has_permission"></block>
-	    <block type="member_channel_perms"/>
-            <block type="s4d_member_is_bot"></block>
+            <block type="s4d_member_is_bot"/>
+            <block type="s4d_member_has_permission"/>
+	        <block type="member_channel_perms"/>
+            <block type="jg_status_does_member_have_a_status_for_device">
+                <value name="MEMBER">
+                    <shadow type="s4d_message_member"/>
+                </value>
+            </block>
+            <block type="jg_status_member_status_on_discord">
+                <value name="MEMBER">
+                    <shadow type="s4d_message_member"/>
+                </value>
+            </block>
+            <block type="jg_members_list_of_known_member_ids"/>
+
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
+            <block type="mute_ahq"/>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
             <block type="s4d_unban_member"></block>
@@ -2418,7 +2584,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_get_string_of_data"/>
         </category>
         <category name="Advanced" colour="#4c79ff">
-            <block type="jg_web_request_advanced_send_request">
+            <block type="jg_web_request_advanced_new_send_request">
                 <value name="URL">
                     <block type="text">
                         <field name="TEXT">https://jsonplaceholder.typicode.com/posts</field>
@@ -2439,15 +2605,20 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
                 <value name="BODY">
-                    <block type="jg_web_request_advanced_data">
-                        <value name="KEY">
-                            <block type="text">
-                                <field name="TEXT">key</field>
-                            </block>
-                        </value>
-                        <value name="VALUE">
-                            <block type="text">
-                                <field name="TEXT">value</field>
+                    <block type="jg_web_request_advanced_data_section">
+                        <field name="LABEL">body</field>
+                        <value name="STATEMENTS">
+                            <block type="jg_web_request_advanced_data">
+                                <value name="KEY">
+                                    <block type="text">
+                                        <field name="TEXT">key</field>
+                                    </block>
+                                </value>
+                                <value name="VALUE">
+                                    <block type="text">
+                                        <field name="TEXT">value</field>
+                                    </block>
+                                </value>
                             </block>
                         </value>
                     </block>
@@ -2472,6 +2643,7 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
+            <block type="jg_web_request_advanced_data_section"/>
             <block type="jg_web_request_advanced_data">
                 <value name="KEY">
                     <block type="text">
@@ -2498,6 +2670,10 @@ export default (Blockly, value, searching) => {
         </category>
     </category>
     <category name="Applications" colour="#4c79ff">
+        <category name="Simple Host" colour="#993399">
+            <label text="AHQ's Simple Host Auth" web-class="boldtext"></label>
+            <block type="simple_host_auth"/>
+        </category>
         <category name="Minecraft" colour="110">
             <category name="Java" colour="120">
                 <label text="Start by grabbing the server to get data from." web-class="boldtext"></label>
@@ -2636,8 +2812,106 @@ export default (Blockly, value, searching) => {
             <block type="jg_roblox_U2_send_message_to_user_id"/>
             <block type="jg_roblox_U2_send_friend_request"/>
         </category>
+		<category name="Reddit" colour="#5ba58b">
+		    <block type="ran_red_post"/>
+			<block type="postVars"/>
+	        <block type="get_about_then"/>
+			<block type="about_user"/>
+		</category>
+        <category name="Scratch and Github" colour="#1f1f1f">
+            <label text="Github" web-class="boldtext"></label>
+            <block type="github_get_then"/>
+            <label text="For profile" web-class="boldtext"></label>
+            <block type="github_what_stat"/>
+            <label text="" web-class="boldtext"></label>
+            <label text="" web-class="boldtext"></label>
+            <label text="Scratch" web-class="boldtext"></label>
+            <block type="scratch_get_about_then"/>
+            <block type="scratch_about_user"/>
+        </category>
+        <category name="CloudConvert" colour="#3333ff">
+            <label text="API starter" web-class="boldtext"></label>
+            <block type="convert_api_code"/>
+            <label text="Main blocks" web-class="boldtext"></label>
+            <block type="convert_api_task"/>
+            <block type="save_api_code"/>
+            <block type="convert_api_file"/>
+            <block type="send_ahq_converted"/>
+            <label text="Resources" web-class="boldtext"></label>
+            <block type="convert_button"/>
+            <block type="convert_embed"/>
+        </category>
     </category>
+    <category name="Securing" colour="#4c61ff">
+        <label text="Output blocks" web-class="boldtext"></label>
+
+           <label text="Securing text" web-class="boldtext"></label>
+
+
+            <block type="jg_encode_hash">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+                <value name="rounds">
+                    <shadow type="math_number">
+                        <field name="NUM">10</field>
+                    </shadow>
+                </value>
+            </block>
+
+
+            <block type="jg_encode_checkhash">
+                <value name="hash">
+                    <shadow type="text"/>
+                </value>
+                <value name="test">
+                    <shadow type="text"/>
+                </value>
+            </block>
+
+            <block type="jg_encryption_encrypt_text">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+                <value name="key">
+                    <shadow type="frost_env">
+                        <value name="VALUE">
+                            <shadow type="text">
+                                <field name="TEXT">encryptionKey</field>
+                            </shadow>
+                        </value>
+                    </shadow>
+                </value>
+            </block>
+
+            <block type="catsoup_encryption_sha256">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+            </block>
+
+
+  <label text="Encoding text" web-class="boldtext"></label>
+            <block type="jg_encode_main">
+          <value name="type">
+           <shadow type="jg_bDI_encodedecodetype">
+           </shadow>
+           </value>
+<value name="type2">
+           <shadow type="jg_bDI_encodedecodetype">
+           </shadow>
+           </value>
+<value name="encode">
+           <shadow type="text">
+           </shadow>
+           </value>
+           </block>
+           
+           <!--<label text="Functions" web-class="boldtext"></label>-->
+
+</category>
         <sep class="bt"/>
+        
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>
             <block type="s4d_get_data">
@@ -2797,11 +3071,128 @@ export default (Blockly, value, searching) => {
             <block type="s4d_delete_all_data2"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
+<category name="SQLite DB" colour="#FF0000">
+            <label text="%{BKY_LABEL_READ_DB}"></label>
+            <block type="qdb_get">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_all"/>
+            <block type="qdb_has_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
+            <block type="qdb_set_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_delete_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_add_data">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_subtract">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="TEXT">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_push">
+                <value name="DATA">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_pull">
+                <value name="DATA">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
 
-        
 
-                    
 
+
+
+
+
+
+
+
+
+
+
+
+
+        <sep class="bt"/>
+        <category name="Comments" colour="#DDAA00">
+            <label text="Comments allow you to explain what your blocks do."></label>
+            <label text="You can add comments onto specific blocks by going on a block, then Right Click > Add Comment"></label>
+            <label text="However, these floating comments allow you to place them anywhere and be always visible!"></label>
+            <block type="jg_unused_floating_comment">
+                <field name="TEXT">This is a floating comment,&amp;#10;with new lines too!</field>
+            </block>
+            <block type="jg_comments_floating_arrow"/>
+            <block type="jg_comments_floating_image">
+                <field name="TEXT">https://media.discordapp.net/attachments/914411539887456296/984121680458829835/ef5d4de4c598bda58c6edc09e9478b2d.png</field>
+            </block>
+            <label text="If you want a connected comment but always visible..."></label>
+            <block type="jg_comments_connected_comment">
+                <field name="TEXT">This is a connected comment,&amp;#10;but it'll always be visible!</field>
+            </block>
+            <block type="jg_comments_connected_arrow"/>
+            <block type="jg_comments_connected_image">
+                <field name="TEXT">https://media.discordapp.net/attachments/914411539887456296/984121680458829835/ef5d4de4c598bda58c6edc09e9478b2d.png</field>
+            </block>
+        </category>
         
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
