@@ -1,5 +1,5 @@
 import * as Blockly from "blockly/core";
-const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
+const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
 function listsGetRandomItem(list, remove) {
     var x = Math.floor(Math.random() * list.length);
     if (remove) {
@@ -20,11 +20,11 @@ const blockData = {
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(){
+Blockly.JavaScript[blockName] = function () {
     const code = [`\`s4d means scratch for discord
     s4d was created mainly by \\\`Androz\\\`
     The Devs of the current preview \\\`469\\\` are:-

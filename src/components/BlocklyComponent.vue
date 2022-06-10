@@ -116,8 +116,8 @@ const defaultblocks = blocks
     }
 
 
-
-    var returned_stuff = toolbox_content.replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", CATEGORYCONTENT)
+            let count_of_blocks = defaultblocks.length
+            var returned_stuff = toolbox_content.replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", `<label text="There are currently ${String(count_of_blocks)} blocks in S4D." web-class="boldtext"></label>` + CATEGORYCONTENT)
 
     // for custom categories
 let urlParams = new URLSearchParams(window.location.search);

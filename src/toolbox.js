@@ -13,6 +13,7 @@ export default (Blockly, value, searching) => {
     <label text="Want to search?"></label>
     <label text="PC: Right click on the workspace > Search for block"></label>
     <label text="Touch: Hold on the workspace > Search for block"></label>
+    <label text=""></label>
         <!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->
     </category>
     `
@@ -364,6 +365,14 @@ export default (Blockly, value, searching) => {
                                 </shadow>
                             </value>
                         </block>
+						<block type="jg_text_for_each_letter_in_text_do">
+                            <value name="TEXT">
+                                <shadow type="text">
+                                    <field name="TEXT">abc</field>
+                                </shadow>
+                            </value>
+                        </block>
+						<block type="jg_text_for_each_letter_in_text_do_letter"/>
         </category>
         <category name="{{ TOOLBOX_LISTS }}" colour="#745ba5">
             <block type="lists_create_with">
@@ -645,11 +654,8 @@ export default (Blockly, value, searching) => {
             </category>
 			</category>
 				<category name="ahq" colour="#ff0000" disabled="true">
-        <label text="AHQ's Simple Host Auth" web-class="boldtext"></label>
-        <block type="simple_host_auth"/>
+        <label text="AHQ's Simple Host Auth has been moved to Applications category!" web-class="boldtext"></label>
         <label text="Other" web-class="boldtext"></label>
-        <block type="server_file"/>
-        <block type="snd_ahq"/>
         <block type="ahq_value_snd"/>
         <!--
         <category name="member" colour="#006600">
@@ -718,16 +724,23 @@ export default (Blockly, value, searching) => {
         <block type="url_ahq_button"/>
         <block type="d_ahq_button"/>
         </category>
+
+        <!--
+
         <category name="cmd register" colour="#6600cc">
         <label text="Create a slash command" web-class="boldtext"></label>
         <block type="s4d_reg_slash"/>
         <block type="s4d_reg_slash_options"/>
         <block type="s4d_reg_new_options"/>
         </category>
+
         <category name="profanity" colour="#ff0000">
         <block type="ahq_bdwrd"/>
         <block type="ahq_bdwrd_cn"/>
         </category>
+        
+        -->
+
         <category name="embed-read" colour="#993399">
         <block type="ahq_embed_is"/>
         <block type="ahq_embed_info"/>
@@ -799,21 +812,16 @@ export default (Blockly, value, searching) => {
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>
         </category>
+
+<!--
+
         <category name="mod" colour="#ff0880">
         <block type="ahq-mod"/>
         </category>
-        <category name="Convert API" colour="#3333ff">
-        <label text="API starter" web-class="boldtext"></label>
-        <block type="convert_api_code"/>
-        <label text="Resources" web-class="boldtext"></label>
-        <block type="convert_button"/>
-        <block type="convert_embed"/>
-        <label text="Main blocks" web-class="boldtext"></label>
-        <block type="convert_api_task"/>
-        <block type="save_api_code"/>
-        <block type="convert_api_file"/>
-        <block type="send_ahq_converted"/>
-        </category>
+
+-->
+
+       
         <category name="Voice" colour="#000099">
         <block type="voice_event"/>
         <block type="voice_switch"/>
@@ -2652,6 +2660,10 @@ export default (Blockly, value, searching) => {
         </category>
     </category>
     <category name="Applications" colour="#4c79ff">
+        <category name="Simple Host" colour="#993399">
+            <label text="AHQ's Simple Host Auth" web-class="boldtext"></label>
+            <block type="simple_host_auth"/>
+        </category>
         <category name="Minecraft" colour="110">
             <category name="Java" colour="120">
                 <label text="Start by grabbing the server to get data from." web-class="boldtext"></label>
@@ -2806,6 +2818,18 @@ export default (Blockly, value, searching) => {
             <label text="Scratch" web-class="boldtext"></label>
             <block type="scratch_get_about_then"/>
             <block type="scratch_about_user"/>
+        </category>
+        <category name="CloudConvert" colour="#3333ff">
+            <label text="API starter" web-class="boldtext"></label>
+            <block type="convert_api_code"/>
+            <label text="Main blocks" web-class="boldtext"></label>
+            <block type="convert_api_task"/>
+            <block type="save_api_code"/>
+            <block type="convert_api_file"/>
+            <block type="send_ahq_converted"/>
+            <label text="Resources" web-class="boldtext"></label>
+            <block type="convert_button"/>
+            <block type="convert_embed"/>
         </category>
     </category>
     <category name="Securing" colour="#4c61ff">

@@ -1472,17 +1472,32 @@ Blockly.Blocks["jg_events_all_label"] = {
                         "name": "EVENT",
                         "options": [
                             [
+                                "When the code runs",
+                                "^empty"
+                            ],
+                            [
                                 "When the bot is connected",
-                                "ready"
+                                "s4d.client.on('ready', async () => {"
                             ],
                             [
                                 "When a message is received",
-                                "messageCreate"
+                                "s4d.client.on('messageCreate', async (s4dmessage) => {"
                             ],
                             [
                                 "When a message is received & author isn't bot",
-                                "messageCreate2"
-                            ]
+                                `s4d.client.on('messageCreate', async (s4dmessage) => {
+        if (s4dmessage.author.bot) {
+            return;
+        }`
+                            ],
+                            [
+                                "When a message is edited",
+                                "s4d.client.on('messageUpdate', async (oldMessage, newMessage) => {"
+                            ],
+                            [
+                                "When a message is deleted",
+                                "s4d.client.on('messageDelete', async (s4dmessage) => {"
+                            ],
                         ]
                     },
                     {
@@ -1508,11 +1523,18 @@ Blockly.Blocks["jg_events_all_label"] = {
 Blockly.JavaScript["jg_events_all_label"] = function (block) {
     const label = block.getFieldValue("LABEL")
     let event = block.getFieldValue("EVENT")
-    // const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    let ending = "});"
+    if (String(event) === '^empty') {
+        event = ""
+        ending = ""
+    }
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
     const code = `/*
         ${label.replaceAll("*/", "* /")}
     */
    ${event}
+   ${statements}
+   ${ending}
    `
     return code;
 };
