@@ -566,6 +566,19 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
+            <label text="When storing a collection to a database, it gets converted." web-class="boldtext"></label>
+            <label text="This block can be used to bring it back to a usable collection." web-class="boldtext"></label>
+            <block type="jg_collections_convert_database_collection_to_collection">
+                <value name="DBCOLLECT">
+                    <block type="s4d_get_data">
+                        <value name="KEY">
+                            <shadow type="text">
+                                <field name="TEXT">collection</field>
+                            </shadow>
+                        </value>
+                    </block>
+                </value>
+            </block>
         </category>
 
         <!--<category name="Objects" colour="#cc59e3">

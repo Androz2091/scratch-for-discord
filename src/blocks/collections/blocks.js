@@ -215,3 +215,39 @@ Blockly.JavaScript["collections_collection_has_key"] = function (block) {
     const key = Blockly.JavaScript.valueToCode(block, "KEY", Blockly.JavaScript.ORDER_ATOMIC);
     return [`${map}.has(String(${key}))`, Blockly.JavaScript.ORDER_NONE];
 };
+
+// database
+// database can only have array or object
+// that is stupid fart
+// so i fix it : )
+// yayyaa
+// colletcton forever
+// :)
+// yoy
+
+Blockly.Blocks["jg_collections_convert_database_collection_to_collection"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "convert database collection %1 to collection",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "DBCOLLECT",
+                        "check": ["Object", "Var", "var", "DatabaseValue"]
+                    }
+                ],
+                "colour": blockColor,
+                "output": null,
+                "tooltip": "Get a value using it's key in the collection.",
+                "helpUrl": ""
+            }
+        );
+    }
+};
+
+Blockly.JavaScript["jg_collections_convert_database_collection_to_collection"] = function (block) {
+    const db = Blockly.JavaScript.valueToCode(block, "DBCOLLECT", Blockly.JavaScript.ORDER_ATOMIC);
+    return [`new Map(Object.entries(${db}))`, Blockly.JavaScript.ORDER_NONE];
+};
