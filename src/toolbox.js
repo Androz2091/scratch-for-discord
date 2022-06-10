@@ -2254,8 +2254,7 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
             <block type="s4d_reply_id"></block>
-						<block type="s4d_pin"/>
-						<block type="s4d_unpin"/>
+            <block type = 'lime_s4d_pin'/>
             <block type="s4d_message_embed"></block>
             
                     

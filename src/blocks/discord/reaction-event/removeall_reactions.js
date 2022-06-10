@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_remove_all_reactions";
 
 const blockData = {
-    "message0": "remove all message %1 reactions",
+    "message0": "remove all reactions on message %1",
     "args0": [
         {
             "type": "input_value",
