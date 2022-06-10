@@ -1466,6 +1466,8 @@ export default (Blockly, value, searching) => {
         </category>
         
 				<category name="{{ JOSE }}" colour="#00664d">
+            <label text="Note!"></label>
+            <label text="Some blocks here are outdated and have yet to be updated."></label>
 <category name = "embeds pagination" colour="#ed5a5a">
                     <block type="pagination_embed"/>
                     <block type="start_pagination"/>
@@ -2642,6 +2644,7 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
+            <block type="jg_web_request_advanced_data_section"/>
             <block type="jg_web_request_advanced_data">
                 <value name="KEY">
                     <block type="text">

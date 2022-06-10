@@ -1510,7 +1510,7 @@ Blockly.Blocks["jg_events_all_label"] = {
                 ],
                 "inputsInline": false,
                 "colour": "#000000",
-                "tooltip": "Get the specific attachment on the message.",
+                "tooltip": "Run the blocks inside when the specified event happens.",
                 "helpUrl": ""
             }
         );
@@ -1531,7 +1531,7 @@ Blockly.JavaScript["jg_events_all_label"] = function (block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
     const code = `/*
         ${label.replaceAll("*/", "* /")}
-    */
+*/
    ${event}
    ${statements}
    ${ending}
