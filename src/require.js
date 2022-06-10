@@ -25,7 +25,7 @@ export default async function require(array, code, js, ahq) {
     });
     `)
     }
-    if(js.includes(`qdb.set`)) {
+    if (js.includes(`qdb.set`)) {
         array.push(`const { QuickDB } = require('quick.db')`)
         code.push(`const qdb = new QuickDB()`)
     }
@@ -180,8 +180,8 @@ export default async function require(array, code, js, ahq) {
     if (js.includes("jimp")) {
         array.push(`const jimp = require('jimp')`)
     }
-    if (js.includes("write")) {
-        array.push("const write = require('write');")
+    if (js.includes("S4D_APP_write")) {
+        array.push("const S4D_APP_write = require('write');")
     }
     if (js.includes("AntiSpam")) {
         array.push(`const AntiSpam = require("discord-anti-spam");`)

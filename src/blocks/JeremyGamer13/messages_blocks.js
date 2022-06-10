@@ -1584,7 +1584,7 @@ Blockly.Blocks["jg_members_get_member_by_id"] = {
                     {
                         "type": "input_value",
                         "name": "ID",
-                        "check": ["String", "var", "Var", "Env", "env"]
+                        "check": ["String", "var", "Var", "Env", "env", "Number"]
                     }
                 ],
                 "colour": "#187795",

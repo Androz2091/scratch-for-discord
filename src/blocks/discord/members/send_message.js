@@ -9,7 +9,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "MessageEmbed", "String", "Number", "var"]
+            "check": ["MessageEmbed", "String", "Number", "var"]
         },
         {
             "type": "input_value",
@@ -25,26 +25,31 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const memberr = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    let member = memberr.replace(".user","")
+    let member
+    if (!(String(memberr).includes("s4d.client.users.cache.get(String("))) {
+        member = memberr.replace(".user", "")
+    } else {
+        member = memberr
+    }
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    if(block.getInput("CONTENT").connection.targetConnection){
+    if (block.getInput("CONTENT").connection.targetConnection) {
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
-        block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
-        null;
+            block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
+            null;
         if ((contentType === "var")) {
             const code = `${member}.send({content: String(${content})});\n`;
             return code;
-        }else if((contentType === "embed") || (!contentType && typeof contentType === "object")){
+        } else if ((contentType === "embed") || (!contentType && typeof contentType === "object")) {
             const code = `${member}.send({ embeds:[${content}]});\n`;
             return code;
-        } else if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
+        } else if ((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
             const code = `${member}.send({${content}});\n`;
             return code;
         } else {
