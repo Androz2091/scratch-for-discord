@@ -16,7 +16,7 @@ const blockData = {
   "previousStatement": null,
   "nextStatement": null,
   "colour": "#D14081",
-  "tooltip": "No Code",
+  "tooltip": "The Blocks You Put On This Block Will Not Exported In Code",
   "helpUrl": ""
 };
 
