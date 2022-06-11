@@ -6,7 +6,7 @@ const blockData = {
   "message0": "Interaction Member",
   "output": "Member",
   "colour": "#187795",
-  "tooltip": "",
+  "tooltip": "Interaction Member",
   "helpUrl": ""
 };
 

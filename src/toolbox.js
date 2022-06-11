@@ -638,6 +638,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_object_getvalue"/>
             <block type="frost_json_to_string"/>
             <block type="anti_link"/>
+            <block type="parham_other_nocode"/>
         </category>
        
 	  
