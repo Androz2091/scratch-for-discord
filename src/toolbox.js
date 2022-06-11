@@ -54,6 +54,12 @@ export default (Blockly, value, searching) => {
             </block>
             <block type="logic_null" />
             <block type="logic_ternary" />
+
+                <block type="s4d_lasercat_switch_switch"></block>
+                <block type="s4d_lasercat_switch_case"></block>
+                <block type="s4d_lasercat_switch_default"></block>
+                <block type="s4d_lasercat_switch_break"></block>
+                
         </category>
         <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
             <block type="s4d_forever">
@@ -638,6 +644,7 @@ export default (Blockly, value, searching) => {
                 <sep class="bt"/>
 				
 			<category name="Member's Blocks" expanded="true">
+            <!--
             <category name="LaserCat" colour="#3599b9">
                 <category name="Switch" colour="#8B48A3">
                 <block type="s4d_lasercat_switch_switch"></block>
@@ -646,6 +653,7 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_lasercat_switch_break"></block>
                 </category>
             </category>
+            -->
 			<category name="Eruption" colour="#ff4000">
 				<category name="Embed" colour="#40BF4A">
                 <label text="Create a perfect embed" web-class="boldtext"></label>
