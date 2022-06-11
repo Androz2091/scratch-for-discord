@@ -153,9 +153,11 @@ import "./blocks/henpokpok/";
 //Eruption
 import "./blocks/Eruption/message_embed/"
 
+// Parham
+import "./blocks/Parham"
+
 
 import "./blocks/quickdb"
-
 
 export default {
     name: "app",
