@@ -6,7 +6,7 @@ const blockData = {
   "message0": "Interaction Member",
   "output": "Member",
   "colour": "#187795",
-  "tooltip": "",
+  "tooltip": "This Block Very Like \"Interaction Author\" Block But You Can Do Role Actions, Ban & Other Server Actions",
   "helpUrl": ""
 };
 
