@@ -222,6 +222,32 @@ Blockly.JavaScript["jg_messages_message_is_value"] = function (block) {
     return code;
 };
 // next block
+Blockly.Blocks["jg_messages_message_webhook_id"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "message %1 webhook ID",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MSG",
+                        "check": "Message"
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": "String",
+                "tooltip": "Get a message's webhook ID, if it has one.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_messages_message_webhook_id"] = function (block) {
+    const message = Blockly.JavaScript.valueToCode(block, "MSG", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${message}.webhookId`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+// next block
 Blockly.Blocks["jg_channel_get_last_messages_in_channel_then"] = {
     init: function () {
         this.jsonInit(

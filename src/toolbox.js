@@ -595,8 +595,6 @@ export default (Blockly, value, searching) => {
         </category> -->
 	
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
-        
-	  
             <block type="s4d_print">
                 <value name="PRINT">
                     <block type="frost_other_err"/>
@@ -611,7 +609,9 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
-<block type="blank_code"><field name="TEXT"/></block>
+            <block type="blank_code">
+                <field name="TEXT"/>
+            </block>
             <block type="s4d_eval"></block>
             <block type="s4d_eval2"></block>
             <block type="s4d_exec"></block>
@@ -626,10 +626,12 @@ export default (Blockly, value, searching) => {
             </block>
             <block type="frost_other_err"/>
             <block type="s4d_return"></block>
+	        <block type="is_a_number_or_string"></block>
             <block type="s4d_string_to_number"></block>
-	    <block type="is_a_number_or_string"></block>
-        <block type="jg_object_getvalue"/>
-        <block type="anti_link"/>
+            <block type="frost_current"/>
+            <block type="jg_object_getvalue"/>
+            <block type="frost_json_to_string"/>
+            <block type="anti_link"/>
         </category>
        
 	  
@@ -750,10 +752,7 @@ export default (Blockly, value, searching) => {
         
         -->
 
-        <category name="embed-read" colour="#993399">
-        <block type="ahq_embed_is"/>
-        <block type="ahq_embed_info"/>
-        </category>
+        
 
 
 
@@ -889,9 +888,8 @@ export default (Blockly, value, searching) => {
         <label text="ㅤ" web-class="boldtext"></label>
         <block type="vc_kick"/>
 	</category>
+    <!--
 	<category name="Channel" colour="#0c97f0">
-        <block type="isdm"/>
-        <block type="first_channel"/>
         <label text="ㅤ" web-class="boldtext"></label>
         <block type="category_channel"/>
         <block type="vcategory_channel"/>
@@ -904,6 +902,7 @@ export default (Blockly, value, searching) => {
         <block type="new_invite"/>
         <block type="invite_ur"/>
 	</category>
+    -->
  	</category>
 
 <category name="frostzzone" colour="#347dfa">
@@ -958,12 +957,14 @@ export default (Blockly, value, searching) => {
 <block type="frost_real_reply_delete"/>
 <block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
 </block>
+<label text="For Jose Or Redo Embeds"></label>
+<block type="frost_send_embed_rr"/>
 <label text="ㅤ" web-class="boldtext"></label>
 </category>
 
 <category name="Slash command stuff" colour="4c97ff">
 <label text='⚠️ Deletes commands set by "Slash command GUI" ⚠️'></label>
-<label text='Only one "Create slash comamnds" block'></label>
+<label text='Only one "Create slash commands" block'></label>
 <label text='If not it breaks'></label>
 
 <label text="You also need to invite your bot with applications.commands enabled!" web-class="boldtext"></label>
@@ -1086,14 +1087,13 @@ export default (Blockly, value, searching) => {
 <label text="ㅤ" web-class="boldtext"></label>
 </category>
 
+<!--
 <category name="Embed" colour="#40bf4a">
-<label text="For Androz Embed"></label>
-<block type="frost_create_field"/>
-<block type="frost_add_field"/>
 <label text="For Jose Or Redo Embeds"></label>
 <block type="frost_send_embed_rr"/>
 <label text="ㅤ" web-class="boldtext"></label>
 </category>
+-->
 
 <category name="filesystem (fs)" colour="#347dfa">
 <block type="frost_fs_read"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
@@ -1128,11 +1128,10 @@ export default (Blockly, value, searching) => {
 <block type="emit_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
 </category>
 
+<!--
 <category name="Other" colour="#5ba58b">
-<block type="frost_fs_err"/>
-<block type="frost_current"/>
-<block type="frost_json_to_string"/>
 </category>
+-->
 
 <category name="Translate" hidden="true">
 <block name="frost_translate"/>
@@ -1232,11 +1231,6 @@ export default (Blockly, value, searching) => {
 <label text="Need help? Go to this master document:" web-class="boldtext"></label>
           <label text="shorturl.at/nCFV7" web-class="boldtext"></label>
 <category name="Messaging" colour="210">
-            <block type="jg_typingChannel">
-                <value name="CHANNEL">
-                    <block type="s4d_message_channel"/>
-                </value>
-            </block>
             <block type="jg_sendImage">
                 <value name="NAME">
                   <block type="text">
@@ -2116,10 +2110,45 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
             <block type="jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"></block>
+
+            <label text="Respond to a recieved message"></label>
+
+            <block type="s4d_reply">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_messages_reply_with_allowed_list_of_pings_on_users_on_roles">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">No user ping here!</field>
+                    </shadow>
+                </value>
+                <value name="USERS">
+                    <block type="lists_create_with">
+                        <mutation items="0"/>
+                    </block>
+                </value>
+            </block>
+            <block type="jg_typingChannel">
+                <value name="CHANNEL">
+                    <block type="s4d_message_channel"/>
+                </value>
+            </block>
+
+            <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
+
+            <block type="Message"/>
+            <block type="s4d_message_channel"></block>
+            <block type="s4d_message_guild"></block>
+
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
+
             <block type="s4d_message_content"></block>
             <block type="s4d_message_id"></block>
-	    <block type="s4d_message_ts"></block>
+	        <block type="s4d_message_ts"></block>
             <block type="s4d_message_author"></block>
             <block type="s4d_message_member"/>
             <block type="s4d_mentioned_member"></block>
@@ -2150,6 +2179,18 @@ export default (Blockly, value, searching) => {
                     <shadow type="Message"/>
                 </value>
             </block>
+            <!--<block type="ahq_embed_is"/>-->
+            <block type="ahq_embed_info">
+                <value name="member">
+                    <shadow type="Message"/>
+                </value>
+            </block>
+            <block type="jg_messages_message_webhook_id">
+                <value name="MSG">
+                    <shadow type="Message"/>
+                </value>
+            </block>
+
             <label text="Get attachments on the message" web-class="boldtext"></label>
                 
                     <block type="att_size">
@@ -2191,36 +2232,12 @@ export default (Blockly, value, searching) => {
                     <block type="att_type"/>
                     <block type="att_url"/>
                     -->
-            <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
-            <block type="Message"/>
-            <block type="s4d_message_channel"></block>
-            <block type="s4d_message_guild"></block>
             <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
             <block type="s4d_message_author_raw"></block>
             <block type="s4d_message_channel_raw"></block>
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
-            <block type="s4d_reply">
-                <value name="CONTENT">
-                    <shadow type="text">
-                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="jg_messages_reply_with_allowed_list_of_pings_on_users_on_roles">
-                <value name="CONTENT">
-                    <shadow type="text">
-                        <field name="TEXT">No user ping here!</field>
-                    </shadow>
-                </value>
-                <value name="USERS">
-                    <block type="lists_create_with">
-                        <mutation items="0"/>
-                    </block>
-                </value>
-            </block>
             <block type="s4d_delete"></block>
-            <block type="anti_spam"></block>
             <block type="s4d_remove_all_reactions"/>
             <block type="s4d_remove_reactions"/>
             <block type="s4d_add_reaction">
@@ -2262,17 +2279,18 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
-            <block type="s4d_reply_id"></block>
-            <block type = 'lime_s4d_pin'/>
-            <block type="s4d_message_embed"></block>
+            <block type="s4d_reply_id"/>
+            <block type="lime_s4d_pin"/>
+            <block type="s4d_message_embed"/>
+            <block type="frost_create_field"/>
+            <block type="frost_add_field"/>
+            <block type="anti_spam"/>
             
-                    
-            
-        <label text="Blocks for handling typing" web-class="boldtext"></label>
-        <block type="typing_start"/>
-        <block type="jg_typing_typing_attribute"/>
-                
+            <label text="Blocks for handling typing" web-class="boldtext"></label>
 
+            <block type="typing_start"/>
+            <block type="jg_typing_typing_attribute"/>
+                
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Threads" colour="#2a97b8">
@@ -2368,18 +2386,23 @@ export default (Blockly, value, searching) => {
         <sep class="bt"/>
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>
+
             <block type="s4d_get_server"></block>
             <block type="s4d_get_all_server"></block>
             <block type="s4d_get_all_server_server"></block>
+
             <label text="%{BKY_LABEL_SERVER_INFOS}"></label>
-	    <block type="server_attributes"/>
-	    <block type="set_server_something">
+
+	        <block type="server_attributes"/>
+            <!--
+	            <block type="set_server_something">
                    <value name="reason">
                        <shadow type ="text">
                            <field name="TEXT"> </field>
                         </shadow>
                    </value>
-               </block>
+                </block>
+            -->
             <block type="s4d_server_name"></block>
             <block type="s4d_member_count"></block>
             <block type="s4d_icon_url"></block>
@@ -2388,30 +2411,40 @@ export default (Blockly, value, searching) => {
             <block type="s4d_server_owner"></block>
             <block type="s4d_number_of__server"></block>
             <block type="s4d_server_created_at"></block>
+            <block type="everyn"/>
+
+            <label text="Member server actions"></label>
+
             <block type="s4d_leave_server"></block>
+
             <label text="%{BKY_LABEL_MODIFY_SERVER}"></label>
+
             <block type="s4d_set_server_name"></block>
+	        <block type="set_server_something">
+                <value name="reason">
+                    <shadow type ="text">
+                        <field name="TEXT"> </field>
+                    </shadow>
+                </value>
+            </block>
+	        <block type="explicit_content_filter"/>
+            <block type="default_notif_lvl"/>
+            <block type="set_verification_level"/>
+
             <label text="ㅤ" web-class="boldtext"></label>
-	    
-	    <block type="set_server_something">
-                    <value name="reason">
-                        <shadow type ="text">
-                            <field name="TEXT"> </field>
-                        </shadow>
-                    </value>
-                </block>
-	    <block type="explicit_content_filter"/>
-                <block type="default_notif_lvl"/>
-                <block type="set_verification_level"/>
                 
         </category>
-        <category name="{{ TOOLBOX_CHANNELS }}" colour="#a55b80">
-            <label text="%{BKY_FIND_CHANNEL}"></label>
+        <category name="Channels" colour="#a55b80">
+            <label text="Find a channel"></label>
+
             <block type="s4d_get_channel"></block>
             <block type="s4d_get_all_channel"></block>
             <block type="s4d_get_all_channel_channel"></block>
-	    <block type="get_all_channel_channel_name"></block>
-            <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
+	        <block type="get_all_channel_channel_name"></block>
+            <block type="first_channel"/>
+
+            <label text="Send a message in the found channel"></label>
+
             <block type="s4d_send_channel"></block>
             <block type="jg_channels_send_in_channel_with_allowed_list_of_pings_on_users_on_roles">
                 <value name="CONTENT">
@@ -2425,15 +2458,18 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
-	    <label text="Channel Info"></label>
-	    <block type="s4d_channel_ahq_name"></block>
-      <block type="s4d_channel_id"/>
-      <block type="s4d_channel_guild_id"/>
-      <block type="s4d_channel_parent_id"/>
-      <block type="s4d_channel_message_id"/>
-      <block type="s4d_channel_topic"/>
+
+	        <label text="Channel Info"></label>
+
+	        <block type="s4d_channel_ahq_name"></block>
+            <block type="s4d_channel_id"/>
+            <block type="s4d_channel_guild_id"/>
+            <block type="s4d_channel_parent_id"/>
+            <block type="s4d_channel_message_id"/>
+            <block type="s4d_channel_topic"/>
             <block type="s4d_channel_exist"/>
             <block type="s4d_is_channel_nsfw"/>
+            <block type="isdm"/>
 
             <label text="Finding content in the channel"></label>
 
@@ -2452,7 +2488,8 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
 
-            <label text="%{BKY_FORMS}"></label>
+            <label text="Forms"></label>
+
             <block type="s4d_send_wait_reply">
                 <value name="CONTENT">
                     <shadow type="text">
@@ -2471,9 +2508,10 @@ export default (Blockly, value, searching) => {
             <block type="reply_mentioned_channel"/>
             <block type="reply_message"/>
             <block type="reply_message_id"/>
-            <label text="%{BKY_CHANNEL_MESSAGE_ACTIONS}"></label>
-             <block type="s4d_purge">
 
+            <label text="Actions on messages in the channel"></label>
+
+             <block type="s4d_purge">
                 <value name="AMOUNT">
                     <shadow type="math_number">
                         <field name="NUM">2</field>
@@ -2481,16 +2519,22 @@ export default (Blockly, value, searching) => {
                 </value> 
             </block>
 	    
-	    
-            <label text="%{BKY_CHANNEL_ACTIONS}"></label>
-            <block type="slowmode"></block>
-            
-            <block type="set_perms_parent"></block>
+            <label text="Channel Actions"></label>
+
             <block type="s4d_create_channel"></block>
             <block type="s4d_delete_channel"></block>
-            <label text="ㅤ" web-class="boldtext"></label>
+
+            <label text="Actions for the channel"></label>
+
+            <block type="renamec"/>
+            <block type="channel_perms"/>
+            <block type="set_perms_parent"/>
+            <block type="slowmode"/>
+            <block type="new_invite"/>
+            <block type="invite_ur"/>
 
             <label text="Voice channel Information"></label>
+
             <block type="jg_members_member_is_in_voice_channel">
                 <value name="MEMBER">
                     <shadow type="s4d_message_member"/>
@@ -2532,28 +2576,38 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
-	    
-            <label text="ㅤ" web-class="boldtext"></label>
 
-                <label text="Create a new perfect event!"/>
-                <label text="⚠ ISO 8601 is needed for the dates! You can find it at : unixtimestamp.com"/>
-                <block type="create_new_event"> <value name="event_id"> <block type="text"> </block> </value></block>
-		<block type="edit_s_event">
+            <label text="Create a new perfect event!"/>
+            <label text="⚠ ISO 8601 is needed for the dates! You can find it at : unixtimestamp.com"/>
 
+                <block type="create_new_event">
                     <value name="event_id">
                         <block type="text"/>
                     </value>
-
+                </block>
+		        <block type="edit_s_event">
+                    <value name="event_id">
+                        <block type="text"/>
+                    </value>
                 </block>
                 <block type="event_set_options"/>
+
                 <label text="Event options"/>
+
                 <block type="privacylevel"/>
                 <block type="entitytype"/>
-                <label text="Delete perfect event..."/>
-                <block type="delete_sch_event"> <value name="amongus"> <shadow type="text"> </shadow> </value> </block>
 
+                <label text="Delete perfect event..."/>
+
+                <block type="delete_sch_event">
+                    <value name="amongus">
+                        <shadow type="text"/>
+                    </value>
+                </block>
+
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
-        <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
+        <category name="Roles" colour="#2EB66B">
             <label text="%{BKY_FIND_ROLE}"></label>
             <block type="s4d_get_role"></block>
             <block type="s4d_get_all_role"></block>
@@ -2897,31 +2951,13 @@ export default (Blockly, value, searching) => {
     </category>
     <category name="Securing" colour="#4c61ff">
         <label text="Output blocks" web-class="boldtext"></label>
-
            <label text="Securing text" web-class="boldtext"></label>
 
-
-            <block type="jg_encode_hash">
+            <block type="catsoup_encryption_sha256">
                 <value name="encode">
                     <shadow type="text"/>
                 </value>
-                <value name="rounds">
-                    <shadow type="math_number">
-                        <field name="NUM">10</field>
-                    </shadow>
-                </value>
             </block>
-
-
-            <block type="jg_encode_checkhash">
-                <value name="hash">
-                    <shadow type="text"/>
-                </value>
-                <value name="test">
-                    <shadow type="text"/>
-                </value>
-            </block>
-
             <block type="jg_encryption_encrypt_text">
                 <value name="encode">
                     <shadow type="text"/>
@@ -2936,33 +2972,38 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
-
-            <block type="catsoup_encryption_sha256">
+            <block type="jg_encode_hash">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+                <value name="rounds">
+                    <shadow type="math_number">
+                        <field name="NUM">10</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_encode_checkhash">
+                <value name="hash">
+                    <shadow type="text"/>
+                </value>
+                <value name="test">
+                    <shadow type="text"/>
+                </value>
+            </block>
+        <label text="Encoding text" web-class="boldtext"></label>
+            <block type="jg_encode_main">
+                <value name="type">
+                    <shadow type="jg_bDI_encodedecodetype"/>
+                </value>
+                <value name="type2">
+                    <shadow type="jg_bDI_encodedecodetype"/>
+                </value>
                 <value name="encode">
                     <shadow type="text"/>
                 </value>
             </block>
-
-
-  <label text="Encoding text" web-class="boldtext"></label>
-            <block type="jg_encode_main">
-          <value name="type">
-           <shadow type="jg_bDI_encodedecodetype">
-           </shadow>
-           </value>
-<value name="type2">
-           <shadow type="jg_bDI_encodedecodetype">
-           </shadow>
-           </value>
-<value name="encode">
-           <shadow type="text">
-           </shadow>
-           </value>
-           </block>
-           
-           <!--<label text="Functions" web-class="boldtext"></label>-->
-
-</category>
+        <!--<label text="Functions" web-class="boldtext"></label>-->
+    </category>
         <sep class="bt"/>
         
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
