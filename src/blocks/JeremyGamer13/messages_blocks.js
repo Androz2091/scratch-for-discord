@@ -1573,6 +1573,65 @@ Blockly.JavaScript["jg_members_list_of_known_member_ids"] = function () {
     const code = [`JSON.parse(JSON.stringify(s4d.client)).users`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+//  aaaa
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+Blockly.Blocks["jg_members_new_list_of_known_ids"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "list of known %1 IDs",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "member",
+                                "users"
+                            ],
+                            [
+                                "channel",
+                                "channels"
+                            ],
+                            [
+                                "server",
+                                "guilds"
+                            ],
+                        ]
+                    }
+                ],
+                "colour": "#187795",
+                "output": ["Array", "List"],
+                "tooltip": "Get a list of IDs that the bot has known about.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_new_list_of_known_ids"] = function (block) {
+    const type = block.getFieldValue("TYPE")
+    const code = [`JSON.parse(JSON.stringify(s4d.client)).${type}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 Blockly.Blocks["jg_members_get_member_by_id"] = {
     init: function () {
