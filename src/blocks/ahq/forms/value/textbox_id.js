@@ -1,15 +1,5 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../../restrictions";
-
-const ahqcolor = ['#33cc00', '#33cc00', '#33cc00', '#33cc00'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
 const blockName = "id_textbox_ahq";
 //block working now working
 const blockData = {
@@ -19,19 +9,19 @@ const blockData = {
         "name": "id",
         "check": "String"
     }],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#33cc00',
     "output": "String",
-    "tooltip": "",
+    "tooltip": "The text entered in the textbox with the ID specified.",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const code = [`(i.getTextInputValue(${Blockly.JavaScript.valueToCode(block, "id", Blockly.JavaScript.ORDER_NONE)}))`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
@@ -40,7 +30,7 @@ registerRestrictions(blockName, [
         type: "notempty",
         message: "RES_MISSING_AHQ_CONTENT",
         types: [
-          "id"
+            "id"
         ]
     }
 ]);

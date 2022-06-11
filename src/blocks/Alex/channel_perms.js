@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "channel_perms";
 
 const blockData = {
-"message0": "%1  permission  %2 in channel  %3 to member / role / everyone  %4",
+  "message0": "%1  permission  %2 in channel  %3 to member / role / everyone  %4",
   "args0": [
     {
       "type": "field_dropdown",
@@ -71,26 +71,26 @@ const blockData = {
       "name": "to",
       "check": ["Member", "Role", "Everyone"]
     },
-    
+
   ],
   "previousStatement": null,
   "nextStatement": null,
   "colour": "#0c97f0",
-  "tooltip": "",
+  "tooltip": "Edit permissions on a channel.",
   "helpUrl": ""
 }
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-    }
+  init: function () {
+    this.jsonInit(blockData);
+  }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-const trufal = block.getFieldValue("ad");
-const perm = block.getFieldValue("perm");
-const to = Blockly.JavaScript.valueToCode(block, "to", Blockly.JavaScript.ORDER_ATOMIC);
-const channel = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${channel}.permissionOverwrites.edit(${to}, { ${perm}: ${trufal} });`;
-    return code;
+Blockly.JavaScript[blockName] = function (block) {
+  const trufal = block.getFieldValue("ad");
+  const perm = block.getFieldValue("perm");
+  const to = Blockly.JavaScript.valueToCode(block, "to", Blockly.JavaScript.ORDER_ATOMIC);
+  const channel = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
+  const code = `${channel}.permissionOverwrites.edit(${to}, { ${perm}: ${trufal} });`;
+  return code;
 };

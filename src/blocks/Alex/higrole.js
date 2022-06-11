@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "hig_role";
 
 const blockData = {
-  "message0": "Highest role of member  %1",
+  "message0": "Highest role of member %1",
   "args0": [
     {
       "type": "input_value",
@@ -14,18 +14,18 @@ const blockData = {
   ],
   "output": "Role",
   "colour": "#6cb5e6",
-  "tooltip": "",
+  "tooltip": "Gets the highest role a member has.",
   "helpUrl": ""
 }
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-    }
+  init: function () {
+    this.jsonInit(blockData);
+  }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-const memb = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC);
-  const code =  [`${memb.replace(".user", "")}.roles.highest`, Blockly.JavaScript.ORDER_NONE ];
+Blockly.JavaScript[blockName] = function (block) {
+  const memb = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC);
+  const code = [`${memb.replace(".user", "")}.roles.highest`, Blockly.JavaScript.ORDER_NONE];
   return code;
 };

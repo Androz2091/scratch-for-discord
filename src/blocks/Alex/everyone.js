@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "everyn";
 
 const blockData = {
-    "message0": "Get everyone of server  %1",
+  "message0": "Get everyone of server  %1",
   "args0": [
     {
       "type": "input_value",
@@ -11,20 +11,20 @@ const blockData = {
       "check": "Server"
     }
   ],
-    "output": "Everyone",
-    "colour": "#01824c",
-    "tooltip": "",
-    "helpUrl": ""
+  "output": "Everyone",
+  "colour": "#01824c",
+  "tooltip": "Get everyone in a server.",
+  "helpUrl": ""
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-    }
+  init: function () {
+    this.jsonInit(blockData);
+  }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-const server = Blockly.JavaScript.valueToCode(block, "server", Blockly.JavaScript.ORDER_ATOMIC);
-  const code =  [`(${server} || {}).id`, Blockly.JavaScript.ORDER_NONE ];
+Blockly.JavaScript[blockName] = function (block) {
+  const server = Blockly.JavaScript.valueToCode(block, "server", Blockly.JavaScript.ORDER_ATOMIC);
+  const code = [`(${server} || {}).id`, Blockly.JavaScript.ORDER_NONE];
   return code;
 };

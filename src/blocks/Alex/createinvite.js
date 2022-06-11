@@ -23,7 +23,7 @@ const blockData = {
   "previousStatement": null,
   "nextStatement": null,
   "colour": "#502e6e",
-  "tooltip": "",
+  "tooltip": "Create an invite for a channel, and then run the blocks inside.",
   "helpUrl": ""
 }
 
@@ -34,8 +34,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-    const Then = Blockly.JavaScript.statementToCode(block, "then");
-const channel = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
-  const code =  `${channel}.createInvite({ maxAge: 0, maxUses: 0 }).then(async invite => { \n ${Then} \n });`;
+  const Then = Blockly.JavaScript.statementToCode(block, "then");
+  const channel = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
+  const code = `${channel}.createInvite({ maxAge: 0, maxUses: 0 }).then(async invite => { \n ${Then} \n });`;
   return code;
 };

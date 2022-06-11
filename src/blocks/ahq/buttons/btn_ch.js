@@ -14,17 +14,17 @@ const blockData = {
     "message0": "button channel",
     "colour": listsGetRandomItem(ahqcolor, false),
     "output": "Channel",
-    "tooltip": "",
+    "tooltip": "The channel of the button message.",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(){
+Blockly.JavaScript[blockName] = function () {
     const code = ['(i.channel)', Blockly.JavaScript.ORDER_NONE];
     return code;
 };

@@ -28,7 +28,7 @@ const blockData = {
   "previousStatement": null,
   "nextStatement": null,
   "colour": "#56afdb",
-  "tooltip": "",
+  "tooltip": "Get all of the roles a member has in a server and run the blocks below.",
   "helpUrl": ""
 }
 
@@ -39,10 +39,10 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-    const Then = Blockly.JavaScript.statementToCode(block, "then");
-const member = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC);
-const server = Blockly.JavaScript.valueToCode(block, "server", Blockly.JavaScript.ORDER_ATOMIC);
-  const code =  `memberRoles = ${member}.roles.cache
+  const Then = Blockly.JavaScript.statementToCode(block, "then");
+  const member = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC);
+  const server = Blockly.JavaScript.valueToCode(block, "server", Blockly.JavaScript.ORDER_ATOMIC);
+  const code = `memberRoles = ${member}.roles.cache
 .filter((roles) => roles.id !== ${server}.id)
 .map ((role) => role.toString()); \n ${Then}`;
   return code;
