@@ -1870,6 +1870,7 @@ export default (Blockly, value, searching) => {
         <block type="options">
         <mutation mode="string"></mutation></block>
         <block type="interaction_author"></block>
+        <block type="parham_slash_interactionmember"></block>
         <block type="interaction_channel"></block>
         <block type="interaction_guild"></block>
         <block type="interaction_voice_channel"></block>
