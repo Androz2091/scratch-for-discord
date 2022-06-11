@@ -15,7 +15,7 @@ const blockData = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 0,
+  "colour": "#D14081",
   "tooltip": "No Code",
   "helpUrl": ""
 };
