@@ -614,6 +614,7 @@ export default (Blockly, value, searching) => {
 <block type="blank_code"><field name="TEXT"/></block>
             <block type="s4d_eval"></block>
             <block type="s4d_eval2"></block>
+            <block type="s4d_exec"></block>
             <block type="s4d_try_and_catch">
                 <value name="catch">
                     <block type="s4d_print">
@@ -2488,7 +2489,51 @@ export default (Blockly, value, searching) => {
             <block type="s4d_create_channel"></block>
             <block type="s4d_delete_channel"></block>
             <label text="ㅤ" web-class="boldtext"></label>
+
+            <label text="Voice channel Information"></label>
+            <block type="jg_members_member_is_in_voice_channel">
+                <value name="MEMBER">
+                    <shadow type="s4d_message_member"/>
+                </value>
+            </block>
+            <block type="jg_members_get_members_current_voice_channel">
+                <value name="MEMBER">
+                    <shadow type="s4d_message_member"/>
+                </value>
+            </block>
+            <label text="Voice channel actions"></label>
+            <block type="jg_voice_create_connection_to_voice_channel_id_in_server_id">
+                <value name="SERVER">
+                    <shadow type="text"/>
+                </value>
+                <value name="CHANNEL">
+                    <shadow type="text"/>
+                </value>
+            </block>
+            <block type="jg_voice_play_audio_file_at_percent_volume_on_connection">
+                <value name="FILE">
+                    <shadow type="text"/>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+                <value name="CONNECTION">
+                    <block type="variables_get">
+                        <field name="VAR" id="MjBNeg3T-ID1JeaMVk9F">connection</field>
+                    </block>
+                </value>
+            </block>
+            <block type="jg_voice_disconnect_from_voice_connection">
+                <value name="CONNECTION">
+                    <block type="variables_get">
+                        <field name="VAR" id="MjBNeg3T-ID1JeaMVk9F">connection</field>
+                    </block>
+                </value>
+            </block>
 	    
+            <label text="ㅤ" web-class="boldtext"></label>
 
                 <label text="Create a new perfect event!"/>
                 <label text="⚠ ISO 8601 is needed for the dates! You can find it at : unixtimestamp.com"/>

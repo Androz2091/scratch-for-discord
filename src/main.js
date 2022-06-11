@@ -20,7 +20,7 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 
 Vue.config.productionTip = false;
-Vue.config.ignoredElements = ["field","block","category","xml","mutation","value","sep"];
+Vue.config.ignoredElements = ["field", "block", "category", "xml", "mutation", "value", "sep"];
 
 import r from "./require";
 
@@ -47,7 +47,7 @@ import toolbox from "./toolbox";
 import Theme from '@blockly/theme-dark';
 Vue.mixin({
     methods: {
-        async reloadWorkspace(){
+        async reloadWorkspace() {
             let val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")
             // Get current workspace
             let workspace = this.$store.state.workspace;
@@ -71,27 +71,28 @@ Vue.mixin({
                     minScale: 0.3,
                     scaleSpeed: 1.2
                 },
-            move:{
-        scrollbars: {
-          horizontal: true,
-          vertical: true
-        },
-        drag: true,
-        wheel: true},
-                toolbox: toolbox(Blockly,val)
+                move: {
+                    scrollbars: {
+                        horizontal: true,
+                        vertical: true
+                    },
+                    drag: true,
+                    wheel: true
+                },
+                toolbox: toolbox(Blockly, val)
             });
-   
+
             Blockly.Xml.domToWorkspace(dom, newWorkspace);
             // Update the workspace in the vuex store
             this.$store.commit("setWorkspace", {
                 workspace: newWorkspace
             })
-;				
+                ;
 
             // Return the workspace
             return workspace;
         },
-        setLanguage(locale){
+        setLanguage(locale) {
             switch (locale) {
                 case "en":
                     // Change Blockly language for default blocks
@@ -121,19 +122,19 @@ Vue.mixin({
                     break;
             }
         },
-        getWorkspaceCode(){
-            if(!this.$store.state.workspace) return "";
+        getWorkspaceCode() {
+            if (!this.$store.state.workspace) return "";
             let requires = [
-            `let Discord = require("discord.js")`,
-            `let Database  = require("easy-json-database")`,
-              `let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")`,
-            `let logs = require("discord-logs")`
+                `let Discord = require("discord.js")`,
+                `let Database  = require("easy-json-database")`,
+                `let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")`,
+                `let logs = require("discord-logs")`
             ]
             let requiresjscode = [`logs(s4d.client);`]
-            r(requires,requiresjscode,Blockly.JavaScript.workspaceToCode(this.$store.state.workspace), requiresjscode)
-            setTimeout(async()=>{
-                await localforage.setItem("requires",requires)
-            },1000)
+            r(requires, requiresjscode, Blockly.JavaScript.workspaceToCode(this.$store.state.workspace), requiresjscode)
+            setTimeout(async () => {
+                await localforage.setItem("requires", requires)
+            }, 1000)
             let ahqcode = ``;
             if (Blockly.JavaScript.workspaceToCode(this.$store.state.workspace).includes(`//simple host`)) {
                 ahqcode = `(async()=>{
@@ -194,6 +195,7 @@ Vue.mixin({
                          
                          ]
                   const events = require('events');
+                  const { exec } = require("child_process")
                   const S4D_APP_RUN_BUTTON = false
                   ${requires.join("\n")}
 let fs = require('fs');
@@ -228,7 +230,7 @@ fire:null,
                     ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
                     return s4d
                     })();`
-                    
+
             }
             return ahqcode;
         }

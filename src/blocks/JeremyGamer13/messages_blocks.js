@@ -1600,3 +1600,56 @@ Blockly.JavaScript["jg_members_get_member_by_id"] = function (block) {
     const code = [`s4d.client.users.cache.get(String(${id}))`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+
+Blockly.Blocks["jg_members_member_is_in_voice_channel"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "member %1 is in voice channel?",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": "Member"
+                    }
+                ],
+                "colour": "#a55b80",
+                "output": "Boolean",
+                "tooltip": "Checks if a member is in a voice channel.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_member_is_in_voice_channel"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${(String(member).endsWith(".user") || String(member).endsWith(".user)")) ? member.replace(".user", "") : member}.voice.channel != null`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_members_get_members_current_voice_channel"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get member%1s current voice channel",
+                "inputsInline": true,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": "Member"
+                    }
+                ],
+                "colour": "#a55b80",
+                "output": "Channel",
+                "tooltip": "Get a server members current voice channel, if they are in one.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_get_members_current_voice_channel"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${(String(member).endsWith(".user") || String(member).endsWith(".user)")) ? member.replace(".user", "") : member}.voice.channel`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
