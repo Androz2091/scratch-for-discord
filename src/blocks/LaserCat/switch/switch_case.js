@@ -8,7 +8,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "case",
-            "check": [ "Number", "String" ]
+            "check": ["Number", "String"]
         },
         {
             "type": "input_dummy",
@@ -21,20 +21,20 @@ const blockData = {
     "colour": "#8B48A3",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "",
+    "tooltip": "Run the blocks inside if the switched item is equal to this case's value.",
     "helpUrl": ""
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const casee = Blockly.JavaScript.valueToCode(block, "case", Blockly.JavaScript.ORDER_ATOMIC);
     const blocks = Blockly.JavaScript.statementToCode(block, "blocks");
-    
+
     return `
     case ${casee}:
     ${blocks}    

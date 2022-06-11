@@ -9,16 +9,16 @@ const blockData = {
     "colour": "#8B48A3",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "",
+    "tooltip": "End a case here.",
     "helpUrl": ""
 };
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(){
+Blockly.JavaScript[blockName] = function () {
     return `break;
     `;
 };
