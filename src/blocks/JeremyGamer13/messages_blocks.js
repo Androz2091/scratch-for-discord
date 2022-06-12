@@ -205,6 +205,10 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                                 'stickers.size > 0'
                             ],
                             [
+                                "has thread?",
+                                '.hasThread'
+                            ],
+                            [
                                 "can be deleted by the bot?",
                                 '.deletable'
                             ],
@@ -215,6 +219,10 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             [
                                 "can be edited by the bot?",
                                 '.editable'
+                            ],
+                            [
+                                "can be pinned by the bot?",
+                                '.pinnable'
                             ]
                         ],
                     }
