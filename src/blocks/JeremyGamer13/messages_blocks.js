@@ -203,6 +203,18 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             [
                                 "has stickers?",
                                 'stickers.size > 0'
+                            ],
+                            [
+                                "can be deleted by the bot?",
+                                '.deletable'
+                            ],
+                            [
+                                "can be crossposted by the bot?",
+                                '.crosspostable'
+                            ],
+                            [
+                                "can be edited by the bot?",
+                                '.editable'
                             ]
                         ],
                     }
