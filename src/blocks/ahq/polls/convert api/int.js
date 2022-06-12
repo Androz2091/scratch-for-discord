@@ -1,15 +1,6 @@
 import * as Blockly from "blockly/core";
-const ahqcolor = ['#0EB22B', '#0EB22B', '#0EB22B', '#0EB22B'];
 import { registerRestrictions } from "../../../../restrictions";
 
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
 const blockName = "convert_api_code";
 //block working now working
 const blockData = {
@@ -23,22 +14,22 @@ const blockData = {
         "name": "api",
         "check": "String"
     }],
-    "colour": listsGetRandomItem(ahqcolor, false),
-    "tooltip": "",
+    "colour": '#0EB22B',
+    "tooltip": "Load the CloudConvert API. You'll need to get an API key from their website. This block should only be placed once.",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const code = `const CloudConvert = require('cloudconvert');
     const ahqfs = require("fs");
     const cloudConvert = new CloudConvert(${Blockly.JavaScript.valueToCode(block, "api", Blockly.JavaScript.ORDER_ATOMIC)});`
-return code;
+    return code;
 };
 
 registerRestrictions(blockName, [

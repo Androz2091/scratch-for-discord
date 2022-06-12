@@ -6,7 +6,7 @@ const blockData = {
     "message0": "random member",
     "colour": '#40BF4A',
     "output": "Member",
-    "tooltip": "",
+    "tooltip": "Gets a random member from the server.",
     "helpUrl": ""
 };
 

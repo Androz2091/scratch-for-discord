@@ -14,7 +14,7 @@ const blockData = {
     "message0": "History of s4d!",
     "colour": listsGetRandomItem(ahqcolor, false),
     "output": "String",
-    "tooltip": "",
+    "tooltip": ":troll:",
     "helpUrl": ""
 };
 

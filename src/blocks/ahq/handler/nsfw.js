@@ -15,17 +15,17 @@ const blockData = {
     "args0": [],
     "colour": listsGetRandomItem(ahqcolor, false),
     "output": "String",
-    "tooltip": "",
+    "tooltip": "???",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(){
+Blockly.JavaScript[blockName] = function () {
     const code = [`(ahqhandler[\`nsfw\`])`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };

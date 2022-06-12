@@ -1,30 +1,21 @@
 import * as Blockly from "blockly/core";
-const ahqcolor = ['#33cc00', '#33cc00', '#33cc00', '#33cc00'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
 const blockName = "server_form_ahq";
 //block working now working
 const blockData = {
     "message0": "Form Server",
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#33cc00',
     "output": "Server",
-    "tooltip": "",
+    "tooltip": "The server the form was in.",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(){
+Blockly.JavaScript[blockName] = function () {
     const code = ['(i.guild)', Blockly.JavaScript.ORDER_NONE];
     return code;
 };

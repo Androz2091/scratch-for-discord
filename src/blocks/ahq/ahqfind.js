@@ -45,7 +45,7 @@ const blockData = {
   ],
   "colour": '#3366ff',
   "output": "ahqfind",
-  "tooltip": "",
+  "tooltip": "Search for a channel in a specific server.",
   "helpUrl": ""
 };
 

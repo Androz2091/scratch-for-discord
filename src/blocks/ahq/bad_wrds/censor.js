@@ -19,17 +19,17 @@ const blockData = {
     }],
     "colour": listsGetRandomItem(ahqcolor, false),
     "output": "String",
-    "tooltip": "",
+    "tooltip": "A filtered version of the text.",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const data = Blockly.JavaScript.valueToCode(block, "BAD", Blockly.JavaScript.ORDER_ATOMIC);
     const code = [`(censor.censor(String(${data})))`, Blockly.JavaScript.ORDER_ATOMIC];
     return code;

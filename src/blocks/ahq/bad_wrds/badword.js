@@ -19,17 +19,17 @@ const blockData = {
     }],
     "colour": listsGetRandomItem(ahqcolor, false),
     "output": "Boolean",
-    "tooltip": "",
+    "tooltip": "Check if text has bad words.",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const data = Blockly.JavaScript.valueToCode(block, "BAD", Blockly.JavaScript.ORDER_ATOMIC);
     const code = [`(censor.check(String(${data})))`, Blockly.JavaScript.ORDER_ATOMIC];
     return code;
