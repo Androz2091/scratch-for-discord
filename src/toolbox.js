@@ -2206,7 +2206,9 @@ export default (Blockly, value, searching) => {
                     <shadow type="Message"/>
                 </value>
             </block>
-            <!--<block type="ahq_embed_is"/>-->
+            <!--
+            <block type="ahq_embed_is"/>
+            -->
             <block type="ahq_embed_info">
                 <value name="member">
                     <shadow type="Message"/>
