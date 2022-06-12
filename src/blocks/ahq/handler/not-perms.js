@@ -14,17 +14,17 @@ const blockData = {
     "message0": "Not MOD Perms Message",
     "colour": listsGetRandomItem(ahqcolor, false),
     "output": "String",
-    "tooltip": "",
+    "tooltip": "???",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(){
+Blockly.JavaScript[blockName] = function () {
     const code = ['(ahqhandler[`not-perms`])', Blockly.JavaScript.ORDER_NONE];
     return code;
 };

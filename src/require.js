@@ -213,6 +213,10 @@ export default async function require(array, code, js, ahq) {
     if (js.includes("S4D_APP_CRYPTOJS")) {
         array.push(`const S4D_APP_CRYPTOJS = require("crypto-js");`)
     }
+    if (js.includes("S4D_APP_DJS_VOICE")) {
+        array.push(`const S4D_APP_DJS_VOICE = require('@discordjs/voice');
+const S4D_APP_VOICE_FS = require('fs');`)
+    }
     if (js.includes("dootabase")) {
         array.push(`const dootabase = require("easy-db-json");
 dootabase.setFile("./database.json");`)

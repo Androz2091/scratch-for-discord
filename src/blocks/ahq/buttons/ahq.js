@@ -11,22 +11,22 @@ const blockData = {
     }],
     "colour": "#54CF83",
     "output": "",
-    "tooltip": "",
+    "tooltip": "Send the named embed.",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     var name = Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE)
     name = name.split(" ")
     name = name.join('_')
     name = name.toLowerCase()
-    name = name.replace("'","").replace("'","")
+    name = name.replace("'", "").replace("'", "")
     const code = [`embeds: [${name}]`, Blockly.JavaScript.ORDER_ATOMIC];
     return code;
 };

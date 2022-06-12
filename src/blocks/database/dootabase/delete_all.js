@@ -19,7 +19,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-   const code ='dootabase.clear()'
+   const code ='dootabase.clear()\n'
 
 
   return code

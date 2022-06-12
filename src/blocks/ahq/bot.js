@@ -10,17 +10,17 @@ const blockData = {
     },],
     "colour": "#50a6c9",
     "output": "String",
-    "tooltip": "",
+    "tooltip": "Get the online, idle, dnd & offline precense of a member.",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const a = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC).replace(".user", "").replace(".author", ".member");
     const code = [`String(${a}.presence.status || "offline")`, Blockly.JavaScript.ORDER_NONE];
     return code;

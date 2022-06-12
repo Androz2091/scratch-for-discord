@@ -19,17 +19,17 @@ const blockData = {
     }],
     "colour": listsGetRandomItem(ahqcolor, false),
     "output": "Boolean",
-    "tooltip": "",
+    "tooltip": "???",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     let member = Blockly.JavaScript.valueToCode(block, "m", Blockly.JavaScript.ORDER_ATOMIC);
     let final = member.replace(".author", ".member.user")
     const code = [`String(${final}.id) == (ahqhandler[\`owner\`])`, Blockly.JavaScript.ORDER_NONE];

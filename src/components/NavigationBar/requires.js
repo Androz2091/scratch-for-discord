@@ -131,6 +131,12 @@ export default async function require(array, oldarray) {
         if (js.includes("S4D_APP_write")) {
             array.push(`"write": "^2.0.0",`)
         }
+        if (js.includes("S4D_APP_DJS_VOICE")) {
+            array.push(`"@discordjs/voice": "^0.10.0",
+"ffmpeg-static": "^5.0.0",
+"node-opus": "^0.3.3",
+"tweetnacl": "^1.0.3",`)
+        }
     })
     // array.reverse()
     // array[0] = array[0].replace(",","")

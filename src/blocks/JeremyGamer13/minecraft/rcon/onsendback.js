@@ -14,18 +14,20 @@ const blockData = {
             "name": "STATEMENTS"
         }
     ],
+    "previousStatement": null,
+    "nextStatement": null,
     "tooltip": "The blocks inside will run when a command gets a response from the server."
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `S4D_APP_MC_RCON.on('message', async (response) => {
+    const code = `S4D_APP_MC_RCON_CLIENT.on('message', async (response) => {
         ${statements}
     });
     `;

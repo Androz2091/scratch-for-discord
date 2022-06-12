@@ -16,7 +16,7 @@ const blockData = {
     {
       "type": "input_value",
       "name": "id",
-      "check": [ "String", "Category" ]
+      "check": ["String", "Category"]
     },
     {
       "type": "input_space"
@@ -28,23 +28,23 @@ const blockData = {
     }
   ],
   "previousStatement": null,
-  "nextStatement": null, 
+  "nextStatement": null,
   "colour": "#0c97f0",
-  "tooltip": "",
+  "tooltip": "Create a channel in a certain category.",
   "helpUrl": ""
 }
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-    }
+  init: function () {
+    this.jsonInit(blockData);
+  }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-const name = Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_ATOMIC);
-const cid = Blockly.JavaScript.valueToCode(block, "id", Blockly.JavaScript.ORDER_ATOMIC);
-const server = Blockly.JavaScript.valueToCode(block, "server", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${server}.channels.create(${name}, { type: 'text', parent: ${cid} });
+Blockly.JavaScript[blockName] = function (block) {
+  const name = Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_ATOMIC);
+  const cid = Blockly.JavaScript.valueToCode(block, "id", Blockly.JavaScript.ORDER_ATOMIC);
+  const server = Blockly.JavaScript.valueToCode(block, "server", Blockly.JavaScript.ORDER_ATOMIC);
+  const code = `${server}.channels.create(${name}, { type: 'text', parent: ${cid} });
 `;
-    return code;
+  return code;
 };
