@@ -651,7 +651,6 @@ export default (Blockly, value, searching) => {
             <block type="frost_current"/>
             <block type="frost_json_to_string"/>
             <block type="anti_link"/>
-            <block type="parham_other_nocode"/>
         </category>
        
 	  
@@ -1656,7 +1655,8 @@ export default (Blockly, value, searching) => {
                     <block type="s4d_delete_giveaway"/>
                     <block type="s4d_end_giveaway"/>
                     <block type="s4d_pause_giveaway"/>
-                    <block type="s4d_unpause_giveaway"/>-->
+                    <block type="s4d_unpause_giveaway"/>
+                    -->
                 </category>
 				<category name="{{ DISCORDCANVAS }}" colour="#ed5abc">
 					<category name="{{ WELCOME }}" colour="#e83aa5">
