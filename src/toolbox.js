@@ -497,7 +497,7 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt" />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE"/>
-<category name="Expanded {{ TOOLBOX_VARIABLES }}" colour="#ad5a84">
+<category name="Expanded {{ TOOLBOX_VARIABLES }}" colour="#9F5B93">
 <label text="Make global/local variables for functions and other stuff"></label>
 <label text="Compatible with variables category"></label>
 <block type="import_all"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
@@ -596,9 +596,23 @@ export default (Blockly, value, searching) => {
             </block>
         </category>
 
-        <!--<category name="Objects" colour="#cc59e3">
-            <block type="jg_object_getvalue"/>
-        </category> -->
+        <!--
+        <category name="Objects" colour="#BA4A9A">
+            <block type="jg_objects_create_new"/>
+            <block type="jg_object_getvalue">
+                <value name="value">
+                    <shadow type="text">
+                        <field name="TEXT">key</field>
+                    </shadow>
+                </value>
+                <value name="object">
+                    <block type="variables_get">
+                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                    </block>
+                </value>
+            </block>
+        </category>
+        -->
 	
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
             <block type="s4d_print">
@@ -635,7 +649,6 @@ export default (Blockly, value, searching) => {
 	        <block type="is_a_number_or_string"></block>
             <block type="s4d_string_to_number"></block>
             <block type="frost_current"/>
-            <block type="jg_object_getvalue"/>
             <block type="frost_json_to_string"/>
             <block type="anti_link"/>
             <block type="parham_other_nocode"/>
@@ -1084,7 +1097,6 @@ export default (Blockly, value, searching) => {
 
 <category name="Category/Channel" colour="#2f64fa" hidden="false">
 <block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
-<block type="crosspost"/>
 <block type="frost_slowmode"><value name="CHANNEL"><shadow type="s4d_message_channel"></shadow></value><value name="TIME"><shadow type="math_number"><field name="NUM">5</field></shadow></value><value name="REASON"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value></block>
 
 <block type="frost_message_category"/>
@@ -2147,6 +2159,11 @@ export default (Blockly, value, searching) => {
                     <block type="s4d_message_channel"/>
                 </value>
             </block>
+            <block type="jg_messages_edit_message_to_text">
+                <value name="TEXT">
+                    <shadow type="text"/>
+                </value>
+            </block>
 
             <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
 
@@ -2203,11 +2220,13 @@ export default (Blockly, value, searching) => {
 
             <label text="Get attachments on the message" web-class="boldtext"></label>
                 
+                    <!--
                     <block type="att_size">
                         <value name="MESSAGE">
                             <shadow type="Message"/>
                         </value>
                     </block>
+                    -->
                     <block type="jg_attachment_amount_of_attachments_on_message">
                         <value name="MESSAGE">
                             <shadow type="Message"/>
@@ -2248,9 +2267,24 @@ export default (Blockly, value, searching) => {
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
             <block type="s4d_delete"></block>
+            <block type="jg_messages_delete_message">
+                <value name="MESSAGE">
+                    <block type="Message"/>
+                </value>
+            </block>
             <block type="s4d_remove_all_reactions"/>
             <block type="s4d_remove_reactions"/>
             <block type="s4d_add_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_messages_react_to_message_with_reaction">
+                <value name="MESSAGE">
+                    <block type="Message"/>
+                </value>
                 <value name="REACTION">
                     <shadow type="text">
                         <field name="TEXT">👍</field>
@@ -2294,6 +2328,11 @@ export default (Blockly, value, searching) => {
             <block type="s4d_message_embed"/>
             <block type="frost_create_field"/>
             <block type="frost_add_field"/>
+            <block type="jg_messages_crosspost_message">
+                <value name="MESSAGE">
+                    <block type="Message"/>
+                </value>
+            </block>
             <block type="anti_spam"/>
             
             <label text="Blocks for handling typing" web-class="boldtext"></label>
