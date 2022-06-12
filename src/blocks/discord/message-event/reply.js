@@ -37,9 +37,6 @@ Blockly.JavaScript[blockName] = function (block) {
         } else if ((contentType === "embed") || (!contentType && typeof contentType === "object")) {
             const code = `s4dmessage.channel.send({ embeds:[${content}]});\n`;
             return code;
-        } else if ((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
-            const code = `s4dmessage.channel.send({${content}});\n`;
-            return code;
         } else {
             const code = `s4dmessage.channel.send({content:String(${content})});\n`;
             return code;
