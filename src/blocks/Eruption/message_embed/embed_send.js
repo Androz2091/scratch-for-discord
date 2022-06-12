@@ -18,7 +18,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(){
-    const code = [`embeds: [embed]`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`{ embeds: [embed] }`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 
