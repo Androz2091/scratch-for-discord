@@ -188,6 +188,7 @@ export default {
             "color:red;font-family:system-ui;font-size:2rem;-webkit-text-stroke: 1px black;font-weight:bold",
             "color:DarkRed;font-family:system-ui;font-size:2rem;-webkit-text-stroke: 1px black;font-weight:bold"
         )
+	console.log("meow")
         if (!("ScratchNative" in window) && window.parent?.ScratchNative) window.ScratchNative = window.parent.ScratchNative;
         const tourDone = localStorage.getItem('tourDone');
         if (tourDone !== null) this.$store.commit('setTour', {
