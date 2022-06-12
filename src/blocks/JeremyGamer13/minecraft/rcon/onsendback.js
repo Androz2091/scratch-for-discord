@@ -14,6 +14,8 @@ const blockData = {
             "name": "STATEMENTS"
         }
     ],
+    "previousStatement": null,
+    "nextStatement": null,
     "tooltip": "The blocks inside will run when a command gets a response from the server."
 };
 
