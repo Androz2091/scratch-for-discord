@@ -1758,6 +1758,7 @@ Blockly.JavaScript["jg_members_get_members_current_voice_channel"] = function (b
     const code = [`${(String(member).endsWith(".user") || String(member).endsWith(".user)")) ? member.replace(".user", "") : member}.voice.channel`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+// oopsie
 Blockly.Blocks["jg_messages_delete_message"] = {
     init: function () {
         this.jsonInit(
@@ -1784,6 +1785,35 @@ Blockly.JavaScript["jg_messages_delete_message"] = function (block) {
     `;
     return code;
 };
+// there we hgo
+
+Blockly.Blocks["jg_monaco_messages_delete_message"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "delete message %1",
+                "colour": "#4C97FF",
+                "tooltip": "Delete a message, if you have permission.",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MESSAGE",
+                        "check": "Message"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_messages_delete_message"] = function (block) {
+    const message = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `${message}.delete()
+    `;
+    return code;
+};
+// next
 Blockly.Blocks["jg_messages_react_to_message_with_reaction"] = {
     init: function () {
         this.jsonInit(
@@ -1874,6 +1904,33 @@ Blockly.JavaScript["jg_messages_edit_message_to_text"] = function (block) {
     const message = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
     const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `${message}.edit(String(${text}))
+    `;
+    return code;
+};
+Blockly.Blocks["jg_monaco_members_remove_timeout_from_member"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "remove timeout from member %1",
+                "inputsInline": true,
+                "tooltip": "Remove timeout from a certain member, if the bot has permission to.",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": "Member"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_members_remove_timeout_from_member"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `${member}.timeout(null)
     `;
     return code;
 };

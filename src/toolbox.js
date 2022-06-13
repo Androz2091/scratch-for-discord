@@ -55,6 +55,8 @@ export default (Blockly, value, searching) => {
             <block type="logic_null" />
             <block type="logic_ternary" />
 
+    	<label text="Pending updates"></label>
+
                 <block type="s4d_lasercat_switch_switch"></block>
                 <block type="s4d_lasercat_switch_case"></block>
                 <block type="s4d_lasercat_switch_default"></block>
@@ -2269,7 +2271,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
             <block type="s4d_delete"></block>
-            <block type="jg_messages_delete_message">
+            <block type="jg_monaco_messages_delete_message">
                 <value name="MESSAGE">
                     <block type="Message"/>
                 </value>
@@ -2720,6 +2722,7 @@ export default (Blockly, value, searching) => {
 
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
             <block type="mute_ahq"/>
+            <block type="jg_monaco_members_remove_timeout_from_member"/>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
             <block type="s4d_unban_member"></block>
