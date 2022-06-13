@@ -2449,7 +2449,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_server_created_at"></block>
             <block type="everyn"/>
 
-            <label text="Member server actions"></label>
+            <label text="Bot server actions"></label>
 
             <block type="s4d_leave_server"></block>
 
@@ -2466,6 +2466,29 @@ export default (Blockly, value, searching) => {
 	        <block type="explicit_content_filter"/>
             <block type="default_notif_lvl"/>
             <block type="set_verification_level"/>
+
+            <label text="Server audit logs"></label>
+
+            <block type="jg_monaco_servers_on_server_get_audit_logs_then"/>
+            <block type="jg_monaco_servers_amount_of_audit_logs"/>
+            <block type="jg_monaco_servers_audit_log_number">
+                <value name="NUMBER">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_monaco_servers_log_has_reason"/>
+            <block type="jg_monaco_servers_get_property_from_log"/>
+            <block type="jg_monaco_servers_amount_of_changes_in_log_changes"/>
+            <block type="jg_monaco_servers_change_number_in_changes">
+                <value name="INDEX">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_monaco_servers_get_from_change"/>
 
             <label text="ㅤ" web-class="boldtext"></label>
                 
