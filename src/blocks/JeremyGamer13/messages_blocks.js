@@ -1544,6 +1544,30 @@ Blockly.Blocks["jg_events_all_label"] = {
                                 "When a message is deleted",
                                 "s4d.client.on('messageDelete', async (s4dmessage) => {"
                             ],
+                            [
+                                "When someone starts typing",
+                                "s4d.client.on('typingStart', async (s4dTyping) => {"
+                            ],
+                            [
+                                "When thread message is received",
+                                `s4d.client.on('messageCreate', async (s4dThread) => {
+        if(!(s4dThread.channel.type === "GUILD_PUBLIC_THREAD" || s4dThread.channel.type === "GUILD_PUBLIC_THREAD" )){
+            return
+        }`
+                            ],
+                            [
+                                "When a slash command is received",
+                                `s4d.client.on('interactionCreate', async (interaction) => {
+        let member = interaction.guild.members.cache.get(interaction.member.user.id)`
+                            ],
+                            [
+                                "When the bot is added to a server",
+                                "s4d.client.on('guildCreate', async (s4dguild) => {"
+                            ],
+                            [
+                                "When the bot is removed from a server",
+                                "s4d.client.on('guildDelete', async (s4dguild) => {"
+                            ],
                         ]
                     },
                     {
@@ -2198,5 +2222,30 @@ Blockly.JavaScript["jg_monaco_servers_get_from_change"] = function (block) {
     const change = Blockly.JavaScript.valueToCode(block, "CHANGE", Blockly.JavaScript.ORDER_ATOMIC);
     const type = block.getFieldValue("PROP");
     const code = [`${change}.${type}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_unused_scratcjwtff"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "move %1 steps",
+                "inputsInline": true,
+                "tooltip": "",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "STEPS",
+                        "check": "Number"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_unused_scratcjwtff"] = function () {
+    const code = ``
     return code;
 };

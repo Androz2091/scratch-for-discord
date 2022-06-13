@@ -1115,38 +1115,10 @@ export default (Blockly, value, searching) => {
 </category>
 -->
 
-<category name="filesystem (fs)" colour="#347dfa">
-<block type="frost_fs_read"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
-<block type="frost_fs_append"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
-<block type="frost_fs_write"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
-<block type="frost_fs_rename"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
-<block type="frost_fs_delete"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
-<label text="For open and read (Returns the contents of the file)"></label>
-<block type="frost_fs_data"/>
-<label text="For if you get an error (is a boolean and string)"></label>
-<block type="frost_fs_err"/>
-<label text="ㅤ" web-class="boldtext"></label>
-</category>
 
-<category name="Emoji" colour="#347dfa" hidden="false">
-<label text="Welcome to emojis"></label>
-<block type="fz_get_emoji"/>
-<block type="fz_create_emoji"/>
-<block type="fz_delete_emoji"/>
-<block type="fz_emoji_info"/>
-<block type="fz_emoji_animated"/>
-<block type="fz_emoji_exist"/>
-<block type="fz_get_all_emoji"/>
-<block type="fz_get_all_emoj"/>
-<block type="fz_unlock_emoji"/>
-<block type="fz_lock_emoji"/>
-<label text="ㅤ" web-class="boldtext"></label>
-</category>
 
-<category name="event" colour="230">
-<block type="create_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
-<block type="emit_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
-</category>
+
+
 
 <!--
 <category name="Other" colour="#5ba58b">
@@ -1383,84 +1355,8 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
             </category>
-            <category name="Image Editing" colour="260">
-            <label text="Getting started" web-class="boldtext"></label>
-            <block type="jg_beginJimp"/>
-            <block type="jg_saveJimpageAs"/>
-            <label text="Effects and extras" web-class="boldtext"></label>
-
             
-            <block type="jg_jimp_drawtext"/><!--
-            <block type="jg_jimp_U2_drawtext"/>
-            -->
-
-            <block type="jg_jimp_brightnesscontrast"/>
-            <block type="jg_jimp_basicE"/>
-            <block type="jg_jimp_tpixels"/>
-            <block type="jg_jimp_opacity"/>
-            <block type="jg_jimp_width"/>
-            <block type="jg_jimp_height"/>
-            <block type="jg_jimp_resize"/>
-            <block type="jg_jimp_resizeMethods"/>
-            <block type="jg_jimp_scale"/>
-            <block type="jg_jimp_crop"/>
-            <block type="jg_jimp_flip"/>
-            <block type="jg_jimp_rotate"/>
-            <block type="jg_jimp_blit"/>
-            <block type="jg_jimp_composite"/>
-            <block type="jg_jimp_mask"/>
-            <block type="jg_jimp_pixelate">
-<value name="X">
-      <block type="math_number">
-        <field name="NUM">0</field>
-      </block>
-    </value>
-<value name="Y">
-      <block type="math_number">
-        <field name="NUM">0</field>
-      </block>
-    </value>
-<value name="Width">
-      <block type="jg_jimp_width"/>
-    </value>
-<value name="Height">
-      <block type="jg_jimp_height"/>
-    </value>
-            </block>
-            <block type="jg_jimp_qblur"/>
-            <block type="jg_jimp_sblur"/>
-            <block type="jg_jimp_poster"/>
-            <block type="jg_jimp_jpgqual"/>
-            <block type="jg_jimp_convolute"/>
-            <block type="jg_jimp_kernels"/>
-            <block type="jg_jimp_setpixel"/>
-            <block type="jg_jimp_getpixel"/>
-            </category>
-            <category name="File Editing" colour="45">
-            <block type="jg_file_create"/>
-            <block type="jg_file_contents"/>
-            <block type="jg_file_extension"/>
-            <block type="jg_file_metadata"/>
-            <block type="jg_file_foreachfile"/>
-            <block type="jg_file_foreachfileinput"/>
-            </category>
-
-
-            <category name="Data Blocks" colour="230">
-            <block type="jg_imghttps"/>
-            <block type="jg_web_currentdata"/>
-            <block type="jg_web_valueofkey"/>
-						<block type="jg_web_keywithvalue"/>
-            <block type="jg_web_valueofflkey"/>
-            <block type="jg_web_haskey"/>
-            <block type="jg_web_allkey"/>
-						<block type="jg_web_allval"/>
-            <block type="jg_web_keycount"/>
-            <block type="jg_web_keynumber"/>
-<label text="Loops" web-class="boldtext"></label>
-            <block type="jg_web_foreachkey"/>
-            <block type="jg_web_foreachkeyinput"/>
-            </category>
+            
 
 
 <!--
@@ -2393,21 +2289,20 @@ export default (Blockly, value, searching) => {
                 <block type="on_unboost"/>
                 <block type="member_raw"/>
                 <block type="member"/>
-            </category>
-            <category name="Server Boost Levels" colour="#DD35A6">
+                <label text="ㅤ" web-class="boldtext"></label>
                 <block type="on_up"/>
                 <block type="event-guild"/>
                 <block type="boost"/>
                 <block type="on_down"/>
                 <block type="event-guild"/>
                 <block type="boost"/>
+                <label text="ㅤ" web-class="boldtext"></label>
             </category>
-            <category name="Server Banners" colour="#E71F72">
+            <category name="Server Customizations" colour="#E71F72">
                 <block type="on_banner_add"/>
                 <block type="event-guild"/>
                 <block type="banner-url"/>
-            </category>
-            <category name="Server URLs" colour="#C8155F">
+                <label text="ㅤ" web-class="boldtext"></label>
                 <block type="on_vanity_add"/>
                 <block type="event-guild"/>
                 <block type="vanity-url"/>
@@ -2417,6 +2312,23 @@ export default (Blockly, value, searching) => {
                 <block type="on_vanity_update"/>
                 <block type="event-guild"/>
                 <block type="url-update"/>
+                <label text="ㅤ" web-class="boldtext"></label>
+            </category>
+            <category name="Custom Events" colour="#F5AB1A">
+                <block type="create_event">
+                    <value name="NAME">
+                        <shadow type="text">
+                            <field name="TEXT">message1</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="emit_event">
+                    <value name="NAME">
+                        <shadow type="text">
+                            <field name="TEXT">message1</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
         </category>
         <sep class="bt"/>
@@ -2741,7 +2653,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
             <block type="s4d_unban_member"></block>
-	    <block type="banned_event"/>
+	        <block type="banned_event"/>
             <block type="banned_objects"/>
             <block type="unbanned_event"/>
             <block type="unbanned_objects"/>
@@ -2751,7 +2663,21 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply_dm"></block>
             <block type="s4d_send_wait_reply_dm_value"></block>
-          <label text="ㅤ" web-class="boldtext"></label>
+            <label text="ㅤ" web-class="boldtext"></label>
+        </category>
+        <category name="Emoji" colour="#347dfa" hidden="false">
+            <label text="Welcome to emojis"></label>
+            <block type="fz_get_emoji"/>
+            <block type="fz_create_emoji"/>
+            <block type="fz_delete_emoji"/>
+            <block type="fz_emoji_info"/>
+            <block type="fz_emoji_animated"/>
+            <block type="fz_emoji_exist"/>
+            <block type="fz_get_all_emoji"/>
+            <block type="fz_get_all_emoj"/>
+            <block type="fz_unlock_emoji"/>
+            <block type="fz_lock_emoji"/>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <sep class="bt"/>
     <category name="Web Requests" colour="#4C97FF">
@@ -3073,6 +2999,189 @@ export default (Blockly, value, searching) => {
             </block>
         <!--<label text="Functions" web-class="boldtext"></label>-->
     </category>
+        <sep class="bt"/>
+            <category name="Files" colour="#faaf00">
+                <category name="Text" colour="#fa9e00">
+                    <!--<category name="File Editing" colour="45">-->
+                        <block type="jg_file_create"/>
+                        <block type="jg_file_contents"/>
+                        <block type="jg_file_extension"/>
+                        <block type="jg_file_metadata"/>
+                        <block type="jg_file_foreachfile"/>
+                        <block type="jg_file_foreachfileinput"/>
+                    <!--</category>-->
+                    <!--<category name="filesystem (fs)" colour="#347dfa">-->
+                        <block type="frost_fs_read">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_append">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_write">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_rename">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_delete">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <label text="For open and read (Gives the contents of the file)"></label>
+                        <block type="frost_fs_data"/>
+                        <!--
+                        <label text="For if you get an error (is a boolean and string)"></label>
+                        <block type="frost_fs_err"/>
+                        -->
+                        <label text="ㅤ" web-class="boldtext"></label>
+                    <!--</category>-->
+                </category>
+                <category name="Data" colour="#fa9200">
+                    <!--<category name="Data Blocks" colour="230">-->
+                        <block type="jg_imghttps"/>
+                        <block type="jg_web_currentdata"/>
+                        <block type="jg_web_valueofkey"/>
+						<block type="jg_web_keywithvalue"/>
+                        <block type="jg_web_valueofflkey"/>
+                        <block type="jg_web_haskey"/>
+                        <block type="jg_web_allkey"/>
+						<block type="jg_web_allval"/>
+                        <block type="jg_web_keycount"/>
+                        <block type="jg_web_keynumber"/>
+                        <label text="Loops" web-class="boldtext"></label>
+                        <block type="jg_web_foreachkey"/>
+                        <block type="jg_web_foreachkeyinput"/>
+                    <!--</category>-->
+                </category>
+                <category name="Images" colour="#fa8100">
+                    <!--<category name="Image Editing" colour="260">-->
+                        <label text="Getting started" web-class="boldtext"></label>
+                        <block type="jg_beginJimp"/>
+                        <block type="jg_saveJimpageAs"/>
+                        <label text="Effects and extras" web-class="boldtext"></label>
+                        <block type="jg_jimp_drawtext"/>
+                        <!--
+                        <block type="jg_jimp_U2_drawtext"/>
+                        -->
+
+                        <block type="jg_jimp_brightnesscontrast"/>
+                        <block type="jg_jimp_basicE"/>
+                        <block type="jg_jimp_tpixels"/>
+                        <block type="jg_jimp_opacity"/>
+                        <block type="jg_jimp_width"/>
+                        <block type="jg_jimp_height"/>
+                        <block type="jg_jimp_resize"/>
+                        <block type="jg_jimp_resizeMethods"/>
+                        <block type="jg_jimp_scale"/>
+                        <block type="jg_jimp_crop"/>
+                        <block type="jg_jimp_flip"/>
+                        <block type="jg_jimp_rotate"/>
+                        <block type="jg_jimp_blit"/>
+                        <block type="jg_jimp_composite"/>
+                        <block type="jg_jimp_mask"/>
+                        <block type="jg_jimp_pixelate">
+                            <value name="X">
+                                <block type="math_number">
+                                    <field name="NUM">0</field>
+                                </block>
+                            </value>
+                            <value name="Y">
+                                <block type="math_number">
+                                    <field name="NUM">0</field>
+                                </block>
+                            </value>
+                            <value name="Width">
+                                <block type="jg_jimp_width"/>
+                            </value>
+                            <value name="Height">
+                                <block type="jg_jimp_height"/>
+                            </value>
+                        </block>
+                        <block type="jg_jimp_qblur"/>
+                        <block type="jg_jimp_sblur"/>
+                        <block type="jg_jimp_poster"/>
+                        <block type="jg_jimp_jpgqual"/>
+                        <block type="jg_jimp_convolute"/>
+                        <block type="jg_jimp_kernels"/>
+                        <block type="jg_jimp_setpixel"/>
+                        <block type="jg_jimp_getpixel"/>
+                    <!--</category>-->
+                </category>
+            </category>
         <sep class="bt"/>
         
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
