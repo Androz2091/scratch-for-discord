@@ -1,5 +1,5 @@
 import Blockly from "blockly/core";
-
+import "@blockly/field-grid-dropdown";
 
 const blockName = 'lime_msg_author_attributes'
 
@@ -7,79 +7,187 @@ const blockData = {
     "type": "lime_msg_author_attributes",
     "message0": "Get message author %1",
     "args0": [
-    {
-        "type": "field_dropdown",
-        "name": "dropdown",
-        "options": [
-        [
-            "avatar",
-            "AVATAR"
-        ],
-        [
-            "banner",
-            "BANNER"
-        ],
-        [
-            "is a bot?",
-            "BOT"
-        ],
-        [
-            "creation date",
-            "CREATED_AT"
-        ],
-        [
-            "creation date timestamp",
-            "CREATED_AT_TIMESTAMP"
-        ],
-        [
-            "default avatar URL",
-            "DFLT_AVATAR_URL"
-        ],
-        [
-            "discriminator",
-            "DISCRIMINATOR"
-        ],
-        [
-            "flags",
-            "FLAGS"
-        ],
-        [
-            "id",
-            "ID"
-        ],
-        [
-            "is it system?",
-            "SYSTEM"
-        ],
-        [
-            "tag",
-            "TAG"
-        ],
-        [
-            "Username",
-            "USERNAME"
-        ]
-        ]
-    }
+        {
+            "type": "field_grid_dropdown",
+            "name": "dropdown",
+            "options": [
+                [
+                    "avatar",
+                    "AVATAR"
+                ],
+                [
+                    "banner",
+                    "BANNER"
+                ],
+                [
+                    "is a bot?",
+                    "BOT"
+                ],
+                [
+                    "creation date",
+                    "CREATED_AT"
+                ],
+                [
+                    "creation date timestamp",
+                    "CREATED_AT_TIMESTAMP"
+                ],
+                [
+                    "default avatar URL",
+                    "DFLT_AVATAR_URL"
+                ],
+                [
+                    "discriminator",
+                    "DISCRIMINATOR"
+                ],
+                [
+                    "flags",
+                    "FLAGS"
+                ],
+                [
+                    "id",
+                    "ID"
+                ],
+                [
+                    "is it system?",
+                    "SYSTEM"
+                ],
+                [
+                    "tag",
+                    "TAG"
+                ],
+                [
+                    "Username",
+                    "USERNAME"
+                ]
+            ]
+        }
     ],
     "inputsInline": true,
-    "previousStatement": null,
-    "nextStatement": null,
+    "output": "String",
     "colour": '#4C97FF',
     "tooltip": "",
     "helpUrl": ""
 }
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
+    }, onchange: function (event) {
+        event
+        var dropdown = this.getFieldValue('dropdown')
+        switch (dropdown) {
+
+            case 'AVATAR':
+                this.setOutput(true, 'String')
+                break;
+
+            case 'BANNER':
+                this.setOutput(true, 'String')
+                break;
+
+            case 'BOT':
+                this.setOutput(true, 'Boolean')
+                break;
+
+            case 'CREATED_AT':
+                this.setOutput(true, 'String')
+                break;
+
+            case 'CREATED_AT_TIMESTAMP':
+                this.setOutput(true, 'Number')
+                break;
+
+            case 'DFLT_AVATAR_URL':
+                this.setOutput(true, 'String')
+                break;
+
+            case 'DISCRIMINATOR':
+                this.setOutput(true, 'String')
+                break;
+
+            case 'FLAGS':
+                this.setOutput(true, 'String')
+                break;
+
+            case 'ID':
+                this.setOutput(true, 'String')
+                break;
+
+            case 'SYSTEM':
+                this.setOutput(true, 'Boolean')
+                break;
+
+            case 'TAG':
+                this.setOutput(true, 'String')
+                break;
+
+            case 'USERNAME':
+                this.setOutput(true, 'String')
+                break;
+
+        }
+
+
     }
 };
 
-Blockly.JavaScript['lime_msg_author_attributes'] = function(block) {
+Blockly.JavaScript['lime_msg_author_attributes'] = function (block) {
     var dropdown = block.getFieldValue('dropdown')
     var code = ''
 
-    
-    return code
+
+    switch (dropdown) {
+
+        case 'AVATAR':
+            code = 's4dmessage.author.avatar'
+            break;
+
+        case 'BANNER':
+            code = 's4dmessage.author.banner'
+            break;
+
+        case 'BOT':
+            code = 's4dmessage.author.bot'
+            break;
+
+        case 'CREATED_AT':
+            code = 's4dmessage.author.createdAt'
+            break;
+
+        case 'CREATED_AT_TIMESTAMP':
+            code = 's4dmessage.author.createdTimestamp'
+            break;
+
+        case 'DFLT_AVATAR_URL':
+            code = 's4dmessage.author.defaultAvatarURL'
+            break;
+
+        case 'DISCRIMINATOR':
+            code = 's4dmessage.author.discriminator'
+            break;
+
+        case 'FLAGS':
+            code = 's4dmessage.author.flags'
+            break;
+
+        case 'ID':
+            code = 's4dmessage.author.id'
+            break;
+
+        case 'SYSTEM':
+            code = 's4dmessage.author.system'
+            break;
+
+        case 'TAG':
+            code = 's4dmessage.author.tag'
+            break;
+
+        case 'USERNAME':
+            code = 's4dmessage.author.username'
+            break;
+
+    }
+
+
+    return [code, Blockly.JavaScript.ORDER_NONE];
 };
