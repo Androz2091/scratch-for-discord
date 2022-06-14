@@ -1132,7 +1132,7 @@ Blockly.Blocks["jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bo
         this.jsonInit(
             {
                 "message0": "When a message is recieved & author isn't a bot %1 %2",
-                "colour": "#F5AB1A",
+                "colour": "#f79400",
                 "args0": [
                     {
                         "type": "input_dummy"

@@ -2124,14 +2124,25 @@ export default (Blockly, value, searching) => {
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
-						<label text="%{BKY_FIND_MESSAGE}"></label>
-						<block type="s4d_get_msg_then"></block>
-						<block type="edit_msg_by_id"></block>
-            <label text="Find a message if you only have the message itself"></label>
-            <block type="jg_messages_id_of_message"/>
+			
             <label text="%{BKY_DETECT_MESSAGES}"></label>
             <block type="s4d_on_message"></block>
             <block type="jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"></block>
+
+            <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
+
+            <block type = 'lime_s4d_message_context'/>
+
+            <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
+
+            <block type= 'lime_s4d_message_attributes_content_author_id_timestamp'/>
+            <block type='lime_msg_author_attributes'/>
+
+            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
+            <block type="s4d_message_author_raw"></block>
+            <block type="s4d_message_channel_raw"></block>
+            <block type="s4d_message_guild_raw"></block>
+    
 
             <label text="Respond to a recieved message"></label>
 
@@ -2142,18 +2153,58 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+
             <block type="jg_messages_reply_with_allowed_list_of_pings_on_users_on_roles">
-                <value name="CONTENT">
-                    <shadow type="text">
-                        <field name="TEXT">No user ping here!</field>
-                    </shadow>
-                </value>
-                <value name="USERS">
-                    <block type="lists_create_with">
-                        <mutation items="0"/>
-                    </block>
-                </value>
-            </block>
+            <value name="CONTENT">
+                <shadow type="text">
+                    <field name="TEXT">No user ping here!</field>
+                </shadow>
+            </value>
+            <value name="USERS">
+                <block type="lists_create_with">
+                    <mutation items="0"/>
+                </block>
+            </value>
+        </block>
+
+        <block type="s4d_reply_then"> 
+            <value name="CONTENT">
+                <shadow type="text">
+                    <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                </shadow>
+            </value>
+        </block>
+
+        <label text = 'Reply Blocks'/>
+
+        
+        <block type="s4d_edit">
+        <value name="CONTENT">
+            <shadow type="text">
+                <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="s4d_reply_delete"></block>
+    <block type="rreply_message"/>
+    <block type="s4d_reply_add_reaction">
+        <value name="REACTION">
+            <shadow type="text">
+                <field name="TEXT">👍</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="s4d_reply_id"/>
+
+
+            <label text="%{BKY_FIND_MESSAGE}"></label>
+            <block type="s4d_get_msg_then"></block>
+            <block type="edit_msg_by_id"></block>
+            <label text="Find a message if you only have the message itself"></label>
+            <block type="jg_messages_id_of_message"/>
+
+            <label text ="Message actions"/>
+    
             <block type="jg_typingChannel">
                 <value name="CHANNEL">
                     <block type="s4d_message_channel"/>
@@ -2165,23 +2216,52 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
 
-            <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
+            <block type="s4d_delete"></block>
+            <block type="jg_messages_delete_message">
+                <value name="MESSAGE">
+                    <block type="Message"/>
+                </value>
+            </block>
+            <block type="s4d_remove_all_reactions"/>
+            <block type="s4d_remove_reactions"/>
+            <block type="s4d_add_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_messages_react_to_message_with_reaction">
+                <value name="MESSAGE">
+                    <block type="Message"/>
+                </value>
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_reaction_wait_added_reaction">
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">5</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_wait_react_emoji_id"></block>
+            <block type="s4d_wait_react_emoji_name"></block>
 
-            <block type="Message"/>
-            <block type="s4d_message_channel"></block>
-            <block type="s4d_message_guild"></block>
+            <block type="lime_s4d_pin"/>
+            <block type="s4d_message_embed"/>
+            <block type="frost_create_field"/>
+            <block type="frost_add_field"/>
+            <block type="jg_messages_crosspost_message">
+                <value name="MESSAGE">
+                    <block type="Message"/>
+                </value>
+            </block>
+            <block type="anti_spam"/>
 
-            <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
-
-            <block type="s4d_message_content"></block>
-            <block type="s4d_message_id"></block>
-	        <block type="s4d_message_ts"></block>
-            <block type="s4d_message_author"></block>
-            <block type='lime_msg_author_attributes'/>
-            <block type="s4d_message_member"/>
-            <block type="s4d_mentioned_member"></block>
-            <block type="s4d_mentioned_channel"></block>
-            <block type="s4d_mentioned_role"></block>
             <block type="jg_message_mentioned_member_number_on_message">
                 <value name="INDEX">
                     <shadow type="math_number">
@@ -2264,79 +2344,7 @@ export default (Blockly, value, searching) => {
                     <block type="att_type"/>
                     <block type="att_url"/>
                     -->
-            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
-            <block type="s4d_message_author_raw"></block>
-            <block type="s4d_message_channel_raw"></block>
-            <block type="s4d_message_guild_raw"></block>
-            <label text="%{BKY_MESSAGE_ACTIONS}"></label>
-            <block type="s4d_delete"></block>
-            <block type="jg_messages_delete_message">
-                <value name="MESSAGE">
-                    <block type="Message"/>
-                </value>
-            </block>
-            <block type="s4d_remove_all_reactions"/>
-            <block type="s4d_remove_reactions"/>
-            <block type="s4d_add_reaction">
-                <value name="REACTION">
-                    <shadow type="text">
-                        <field name="TEXT">👍</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="jg_messages_react_to_message_with_reaction">
-                <value name="MESSAGE">
-                    <block type="Message"/>
-                </value>
-                <value name="REACTION">
-                    <shadow type="text">
-                        <field name="TEXT">👍</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_reaction_wait_added_reaction">
-                <value name="TIME">
-                    <shadow type="math_number">
-                        <field name="NUM">5</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_wait_react_emoji_id"></block>
-            <block type="s4d_wait_react_emoji_name"></block>
-            <block type="s4d_reply_then"> 
-                <value name="CONTENT">
-                    <shadow type="text">
-                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_edit">
-                <value name="CONTENT">
-                    <shadow type="text">
-                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_reply_delete"></block>
-            <block type="rreply_message"/>
-            <block type="s4d_reply_add_reaction">
-                <value name="REACTION">
-                    <shadow type="text">
-                        <field name="TEXT">👍</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_reply_id"/>
-            <block type="lime_s4d_pin"/>
-            <block type="s4d_message_embed"/>
-            <block type="frost_create_field"/>
-            <block type="frost_add_field"/>
-            <block type="jg_messages_crosspost_message">
-                <value name="MESSAGE">
-                    <block type="Message"/>
-                </value>
-            </block>
-            <block type="anti_spam"/>
+            
             
             <label text="Blocks for handling typing" web-class="boldtext"></label>
 
