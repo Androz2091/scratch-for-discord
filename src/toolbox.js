@@ -55,6 +55,8 @@ export default (Blockly, value, searching) => {
             <block type="logic_null" />
             <block type="logic_ternary" />
 
+    	<label text="Pending updates"></label>
+
                 <block type="s4d_lasercat_switch_switch"></block>
                 <block type="s4d_lasercat_switch_case"></block>
                 <block type="s4d_lasercat_switch_default"></block>
@@ -651,7 +653,6 @@ export default (Blockly, value, searching) => {
             <block type="frost_current"/>
             <block type="frost_json_to_string"/>
             <block type="anti_link"/>
-            <block type="parham_other_nocode"/>
         </category>
        
 	  
@@ -894,22 +895,20 @@ export default (Blockly, value, searching) => {
         <block type="get_image"/>
 	<block type="url_image"/>
         </category>
-	
+	<!--
 	<category name="Other" colour="#c70e6d">
-        <block type="hig_role"/>
-        <label text="This will detect the color of highest role" web-class="boldtext"></label>
-        <block type="member_color"/>
+        
         <label text="ㅤ" web-class="boldtext"></label>
-        <block type="role_color"/>
-        <block type="role_name"/>
         <label text="ㅤ" web-class="boldtext"></label>
-        <block type="get_all_roles"/>
-        <block type="all_roles"/>
+        
+        
         <label text="ㅤ" web-class="boldtext"></label>
         <block type="create_emoji"/>
         <label text="ㅤ" web-class="boldtext"></label>
         <block type="vc_kick"/>
+       
 	</category>
+    -->
     <!--
 	<category name="Channel" colour="#0c97f0">
         <label text="ㅤ" web-class="boldtext"></label>
@@ -1116,38 +1115,10 @@ export default (Blockly, value, searching) => {
 </category>
 -->
 
-<category name="filesystem (fs)" colour="#347dfa">
-<block type="frost_fs_read"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
-<block type="frost_fs_append"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
-<block type="frost_fs_write"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
-<block type="frost_fs_rename"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
-<block type="frost_fs_delete"><statement name="THEN"><block type="controls_if"><value name="IF0"><block type="frost_fs_err"></block></value><statement name="DO0"><block type="s4d_print"><value name="PRINT"><block type="frost_fs_err"></block></value></block></statement></block></statement></block>
-<label text="For open and read (Returns the contents of the file)"></label>
-<block type="frost_fs_data"/>
-<label text="For if you get an error (is a boolean and string)"></label>
-<block type="frost_fs_err"/>
-<label text="ㅤ" web-class="boldtext"></label>
-</category>
 
-<category name="Emoji" colour="#347dfa" hidden="false">
-<label text="Welcome to emojis"></label>
-<block type="fz_get_emoji"/>
-<block type="fz_create_emoji"/>
-<block type="fz_delete_emoji"/>
-<block type="fz_emoji_info"/>
-<block type="fz_emoji_animated"/>
-<block type="fz_emoji_exist"/>
-<block type="fz_get_all_emoji"/>
-<block type="fz_get_all_emoj"/>
-<block type="fz_unlock_emoji"/>
-<block type="fz_lock_emoji"/>
-<label text="ㅤ" web-class="boldtext"></label>
-</category>
 
-<category name="event" colour="230">
-<block type="create_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
-<block type="emit_event"><value name="NAME"><shadow type="text"><field name="TEXT">Hey</field></shadow></value></block>
-</category>
+
+
 
 <!--
 <category name="Other" colour="#5ba58b">
@@ -1384,84 +1355,8 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
             </category>
-            <category name="Image Editing" colour="260">
-            <label text="Getting started" web-class="boldtext"></label>
-            <block type="jg_beginJimp"/>
-            <block type="jg_saveJimpageAs"/>
-            <label text="Effects and extras" web-class="boldtext"></label>
-
             
-            <block type="jg_jimp_drawtext"/><!--
-            <block type="jg_jimp_U2_drawtext"/>
-            -->
-
-            <block type="jg_jimp_brightnesscontrast"/>
-            <block type="jg_jimp_basicE"/>
-            <block type="jg_jimp_tpixels"/>
-            <block type="jg_jimp_opacity"/>
-            <block type="jg_jimp_width"/>
-            <block type="jg_jimp_height"/>
-            <block type="jg_jimp_resize"/>
-            <block type="jg_jimp_resizeMethods"/>
-            <block type="jg_jimp_scale"/>
-            <block type="jg_jimp_crop"/>
-            <block type="jg_jimp_flip"/>
-            <block type="jg_jimp_rotate"/>
-            <block type="jg_jimp_blit"/>
-            <block type="jg_jimp_composite"/>
-            <block type="jg_jimp_mask"/>
-            <block type="jg_jimp_pixelate">
-<value name="X">
-      <block type="math_number">
-        <field name="NUM">0</field>
-      </block>
-    </value>
-<value name="Y">
-      <block type="math_number">
-        <field name="NUM">0</field>
-      </block>
-    </value>
-<value name="Width">
-      <block type="jg_jimp_width"/>
-    </value>
-<value name="Height">
-      <block type="jg_jimp_height"/>
-    </value>
-            </block>
-            <block type="jg_jimp_qblur"/>
-            <block type="jg_jimp_sblur"/>
-            <block type="jg_jimp_poster"/>
-            <block type="jg_jimp_jpgqual"/>
-            <block type="jg_jimp_convolute"/>
-            <block type="jg_jimp_kernels"/>
-            <block type="jg_jimp_setpixel"/>
-            <block type="jg_jimp_getpixel"/>
-            </category>
-            <category name="File Editing" colour="45">
-            <block type="jg_file_create"/>
-            <block type="jg_file_contents"/>
-            <block type="jg_file_extension"/>
-            <block type="jg_file_metadata"/>
-            <block type="jg_file_foreachfile"/>
-            <block type="jg_file_foreachfileinput"/>
-            </category>
-
-
-            <category name="Data Blocks" colour="230">
-            <block type="jg_imghttps"/>
-            <block type="jg_web_currentdata"/>
-            <block type="jg_web_valueofkey"/>
-						<block type="jg_web_keywithvalue"/>
-            <block type="jg_web_valueofflkey"/>
-            <block type="jg_web_haskey"/>
-            <block type="jg_web_allkey"/>
-						<block type="jg_web_allval"/>
-            <block type="jg_web_keycount"/>
-            <block type="jg_web_keynumber"/>
-<label text="Loops" web-class="boldtext"></label>
-            <block type="jg_web_foreachkey"/>
-            <block type="jg_web_foreachkeyinput"/>
-            </category>
+            
 
 
 <!--
@@ -1567,76 +1462,6 @@ export default (Blockly, value, searching) => {
                     <block type="send_on_channel"/>
                     <block type="jose_send_image_slash"/>
                 </category>
-                <category name="Events" colour="#5a5aed">
-                    <category name="channel" colour="#1d6ff2">
-                        <category name="channel permissions update" colour="#055eed">
-                            <block type="on_channelPermissionsChange"/>
-                            <block type="s4d_channel_raw"/>
-                            <block type="permissions"/>
-                        </category>
-                        <category name="channel topic update" colour="#024abd">
-                            <block type="on_channelTopicChange"/>
-                            <block type="s4d_channel_raw"/>
-                            <block type="topic"/>
-                        </category>
-                    </category>
-                    <category name="member" colour="#01388f">
-                        <category name="member boost" colour="#01245c">
-                            <block type="on_boost"/>
-                            <block type="member_raw"/>
-                            <block type="member"/>
-                        </category>
-                        <category name="member unboost" colour="#01165c">
-                            <block type="on_unboost"/>
-                            <block type="member_raw"/>
-                            <block type="member"/>
-                        </category>
-                        <category name="member role add" colour="#010c33">
-                            <block type="on_roleadd"/>
-                            <block type="event-role"/>
-                            <block type="member_raw"/>
-                            <block type="member"/>
-                        </category>
-                        <category name="member role remove" colour="#01071c">
-                            <block type="on_roleremove"/>
-                            <block type="event-role"/>
-                            <block type="member_raw"/>
-                            <block type="member"/>
-                        </category>
-                    </category>
-                    <category name="guild" colour="#0d2e4d">
-                        <category name="guild boost level up" colour="#174169">
-                            <block type="on_up"/>
-                            <block type="event-guild"/>
-                            <block type="boost"/>
-                        </category>
-                        <category name="guild boost level down" colour="#2a67a1">
-                            <block type="on_down"/>
-                            <block type="event-guild"/>
-                            <block type="boost"/>
-                        </category>
-                        <category name="guild banner add" colour="#3a82c7">
-                            <block type="on_banner_add"/>
-                            <block type="event-guild"/>
-                            <block type="banner-url"/>
-                        </category>
-                        <category name="guild vanity url add" colour="#52a4f2">
-                            <block type="on_vanity_add"/>
-                            <block type="event-guild"/>
-                            <block type="vanity-url"/>
-                        </category>
-                        <category name="guild vanity url remove" colour="#52cdf2">
-                            <block type="on_vanity_remove"/>
-                            <block type="event-guild"/>
-                            <block type="vanity-url"/>
-                        </category>
-                        <category name="guild vanity url update" colour="#52f2e5">
-                            <block type="on_vanity_update"/>
-                            <block type="event-guild"/>
-                            <block type="url-update"/>
-                        </category>
-                    </category>
-                </category>
                 <category name="YoutubeNotifier" colour="#8b5aed">
                     <block type="video_raw"/>
                     <block type="on_newvideo"/>
@@ -1656,7 +1481,8 @@ export default (Blockly, value, searching) => {
                     <block type="s4d_delete_giveaway"/>
                     <block type="s4d_end_giveaway"/>
                     <block type="s4d_pause_giveaway"/>
-                    <block type="s4d_unpause_giveaway"/>-->
+                    <block type="s4d_unpause_giveaway"/>
+                    -->
                 </category>
 				<category name="{{ DISCORDCANVAS }}" colour="#ed5abc">
 					<category name="{{ WELCOME }}" colour="#e83aa5">
@@ -1726,36 +1552,7 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_SEND_EMBED}"></label>
             <block type="s4d_create_embed_then_send"></block>
     </category>
-					        <category name="{{ TOOLBOX_E_DELETED }}" colour="#a14c22">
-           <label text="%{BKY_DELETED_RELATED_BLOCKS}" web-class="boldtext"></label>
-           <label text="%{BKY_DELETED_EVENT}"></label>
-           <block type="s4d_on_deleted"></block>
-           <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
-           <block type="s4d_message_content_deleted"></block>
-           <block type="s4d_message_server_deleted"></block>
-           <block type="s4d_message_channel_deleted"></block>
-           <block type="s4d_message_author_deleted"></block>
-        </category>
-        <category name="{{ TOOLBLOX_E_ADDED }}" colour="#a17722">
-        <label text="%{BKY_ADDED_RELATED_BLOCKS}" web-class="boldtext"></label>
-        <label text="%{BKY_DETECT_ADDED}"></label>
-        <block type="s4d_on_added"></block>
-        <label text="%{BKY_ADDED_INFORMATIONS}"></label>
-        <block type="s4d_add_server_id"></block> 
-        <block type="s4d_add_server_name"></block>
-        <block type="s4d_add_server_icon"></block>
-        <block type="s4d_add_server_owner"/>
-        </category>
-        <category name="Removed" colour="#a1a122">
-        <label text="blocks related to removed" web-class="boldtext"></label>
-        <label text="detect remove"></label>
-        <block type="s4d_on_remove"></block>
-        <label text="%{BKY_ADDED_INFORMATIONS}"></label>
-        <block type="s4d_add_server_id"></block> 
-        <block type="s4d_add_server_name"></block>
-        <block type="s4d_add_server_icon"></block>
-        <block type="s4d_add_server_owner"/>
-        </category>
+					        
         <category name="{{ TOOLBOX_BUTTON }}" colour="#a1a122">
             <label text="%{BKY_BUTTON_EVENT}"></label>
             <block type="s4d_on_click"></block>
@@ -1833,43 +1630,11 @@ export default (Blockly, value, searching) => {
         </category>
 				</category>
 				<category name="{{ MRREDO }}" colour="#FF0000">
+                <!--
         <category name="Event" colour="#00b3ff">
-        <category name="Event channel" colour="#00b3ff">
-        <block type="on_channelCreate"></block>
-        <block type="cc_name"></block>
-        <block type="cc_channel"></block>
-        <block type="on_channelUpdate"></block>
-        <block type="cu_name"></block>
-        <block type="cu_channel"></block>
-        <block type="on_channelDelete"></block>
-        <block type="cd_name"></block>
-        <block type="cd_channel"></block>
+        
         </category>
-        <category name="Event emoji" colour="#00b3ff">
-        <block type="on_emojicreate"></block>
-        <block type="ec_name"></block>
-        <block type="on_emojiupdate"></block>
-        <block type="eu_name"></block>
-        <block type="on_emojidelete"></block>
-        <block type="ed_name"></block>
-        </category>
-        <category name="Event role" colour="#00b3ff">
-        <block type="on_rolecreate"></block>
-        <block type="rc_name"></block>
-        <block type="on_roleupdate"></block>
-        <block type="ru_name"></block>
-        <block type="on_roledelete"></block>
-        <block type="rd_name"></block>
-        </category>
-        <category name="Event sticker" colour="#00b3ff">
-        <block type="on_stickercreate"></block>
-        <block type="sc_name"></block>
-        <block type="on_stickerdelete"></block>
-        <block type="sd_name"></block>
-        <block type="on_stickerupdate"></block>
-        <block type="su_name"></block>
-        </category>
-        </category>
+        -->
 
 	<category name="register" colour="#65700c">
         <label text="Register context menu" web-class="boldtext"></label>
@@ -1969,18 +1734,7 @@ export default (Blockly, value, searching) => {
             <block type="send_m_embed_string"/>
             <block type="s4d_m_create_embed_then_send"></block>
     </category>
-		        <category name="edited" colour="#e85a66">
-        <label text="%{BKY_T_EDI}" web-class="boldtext"></label>
-        <block type="when_message_is_edited"></block>
-        <block type="s4d_replys"></block>
-        <label text="%{BKY_T_NMS}" web-class="boldtext"></label>
-        <block type="newmsg_channel"></block>
-        <block type="new_message_server"></block>
-        <block type="s4d_newmessage_content"></block>
-        <block type="newmsg_member"></block>
-        <block type="s4d_newmsg_del"></block>
-        <block type="newmsg_timestamp"></block>
-        </category>
+		        
 				<category name="Mongo" colour="#0db550">
         <label text="connect to MongoDB"></label>
         <block type="mongo_on"></block>
@@ -2270,7 +2024,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
             <block type="s4d_delete"></block>
-            <block type="jg_messages_delete_message">
+            <block type="jg_monaco_messages_delete_message">
                 <value name="MESSAGE">
                     <block type="Message"/>
                 </value>
@@ -2399,7 +2153,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_thread_server"/>
             <block type="s4d_thread_archive"/>
         </category>
-        <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
+        <category name="Joins" colour="#5AD05F">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
             <block type="s4d_on_member_join"></block>
@@ -2410,7 +2164,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_joining_member_raw"></block>
             <block type="s4d_joining_guild_raw"></block>
         </category>
-        <category name="{{ TOOLBOX_E_LEAVES }}" colour="#778899">
+        <category name="Leaves" colour="#778899">
             <label text="%{BKY_LEAVES_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_LEAVES}"></label>
             <block type="s4d_on_member_leave"></block>
@@ -2420,7 +2174,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_leaving_member_raw"></block>
             <block type="s4d_leaving_guild_raw"></block>
         </category>
-        <category name="{{ TOOLBOX_E_REACTIONS }}" colour="#89674A">
+        <category name="Reactions" colour="#89674A">
             <label text="%{BKY_REACT_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_REACT}"></label>
             <block type="s4d_on_react_added"></block>
@@ -2430,10 +2184,151 @@ export default (Blockly, value, searching) => {
             <block type="s4d_react_message_id"></block>
             <block type="s4d_react_emoji"></block>
             <block type="s4d_react_member"></block> 
-			<block type="s4d_react_count"></block>
+            <block type="s4d_react_count"></block>
             <block type="s4d_remove_all_reactions"/>
             <block type="s4d_remove_reactions"/>
             <label text="ㅤ" web-class="boldtext"></label>
+        </category>
+        <category name="More Events" colour="#EABB11">
+            <category name="Edited" colour="#e85a66">
+                <label text="%{BKY_T_EDI}" web-class="boldtext"></label>
+                <block type="when_message_is_edited"></block>
+                <block type="s4d_replys"></block>
+                <label text="%{BKY_T_NMS}" web-class="boldtext"></label>
+                <block type="newmsg_channel"></block>
+                <block type="new_message_server"></block>
+                <block type="s4d_newmessage_content"></block>
+                <block type="newmsg_member"></block>
+                <block type="s4d_newmsg_del"></block>
+                <block type="newmsg_timestamp"></block>
+            </category>
+            <category name="Deleted" colour="#a14c22">
+                <label text="%{BKY_DELETED_RELATED_BLOCKS}" web-class="boldtext"></label>
+                <label text="%{BKY_DELETED_EVENT}"></label>
+                <block type="s4d_on_deleted"></block>
+                <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
+                <block type="s4d_message_content_deleted"></block>
+                <block type="s4d_message_server_deleted"></block>
+                <block type="s4d_message_channel_deleted"></block>
+                <block type="s4d_message_author_deleted"></block>
+            </category>
+            <category name="Channels" colour="#AF28B7">
+                <block type="on_channelCreate"></block>
+                <block type="cc_name"></block>
+                <block type="cc_channel"></block>
+                <block type="on_channelUpdate"></block>
+                <block type="cu_name"></block>
+                <block type="cu_channel"></block>
+                <block type="on_channelDelete"></block>
+                <block type="cd_name"></block>
+                <block type="cd_channel"></block>
+                <block type="on_channelTopicChange"/>
+                <block type="s4d_channel_raw"/>
+                <block type="topic"/>
+                <block type="on_channelPermissionsChange"/>
+                <block type="s4d_channel_raw"/>
+                <block type="permissions"/>
+            </category>
+            <category name="Emojis" colour="#147AC3">
+                <block type="on_emojicreate"></block>
+                <block type="ec_name"></block>
+                <block type="on_emojiupdate"></block>
+                <block type="eu_name"></block>
+                <block type="on_emojidelete"></block>
+                <block type="ed_name"></block>
+            </category>
+            <category name="Roles" colour="#14C36B">
+                <block type="on_rolecreate"></block>
+                <block type="rc_name"></block>
+                <block type="on_roleupdate"></block>
+                <block type="ru_name"></block>
+                <block type="on_roledelete"></block>
+                <block type="rd_name"></block>
+            </category>
+            <category name="Stickers" colour="#00b3ff">
+                <block type="on_stickercreate"></block>
+                <block type="sc_name"></block>
+                <block type="on_stickerdelete"></block>
+                <block type="sd_name"></block>
+                <block type="on_stickerupdate"></block>
+                <block type="su_name"></block>
+            </category>
+            <category name="Member Roles" colour="#39A9E3">
+                <block type="on_roleadd"/>
+                <block type="event-role"/>
+                <block type="member_raw"/>
+                <block type="member"/>
+                <block type="on_roleremove"/>
+                <block type="event-role"/>
+                <block type="member_raw"/>
+                <block type="member"/>
+            </category>
+            <category name="Bot Added" colour="#a17722">
+                <label text="%{BKY_ADDED_RELATED_BLOCKS}" web-class="boldtext"></label>
+                <label text="%{BKY_DETECT_ADDED}"></label>
+                <block type="s4d_on_added"></block>
+                <label text="%{BKY_ADDED_INFORMATIONS}"></label>
+                <block type="s4d_add_server_id"></block> 
+                <block type="s4d_add_server_name"></block>
+                <block type="s4d_add_server_icon"></block>
+                <block type="s4d_add_server_owner"/>
+                <label text="blocks related to removed" web-class="boldtext"></label>
+                <label text="detect remove"></label>
+                <block type="s4d_on_remove"></block>
+                <label text="%{BKY_ADDED_INFORMATIONS}"></label>
+                <block type="s4d_add_server_id"></block> 
+                <block type="s4d_add_server_name"></block>
+                <block type="s4d_add_server_icon"></block>
+                <block type="s4d_add_server_owner"/>
+            </category>
+            <category name="Boosts" colour="#E545B1">
+                <block type="on_boost"/>
+                <block type="member_raw"/>
+                <block type="member"/>
+                <block type="on_unboost"/>
+                <block type="member_raw"/>
+                <block type="member"/>
+                <label text="ㅤ" web-class="boldtext"></label>
+                <block type="on_up"/>
+                <block type="event-guild"/>
+                <block type="boost"/>
+                <block type="on_down"/>
+                <block type="event-guild"/>
+                <block type="boost"/>
+                <label text="ㅤ" web-class="boldtext"></label>
+            </category>
+            <category name="Server Customizations" colour="#E71F72">
+                <block type="on_banner_add"/>
+                <block type="event-guild"/>
+                <block type="banner-url"/>
+                <label text="ㅤ" web-class="boldtext"></label>
+                <block type="on_vanity_add"/>
+                <block type="event-guild"/>
+                <block type="vanity-url"/>
+                <block type="on_vanity_remove"/>
+                <block type="event-guild"/>
+                <block type="vanity-url"/>
+                <block type="on_vanity_update"/>
+                <block type="event-guild"/>
+                <block type="url-update"/>
+                <label text="ㅤ" web-class="boldtext"></label>
+            </category>
+            <category name="Custom Events" colour="#F5AB1A">
+                <block type="create_event">
+                    <value name="NAME">
+                        <shadow type="text">
+                            <field name="TEXT">message1</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="emit_event">
+                    <value name="NAME">
+                        <shadow type="text">
+                            <field name="TEXT">message1</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
         </category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
@@ -2465,7 +2360,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_server_created_at"></block>
             <block type="everyn"/>
 
-            <label text="Member server actions"></label>
+            <label text="Bot server actions"></label>
 
             <block type="s4d_leave_server"></block>
 
@@ -2482,6 +2377,29 @@ export default (Blockly, value, searching) => {
 	        <block type="explicit_content_filter"/>
             <block type="default_notif_lvl"/>
             <block type="set_verification_level"/>
+
+            <label text="Server audit logs"></label>
+
+            <block type="jg_monaco_servers_on_server_get_audit_logs_then"/>
+            <block type="jg_monaco_servers_amount_of_audit_logs"/>
+            <block type="jg_monaco_servers_audit_log_number">
+                <value name="NUMBER">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_monaco_servers_log_has_reason"/>
+            <block type="jg_monaco_servers_get_property_from_log"/>
+            <block type="jg_monaco_servers_amount_of_changes_in_log_changes"/>
+            <block type="jg_monaco_servers_change_number_in_changes">
+                <value name="INDEX">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_monaco_servers_get_from_change"/>
 
             <label text="ㅤ" web-class="boldtext"></label>
                 
@@ -2664,19 +2582,25 @@ export default (Blockly, value, searching) => {
             <block type="s4d_get_role"></block>
             <block type="s4d_get_all_role"></block>
             <block type="s4d_get_all_role_role"></block>
+            <block type="get_all_roles"/>
+            <block type="all_roles"/>
+            <block type="hig_role"/>
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
-<block type="fz_role_info_text"/>
-<block type="fz_role_info_num"/>
-						<block type="fz_role_info_bool"/>
-<block type="fz_role_info_color"/>
+            <block type="fz_role_info_text"/>
+            <block type="fz_role_info_num"/>
+			<block type="fz_role_info_bool"/>
+            <block type="fz_role_info_color"/>
             <block type="s4d_add_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
             <block type="s4d_remove_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
             <block type="s4d_delete_role"></block>
             <block type="s4d_has_role"></block>
-						<block type="s4d_role_exist"/>
+			<block type="s4d_role_exist"/>
             <block type="s4d_create_role"></block>
             <block type="s4d_set_role_perm"></block>
-	    <block type="set_role_icon"/>
+            <block type="role_color"/>
+            <block type="role_name"/>
+	        <block type="jg_monaco_roles_hoist_role"/>
+	        <block type="set_role_icon"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category> 
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
@@ -2705,6 +2629,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_joined_at"></block>
             <block type="s4d_created_at"></block>
             <block type="s4d_member_is_bot"/>
+            <label text="Server info about a member"></label>
             <block type="s4d_member_has_permission"/>
 	        <block type="member_channel_perms"/>
             <block type="jg_status_does_member_have_a_status_for_device">
@@ -2717,14 +2642,18 @@ export default (Blockly, value, searching) => {
                     <shadow type="s4d_message_member"/>
                 </value>
             </block>
+            <label text="This will detect the color of highest role" web-class="boldtext"></label>
+            <block type="member_color"/>
+            <label text="Bot information on members or users"></label>
             <block type="jg_members_new_list_of_known_ids"/>
 
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
             <block type="mute_ahq"/>
+            <block type="jg_monaco_members_remove_timeout_from_member"/>
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
             <block type="s4d_unban_member"></block>
-	    <block type="banned_event"/>
+	        <block type="banned_event"/>
             <block type="banned_objects"/>
             <block type="unbanned_event"/>
             <block type="unbanned_objects"/>
@@ -2734,7 +2663,21 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply_dm"></block>
             <block type="s4d_send_wait_reply_dm_value"></block>
-          <label text="ㅤ" web-class="boldtext"></label>
+            <label text="ㅤ" web-class="boldtext"></label>
+        </category>
+        <category name="Emoji" colour="#347dfa" hidden="false">
+            <label text="Welcome to emojis"></label>
+            <block type="fz_get_emoji"/>
+            <block type="fz_create_emoji"/>
+            <block type="fz_delete_emoji"/>
+            <block type="fz_emoji_info"/>
+            <block type="fz_emoji_animated"/>
+            <block type="fz_emoji_exist"/>
+            <block type="fz_get_all_emoji"/>
+            <block type="fz_get_all_emoj"/>
+            <block type="fz_unlock_emoji"/>
+            <block type="fz_lock_emoji"/>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <sep class="bt"/>
     <category name="Web Requests" colour="#4C97FF">
@@ -3056,6 +2999,189 @@ export default (Blockly, value, searching) => {
             </block>
         <!--<label text="Functions" web-class="boldtext"></label>-->
     </category>
+        <sep class="bt"/>
+            <category name="Files" colour="#faaf00">
+                <category name="Text" colour="#fa9e00">
+                    <!--<category name="File Editing" colour="45">-->
+                        <block type="jg_file_create"/>
+                        <block type="jg_file_contents"/>
+                        <block type="jg_file_extension"/>
+                        <block type="jg_file_metadata"/>
+                        <block type="jg_file_foreachfile"/>
+                        <block type="jg_file_foreachfileinput"/>
+                    <!--</category>-->
+                    <!--<category name="filesystem (fs)" colour="#347dfa">-->
+                        <block type="frost_fs_read">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_append">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_write">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_rename">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_delete">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <label text="For open and read (Gives the contents of the file)"></label>
+                        <block type="frost_fs_data"/>
+                        <!--
+                        <label text="For if you get an error (is a boolean and string)"></label>
+                        <block type="frost_fs_err"/>
+                        -->
+                        <label text="ㅤ" web-class="boldtext"></label>
+                    <!--</category>-->
+                </category>
+                <category name="Data" colour="#fa9200">
+                    <!--<category name="Data Blocks" colour="230">-->
+                        <block type="jg_imghttps"/>
+                        <block type="jg_web_currentdata"/>
+                        <block type="jg_web_valueofkey"/>
+						<block type="jg_web_keywithvalue"/>
+                        <block type="jg_web_valueofflkey"/>
+                        <block type="jg_web_haskey"/>
+                        <block type="jg_web_allkey"/>
+						<block type="jg_web_allval"/>
+                        <block type="jg_web_keycount"/>
+                        <block type="jg_web_keynumber"/>
+                        <label text="Loops" web-class="boldtext"></label>
+                        <block type="jg_web_foreachkey"/>
+                        <block type="jg_web_foreachkeyinput"/>
+                    <!--</category>-->
+                </category>
+                <category name="Images" colour="#fa8100">
+                    <!--<category name="Image Editing" colour="260">-->
+                        <label text="Getting started" web-class="boldtext"></label>
+                        <block type="jg_beginJimp"/>
+                        <block type="jg_saveJimpageAs"/>
+                        <label text="Effects and extras" web-class="boldtext"></label>
+                        <block type="jg_jimp_drawtext"/>
+                        <!--
+                        <block type="jg_jimp_U2_drawtext"/>
+                        -->
+
+                        <block type="jg_jimp_brightnesscontrast"/>
+                        <block type="jg_jimp_basicE"/>
+                        <block type="jg_jimp_tpixels"/>
+                        <block type="jg_jimp_opacity"/>
+                        <block type="jg_jimp_width"/>
+                        <block type="jg_jimp_height"/>
+                        <block type="jg_jimp_resize"/>
+                        <block type="jg_jimp_resizeMethods"/>
+                        <block type="jg_jimp_scale"/>
+                        <block type="jg_jimp_crop"/>
+                        <block type="jg_jimp_flip"/>
+                        <block type="jg_jimp_rotate"/>
+                        <block type="jg_jimp_blit"/>
+                        <block type="jg_jimp_composite"/>
+                        <block type="jg_jimp_mask"/>
+                        <block type="jg_jimp_pixelate">
+                            <value name="X">
+                                <block type="math_number">
+                                    <field name="NUM">0</field>
+                                </block>
+                            </value>
+                            <value name="Y">
+                                <block type="math_number">
+                                    <field name="NUM">0</field>
+                                </block>
+                            </value>
+                            <value name="Width">
+                                <block type="jg_jimp_width"/>
+                            </value>
+                            <value name="Height">
+                                <block type="jg_jimp_height"/>
+                            </value>
+                        </block>
+                        <block type="jg_jimp_qblur"/>
+                        <block type="jg_jimp_sblur"/>
+                        <block type="jg_jimp_poster"/>
+                        <block type="jg_jimp_jpgqual"/>
+                        <block type="jg_jimp_convolute"/>
+                        <block type="jg_jimp_kernels"/>
+                        <block type="jg_jimp_setpixel"/>
+                        <block type="jg_jimp_getpixel"/>
+                    <!--</category>-->
+                </category>
+            </category>
         <sep class="bt"/>
         
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
