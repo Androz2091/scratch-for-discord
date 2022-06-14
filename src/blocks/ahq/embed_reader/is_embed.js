@@ -1,13 +1,4 @@
 import * as Blockly from "blockly/core";
-const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
 const blockName = "ahq_embed_is";
 //block working now working
 const blockData = {
@@ -17,19 +8,19 @@ const blockData = {
         "name": "member",
         "check": "Message"
     },],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#40BF4A',
     "output": "Boolean",
-    "tooltip": "",
+    "tooltip": "Checks if a message has an embed.",
     "helpUrl": ""
 };
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const a = Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC).replace(".user", "").replace(".author", ".member");
     const code = [`(${a}.embeds[0])`, Blockly.JavaScript.ORDER_NONE];
     return code;

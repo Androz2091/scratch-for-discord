@@ -8,16 +8,16 @@ const blockData = {
     ],
     "output": "VoiceChannel",
     "colour": "#5153c2",
-    "tooltip": "",
+    "tooltip": "The voice channel ID of the current message member(?)",
     "helpUrl": ""
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
-    return ['s4dmessage.member.voice.channelId', Blockly.JavaScript.ORDER_NONE ];
+Blockly.JavaScript[blockName] = function () {
+    return ['s4dmessage.member.voice.channelId', Blockly.JavaScript.ORDER_NONE];
 };
