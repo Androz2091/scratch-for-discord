@@ -15,6 +15,7 @@
       <b-dropdown-item @click="load('reddit')">{{ $t('examples.reddit') }}</b-dropdown-item>
       <b-dropdown-item @click="load('button')">{{ $t('examples.button') }}</b-dropdown-item>
       <b-dropdown-item @click="load('slash')">{{ "Slash comamnd" }}</b-dropdown-item>
+      <b-dropdown-item @click="load('advjsonreq')">Advanced JSON Request</b-dropdown-item>
       
       </b-nav-item-dropdown>
 </template>
@@ -37,6 +38,7 @@ import random from "../../examples/random";
   import button from "../../examples/button";
   import cooldown from "../../examples/cooldown";
   import slash from "../../examples/slash";
+  import advjsonreq from "../../examples/advjsonreq.js";
 
 const examples = {
     "ping-pong": PingPongExample,
@@ -53,7 +55,8 @@ const examples = {
   "ticket": ticket,
   "button": button,
   "cooldown": cooldown,
-  "slash": slash
+  "slash": slash,
+  "advjsonreq": advjsonreq
 };
 
 export default {

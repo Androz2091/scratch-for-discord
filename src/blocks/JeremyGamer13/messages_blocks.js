@@ -1544,6 +1544,30 @@ Blockly.Blocks["jg_events_all_label"] = {
                                 "When a message is deleted",
                                 "s4d.client.on('messageDelete', async (s4dmessage) => {"
                             ],
+                            [
+                                "When someone starts typing",
+                                "s4d.client.on('typingStart', async (s4dTyping) => {"
+                            ],
+                            [
+                                "When thread message is received",
+                                `s4d.client.on('messageCreate', async (s4dThread) => {
+        if(!(s4dThread.channel.type === "GUILD_PUBLIC_THREAD" || s4dThread.channel.type === "GUILD_PUBLIC_THREAD" )){
+            return
+        }`
+                            ],
+                            [
+                                "When a slash command is received",
+                                `s4d.client.on('interactionCreate', async (interaction) => {
+        let member = interaction.guild.members.cache.get(interaction.member.user.id)`
+                            ],
+                            [
+                                "When the bot is added to a server",
+                                "s4d.client.on('guildCreate', async (s4dguild) => {"
+                            ],
+                            [
+                                "When the bot is removed from a server",
+                                "s4d.client.on('guildDelete', async (s4dguild) => {"
+                            ],
                         ]
                     },
                     {
@@ -1758,6 +1782,7 @@ Blockly.JavaScript["jg_members_get_members_current_voice_channel"] = function (b
     const code = [`${(String(member).endsWith(".user") || String(member).endsWith(".user)")) ? member.replace(".user", "") : member}.voice.channel`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+// oopsie
 Blockly.Blocks["jg_messages_delete_message"] = {
     init: function () {
         this.jsonInit(
@@ -1784,6 +1809,35 @@ Blockly.JavaScript["jg_messages_delete_message"] = function (block) {
     `;
     return code;
 };
+// there we hgo
+
+Blockly.Blocks["jg_monaco_messages_delete_message"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "delete message %1",
+                "colour": "#4C97FF",
+                "tooltip": "Delete a message, if you have permission.",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MESSAGE",
+                        "check": "Message"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_messages_delete_message"] = function (block) {
+    const message = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `${message}.delete()
+    `;
+    return code;
+};
+// next
 Blockly.Blocks["jg_messages_react_to_message_with_reaction"] = {
     init: function () {
         this.jsonInit(
@@ -1875,5 +1929,375 @@ Blockly.JavaScript["jg_messages_edit_message_to_text"] = function (block) {
     const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `${message}.edit(String(${text}))
     `;
+    return code;
+};
+Blockly.Blocks["jg_monaco_members_remove_timeout_from_member"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "remove timeout from member %1",
+                "inputsInline": true,
+                "tooltip": "Remove timeout from a certain member, if the bot has permission to.",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": "Member"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_members_remove_timeout_from_member"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `${member}.timeout(null)
+    `;
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_on_server_get_audit_logs_then"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "on server %1 get audit logs %2 then %3",
+                "inputsInline": true,
+                "tooltip": "Get audit logs on a server, then get information from the audit logs.",
+                "colour": "#E3317A",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_on_server_get_audit_logs_then"] = function (block) {
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `${server}.fetchAuditLogs().then((audit_raw) => {
+        let audit = audit_raw.entries
+        ${statements}
+    })
+    `;
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_audit_log_number"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "audit log #%1",
+                "inputsInline": true,
+                "tooltip": "Get a certain log from the audit logs.",
+                "colour": "#E3317A",
+                "output": "AuditLog",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "NUMBER",
+                        "check": "Number"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_audit_log_number"] = function (block) {
+    const number = Blockly.JavaScript.valueToCode(block, "NUMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`audit.at(Number(${number}) - 1)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_amount_of_audit_logs"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of audit logs",
+                "inputsInline": true,
+                "tooltip": "Get the amount of logs in the audit logs.",
+                "colour": "#E3317A",
+                "output": "Number",
+                "args0": []
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_amount_of_audit_logs"] = function () {
+    const code = [`audit.size`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_get_property_from_log"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get %1 from log %2",
+                "inputsInline": true,
+                "tooltip": "Get information about a certain log.",
+                "colour": "#E3317A",
+                "output": null,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "PROP",
+                        "options": [
+                            [
+                                "target type",
+                                'targetType'
+                            ],
+                            [
+                                "action type",
+                                'actionType'
+                            ],
+                            [
+                                "action",
+                                'action'
+                            ],
+                            [
+                                "reason",
+                                'reason'
+                            ],
+                            [
+                                "user who did the action",
+                                'executor'
+                            ],
+                            [
+                                "changes",
+                                'changes'
+                            ],
+                            [
+                                "item the action was done to",
+                                'target'
+                            ]
+                        ],
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "LOG",
+                        "check": "AuditLog"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_get_property_from_log"] = function (block) {
+    const log = Blockly.JavaScript.valueToCode(block, "LOG", Blockly.JavaScript.ORDER_ATOMIC);
+    const prop = block.getFieldValue("PROP");
+    const code = [`${log}.${prop}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_log_has_reason"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "log %1 has reason?",
+                "inputsInline": true,
+                "tooltip": "Checks if a log has a reason on it.",
+                "colour": "#E3317A",
+                "output": "Boolean",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "LOG",
+                        "check": "AuditLog"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_log_has_reason"] = function (block) {
+    const log = Blockly.JavaScript.valueToCode(block, "LOG", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${log}.reason != null`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_amount_of_changes_in_log_changes"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of changes in log changes %1",
+                "inputsInline": true,
+                "tooltip": "Gets the amount of a log's changes.",
+                "colour": "#E3317A",
+                "output": "Number",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "CHANGES",
+                        "check": "AuditChanges"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_amount_of_changes_in_log_changes"] = function (block) {
+    const changes = Blockly.JavaScript.valueToCode(block, "CHANGES", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${changes}.length`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_change_number_in_changes"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "change #%1 in changes %2",
+                "inputsInline": true,
+                "tooltip": "Gets a change from a log's changes.",
+                "colour": "#E3317A",
+                "output": "AuditLogChanges",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "INDEX",
+                        "check": "Number"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "CHANGES",
+                        "check": "AuditChanges"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_change_number_in_changes"] = function (block) {
+    const changes = Blockly.JavaScript.valueToCode(block, "CHANGES", Blockly.JavaScript.ORDER_ATOMIC);
+    const number = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${changes}[${number}]`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_get_from_change"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get %1 from change %2",
+                "inputsInline": true,
+                "tooltip": "Gets information from a change.",
+                "colour": "#E3317A",
+                "output": null,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "PROP",
+                        "options": [
+                            [
+                                "name of changed item",
+                                'key'
+                            ],
+                            [
+                                "old state of changed item",
+                                'old'
+                            ],
+                            [
+                                "new state of changed item",
+                                'new'
+                            ]
+                        ],
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "CHANGE",
+                        "check": "AuditLogChanges"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_get_from_change"] = function (block) {
+    const change = Blockly.JavaScript.valueToCode(block, "CHANGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const type = block.getFieldValue("PROP");
+    const code = [`${change}.${type}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_unused_scratcjwtff"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "move %1 steps",
+                "inputsInline": true,
+                "tooltip": "",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "STEPS",
+                        "check": "Number"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_unused_scratcjwtff"] = function () {
+    const code = ``
+    return code;
+};
+Blockly.Blocks["jg_monaco_roles_hoist_role"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 role %2 with reason %3",
+                "args0": [
+                  {
+                    "type": "field_dropdown",
+                    "name": "TYPE",
+                    "options": [
+                      [
+                        "hoist",
+                        "true"
+                      ],
+                      [
+                        "unhoist",
+                        "false"
+                      ]
+                    ]
+                  },
+                  {
+                    "type": "input_value",
+                    "name": "ROLE",
+                    "check": "Role"
+                  },
+                  {
+                    "type": "input_value",
+                    "name": "REASON",
+                    "check": "String"
+                  }
+                ],
+                "inputsInline": true,
+                "previousStatement": null,
+                "nextStatement": null,
+                "colour": "#4C97FF",
+                "tooltip": "Hoist or unhoist a role. Hoisting a role allows it to be displayed seperately from other roles.",
+                "helpUrl": ""
+              }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_roles_hoist_role"] = function (block) {
+    const type = block.getFieldValue("TYPE");
+    const role = Blockly.JavaScript.valueToCode(block, "ROLE", Blockly.JavaScript.ORDER_ATOMIC);
+    let reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    if (reason) {
+        reason = ", " + reason
+    }
+    const code = `${role}.setHoist(${type}${reason})
+    `
     return code;
 };

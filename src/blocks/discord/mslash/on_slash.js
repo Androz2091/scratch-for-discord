@@ -17,12 +17,16 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.client.on('interactionCreate', async (interaction) => {\nlet member = interaction.guild.members.cache.get(interaction.member.user.id)\n${statements}\n});\n`;
+    const code = `s4d.client.on('interactionCreate', async (interaction) => {
+        let member = interaction.guild.members.cache.get(interaction.member.user.id)
+        ${statements}
+    });
+    `;
     return code;
 };
