@@ -2271,8 +2271,6 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_add_server_name"></block>
                 <block type="s4d_add_server_icon"></block>
                 <block type="s4d_add_server_owner"/>
-            </category>
-            <category name="Bot Removed" colour="#a1a122">
                 <label text="blocks related to removed" web-class="boldtext"></label>
                 <label text="detect remove"></label>
                 <block type="s4d_on_remove"></block>
@@ -2600,6 +2598,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_set_role_perm"></block>
             <block type="role_color"/>
             <block type="role_name"/>
+	        <block type="jg_monaco_roles_hoist_role"/>
 	        <block type="set_role_icon"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category> 

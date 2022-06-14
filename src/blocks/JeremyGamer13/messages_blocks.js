@@ -2249,3 +2249,55 @@ Blockly.JavaScript["jg_unused_scratcjwtff"] = function () {
     const code = ``
     return code;
 };
+Blockly.Blocks["jg_monaco_roles_hoist_role"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 role %2 with reason %3",
+                "args0": [
+                  {
+                    "type": "field_dropdown",
+                    "name": "TYPE",
+                    "options": [
+                      [
+                        "hoist",
+                        "true"
+                      ],
+                      [
+                        "unhoist",
+                        "false"
+                      ]
+                    ]
+                  },
+                  {
+                    "type": "input_value",
+                    "name": "ROLE",
+                    "check": "Role"
+                  },
+                  {
+                    "type": "input_value",
+                    "name": "REASON",
+                    "check": "String"
+                  }
+                ],
+                "inputsInline": true,
+                "previousStatement": null,
+                "nextStatement": null,
+                "colour": "#4C97FF",
+                "tooltip": "Hoist or unhoist a role. Hoisting a role allows it to be displayed seperately from other roles.",
+                "helpUrl": ""
+              }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_roles_hoist_role"] = function (block) {
+    const type = block.getFieldValue("TYPE");
+    const role = Blockly.JavaScript.valueToCode(block, "ROLE", Blockly.JavaScript.ORDER_ATOMIC);
+    let reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    if (reason) {
+        reason = ", " + reason
+    }
+    const code = `${role}.setHoist(${type}${reason})
+    `
+    return code;
+};
