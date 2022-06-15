@@ -57,3 +57,28 @@ Blockly.JavaScript["jg_objects_set_key_to_value_in_object"] = function (block) {
     `
     return code;
 };
+Blockly.Blocks["jg_objects_get_objects_key_names_in_list"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get objects %1 key names in list",
+                "colour": "#BA4A9A",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "OBJECT",
+                        "check": "Object"
+                    }
+                ],
+                "tooltip": "Put an objects key names into a list.",
+                "output": ["Array", "List"]
+            }
+        );
+    }
+};
+
+Blockly.JavaScript["jg_objects_get_objects_key_names_in_list"] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, "OBJECT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `Object.getOwnPropertyNames(${object})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};

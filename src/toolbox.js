@@ -55,11 +55,14 @@ export default (Blockly, value, searching) => {
             <block type="logic_null" />
             <block type="logic_ternary" />
 
-    	<label text="Pending updates"></label>
+    	<!--<label text="Pending updates"></label>-->
 
                 <block type="s4d_lasercat_switch_switch"></block>
-                <block type="s4d_lasercat_switch_case"></block>
-                <block type="s4d_lasercat_switch_default"></block>
+                <block type="lasercat_jg_case_default"></block>
+                <!--
+                    <block type="s4d_lasercat_switch_case"/>
+                    <block type="s4d_lasercat_switch_default"/>
+                -->
                 <block type="s4d_lasercat_switch_break"></block>
                 
         </category>
@@ -597,7 +600,7 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
         </category>
-<!--
+
         <category name="Objects" colour="#BA4A9A">
             <label text="Objects are similar to collections, but have more functionality." web-class="boldtext"></label>
             <label text="They also don't get converted when saving into a database!" web-class="boldtext"></label>
@@ -626,8 +629,16 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
+            <label text="For something like getting the amount of keys in an object..." web-class="boldtext"></label>
+            <block type="jg_objects_get_objects_key_names_in_list">
+                <value name="OBJECT">
+                    <block type="variables_get">
+                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                    </block>
+                </value>
+            </block>
         </category>
--->
+
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
             <block type="s4d_print">
                 <value name="PRINT">
@@ -1974,7 +1985,7 @@ export default (Blockly, value, searching) => {
                     </block>
                     <block type="jg_attachment_get_attachment_property">
                         <value name="ATTACH">       
-                            <shadow type="jg_attachment_get_attachment_number">
+                            <block type="jg_attachment_get_attachment_number">
                                 <value name="INDEX">
                                     <shadow type="math_number">
                                         <field name="NUM">1</field>
@@ -1983,7 +1994,7 @@ export default (Blockly, value, searching) => {
                                 <value name="MESSAGE">
                                     <shadow type="Message"/>
                                 </value>
-                            </shadow>
+                            </block>
                         </value>
                     </block>
                     <!--
