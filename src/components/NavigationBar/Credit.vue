@@ -23,7 +23,7 @@ export default {
                     <span style="color:#73ad39">cat soup</span>,
                     <span style="color:#e83131">AHQ</span>,
                     <span style="color:#ff7b00">JeremyGamer13</span>,
-                    <span style="color:#D276F7">LimeNade</span>,
+                    <span style="color:#CC7DF3">LimeNade</span>,
                     <span style="color:#26a39d">henpokpok</span>,
                     <span style="color:#e3aa24">AlexCdDg</span>,
                     <span style="color:#e88f68">Eruption</span>,
@@ -38,19 +38,20 @@ export default {
                     <b><p>
                     <span style="color:#36915a">Androz</span>,
                     <span style="color:#568896">snowflake107</span>
+                    <span style="color:#8f815b">7coil</span>,
+                    <span style="color:#6EB7BB">Andromeda</span>
                     </p></b>
                     <h3><b>Preview 454:</b></h3>
                     <b><p>
-                    <span style="color:#8f815b">7coil</span>,
                     <span style="color:#429139">jose_trindade</span>,
                     <span style="color:#9c2525">MrRedo</span>
                     </p></b>
-                    <!--
                     <h5>Extras:</h5>
                     <b><p>
                     
+                    <span style="color:#568896">Noxy, best human on earth</span>
+
                     </p></b>
-                    -->
                 `,
                 showConfirmButton: true
             })
