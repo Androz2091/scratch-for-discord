@@ -55,11 +55,14 @@ export default (Blockly, value, searching) => {
             <block type="logic_null" />
             <block type="logic_ternary" />
 
-    	<label text="Pending updates"></label>
+    	<!--<label text="Pending updates"></label>-->
 
                 <block type="s4d_lasercat_switch_switch"></block>
-                <block type="s4d_lasercat_switch_case"></block>
-                <block type="s4d_lasercat_switch_default"></block>
+                <block type="lasercat_jg_case_default"></block>
+                <!--
+                    <block type="s4d_lasercat_switch_case"/>
+                    <block type="s4d_lasercat_switch_default"/>
+                -->
                 <block type="s4d_lasercat_switch_break"></block>
                 
         </category>
@@ -598,9 +601,22 @@ export default (Blockly, value, searching) => {
             </block>
         </category>
 
-        <!--
         <category name="Objects" colour="#BA4A9A">
+            <label text="Objects are similar to collections, but have more functionality." web-class="boldtext"></label>
+            <label text="They also don't get converted when saving into a database!" web-class="boldtext"></label>
             <block type="jg_objects_create_new"/>
+            <block type="jg_objects_set_key_to_value_in_object">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">key</field>
+                    </shadow>
+                </value>
+                <value name="OBJECT">
+                    <block type="variables_get">
+                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                    </block>
+                </value>
+            </block>
             <block type="jg_object_getvalue">
                 <value name="value">
                     <shadow type="text">
@@ -613,9 +629,16 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
+            <label text="For something like getting the amount of keys in an object..." web-class="boldtext"></label>
+            <block type="jg_objects_get_objects_key_names_in_list">
+                <value name="OBJECT">
+                    <block type="variables_get">
+                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                    </block>
+                </value>
+            </block>
         </category>
-        -->
-	
+
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
             <block type="s4d_print">
                 <value name="PRINT">
@@ -1962,7 +1985,7 @@ export default (Blockly, value, searching) => {
                     </block>
                     <block type="jg_attachment_get_attachment_property">
                         <value name="ATTACH">       
-                            <shadow type="jg_attachment_get_attachment_number">
+                            <block type="jg_attachment_get_attachment_number">
                                 <value name="INDEX">
                                     <shadow type="math_number">
                                         <field name="NUM">1</field>
@@ -1971,7 +1994,7 @@ export default (Blockly, value, searching) => {
                                 <value name="MESSAGE">
                                     <shadow type="Message"/>
                                 </value>
-                            </shadow>
+                            </block>
                         </value>
                     </block>
                     <!--
@@ -2364,6 +2387,9 @@ export default (Blockly, value, searching) => {
             <block type="s4d_server_owner"></block>
             <block type="s4d_number_of__server"></block>
             <block type="s4d_server_created_at"></block>
+            <!--
+                <block type="jg_monaco_servers_amount_of_channels_in_server"/>
+            -->
             <block type="everyn"/>
 
             <label text="Bot server actions"></label>
@@ -2414,6 +2440,13 @@ export default (Blockly, value, searching) => {
             <label text="Find a channel"></label>
 
             <block type="s4d_get_channel"></block>
+            <block type="jg_monaco_channels_get_channel_number_from_server">
+                <value name="INDEX">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="s4d_get_all_channel"></block>
             <block type="s4d_get_all_channel_channel"></block>
 	        <block type="get_all_channel_channel_name"></block>

@@ -339,7 +339,7 @@ export default {
 #blocklySpace {
     position: absolute;
     width: 100%;
-    height: 93.5%;
+    height: calc(100% - 66px);
 }
 
 .boldtext {

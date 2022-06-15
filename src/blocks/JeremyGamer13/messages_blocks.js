@@ -2255,30 +2255,30 @@ Blockly.Blocks["jg_monaco_roles_hoist_role"] = {
             {
                 "message0": "%1 role %2 with reason %3",
                 "args0": [
-                  {
-                    "type": "field_dropdown",
-                    "name": "TYPE",
-                    "options": [
-                      [
-                        "hoist",
-                        "true"
-                      ],
-                      [
-                        "unhoist",
-                        "false"
-                      ]
-                    ]
-                  },
-                  {
-                    "type": "input_value",
-                    "name": "ROLE",
-                    "check": "Role"
-                  },
-                  {
-                    "type": "input_value",
-                    "name": "REASON",
-                    "check": "String"
-                  }
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "hoist",
+                                "true"
+                            ],
+                            [
+                                "unhoist",
+                                "false"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "ROLE",
+                        "check": "Role"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
                 ],
                 "inputsInline": true,
                 "previousStatement": null,
@@ -2286,7 +2286,7 @@ Blockly.Blocks["jg_monaco_roles_hoist_role"] = {
                 "colour": "#4C97FF",
                 "tooltip": "Hoist or unhoist a role. Hoisting a role allows it to be displayed seperately from other roles.",
                 "helpUrl": ""
-              }
+            }
         );
     }
 }
@@ -2299,5 +2299,61 @@ Blockly.JavaScript["jg_monaco_roles_hoist_role"] = function (block) {
     }
     const code = `${role}.setHoist(${type}${reason})
     `
+    return code;
+};
+Blockly.Blocks["jg_monaco_channels_get_channel_number_from_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get channel #%1 from server %2",
+                "inputsInline": false,
+                "tooltip": "Gets a certain channel in the server.",
+                "colour": "#a55b80",
+                "output": "Channel",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "INDEX",
+                        "check": "Number"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_channels_get_channel_number_from_server"] = function (block) {
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${server}.channels.cache.at(Number(${index}) - 1)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_amount_of_channels_in_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of channels in server %1",
+                "inputsInline": false,
+                "tooltip": "Gets the amount of channels in a server.",
+                "colour": "#D85E47",
+                "output": "Channel",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_amount_of_channels_in_server"] = function (block) {
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${server}.channels.cache.size`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
