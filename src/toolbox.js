@@ -1735,99 +1735,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_m_create_embed_then_send"></block>
     </category>
 		        
-				<category name="Mongo" colour="#0db550">
-        <label text="connect to MongoDB"></label>
-        <block type="mongo_on"></block>
-        <block type="mongo_connect">
-        <value name="URL">
-        <shadow type="text">
-            <field name="TEXT">mongodb url</field>
-        </shadow>
-    </value>
-        </block>
-        <label text="nerd blocks"></label>
-        <block type="mongo_get_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_has_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_set_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-            <value name="VALUE">
-                <shadow type="text">
-                    <field name="TEXT">world</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_push_data">
-        <value name="KEY">
-            <shadow type="text">
-                <field name="TEXT">hello</field>
-            </shadow>
-        </value>
-        <value name="VALUE">
-            <shadow type="text">
-                <field name="TEXT">world</field>
-            </shadow>
-        </value>
-    </block>
-    <block type="mongo_pull_data">
-    <value name="KEY">
-        <shadow type="text">
-            <field name="TEXT">hello</field>
-        </shadow>
-    </value>
-    <value name="VALUE">
-        <shadow type="text">
-            <field name="TEXT">world</field>
-        </shadow>
-    </value>
-</block>
-        <block type="mongo_delete_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_add_data">
-            <value name="COUNT">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">points</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_subtract_data">
-            <value name="COUNT">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">points</field>
-                </shadow>
-            </value>
-        </block>
-</category>
+				
 </category>
 		</category>
         <sep class="bt"/>
@@ -3195,9 +3103,103 @@ export default (Blockly, value, searching) => {
                     <!--</category>-->
                 </category>
             </category>
-        <sep class="bt"/>
-        
-        <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
+            <category name="Databases" colour = "#2AC395">
+
+            <category name="Mongo" colour="#0db550">
+        <label text="connect to MongoDB"></label>
+        <block type="mongo_on"></block>
+        <block type="mongo_connect">
+        <value name="URL">
+        <shadow type="text">
+            <field name="TEXT">mongodb url</field>
+        </shadow>
+    </value>
+        </block>
+        <label text="nerd blocks"></label>
+        <block type="mongo_get_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_has_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_set_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="VALUE">
+                <shadow type="text">
+                    <field name="TEXT">world</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_push_data">
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">hello</field>
+            </shadow>
+        </value>
+        <value name="VALUE">
+            <shadow type="text">
+                <field name="TEXT">world</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="mongo_pull_data">
+    <value name="KEY">
+        <shadow type="text">
+            <field name="TEXT">hello</field>
+        </shadow>
+    </value>
+    <value name="VALUE">
+        <shadow type="text">
+            <field name="TEXT">world</field>
+        </shadow>
+    </value>
+</block>
+        <block type="mongo_delete_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_add_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">points</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_subtract_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">points</field>
+                </shadow>
+            </value>
+        </block>
+</category>
+            
+            <category name="{{ TOOLBOX_DATABASE }}" colour="#F1DA54">
             <label text="%{BKY_LABEL_READ_DB}"></label>
             <block type="s4d_get_data">
                 <value name="KEY">
@@ -3261,7 +3263,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_delete_all_data"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-	        <category name="Dootabase" colour="#FF0000">
+	        <category name="Dootabase" colour="#25CADE">
             <label text="%{BKY_LABEL_READ_DB}"></label>
 <block type="s4d_set_db2">
 <value name="KEY">
@@ -3356,7 +3358,8 @@ export default (Blockly, value, searching) => {
             <block type="s4d_delete_all_data2"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-<category name="SQLite DB" colour="#FF0000">
+
+        <category name="SQLite DB" colour="#A025DE">
             <label text="%{BKY_LABEL_READ_DB}"></label>
             <block type="qdb_get">
                 <value name="KEY">
@@ -3443,21 +3446,14 @@ export default (Blockly, value, searching) => {
             </block>
         </category>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            </category>
         <sep class="bt"/>
+        
+
+
+
+
+
         <category name="Comments" colour="#DDAA00">
             <label text="Comments allow you to explain what your blocks do."></label>
             <label text="You can add comments onto specific blocks by going on a block, then Right Click > Add Comment"></label>
