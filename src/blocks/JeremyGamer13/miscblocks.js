@@ -31,7 +31,7 @@ Blockly.Blocks['lasercat_jg_case_default'] = {
                 return Blockly.Msg.CONTROLS_IF_TOOLTIP_4;
             }
             */
-            return `Run the blocks inside if the switched item is equal to this case's value. The "none" case is if the switched item doesn't match any of the other cases mentioned.`;
+            return `Run the blocks inside if the switched item is equal to this case's value. The "default" case is if the switched item doesn't match any of the other cases mentioned.`;
         });
         this.elseifCount_ = 0;
         this.elseCount_ = 0;
@@ -183,7 +183,7 @@ Blockly.Blocks['lasercat_jg_case_default'] = {
         }
         if (this.elseCount_) {
             this.appendDummyInput("asvutdgyhebkf")
-                .appendField("none");
+                .appendField("default");
             this.appendStatementInput('ELSE')
         }
     }
@@ -245,11 +245,11 @@ Blockly.Blocks["lasercat_jg_case_default_INTERNAL_default"] = {
     init: function () {
         this.jsonInit(
             {
-                "message0": "none",
+                "message0": "default",
                 "args0": [],
                 "colour": "#8B48A3",
                 "previousStatement": null,
-                "tooltip": "The \"none\" case, checking if the switched item is not equal to any of the previous cases values."
+                "tooltip": "The \"default\" case, checking if the switched item is not equal to any of the previous cases values."
             }
         );
     }
