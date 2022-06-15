@@ -15,7 +15,6 @@
                 <ToolboxModal style="font-size: small;"></ToolboxModal>
                 <!--<LanguageMenu></LanguageMenu>-->
                 <ExamplesMenu style="font-size: small;"></ExamplesMenu>
-                <TokenModal style="font-size: small;"></TokenModal>
                 <Socials style="font-size: small;"></Socials>
                 <changelog style="font-size: small;"></changelog>
                 <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank" style="font-size: small;">{{ $t('help') }}</b-nav-item>
@@ -56,7 +55,6 @@
 /* eslint-disable */
 import Blockly from "blockly";
 import JSZip from "jszip";
-import TokenModal from "./TokenModal.vue";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
 //import LanguageMenu from "./LanguageMenu.vue";
@@ -77,7 +75,6 @@ export default {
         //LanguageMenu,
         ExamplesMenu,
         CodeModal,
-        TokenModal,
         ToolboxModal,
         Credit,
         changelog,
