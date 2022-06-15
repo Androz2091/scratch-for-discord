@@ -6,7 +6,7 @@ const blockName = "unbanned_objects"
 
 const blockData = {
     "type": "unbanned_objects",
-    "message0": "Get the unband member's %1",
+    "message0": "Get the unbanned member's %1",
     "args0": [
         {
             "type": "field_dropdown",
