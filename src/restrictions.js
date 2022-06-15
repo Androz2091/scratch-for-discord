@@ -45,6 +45,8 @@ export const disableUnapplicable = (workspace) => {
                     Blockly.Msg[restriction.message] = 'Must be inside the "When a member is banned" event!'
                 } else if (restriction.message == 'RES_MUST_BE_IN_UNBANNED_EVENT') {
                     Blockly.Msg[restriction.message] = 'Must be inside the "When a member is unbanned" event!'
+                } else if (restriction.message == 'RES_MUST_BE_IN_KICK_EVENT') {
+                    Blockly.Msg[restriction.message] = 'Must be inside the "When a member is kicked/removed" event!'
                 }
             }
             if (!validateRestriction(block, blocks, restriction)) {

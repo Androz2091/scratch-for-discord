@@ -2225,6 +2225,8 @@ export default (Blockly, value, searching) => {
             <block type="banned_objects"/>
             <block type="unbanned_event"/>
             <block type="unbanned_objects"/>
+            <block type="lime_kick_event"/>
+            <block type="lime_kicked_member_info_attributes"/>
             
             </category>
             <category name="Channels" colour="#AF28B7">
