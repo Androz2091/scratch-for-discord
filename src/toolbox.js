@@ -693,7 +693,9 @@ export default (Blockly, value, searching) => {
             </category>
             -->
 			<category name="Eruption" colour="#ff4000">
+            <!--
 				<category name="Embed" colour="#40BF4A">
+                -->
                 <label text="Create a perfect embed" web-class="boldtext"></label>
                 <block type="s4d_embed_create"></block>
                 <block type="s4d_embed_set_color"></block>
@@ -708,9 +710,11 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_embed_set_timestamp"></block>
                 <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
                 <block type="s4d_embed_send"></block>
-            </category>
+            <!--</category>-->
 			</category>
 				<category name="ahq" colour="#ff0000" disabled="true">
+
+
         <label text="AHQ's Simple Host Auth has been moved to Applications category!" web-class="boldtext"></label>
         <label text="Other" web-class="boldtext"></label>
         <block type="ahq_value_snd"/>
@@ -722,36 +726,33 @@ export default (Blockly, value, searching) => {
         <block type="s4d_get_rndmber"/>
         </category>
         -->
-        <category name="forms" colour="#66ffff">
-        <block type="on_real_form"/>
-        <!--
-            <block type="ahq_ahq_modal"/>
-        -->
-        <block type="embed_send_round">
-        <value name="Label">
-            <shadow type="text">
-                <field name="TEXT"></field>
-            </shadow>
-        </value>
-        </block>
-        <block type="ahq_ahq_ahq_modal"/>
-        <block type="ahqq_ahq_modal"/>
-        <label text="Form Info" web-class="boldtext"></label>
-        <block type="id_form_ahq"/>
-        <block type="id_textbox_ahq"/>
-        <block type="clkr_form_ahq"/>
-        <block type="channel_form_ahq"/>
-        <block type="server_form_ahq"/>
-        <block type="reply_ahq_modal_text"/>
-        <block type="something_modal"/>
-        <label text="Make Forms" web-class="boldtext"></label>
-        <block type="make_ahq_modal"/>
-        <block type="make_ahq_modal_text"/>
-        <block type="style_ahq_modal"/>
-        <label text="Send Forms" web-class="boldtext"></label>
-        <block type="snd_ahq_modal"/>
-        </category>
-        <category name="button" colour="#ff0019">
+
+
+    <category name="embed" colour="#993399">
+        <block type="make_ahq_embed"/>
+
+        <label text="Embed Send" web-class="boldtext"></label>
+
+        <block type="send_ahq_embed"/>
+
+        <label text="Embed Creator" web-class="boldtext"></label>
+        
+        <block type="title_ahq_embed"/>
+        <block type="url_ahq_embed"/>
+        <block type="author_ahq_embed"/>
+        <block type="color_ahq_embed"/>
+        <block type="des_ahq_embed"/>
+        <block type="fld_ahq_embed"/>
+        <block type="image_ahq_embed"/>
+        <block type="thmb_ahq_embed"/>
+        <block type="footer_ahq_embed"/>
+        <block type="stamp_ahq_embed"/>
+    </category>
+
+
+        <category name="interaction" colour="#ff0019">
+        <!--<category name="button" colour="#ff0019">-->
+        <label text="Buttons" web-class="boldtext"></label>
         <label text="Event" web-class="boldtext"></label>
         <block type="on_real_button"/>
         <label text="Button Information" web-class="boldtext"></label>
@@ -780,6 +781,45 @@ export default (Blockly, value, searching) => {
         <block type="emoji_ahq_button"/>
         <block type="url_ahq_button"/>
         <block type="d_ahq_button"/>
+        <!--
+        </category>
+
+
+
+
+
+        <category name="forms" colour="#66ffff">
+        -->
+        <label text="⠀" web-class="boldtext"></label>
+        <label text="⠀" web-class="boldtext"></label>
+        <label text="Forms" web-class="boldtext"></label>
+        <block type="on_real_form"/>
+        <!--
+            <block type="ahq_ahq_modal"/>
+        -->
+        <block type="embed_send_round">
+        <value name="Label">
+            <shadow type="text">
+                <field name="TEXT"></field>
+            </shadow>
+        </value>
+        </block>
+        <block type="ahq_ahq_ahq_modal"/>
+        <block type="ahqq_ahq_modal"/>
+        <label text="Form Info" web-class="boldtext"></label>
+        <block type="id_form_ahq"/>
+        <block type="id_textbox_ahq"/>
+        <block type="clkr_form_ahq"/>
+        <block type="channel_form_ahq"/>
+        <block type="server_form_ahq"/>
+        <block type="reply_ahq_modal_text"/>
+        <block type="something_modal"/>
+        <label text="Make Forms" web-class="boldtext"></label>
+        <block type="make_ahq_modal"/>
+        <block type="make_ahq_modal_text"/>
+        <block type="style_ahq_modal"/>
+        <label text="Send Forms" web-class="boldtext"></label>
+        <block type="snd_ahq_modal"/>
         </category>
 
         <!--
@@ -803,22 +843,7 @@ export default (Blockly, value, searching) => {
 
 
 
-<category name="embed" colour="#993399">
-        <block type="make_ahq_embed"/>
-        <label text="Embed Send" web-class="boldtext"></label>
-        <block type="send_ahq_embed"/>
-        <label text="Embed Creator" web-class="boldtext"></label>
-        <block type="title_ahq_embed"/>
-        <block type="url_ahq_embed"/>
-        <block type="author_ahq_embed"/>
-        <block type="color_ahq_embed"/>
-        <block type="des_ahq_embed"/>
-        <block type="fld_ahq_embed"/>
-        <block type="image_ahq_embed"/>
-        <block type="thmb_ahq_embed"/>
-        <block type="footer_ahq_embed"/>
-        <block type="stamp_ahq_embed"/>
-        </category>
+
 
 
 
@@ -860,14 +885,14 @@ export default (Blockly, value, searching) => {
 
 
 
-
+<!--
 
 
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>
         </category>
 
-<!--
+
 
         <category name="mod" colour="#ff0880">
         <block type="ahq-mod"/>
@@ -875,7 +900,7 @@ export default (Blockly, value, searching) => {
 
 -->
 
-       
+       <!--
         <category name="Voice" colour="#000099">
         <block type="voice_event"/>
         <block type="voice_switch"/>
@@ -886,6 +911,7 @@ export default (Blockly, value, searching) => {
         <block type="disconnect_voice"/>
         <block type="act_voice"/>
         </category>
+        -->
         </category>
 
         <!--<category name="henpokpok" colour="#64C9FF">
@@ -913,11 +939,11 @@ export default (Blockly, value, searching) => {
         </category>
         -->
 
-        
-	<category name="Image Finder" colour="#00c7ad">
+        <!--
+	<category name="Image Finder" colour="#00c7ad">-->
         <block type="get_image"/>
-	<block type="url_image"/>
-        </category>
+	    <block type="url_image"/>
+    <!--</category>-->
 	<!--
 	<category name="Other" colour="#c70e6d">
         
@@ -1243,9 +1269,11 @@ export default (Blockly, value, searching) => {
 </category>
 
 <category name="JeremyGamer13" colour="#FFAA00">
+<!--
 <label text="Need help? Go to this master document:" web-class="boldtext"></label>
           <label text="shorturl.at/nCFV7" web-class="boldtext"></label>
 <category name="Messaging" colour="210">
+-->
             <block type="jg_sendImage">
                 <value name="NAME">
                   <block type="text">
@@ -1377,7 +1405,7 @@ export default (Blockly, value, searching) => {
                   </block>
                 </value>
             </block>
-            </category>
+            <!--</category>-->
             
             
 
@@ -1391,7 +1419,7 @@ export default (Blockly, value, searching) => {
 
 -->
 
-	    
+	   <!-- 
 <category name="Public Experiments" colour="120">
     <block type="jg_experiments_xml2json">
         <value name="CONTENT">
@@ -1403,7 +1431,7 @@ export default (Blockly, value, searching) => {
             </shadow>
         </value>
     </block>
-</category>
+</category>-->
 
         </category>
         
@@ -1420,6 +1448,7 @@ export default (Blockly, value, searching) => {
                     <block type="captcha_value"/>
                     <block type="send_captcha"/>
                 </category>
+                <!--
                 <category name = "progess bar" colour = "#edbc5a">
                     <block type="filled_bar"/>
                     <block type="split_bar"/>
@@ -1434,7 +1463,8 @@ export default (Blockly, value, searching) => {
                     <block type="undeaf_member"/>
                     <block type="move_member"/>
                 </category>
-                <category name="date" colour="#8bed5a">
+                -->
+                <category name="date" colour="#edbc5a">
                     <block type="s4d_current"></block>
                     <block type="unix_to_date"/>
                     <block type="date_to_unix"/>
@@ -1450,29 +1480,41 @@ export default (Blockly, value, searching) => {
                     <block type="invite_code"/>
 		    <block type="vc_channel"/>
                 </category>
+                <!--
                 <category name="cooldown" colour="#5aeded">
                     <block type="set_member_cooldown"/>
                     <block type="delete_member_cooldown"/>
                     <block type="is_member_on_cooldown"/>
                 </category>
+                -->
                 <category name="invite tracker" colour="#5abced">
+                        <!--
                     <category name="joined" colour="#2873eb">
+                    -->
+            <label text="On member joined"></label>
                         <block type="userinvited"/>
                         <block type="Member"/>
                         <block type="InviteMember"/>
                         <block type="Server"/>
                         <block type="Amount"/>
+                        <!--
                     </category>
                     <category name="leave" colour="#0d5ede">
+                    -->
+            <label text="On member leaved"></label>
                         <block type="UserLeave"/>
                         <block type="Member"/>
                         <block type="InviteMember"/>
                         <block type="Server"/>
                         <block type="Amount"/>
+                        <!--
                     </category>
                     <category name="others" colour="#05409e">
+                    -->
                         <block type="get_member_invites"/>
+                        <!--
                     </category>
+                    -->
                 </category>
                 <category name="image generation" colour="#5a8bed">
                     <block type="1imagepng">
@@ -2461,8 +2503,15 @@ export default (Blockly, value, searching) => {
             <block type="new_invite"/>
             <block type="invite_ur"/>
 
+            <label text="Voice channel events"></label>
+
+            <block type="voice_event"/>
+            <block type="voice_switch"/>
+            <block type="voice_leave"/>
+
             <label text="Voice channel Information"></label>
 
+            <block type="prop_voice"/>
             <block type="jg_members_member_is_in_voice_channel">
                 <value name="MEMBER">
                     <shadow type="s4d_message_member"/>
@@ -2473,7 +2522,9 @@ export default (Blockly, value, searching) => {
                     <shadow type="s4d_message_member"/>
                 </value>
             </block>
+
             <label text="Voice channel actions"></label>
+
             <block type="jg_voice_create_connection_to_voice_channel_id_in_server_id">
                 <value name="SERVER">
                     <shadow type="text"/>
@@ -2502,6 +2553,16 @@ export default (Blockly, value, searching) => {
                     <block type="variables_get">
                         <field name="VAR" id="MjBNeg3T-ID1JeaMVk9F">connection</field>
                     </block>
+                </value>
+            </block>
+            <block type="disconnect_voice">
+                <value name="r">
+                    <shadow type="text"/>
+                </value>
+            </block>
+            <block type="act_voice">
+                <value name="r">
+                    <shadow type="logic_boolean"/>
                 </value>
             </block>
 
