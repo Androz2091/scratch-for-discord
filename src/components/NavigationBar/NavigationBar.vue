@@ -28,7 +28,7 @@
         ></b-nav-item>
 
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
-                <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
+                <span contenteditable="true" id="docName" style="font-size: smaller">{{ $t("untitled") }}</span>
                 </b-button>
                 <!-- border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em -->
                 <b-button id="v-step-4" style="border-right-color: #161719; border-radius: 0em" @click="runbot">
