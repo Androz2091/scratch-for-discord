@@ -26,7 +26,7 @@ const blockData = {
         }
     ],
     "inputsInline": true,
-    "output": 'Message',
+    "output": null,
     "colour": '#a55b80',
     "tooltip": "",
     "helpUrl": ""

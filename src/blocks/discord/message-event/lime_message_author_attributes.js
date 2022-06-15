@@ -68,7 +68,7 @@ const blockData = {
         }
     ],
     "inputsInline": true,
-    "output": "String",
+    "output": null,
     "colour": '#4C97FF',
     "tooltip": "",
     "helpUrl": ""
