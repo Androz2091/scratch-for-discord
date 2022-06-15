@@ -597,10 +597,23 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
         </category>
-
-        <!--
+<!--
         <category name="Objects" colour="#BA4A9A">
+            <label text="Objects are similar to collections, but have more functionality." web-class="boldtext"></label>
+            <label text="They also don't get converted when saving into a database!" web-class="boldtext"></label>
             <block type="jg_objects_create_new"/>
+            <block type="jg_objects_set_key_to_value_in_object">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">key</field>
+                    </shadow>
+                </value>
+                <value name="OBJECT">
+                    <block type="variables_get">
+                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                    </block>
+                </value>
+            </block>
             <block type="jg_object_getvalue">
                 <value name="value">
                     <shadow type="text">
@@ -614,8 +627,7 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
         </category>
-        -->
-	
+-->
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
             <block type="s4d_print">
                 <value name="PRINT">

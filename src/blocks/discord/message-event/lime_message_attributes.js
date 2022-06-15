@@ -46,7 +46,7 @@ const blockData = {
         }
     ],
     "inputsInline": true,
-    "output": 'String',
+    "output": null,
     "colour": '#5BA58C',
     "tooltip": "",
     "helpUrl": ""
@@ -55,8 +55,8 @@ const blockData = {
 Blockly.Blocks[blockName] = {
     init: function () {
         this.jsonInit(blockData);
-    }, onchange: function (event) {
-        event
+    }, onchange: function () {
+
         var dropdown = this.getFieldValue('dropdown')
         switch (dropdown) {
             case 'CONTENT':

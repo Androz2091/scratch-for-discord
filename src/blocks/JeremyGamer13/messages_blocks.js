@@ -2255,30 +2255,30 @@ Blockly.Blocks["jg_monaco_roles_hoist_role"] = {
             {
                 "message0": "%1 role %2 with reason %3",
                 "args0": [
-                  {
-                    "type": "field_dropdown",
-                    "name": "TYPE",
-                    "options": [
-                      [
-                        "hoist",
-                        "true"
-                      ],
-                      [
-                        "unhoist",
-                        "false"
-                      ]
-                    ]
-                  },
-                  {
-                    "type": "input_value",
-                    "name": "ROLE",
-                    "check": "Role"
-                  },
-                  {
-                    "type": "input_value",
-                    "name": "REASON",
-                    "check": "String"
-                  }
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "hoist",
+                                "true"
+                            ],
+                            [
+                                "unhoist",
+                                "false"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "ROLE",
+                        "check": "Role"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
                 ],
                 "inputsInline": true,
                 "previousStatement": null,
@@ -2286,7 +2286,7 @@ Blockly.Blocks["jg_monaco_roles_hoist_role"] = {
                 "colour": "#4C97FF",
                 "tooltip": "Hoist or unhoist a role. Hoisting a role allows it to be displayed seperately from other roles.",
                 "helpUrl": ""
-              }
+            }
         );
     }
 }

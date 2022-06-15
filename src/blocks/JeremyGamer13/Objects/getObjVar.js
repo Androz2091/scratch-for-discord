@@ -34,6 +34,6 @@ Blockly.JavaScript[blockName] = function (block) {
     const objraw1 = Blockly.JavaScript.valueToCode(block, "object", Blockly.JavaScript.ORDER_ATOMIC);
     const objraw2 = String(objraw1).replaceAll("(", "")
     const object = String(objraw2).replaceAll(")", "")
-    const code = [`eval("${object}." + String(${value}))`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`${object}[String(${value})]`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
