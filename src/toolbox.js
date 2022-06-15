@@ -2219,6 +2219,14 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_message_channel_deleted"></block>
                 <block type="s4d_message_author_deleted"></block>
             </category>
+            <category name = "Members" colour = "#E1A76E">
+            
+            <block type="banned_event"/>
+            <block type="banned_objects"/>
+            <block type="unbanned_event"/>
+            <block type="unbanned_objects"/>
+            
+            </category>
             <category name="Channels" colour="#AF28B7">
                 <block type="on_channelCreate"></block>
                 <block type="cc_name"></block>
@@ -2660,10 +2668,6 @@ export default (Blockly, value, searching) => {
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
             <block type="s4d_unban_member"></block>
-	        <block type="banned_event"/>
-            <block type="banned_objects"/>
-            <block type="unbanned_event"/>
-            <block type="unbanned_objects"/>
             <block type="s4d_send_member"></block>
 
             <block type="s4d_set_member_nickname"></block>
