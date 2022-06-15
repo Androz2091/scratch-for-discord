@@ -17,7 +17,6 @@
                 <ExamplesMenu style="font-size: small;"></ExamplesMenu>
                 <Socials style="font-size: small;"></Socials>
                 <changelog style="font-size: small;"></changelog>
-                <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank" style="font-size: small;">{{ $t('help') }}</b-nav-item>
                 <Credit style="font-size: small;"></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
