@@ -15,7 +15,6 @@
                 <ToolboxModal style="font-size: small;"></ToolboxModal>
                 <!--<LanguageMenu></LanguageMenu>-->
                 <ExamplesMenu style="font-size: small;"></ExamplesMenu>
-                <preBuilds style="font-size: small;"></preBuilds>
                 <TokenModal style="font-size: small;"></TokenModal>
                 <Socials style="font-size: small;"></Socials>
                 <changelog style="font-size: small;"></changelog>
@@ -63,7 +62,6 @@ import EditMenu from "./EditMenu.vue";
 //import LanguageMenu from "./LanguageMenu.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
-import preBuilds from "./preBuilds.vue";
 import ToolboxModal from "./ToolboxModal.vue";
 import Socials from "./socials.vue";
 import Credit from "./Credit";
@@ -80,7 +78,6 @@ export default {
         ExamplesMenu,
         CodeModal,
         TokenModal,
-        preBuilds,
         ToolboxModal,
         Credit,
         changelog,
