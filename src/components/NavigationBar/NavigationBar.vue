@@ -272,6 +272,8 @@ load()`);
                 content: wrapper,
                 buttons: {
                     cancel: "Exit",
+                    tokendb: "Token Database",
+                    prebuilds: "Prebuilds",
                     clear: "Clear Autosave",
                     manage: "Manage Favorites",
                     dfi: "Download Files Indiv.",
@@ -544,6 +546,484 @@ load()`])
                                     })
                                 }
                             })
+                        }
+                    })
+                } else if (String(result) == "tokendb") {
+                    const wrapper = document.createElement('div');
+                    wrapper.innerHTML = `Token Database can be used to store your tokens so you don't need to go back to the Discord Developer Portal to get them.`
+                    this.$swal({
+                        title: "Token Database",
+                        content: wrapper,
+                        // content: `Token Database can be used to store your tokens so you don't need to go back to the Discord Developer Portal to get them.`,
+                        // dangerMode: true,
+                        buttons: {
+                            cancel: "Cancel",
+                            delete: "Delete Token",
+                            save: "Save Token",
+                            load: "Load Token",
+                        },
+                    }).then(async (result) => {
+                        console.log(result)
+                        if (result == null || result == false) {
+                            return
+                        }
+                        if (String(result) == "delete") {
+                        let keys = await localforage.getItem("tokens")
+                        if (keys === null) {
+                            const Toast = swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', swal.stopTimer)
+                                    toast.addEventListener('mouseleave', swal.resumeTimer)
+                                }
+                            })
+                            Toast.fire({
+                                icon: 'error',
+                                title: this.$t("token.erros")
+                            })
+                            return
+                        }
+                        swal.fire({
+                            title: this.$t("token.deletee.title"),
+                            html: `
+        ${this.$t("token.deletee.text")}<br><br>
+        <select class="custom-select" id="restore-select">
+            ${keys.map((key) => `<option><b>${key.replace("token-", "")}</b></option>`)}
+        </select>
+      `,
+                            showCancelButton: true,
+                            cancelButtonText: this.$t("token.deletee.cancel"),
+                            confirmButtonText: this.$t("token.deletee.load"),
+                            preConfirm: async () => {
+                                const select = document.getElementById("restore-select");
+                                await localforage.removeItem(`token-${select.value}`);
+                                let tokens = await localforage.getItem("tokens")
+                                function arrayRemove(arr, value) {
+
+                                    return arr.filter(function (ele) {
+                                        return ele != value;
+                                    });
+                                }
+                                if (arrayRemove(tokens, `token-${select.value}`).length === 0) {
+                                    await localforage.setItem("tokens", null)
+                                } else {
+                                    await localforage.setItem("tokens", arrayRemove(tokens, `token-${select.value}`))
+                                }
+                                const Toast = swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    didOpen: (toast) => {
+                                        toast.addEventListener('mouseenter', swal.stopTimer)
+                                        toast.addEventListener('mouseleave', swal.resumeTimer)
+                                    }
+                                })
+                                let a = this.$t("token.deletee.success")
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: `${a}`
+                                })
+                            
+                            },
+                        })
+                        } else if (String(result) == "load") {
+
+                            let keys = await localforage.getItem("tokens")
+                            if (keys === null) {
+                                const Toast = swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    didOpen: (toast) => {
+                                        toast.addEventListener('mouseenter', swal.stopTimer)
+                                        toast.addEventListener('mouseleave', swal.resumeTimer)
+                                    }
+                                })
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: this.$t("token.erros")
+                                })
+                                return
+                            }
+                            swal.fire({
+                                title: this.$t("token.load2"),
+                                html: `
+        ${this.$t("token.text4")}<br><br>
+        <select class="custom-select" id="restore-select">
+            ${keys.map((key) => `<option><b>${key.replace("token-", "")}</b></option>`)}
+        </select>
+      `,
+                                showCancelButton: true,
+                                cancelButtonText: this.$t("token.cancels"),
+                                confirmButtonText: this.$t("token.loadss"),
+                                preConfirm: async () => {
+                                    const select = document.getElementById("restore-select");
+                                    const token = await localforage.getItem(`token-${select.value}`);
+                                    const Toast = swal.mixin({
+                                        toast: true,
+                                        position: 'top-end',
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                        timerProgressBar: true,
+                                        didOpen: (toast) => {
+                                            toast.addEventListener('mouseenter', swal.stopTimer)
+                                            toast.addEventListener('mouseleave', swal.resumeTimer)
+                                        }
+                                    })
+                                    let a = this.$t("token.successs")
+                                    Toast.fire({
+                                        icon: 'success',
+                                        title: `${a}`
+                                    })
+                                    navigator.clipboard.writeText(token)
+                                },
+                            })
+
+
+                        } else if (String(result) == "save") {
+                            swal.fire({
+                                title: this.$t("token.text2"),
+                                input: 'text',
+                                inputAttributes: {
+                                    autocapitalize: 'off'
+                                },
+                                showCancelButton: true,
+                                confirmButtonText: this.$t("token.save2"),
+                                showLoaderOnConfirm: true,
+                                preConfirm: async (file) => {
+                                    let maybe = await localforage.getItem("token-" + file)
+                                    if (maybe === null) {
+                                        return file
+                                    } else {
+                                        swal.showValidationMessage(this.$t("token.error"))
+                                    }
+                                },
+                                allowOutsideClick: () => !swal.isLoading()
+                            }).then((result2) => {
+                                if (result2.isConfirmed) {
+                                    let name = result2.value
+                                    //name
+                                    swal.fire({
+                                        title: this.$t("token.text3"),
+                                        input: 'text',
+                                        inputAttributes: {
+                                            autocapitalize: 'off'
+                                        },
+                                        showCancelButton: true,
+                                        confirmButtonText: this.$t("token.save3"),
+                                        showLoaderOnConfirm: true,
+                                        preConfirm: (file2) => {
+                                            return file2
+                                        },
+                                        allowOutsideClick: () => !swal.isLoading()
+                                    }).then(async (result) => {
+                                        if (result.isConfirmed) {
+                                            let token = result.value
+                                            //token
+                                            await localforage.setItem(`token-${name}`, token)
+                                            let tokens = await localforage.getItem("tokens")
+                                            if (tokens === null) {
+                                                await localforage.setItem("tokens", [`token-${name}`])
+                                            } else {
+                                                tokens.push(`token-${name}`)
+                                                await localforage.setItem("tokens", tokens)
+                                            }
+                                            const Toast = swal.mixin({
+                                                toast: true,
+                                                position: 'top-end',
+                                                showConfirmButton: false,
+                                                timer: 3000,
+                                                timerProgressBar: true,
+                                                didOpen: (toast) => {
+                                                    toast.addEventListener('mouseenter', swal.stopTimer)
+                                                    toast.addEventListener('mouseleave', swal.resumeTimer)
+                                                }
+                                            })
+                                            let a = this.$t("token.success")
+                                            Toast.fire({
+                                                icon: 'success',
+                                                title: `${a}${name}`
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+
+
+                        }
+                    })
+                } else if (String(result) == "prebuilds") {
+                    const wrapper = document.createElement('div');
+                    wrapper.innerHTML = `Prebuilds can be used to save your projects in browser to load them later.`
+                    this.$swal({
+                        title: "Prebuilds",
+                        content: wrapper,
+                        buttons: {
+                            cancel: "Cancel",
+                            delete: "Delete Prebuild",
+                            download: "Download Prebuild",
+                            save: "Save Prebuild",
+                            load: "Load Prebuild",
+                        },
+                    }).then(async (result) => {
+                        console.log(result)
+                        if (result == null || result == false) { return }
+                        if (String(result) == "delete") {
+
+
+                            let keys = await localforage.getItem("prebuilds")
+                            if (keys === null) {
+                                const Toast = swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    didOpen: (toast) => {
+                                        toast.addEventListener('mouseenter', swal.stopTimer)
+                                        toast.addEventListener('mouseleave', swal.resumeTimer)
+                                    }
+                                })
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: this.$t("prebuild.erros")
+                                })
+                                return
+                            }
+                            swal.fire({
+                                title: this.$t("prebuild.deletee.title"),
+                                html: `
+        ${this.$t("prebuild.deletee.text")}<br><br>
+        <select class="custom-select" id="restore-select">
+            ${keys.map((key) => `<option><b>${key.replace("prebuild-", "")}</b></option>`)}
+        </select>
+      `,
+                                showCancelButton: true,
+                                cancelButtonText: this.$t("prebuild.deletee.cancel"),
+                                confirmButtonText: this.$t("prebuild.deletee.load"),
+                                preConfirm: async () => {
+                                    const select = document.getElementById("restore-select");
+                                    await localforage.removeItem(`prebuild-${select.value}`);
+                                    let tokens = await localforage.getItem("prebuilds")
+                                    function arrayRemove(arr, value) {
+
+                                        return arr.filter(function (ele) {
+                                            return ele != value;
+                                        });
+                                    }
+                                    if (arrayRemove(tokens, `prebuild-${select.value}`).length === 0) {
+                                        await localforage.setItem("prebuilds", null)
+                                    } else {
+                                        await localforage.setItem("prebuilds", arrayRemove(tokens, `prebuild-${select.value}`))
+                                    }
+                                    const Toast = swal.mixin({
+                                        toast: true,
+                                        position: 'top-end',
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                        timerProgressBar: true,
+                                        didOpen: (toast) => {
+                                            toast.addEventListener('mouseenter', swal.stopTimer)
+                                            toast.addEventListener('mouseleave', swal.resumeTimer)
+                                        }
+                                    })
+                                    let a = this.$t("prebuild.deletee.success")
+                                    Toast.fire({
+                                        icon: 'success',
+                                        title: `${a}`
+                                    })
+                                },
+                            })
+
+                        } else if (String(result) == "download") {
+
+                            let keys = await localforage.getItem("prebuilds")
+                            if (keys === null) {
+                                const Toast = swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    didOpen: (toast) => {
+                                        toast.addEventListener('mouseenter', swal.stopTimer)
+                                        toast.addEventListener('mouseleave', swal.resumeTimer)
+                                    }
+                                })
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: this.$t("prebuild.erros")
+                                })
+                                return
+                            }
+                            swal.fire({
+                                title: this.$t("prebuild.download.load2"),
+                                html: `
+        ${this.$t("prebuild.download.text4")}<br><br>
+        <select class="custom-select" id="restore-select">
+            ${keys.map((key) => `<option><b>${key.replace("prebuild-", "")}</b></option>`)}
+        </select>
+      `,
+                                showCancelButton: true,
+                                cancelButtonText: this.$t("prebuild.download.cancels"),
+                                confirmButtonText: this.$t("prebuild.download.loadss"),
+                                preConfirm: async () => {
+                                    const select = document.getElementById("restore-select");
+                                    const token = await localforage.getItem(`prebuild-${select.value}`);
+                                    const Toast = swal.mixin({
+                                        toast: true,
+                                        position: 'top-end',
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                        timerProgressBar: true,
+                                        didOpen: (toast) => {
+                                            toast.addEventListener('mouseenter', swal.stopTimer)
+                                            toast.addEventListener('mouseleave', swal.resumeTimer)
+                                        }
+                                    })
+                                    let a = this.$t("prebuild.download.successs")
+                                    Toast.fire({
+                                        icon: 'success',
+                                        title: `${a}`
+                                    })
+                                    const zip = new JSZip();
+                                    const fileName = `${select.value}.s4d`;
+                                    zip.file("blocks.xml", token);
+                                    zip.generateAsync({
+                                        type: "blob"
+                                    })
+                                        .then((blob) => {
+                                            const a = document.createElement("a");
+                                            a.style = "display: none";
+                                            document.body.appendChild(a);
+                                            const url = window.URL.createObjectURL(blob);
+                                            a.href = url;
+                                            a.download = fileName;
+                                            a.click();
+                                            window.URL.revokeObjectURL(url);
+                                            document.body.removeChild(a);
+                                        });
+                                },
+                            })
+
+
+
+                        } else if (String(result) == "save") {
+
+                            swal.fire({
+                                title: this.$t("prebuild.text2"),
+                                input: 'text',
+                                inputAttributes: {
+                                    autocapitalize: 'off'
+                                },
+                                showCancelButton: true,
+                                confirmButtonText: this.$t("prebuild.save2"),
+                                showLoaderOnConfirm: true,
+                                preConfirm: async (file) => {
+                                    let maybe = await localforage.getItem("prebuild-" + file)
+                                    if (maybe === null) {
+                                        return file
+                                    } else {
+                                        swal.showValidationMessage(this.$t("prebuild.error"))
+                                    }
+                                },
+                                allowOutsideClick: () => !swal.isLoading()
+                            }).then(async (result2) => {
+                                if (result2.isConfirmed) {
+                                    let name = result2.value
+                                    const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
+                                    await localforage.setItem(`prebuild-${name}`, xmlContent)
+                                    let tokens = await localforage.getItem("prebuilds")
+                                    if (tokens === null) {
+                                        await localforage.setItem("prebuilds", [`prebuild-${name}`])
+                                    } else {
+                                        tokens.push(`prebuild-${name}`)
+                                        await localforage.setItem("prebuilds", tokens)
+                                    }
+                                    const Toast = swal.mixin({
+                                        toast: true,
+                                        position: 'top-end',
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                        timerProgressBar: true,
+                                        didOpen: (toast) => {
+                                            toast.addEventListener('mouseenter', swal.stopTimer)
+                                            toast.addEventListener('mouseleave', swal.resumeTimer)
+                                        }
+                                    })
+                                    let a = this.$t("prebuild.success")
+                                    Toast.fire({
+                                        icon: 'success',
+                                        title: `${a}${name}`
+                                    })
+                                }
+                            })
+
+
+                        } else if (String(result) == "load") {
+                            let keys = await localforage.getItem("prebuilds")
+                            if (keys === null) {
+                                const Toast = swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    didOpen: (toast) => {
+                                        toast.addEventListener('mouseenter', swal.stopTimer)
+                                        toast.addEventListener('mouseleave', swal.resumeTimer)
+                                    }
+                                })
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: this.$t("prebuild.erros")
+                                })
+                                return
+                            }
+                            swal.fire({
+                                title: this.$t("prebuild.load2"),
+                                html: `
+        ${this.$t("prebuild.text4")}<br><br>
+        <select class="custom-select" id="restore-select">
+            ${keys.map((key) => `<option><b>${key.replace("prebuild-", "")}</b></option>`)}
+        </select>
+      `,
+                                showCancelButton: true,
+                                cancelButtonText: this.$t("prebuild.cancels"),
+                                confirmButtonText: this.$t("prebuild.loadss"),
+                                preConfirm: async () => {
+                                    const select = document.getElementById("restore-select");
+                                    const token = await localforage.getItem(`prebuild-${select.value}`);
+                                    const Toast = swal.mixin({
+                                        toast: true,
+                                        position: 'top-end',
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                        timerProgressBar: true,
+                                        didOpen: (toast) => {
+                                            toast.addEventListener('mouseenter', swal.stopTimer)
+                                            toast.addEventListener('mouseleave', swal.resumeTimer)
+                                        }
+                                    })
+                                    let a = this.$t("prebuild.successs")
+                                    Toast.fire({
+                                        icon: 'success',
+                                        title: `${a}`
+                                    })
+                                    Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(token), this.$store.state.workspace);
+                                },
+                            })
+
+
+
                         }
                     })
                 }

@@ -3479,6 +3479,18 @@ export default (Blockly, value, searching) => {
             </block>
         </category>
 
+        <!--
+        <category name="Firebase" colour="#ffb866"/>
+        <category name="Oracle" colour="#fff266"/>
+        <category name="PostgreSQL" colour="#66ffcf"/>
+        <category name="Microsoft SQL Server" colour="#9c66ff"/>
+        <category name="Redis" colour="#ff6691"/>
+        <category name="Elasticsearch" colour="#b8ff66"/>
+        <category name="Cassandra" colour="#66c9ff"/>
+        <category name="MariaDB" colour="#ff8766"/>
+        <category name="IBM Db2" colour="#ff66e5"/>
+        -->
+
             </category>
         <sep class="bt"/>
         
