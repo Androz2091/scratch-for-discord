@@ -2387,6 +2387,9 @@ export default (Blockly, value, searching) => {
             <block type="s4d_server_owner"></block>
             <block type="s4d_number_of__server"></block>
             <block type="s4d_server_created_at"></block>
+            <!--
+                <block type="jg_monaco_servers_amount_of_channels_in_server"/>
+            -->
             <block type="everyn"/>
 
             <label text="Bot server actions"></label>
@@ -2437,6 +2440,13 @@ export default (Blockly, value, searching) => {
             <label text="Find a channel"></label>
 
             <block type="s4d_get_channel"></block>
+            <block type="jg_monaco_channels_get_channel_number_from_server">
+                <value name="INDEX">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="s4d_get_all_channel"></block>
             <block type="s4d_get_all_channel_channel"></block>
 	        <block type="get_all_channel_channel_name"></block>

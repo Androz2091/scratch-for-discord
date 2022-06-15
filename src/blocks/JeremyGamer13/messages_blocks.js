@@ -2301,3 +2301,59 @@ Blockly.JavaScript["jg_monaco_roles_hoist_role"] = function (block) {
     `
     return code;
 };
+Blockly.Blocks["jg_monaco_channels_get_channel_number_from_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get channel #%1 from server %2",
+                "inputsInline": false,
+                "tooltip": "Gets a certain channel in the server.",
+                "colour": "#a55b80",
+                "output": "Channel",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "INDEX",
+                        "check": "Number"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_channels_get_channel_number_from_server"] = function (block) {
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${server}.channels.cache.at(Number(${index}) - 1)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_amount_of_channels_in_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of channels in server %1",
+                "inputsInline": false,
+                "tooltip": "Gets the amount of channels in a server.",
+                "colour": "#D85E47",
+                "output": "Channel",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_amount_of_channels_in_server"] = function (block) {
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${server}.channels.cache.size`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
