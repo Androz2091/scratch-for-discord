@@ -1451,7 +1451,7 @@ Blockly.Blocks["jg_comments_connected_image"] = {
             .appendField("Image URL:")
             .appendField(new Blockly.FieldTextInput("https://media.discordapp.net/attachments/977302952530305045/984125455881863208/load.png"), "TEXT")
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage("https://media.discordapp.net/attachments/977302952530305045/984125455881863208/load.png", 256, 256, { alt: "Custom Image", flipRtl: "FALSE" }), "IMG");
+            .appendField(new Blockly.FieldImage("https://media.discordapp.net/attachments/977302952530305045/984125455881863208/load.png", 512, 256, { alt: "Custom Image", flipRtl: "FALSE" }), "IMG");
         this.setInputsInline(false);
         this.setColour("#DDAA00");
         this.setTooltip("");

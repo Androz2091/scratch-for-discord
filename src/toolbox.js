@@ -1527,11 +1527,13 @@ export default (Blockly, value, searching) => {
                     <block type="send_on_channel"/>
                     <block type="jose_send_image_slash"/>
                 </category>
+                <!--
                 <category name="YoutubeNotifier" colour="#8b5aed">
                     <block type="video_raw"/>
                     <block type="on_newvideo"/>
                     <block type="add_channel"/>
                 </category>
+                -->
                 <category name="{{ DISCORDBACKUP }}" colour="#bc5aed">
                     <block type="s4d_create_backup_of_guild_then"/>
                     <block type="s4d_backup_load"/>
@@ -1550,7 +1552,10 @@ export default (Blockly, value, searching) => {
                     -->
                 </category>
 				<category name="{{ DISCORDCANVAS }}" colour="#ed5abc">
-					<category name="{{ WELCOME }}" colour="#e83aa5">
+					<!--<category name="{{ WELCOME }}" colour="#e83aa5">-->
+                        <label text="Send any created card"></label>
+						<block type="s4d_send_in_channel"/>
+                        <label text="Welcome card"></label>
 						<block type="s4d_create_welcome_then"/>
 						<block type="s4d_set_username"/>
 						<block type="s4d_set_member_count"/>
@@ -1559,9 +1564,9 @@ export default (Blockly, value, searching) => {
 						<block type="s4d_set_avatar"/>
 						<block type="s4d_set_guild_name"/>
 						<block type="s4d_set_color"/>
-						<block type="s4d_send_in_channel"/>
-					</category>
-					<category name="{{ GOODBYE }}" colour="#c42186">
+					<!--</category>
+					<category name="{{ GOODBYE }}" colour="#c42186">-->
+                        <label text="Goodbye card"></label>
 						<block type="s4d_create_goodbye_then"/>
 						<block type="s4d_set_username"/>
 						<block type="s4d_set_member_count"/>
@@ -1570,9 +1575,9 @@ export default (Blockly, value, searching) => {
 						<block type="s4d_set_avatar"/>
 						<block type="s4d_set_guild_name"/>
 						<block type="s4d_set_color"/>
-						<block type="s4d_send_in_channel"/>
-					</category>
-					<category name="{{ RANKCARD }}" colour="#820954">
+					<!--</category>
+					<category name="{{ RANKCARD }}" colour="#820954">-->
+                        <label text="Rank card"></label>
 						<block type="s4d_create_rankcard_then"/>
 						<block type="s4d_set_badge"/>
 						<block type="s4d_set_xp"/>
@@ -1592,8 +1597,7 @@ export default (Blockly, value, searching) => {
 						<block type="s4d_set_transparency"/>
 						<block type="s4d_set_radius"/>
 						<block type="s4d_set_addon"/>
-						<block type="s4d_send_in_channel"/>
-					</category>
+					<!--</category>-->
 				</category>
 				<!--<category name="{{ TOOLBOX_JSONREQUEST }}" colour="#ed5a8b">
 					<block type="s4d_http_get_then"/>
@@ -2192,7 +2196,7 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_message_channel_deleted"></block>
                 <block type="s4d_message_author_deleted"></block>
             </category>
-            <category name = "Members" colour = "#E1A76E">
+            <!--<category name = "Members" colour = "#E1A76E">
             
             <block type="banned_event"/>
             <block type="banned_objects"/>
@@ -2201,7 +2205,7 @@ export default (Blockly, value, searching) => {
             <block type="lime_kick_event"/>
             <block type="lime_kicked_member_info_attributes"/>
             
-            </category>
+            </category>-->
             <category name="Channels" colour="#AF28B7">
                 <block type="on_channelCreate"></block>
                 <block type="cc_name"></block>
@@ -2245,49 +2249,60 @@ export default (Blockly, value, searching) => {
             </category>
             <category name="Member Roles" colour="#39A9E3">
                 <block type="on_roleadd"/>
-                <block type="event-role"/>
-                <block type="member_raw"/>
-                <block type="member"/>
                 <block type="on_roleremove"/>
                 <block type="event-role"/>
                 <block type="member_raw"/>
                 <block type="member"/>
+                <!--
+                <block type="on_roleremove"/>
+                <block type="event-role"/>
+                <block type="member_raw"/>
+                <block type="member"/>
+                -->
             </category>
             <category name="Bot Added" colour="#a17722">
-                <label text="%{BKY_ADDED_RELATED_BLOCKS}" web-class="boldtext"></label>
-                <label text="%{BKY_DETECT_ADDED}"></label>
+                <label text="Blocks for detecting when the bot is added or removed" web-class="boldtext"></label>
                 <block type="s4d_on_added"></block>
-                <label text="%{BKY_ADDED_INFORMATIONS}"></label>
+                <block type="s4d_on_remove"></block>
+                <label text="Server information"></label>
                 <block type="s4d_add_server_id"></block> 
                 <block type="s4d_add_server_name"></block>
                 <block type="s4d_add_server_icon"></block>
                 <block type="s4d_add_server_owner"/>
+                <!--
                 <label text="blocks related to removed" web-class="boldtext"></label>
                 <label text="detect remove"></label>
-                <block type="s4d_on_remove"></block>
                 <label text="%{BKY_ADDED_INFORMATIONS}"></label>
                 <block type="s4d_add_server_id"></block> 
                 <block type="s4d_add_server_name"></block>
                 <block type="s4d_add_server_icon"></block>
                 <block type="s4d_add_server_owner"/>
+                -->
             </category>
             <category name="Boosts" colour="#E545B1">
                 <block type="on_boost"/>
-                <block type="member_raw"/>
-                <block type="member"/>
                 <block type="on_unboost"/>
                 <block type="member_raw"/>
                 <block type="member"/>
+                <!--
+                <block type="on_unboost"/>
+                <block type="member_raw"/>
+                <block type="member"/>
+                -->
                 <label text="ㅤ" web-class="boldtext"></label>
                 <block type="on_up"/>
-                <block type="event-guild"/>
-                <block type="boost"/>
                 <block type="on_down"/>
                 <block type="event-guild"/>
                 <block type="boost"/>
+                <!--
+                <block type="on_down"/>
+                <block type="event-guild"/>
+                <block type="boost"/>
+                -->
                 <label text="ㅤ" web-class="boldtext"></label>
             </category>
             <category name="Server Customizations" colour="#E71F72">
+                <!--
                 <block type="on_banner_add"/>
                 <block type="event-guild"/>
                 <block type="banner-url"/>
@@ -2301,6 +2316,19 @@ export default (Blockly, value, searching) => {
                 <block type="on_vanity_update"/>
                 <block type="event-guild"/>
                 <block type="url-update"/>
+                -->
+
+
+                <block type="on_banner_add"/>
+                <block type="on_vanity_add"/>
+                <block type="on_vanity_remove"/>
+                <block type="on_vanity_update"/>
+                <block type="event-guild"/>
+                <block type="banner-url"/>
+                <block type="vanity-url"/>
+                <block type="url-update"/>
+
+
                 <label text="ㅤ" web-class="boldtext"></label>
             </category>
             <category name="Custom Events" colour="#F5AB1A">
@@ -2673,8 +2701,14 @@ export default (Blockly, value, searching) => {
             <block type="s4d_ban_member"></block>
             <block type="s4d_unban_member"></block>
             <block type="s4d_send_member"></block>
-
             <block type="s4d_set_member_nickname"></block>
+            <label text="Member action events"></label>
+            <block type="banned_event"/>
+            <block type="banned_objects"/>
+            <block type="unbanned_event"/>
+            <block type="unbanned_objects"/>
+            <block type="lime_kick_event"/>
+            <block type="lime_kicked_member_info_attributes"/>
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply_dm"></block>
             <block type="s4d_send_wait_reply_dm_value"></block>
@@ -2957,6 +2991,11 @@ export default (Blockly, value, searching) => {
             <label text="Resources" web-class="boldtext"></label>
             <block type="convert_button"/>
             <block type="convert_embed"/>
+        </category>
+        <category name="YouTube" colour="#ff0000">
+            <block type="video_raw"/>
+            <block type="on_newvideo"/>
+            <block type="add_channel"/>
         </category>
     </category>
     <category name="Securing" colour="#4c61ff">
