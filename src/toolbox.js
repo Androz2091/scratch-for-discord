@@ -929,7 +929,7 @@ export default (Blockly, value, searching) => {
         </category>
         </category>-->
 	
-	<category name="AlexCdDg" colour="#06cfaa">
+	<!--<category name="AlexCdDg" colour="#06cfaa">-->
         
         <!--
         <category name="TTS" colour="#1010b5">
@@ -941,8 +941,8 @@ export default (Blockly, value, searching) => {
 
         <!--
 	<category name="Image Finder" colour="#00c7ad">-->
-        <block type="get_image"/>
-	    <block type="url_image"/>
+        <!--<block type="get_image"/>
+	    <block type="url_image"/>-->
     <!--</category>-->
 	<!--
 	<category name="Other" colour="#c70e6d">
@@ -973,7 +973,7 @@ export default (Blockly, value, searching) => {
         <block type="invite_ur"/>
 	</category>
     -->
- 	</category>
+ 	<!--</category>-->
 
 <category name="frostzzone" colour="#347dfa">
 
@@ -2439,7 +2439,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_get_all_channel"></block>
             <block type="s4d_get_all_channel_channel"></block>
 	        <block type="get_all_channel_channel_name"></block>
-            <block type="first_channel"/>
+            <block type="jg_alex_channels_first_channel_in_server"/>
 
             <label text="Send a message in the found channel"></label>
 

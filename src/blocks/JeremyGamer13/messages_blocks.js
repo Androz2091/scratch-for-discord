@@ -953,7 +953,8 @@ registerRestrictions("jg_messages_reply_with_allowed_list_of_pings_on_users_on_r
         type: "toplevelparent",
         message: "RES_MUST_BE_IN_ON_MESSAGE",
         types: [
-            "s4d_on_message"
+            "s4d_on_message",
+            "jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"
         ]
     }
 ]);
@@ -2355,5 +2356,49 @@ Blockly.Blocks["jg_monaco_servers_amount_of_channels_in_server"] = {
 Blockly.JavaScript["jg_monaco_servers_amount_of_channels_in_server"] = function (block) {
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const code = [`${server}.channels.cache.size`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_alex_channels_first_channel_in_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 channel in server %2",
+                "inputsInline": true,
+                "tooltip": "Gets a certain channel in a server depending on the option picked.",
+                "colour": "#a55b80",
+                "output": "Channel",
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "first",
+                                "first"
+                            ],
+                            [
+                                "last",
+                                "last"
+                            ],
+                            [
+                                "random",
+                                "random"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_alex_channels_first_channel_in_server"] = function (block) {
+    const type = block.getFieldValue("TYPE")
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${server}.channels.cache.${type}()`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
