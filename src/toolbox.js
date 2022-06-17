@@ -2154,6 +2154,16 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_channel_raw"/>
                 <block type="permissions"/>
             </category>
+
+            <category name ="Scheduled events" colour="#AF88E2">
+            
+            <block type="lime_guild_sheduled_events_create"></block>
+            <block type="lime_guild_sheduled_events_remove"></block>
+            <block type="lime_scheduled_event_attributes"></block>
+            
+            
+            </category>
+
             <category name="Emojis" colour="#147AC3">
                 <block type="on_emojicreate"></block>
                 <block type="ec_name"></block>
