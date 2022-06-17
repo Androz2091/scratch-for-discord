@@ -992,45 +992,52 @@ export default (Blockly, value, searching) => {
 </block><!-- LINE HIDDEN FROM SEARCH -->
 </category><!-- LINE HIDDEN FROM SEARCH -->
 
-<category name="Messages" colour="#2a46fa">
+<!--<category name="Messages" colour="#2a46fa">
 
 <block type="frost_real_reply">
-<value name="CONTENT">
-  <shadow type="text">
-    <field name="TEXT">Hey!</field>
-  </shadow>
-</value>
-<value name="boolean">
-  <shadow type="logic_boolean">
-                <field name="Boolean">TRUE</field>
-            </shadow>
-        </value>
+    <value name="CONTENT">
+      <shadow type="text">
+       <field name="TEXT">Hey!</field>
+     </shadow>
+    </value>
+    <value name="boolean">
+        <shadow type="logic_boolean">
+            <field name="Boolean">TRUE</field>
+        </shadow>
+    </value>
 </block>
 <block type="frost_real_reply_then">
-<value name="CONTENT">
-  <shadow type="text">
-    <field name="TEXT">Hey!</field>
-  </shadow>
-</value>
-<value name="boolean">
-  <shadow type="logic_boolean">
-                <field name="Boolean">TRUE</field>
-            </shadow>
-        </value>
+    <value name="CONTENT">
+        <shadow type="text">
+            <field name="TEXT">Hey!</field>
+        </shadow>
+    </value>
+    <value name="boolean">
+        <shadow type="logic_boolean">
+            <field name="Boolean">TRUE</field>
+        </shadow>
+    </value>
 </block>
 <block type="frost_real_reply_add_reaction">
-<value name="REACTION"><shadow type="text"><field name="TEXT">👍</field></shadow></value>
+    <value name="REACTION">
+        <shadow type="text">
+            <field name="TEXT">👍</field>
+        </shadow>
+    </value>
 </block>
 <block type="frost_real_reply_edit">
-<value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
+    <value name="CONTENT">
+        <shadow type="text">
+            <field name="TEXT">Hey!</field>
+        </shadow>
+    </value>
 </block>
 <block type="frost_real_reply_delete"/>
-<block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value>
-</block>
+<block type="frost_typing"><value name="time"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value></block>
 <label text="For Jose Or Redo Embeds"></label>
 <block type="frost_send_embed_rr"/>
 <label text="ㅤ" web-class="boldtext"></label>
-</category>
+</category>-->
 
 <category name="Slash command stuff" colour="4c97ff">
 <label text='⚠️ Deletes commands set by "Slash command GUI" ⚠️'></label>
@@ -1620,6 +1627,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_create_embed_then_set_footer"></block> 
             <label text="%{BKY_SEND_EMBED}"></label>
             <block type="s4d_create_embed_then_send"></block>
+            <block type="frost_send_embed_rr"/>
     </category>
 					        
         <category name="{{ TOOLBOX_BUTTON }}" colour="#a1a122">
@@ -1802,6 +1810,7 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_SEND_EMBED}"></label>
             <block type="send_m_embed_string"/>
             <block type="s4d_m_create_embed_then_send"></block>
+            <block type="frost_send_embed_rr"/>
     </category>
 		        
 				
@@ -2009,7 +2018,45 @@ export default (Blockly, value, searching) => {
     <block type="rreply_message"/>
 
             <label text="Reply Blocks"/>
-
+            <block type="frost_real_reply">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">Hey!</field>
+                    </shadow>
+                </value>
+                <value name="boolean">
+                    <shadow type="logic_boolean">
+                        <field name="Boolean">TRUE</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_real_reply_then">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">Hey!</field>
+                    </shadow>
+                </value>
+                <value name="boolean">
+                    <shadow type="logic_boolean">
+                        <field name="Boolean">TRUE</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_real_reply_add_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_real_reply_edit">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">Hey!</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_real_reply_delete"/>
             <label text="%{BKY_FIND_MESSAGE}"></label>
             <block type="s4d_get_msg_then"></block>
             <block type="edit_msg_by_id"></block>
@@ -2138,7 +2185,7 @@ export default (Blockly, value, searching) => {
         </category>
 
 
-        <category name="Joins | Leaves" colour="#5AD05F">
+        <category name="Joins" colour="#5AD05F">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
             <block type="s4d_on_member_join"></block>
