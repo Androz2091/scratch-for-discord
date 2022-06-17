@@ -2451,14 +2451,7 @@ export default (Blockly, value, searching) => {
                    </value>
                 </block>
             -->
-            <block type="s4d_server_name"></block>
-            <block type="s4d_member_count"></block>
-            <block type="s4d_icon_url"></block>
-            <block type="s4d_server_id"></block>
-            <block type="s4d_boost_level"></block>
-            <block type="s4d_server_owner"></block>
             <block type="s4d_number_of__server"></block>
-            <block type="s4d_server_created_at"></block>
             <!--
                 <block type="jg_monaco_servers_amount_of_channels_in_server"/>
             -->

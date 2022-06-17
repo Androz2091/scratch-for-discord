@@ -12,7 +12,7 @@ const blockData = {
             "check": "Server"
         },
     ],
-    "colour": "#3d8a0a",
+    "colour": "#4C97FF",
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "",
@@ -20,15 +20,15 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     var code = `${server}.leave()`;
-    return  code 
+    return code
 };
 
 registerRestrictions(blockName, [

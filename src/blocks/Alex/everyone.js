@@ -12,7 +12,7 @@ const blockData = {
     }
   ],
   "output": "Everyone",
-  "colour": "#01824c",
+  "colour": "#5BA58C",
   "tooltip": "Get everyone in a server.",
   "helpUrl": ""
 };
