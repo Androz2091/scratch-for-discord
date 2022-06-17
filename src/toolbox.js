@@ -2068,7 +2068,9 @@ export default (Blockly, value, searching) => {
             <block type="s4d_thread_server"/>
             <block type="s4d_thread_archive"/>
         </category>
-        <category name="Joins" colour="#5AD05F">
+
+
+        <category name="Joins | Leaves" colour="#5AD05F">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
             <block type="s4d_on_member_join"></block>
@@ -2078,8 +2080,9 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_RELATED_TO_JOIN_STRINGS}"></label>
             <block type="s4d_joining_member_raw"></block>
             <block type="s4d_joining_guild_raw"></block>
-        </category>
-        <category name="Leaves" colour="#778899">
+
+            <label text=" "/>
+            <label text=" "/>
             <label text="%{BKY_LEAVES_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_LEAVES}"></label>
             <block type="s4d_on_member_leave"></block>
