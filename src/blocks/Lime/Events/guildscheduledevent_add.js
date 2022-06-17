@@ -1,11 +1,11 @@
 import * as Blockly from "blockly/core";
 
-const blockName = "lime_kick_event"
+const blockName = "lime_guild_sheduled_events_create"
 
 
 const blockData = {
-    "type": "lime_kick_event",
-    "message0": "When a member is kicked/leaving from the server %1 %2",
+    "type": "lime_guild_sheduled_events_create",
+    "message0": "When a scheduled event is created %1 %2",
     "args0": [
         {
             "type": "input_dummy"
@@ -16,7 +16,7 @@ const blockData = {
         }
     ],
     "colour": "#f79400",
-    "tooltip": "When a member leaves and when a member gets kicked event is the same!",
+    "tooltip": "",
     "helpUrl": ""
 }
 
@@ -30,6 +30,6 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function (block) {
     var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
 
-    var code = `s4d.client.on('guildMemberRemove', async (kickmember) => {\n ${statements_code} \n });\n`;
+    var code = `s4d.client.on('guildScheduledEventCreate', async (scheduledEvent) => {\n ${statements_code} \n });\n`;
     return code;
 };

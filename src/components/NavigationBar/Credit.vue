@@ -23,12 +23,14 @@ export default {
                     <span style="color:#73ad39">cat soup</span>,
                     <span style="color:#e83131">AHQ</span>,
                     <span style="color:#ff7b00">JeremyGamer13</span>,
+                    <span style="color:#D276F7">LimeNade</span>,
+                    <span style="color:#26a39d">henpokpok</span>,
                     <span style="color:#e3aa24">AlexCdDg</span>,
                     <span style="color:#e88f68">Eruption</span>,
                     <span style="color:#429139">jose_trindade</span>,
                     <span style="color:#9c2525">MrRedo</span> <br><br> 
                     <h2><b>Contributors:</b></h2>
-                     <span style="color:#26a39d">henpokpok</span>,
+                    <span style="color:#26a39d">henpokpok</span>,
                     <span style="color:#8B48A3">LaserCat</span>,
                     <span style="color:#ff7b00">Parham</span>,
                     <span style="color:#69b0d6">Monaco</span>
