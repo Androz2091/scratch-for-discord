@@ -4,12 +4,12 @@ import { registerRestrictions } from "../../../../restrictions";
 const blockName = "frost_real_reply_edit";
 
 const blockData = {
-    "message0": "Edit real reply to %1",
+    "message0": "Edit reply to %1",
     "args0": [
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "Number", "String", "MessageEmbed","embed" ]
+            "check": ["Number", "String", "MessageEmbed", "embed"]
         },
     ],
     "colour": "#4C97FF",
@@ -20,21 +20,21 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    if(block.getInput("CONTENT").connection.targetConnection){
+    if (block.getInput("CONTENT").connection.targetConnection) {
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
-        block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
-        null;
-        if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
+            block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
+            null;
+        if ((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
             const code = `s4dfrost_real_reply.edit({${content}});\n`;
             return code;
-        }else if((contentType === "embed") || (!contentType && typeof contentType === "object")){
+        } else if ((contentType === "embed") || (!contentType && typeof contentType === "object")) {
             const code = `s4dfrost_real_reply.edit({embeds:[${content}]});\n`;
             return code;
         } else {
@@ -52,7 +52,7 @@ registerRestrictions(blockName, [
         type: "notempty",
         message: "RES_MISSING_CONTENT_REPLY_EDIT",
         types: [
-          "CONTENT"
+            "CONTENT"
         ]
     },
     {

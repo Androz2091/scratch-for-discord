@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../../restrictions";
 const blockName = "frost_real_reply_delete";
 
 const blockData = {
-    "message0": "Delete real reply",
+    "message0": "Delete reply",
     "args0": [
     ],
     "colour": "#4C97FF",
@@ -15,12 +15,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(){
+Blockly.JavaScript[blockName] = function () {
     var code = `s4dfrost_real_reply.delete();\n`
     return code
 };

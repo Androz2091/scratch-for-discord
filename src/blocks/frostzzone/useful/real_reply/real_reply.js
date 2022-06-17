@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../../restrictions";
 const blockName = "frost_real_reply";
 
 const blockData = {
-    "message0": "Real reply message %1 mention %2",
+    "message0": "reply %1 mention %2",
     "args0": [
         {
             "type": "input_value",

@@ -1969,7 +1969,7 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
 
-            <block type="jg_messages_reply_with_allowed_list_of_pings_on_users_on_roles">
+            <block type="jg_messages_respond_with_and_with_allowed_list_of_pings_on_users_on_roles">
             <value name="CONTENT">
                 <shadow type="text">
                     <field name="TEXT">No user ping here!</field>
@@ -1990,8 +1990,6 @@ export default (Blockly, value, searching) => {
             </value>
         </block>
 
-        <label text = 'Reply Blocks'/>
-
         <block type="s4d_edit">
         <value name="CONTENT">
             <shadow type="text">
@@ -2000,7 +1998,6 @@ export default (Blockly, value, searching) => {
         </value>
     </block>
     <block type="s4d_reply_delete"></block>
-    <block type="rreply_message"/>
     <block type="s4d_reply_add_reaction">
         <value name="REACTION">
             <shadow type="text">
@@ -2009,7 +2006,9 @@ export default (Blockly, value, searching) => {
         </value>
     </block>
     <block type="s4d_reply_id"/>
+    <block type="rreply_message"/>
 
+            <label text="Reply Blocks"/>
 
             <label text="%{BKY_FIND_MESSAGE}"></label>
             <block type="s4d_get_msg_then"></block>

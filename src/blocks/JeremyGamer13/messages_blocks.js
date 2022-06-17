@@ -972,6 +972,127 @@ registerRestrictions("jg_messages_reply_with_allowed_list_of_pings_on_users_on_r
 // AFAFDWTGF^&
 // AFAFDWTGF^&
 // AFAFDWTGF^&
+Blockly.Blocks["jg_messages_respond_with_and_with_allowed_list_of_pings_on_users_on_roles"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "respond with %1 and with allowed list of pings %2 on user IDs %3 on role IDs %4",
+                "inputsInline": false,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "CONTENT",
+                        "check": ["Number", "String", "MessageEmbed", "embed", "var"]
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "USERS",
+                        "check": ["Array", "List"]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "ROLES",
+                        "check": ["Array", "List"]
+                    }
+                ],
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "Send a message but only ping the members and roles with the IDs in the list. If you dont want to ping anyone or any roles, just put an empty list. If you want to ping all members or all roles, just leave the input empty with no block there.",
+                "helpUrl": ""
+            }
+        );
+    }
+};
+Blockly.JavaScript["jg_messages_respond_with_and_with_allowed_list_of_pings_on_users_on_roles"] = function (block) {
+    const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
+    const users = Blockly.JavaScript.valueToCode(block, "USERS", Blockly.JavaScript.ORDER_ATOMIC);
+    const roles = Blockly.JavaScript.valueToCode(block, "ROLES", Blockly.JavaScript.ORDER_ATOMIC);
+    var usableA = ""
+    var usableB = ""
+    if (!((users === null) || (users === ""))) {
+        usableA = `users: ${users},`
+    }
+    if (!((roles === null) || (roles === ""))) {
+        usableB = `roles: ${roles},`
+    }
+    if (block.getInput("CONTENT").connection.targetConnection) {
+        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
+            block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
+            null;
+        if ((contentType === null)) {
+            const code = `s4dmessage.channel.send({
+                content: String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
+            return code;
+        } else if ((contentType === "embed") || (!contentType && typeof contentType === "object")) {
+            const code = `s4dmessage.channel.send({
+                 embeds:[${content}],
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+                });
+                `;
+            return code;
+        } else if ((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
+            const code = `s4dmessage.channel.send({
+                ${content},
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
+            return code;
+        } else {
+            const code = `s4dmessage.channel.send({
+                content: String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
+            return code;
+        }
+    } else {
+        const code = `s4dmessage.channel.send({
+            content:String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+        });
+        `;
+        return code;
+    }
+};
+registerRestrictions("jg_messages_respond_with_and_with_allowed_list_of_pings_on_users_on_roles", [
+    {
+        type: "notempty",
+        message: "RES_MISSING_CONTENT",
+        types: [
+            "CONTENT"
+        ]
+    },
+    {
+        type: "toplevelparent",
+        message: "RES_MUST_BE_IN_ON_MESSAGE",
+        types: [
+            "s4d_on_message",
+            "jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"
+        ]
+    }
+]);
 // AFAFDWTGF^&
 // AFAFDWTGF^&
 // AFAFDWTGF^&
