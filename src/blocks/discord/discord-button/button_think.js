@@ -3,12 +3,12 @@ import Blockly from "blockly/core";
 const blockName = "s4d_button_think";
 
 const blockData = {
-    "message0": "%{BKY_BUTTON_THINK}",
+    "message0": "think as hidden? %1",
     "args0": [
         {
             "type": "input_value",
             "name": "TOF",
-            "check": [ "Boolean" ]
+            "check": ["Boolean"]
         }
     ],
     "colour": "#4C97FF",
@@ -19,13 +19,13 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const tof = Blockly.JavaScript.valueToCode(block, "TOF", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `await i.deferReply({ ephemeral:${tof === null? false : tof} });\n`
+    const code = `await i.deferReply({ ephemeral:${tof === null ? false : tof} });\n`
     return code;
 };

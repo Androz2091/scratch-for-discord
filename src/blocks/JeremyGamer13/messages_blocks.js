@@ -953,7 +953,8 @@ registerRestrictions("jg_messages_reply_with_allowed_list_of_pings_on_users_on_r
         type: "toplevelparent",
         message: "RES_MUST_BE_IN_ON_MESSAGE",
         types: [
-            "s4d_on_message"
+            "s4d_on_message",
+            "jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"
         ]
     }
 ]);
@@ -1451,7 +1452,7 @@ Blockly.Blocks["jg_comments_connected_image"] = {
             .appendField("Image URL:")
             .appendField(new Blockly.FieldTextInput("https://media.discordapp.net/attachments/977302952530305045/984125455881863208/load.png"), "TEXT")
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage("https://media.discordapp.net/attachments/977302952530305045/984125455881863208/load.png", 256, 256, { alt: "Custom Image", flipRtl: "FALSE" }), "IMG");
+            .appendField(new Blockly.FieldImage("https://media.discordapp.net/attachments/977302952530305045/984125455881863208/load.png", 512, 256, { alt: "Custom Image", flipRtl: "FALSE" }), "IMG");
         this.setInputsInline(false);
         this.setColour("#DDAA00");
         this.setTooltip("");
@@ -2255,30 +2256,30 @@ Blockly.Blocks["jg_monaco_roles_hoist_role"] = {
             {
                 "message0": "%1 role %2 with reason %3",
                 "args0": [
-                  {
-                    "type": "field_dropdown",
-                    "name": "TYPE",
-                    "options": [
-                      [
-                        "hoist",
-                        "true"
-                      ],
-                      [
-                        "unhoist",
-                        "false"
-                      ]
-                    ]
-                  },
-                  {
-                    "type": "input_value",
-                    "name": "ROLE",
-                    "check": "Role"
-                  },
-                  {
-                    "type": "input_value",
-                    "name": "REASON",
-                    "check": "String"
-                  }
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "hoist",
+                                "true"
+                            ],
+                            [
+                                "unhoist",
+                                "false"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "ROLE",
+                        "check": "Role"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
                 ],
                 "inputsInline": true,
                 "previousStatement": null,
@@ -2286,7 +2287,7 @@ Blockly.Blocks["jg_monaco_roles_hoist_role"] = {
                 "colour": "#4C97FF",
                 "tooltip": "Hoist or unhoist a role. Hoisting a role allows it to be displayed seperately from other roles.",
                 "helpUrl": ""
-              }
+            }
         );
     }
 }
@@ -2299,5 +2300,105 @@ Blockly.JavaScript["jg_monaco_roles_hoist_role"] = function (block) {
     }
     const code = `${role}.setHoist(${type}${reason})
     `
+    return code;
+};
+Blockly.Blocks["jg_monaco_channels_get_channel_number_from_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get channel #%1 from server %2",
+                "inputsInline": false,
+                "tooltip": "Gets a certain channel in the server.",
+                "colour": "#a55b80",
+                "output": "Channel",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "INDEX",
+                        "check": "Number"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_channels_get_channel_number_from_server"] = function (block) {
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${server}.channels.cache.at(Number(${index}) - 1)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_amount_of_channels_in_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of channels in server %1",
+                "inputsInline": false,
+                "tooltip": "Gets the amount of channels in a server.",
+                "colour": "#D85E47",
+                "output": "Channel",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_amount_of_channels_in_server"] = function (block) {
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${server}.channels.cache.size`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_alex_channels_first_channel_in_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 channel in server %2",
+                "inputsInline": true,
+                "tooltip": "Gets a certain channel in a server depending on the option picked.",
+                "colour": "#a55b80",
+                "output": "Channel",
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "first",
+                                "first"
+                            ],
+                            [
+                                "last",
+                                "last"
+                            ],
+                            [
+                                "random",
+                                "random"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_alex_channels_first_channel_in_server"] = function (block) {
+    const type = block.getFieldValue("TYPE")
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${server}.channels.cache.${type}()`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
