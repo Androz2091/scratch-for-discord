@@ -356,7 +356,7 @@ registerRestrictions(blockName, [
 
     {
         type: 'hasparent',
-        message: 'RES_MUST_BE_IN_KICK_EVENT',
+        message: 'RES_MUST_BE_IN_EVENT_EVENT',
         types: [
             'lime_guild_sheduled_events_create',
             'lime_guild_sheduled_events_remove'
