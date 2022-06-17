@@ -2030,7 +2030,31 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+            <block type="frost_jg_real_reply_to_message_with_mention">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">Hey!</field>
+                    </shadow>
+                </value>
+                <value name="boolean">
+                    <shadow type="logic_boolean">
+                        <field name="Boolean">TRUE</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="frost_real_reply_then">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">Hey!</field>
+                    </shadow>
+                </value>
+                <value name="boolean">
+                    <shadow type="logic_boolean">
+                        <field name="Boolean">TRUE</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_jg_real_reply_to_message_with_mention_then">
                 <value name="CONTENT">
                     <shadow type="text">
                         <field name="TEXT">Hey!</field>

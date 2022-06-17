@@ -337,6 +337,15 @@ Blockly.JavaScript["jg_channel_last_message_number"] = function (block) {
     const code = [`last_messages_in_channel.at(${index} - 1)`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+registerRestrictions("jg_channel_last_message_number", [
+    {
+        type: "hasparent",
+        message: "RES_GET_ALL_INPUT_PARENT",
+        types: [
+            "jg_channel_get_last_messages_in_channel_then"
+        ]
+    }
+]);
 // next block
 Blockly.Blocks["jg_message_user_replied_to_in_message"] = {
     init: function () {

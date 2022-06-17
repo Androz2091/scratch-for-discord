@@ -43,7 +43,8 @@ registerRestrictions(blockName, [
         type: "hasparent",
         message: "RES_MUST_BE_IN_REPLY_THEN",
         types: [
-            "frost_real_reply_then"
+            "frost_real_reply_then",
+            "frost_jg_real_reply_to_message_with_mention_then"
         ]
     }
 ]);

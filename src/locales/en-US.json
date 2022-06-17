@@ -659,5 +659,6 @@
   "LABEL_THREAD_MESSAGE": "Thread messages",
   "SEND_THREAD": "send%1embed%2thread%3",
   "RES_VALID_CHANNEL": "You must specify a valid channel",
+  "RES_MISSING_INPUTS": "Some inputs have not been filled in!",
   "RES_MISSING_CHANNEL": "You must specify a valid channel!"
 }
