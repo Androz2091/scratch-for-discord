@@ -28,7 +28,7 @@
         ></b-nav-item>
 
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
-                <span contenteditable="true" id="docName" style="font-size: smaller">{{ $t("untitled") }}</span>
+                <span id="docName" style="font-size: smaller" @click="changeFileName">{{ $t("untitled") }}</span>
                 </b-button>
                 <!-- border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em -->
                 <b-button id="v-step-4" style="border-right-color: #161719; border-radius: 0em" @click="runbot">
@@ -1238,6 +1238,13 @@ load()`])
             }
             
             
+        },
+        changeFileName() {
+          let oldFileName = document.querySelector("#docName").textContent
+          let fileName = prompt("Please enter your new document's name:", oldFileName);
+          if (fileName.length != 0) {
+            document.querySelector("#docName").textContent = fileName;
+          }
         },
         changeTheme() {
       if (localStorage.getItem("theme") === "dark") {
