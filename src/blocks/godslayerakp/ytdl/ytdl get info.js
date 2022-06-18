@@ -1,4 +1,5 @@
 import Blockly from "blockly/core";
+import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "gsa_ytdl_get_info";
 
@@ -53,12 +54,21 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-    }
+  init: function () {
+    this.jsonInit(blockData);
+  }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
   const get_data = block.getFieldValue("get_data");
-    return [`json.${get_data}`, Blockly.JavaScript.ORDER_NONE];
+  return [`S4D_APP_json.${get_data}`, Blockly.JavaScript.ORDER_NONE];
 }
+registerRestrictions(blockName, [
+  {
+    type: "hasparent",
+    message: "RES_GET_ALL_INPUT_PARENT",
+    types: [
+      "gsa_ytdl_info"
+    ]
+  }
+]);

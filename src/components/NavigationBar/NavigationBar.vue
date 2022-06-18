@@ -1039,7 +1039,7 @@ load()`])
             //     <li style='text-align:left'>${this.$t('download.content.done')}</li>
             // </ul>-->`;
             const wrapper = document.createElement('div');
-            wrapper.innerHTML = `<h6>You will have to manually stop your bot in Discord!</h6>`
+            wrapper.innerHTML = `<h6>You will have to manually stop your bot in Discord!</h6>You also might not get a response until the bot gets an error, or stops.`
             this.$swal({
                 title: "Start your bot?",
                 icon: "warning",
@@ -1113,9 +1113,7 @@ load()`])
                     // }
 
                     let api_key = process.env.VUE_APP_KEY
-                    var botID = String((Math.floor(Math.random() * 8999) + 1000))
-                    var modifiedJScontent = javascriptContent.replaceAll(`process.on('uncaughtException', function(err) {`, `let aijpfheiowfoiewfhewoiufewoifjopq = require('fs');\nprocess.on('uncaughtException', function(err) {\naijpfheiowfoiewfhewoiufewoifjopq.appendFileSync('./server/console.rbs', (${botID} + String(err)), function(err) {});`)
-                    var modifiedJScontent = modifiedJScontent.replaceAll("const S4D_APP_RUN_BUTTON = false", "const S4D_APP_RUN_BUTTON = true")
+                    let modifiedJScontent = javascriptContent.replaceAll("const S4D_APP_RUN_BUTTON = false", "const S4D_APP_RUN_BUTTON = true")
                     console.log("barry: done")
                     console.log("johnathan: ok go send the post request")
                     console.log("barry: ok")

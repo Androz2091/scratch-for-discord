@@ -4,11 +4,18 @@ const blockName = "gsa_ytdl_info";
 
 const blockData = {
   "type": "gsa_ytdl_info",
-  "message0": "get info from url %1 then",
+  "message0": "get info from url %1 then %2 %3",
   "args0": [
     {
       "type": "input_value",
       "name": "url"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "STATEMENTS"
     }
   ],
   "inputsInline": true,
@@ -20,11 +27,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-    }
+  init: function () {
+    this.jsonInit(blockData);
+  }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
   const url = Blockly.JavaScript.valueToCode(block, "url", Blockly.JavaScript.ORDER_ATOMIC)
-    return `const json = await ytdl.getInfo(${url})`}
+  return `let S4D_APP_json = await ytdl.getInfo(${url})`
+}
