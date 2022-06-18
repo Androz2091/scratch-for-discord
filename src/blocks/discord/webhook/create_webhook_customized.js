@@ -4,6 +4,7 @@ const blockName = "jose_jg_create_webhook_in_channel_with_name_and_profile_pictu
 
 const blockData = {
     "message0": "create webhook in channel %1 with name %2 and profile picture URL %3 with reason %6 then %4 do %5",
+    "inputsInline": false,
     "args0": [
         {
             "type": "input_value",
@@ -63,7 +64,7 @@ Blockly.JavaScript[blockName] = function (block) {
         exported = ", { "
         if (usable.includes("url")) {
             exported += `avatar: String(${url})`
-            if (usable.length > 1) { exported += `, ` }
+            if (usable.length > 1) exported += `, `
         }
         if (usable.includes("reason")) {
             exported += `reason: String(${reason})`

@@ -977,7 +977,7 @@ export default (Blockly, value, searching) => {
     -->
  	<!--</category>-->
 
-<category name="frostzzone" colour="#347dfa">
+<!--<category name="frostzzone" colour="#347dfa">-->
 
 <!-- <category name="Useless" colour="#2a46fa" hidden="true">
 <block type="frost_image"/>LINE HIDDEN FROM SEARCH
@@ -1044,17 +1044,10 @@ export default (Blockly, value, searching) => {
 
 
 <!--<category name="Category/Channel" colour="#2f64fa" hidden="false">-->
-<block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
-<block type="frost_slowmode"><value name="CHANNEL"><shadow type="s4d_message_channel"></shadow></value><value name="TIME"><shadow type="math_number"><field name="NUM">5</field></shadow></value><value name="REASON"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value></block>
 
-<block type="frost_message_category"/>
-<block type="frost_category_get"/>
-<block type="frost_category_id"/>
-<block type="create_category_then"/>
-<block type="fz_channel"/>
-<block type="frost_created_cat"/>
-<label text="ㅤ" web-class="boldtext"></label>
-<!--</category>-->
+
+<!--<label text="ㅤ" web-class="boldtext"></label>
+</category>-->
 
 <!--
 <category name="Embed" colour="#40bf4a">
@@ -1077,8 +1070,7 @@ export default (Blockly, value, searching) => {
 <category name="Translate" hidden="true">
 <block name="frost_translate"/>LINE HIDDEN FROM SEARCH
 </category>
--->
-</category>
+</category>-->
 
 <category name="Retro and cat soup" colour="#AAE941">
 <category name="QR Code" colour="#5ba58b">
@@ -2544,6 +2536,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_get_all_channel_channel"></block>
 	        <block type="get_all_channel_channel_name"></block>
             <block type="jg_alex_channels_first_channel_in_server"/>
+            <block type="frost_category_get"/>
 
             <label text="Send a message in the found channel"></label>
 
@@ -2563,6 +2556,11 @@ export default (Blockly, value, searching) => {
 
 	        <label text="Channel Info"></label>
 
+            <block type="frost_channel_types">
+                <value name="Channel">
+                    <shadow type="s4d_message_channel"/>
+                </value>
+            </block>
 	        <block type="s4d_channel_ahq_name"></block>
             <block type="s4d_channel_id"/>
             <block type="s4d_channel_guild_id"/>
@@ -2571,7 +2569,10 @@ export default (Blockly, value, searching) => {
             <block type="s4d_channel_topic"/>
             <block type="s4d_channel_exist"/>
             <block type="s4d_is_channel_nsfw"/>
+            <!--
             <block type="isdm"/>
+            -->
+            <block type="frost_category_id"/>
 
             <label text="Finding content in the channel"></label>
 
@@ -2624,6 +2625,9 @@ export default (Blockly, value, searching) => {
             <label text="Channel Actions"></label>
 
             <block type="s4d_create_channel"></block>
+            <block type="create_category_then"/>
+            <block type="fz_channel"/>
+            <block type="frost_created_cat"/>
             <block type="s4d_delete_channel"></block>
 
             <label text="Actions for the channel"></label>
@@ -2631,7 +2635,24 @@ export default (Blockly, value, searching) => {
             <block type="renamec"/>
             <block type="channel_perms"/>
             <block type="set_perms_parent"/>
-            <block type="slowmode"/>
+            <!--
+                <block type="slowmode"/>
+            -->
+            <block type="frost_slowmode">
+                <value name="CHANNEL">
+                    <shadow type="s4d_message_channel"/>
+                </value>
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">5</field>
+                    </shadow>
+                </value>
+                <value name="REASON">
+                    <shadow type="text">
+                        <field name="TEXT">Hey!</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="new_invite"/>
             <block type="invite_ur"/>
 

@@ -21,6 +21,10 @@ const blockData = {
                 [
                     "message server",
                     "SERVER"
+                ],
+                [
+                    "message category",
+                    "CATEGORY"
                 ]
             ]
         }
@@ -56,6 +60,11 @@ Blockly.Blocks[blockName] = {
                 this.setOutput(true, 'Server')
                 break;
 
+            case 'CATEGORY':
+                this.setColour("#a55b80")
+                this.setOutput(true, 'Category')
+                break;
+
         }
     }
 };
@@ -76,6 +85,10 @@ Blockly.JavaScript['lime_s4d_message_context'] = function (block) {
 
         case 'SERVER':
             code = 's4dmessage.guild'
+            break;
+
+        case 'CATEGORY':
+            code = 's4dmessage.channel.parent'
             break;
 
     }
