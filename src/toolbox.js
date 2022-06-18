@@ -1167,7 +1167,8 @@ export default (Blockly, value, searching) => {
           <label text="shorturl.at/nCFV7" web-class="boldtext"></label>
 <category name="Messaging" colour="210">
 -->
-            <!--<block type="jg_sendImage">
+            <!--
+            <block type="jg_sendImage">
                 <value name="NAME">
                   <block type="text">
                     <field name="TEXT">file.txt</field>

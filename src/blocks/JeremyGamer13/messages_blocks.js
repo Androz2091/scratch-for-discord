@@ -340,7 +340,7 @@ Blockly.JavaScript["jg_channel_last_message_number"] = function (block) {
 registerRestrictions("jg_channel_last_message_number", [
     {
         type: "hasparent",
-        message: "RES_GET_ALL_INPUT_PARENT",
+        message: "$This block needs to be placed in a \"get last messages in channel then\" block!",
         types: [
             "jg_channel_get_last_messages_in_channel_then"
         ]

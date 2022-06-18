@@ -66,7 +66,7 @@ Blockly.JavaScript[blockName] = function (block) {
 registerRestrictions(blockName, [
   {
     type: "hasparent",
-    message: "RES_GET_ALL_INPUT_PARENT",
+    message: "$This block needs to be placed in a \"get info from url then\" block!",
     types: [
       "gsa_ytdl_info"
     ]

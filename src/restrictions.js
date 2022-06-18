@@ -49,6 +49,8 @@ export const disableUnapplicable = (workspace) => {
                     Blockly.Msg[restriction.message] = 'Must be inside the "When a member is kicked/removed" event!'
                 } else if (restriction.message == 'RES_MUST_BE_IN_EVENT_EVENT') {
                     Blockly.Msg[restriction.message] = 'Must be inside the Scheduled events event block!'
+                } else if (restriction.message.startsWith("$")) {
+                    Blockly.Msg[restriction.message] = restriction.message.substring(1)
                 }
             }
             if (!validateRestriction(block, blocks, restriction)) {
@@ -97,7 +99,7 @@ function validateRestriction(block, blocks, restriction) {
                 try {
                     if (!block.getInput(type).connection.targetBlock()) return false;
                 } catch (e) {
-                    console.log(block.type);
+                    console.log("error happened with restriction (notempty) on", block.type);
                 }
             }
             return true;

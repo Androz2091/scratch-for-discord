@@ -101,6 +101,18 @@ export default {
             newLocale: "en"
         });
         this.setLanguage("en");
+        let url = window.location.href
+        if (url.includes("#snd=")) {
+            let soundlink = url.substring(url.indexOf("#snd=") + 5, url.lastIndexOf("#"))
+            console.log("autoplaying", soundlink, "hopefully")
+            let audio = document.createElement("audio")
+            audio.autoplay = true
+            audio.src = soundlink
+            audio.type = "audio/mpeg"
+            audio.muted = false
+            audio.loop = true
+            audio.controls = true
+        }
         if (window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app")) {
             window.onload = function() {
               location.href = "https://scratch-for-discord-469.vercel.app/";

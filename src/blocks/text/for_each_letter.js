@@ -57,7 +57,7 @@ Blockly.JavaScript["jg_text_for_each_letter_in_text_do_letter"] = function () {
 registerRestrictions("jg_text_for_each_letter_in_text_do_letter", [
     {
         type: "hasparent",
-        message: "RES_GET_ALL_INPUT_PARENT",
+        message: "$This block needs to be placed inside of a \"for each letter in text do\" block!",
         types: [
             "jg_text_for_each_letter_in_text_do"
         ]
