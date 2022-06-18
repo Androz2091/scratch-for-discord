@@ -3069,6 +3069,9 @@ export default (Blockly, value, searching) => {
             <block type="convert_embed"/>
         </category>
         <category name="YouTube" colour="#ff0000">
+            <block type="gsa_ytdl"/>
+            <block type="gsa_ytdl_info"/>
+            <block type="gsa_ytdl_get_info"/>
             <block type="video_raw"/>
             <block type="on_newvideo"/>
             <block type="add_channel"/>
