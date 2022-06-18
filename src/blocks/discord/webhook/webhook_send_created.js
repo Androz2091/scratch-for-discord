@@ -1,10 +1,10 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_send_webhook";
+const blockName = "jose_jg_as_created_webhook_send";
 
 const blockData = {
-    "message0": "as webhook send %1",
+    "message0": "as created webhook send %1",
     "args0": [
         {
             "type": "input_value",
@@ -12,10 +12,10 @@ const blockData = {
             "check": ["String", "Number", "MessageEmbed"]
         },
     ],
-    "colour": "#135cc2",
+    "colour": "#4C97FF",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "",
+    "tooltip": "Send a message as the created webhook.",
     "helpUrl": ""
 };
 
@@ -32,23 +32,24 @@ Blockly.JavaScript[blockName] = function (block) {
             block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
             null;
         if ((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
-            const code = `gwebhook.send(${content});\n`;
+            const code = `webhook.send(${content});\n`;
             return code;
         } else {
-            const code = `gwebhook.send(String(${content}));\n`;
+            const code = `webhook.send(String(${content}));\n`;
             return code;
         }
     } else {
-        const code = `gwebhook.send(String(${content}));\n`;
+        const code = `webhook.send(String(${content}));\n`;
         return code;
     }
 };
 registerRestrictions(blockName, [
     {
         type: "hasparent",
-        message: "RES_GET_WEBHOOK_PARENT",
+        message: "RES_CREATE_WEBHOOK_PARENT",
         types: [
-            "s4d_get_webhook_then"
+            "s4d_create_webhook_then",
+            "jose_jg_create_webhook_in_channel_with_name_and_profile_picture_url_then_do"
         ]
     }
 ]);

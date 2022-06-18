@@ -1081,7 +1081,7 @@ export default (Blockly, value, searching) => {
 </category>
 
 <category name="Retro and cat soup" colour="#AAE941">
-<category name="QR Code" color="#5ba58b">
+<category name="QR Code" colour="#5ba58b">
     <block type="create_qr_then"/>
     <block type="qr"/>
 </category>
@@ -1557,14 +1557,26 @@ export default (Blockly, value, searching) => {
             <block type="s4d_button_menu"></block>
             <block type="s4d_message_menu_block"></block>
         </category>
-        <category name="{{ TOOLBOX_WEBHOOK }}" colour="#4ca122">
+        <category name="Webhooks" colour="#135cc2">
             <block type="s4d_create_webhook_then"></block>
+            <block type="jose_jg_create_webhook_in_channel_with_name_and_profile_picture_url_with_reason_then_do"></block>
             <block type="s4d_edit_webhook"></block>
+            <block type="jose_jg_as_created_webhook_send"></block>
+            <block type="jose_jg_s4d_as_created_webhook_send_with_allowed_mentions_on_lists_user_ids_role_ids"></block>
+            <block type="jose_jg_delete_created_webhook_with_reason"/>
             <block type="s4d_webhook_id"></block>
             <block type="s4d_webhook_token"></block>
             <block type="s4d_get_webhook_then"></block>
             <block type="s4d_get_edit_webhook"></block>
             <block type="s4d_send_webhook"></block>
+            <block type="jose_jg_s4d_as_webhook_send_with_allowed_mentions_on_lists_user_ids_role_ids"></block>
+            <block type="jose_jg_gained_delete_webhook_with_reason"/>
+            <block type="jose_jg_webhooks_get_all_webhooks_in_channel_then"/>
+            <block type="jose_jg_webhooks_amount_of_webhooks"/>
+            <block type="jose_jg_webhooks_webhook_with_id_exists_in_channel"/>
+            <block type="jose_jg_webhooks_get_webhook_with_id"/>
+            <block type="jose_jg_webhooks_get_webhook_information"/>
+            <block type="jose_jg_webhooks_delete_webhook_with_reason"/>
         </category>
         <category name="{{ TOOLBOX_MUSIC }}" colour="#22a122">
             <label text="%{BKY_MUSIC_EVENT}"></label>
@@ -1630,25 +1642,10 @@ export default (Blockly, value, searching) => {
         <label text="ㅤ"></label>
         </category>
         -->
-		<category name="context menu" colour="#f0f255">
-        <label text="Register context menu" web-class="boldtext"></label>
-        <block type="register_c_m"></block>
-	    <block type="register_c_m_g"></block>
-        <label text="Event" web-class="boldtext"></label>
-        <block type="on_menu"></block>
-        <label text="Stuff" web-class="boldtext"></label>
-        <block type="m_name"></block>
-        <block type="m_member"></block>
-        <block type="m_channel"></block>
-        <block type="m_guild"></block>
-        <block type="c_options"></block>
-        <label text="Reply and Edit" web-class="boldtext"></label>
-        <block type="m_reply"></block>
-        <block type="m_edit"></block>
-        <label text="send embed" web-class="boldtext"></label>
-        <block type="send_m_embed_string"></block>
-        </category>
-				<category name="button" colour="#ff0019">
+		<!--<category name="context menu" colour="#f0f255">-->
+        <!--</category>-->
+				<category name="interaction" colour="#ff0019">
+        <label text="Buttons" web-class="boldtext"></label>
         <label text="%{BKY_T_EDI}"></label>
         <block type="on_button"></block>
         <label text="%{BKY_T_BS}"></label>
@@ -1657,7 +1654,7 @@ export default (Blockly, value, searching) => {
         <block type="button_channel"></block>
         <block type="button_guild"></block>
         <block type="b_style"></block>
-        <label text="%{BKY_T_B_SHIP}Reply and edit and send embed"></label>
+        <label text="Reply and edit and send embed"></label>
         <block type="b_send_msg"></block>
         <block type="button_reply"></block>
         <block type="button_edit"></block>
@@ -1685,6 +1682,28 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+
+
+
+        <label text="Context menus" web-class="boldtext"></label>
+        <label text="Register context menu" web-class="boldtext"></label>
+        <block type="register_c_m"></block>
+	    <block type="register_c_m_g"></block>
+        <label text="Event" web-class="boldtext"></label>
+        <block type="on_menu"></block>
+        <label text="Stuff" web-class="boldtext"></label>
+        <block type="m_name"></block>
+        <block type="m_member"></block>
+        <block type="m_channel"></block>
+        <block type="m_guild"></block>
+        <block type="c_options"></block>
+        <label text="Reply and Edit" web-class="boldtext"></label>
+        <block type="m_reply"></block>
+        <block type="m_edit"></block>
+        <label text="send embed" web-class="boldtext"></label>
+        <block type="send_m_embed_string"></block>
+
+
         </category>
         <category name="embed" colour="#40BF4A">
         <label text="Create A Perfect Embed" web-class="boldtext"></label>

@@ -352,6 +352,7 @@
   "SEND_CHANNEL_LABEL": "Send a message in the found channel",
   "GET_CHANNEL": "get the channel with %2 equal to %1",
   "RES_MISSING_CHANNEL_VALUE": "You must specify a valid channel name or ID!",
+  "RES_WEBHOOK_GET_ALL_CHANNEL": "This block must be in a \"get all webhooks in channel then\" block!",
   "RES_SEND_CHANNEL_CONTENT": "You must specify a content to send!",
   "RES_MUST_BE_IN_ANDROZ_EMBED": "This block must be in the \"Message Embed\" block's field input!",
   "RES_SEND_CHANNEL_CHANNEL": "You must specify a channel in which to send the content!",

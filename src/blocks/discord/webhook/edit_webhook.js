@@ -9,17 +9,17 @@ const blockData = {
         {
             "type": "input_value",
             "name": "NAME",
-            "check": [ "String" ]
+            "check": ["String"]
         },
         {
             "type": "input_value",
             "name": "AVATAR",
-            "check": [ "String" ]
+            "check": ["String"]
         },
         {
             "type": "input_value",
             "name": "CHANNEL",
-            "check": [ "Channel" ]
+            "check": ["Channel"]
         },
     ],
     "colour": "#4C97FF",
@@ -30,23 +30,24 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
-const avatar = Blockly.JavaScript.valueToCode(block, "AVATAR", Blockly.JavaScript.ORDER_ATOMIC);
-const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
-return `webhook.edit({name:${name},avatar:${avatar},channel:${channel}.id});\n`
+Blockly.JavaScript[blockName] = function (block) {
+    const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
+    const avatar = Blockly.JavaScript.valueToCode(block, "AVATAR", Blockly.JavaScript.ORDER_ATOMIC);
+    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
+    return `webhook.edit({name:${name},avatar:${avatar},channel:${channel}.id});\n`
 };
 registerRestrictions(blockName, [
     {
         type: "hasparent",
         message: "RES_CREATE_WEBHOOK_PARENT",
         types: [
-            "s4d_create_webhook_then"
+            "s4d_create_webhook_then",
+            "jose_jg_create_webhook_in_channel_with_name_and_profile_picture_url_then_do"
         ]
     }
 ]);
