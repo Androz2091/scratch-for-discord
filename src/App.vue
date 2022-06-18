@@ -60,6 +60,7 @@ import "./blocks/progess-bar/";
 import "./blocks/captcha/";
 import "./blocks/pagination/";
 import "./blocks/discord/thread-event"
+import "./blocks/godslayerakp"
   
 //my events
 //channel
