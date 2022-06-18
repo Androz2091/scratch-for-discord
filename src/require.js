@@ -224,4 +224,7 @@ dootabase.setFile("./database.json");`)
     if (js.includes("synchronizeSlashCommands")) {
         array.push(`const synchronizeSlashCommands = require('@frostzzone/discord-sync-commands');`)
     }
+    if (js.includes("ytdl")) {
+        array.push(`const ytdl = require('ytdl-core');`)
+    }
 }
