@@ -43,7 +43,7 @@ export default {
     },
     async mounted() {
         const allow_toolbox_search = true
-        function prepToolbox(toolbox_content, searching, favorites) {
+        function prepToolbox(toolbox_content, searching, favorites, pooopewwweewwww) {
             // console.log(toolbox_content)
 
                 // preparing variables for searching
@@ -70,7 +70,39 @@ const toolboxArray = toolbox_content.split('\n');
 // set the default blocks and run the searching code
 
 const defaultblocks = blocks
-
+            if (searching == "baiuyfg8iu4ewf643o8ir") {
+                let newblocks = []
+                let check
+                if (prompt("u sure bro? (ye/na)") != "ye") return
+                for (let count = 0; count < defaultblocks.length; count++) {
+                    check = defaultblocks[count]
+                    if (!(String(check).includes("LINE HIDDEN FROM SEARCH"))) {
+                        newblocks.push(check)
+                    }
+                }
+                for (let i = 0; i < newblocks.length; i++) {
+                    let xml = Blockly.Xml.textToDom(`<block type="${newblocks[i]}"/>`);
+                    let block = Blockly.Xml.domToBlock(xml, pooopewwweewwww)
+                    block.moveBy(Math.round(Math.random() * 5000), Math.round(Math.random() * 5000))
+                }
+                return
+            }
+            if (searching == "f9u42r8hg329rehsfhoiewgf37") {
+                let newblocks = []
+                let check
+                if (prompt("u sure bro? (ye/na)") != "ye") return
+                for (let count = 0; count < defaultblocks.length; count++) {
+                    check = defaultblocks[count]
+                    if (!(String(check).includes("LINE HIDDEN FROM SEARCH"))) {
+                        newblocks.push(check)
+                    }
+                }
+                for (let i = 0; i < newblocks.length; i++) {
+                    let xml = Blockly.Xml.textToDom(`<xml><block type="${newblocks[i]}"/></xml>`);
+                    Blockly.Xml.appendDomToWorkspace(xml, pooopewwweewwww)
+                }
+                return
+            }
     if (searching) {
         var newblocks = []
         var check;
@@ -573,6 +605,30 @@ Blockly.ContextMenuRegistry.registry.register({
       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
       id: 'spawnblock',
       weight: 500,
+    });
+    Blockly.ContextMenuRegistry.registry.register({
+        displayText: 'Spawn all toolblocks',
+        preconditionFn: function () {
+            return "enabled"
+        },
+        callback: function () {
+            prepToolbox(toolbox(Blockly, val, false), "baiuyfg8iu4ewf643o8ir", null, workspace)
+        },
+        scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+        id: 'spawnalltoolblocks',
+        weight: 9990,
+    });
+    Blockly.ContextMenuRegistry.registry.register({
+        displayText: 'Spawn all toolblocks (ordered)',
+        preconditionFn: function () {
+            return "enabled"
+        },
+        callback: function () {
+            prepToolbox(toolbox(Blockly, val, false), "f9u42r8hg329rehsfhoiewgf37", null, workspace)
+        },
+        scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+        id: 'spawnalltoolblocks2',
+        weight: 9999,
     });
 }
 
