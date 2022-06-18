@@ -353,6 +353,7 @@
   "GET_CHANNEL": "get the channel with %2 equal to %1",
   "RES_MISSING_CHANNEL_VALUE": "You must specify a valid channel name or ID!",
   "RES_SEND_CHANNEL_CONTENT": "You must specify a content to send!",
+  "RES_MUST_BE_IN_ANDROZ_EMBED": "This block must be in the \"Message Embed\" block's field input!",
   "RES_SEND_CHANNEL_CHANNEL": "You must specify a channel in which to send the content!",
   "SEND_CHANNEL": "send %1 in the channel %2",
   "ON_ADDED": "When bot is added to a server",

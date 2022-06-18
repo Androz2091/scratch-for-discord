@@ -43,10 +43,10 @@ const blockData = {
             ]
         },
     ],
-    "colour": 230,
+    "colour": "#4C97FF",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "This sends the file with the matching file name, extension, and directory for a file saved in your bot's files. Supports (most) embeds and normal text. (Slash command block)",
+    "tooltip": "Tooltip is loading, please wait...",
     "helpUrl": ""
 };
 
@@ -56,17 +56,12 @@ Blockly.Blocks[blockName] = {
     },
     onchange: function () {
         let type = String(this.getFieldValue("TYPE"))
-        if (this.getInput("warningMSG")) {
-            this.removeInput("warningMSG")
-        }
         if (type == "interaction.editReply") {
-            this.setColour(240)
-            if (this.getInput("HIDE")) {
-                this.appendDummyInput("warningMSG")
-                    .appendField("Edited replies can't change if it's hidden.");
-            }
+            this.setColour("#478ded")
+            this.setTooltip("This edits the reply to have the file with the matching file name, extension, and directory for a file saved in your bot's files. Edited replies cannot change the hidden state of the reply. Supports (most) embeds and normal text. (Slash command block)")
         } else {
-            this.setColour(230)
+            this.setColour("#4C97FF")
+            this.setTooltip("This sends the file with the matching file name, extension, and directory for a file saved in your bot's files. Supports (most) embeds and normal text. (Slash command block)")
         }
     }
 };
@@ -75,27 +70,34 @@ Blockly.JavaScript[blockName] = function (block) {
     //embeds: [
     const fileNameandLocation = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
     const hidden = Blockly.JavaScript.valueToCode(block, "HIDE", Blockly.JavaScript.ORDER_ATOMIC);
-    let buttonraw = Blockly.JavaScript.valueToCode(block, "ROW", Blockly.JavaScript.ORDER_ATOMIC);
-    let buttonraw2 = String(buttonraw).replaceAll("\"", "")
-    const row = String(buttonraw2).replaceAll("'", "")
+    const row = String(Blockly.JavaScript.valueToCode(block, "ROW", Blockly.JavaScript.ORDER_ATOMIC)).replaceAll('"', "").replaceAll("'", "");
     const type = block.getFieldValue("TYPE")
     let msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
     let code;
+    let rowMSG = ""
     let hidden2 = `
     ephemeral: ${hidden},`
     if (String(type) == "interaction.editReply") {
         hidden2 = ``
+    } else if (String(hidden) == null || String(hidden) == "") {
+        hidden2 = `
+    ephemeral: false,`
     }
     let stored = `[${fileNameandLocation}]`
     if (fileNameandLocation.includes("['") || fileNameandLocation.includes("[\"")) {
         stored = fileNameandLocation
     }
-    if (!(msg.includes("embeds: ["))) {
+    if (String(msg) == "" || String(msg) == null) {
+        msg = ``
+    } else if (!(msg.includes("embeds: ["))) {
         msg = `content: String(${msg})`
+    }
+    if (!(String(row) == "" || String(row) == null)) {
+        rowMSG = `components: [${row}],`
     }
     code = `${type}({
     files: ${stored},${hidden2}
-    components: [${row}],
+    ${rowMSG}
     ${msg}
 });
 `;
