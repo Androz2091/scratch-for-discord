@@ -1757,7 +1757,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_rbs_isRunButton"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-        <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
+        <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#4C97FF">
 
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
 			
@@ -2050,7 +2050,7 @@ export default (Blockly, value, searching) => {
                 
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-        <category name="Threads" colour="#2a97b8">
+        <category name="Threads" colour="#478ded">
             <label text="%{BKY_LABEL_THREAD_MESSAGE}"/>
             <block type="s4d_on_thread_message"/>
             <block type="s4d_send_thread"/>
@@ -2104,7 +2104,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_thread_server"/>
             <block type="s4d_thread_archive"/>
         </category>
-        <category name="Slash" colour="4c97ff">
+        <category name="Slash" colour="#4776ed">
             <label text='⚠️ Deletes commands set by "Slash Command GUI"! ⚠️'></label>
             <label text='Only one "Create slash commands" block should be placed.'></label>
             <label text='Otherwise, it will break!'></label>
