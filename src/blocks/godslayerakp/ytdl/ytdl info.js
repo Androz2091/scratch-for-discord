@@ -34,5 +34,8 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
   const url = Blockly.JavaScript.valueToCode(block, "url", Blockly.JavaScript.ORDER_ATOMIC)
-  return `let S4D_APP_json = await ytdl.getInfo(${url})`
+  const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC)
+  return `let S4D_APP_json = await ytdl.getInfo(${url})
+${statements}
+`
 }
