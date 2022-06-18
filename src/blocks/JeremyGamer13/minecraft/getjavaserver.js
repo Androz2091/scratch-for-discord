@@ -42,7 +42,7 @@ Blockly.JavaScript[blockName] = function (block) {
     const port = Blockly.JavaScript.valueToCode(block, "PORT", Blockly.JavaScript.ORDER_ATOMIC);
     const then = Blockly.JavaScript.statementToCode(block, "THEN");
     const code = `let S4D_APP_MC_GET_OPTIONS = {
-        timeout: 5000
+        timeout: 35000
     };
     S4D_APP_MC_GET.status(String(${ip}), Number(${port}), S4D_APP_MC_GET_OPTIONS)
     .then(async (result_java) => {

@@ -49,7 +49,7 @@ export const disableUnapplicable = (workspace) => {
                     Blockly.Msg[restriction.message] = 'Must be inside the "When a member is kicked/removed" event!'
                 } else if (restriction.message == 'RES_MUST_BE_IN_EVENT_EVENT') {
                     Blockly.Msg[restriction.message] = 'Must be inside the Scheduled events event block!'
-                } else if (restriction.message.startsWith("$")) {
+                } else if ((restriction.message) && (restriction.message.startsWith("$"))) {
                     Blockly.Msg[restriction.message] = restriction.message.substring(1)
                 }
             }

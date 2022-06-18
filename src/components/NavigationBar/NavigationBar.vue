@@ -1122,7 +1122,8 @@ load()`])
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             key: api_key,
-                            code: modifiedJScontent
+                            code: modifiedJScontent,
+                            update: "1"
                         })
                     };
                     try {
