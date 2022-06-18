@@ -102,26 +102,13 @@ export default {
         });
         this.setLanguage("en");
         if (window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app")) {
-            this.$swal({
-                title: "Hey! You are not using the right site for S4D!",
-                icon: 'warning',
-                buttons: {
-                    cancel: "I'm fine",
-                    confirm: "Go to Vercel"
-                },
-            }).then(async (result) => {
-                if ((result == true) || (result == "confirm")) {
-                    window.location.href = "https://scratch-for-discord-469.vercel.app/"
-                }
-            })
+            window.onload = function() {
+              location.href = "https://scratch-for-discord-469.vercel.app/";
+            }
         }
     },
     methods: {
         exportToCode(){
-            console.log("barry: hey johnathan come over here")
-            console.log("johnathan: what")
-            console.log("barry: the user might be planning to download their zip file")
-            console.log("johnathan: ok")
             const wrapper = document.createElement('div');
             wrapper.innerHTML = `<h6>${this.$t('download.content.title')}</h6><ul><li style='text-align:left'>${this.$t('download.content.unzipFile')}</li><li style='text-align:left'>${this.$t('download.content.node')}</li><li style='text-align:left'>${this.$t('download.content.start')}</li><li style='text-align:left'>${this.$t('download.content.done')}</li></ul>`;
             this.$swal({
