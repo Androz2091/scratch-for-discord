@@ -125,6 +125,10 @@ if (urlParams.has('customXML')) {
     var custom_xml = urlParams.get("customXML")
     let temp1 = String(custom_xml).replaceAll("□", "\n")
     let temp2 = String(temp1).replaceAll("▣", "#")
+    let appearances = temp2.split("※360※").length
+    for (let i = 0; i < appearances; i++) {
+        temp2 = temp2.replace("※360※", String(Math.round(Math.random() * 360)))
+    }
     custom_xml = temp2
     if (urlParams.has('no-base-category') && (urlParams.get("no-base-category") == "true")) {
         returned_stuff = (`<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">` + custom_xml + `</xml>`).replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", CATEGORYCONTENT)
