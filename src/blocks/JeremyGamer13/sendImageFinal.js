@@ -26,7 +26,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "ROW",
-            "check": ["String", "var", "Env"]
+            "check": ["String", "var", "Env", "ButtonRow"]
         }
     ],
     "colour": "#4C97FF",
