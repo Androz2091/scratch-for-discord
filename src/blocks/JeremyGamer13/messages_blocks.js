@@ -442,7 +442,7 @@ Blockly.Blocks["jg_attachment_get_attachment_number"] = {
 Blockly.JavaScript["jg_attachment_get_attachment_number"] = function (block) {
     const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
     const msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`${msg}.attachments.at(${index})`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`${msg}.attachments.at(Number(${index}) - 1)`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 Blockly.Blocks["jg_attachment_get_attachment_property"] = {
