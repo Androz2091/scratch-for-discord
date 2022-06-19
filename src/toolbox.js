@@ -1550,27 +1550,6 @@ export default (Blockly, value, searching) => {
             <block type="s4d_button_menu"></block>
             <block type="s4d_message_menu_block"></block>
         </category>
-        <category name="Webhooks" colour="#135cc2">
-            <block type="s4d_create_webhook_then"></block>
-            <block type="jose_jg_create_webhook_in_channel_with_name_and_profile_picture_url_with_reason_then_do"></block>
-            <block type="s4d_edit_webhook"></block>
-            <block type="jose_jg_as_created_webhook_send"></block>
-            <block type="jose_jg_s4d_as_created_webhook_send_with_allowed_mentions_on_lists_user_ids_role_ids"></block>
-            <block type="jose_jg_delete_created_webhook_with_reason"/>
-            <block type="s4d_webhook_id"></block>
-            <block type="s4d_webhook_token"></block>
-            <block type="s4d_get_webhook_then"></block>
-            <block type="s4d_get_edit_webhook"></block>
-            <block type="s4d_send_webhook"></block>
-            <block type="jose_jg_s4d_as_webhook_send_with_allowed_mentions_on_lists_user_ids_role_ids"></block>
-            <block type="jose_jg_gained_delete_webhook_with_reason"/>
-            <block type="jose_jg_webhooks_get_all_webhooks_in_channel_then"/>
-            <block type="jose_jg_webhooks_amount_of_webhooks"/>
-            <block type="jose_jg_webhooks_webhook_with_id_exists_in_channel"/>
-            <block type="jose_jg_webhooks_get_webhook_with_id"/>
-            <block type="jose_jg_webhooks_get_webhook_information"/>
-            <block type="jose_jg_webhooks_delete_webhook_with_reason"/>
-        </category>
         <category name="{{ TOOLBOX_MUSIC }}" colour="#22a122">
             <label text="%{BKY_MUSIC_EVENT}"></label>
             <block type="s4d_track_playing"></block>
@@ -1744,7 +1723,7 @@ export default (Blockly, value, searching) => {
 	    <block type="frost_env">
 <value name="VALUE">
                     <shadow type="text">
-                        <field name="TEXT">env-name</field>
+                        <field name="TEXT">token</field>
                     </shadow>
                 </value>
             </block>
@@ -2227,6 +2206,30 @@ export default (Blockly, value, searching) => {
             <label text="(for named embeds, the name has to be just called embed)"></label>
             <block type="send_m_embed_string"></block>
             <label text="ㅤ" web-class="boldtext"></label>
+        </category>
+        <category name="Webhooks" colour="#475ded">
+            <block type="s4d_create_webhook_then"></block>
+            <block type="jose_jg_create_webhook_in_channel_with_name_and_profile_picture_url_with_reason_then_do"></block>
+            <block type="s4d_edit_webhook"></block>
+            <block type="jose_jg_as_created_webhook_send"></block>
+            <block type="jose_jg_s4d_as_created_webhook_send_with_allowed_mentions_on_lists_user_ids_role_ids"></block>
+            <!--
+            <block type="jose_jg_webhooks_as_created_webhook_send_with_name_profile_picture_url"/>
+            -->
+            <block type="jose_jg_delete_created_webhook_with_reason"/>
+            <block type="s4d_webhook_id"></block>
+            <block type="s4d_webhook_token"></block>
+            <block type="s4d_get_webhook_then"></block>
+            <block type="s4d_get_edit_webhook"></block>
+            <block type="s4d_send_webhook"></block>
+            <block type="jose_jg_s4d_as_webhook_send_with_allowed_mentions_on_lists_user_ids_role_ids"></block>
+            <block type="jose_jg_gained_delete_webhook_with_reason"/>
+            <block type="jose_jg_webhooks_get_all_webhooks_in_channel_then"/>
+            <block type="jose_jg_webhooks_amount_of_webhooks"/>
+            <block type="jose_jg_webhooks_webhook_with_id_exists_in_channel"/>
+            <block type="jose_jg_webhooks_get_webhook_with_id"/>
+            <block type="jose_jg_webhooks_get_webhook_information"/>
+            <block type="jose_jg_webhooks_delete_webhook_with_reason"/>
         </category>
 
 

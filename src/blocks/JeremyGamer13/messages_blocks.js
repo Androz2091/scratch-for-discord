@@ -1,6 +1,17 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../restrictions";
 import '@blockly/field-grid-dropdown';
+/*
+const restrictToParent = function (parents, name, msg) {
+    registerRestrictions(name, [
+        {
+            type: "hasparent",
+            message: ("$" + msg),
+            types: parents
+        }
+    ]);
+}
+*/
 Blockly.Blocks["jg_messages_id_of_message"] = {
     init: function () {
         this.jsonInit(
