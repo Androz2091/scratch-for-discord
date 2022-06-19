@@ -1522,6 +1522,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_on_click"></block>
             <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
             <block type="s4d_button_click_id"></block>
+            <block type="jose_jg_buttons_s4d_button_message"></block>
             <block type="s4d_button_think"></block>
             <block type="s4d_button_reply"></block>
             <block type="s4d_button_edit"></block>
