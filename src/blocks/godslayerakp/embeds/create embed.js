@@ -5,7 +5,7 @@ const blockName = "gsa_create_embed";
 
 const blockData = {
   "type": "gsa_create_embed",
-  "message0": "make embed with name %2 %1 then %3",
+  "message0": "make embed with name %1 %2 then %3",
   "args0": [
     {
       "type": "field_input",
