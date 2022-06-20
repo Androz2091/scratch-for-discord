@@ -13,18 +13,18 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(){
-return [ `files4d`, Blockly.JavaScript.ORDER_NONE ];
+Blockly.JavaScript[blockName] = function () {
+    return [`files4d`, Blockly.JavaScript.ORDER_NONE];
 };
 registerRestrictions(blockName, [
     {
         type: "hasparent",
-        message: "RES_GET_ALL_INPUT_PARENT",
+        message: "$This block needs to be in a \"for each file in folder\" block!",
         types: [
             "jg_file_foreachfile"
         ]

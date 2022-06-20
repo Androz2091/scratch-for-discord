@@ -941,8 +941,10 @@ export default (Blockly, value, searching) => {
 
         <!--
 	<category name="Image Finder" colour="#00c7ad">-->
-        <!--<block type="get_image"/>
-	    <block type="url_image"/>-->
+        <!--
+        <block type="get_image"/>
+	    <block type="url_image"/>
+        -->
     <!--</category>-->
 	<!--
 	<category name="Other" colour="#c70e6d">
@@ -975,22 +977,22 @@ export default (Blockly, value, searching) => {
     -->
  	<!--</category>-->
 
-<category name="frostzzone" colour="#347dfa">
+<!--<category name="frostzzone" colour="#347dfa">-->
 
-<category name="Useless" colour="#2a46fa" hidden="true"><!-- LINE HIDDEN FROM SEARCH -->
-<block type="frost_image"/><!-- LINE HIDDEN FROM SEARCH -->
-<block type="frost_drop1"/><!-- LINE HIDDEN FROM SEARCH -->
-<block type="poll"><!-- LINE HIDDEN FROM SEARCH -->
-<value name="title"><!-- LINE HIDDEN FROM SEARCH -->
-<shadow type="text"><!-- LINE HIDDEN FROM SEARCH -->
-<field name="TEXT">Poll time</field><!-- LINE HIDDEN FROM SEARCH -->
-</shadow></value><!-- LINE HIDDEN FROM SEARCH -->
-<value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color"><!-- LINE HIDDEN FROM SEARCH -->
-<block type="colour_picker"><!-- LINE HIDDEN FROM SEARCH -->
-</block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text"><!-- LINE HIDDEN FROM SEARCH -->
-<field name="TEXT">👎</field></shadow></value><!-- LINE HIDDEN FROM SEARCH -->
-</block><!-- LINE HIDDEN FROM SEARCH -->
-</category><!-- LINE HIDDEN FROM SEARCH -->
+<!-- <category name="Useless" colour="#2a46fa" hidden="true">
+<block type="frost_image"/>LINE HIDDEN FROM SEARCH
+<block type="frost_drop1"/>LINE HIDDEN FROM SEARCH
+<block type="poll">LINE HIDDEN FROM SEARCH
+<value name="title">
+<shadow type="text">LINE HIDDEN FROM SEARCH
+<field name="TEXT">Poll time</field>
+</shadow></value>
+<value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color">
+<block type="colour_picker"> LINE HIDDEN FROM SEARCH 
+</block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text">LINE HIDDEN FROM SEARCH 
+<field name="TEXT">👎</field></shadow></value>
+</block>
+</category>-->
 
 <!--<category name="Messages" colour="#2a46fa">
 
@@ -1039,129 +1041,13 @@ export default (Blockly, value, searching) => {
 <label text="ㅤ" web-class="boldtext"></label>
 </category>-->
 
-<category name="Slash command stuff" colour="4c97ff">
-<label text='⚠️ Deletes commands set by "Slash command GUI" ⚠️'></label>
-<label text='Only one "Create slash commands" block'></label>
-<label text='If not it breaks'></label>
 
-<label text="You also need to invite your bot with applications.commands enabled!" web-class="boldtext"></label>
 
-<block type="frost_slash_register"/>
-<block type="frost_slash_command">
-<value name="NAME">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-<value name="DESC">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-</block>
-<block type="frost_slash_sub_command_group">
-<value name="NAME">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-<value name="DESC">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-</block>
-<block type="frost_slash_sub_command">
-<value name="NAME">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-<value name="DESC">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-</block>
-<block type="frost_slash_options1">
-<value name="NAME">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-<value name="DESC">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-<value name="REQUIRED">
-  <shadow type="logic_boolean">
-    <field name="BOOL">TRUE</field>
-  </shadow>
-</value>
-</block>
-<block type="frost_slash_options2">
-<value name="NAME">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-<value name="DESC">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-<value name="REQUIRED">
-  <shadow type="logic_boolean">
-    <field name="BOOL">TRUE</field>
-  </shadow>
-</value>
-</block>
-<block type="frost_slash_choices">
-<value name="NAME">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-<value name="OPTION_NAME">
-  <shadow type="text">
-    <field name="TEXT"></field>
-  </shadow>
-</value>
-</block>
-<block type="fz_attachment_info"/>
-<block type="fz_attachment_info2"/>
-<label text="Mrredo stuff for slash comamnds"></label>
-        <block type="on_slash"></block>
-        <block type="interaction_name"></block>
-        <block type="options">
-        <mutation mode="string"></mutation></block>
-        <block type="interaction_author"></block>
-        <block type="interaction_channel"></block>
-        <block type="interaction_guild"></block>
-        <block type="interaction_voice_channel"></block>
-        <block type="interaction_voice_channel_id"></block>
-        <block type="bot_voice_channel_id"></block>
-        <block type="slash_reply"></block>
-        <block type="slash_edit"></block>
-        <label text="Send an embed in slash"></label>
-        <label text="(for named embeds, the name has to be just called embed)"></label>
-        <block type="send_m_embed_string"></block>
-<label text="ㅤ" web-class="boldtext"></label>
-</category>
+<!--<category name="Category/Channel" colour="#2f64fa" hidden="false">-->
 
-<category name="Category/Channel" colour="#2f64fa" hidden="false">
-<block type="frost_channel_types"><value name="Channel"><shadow type="s4d_message_channel"></shadow></value></block>
-<block type="frost_slowmode"><value name="CHANNEL"><shadow type="s4d_message_channel"></shadow></value><value name="TIME"><shadow type="math_number"><field name="NUM">5</field></shadow></value><value name="REASON"><shadow type="text"><field name="TEXT">Hey!</field></shadow></value></block>
 
-<block type="frost_message_category"/>
-<block type="frost_category_get"/>
-<block type="frost_category_id"/>
-<block type="create_category_then"/>
-<block type="fz_channel"/>
-<block type="frost_created_cat"/>
-<label text="ㅤ" web-class="boldtext"></label>
-</category>
+<!--<label text="ㅤ" web-class="boldtext"></label>
+</category>-->
 
 <!--
 <category name="Embed" colour="#40bf4a">
@@ -1180,14 +1066,14 @@ export default (Blockly, value, searching) => {
 <category name="Other" colour="#5ba58b">
 </category>
 -->
-
+<!--
 <category name="Translate" hidden="true">
-<block name="frost_translate"/>
+<block name="frost_translate"/>LINE HIDDEN FROM SEARCH
 </category>
-</category>
+</category>-->
 
 <category name="Retro and cat soup" colour="#AAE941">
-<category name="QR Code" color="#5ba58b">
+<category name="QR Code" colour="#5ba58b">
     <block type="create_qr_then"/>
     <block type="qr"/>
 </category>
@@ -1275,12 +1161,13 @@ export default (Blockly, value, searching) => {
 	</category>
 </category>
 
-<category name="JeremyGamer13" colour="#FFAA00">
+<!--<category name="JeremyGamer13" colour="#FFAA00">-->
 <!--
 <label text="Need help? Go to this master document:" web-class="boldtext"></label>
           <label text="shorturl.at/nCFV7" web-class="boldtext"></label>
 <category name="Messaging" colour="210">
 -->
+            <!--
             <block type="jg_sendImage">
                 <value name="NAME">
                   <block type="text">
@@ -1411,7 +1298,7 @@ export default (Blockly, value, searching) => {
                     <field name="BOOL">FALSE</field>
                   </block>
                 </value>
-            </block>
+            </block>-->
             <!--</category>-->
             
             
@@ -1440,7 +1327,7 @@ export default (Blockly, value, searching) => {
     </block>
 </category>-->
 
-        </category>
+        <!--</category>-->
         
 				<category name="{{ JOSE }}" colour="#00664d">
             <label text="Note!"></label>
@@ -1635,6 +1522,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_on_click"></block>
             <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
             <block type="s4d_button_click_id"></block>
+            <block type="jose_jg_buttons_s4d_button_message"></block>
             <block type="s4d_button_think"></block>
             <block type="s4d_button_reply"></block>
             <block type="s4d_button_edit"></block>
@@ -1662,15 +1550,6 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_BUTTON_BLOCKS}"></label>
             <block type="s4d_button_menu"></block>
             <block type="s4d_message_menu_block"></block>
-        </category>
-        <category name="{{ TOOLBOX_WEBHOOK }}" colour="#4ca122">
-            <block type="s4d_create_webhook_then"></block>
-            <block type="s4d_edit_webhook"></block>
-            <block type="s4d_webhook_id"></block>
-            <block type="s4d_webhook_token"></block>
-            <block type="s4d_get_webhook_then"></block>
-            <block type="s4d_get_edit_webhook"></block>
-            <block type="s4d_send_webhook"></block>
         </category>
         <category name="{{ TOOLBOX_MUSIC }}" colour="#22a122">
             <label text="%{BKY_MUSIC_EVENT}"></label>
@@ -1713,10 +1592,7 @@ export default (Blockly, value, searching) => {
         </category>
         -->
 
-	<category name="register" colour="#65700c">
-        <label text="Register context menu" web-class="boldtext"></label>
-        <block type="register_c_m"></block>
-	<block type="register_c_m_g"></block>
+	    <!--<category name="register" colour="#65700c">
         </category>
         <category name="slash" colour="#ff2f00">
         <label text="%{BKY_T_RS}"></label>
@@ -1738,22 +1614,11 @@ export default (Blockly, value, searching) => {
         <block type="send_m_embed_string"></block>
         <label text="ㅤ"></label>
         </category>
-				        <category name="context menu" colour="#f0f255">
-        <label text="Event" web-class="boldtext"></label>
-        <block type="on_menu"></block>
-        <label text="Stuff" web-class="boldtext"></label>
-        <block type="m_name"></block>
-        <block type="m_member"></block>
-        <block type="m_channel"></block>
-        <block type="m_guild"></block>
-        <block type="c_options"></block>
-        <label text="Reply and Edit" web-class="boldtext"></label>
-        <block type="m_reply"></block>
-        <block type="m_edit"></block>
-        <label text="send embed" web-class="boldtext"></label>
-        <block type="send_m_embed_string"></block>
-        </category>
-				<category name="button" colour="#ff0019">
+        -->
+		<!--<category name="context menu" colour="#f0f255">-->
+        <!--</category>-->
+				<category name="interaction" colour="#ff0019">
+        <label text="Buttons" web-class="boldtext"></label>
         <label text="%{BKY_T_EDI}"></label>
         <block type="on_button"></block>
         <label text="%{BKY_T_BS}"></label>
@@ -1762,7 +1627,7 @@ export default (Blockly, value, searching) => {
         <block type="button_channel"></block>
         <block type="button_guild"></block>
         <block type="b_style"></block>
-        <label text="%{BKY_T_B_SHIP}Reply and edit and send embed"></label>
+        <label text="Reply and edit and send embed"></label>
         <block type="b_send_msg"></block>
         <block type="button_reply"></block>
         <block type="button_edit"></block>
@@ -1790,6 +1655,28 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+
+
+
+        <label text="Context menus" web-class="boldtext"></label>
+        <label text="Register context menu" web-class="boldtext"></label>
+        <block type="register_c_m"></block>
+	    <block type="register_c_m_g"></block>
+        <label text="Event" web-class="boldtext"></label>
+        <block type="on_menu"></block>
+        <label text="Stuff" web-class="boldtext"></label>
+        <block type="m_name"></block>
+        <block type="m_member"></block>
+        <block type="m_channel"></block>
+        <block type="m_guild"></block>
+        <block type="c_options"></block>
+        <label text="Reply and Edit" web-class="boldtext"></label>
+        <block type="m_reply"></block>
+        <block type="m_edit"></block>
+        <label text="send embed" web-class="boldtext"></label>
+        <block type="send_m_embed_string"></block>
+
+
         </category>
         <category name="embed" colour="#40BF4A">
         <label text="Create A Perfect Embed" web-class="boldtext"></label>
@@ -1837,7 +1724,7 @@ export default (Blockly, value, searching) => {
 	    <block type="frost_env">
 <value name="VALUE">
                     <shadow type="text">
-                        <field name="TEXT">env-name</field>
+                        <field name="TEXT">token</field>
                     </shadow>
                 </value>
             </block>
@@ -1862,7 +1749,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_rbs_isRunButton"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-        <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#41AAC0">
+        <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#4C97FF">
 
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
 			
@@ -1979,43 +1866,43 @@ export default (Blockly, value, searching) => {
             </block>
 
             <block type="jg_messages_respond_with_and_with_allowed_list_of_pings_on_users_on_roles">
-            <value name="CONTENT">
-                <shadow type="text">
-                    <field name="TEXT">No user ping here!</field>
-                </shadow>
-            </value>
-            <value name="USERS">
-                <block type="lists_create_with">
-                    <mutation items="0"/>
-                </block>
-            </value>
-        </block>
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">No user ping here!</field>
+                    </shadow>
+                </value>
+                <value name="USERS">
+                    <block type="lists_create_with">
+                        <mutation items="0"/>
+                    </block>
+                </value>
+            </block>
 
-        <block type="s4d_reply_then"> 
-            <value name="CONTENT">
-                <shadow type="text">
-                    <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
-                </shadow>
-            </value>
-        </block>
+            <block type="s4d_reply_then"> 
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+            </block>
 
-        <block type="s4d_edit">
-        <value name="CONTENT">
-            <shadow type="text">
-                <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
-            </shadow>
-        </value>
-    </block>
-    <block type="s4d_reply_delete"></block>
-    <block type="s4d_reply_add_reaction">
-        <value name="REACTION">
-            <shadow type="text">
-                <field name="TEXT">👍</field>
-            </shadow>
-        </value>
-    </block>
-    <block type="s4d_reply_id"/>
-    <block type="rreply_message"/>
+            <block type="s4d_edit">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_reply_delete"></block>
+            <block type="s4d_reply_add_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_reply_id"/>
+            <block type="rreply_message"/>
 
             <label text="Reply Blocks"/>
             <block type="frost_real_reply">
@@ -2081,6 +1968,8 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
             <block type="frost_real_reply_delete"/>
+            <label text="Files"></label>
+            <block type="jg_messages_send_file_and_message_with_button_row_to_channel"/>
             <label text="%{BKY_FIND_MESSAGE}"></label>
             <block type="s4d_get_msg_then"></block>
             <block type="edit_msg_by_id"></block>
@@ -2153,7 +2042,7 @@ export default (Blockly, value, searching) => {
                 
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-        <category name="Threads" colour="#2a97b8">
+        <category name="Threads" colour="#478ded">
             <label text="%{BKY_LABEL_THREAD_MESSAGE}"/>
             <block type="s4d_on_thread_message"/>
             <block type="s4d_send_thread"/>
@@ -2206,6 +2095,142 @@ export default (Blockly, value, searching) => {
             <block type="s4d_thread_name"/>
             <block type="s4d_thread_server"/>
             <block type="s4d_thread_archive"/>
+        </category>
+        <category name="Slash" colour="#4776ed">
+            <label text='⚠️ Deletes commands set by "Slash Command GUI"! ⚠️'></label>
+            <label text='Only one "Create slash commands" block should be placed.'></label>
+            <label text='Otherwise, it will break!'></label>
+
+            <label text="You also need to invite your bot with applications.commands enabled!" web-class="boldtext"></label>
+
+            <block type="frost_slash_register"/>
+            <block type="frost_slash_command">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_slash_sub_command_group">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_slash_sub_command">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_slash_options1">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="REQUIRED">
+                    <shadow type="logic_boolean">
+                        <field name="BOOL">TRUE</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_slash_options2">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="REQUIRED">
+                    <shadow type="logic_boolean">
+                        <field name="BOOL">TRUE</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_slash_choices">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="OPTION_NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+            <label text="Handling slash commands:"></label>
+            <block type="on_slash"></block>
+            <block type="interaction_name"></block>
+            <block type="interaction_author"></block>
+            <block type="interaction_channel"></block>
+            <block type="interaction_guild"></block>
+            <block type="interaction_voice_channel"></block>
+            <block type="interaction_voice_channel_id"></block>
+            <block type="bot_voice_channel_id"></block>
+            <block type="options">
+                <mutation mode="string"/>
+            </block>
+            <block type="fz_attachment_info"/>
+            <block type="fz_attachment_info2"/>
+            <block type="slash_reply"></block>
+            <block type="slash_edit"></block>
+            <block type="jg_messages_files_send_reply_with_file_and_message_with_button_row_as_hidden"/>
+            <label text="Send an embed in slash"></label>
+            <label text="(for named embeds, the name has to be just called embed)"></label>
+            <block type="send_m_embed_string"></block>
+            <label text="ㅤ" web-class="boldtext"></label>
+        </category>
+        <category name="Webhooks" colour="#475ded">
+            <block type="s4d_create_webhook_then"></block>
+            <block type="jose_jg_create_webhook_in_channel_with_name_and_profile_picture_url_with_reason_then_do"></block>
+            <block type="s4d_edit_webhook"></block>
+            <block type="jose_jg_as_created_webhook_send"></block>
+            <block type="jose_jg_s4d_as_created_webhook_send_with_allowed_mentions_on_lists_user_ids_role_ids"></block>
+            <!--
+            <block type="jose_jg_webhooks_as_created_webhook_send_with_name_profile_picture_url"/>
+            -->
+            <block type="jose_jg_delete_created_webhook_with_reason"/>
+            <block type="s4d_webhook_id"></block>
+            <block type="s4d_webhook_token"></block>
+            <block type="s4d_get_webhook_then"></block>
+            <block type="s4d_get_edit_webhook"></block>
+            <block type="s4d_send_webhook"></block>
+            <block type="jose_jg_s4d_as_webhook_send_with_allowed_mentions_on_lists_user_ids_role_ids"></block>
+            <block type="jose_jg_gained_delete_webhook_with_reason"/>
+            <block type="jose_jg_webhooks_get_all_webhooks_in_channel_then"/>
+            <block type="jose_jg_webhooks_amount_of_webhooks"/>
+            <block type="jose_jg_webhooks_webhook_with_id_exists_in_channel"/>
+            <block type="jose_jg_webhooks_get_webhook_with_id"/>
+            <block type="jose_jg_webhooks_get_webhook_information"/>
+            <block type="jose_jg_webhooks_delete_webhook_with_reason"/>
         </category>
 
 
@@ -2516,6 +2541,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_get_all_channel_channel"></block>
 	        <block type="get_all_channel_channel_name"></block>
             <block type="jg_alex_channels_first_channel_in_server"/>
+            <block type="frost_category_get"/>
 
             <label text="Send a message in the found channel"></label>
 
@@ -2535,6 +2561,11 @@ export default (Blockly, value, searching) => {
 
 	        <label text="Channel Info"></label>
 
+            <block type="frost_channel_types">
+                <value name="Channel">
+                    <shadow type="s4d_message_channel"/>
+                </value>
+            </block>
 	        <block type="s4d_channel_ahq_name"></block>
             <block type="s4d_channel_id"/>
             <block type="s4d_channel_guild_id"/>
@@ -2543,7 +2574,10 @@ export default (Blockly, value, searching) => {
             <block type="s4d_channel_topic"/>
             <block type="s4d_channel_exist"/>
             <block type="s4d_is_channel_nsfw"/>
+            <!--
             <block type="isdm"/>
+            -->
+            <block type="frost_category_id"/>
 
             <label text="Finding content in the channel"></label>
 
@@ -2596,6 +2630,9 @@ export default (Blockly, value, searching) => {
             <label text="Channel Actions"></label>
 
             <block type="s4d_create_channel"></block>
+            <block type="create_category_then"/>
+            <block type="fz_channel"/>
+            <block type="frost_created_cat"/>
             <block type="s4d_delete_channel"></block>
 
             <label text="Actions for the channel"></label>
@@ -2603,7 +2640,24 @@ export default (Blockly, value, searching) => {
             <block type="renamec"/>
             <block type="channel_perms"/>
             <block type="set_perms_parent"/>
-            <block type="slowmode"/>
+            <!--
+                <block type="slowmode"/>
+            -->
+            <block type="frost_slowmode">
+                <value name="CHANNEL">
+                    <shadow type="s4d_message_channel"/>
+                </value>
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">5</field>
+                    </shadow>
+                </value>
+                <value name="REASON">
+                    <shadow type="text">
+                        <field name="TEXT">Hey!</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="new_invite"/>
             <block type="invite_ur"/>
 
@@ -2807,6 +2861,8 @@ export default (Blockly, value, searching) => {
         <sep class="bt"/>
     <category name="Web Requests" colour="#4C97FF">
         <category name="Simple" colour="#4c8bff">
+	    <label text="Want to do cool things with json requests? Check out PooPoo API" web-class="boldtext"></label>
+	    <label text="https://poopoo-api.vercel.app/" web-class="boldtext"></label>
             <block type="s4d_http_get_then"/>
             <block type="s4d_get_string_of_data"/>
         </category>

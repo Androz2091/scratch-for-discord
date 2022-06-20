@@ -11,7 +11,7 @@ const blockData = {
       "name": "type",
       "options": [
         [
-          "Guild Text",
+          "Server: Text",
           "'GUILD_TEXT'"
         ],
         [
@@ -19,7 +19,7 @@ const blockData = {
           "'DM'"
         ],
         [
-          "Guild Voice",
+          "Server: Voice",
           "'GUILD_VOICE'"
         ],
         [
@@ -27,31 +27,31 @@ const blockData = {
           "'GROUP_DM'"
         ],
         [
-          "Guild Category",
+          "Server: Category",
           "'GUILD_CATEGORY'"
         ],
         [
-          "Guild News",
+          "Server: News",
           "'GUILD_NEWS'"
         ],
         [
-          "Guild Store",
+          "Server: Store",
           "'GUILD_STORE'"
         ],
         [
-          "Guild News Thread",
+          "Server: News Thread",
           "'GUILD_NEWS_THREAD'"
         ],
         [
-          "Guild Public Thread",
+          "Server: Public Thread",
           "'GUILD_PUBLIC_THREAD'"
         ],
         [
-          "Guild Private Thread",
+          "Server: Private Thread",
           "'GUILD_PRIVATE_THREAD'"
         ],
         [
-          "Guild Stage Voice",
+          "Server: Stage",
           "'GUILD_STAGE_VOICE'"
         ]
       ],
@@ -65,7 +65,7 @@ const blockData = {
   ],
   "colour": "#D14081",
   "output": "Boolean",
-  "tooltip": "",
+  "tooltip": "Check if the channel is one of these types of channels.",
   "helpUrl": ""
 };
 

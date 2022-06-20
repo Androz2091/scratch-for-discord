@@ -263,3 +263,114 @@ Blockly.JavaScript['lasercat_jg_case_default_INTERNAL_case2'] = function () {
 Blockly.JavaScript['lasercat_jg_case_default_INTERNAL_default'] = function () {
     return ''
 }
+let rainbow_color = 0
+let loaded_workspace_state = 0
+let loaded_workspace_state2 = 0
+Blockly.Blocks["jg_blocklyfp_load_workspace"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "workspace %1 %2 load? %3",
+                "inputsInline": false,
+                "args0": [
+                    {
+                        "type": "field_multilinetext",
+                        "name": "WORKSPACE"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "field_checkbox",
+                        "name": "LOAD",
+                        "checked": false
+                    }
+                ],
+                "colour": 0,
+                "tooltip": "Load a workspace XML.",
+                "helpUrl": ""
+            }
+        );
+    },
+    onchange: function () {
+        let work = this.getFieldValue("WORKSPACE")
+        let bool = this.getFieldValue("LOAD")
+        if (String(bool) == "TRUE" && loaded_workspace_state != 2) loaded_workspace_state = 1; else if (String(bool) == "FALSE") loaded_workspace_state = 0
+        rainbow_color += 1.5
+        if (rainbow_color > 360) rainbow_color = 0
+        this.setColour(Math.round(rainbow_color))
+        if (loaded_workspace_state == 1) {
+            try {
+                let xml = Blockly.Xml.textToDom(work);
+                Blockly.Xml.appendDomToWorkspace(xml, Blockly.getMainWorkspace())
+            } catch (err) {
+                window.alert(err)
+                console.log(err)
+            }
+            loaded_workspace_state = 2
+        }
+    }
+}
+Blockly.Blocks["jg_blocklyfp_load_workspace_website"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "workspace URL %1 %2 load? %3",
+                "inputsInline": false,
+                "args0": [
+                    {
+                        "type": "field_input",
+                        "name": "WORKSPACE"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "field_checkbox",
+                        "name": "LOAD",
+                        "checked": false
+                    }
+                ],
+                "colour": 0,
+                "tooltip": "Load a workspace XML from a URL.",
+                "helpUrl": ""
+            }
+        );
+    },
+    onchange: function () {
+        let work = this.getFieldValue("WORKSPACE")
+        let bool = this.getFieldValue("LOAD")
+        if (String(bool) == "TRUE" && loaded_workspace_state2 != 2) loaded_workspace_state2 = 1; else if (String(bool) == "FALSE") loaded_workspace_state2 = 0
+        rainbow_color += 1.5
+        if (rainbow_color > 360) rainbow_color = 0
+        this.setColour(Math.round(rainbow_color))
+        if (loaded_workspace_state2 == 1) {
+            let requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Origin': "*"
+                }
+            };
+            try {
+                fetch(work, requestOptions).then((response) => {
+                    let xml = Blockly.Xml.textToDom(response);
+                    Blockly.Xml.appendDomToWorkspace(xml, Blockly.getMainWorkspace())
+                }).catch((err) => {
+                    window.alert(err)
+                    console.log(err)
+                })
+            } catch (err) {
+                window.alert(err)
+                console.log(err)
+            }
+            loaded_workspace_state2 = 2
+        }
+    }
+}
+Blockly.JavaScript["jg_blocklyfp_load_workspace"] = function () {
+    return ""
+};
+Blockly.JavaScript["jg_blocklyfp_load_workspace_website"] = function () {
+    return ""
+};

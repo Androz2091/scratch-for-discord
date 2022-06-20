@@ -9,3 +9,4 @@ import "./button_row_button";
 import "./button-edit";
 import "./button-delete";
 import "./update";
+import "./button-message"

@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "gsa_ytdl";
 
 const blockData = {
-  "message0": "video url %1 file name %2",
+  "message0": "download video url %1 and save as file name %2",
   "args0": [
     {
       "type": "input_value",
@@ -24,15 +24,15 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-    }
+  init: function () {
+    this.jsonInit(blockData);
+  }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
   const url = Blockly.JavaScript.valueToCode(block, "url", Blockly.JavaScript.ORDER_ATOMIC)
   const fs_name = Blockly.JavaScript.valueToCode(block, "fs_name", Blockly.JavaScript.ORDER_ATOMIC)
-    return `
+  return `
 ytdl(${url})
   .pipe(fs.createWriteStream(${fs_name}));
 `};

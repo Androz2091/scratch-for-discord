@@ -28,7 +28,7 @@
         ></b-nav-item>
 
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
-                <span contenteditable="true" id="docName" style="font-size: smaller">{{ $t("untitled") }}</span>
+                <span id="docName" style="font-size: smaller" @click="changeFileName">{{ $t("untitled") }}</span>
                 </b-button>
                 <!-- border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em -->
                 <b-button id="v-step-4" style="border-right-color: #161719; border-radius: 0em" @click="runbot">
@@ -101,27 +101,20 @@ export default {
             newLocale: "en"
         });
         this.setLanguage("en");
-        if (window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app")) {
-            this.$swal({
-                title: "Hey! You are not using the right site for S4D!",
-                icon: 'warning',
-                buttons: {
-                    cancel: "I'm fine",
-                    confirm: "Go to Vercel"
-                },
-            }).then(async (result) => {
-                if ((result == true) || (result == "confirm")) {
-                    window.location.href = "https://scratch-for-discord-469.vercel.app/"
-                }
-            })
+        let url = window.location.href
+        window.onload = function () {
+            if (url.includes("deploy-preview-469--scratch-for-discord.netlify.app")) location.href = "https://scratch-for-discord-469.vercel.app/";
+            if (url.includes("#snd=")) {
+                let soundlink = url.substring(url.indexOf("#snd=") + 5, url.lastIndexOf("#")).replaceAll('"', "").replaceAll("\n", "")
+                const audio = new Audio(soundlink)
+                let audio_played = false
+                audio.onended = function () { audio.play() }
+                window.onclick = function () { if (!audio_played) if (audio.play()) audio_played = true }
+            }
         }
     },
     methods: {
         exportToCode(){
-            console.log("barry: hey johnathan come over here")
-            console.log("johnathan: what")
-            console.log("barry: the user might be planning to download their zip file")
-            console.log("johnathan: ok")
             const wrapper = document.createElement('div');
             wrapper.innerHTML = `<h6>${this.$t('download.content.title')}</h6><ul><li style='text-align:left'>${this.$t('download.content.unzipFile')}</li><li style='text-align:left'>${this.$t('download.content.node')}</li><li style='text-align:left'>${this.$t('download.content.start')}</li><li style='text-align:left'>${this.$t('download.content.done')}</li></ul>`;
             this.$swal({
@@ -1039,7 +1032,7 @@ load()`])
             //     <li style='text-align:left'>${this.$t('download.content.done')}</li>
             // </ul>-->`;
             const wrapper = document.createElement('div');
-            wrapper.innerHTML = `<h6>You will have to manually stop your bot in Discord!</h6>`
+            wrapper.innerHTML = `<h6>You will have to manually stop your bot in Discord!</h6>You also might not get a response until the bot gets an error, or stops.`
             this.$swal({
                 title: "Start your bot?",
                 icon: "warning",
@@ -1113,9 +1106,7 @@ load()`])
                     // }
 
                     let api_key = process.env.VUE_APP_KEY
-                    var botID = String((Math.floor(Math.random() * 8999) + 1000))
-                    var modifiedJScontent = javascriptContent.replaceAll(`process.on('uncaughtException', function(err) {`, `let aijpfheiowfoiewfhewoiufewoifjopq = require('fs');\nprocess.on('uncaughtException', function(err) {\naijpfheiowfoiewfhewoiufewoifjopq.appendFileSync('./server/console.rbs', (${botID} + String(err)), function(err) {});`)
-                    var modifiedJScontent = modifiedJScontent.replaceAll("const S4D_APP_RUN_BUTTON = false", "const S4D_APP_RUN_BUTTON = true")
+                    let modifiedJScontent = javascriptContent.replaceAll("const S4D_APP_RUN_BUTTON = false", "const S4D_APP_RUN_BUTTON = true")
                     console.log("barry: done")
                     console.log("johnathan: ok go send the post request")
                     console.log("barry: ok")
@@ -1125,7 +1116,8 @@ load()`])
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             key: api_key,
-                            code: modifiedJScontent
+                            code: modifiedJScontent,
+                            update: "1"
                         })
                     };
                     try {
@@ -1241,6 +1233,13 @@ load()`])
             }
             
             
+        },
+        changeFileName() {
+          let oldFileName = document.querySelector("#docName").textContent
+          let fileName = prompt("Please enter your new document's name:", oldFileName);
+          if (fileName.length != 0) {
+            document.querySelector("#docName").textContent = fileName;
+          }
         },
         changeTheme() {
       if (localStorage.getItem("theme") === "dark") {

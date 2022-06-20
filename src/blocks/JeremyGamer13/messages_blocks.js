@@ -1,6 +1,17 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../restrictions";
 import '@blockly/field-grid-dropdown';
+/*
+const restrictToParent = function (parents, name, msg) {
+    registerRestrictions(name, [
+        {
+            type: "hasparent",
+            message: ("$" + msg),
+            types: parents
+        }
+    ]);
+}
+*/
 Blockly.Blocks["jg_messages_id_of_message"] = {
     init: function () {
         this.jsonInit(
@@ -340,7 +351,7 @@ Blockly.JavaScript["jg_channel_last_message_number"] = function (block) {
 registerRestrictions("jg_channel_last_message_number", [
     {
         type: "hasparent",
-        message: "RES_GET_ALL_INPUT_PARENT",
+        message: "$This block needs to be placed in a \"get last messages in channel then\" block!",
         types: [
             "jg_channel_get_last_messages_in_channel_then"
         ]
@@ -431,7 +442,7 @@ Blockly.Blocks["jg_attachment_get_attachment_number"] = {
 Blockly.JavaScript["jg_attachment_get_attachment_number"] = function (block) {
     const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
     const msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`${msg}.attachments.at(${index})`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`${msg}.attachments.at(Number(${index}) - 1)`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 Blockly.Blocks["jg_attachment_get_attachment_property"] = {
@@ -1718,7 +1729,7 @@ Blockly.Blocks["jg_events_all_label"] = {
     },
     onchange: function () {
         let color = this.getFieldValue("COLOR")
-        this.setColour(color, "#000000")
+        this.setColour(color)
     }
 }
 Blockly.JavaScript["jg_events_all_label"] = function (block) {
@@ -2530,5 +2541,324 @@ Blockly.JavaScript["jg_alex_channels_first_channel_in_server"] = function (block
     const type = block.getFieldValue("TYPE")
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const code = [`${server}.channels.cache.${type}()`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+//
+//
+//
+//
+//
+//
+// webhooks
+//
+//
+//
+//
+//
+//
+Blockly.Blocks["jose_jg_webhooks_get_all_webhooks_in_channel_then"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get all webhooks in channel %1 then %2 %3",
+                "inputsInline": true,
+                "tooltip": "Get all webhooks on a channel, then run the blocks inside.",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "CHANNEL",
+                        "check": "Channel"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_get_all_webhooks_in_channel_then"] = function (block) {
+    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `${channel}.fetchWebhooks().then((webhooks) => {
+        ${statements}
+    })
+    `;
+    return code;
+};
+Blockly.Blocks["jose_jg_webhooks_amount_of_webhooks"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of webhooks",
+                "inputsInline": false,
+                "tooltip": "The amount of webhooks the channel has.",
+                "colour": "#4C97FF",
+                "output": "Number",
+                "args0": []
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_amount_of_webhooks"] = function () {
+    const code = [`webhooks.size`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+registerRestrictions("jose_jg_webhooks_amount_of_webhooks", [
+    {
+        type: "hasparent",
+        message: "RES_WEBHOOK_GET_ALL_CHANNEL",
+        types: [
+            "jose_jg_webhooks_get_all_webhooks_in_channel_then"
+        ]
+    }
+]);
+Blockly.Blocks["jose_jg_webhooks_webhook_with_id_exists_in_channel"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "webhook with ID %1 exists in channel?",
+                "inputsInline": true,
+                "tooltip": "Check if the channel we are checking webhooks on has a certain webhook.",
+                "colour": "#4C97FF",
+                "output": "Boolean",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "ID",
+                        "check": ["String", "Number"]
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_webhook_with_id_exists_in_channel"] = function (block) {
+    const id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`webhooks.has(String(${id}))`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+registerRestrictions("jose_jg_webhooks_webhook_with_id_exists_in_channel", [
+    {
+        type: "hasparent",
+        message: "RES_WEBHOOK_GET_ALL_CHANNEL",
+        types: [
+            "jose_jg_webhooks_get_all_webhooks_in_channel_then"
+        ]
+    }
+]);
+Blockly.Blocks["jose_jg_webhooks_get_webhook_with_id"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get webhook with ID %1",
+                "inputsInline": true,
+                "tooltip": "Get a webhook in the channel with a certain ID.",
+                "colour": "#4C97FF",
+                "output": "Webhook",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "ID",
+                        "check": ["String", "Number"]
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_get_webhook_with_id"] = function (block) {
+    const id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`webhooks.get(String(${id}))`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+registerRestrictions("jose_jg_webhooks_get_webhook_with_id", [
+    {
+        type: "hasparent",
+        message: "RES_WEBHOOK_GET_ALL_CHANNEL",
+        types: [
+            "jose_jg_webhooks_get_all_webhooks_in_channel_then"
+        ]
+    }
+]);
+Blockly.Blocks["jose_jg_webhooks_get_webhook_information"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get webhook %2 %1",
+                "inputsInline": true,
+                "tooltip": "Get information about a certain webhook.",
+                "colour": "#4C97FF",
+                "output": null,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "PROP",
+                        "options": [
+                            [
+                                "profile picture URL",
+                                'avatarURL()'
+                            ],
+                            [
+                                "channel ID",
+                                'channelId'
+                            ],
+                            [
+                                "created timestamp",
+                                'createdTimestamp'
+                            ],
+                            [
+                                "server ID",
+                                'guildId'
+                            ],
+                            [
+                                "ID",
+                                'id'
+                            ],
+                            [
+                                "name",
+                                'name'
+                            ],
+                            [
+                                "creator",
+                                'owner'
+                            ],
+                            [
+                                "token (creator only)",
+                                'token'
+                            ],
+                            [
+                                "URL",
+                                'url'
+                            ]
+                        ],
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "WEBHOOK",
+                        "check": "Webhook"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_get_webhook_information"] = function (block) {
+    const webhook = Blockly.JavaScript.valueToCode(block, "WEBHOOK", Blockly.JavaScript.ORDER_ATOMIC);
+    const prop = block.getFieldValue("PROP");
+    const code = [`${webhook}.${prop}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jose_jg_delete_created_webhook_with_reason"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "delete created webhook with reason %1",
+                "inputsInline": true,
+                "tooltip": "Delete the created webhook.",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_delete_created_webhook_with_reason"] = function (block) {
+    const reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `webhook.delete(String(${reason}))
+`;
+    return code;
+};
+registerRestrictions("jose_jg_delete_created_webhook_with_reason", [
+    {
+        type: "hasparent",
+        message: "RES_CREATE_WEBHOOK_PARENT",
+        types: [
+            "s4d_create_webhook_then",
+            "jose_jg_create_webhook_in_channel_with_name_and_profile_picture_url_then_do"
+        ]
+    }
+]);
+Blockly.Blocks["jose_jg_gained_delete_webhook_with_reason"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "delete webhook with reason %1",
+                "inputsInline": true,
+                "tooltip": "Delete the webhook.",
+                "colour": "#135cc2",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_gained_delete_webhook_with_reason"] = function (block) {
+    const reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `gwebhook.delete(String(${reason}))
+`;
+    return code;
+};
+registerRestrictions("jose_jg_gained_delete_webhook_with_reason", [
+    {
+        type: "hasparent",
+        message: "RES_GET_WEBHOOK_PARENT",
+        types: [
+            "s4d_get_webhook_then"
+        ]
+    }
+]);
+Blockly.Blocks["jose_jg_webhooks_delete_webhook_with_reason"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "delete webhook %1 with reason %2",
+                "inputsInline": true,
+                "tooltip": "Delete a webhook.",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "WEBHOOK",
+                        "check": "Webhook"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_delete_webhook_with_reason"] = function (block) {
+    const webhook = Blockly.JavaScript.valueToCode(block, "WEBHOOK", Blockly.JavaScript.ORDER_ATOMIC);
+    const reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `${webhook}.delete(String(${reason}))
+`;
     return code;
 };

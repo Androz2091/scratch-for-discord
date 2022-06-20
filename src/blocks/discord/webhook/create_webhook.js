@@ -8,7 +8,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "channel",
-            "check": [ "Channel" ]
+            "check": ["Channel"]
         },
         {
             "type": "input_dummy"
@@ -21,17 +21,17 @@ const blockData = {
     "previousStatement": null,
     "nextStatement": null,
     "colour": "#4C97FF",
-    "tooltip": "",
+    "tooltip": "Create a webhook in a channel to send messages as it. Webhooks are channel specific bots that you can make send messages and have any profile picture or name.",
     "helpUrl": ""
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const channel = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
     const code = `${channel}.createWebhook('Spidey Bot','https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png').then(async webhook=>{\n${statements}\n})\n`;
