@@ -1,1 +1,2 @@
 import "./ytdl"
+import "./embeds"
