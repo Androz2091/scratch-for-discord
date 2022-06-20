@@ -2861,6 +2861,8 @@ export default (Blockly, value, searching) => {
         <sep class="bt"/>
     <category name="Web Requests" colour="#4C97FF">
         <category name="Simple" colour="#4c8bff">
+	    <label text="Want to do cool things with json requests? Check out PooPoo API" web-class="boldtext"></label>
+	    <label text="https://poopoo-api.vercel.app/" web-class="boldtext"></label>
             <block type="s4d_http_get_then"/>
             <block type="s4d_get_string_of_data"/>
         </category>
