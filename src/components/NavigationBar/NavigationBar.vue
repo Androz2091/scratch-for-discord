@@ -102,20 +102,15 @@ export default {
         });
         this.setLanguage("en");
         let url = window.location.href
-        if (url.includes("#snd=")) {
-            let soundlink = url.substring(url.indexOf("#snd=") + 5, url.lastIndexOf("#"))
-            console.log("autoplaying", soundlink, "hopefully")
-            let audio = document.createElement("audio")
-            audio.autoplay = true
-            audio.src = soundlink
-            audio.type = "audio/mpeg"
-            audio.muted = false
-            audio.loop = true
-            audio.controls = true
-        }
-        if (window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app")) {
-            window.onload = function() {
-              location.href = "https://scratch-for-discord-469.vercel.app/";
+        window.onload = function () {
+            if (url.includes("deploy-preview-469--scratch-for-discord.netlify.app")) location.href = "https://scratch-for-discord-469.vercel.app/";
+            if (url.includes("#snd=")) {
+                let soundlink = url.substring(url.indexOf("#snd=") + 5, url.lastIndexOf("#")).replaceAll('"', "").replaceAll("\n", "")
+                console.log("autoplaying", soundlink, "hopefully")
+                const audio = new Audio(soundlink)
+                let audio_played = false
+                audio.onended = function () { audio.play() }
+                window.onclick = function () { if (!audio_played) if (audio.play()) audio_played = true }
             }
         }
     },

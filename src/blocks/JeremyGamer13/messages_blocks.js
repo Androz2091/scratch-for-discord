@@ -1729,7 +1729,7 @@ Blockly.Blocks["jg_events_all_label"] = {
     },
     onchange: function () {
         let color = this.getFieldValue("COLOR")
-        this.setColour(color, "#000000")
+        this.setColour(color)
     }
 }
 Blockly.JavaScript["jg_events_all_label"] = function (block) {
