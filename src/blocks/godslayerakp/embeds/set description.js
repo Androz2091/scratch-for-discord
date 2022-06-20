@@ -3,7 +3,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "gsa_set_embed_description";
 const blockData = {
   "type": "gsa_set_embed_description",
-  "message0": "set embed discription %1",
+  "message0": "set embed description %1",
   "args0": [
     {
       "type": "input_value",
