@@ -7,9 +7,8 @@ const blockData = {
   "message0": "make embed with name %1 then %2",
   "args0": [
     {
-      "type": "input_value",
+      "type": "field_input",
       "name": "name",
-      "check": "String"
     },
     {
       "type": "input_statement",
@@ -31,7 +30,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-  const name = Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_ATOMIC)
+  let name = block.getFieldValue("name")
   const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC)
   return `let ${name.replaceAll(" ", "_").replace(/[!@#\$%\^&\*\(\)-=\]\[\|{}\+`~'":;\?\/\.<>,\/]/g, '_')} = {
     ${statements}
