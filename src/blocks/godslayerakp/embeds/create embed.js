@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Blockly from "blockly/core";
 
 const blockName = "gsa_create_embed";
