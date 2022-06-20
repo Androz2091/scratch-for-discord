@@ -12,7 +12,7 @@ const blockData = {
       "name": "name",
     },
     {
-      "type": "dummy_input"
+      "type": "input_dummy"
     },
     {
       "type": "input_statement",
