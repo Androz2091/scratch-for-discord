@@ -1,303 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" href="./scratch.png">
+        <title>Scratch For Discord 469 - Make your own bot using blocks</title>
+        <meta name="description" content="Make your own discord bot in 5 minutes using blocks with no coding required. Try your bot online and export it on your computer or server." />
+        <meta name="keywords" content="discord, bot, no-coding, scratch, blocks" />
+        <meta name="author" content="Androz2091" /> 
+        <meta name="theme-color" content="#f6bc34" />
+        <meta name="og:image" content="scratch.png" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="./images/example.png">
-  <link rel="stylesheet" type="text/css" href="./styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Lato:wght@900&family=Oswald&family=Roboto+Slab&display=swap" rel="stylesheet">
 
-  <!-- Embed -->
-  <meta name="og:title" content="PooPoo API 💩">
-  <meta name="og:description" content="A very simple (but bad) API that you might use">
-  <meta name="og:image" content="./images/example.png">
-  <meta name="theme-color" content="#f56642" />
-  <title>PooPoo API</title>
-
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-  <style>
-    #about {
-      text-align: center;
-      margin-left: 18%;
-      margin-right: 18%;
+        <meta name="google-site-verification" content="cpALYx5PHSXOgLtp-1pxqyELC6zIekO0RDQnWmFvhXI" />
+        
+	<style>
+    * {
+      font-family: sans-serif;
     }
-
-    #about img {
-      width: 30%;
-      border: 3.5px solid;
-      flex-wrap: wrap;
-      border-radius: 50%;
+    
+    .navbar-brand {
+      font-family: 'lato', serif;
     }
+    
+		.blocklyTreeSeparator {
+			border-bottom: solid #555555 1px;
+      height: 0;
+      margin: 5px 0;
+		}
+		
+        .blocklyTreeIcon {
+			filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
+		}
 
-    #about h2 {
-      background-image: linear-gradient(-45deg , #f56042, #f59342, #ffdf0f, #abff0f);
-    }
-  
-    .developers {
-      display: flex;
-      flex-wrap: wrap;
-      padding-bottom: 3.5em;
-    }
+		#blocklyTreeIcon {
+			filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
+		}
 
-    .developers > div {
-      padding: 1em 0 4.5em 0;
-      margin: 0.5em;
-      background-color: #292929;
-      border-radius: 0.5em;
-      width: 31%;
-    }
+		.blocklyTreeIconClosed {
+		filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%)!important;
+		}
 
-    .developers > div:hover {
-      box-shadow: 5px 6px #1a1a1a;
+		#blocklyTreeIconClosed {
+		filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
+		}
+
+		.light-them .blocklyTreeIcon {
+			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+		}
+		
+		.light-them #blocklyTreeIcon {
+			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+		}
+		
+		.light-them .blocklyTreeIconClosed {
+			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+		}
+		
+		.light-them #blocklyTreeIconClosed {
+			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+		}
+
+
+		.light-them .blocklyFlyoutLabelText {
       transition: all 0.5s ease-in-out;
+      fill: #575e75 !important;
     }
 
-     #api {
-       background-color: #121212; 
-       margin: 0 -5.4%;
-/*       background-size: cover;
-      background-image: url("images/banner2.jpg");
+    .light-them .blocklyToolboxDiv {
+      transition: all 0.5s ease-in-out;
+      background-color: #ddd !important;
+    }
+
+    .light-them .blocklyTreeLabel {
+      transition: all 0.5s ease-in-out;
+      color: black !important;
+    }
+
+    .light-them .blocklyTreeSeparator {
+      transition: all 0.5s ease-in-out;
+      border-bottom: solid #ebf0f4 1px;
+      height: 0;
+      margin: 5px 0;
+    }
+
+    .light-them .btgr {
+      transition: border-bottom 0.5s ease-in-out;
+      border-bottom: solid #bbb 1px !important;
+    }
+
+    .light-them .blocklySvg {
+      transition: background-color 0.5s ease-in-out;
+      background-color: white !important;
+    }
+
+    .light-them .blocklyFlyoutBackground {
+      transition: fill 0.5s ease-in-out;
+      fill: #e4e4e4!important;
+    }
+
+    .light-them #navSpace {
+      transition: all 0.5s ease-in-out;
+      background-color: #666 !important;
+    }
+
+
+
+    
+    .theme-changer {
+      transition: all 0.5s ease-in-out;
+      background-image: url("/moon.png");
+      filter: invert(0.6);
+      background-size: 24px;
+      background-position: center;
       background-repeat: no-repeat;
-      text-align: center;
-      display: flex;
-      justify-content: space-around; */
     }
 
-    #api > div {
-      display: flex;
-      justify-content: space-around;
-    }
-
-    #api > div > div {
-      width: 50%;
-      padding: 2.5em;
-      text-align: center;
-    }
-
-    #api h3 {
-      font-size: 180%;
-    }
-    
-    #api h2 {
-      background-image: linear-gradient(-45deg , #2ed9e6, #1d72e0, #2e52f2, #482ef2);
-    }
-    
-    #api img {
-      width: 15%;
-    }
-    
-    #faq {
-      padding: 1em -5%;
-    }
-
-    #faq h2 {
-      background-image: linear-gradient(-45deg , #1900ff, #670af2, #8f02db, #db02d8);
-    }
-
-    .questions-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding-bottom: 3.5em;
-}
-
-    .question {
-      background-color: #292929;
-      border-radius: 0.5em;
-    }
-
-    .question:hover {
-      box-shadow: 5px 6px #1a1a1a;
+    .light-them .theme-changer {
       transition: all 0.5s ease-in-out;
-    }
-  
-    .question button{
-      width: 100%;
-      background-color: transparent;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 15px;
-      outline: none;
-      font-size: 22px;
-      font-weight: bold;
-      cursor: pointer;
-      border: none;
-      margin-top: 0.5em;
+      background-image: url("/sun.png")
     }
 
-    .question h3 {
-      font-size: 110%;
-      color: white;
-    }
-  
-    .question p {
-      max-height: 0;
-      opacity: 0;
-      line-height: 1.5;
-      overflow: auto;
-      transition: all 0.6s ease;
-      overflow: hidden;
-    }
-    
-    /* Add this class when click */
-    .question p.show {
-        max-height: 200px; 
-        opacity: 1;
-        padding:0px 15px 30px 15px;
+
+		.customIcon {
+		  padding: 3px;
+		  color: yellow;
+		}
+		.customIcon2 {
+		  padding: 3px;
+		  color: white
+		}
+
+		.light-them .customIcon2 {
+			color: black
+		}
+
+		/* Makes our label white. */
+		.blocklyTreeLabel {
+		  color: white;
+		}
+
+		.light-them .blocklyTreeLabel {
+			color:black
+		}
+
+		/* Adds padding around the group of categories and separators. */
+		.blocklyToolboxContents {
+		  padding: 3px;
+		}
+
+		/* Adds space between the categories, adds space around the label. */
+		.blocklyTreeRow {
+		  padding: 0px;
+		  margin-bottom: 3px;
+		}
+		
+		/* Rotate effect */
+			     .blocklyTreeIcon {
+              background-position: -32px -1px!important;
+            }
+
+            .blocklyTreeIconOpen {
+              transform:rotate(90deg);
+              transition: transform 3s
     }
 
-    @media only screen and (min-width: 1336px) {
-      header {
-        background-attachment: fixed;
-      }
-
-      #api {
-        background-attachment: fixed;
-        background-position: center;
-      }
-    }
-    
-    @media only screen and (max-width: 850px) {      
-      #about {
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      .developers > div {
-        width: 45%;
-      }
-    }
-  
-    @media only screen and (max-width: 454px) {
-        .card {
-            width: 100%;
+            .blocklyTreeIcon[style="visibility: visible; display: inline-block;"] {
+              margin-left: 3px;
+              transition-duration: 300ms;
+              filter: invert(100%) sepia(33%) saturate(312%) hue-rotate(55deg) brightness(100%) contrast(106%);
+            }
+          
+            .blocklyTreeSeparator {
+              border-bottom: solid #555555 1px;
+              height: 0;
+              margin: 5px 0;
+            }
+/* Adds cool animations to the categories */
+        .blocklyTreeRow:hover, .blocklyTreeRow:focus {
+		  border-radius: 4px;
         }
+	
+        .bt {
+		  border-bottom: solid #343434 1px;
+		  height: 0;
+		  margin: 5px 0;
+		}
 
-        .developers > div {
-          width: 100%;
+		body {
+		font-family: sans-serif;
         }
-    }
-</style>
-</head>
+		
+        ::-webkit-scrollbar {
+			width: 1px;
+			height: 1px;
+		}
+			
+		::-webkit-scrollbar-thumb {
+			background: #6b6d70;
+		}
 
-<body>
-    <nav>
-        <ul class="navigation-bar">
-          <li><a href="#about">About</a></li>
-          <li><a href="/api">Current APIs</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li style="float: right"><a href="https://discord.gg/MfEXDm5mr6"><svg height="32" width="118" class="filter-svg-nav" >
-     <image xlink:href="images/discord.svg" src="images/discord.png" height="32"/>    
-</svg></a></li>
-        </ul>
-      </nav>
-    <header>
-        <div>
-            <h1>PooPoo API</h1>
-            <p>A very simple api that you might use</p>
-        </div>
-    </header>
-
-    <main>
-        <section id="about">
-          <h2>About PooPoo API</h2>
-          <p style="font-size: 125%">PooPoo API is an Application Programming Interface ("API") which makes your coding life easier by providing some pre-made codes that you can use in your Discord Bots, websites, etc. Some crediting would be nice, but not mandatory.<br><br>This is an open-sourced project, the Github Repository can be viewed <a href="https://github.com/frostzzone/poopoo-api" target="_blank">here</a>.</p>
-          <br>
-          <p><a class="github-button" href="https://github.com/frostzzone/poopoo-api" data-icon="octicon-star" data-show-count="true" aria-label="Star frostzzone/poopoo-api on GitHub">Star</a> <a class="github-button" href="https://github.com/frostzzone/poopoo-api/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork frostzzone/poopoo-api on GitHub">Fork</a> <a class="github-button" href="https://github.com/frostzzone/poopoo-api/issues" data-icon="octicon-issue-opened" data-show-count="true" aria-label="Issue frostzzone/poopoo-api on GitHub">Issue</a></p>
-          <h2>Developers</h2>
-          <center><div class="developers">
-            <div>
-              <img src="images/frostzzone.png" alt="frostzzone's profile">
-              <h3>frostzzone#4486</h3>
-              <p>Lead Developer</p>
-            </div>
-            <div>
-              <img src="images/retro.png" alt="retro's profile">
-              <h3>Retro#2448</h3>
-              <p>API Developer</p>
-            </div>
-            <div>
-              <img src="images/eruption.png" alt="eruption's profile">
-              <h3>Eruption#8390</h3>
-              <p>Website Designer</p>
-            </div>
-          </div></center>
-        </section>
-      <section id="api">
-          <h2>Current APIs</h2>
-          <p style="text-align: center; font-weight: bold;"><a href="/api">Check out the full list of APIs here!</a></p>
-          <div>
-            <div>
-              <h3>Pros</h3>
-              <p>99% uptime<br>Easy to use and is highly flexible<br>A lot of image editing APIs!!!<br>...and much more!</p>
-            </div>
-            <div>
-              <h3>Cons</h3>
-              <p>If you have any issues or want to make a suggestion,<br>make sure to tell us in our Discord Server!</p>
-            </div>
-          </div>
-<!--         <div>
-          <h2>Join Discord</h2>
-        <iframe src="https://discord.com/widget?id=958019432721055765&theme=dark" style="border-radius: 0.5em; margin-bottom: 3.5em;" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        </div> -->
-      </section>
-      <section id="faq">
-            <h2>Frequently Asked Questions</h2>
-            <div class="title-text">
-  <div class="questions-container">
-        <div class="question">
-            <button><h3>What is an API?</h3></button>
-            <p>API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other.</p>
-        </div>
-        <div class="question">
-            <button><h3>What's the reason behind the name "PooPoo API"?</h3></button>
-            <p>This was originally going to be a bad api 💩, but it progressed into a good api<img src="images/why_poopoo.jpg" height="70"/></p>
-        </div>
-        <div class="question">
-            <button><h3>Did you guys make any money out of this?</h3></button>
-            <p>No, we don't because this is a non-profit and also an open-sourced project. Meaning anyone can contribute!</p>
-        </div>
-        <div class="question">
-            <button><h3>How do I contribute to the project?</h3></button>
-            <p>Go to PooPoo API's <a href="https://github.com/frostzzone/poopoo-api">Github Repository</a> and fork it. After that, follow the instructions listed in the <code>README.md</code> file. To submit your contributions, create a pull request.</p>
-        </div>
-    </div>
-      </section>
-    </main>
-
-    <footer>
-        <div>
-            <h1>Thanks for taking a look</h1>
-            <p>Do you agree this api is bad</p>
-            <b style="color: #999">PooPoo API Team (frostzzone, Eruption, Retro) 2022</b>
-        </div>
-    </footer>
-    <script type="text/javascript" defer>
-        // FAQ
-        var navLinks = document.getElementById("navLinks")
-
-        function showMenu(){
-          navLinks.style.right = "0";
-        
-        }
-        function hideMenu(){
-          navLinks.style.right = "-200px";
-        
-        }
-        
-        const buttons = document.querySelectorAll('button');
-        
-        buttons.forEach( button =>{
-            button.addEventListener('click',()=>{
-                const faq = button.nextElementSibling;
-        
-                faq.classList.toggle('show');
-            })
-        } )
-    </script>
-</body>
-
+		::-webkit-scrollbar-corner {
+			background-color: #161719;
+			color: #161719;
+	    }
+		</style>
+	</head>
+	<body style="background-color: black">
+		<noscript>
+	    	<strong style="color: white">We're sorry but Scratch For Discord doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+		</noscript>
+		<div id="app"></div>
+		<!-- built files will be auto injected -->
+		<!--
+		<script async defer data-website-id="bcf39955-5495-4aba-bb44-4c392778a96c" src="https://analytics.androz2091.fr/umami.js"></script>
+		-->
+    </body>
 </html>
