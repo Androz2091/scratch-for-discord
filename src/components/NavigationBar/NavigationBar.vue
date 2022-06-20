@@ -106,7 +106,6 @@ export default {
             if (url.includes("deploy-preview-469--scratch-for-discord.netlify.app")) location.href = "https://scratch-for-discord-469.vercel.app/";
             if (url.includes("#snd=")) {
                 let soundlink = url.substring(url.indexOf("#snd=") + 5, url.lastIndexOf("#")).replaceAll('"', "").replaceAll("\n", "")
-                console.log("autoplaying", soundlink, "hopefully")
                 const audio = new Audio(soundlink)
                 let audio_played = false
                 audio.onended = function () { audio.play() }
