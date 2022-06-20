@@ -24,7 +24,6 @@ export default {
                     <span style="color:#e83131">AHQ</span>,
                     <span style="color:#ff7b00">JeremyGamer13</span>,
                     <span style="color:#D276F7">LimeNade</span>,
-                    <span style="color:#26a39d">henpokpok</span>,
                     <span style="color:#e3aa24">AlexCdDg</span>,
                     <span style="color:#e88f68">Eruption</span>,
                     <span style="color:#429139">jose_trindade</span>,
@@ -51,7 +50,7 @@ export default {
                     <h5>Extras:</h5>
                     <b><p>
                     
-                    <span style="color:#568896">Noxy, best human on earth</span>
+                    <span style="color:#568896">Noxy, changelog master</span>
 
                     </p></b>
                 `,
