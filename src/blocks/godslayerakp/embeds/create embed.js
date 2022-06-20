@@ -33,8 +33,8 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function (block) {
   const name = Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_ATOMIC)
   const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC)
-  return `const ${name} = {
-${statements}
-};
-`
+  return `let ${name.replaceAll(" ", "_").replace(/[!@#\$%\^&\*\(\)-=\]\[\|{}\+`~'":;\?\/\.<>,\/]/g, '_')} = {
+    ${statements}
+    }
+    `
 }

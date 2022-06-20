@@ -23,7 +23,23 @@ export default (Blockly, value, searching) => {
 
     var toolbox_xml_contents = (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-        
+    <!--
+    <category name="redman13 embed" colour="#ff0000">
+        <block type="gsa_add_blank_field"/>
+        <block type="gsa_add_field"/>
+        <block type="gsa_create_fields"/>
+        <block type="gsa_set_embed_timestamp"/>
+        <block type="gsa_create_embed"/>
+        <block type="gsa_send_embed"/>
+        <block type="gsa_set_embed_author"/>
+        <block type="gsa_set_embed_color"/>
+        <block type="gsa_set_embed_description"/>
+        <block type="gsa_set_embed_image"/>
+        <block type="gsa_set_embed_thumbnail"/>
+        <block type="gsa_set_embed_title"/>
+        <block type="gsa_set_embed_footer"/>
+    </category>
+    -->
     <!--
     <category name="Tests" colour="#ff0000" popoooopp="LINE HIDDEN FROM SEARCH">
         <block type="jg_tests_doubleDropdown" popoooopp="LINE HIDDEN FROM SEARCH"/>
