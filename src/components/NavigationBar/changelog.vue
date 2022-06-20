@@ -20,7 +20,7 @@ export default {
                 <h5>(LimeNade)</h5>
                 <br>
                 <h3>Webhook blocks have gotten a bit of an upgrade!</h3>
-                <img src='https://cdn.discordapp.com/attachments/898783648491397191/987584184388296784/screenshot_9.png'>
+                <img src='https://cdn.discordapp.com/attachments/898783648491397191/987584184388296784/screenshot_9.png' width='475'>
                 <h5>On another note, we are inching towards a member categoryless 469...(JeremyGamer13)</h5>
                 <br>
                 <h3>audit log blocks</h3>
@@ -48,11 +48,11 @@ export default {
                 <h5>(cat soup)</h5>
                 <br>
                 <h3>send messages with user & role pings disabled</h3>
-                <img src='https://cdn.discordapp.com/attachments/898783648491397191/983685918386970634/unknown.png'>
+                <img src='https://cdn.discordapp.com/attachments/898783648491397191/983685918386970634/unknown.png' width='475'>
                 <h5>To disable pings or only ping certain IDs, put a list in the input. To only ping certain IDs, make a list with the role or member IDs you want to mention. If you want to use the default mentioning, just dont put an input there.(JeremyGamer13)</h5>
                 <br>
                 <h3>Updated attachement blocks</h3>
-                <img src='https://cdn.discordapp.com/attachments/898783648491397191/983290976342769694/unknown.png'>
+                <img src='https://cdn.discordapp.com/attachments/898783648491397191/983290976342769694/unknown.png' width='475'>
                 <br>
                 <h3>Last messages</h3>
                 <img src='https://cdn.discordapp.com/attachments/898783648491397191/983266366138249316/unknown.png'>
@@ -61,11 +61,11 @@ export default {
                 <h5>get last messages is in Channels category message properties & id of message block are in the Messages category ID of message block is mainly for the "last message #()" block (JeremyGamer13)</h5>
                 <br>
                 <h3>Roblox blocks</h3>
-                <img src='https://cdn.discordapp.com/attachments/898783648491397191/980949794069577738/unknown.png'>
+                <img src='https://cdn.discordapp.com/attachments/898783648491397191/980949794069577738/unknown.png' width='475'>
                 <h5>some simple roblox blocks(JeremyGamer13)</h5>
                 <br>
                 <h3>Server Settings</h3>
-                <img src='https://cdn.discordapp.com/attachments/898783648491397191/980201472245510224/screenshot.png'>
+                <img src='https://cdn.discordapp.com/attachments/898783648491397191/980201472245510224/screenshot.png' width='475'>
                 <h5>Set or get info about server settings (LimeNade)</h5>
                 <br>
                                                                  <!-- new content -->
