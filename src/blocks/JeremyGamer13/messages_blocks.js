@@ -2898,9 +2898,17 @@ Blockly.Blocks["jg_text_remake_paragraph_quotes"] = {
     }
 }
 Blockly.JavaScript["jg_text_remake_paragraph_quotes"] = function (block) {
-    const text = block.getFieldValue("TEXT");
+    let text = block.getFieldValue("TEXT");
     let multiline = "'"
     if (String(text).includes("\n") || String(text).includes("\r")) multiline = "`"
+    if (multiline == "'") {
+        text = String(text).replaceAll("'", "\\'")
+    } else {
+        text = String(text).replaceAll("`", "\\`")
+    }
+    if (multiline == "`") {
+        text = String(text).replaceAll("${", "\\${")
+    }
     const code = [`${multiline}${text}${multiline}`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
