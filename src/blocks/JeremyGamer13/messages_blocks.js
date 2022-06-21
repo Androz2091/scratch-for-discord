@@ -2899,6 +2899,7 @@ Blockly.Blocks["jg_text_remake_paragraph_quotes"] = {
 }
 Blockly.JavaScript["jg_text_remake_paragraph_quotes"] = function (block) {
     let text = block.getFieldValue("TEXT");
+    text = String(text).replaceAll("\\", "\\\\")
     let multiline = "'"
     if (String(text).includes("\n") || String(text).includes("\r")) multiline = "`"
     if (multiline == "'") {
