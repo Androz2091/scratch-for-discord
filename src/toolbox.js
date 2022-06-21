@@ -54,6 +54,8 @@ export default (Blockly, value, searching) => {
             </block>
             <block type="logic_null" />
             <block type="logic_ternary" />
+            
+            <block type="jg_logic_is_equal_to_and_is_the_same_type_as"/>
 
     	<!--<label text="Pending updates"></label>-->
 
@@ -225,22 +227,43 @@ export default (Blockly, value, searching) => {
             <block type="math_random_float" />
         </category>
         <category name="{{ TOOLBOX_TEXT }}" colour="#5ba58c">
+            <!--
             <block type="text">
-                <field name="TEXT" />
+                <field name="TEXT"/>
             </block>
-						<block type="text_multiline">
-									<field name="TEXT" />
-					</block>
+			<block type="text_multiline">
+				<field name="TEXT"/>
+			</block>
+            -->
+			<block type="jg_text_remake_paragraph_quotes"/>
             <block type="text_join">
                 <mutation items="2" />
             </block>
-
+            <!--
             <block type="text_replace">
                 <value name="TEXT">
                     <shadow type="text">
                         <field name="TEXT">abc</field>
                     </shadow>
                 </value>               
+            </block>
+            -->
+			<block type="jg_text_remake_in_text_replace_with">
+                <value name="ORIGIN">
+                    <shadow type="text">
+                        <field name="TEXT">aaa</field>
+                    </shadow>
+                </value>
+                <value name="REPLACE">
+                    <shadow type="text">
+                        <field name="TEXT">a</field>
+                    </shadow>
+                </value>
+                <value name="WITH">
+                    <shadow type="text">
+                        <field name="TEXT">b</field>
+                    </shadow>
+                </value>
             </block>
 						<block type="text_isEmpty"/>
 						<block type="text_reverse"/>
@@ -1004,7 +1027,7 @@ export default (Blockly, value, searching) => {
     </value>
     <value name="boolean">
         <shadow type="logic_boolean">
-            <field name="Boolean">TRUE</field>
+            <field name="BOOL">TRUE</field>
         </shadow>
     </value>
 </block>
@@ -1016,7 +1039,7 @@ export default (Blockly, value, searching) => {
     </value>
     <value name="boolean">
         <shadow type="logic_boolean">
-            <field name="Boolean">TRUE</field>
+            <field name="BOOL">TRUE</field>
         </shadow>
     </value>
 </block>
@@ -1913,7 +1936,7 @@ export default (Blockly, value, searching) => {
                 </value>
                 <value name="boolean">
                     <shadow type="logic_boolean">
-                        <field name="Boolean">TRUE</field>
+                        <field name="BOOL">TRUE</field>
                     </shadow>
                 </value>
             </block>
@@ -1925,7 +1948,7 @@ export default (Blockly, value, searching) => {
                 </value>
                 <value name="boolean">
                     <shadow type="logic_boolean">
-                        <field name="Boolean">TRUE</field>
+                        <field name="BOOL">TRUE</field>
                     </shadow>
                 </value>
             </block>
@@ -1937,7 +1960,7 @@ export default (Blockly, value, searching) => {
                 </value>
                 <value name="boolean">
                     <shadow type="logic_boolean">
-                        <field name="Boolean">TRUE</field>
+                        <field name="BOOL">TRUE</field>
                     </shadow>
                 </value>
             </block>
@@ -1949,7 +1972,7 @@ export default (Blockly, value, searching) => {
                 </value>
                 <value name="boolean">
                     <shadow type="logic_boolean">
-                        <field name="Boolean">TRUE</field>
+                        <field name="BOOL">TRUE</field>
                     </shadow>
                 </value>
             </block>

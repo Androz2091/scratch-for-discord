@@ -2,7 +2,6 @@
     <div id="app">
         <NavBarComponent id="navSpace"></NavBarComponent>
         <BlocklyComponent id="blocklySpace" :options="options"></BlocklyComponent>
-        <v-tour name="start-tour" :steps="vueTourOptions.steps" :options="vueTourOptions"></v-tour>
     </div>
 </template>
 
@@ -237,7 +236,9 @@ export default {
           vertical: true
         },
         drag: true,
-        wheel: true},
+        wheel: true}
+        /*
+        ,
             vueTourOptions: {
                 labels: {
                     buttonSkip: this.$t('tour.skip'),
@@ -269,6 +270,7 @@ export default {
                     }
                 ]
             }
+            */
         }
            } else {
       return {
@@ -289,7 +291,9 @@ export default {
           vertical: true
         },
         drag: true,
-        wheel: true},
+        wheel: true}
+        /*
+        ,
             vueTourOptions: {
                 labels: {
                     buttonSkip: this.$t('tour.skip'),
@@ -321,6 +325,7 @@ export default {
                     }
                 ]
             }
+            */
         }
            }
     }

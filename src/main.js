@@ -123,7 +123,8 @@ Vue.mixin({
             }
         },
         getWorkspaceCode() {
-            if (!this.$store.state.workspace) return "";
+            const workspace = this.$store.state.workspace
+            if (!workspace) return "";
             let requires = [
                 `let Discord = require("discord.js")`,
                 `let Database  = require("easy-json-database")`,
@@ -131,12 +132,13 @@ Vue.mixin({
                 `let logs = require("discord-logs")`
             ]
             let requiresjscode = [`logs(s4d.client);`]
-            r(requires, requiresjscode, Blockly.JavaScript.workspaceToCode(this.$store.state.workspace), requiresjscode)
+            let xml = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace))
+            r(requires, requiresjscode, Blockly.JavaScript.workspaceToCode(workspace), xml)
             setTimeout(async () => {
                 await localforage.setItem("requires", requires)
             }, 1000)
             let ahqcode = ``;
-            if (Blockly.JavaScript.workspaceToCode(this.$store.state.workspace).includes(`//simple host`)) {
+            if (Blockly.JavaScript.workspaceToCode(workspace).includes(`//simple host`)) {
                 ahqcode = `(async()=>{
                     let process = require('process');
                     const events = require('events');
@@ -170,7 +172,7 @@ Vue.mixin({
                             console.log(s4d.client.user.tag + " is alive!")
                         })
                         ${requiresjscode.join("\n")}         
-                        ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
+                        ${Blockly.JavaScript.workspaceToCode(workspace)}
                         return s4d
                         })();
                         `
@@ -227,7 +229,7 @@ fire:null,
                         console.log(s4d.client.user.tag + " is alive!")
                     })
                     ${requiresjscode.join("\n")}         
-                    ${Blockly.JavaScript.workspaceToCode(this.$store.state.workspace)}
+                    ${Blockly.JavaScript.workspaceToCode(workspace)}
                     return s4d
                     })();`
 

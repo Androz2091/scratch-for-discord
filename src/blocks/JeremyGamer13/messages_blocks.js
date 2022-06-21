@@ -2862,3 +2862,129 @@ Blockly.JavaScript["jose_jg_webhooks_delete_webhook_with_reason"] = function (bl
 `;
     return code;
 };
+Blockly.Blocks["jg_text_remake_paragraph_quotes"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1%2%3",
+                "inputsInline": true,
+                "tooltip": "A text input that allows multi-lines.",
+                "colour": "%{BKY_TEXTS_HUE}",
+                "output": ["String", "Multi-Line_Text"],
+                "args0": [
+                    {
+                        "type": "field_image",
+                        "src": "https://media.discordapp.net/attachments/914411539887456296/988614658812436490/download.png",
+                        "width": 12,
+                        "height": 12,
+                        "alt": '"',
+                        "flipRtl": false
+                    },
+                    {
+                        "type": "field_multilinetext",
+                        "name": "TEXT"
+                    },
+                    {
+                        "type": "field_image",
+                        "src": "https://media.discordapp.net/attachments/914411539887456296/988614658539802705/download_1.png",
+                        "width": 12,
+                        "height": 12,
+                        "alt": '"',
+                        "flipRtl": false
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_text_remake_paragraph_quotes"] = function (block) {
+    const text = block.getFieldValue("TEXT");
+    let multiline = "'"
+    if (String(text).includes("\n") || String(text).includes("\r")) multiline = "`"
+    const code = [`${multiline}${text}${multiline}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_text_remake_in_text_replace_with"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "in text %1 replace %2 with %3",
+                "inputsInline": true,
+                "tooltip": "Replace all occurences of some text with other text.",
+                "colour": "%{BKY_TEXTS_HUE}",
+                "output": "String",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "ORIGIN",
+                        "check": "String"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "REPLACE",
+                        "check": "String"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "WITH",
+                        "check": "String"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_text_remake_in_text_replace_with"] = function (block) {
+    const origin = Blockly.JavaScript.valueToCode(block, "ORIGIN", Blockly.JavaScript.ORDER_ATOMIC);
+    const replace = Blockly.JavaScript.valueToCode(block, "REPLACE", Blockly.JavaScript.ORDER_ATOMIC);
+    const replaced = Blockly.JavaScript.valueToCode(block, "WITH", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`String(${origin}).replaceAll(String(${replace}), String(${replaced}))`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+// is equal to and is the same type as
+Blockly.Blocks["jg_logic_is_equal_to_and_is_the_same_type_as"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 is %2 the same type as %3",
+                "inputsInline": true,
+                "tooltip": "Checks if something is equal to another value, and is also the same type of thing as that value.",
+                "colour": "%{BKY_LOGIC_HUE}",
+                "output": "Boolean",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "A",
+                        "check": null
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "equal to and is",
+                                '==='
+                            ],
+                            [
+                                "not equal to or isn't",
+                                '!=='
+                            ]
+                        ],
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "B",
+                        "check": null
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_logic_is_equal_to_and_is_the_same_type_as"] = function (block) {
+    const a = Blockly.JavaScript.valueToCode(block, "A", Blockly.JavaScript.ORDER_ATOMIC);
+    const b = Blockly.JavaScript.valueToCode(block, "B", Blockly.JavaScript.ORDER_ATOMIC);
+    const type = block.getFieldValue("TYPE")
+    const code = [`${a} ${type} ${b}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
