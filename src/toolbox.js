@@ -2098,6 +2098,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_thread_name"/>
             <block type="s4d_thread_server"/>
             <block type="s4d_thread_archive"/>
+	        <block type="jg_monaco_threads_add_member_to_from_thread_with_reason"/>
         </category>
         <category name="Slash" colour="#4776ed">
             <label text='⚠️ Deletes commands set by "Slash Command GUI"! ⚠️'></label>
@@ -2870,6 +2871,7 @@ export default (Blockly, value, searching) => {
             <block type="role_color"/>
             <block type="role_name"/>
 	        <block type="jg_monaco_roles_hoist_role"/>
+	        <block type="jg_monaco_roles_change_role_to_be_mentionable_with_reason"/>
 	        <block type="set_role_icon"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category> 
