@@ -715,10 +715,10 @@ export default (Blockly, value, searching) => {
                 </category>
             </category>
             -->
-			<category name="Eruption" colour="#ff4000">
             <!--
+			<category name="Eruption" colour="#ff4000">
 				<category name="Embed" colour="#40BF4A">
-                -->
+                
                 <label text="Create a perfect embed" web-class="boldtext"></label>
                 <block type="s4d_embed_create"></block>
                 <block type="s4d_embed_set_color"></block>
@@ -733,15 +733,15 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_embed_set_timestamp"></block>
                 <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
                 <block type="s4d_embed_send"></block>
-            <!--</category>-->
-			</category>
+            </category>
+			</category>-->
 				<category name="ahq" colour="#ff0000" disabled="true">
+        <!--
 
 
         <label text="AHQ's Simple Host Auth has been moved to Applications category!" web-class="boldtext"></label>
         <label text="Other" web-class="boldtext"></label>
         <block type="ahq_value_snd"/>
-        <!--
         <category name="member" colour="#006600">
         <label text="Fetch members of a server" web-class="boldtext"></label>
         <block type="s4d_get_rndm"/>
@@ -750,7 +750,7 @@ export default (Blockly, value, searching) => {
         </category>
         -->
 
-
+<!--
     <category name="embed" colour="#993399">
         <block type="make_ahq_embed"/>
 
@@ -771,9 +771,9 @@ export default (Blockly, value, searching) => {
         <block type="footer_ahq_embed"/>
         <block type="stamp_ahq_embed"/>
     </category>
+-->
 
-
-        <category name="interaction" colour="#ff0019">
+        <!--<category name="interaction" colour="#ff0019">-->
         <!--<category name="button" colour="#ff0019">-->
         <label text="Buttons" web-class="boldtext"></label>
         <label text="Event" web-class="boldtext"></label>
@@ -843,7 +843,7 @@ export default (Blockly, value, searching) => {
         <block type="style_ahq_modal"/>
         <label text="Send Forms" web-class="boldtext"></label>
         <block type="snd_ahq_modal"/>
-        </category>
+        <!--</category>-->
 
         <!--
 
@@ -1519,7 +1519,7 @@ export default (Blockly, value, searching) => {
 				<!--<category name="{{ TOOLBOX_JSONREQUEST }}" colour="#ed5a8b">
 					<block type="s4d_http_get_then"/>
 					<block type="s4d_get_string_of_data"/>
-				</category>-->
+				</category>
 				        <category name="{{ EMBED }}" colour="#ed5a5a">
         <label text="Create A Perfect Embed" web-class="boldtext"></label>
             <block type="s4d_create_embed_then"></block>
@@ -1538,7 +1538,7 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_SEND_EMBED}"></label>
             <block type="s4d_create_embed_then_send"></block>
             <block type="frost_send_embed_rr"/>
-    </category>
+    </category>-->
 					        
         <category name="{{ TOOLBOX_BUTTON }}" colour="#a1a122">
             <label text="%{BKY_BUTTON_EVENT}"></label>
@@ -1640,7 +1640,7 @@ export default (Blockly, value, searching) => {
         -->
 		<!--<category name="context menu" colour="#f0f255">-->
         <!--</category>-->
-				<category name="interaction" colour="#ff0019">
+				<!--<category name="interaction" colour="#ff0019">-->
         <label text="Buttons" web-class="boldtext"></label>
         <label text="%{BKY_T_EDI}"></label>
         <block type="on_button"></block>
@@ -1700,28 +1700,8 @@ export default (Blockly, value, searching) => {
         <block type="send_m_embed_string"></block>
 
 
-        </category>
-        <category name="embed" colour="#40BF4A">
-        <label text="Create A Perfect Embed" web-class="boldtext"></label>
-            <block type="s4d_m_create_embed_then"></block>
-            <label text="%{BKY_COLOR_MESSAGE}"></label>
-            <block type="s4d_m_create_embed_then_set_color"></block>
-            <block type="s4d_m_create_embed_then_set_author"></block>
-            <block type="s4d_m_create_embed_then_set_title"></block>
-            <block type="s4d_m_create_embed_then_set_thumbnail"></block>
-            <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
-            <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
-            <block type="s4d_m_create_embed_then_set_description"></block>
-            <block type="s4d_m_create_embed_then_add_field"></block>
-            <block type="s4d_m_create_embed_then_add_blankfield"></block>
-            <block type="s4d_m_create_embed_then_set_image"></block>
-            <block type="s4d_m_create_embed_then_set_footer"></block> 
-            <block type="s4d_m_create_embed_then_set_time"></block>
-            <label text="%{BKY_SEND_EMBED}"></label>
-            <block type="send_m_embed_string"/>
-            <block type="s4d_m_create_embed_then_send"></block>
-            <block type="frost_send_embed_rr"/>
-    </category>
+        <!--</category>-->
+        
 		        
 				
 </category>
@@ -2477,6 +2457,96 @@ export default (Blockly, value, searching) => {
                         </shadow>
                     </value>
                 </block>
+            </category>
+        </category>
+        <sep class="bt"/>
+        <category name="Embeds" colour="#df61ff">
+            <category name="no name: MrRedo" colour="#d557ff">
+                <label text="Create A Perfect Embed" web-class="boldtext"></label>
+                <block type="s4d_m_create_embed_then"></block>
+                <label text="%{BKY_COLOR_MESSAGE}"></label>
+                <block type="s4d_m_create_embed_then_set_color"></block>
+                <block type="s4d_m_create_embed_then_set_author"></block>
+                <block type="s4d_m_create_embed_then_set_title"></block>
+                <block type="s4d_m_create_embed_then_set_thumbnail"></block>
+                <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
+                <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
+                <block type="s4d_m_create_embed_then_set_description"></block>
+                <block type="s4d_m_create_embed_then_add_field"></block>
+                <block type="s4d_m_create_embed_then_add_blankfield"></block>
+                <block type="s4d_m_create_embed_then_set_image"></block>
+                <block type="s4d_m_create_embed_then_set_footer"></block> 
+                <block type="s4d_m_create_embed_then_set_time"></block>
+                <label text="%{BKY_SEND_EMBED}"></label>
+                <block type="send_m_embed_string"/>
+                <block type="s4d_m_create_embed_then_send"></block>
+                <block type="frost_send_embed_rr"/>
+            </category>
+            <category name="no name: Jose" colour="#cd57ff">
+                <label text="Create A Perfect Embed" web-class="boldtext"></label>
+                <block type="s4d_create_embed_then"></block>
+                <label text="%{BKY_COLOR_MESSAGE}"></label>
+                <block type="s4d_create_embed_then_set_color"></block>
+                <block type="s4d_create_embed_then_set_author"></block>
+                <block type="s4d_create_embed_then_set_title"></block>
+                <block type="s4d_create_embed_then_add_link"></block>            
+                <block type="s4d_create_embed_then_set_thumbnail"></block>
+                <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
+                <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
+                <block type="s4d_create_embed_then_set_description"></block>
+                <block type="s4d_create_embed_then_add_field"></block>
+                <block type="s4d_create_embed_then_set_image"></block>
+                <block type="s4d_create_embed_then_set_footer"></block> 
+                <label text="%{BKY_SEND_EMBED}"></label>
+                <block type="s4d_create_embed_then_send"></block>
+                <block type="frost_send_embed_rr"/>
+            </category>
+            <category name="no name: Eruption" colour="#c457ff">
+                <label text="Create a perfect embed" web-class="boldtext"></label>
+                <block type="s4d_embed_create"></block>
+                <block type="s4d_embed_set_color"></block>
+                <block type="s4d_embed_set_author"></block>
+                <block type="s4d_embed_set_title"></block>
+                <block type="s4d_embed_set_desc"></block>
+                <block type="s4d_embed_set_thumb"></block>
+                <block type="s4d_embed_add_field"></block>
+                <block type="s4d_embed_set_image"></block>
+                <block type="s4d_embed_set_footer"></block>
+                <label text="Custom date format: MM-DD-YYYY" web-class="boldtext"></label>
+                <block type="s4d_embed_set_timestamp"></block>
+                <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
+                <block type="s4d_embed_send"></block>
+            </category>
+            <category name="named: AHQ" colour="#b957ff">
+                <block type="make_ahq_embed"/>
+                <label text="Embed Send" web-class="boldtext"></label>
+                <block type="send_ahq_embed"/>
+                <label text="Embed Creator" web-class="boldtext"></label>
+                <block type="title_ahq_embed"/>
+                <block type="url_ahq_embed"/>
+                <block type="author_ahq_embed"/>
+                <block type="color_ahq_embed"/>
+                <block type="des_ahq_embed"/>
+                <block type="fld_ahq_embed"/>
+                <block type="image_ahq_embed"/>
+                <block type="thmb_ahq_embed"/>
+                <block type="footer_ahq_embed"/>
+                <block type="stamp_ahq_embed"/>
+            </category>
+            <category name="named: RedMan13" colour="#a557ff">
+                <block type="gsa_create_embed"/>
+                <block type="gsa_send_embed"/>
+                <block type="gsa_set_embed_title"/>
+                <block type="gsa_set_embed_description"/>
+                <block type="gsa_set_embed_author"/>
+                <block type="gsa_set_embed_footer"/>
+                <block type="gsa_set_embed_color"/>
+                <block type="gsa_set_embed_image"/>
+                <block type="gsa_set_embed_thumbnail"/>
+                <block type="gsa_set_embed_timestamp"/>
+                <block type="gsa_create_fields"/>
+                <block type="gsa_add_blank_field"/>
+                <block type="gsa_add_field"/>
             </category>
         </category>
         <sep class="bt"/>
