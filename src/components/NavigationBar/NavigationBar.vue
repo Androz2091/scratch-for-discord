@@ -104,7 +104,7 @@ export default {
         this.setLanguage("en");
         let url = window.location.href
         window.onload = function () {
-            if (url.includes("deploy-preview-469--scratch-for-discord.netlify.app")) location.href = "https://scratch-for-discord-469.vercel.app/";
+            if (url.includes("deploy-preview-469--scratch-for-discord.netlify.app") && !url.includes("#force")) location.href = "https://scratch-for-discord-469.vercel.app/";
             if (url.includes("#snd=")) {
                 let soundlink = url.substring(url.indexOf("#snd=") + 5, url.lastIndexOf("#")).replaceAll('"', "").replaceAll("\n", "")
                 const audio = new Audio(soundlink)

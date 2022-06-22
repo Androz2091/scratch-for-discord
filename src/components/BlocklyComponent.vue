@@ -850,6 +850,19 @@ function svgToPng_(data, width, height, callback) {
                 toolbox: prepToolbox(toolbox(Blockly,val,false), false, val),
             }
         });
+/*
+        let xml = Blockly.Xml.textToDom(`
+<block type="s4d_login">
+    <value name="TOKEN">
+        <shadow type="text">
+            <field name="TEXT">Your bot token</field>
+        </shadow>
+    </value>
+</block>
+`);
+        let block = Blockly.Xml.domToBlock(xml, workspace)
+        block.setDeletable(false)
+*/
         try{Blockly.ContextMenuRegistry.registry.unregister("fav")}catch{}
                                 
             Blockly.ContextMenuRegistry.registry.register({

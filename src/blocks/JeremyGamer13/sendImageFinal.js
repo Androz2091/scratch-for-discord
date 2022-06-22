@@ -67,14 +67,14 @@ Blockly.JavaScript[blockName] = function (block) {
     if (embed) {
         code = `await ${fileSendChannel}.send({
         files: ${stored},
-        components: [${row}]
+        components: [${row}],
         ${msg}
      });
    `;
     } else {
         code = `await ${fileSendChannel}.send({
         files: ${stored},
-        components: [${row}]
+        components: [${row}],
         content: String(${msg})
      });
    `;
