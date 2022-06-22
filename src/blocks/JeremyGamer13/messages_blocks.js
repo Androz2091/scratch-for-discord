@@ -2910,7 +2910,7 @@ Blockly.JavaScript["jg_text_remake_paragraph_quotes"] = function (block) {
     if (multiline == "`") {
         text = String(text).replaceAll("${", "\\${")
     }
-    const code = [`${multiline}${text}${multiline}`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`${multiline}${text}${multiline}`, Blockly.JavaScript.ORDER_ATOMIC];
     return code;
 };
 Blockly.Blocks["jg_text_remake_in_text_replace_with"] = {
