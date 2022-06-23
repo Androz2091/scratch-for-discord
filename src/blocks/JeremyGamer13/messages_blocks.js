@@ -3107,3 +3107,60 @@ Blockly.JavaScript["jg_monaco_threads_add_member_to_from_thread_with_reason"] = 
 `
     return code;
 };
+
+Blockly.Blocks["jg_unused_any_color"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "ㅤ%1ㅤ%2ㅤㅤㅤㅤ",
+                "colour": "#ff0000",
+                "inputsInline": false,
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "field_colour",
+                        "name": "COLOR",
+                        "colour": "#ff0000"
+                    },
+                    {
+                        "type": "input_dummy"
+                    }
+                ]
+            }
+        );
+    },
+    onchange: function () {
+        let color = this.getFieldValue("COLOR")
+        this.setColour(color)
+    }
+}
+Blockly.JavaScript["jg_unused_any_color"] = function () {
+    return '';
+};
+Blockly.Blocks["jg_unused_any_color2"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1",
+                "colour": "#ff0000",
+                "inputsInline": false,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "field_colour",
+                        "name": "COLOR",
+                        "colour": "#ff0000"
+                    }
+                ]
+            }
+        );
+    },
+    onchange: function () {
+        let color = this.getFieldValue("COLOR")
+        this.setColour(color)
+    }
+}
+Blockly.JavaScript["jg_unused_any_color2"] = function () {
+    return '';
+};
