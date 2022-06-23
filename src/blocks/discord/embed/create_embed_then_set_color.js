@@ -9,7 +9,7 @@ const blockData = {
         {
             "type":"input_value",
             "name":"COLOR",
-            "check":"Colour"
+            "check": [ "Colour", "String" ]
         }
     ],
     "colour": "#40BF4A",
