@@ -156,7 +156,10 @@ import "./blocks/Eruption/message_embed/"
 // Parham
 import "./blocks/Parham"
 
+// Monaco
+import "./blocks/Monaco"
 
+  
 import "./blocks/quickdb"
 
 export default {
