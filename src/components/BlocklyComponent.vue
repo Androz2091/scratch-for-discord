@@ -628,7 +628,33 @@ Blockly.ContextMenuRegistry.registry.register({
         },
         scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
         id: 'spawnalltoolblocks2',
-        weight: 9999,
+        weight: 9995,
+    });
+    Blockly.ContextMenuRegistry.registry.register({
+        displayText: 'Recolor all blocks',
+        preconditionFn: function () {
+            return "enabled"
+        },
+        callback: function () {
+            let color = prompt("New color?")
+            workspace.getAllBlocks().forEach((block) => {
+                try {
+                    if (color == "random") {
+                        let array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+                        let random = "#"
+                        for (let i = 0; i < 6; i++) {
+                            random += array[Math.floor(Math.random() * 15)]
+                        }
+                        block.setColour(random)
+                    } else block.setColour(color)
+                } catch (err) {
+                    console.warn(err)
+                }
+            })
+        },
+        scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+        id: 'recolorallblocks',
+        weight: 10000,
     });
 }
 
