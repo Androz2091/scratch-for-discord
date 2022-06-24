@@ -69,7 +69,7 @@ import localforage from 'localforage';
 import r from "./requires";
 import swal from "sweetalert2";
 let connection = false 
-const socket = io('ws://469runtest.jeremygamer13.repl.co:3000')
+const socket = io('https://469runtest.jeremygamer13.repl.co:3000')
 socket.on('connect', () => {
     swal.fire('Connected with the server!')
     connection = true
