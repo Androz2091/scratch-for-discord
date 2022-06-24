@@ -681,7 +681,7 @@ export default (Blockly, value, searching) => {
                 <field name="TEXT"/>
             </block>
             <block type="s4d_eval"></block>
-            <block type="s4d_eval2"></block> 
+            <block type="s4d_eval2"></block>
             <block type="s4d_exec"></block>
             <block type="s4d_try_and_catch">
                 <value name="catch">
@@ -2321,9 +2321,11 @@ export default (Blockly, value, searching) => {
                 <block type="on_channelTopicChange"/>
                 <block type="s4d_channel_raw"/>
                 <block type="topic"/>
+                <!--
                 <block type="on_channelPermissionsChange"/>
                 <block type="s4d_channel_raw"/>
                 <block type="permissions"/>
+                -->
             </category>
 
             <category name ="Scheduled events" colour="#AF88E2">
