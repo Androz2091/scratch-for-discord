@@ -681,7 +681,7 @@ export default (Blockly, value, searching) => {
                 <field name="TEXT"/>
             </block>
             <block type="s4d_eval"></block>
-            <block type="s4d_eval2"></block> 
+            <block type="s4d_eval2"></block>
             <block type="s4d_exec"></block>
             <block type="s4d_try_and_catch">
                 <value name="catch">
