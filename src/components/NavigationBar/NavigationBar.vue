@@ -1140,7 +1140,9 @@ load()`])
                     //     console.log("johnathan: damn we gotta get back to work barry")
                     //     console.log("barry: sorry epic server but we gotta go for now")
                     // }
-                    const socket = io('https://469runtest.jeremygamer13.repl.co:3000')
+                    const socket = io('https://469runtest.jeremygamer13.repl.co:3000', {
+                        transports: ['websocket']
+                    })
                     socket.on('connect_error', err => {
                         console.log('Connection to the server failed due to ' + err)
                     })
