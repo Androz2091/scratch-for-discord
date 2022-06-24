@@ -1145,7 +1145,6 @@ load()`])
                         console.log('Connection to the server failed due to ' + err)
                     })
                     socket.on('connect', () => {
-                        swal.fire('Connected with the server!')
                         connection = true
                         socket.on('error', e => {
                             swal.fire(
@@ -1154,6 +1153,7 @@ load()`])
                                 "error"
                             )
                         })
+                        socket.emit('run', modifiedJScontent)
                     })
                 }
             })
