@@ -227,4 +227,7 @@ dootabase.setFile("./database.json");`)
     if (js.includes("ytdl")) {
         array.push(`const ytdl = require('ytdl-core');`)
     }
+    if (js.includes("S4D_APP_FFMPEG")) {
+        array.push(`const S4D_APP_FFMPEG = require('ffmpeg');`)
+    }
 }
