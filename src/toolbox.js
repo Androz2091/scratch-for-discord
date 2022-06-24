@@ -8,11 +8,10 @@ export default (Blockly, value, searching) => {
         var toolbox_search_category = `
     
     <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">
-    <label text="Search category! Version 1.0"></label>
+    <label text="Search category! Version 1.2"></label>
     <label text=""></label>
-    <label text="Want to search?"></label>
-    <label text="PC: Right click on the workspace > Search for block"></label>
-    <label text="Touch: Hold on the workspace > Search for block"></label>
+    <button text="Search for Block" callbackKey="SEARCH"></button>
+    <label text="Click the search category again if nothing happens."></label>
     <label text=""></label>
         <!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->
     </category>
@@ -3468,6 +3467,19 @@ export default (Blockly, value, searching) => {
                         <block type="jg_jimp_setpixel"/>
                         <block type="jg_jimp_getpixel"/>
                     <!--</category>-->
+                </category>
+                <category name="Video" colour="#fa7000">
+                    <label text="Warning!"></label>
+                    <label text="Repl.it currently doesn't support FFMPEG, which video blocks need!"></label>
+                    <label text="It should work if your hosting your bot on your PC though."></label>
+                    <button text="How to install FFMPEG" callbackKey="FFMPEG"></button>
+                    <block type="jg_files_ffmpeg_video_get_video_with_file_name_then">
+                        <value name="FILE">
+                            <shadow type="text">
+                                <field name="TEXT">MyVideo.mp4</field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
             </category>
             <category name="Databases" colour = "#2AC395">

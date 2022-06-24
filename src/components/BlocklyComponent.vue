@@ -11,6 +11,7 @@
 <script>
 /* eslint-disable */
 import Blockly from "blockly";
+import swal from "sweetalert2";
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
 var renderer = "zelos"
@@ -42,7 +43,7 @@ export default {
         }
     },
     async mounted() {
-        const allow_toolbox_search = true
+        const allow_toolbox_search = false
         function prepToolbox(toolbox_content, searching, favorites, pooopewwweewwww) {
             // console.log(toolbox_content)
 
@@ -875,6 +876,14 @@ function svgToPng_(data, width, height, callback) {
         wheel: true},
                 toolbox: prepToolbox(toolbox(Blockly,val,false), false, val),
             }
+        });
+
+        workspace.registerButtonCallback('FFMPEG', function () {
+            swal.fire("Hey uhh..", "This isn't quite done yet...", "info")
+        });
+        workspace.registerButtonCallback('SEARCH', function () {
+            let new_toolbox_xml = prepToolbox(toolbox(Blockly, val, false), true, val)
+            workspace.updateToolbox(new_toolbox_xml)
         });
 /*
         let xml = Blockly.Xml.textToDom(`
