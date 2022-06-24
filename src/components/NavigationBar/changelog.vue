@@ -15,6 +15,10 @@ export default {
                 icon: 'info',
                 width: "900px",
                 html:`
+                <h3>Updated search category to use the epic new technology!!!!</h2>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/989826004384112720/unknown.png'>
+                <h5>Felt this would be a better way to search then to right click on the workspace and search like that (JeremyGamer13)</h5>
+                <br>
                 <h2 style="color:#CB4335;">Lots of blocks were merged to find blocks more easier!</h2>
                 <img src='https://cdn.discordapp.com/attachments/898783648491397191/986238992024489994/unknown.png'>
                 <h5>(LimeNade)</h5>
