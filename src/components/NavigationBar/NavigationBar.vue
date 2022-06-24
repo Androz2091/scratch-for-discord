@@ -69,18 +69,7 @@ import localforage from 'localforage';
 import r from "./requires";
 import swal from "sweetalert2";
 let connection = false 
-const socket = io('https://469runtest.jeremygamer13.repl.co:3000')
-socket.on('connect', () => {
-    swal.fire('Connected with the server!')
-    connection = true
-    socket.on('error', e => {
-        swal.fire(
-            "An error occurred!",
-            String(e),
-            "error"
-        )
-    })
-})
+
 export default {
     name: "navbar",
     components: {
@@ -1151,12 +1140,21 @@ load()`])
                     //     console.log("johnathan: damn we gotta get back to work barry")
                     //     console.log("barry: sorry epic server but we gotta go for now")
                     // }
-                    if(!connection) return swal.fire('Aww sorry mate! Socket is not connected to Jeremy\'s server')
-                    try {
-                        socket.emit('run', modifiedJScontent)
-                    } catch (error) {
-                        swal.fire('There was an error ...')
-                    }
+                    const socket = io('https://469runtest.jeremygamer13.repl.co:3000')
+                    socket.on('connect_error', err => {
+                        console.log('Connection to the server failed due to ' + err)
+                    })
+                    socket.on('connect', () => {
+                        swal.fire('Connected with the server!')
+                        connection = true
+                        socket.on('error', e => {
+                            swal.fire(
+                                "An error occurred!",
+                                String(e),
+                                "error"
+                            )
+                        })
+                    })
                 }
             })
         },
