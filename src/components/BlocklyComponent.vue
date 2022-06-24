@@ -44,7 +44,7 @@ export default {
     },
     async mounted() {
         const allow_toolbox_search = false
-        function prepToolbox(toolbox_content, searching, favorites, pooopewwweewwww) {
+        function prepToolbox(toolbox_content, searching, favorites, pooopewwweewwww, searchparameter) {
             // console.log(toolbox_content)
 
                 // preparing variables for searching
@@ -107,7 +107,8 @@ const defaultblocks = blocks
     if (searching) {
         var newblocks = []
         var check;
-        var searchparam = prompt("Search for a block with:")
+        // var searchparam = prompt("Search for a block with:")
+        let searchparam = searchparameter
         if (!(searchparam)) {
             searchparam = "null"
         }
@@ -882,8 +883,22 @@ function svgToPng_(data, width, height, callback) {
             swal.fire("Hey uhh..", "This isn't quite done yet...", "info")
         });
         workspace.registerButtonCallback('SEARCH', function () {
-            let new_toolbox_xml = prepToolbox(toolbox(Blockly, val, false), true, val)
-            workspace.updateToolbox(new_toolbox_xml)
+            // const wrapper = document.createElement('div');
+            // wrapper.innerHTML = `<input type="text" id="block">`
+            swal.fire({
+                title: "Search for a block",
+                // html: wrapper,
+                html: `<input type="text" id="block">`,
+                showCancelButton: true,
+                showConfirmButton: true,
+                confirmButtonText: "Search"
+            }).then(async (result) => {
+                if (result) {
+                    let block = document.getElementById("block").value.replaceAll(" ", "_").replaceAll("<", "_").replaceAll(">", "_").replaceAll("/", "_")
+                    let new_toolbox_xml = prepToolbox(toolbox(Blockly, val, false), true, val, workspace, block)
+                    workspace.updateToolbox(new_toolbox_xml)
+                }
+            })
         });
 /*
         let xml = Blockly.Xml.textToDom(`
