@@ -44,6 +44,9 @@ export default {
     },
     async mounted() {
         const allow_toolbox_search = false
+        const isMobile = function () {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        }
         function prepToolbox(toolbox_content, searching, favorites, pooopewwweewwww, searchparameter) {
             // console.log(toolbox_content)
 
@@ -878,9 +881,6 @@ function svgToPng_(data, width, height, callback) {
                 toolbox: prepToolbox(toolbox(Blockly,val,false), false, val),
             }
         });
-        const isMobile = function() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-        }
         workspace.registerButtonCallback('FFMPEG', function () {
             swal.fire("Hey uhh..", "This isn't quite done yet...", "info")
         });
