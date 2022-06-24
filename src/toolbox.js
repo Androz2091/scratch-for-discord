@@ -2867,6 +2867,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_add_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
             <block type="s4d_remove_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
             <block type="s4d_delete_role"></block>
+            <block type="monaco_delete_role"></block>
             <block type="s4d_has_role"></block>
 			<block type="s4d_role_exist"/>
             <block type="s4d_create_role"></block>
