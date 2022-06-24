@@ -878,13 +878,22 @@ function svgToPng_(data, width, height, callback) {
                 toolbox: prepToolbox(toolbox(Blockly,val,false), false, val),
             }
         });
-
+        const isMobile = function() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        }
         workspace.registerButtonCallback('FFMPEG', function () {
             swal.fire("Hey uhh..", "This isn't quite done yet...", "info")
         });
         workspace.registerButtonCallback('SEARCH', function () {
             // const wrapper = document.createElement('div');
             // wrapper.innerHTML = `<input type="text" id="block">`
+            if (isMobile()) {
+                let res = String(prompt("Search for a block:"))
+                let block = res.replaceAll(" ", "_").replaceAll("<", "_").replaceAll(">", "_").replaceAll("/", "_")
+                let new_toolbox_xml = prepToolbox(toolbox(Blockly, val, false), true, val, workspace, block)
+                workspace.updateToolbox(new_toolbox_xml)
+                return
+            }
             swal.fire({
                 title: "Search for a block",
                 // html: wrapper,
