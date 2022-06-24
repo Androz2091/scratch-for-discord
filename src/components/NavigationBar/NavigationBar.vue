@@ -57,6 +57,7 @@ import Blockly from "blockly";
 import JSZip from "jszip";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
+import { io } from "socket.io-client"
 //import LanguageMenu from "./LanguageMenu.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
@@ -67,6 +68,19 @@ import changelog from "./changelog.vue"
 import localforage from 'localforage';
 import r from "./requires";
 import swal from "sweetalert2";
+let connection = false 
+const socket = io('http://localhost:3000')
+socket.on('connect', () => {
+    swal.fire('Connected with the server!')
+    connection = true
+    socket.on('error', e => {
+        swal.fire(
+            "An error occurred!",
+            String(e),
+            "error"
+        )
+    })
+})
 export default {
     name: "navbar",
     components: {
@@ -1112,87 +1126,37 @@ load()`])
                     console.log("johnathan: ok go send the post request")
                     console.log("barry: ok")
                     console.log("epic server: now going to be sending POST request to JeremyGamer13s dumb and insecure API!!1!1!!")
-                    const requestOptions = {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            key: api_key,
-                            code: modifiedJScontent,
-                            update: "1"
-                        })
-                    };
-                    try {
-                        if (api_key == null) {
-                            swal.fire(
-                                "Cool! However..",
-                                `The bot would have been sent,<br><aew3f2 style="color:#188DC8">but the server S4D is currently running on does not have an API key present.</aew3f2><br><br><p>Using Netlify? <a href="https://scratch-for-discord-469.vercel.app/">Click here to go to Vercel!</a></p><!--<br><h6 style="color:#188DC8">This menu popped up because the API key is not present.</h6>-->`,
-                                "info"
-                            )
-                            console.log("epic server: POST request pretended to be sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
-                            console.log("barry: technically done")
-                            console.log("johnathan: nice, now lets get back to work")
+                    // try {
+                    //     if (api_key == null) {
+                    //         swal.fire(
+                    //             "Cool! However..",
+                    //             `The bot would have been sent,<br><aew3f2 style="color:#188DC8">but the server S4D is currently running on does not have an API key present.</aew3f2><br><br><p>Using Netlify? <a href="https://scratch-for-discord-469.vercel.app/">Click here to go to Vercel!</a></p><!--<br><h6 style="color:#188DC8">This menu popped up because the API key is not present.</h6>-->`,
+                    //             "info"
+                    //         )
+                    //         console.log("epic server: POST request pretended to be sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
+                    //         console.log("barry: technically done")
+                    //         console.log("johnathan: nice, now lets get back to work")
 
-                            console.log("Code that would have been sent:")
-                            console.log(modifiedJScontent)
-                            return;
-                        }
-                        fetch('https://469runtest.jeremygamer13.repl.co/?imbored=true', requestOptions)
-                        // fetch('https://469runtest.jeremygamer13.repl.co/?imbored=true')
-                        .then(async (response) => {
-                            console.log(response)
-                            console.log("S4D sent a request, the response status code is", response.status)
-                            if ((response.status >= 300) && (response.status < 400)) {
-                                console.log("epic server: oopsie poopsie something happen")
-                                console.log("barry: idk something happen")
-                                console.log("johnathan: thats not good but we cant do much")
-                                console.log("barry: true :(")
-                                swal.fire(
-                                    "Uhh..",
-                                    `Something may have gone wrong with the request. The server responded with status code ${String(response.status)}. You could check if your bot went online? You can also try to refresh.`,
-                                    "warning"
-                                )
-                            } else if (response.status >= 400) {
-                                console.log("epic server: broken")
-                                console.log("barry: bruh it broken")
-                                console.log("johnathan: :(")
-                                console.log("barry: :(")
-                                let morestuffIDK = response
-                                response.text().then((repons) => {
-                                    swal.fire(
-                                        "Whoops!",
-                                        `Something went wrong with the request. The server responded with status code <b>${String(morestuffIDK.status)}</b>. You may need to refresh the page or try again later as the server could be down.<br><br>Server Response:<br><code>${repons}</code>`,
-                                        "error"
-                                    )
-                                })
-                            } else {
-                                console.log("epic server: POST request sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
-                                console.log("barry: done")
-                                console.log("johnathan: nice, now lets get back to work")
-                                swal.fire(
-                                    "Nice!",
-                                    `Your bot should go online soon.`,
-                                    "success"
-                                )
-                            }
-                        })
+                    //         console.log("Code that would have been sent:")
+                    //         console.log(modifiedJScontent)
+                    //         return;
+                    //     }
+                    // }
+                    // catch (err)
+                    // {
+                    //     console.log("*zapping sounds come from epic server*")
+                    //     console.log("epic server: FUCK AHJGJEUYGE*&TIUG#*&IUKJNGUYEFJE(O")
+                    //     console.log("barry: epic server what happened?")
+                    //     console.log(`epic server: ${err}`)
+                    //     console.log("johnathan: damn we gotta get back to work barry")
+                    //     console.log("barry: sorry epic server but we gotta go for now")
+                    // }
+                    if(!connection) return swal.fire('Aww sorry mate! Socket is not connected to Jeremy\'s server')
+                    try {
+                        socket.emit('run', modifiedJScontent)
+                    } catch (error) {
+                        swal.fire('There was an error ...')
                     }
-                    catch (err)
-                    {
-                        swal.fire(
-                            "An error occurred!",
-                            String(err),
-                            "error"
-                        )
-                        console.log("*zapping sounds come from epic server*")
-                        console.log("epic server: FUCK AHJGJEUYGE*&TIUG#*&IUKJNGUYEFJE(O")
-                        console.log("barry: epic server what happened?")
-                        console.log(`epic server: ${err}`)
-                        console.log("johnathan: damn we gotta get back to work barry")
-                        console.log("barry: sorry epic server but we gotta go for now")
-                    }
-                    // .then(response => response.json())
-                    // .then(data => element.innerHTML = data.id );
-                    
                 }
             })
         },

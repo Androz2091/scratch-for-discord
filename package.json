@@ -36,6 +36,7 @@
     "promises": "^0.2.5",
     "sass-loader": "^10",
     "save-svg-as-png": "^1.4.17",
+    "socket.io-client": "^4.5.1",
     "sweetalert2": "^10.16.9",
     "vm2": "^3.9.3",
     "vue": "^2.6.11",
