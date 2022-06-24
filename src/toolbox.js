@@ -3468,6 +3468,7 @@ export default (Blockly, value, searching) => {
                         <block type="jg_jimp_getpixel"/>
                     <!--</category>-->
                 </category>
+                <!--
                 <category name="Video" colour="#fa7000">
                     <label text="Warning!"></label>
                     <label text="Repl.it currently doesn't support FFMPEG, which video blocks need!"></label>
@@ -3481,6 +3482,7 @@ export default (Blockly, value, searching) => {
                         </value>
                     </block>
                 </category>
+                -->
             </category>
             <category name="Databases" colour = "#2AC395">
 
