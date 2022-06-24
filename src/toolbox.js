@@ -2321,9 +2321,11 @@ export default (Blockly, value, searching) => {
                 <block type="on_channelTopicChange"/>
                 <block type="s4d_channel_raw"/>
                 <block type="topic"/>
+                <!--
                 <block type="on_channelPermissionsChange"/>
                 <block type="s4d_channel_raw"/>
                 <block type="permissions"/>
+                -->
             </category>
 
             <category name ="Scheduled events" colour="#AF88E2">
