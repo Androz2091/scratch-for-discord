@@ -146,6 +146,7 @@ export default {
                         swal.fire("Sorry, but Retro and Jose music blocks do not work together.")
                         return;
                     }
+                    /*
                     if (String(javascriptContent).includes("let serverjs = ")) {
                         zip.file("server.js", `
 const express = require('express');
@@ -193,13 +194,14 @@ require("./bot")
 }
 load()`);
                     }
-                    zip.file("bot.js", javascriptContent);
-                    zip.file(".replit", 'run = "npm start"');
-                  zip.file("database.json", "{}");
+                    */
+                    zip.file("index.js", javascriptContent);
+                    // zip.file(".replit", 'run = "npm start"');
+                    // zip.file("database.json", "{}");
                     zip.file("package.json", `{\n
                         "name": "scratch-for-discord-bot",\n
                         "version": "1.0.0",\n
-                        "main": "boot.js",\n
+                        "main": "index.js",\n
                         "scripts": {\n
                             "start": "npm i && node .",\n
                             "node-update": "npm i --save-dev node@17 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",\n
@@ -302,26 +304,26 @@ load()`);
                         const wrapper = document.createElement('div');
                         wrapper.innerHTML = `<h6>Explanations:</h6>
             <ul>
-                <li style='text-align:left'>"bot.js" contains your bot's code. <p style="color:#9f54bf">Simple Host also requires this file only when hosting.</p></li>
+                <li style='text-align:left'>"index.js" contains your bot's code. <p style="color:#9f54bf">Simple Host also requires this file only when hosting.</p></li>
                 <li style='text-align:left'>"package.json" contains all of the packages needed for hosting on your computer.</li>
                 <li style='text-align:left'>"blocks.xml" contains all of your blocks used to create your bot.</li>
-                <li style='text-align:left'>".replit" allows the bot to start with a certain command. Not required if the bot file is named "index.js".</li>
+                <!--<li style='text-align:left'>".replit" allows the bot to start with a certain command. Not required if the bot file is named "index.js".</li>
                 <li style='text-align:left'>"database.json" is an empty database ready for you to fill.</li>
-                <li style='text-align:left'>"boot.js" literally just runs the bot.js file.</li>
+                <li style='text-align:left'>"boot.js" literally just runs the bot.js file.</li>-->
             </ul>
             
   <input type="checkbox" id="file1" checked="checked">
-  <label for="file1"> bot.js </label>
+  <label for="file1"> index.js </label>
   <input type="checkbox" id="file2">
   <label for="file2"> package.json </label>
   <input type="checkbox" id="file3">
-  <label for="file3"> blocks.xml</label><br>
+  <label for="file3"> blocks.xml</label><br><!--
   <input type="checkbox" id="file4">
   <label for="file4"> .replit </label>
   <input type="checkbox" id="file5">
   <label for="file5"> database.json </label>
   <input type="checkbox" id="file6">
-  <label for="file6"> boot.js</label><!--<br><br>
+  <label for="file6"> boot.js</label> <br><br>
   <input type="checkbox" id="ZIP">
   <label for="ZIP"> ZIP Files</label>-->`;
                         //     zip.file(".replit", 'run = "npm start"');
@@ -346,17 +348,17 @@ load()`);
                                 var file1 = document.getElementById('file1').checked
                                 var file2 = document.getElementById('file2').checked
                                 var file3 = document.getElementById('file3').checked
-                                var file4 = document.getElementById('file4').checked
-                                var file5 = document.getElementById('file5').checked
-                                var file6 = document.getElementById('file6').checked
+                                //var file4 = document.getElementById('file4').checked
+                                // var file5 = document.getElementById('file5').checked
+                                // var file6 = document.getElementById('file6').checked
                                 //var zip = document.getElementById('ZIP').checked
 
                                 console.log(file1)
                                 console.log(file2)
                                 console.log(file3)
-                                console.log(file4)
-                                console.log(file5)
-                                console.log(file6)
+                                // console.log(file4)
+                                // console.log(file5)
+                                // console.log(file6)
                                 //console.log(zip)
                                 if (file1) {
                                     console.log("barry: hey can you go grab their code")
@@ -368,7 +370,7 @@ load()`);
                                     document.body.appendChild(a);
                                     const url = window.URL.createObjectURL(blob);
                                     a.href = url;
-                                    a.download = "bot.js";
+                                    a.download = "index.js";
                                     a.click();
                                     window.URL.revokeObjectURL(url);
                                     document.body.removeChild(a);
@@ -387,7 +389,7 @@ load()`);
                                     const javascriptContent = `{\n
                         "name": "scratch-for-discord-bot",\n
                         "version": "1.0.0",\n
-                        "main": "boot.js",\n
+                        "main": "index.js",\n
                         "scripts": {\n
                             "start": "npm i && node .",\n
                             "node-update": "npm i --save-dev node@17 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",\n
@@ -431,7 +433,7 @@ load()`);
                                     document.body.removeChild(a);
                                     console.log("barry: finished")
 
-                                }
+                                }/*
                                 if (file4) {
                                     console.log("barry: lemme just type in a couple things real quick")
                                     console.log("johnathan: ok")
@@ -495,7 +497,7 @@ load()`])
                                     document.body.removeChild(a);
                                     console.log("barry: thanks")
 
-                                }
+                                }*/
                                 console.log("barry: welp guess we are done")
                                 console.log("johnathan: lets get back to work, shall we?")
                             }
