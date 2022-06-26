@@ -2861,6 +2861,7 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
             <block type="fz_role_info_text"/>
             <block type="fz_role_info_num"/>
+            <block type="monaco_random_role"/>
 			<block type="fz_role_info_bool"/>
             <block type="fz_role_info_color"/>
             <block type="s4d_add_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
