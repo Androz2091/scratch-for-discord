@@ -8,9 +8,9 @@ const blockData = {
         {
             "type": "input_value",
             "name": "REGEX",
-            "check":  ["Number","String"]
+            "check": ["Number", "String"]
         },
-       
+
     ],
     "output": "regex",
     "colour": "#5ba58b",
@@ -19,13 +19,13 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const regex = Blockly.JavaScript.valueToCode(block, "REGEX", Blockly.JavaScript.ORDER_ATOMIC);
-    let code = `new Regex(${regex})`
+    let code = [`new Regex(${regex})`, Blockly.JavaScript.ORDER_NONE];
     return code
 };

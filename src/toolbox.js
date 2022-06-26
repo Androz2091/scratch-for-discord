@@ -698,182 +698,11 @@ export default (Blockly, value, searching) => {
             <block type="frost_current"/>
             <block type="frost_json_to_string"/>
             <block type="anti_link"/>
+            <block type="create_qr_then"/>
+            <block type="qr"/>
         </category>
        
 	  
-                <sep class="bt"/>
-				
-			<category name="Member's Blocks" expanded="true">
-            <!--
-            <category name="LaserCat" colour="#3599b9">
-                <category name="Switch" colour="#8B48A3">
-                <block type="s4d_lasercat_switch_switch"></block>
-                <block type="s4d_lasercat_switch_case"></block>
-                <block type="s4d_lasercat_switch_default"></block>
-                <block type="s4d_lasercat_switch_break"></block>
-                </category>
-            </category>
-            -->
-            <!--
-			<category name="Eruption" colour="#ff4000">
-				<category name="Embed" colour="#40BF4A">
-                
-                <label text="Create a perfect embed" web-class="boldtext"></label>
-                <block type="s4d_embed_create"></block>
-                <block type="s4d_embed_set_color"></block>
-                <block type="s4d_embed_set_author"></block>
-                <block type="s4d_embed_set_title"></block>
-                <block type="s4d_embed_set_desc"></block>
-                <block type="s4d_embed_set_thumb"></block>
-                <block type="s4d_embed_add_field"></block>
-                <block type="s4d_embed_set_image"></block>
-                <block type="s4d_embed_set_footer"></block>
-                <label text="Custom date format: MM-DD-YYYY" web-class="boldtext"></label>
-                <block type="s4d_embed_set_timestamp"></block>
-                <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
-                <block type="s4d_embed_send"></block>
-            </category>
-			</category>-->
-				<category name="ahq" colour="#ff0000" disabled="true">
-        <!--
-
-
-        <label text="AHQ's Simple Host Auth has been moved to Applications category!" web-class="boldtext"></label>
-        <label text="Other" web-class="boldtext"></label>
-        <block type="ahq_value_snd"/>
-        <category name="member" colour="#006600">
-        <label text="Fetch members of a server" web-class="boldtext"></label>
-        <block type="s4d_get_rndm"/>
-        <label text="Get random member" web-class="boldtext"></label>
-        <block type="s4d_get_rndmber"/>
-        </category>
-        -->
-
-<!--
-    <category name="embed" colour="#993399">
-        <block type="make_ahq_embed"/>
-
-        <label text="Embed Send" web-class="boldtext"></label>
-
-        <block type="send_ahq_embed"/>
-
-        <label text="Embed Creator" web-class="boldtext"></label>
-        
-        <block type="title_ahq_embed"/>
-        <block type="url_ahq_embed"/>
-        <block type="author_ahq_embed"/>
-        <block type="color_ahq_embed"/>
-        <block type="des_ahq_embed"/>
-        <block type="fld_ahq_embed"/>
-        <block type="image_ahq_embed"/>
-        <block type="thmb_ahq_embed"/>
-        <block type="footer_ahq_embed"/>
-        <block type="stamp_ahq_embed"/>
-    </category>
--->
-
-        <!--<category name="interaction" colour="#ff0019">-->
-        <!--<category name="button" colour="#ff0019">-->
-        <label text="Buttons" web-class="boldtext"></label>
-        <label text="Event" web-class="boldtext"></label>
-        <block type="on_real_button"/>
-        <label text="Button Information" web-class="boldtext"></label>
-        <block type="id_btn_srv"/>
-        <block type="id_btn_ch"/>
-        <block type="id_btn_clkr"/>
-        <block type="id_btn_ahq"/>
-        <label text="Embed Information" web-class="boldtext"></label>
-        <block type="embed_btn_ahq"/>
-        <block type="embed_send_round">
-        <value name="Label">
-            <shadow type="text">
-                <field name="TEXT"></field>
-            </shadow>
-        </value>
-        </block>
-        <label text="Button Actions" web-class="boldtext"></label>
-        <block type="updte_ahq_button"/>
-        <block type="rply_ahq_button"/>
-        <label text="Send button" web-class="boldtext"></label>
-        <block type="snd_ahq_button"/>
-        <label text="Button Creation Stuff" web-class="boldtext"></label>
-        <block type="make_ahq_button"/>
-        <block type="style_ahq_button"/>
-        <block type="label_ahq_button"/>
-        <block type="emoji_ahq_button"/>
-        <block type="url_ahq_button"/>
-        <block type="d_ahq_button"/>
-        <!--
-        </category>
-
-
-
-
-
-        <category name="forms" colour="#66ffff">
-        -->
-        <label text="⠀" web-class="boldtext"></label>
-        <label text="⠀" web-class="boldtext"></label>
-        <label text="Forms" web-class="boldtext"></label>
-        <block type="on_real_form"/>
-        <!--
-            <block type="ahq_ahq_modal"/>
-        -->
-        <block type="embed_send_round">
-        <value name="Label">
-            <shadow type="text">
-                <field name="TEXT"></field>
-            </shadow>
-        </value>
-        </block>
-        <block type="ahq_ahq_ahq_modal"/>
-        <block type="ahqq_ahq_modal"/>
-        <label text="Form Info" web-class="boldtext"></label>
-        <block type="id_form_ahq"/>
-        <block type="id_textbox_ahq"/>
-        <block type="clkr_form_ahq"/>
-        <block type="channel_form_ahq"/>
-        <block type="server_form_ahq"/>
-        <block type="reply_ahq_modal_text"/>
-        <block type="something_modal"/>
-        <label text="Make Forms" web-class="boldtext"></label>
-        <block type="make_ahq_modal"/>
-        <block type="make_ahq_modal_text"/>
-        <block type="style_ahq_modal"/>
-        <label text="Send Forms" web-class="boldtext"></label>
-        <block type="snd_ahq_modal"/>
-        <!--</category>-->
-
-        <!--
-
-        <category name="cmd register" colour="#6600cc">
-        <label text="Create a slash command" web-class="boldtext"></label>
-        <block type="s4d_reg_slash"/>
-        <block type="s4d_reg_slash_options"/>
-        <block type="s4d_reg_new_options"/>
-        </category>
-
-        <category name="profanity" colour="#ff0000">
-        <block type="ahq_bdwrd"/>
-        <block type="ahq_bdwrd_cn"/>
-        </category>
-        
-        -->
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--
             <category name="V2 Embeds" colour="#cc60db">
                 <block type="lime_s4d_embed_create"/>
@@ -899,30 +728,12 @@ export default (Blockly, value, searching) => {
                     </value>
                 </block>
             </category>
--->
-
-
-
-
-
-
-
-<!--
-
-
         <category name="chatbot" colour="#ff0000">
         <block type="chat_ahq"/>
         </category>
-
-
-
         <category name="mod" colour="#ff0880">
         <block type="ahq-mod"/>
         </category>
-
--->
-
-       <!--
         <category name="Voice" colour="#000099">
         <block type="voice_event"/>
         <block type="voice_switch"/>
@@ -933,8 +744,8 @@ export default (Blockly, value, searching) => {
         <block type="disconnect_voice"/>
         <block type="act_voice"/>
         </category>
-        -->
         </category>
+        -->
 
         <!--<category name="henpokpok" colour="#64C9FF">
           <category name="Timeout" colour="#FF6464">-->
@@ -1094,72 +905,9 @@ export default (Blockly, value, searching) => {
 </category>
 </category>-->
 
-<category name="Retro and cat soup" colour="#AAE941">
-<category name="QR Code" colour="#5ba58b">
-    <block type="create_qr_then"/>
-    <block type="qr"/>
-</category>
-<category name="temp channels" colour="#5ba58b">
-    <block type="s4d_temp_register"/>
-    <block type="temp_member_name"/>
-    <block type="s4d_temp_unregister"/>
-</category>
-<category name="Weky" colour="#5ba58b">
-    <block type="snake_js"/>
-    <block type="s4d_cal"/>
-</category>
-	<category name="Games" colour="#5ba58b">
-  <label text="Akinator gamemodes: character, animal, object" web-class="boldtext"></label>
-	 				<block type="Akinator">
-           <value name="MESSAGE">
-           <shadow type="aki_gametype">
-           </shadow>
-           </value>
-           </block>
-					<block type="s4d_snake"/>
-					</category>
+	            
 					  
-					  <category name="Pc/Server Stats" colour="#a5745b">
-					  <block type="ps_os_stats"/>
-					  <block type="get_cpu_uptime"/>
-					  <block type="cpu"/>
-					    
-					    </category>
-					    <category name="Music [retro]" colour="#a5745b">
-					    <label text="Create a perfect music player" web-class="boldtext"></label>
-        <label text="Made with discord-music-player DMP" web-class="boldtext"></label>
-        <label text="WARNING DON'T USE WITH JOSE MUSIC BLOCKS" web-class="boldtext"></label>
-	<label text="Events :D" web-class="boldtext"></label>
-        <block type="first_track"/>
-        <block type="track_start"/>
-        <block type="empty"/>
-        <block type="kicked"/>
-        <block type="queue_error"/>
-        <block type="track_added"/>
-        <label text="Blocks :D" web-class="boldtext"></label>
-        <block type="discord_connect"/>
-        <block type="better_stop"/>
-        <block type="better_play"/>
-        <block type="better_pause"/>
-        <block type="better_resume"/>
-        <block type="better_shuffle"/>
-        <block type="better_skip"/>
-        <block type="better_loop_song"/>
-        <block type="better_loop_queue"/>
-        <block type="loop_stop"/>
-	<block type="better_volume"/>
-        <label text="Queue info :D" web-class="boldtext"></label>
-        <block type="better_song_thumbnail"/>
-        <block type="new_track_name"/>
-        <block type="added_song_name"/>
-        <block type="better_track_url"/>
-        <block type="retro_track_channel"/>
-        <block type="better_duration"/>
-	<block type="better_voice_channel"/>
-	<block type="better_vcid"/>
-        <block type="better_botvcid"/>
-	<block type="song-first"/>
-					    </category>
+		
 <!--
 <category name="Ticketing System" colour="#5b80a5">
 	<label text="You can also type local" web-class="boldtext"></label>
@@ -1177,11 +925,6 @@ export default (Blockly, value, searching) => {
 <block type="slash_message_channel"/>
         </category>
 -->
-	<category name="lyric finder" colour="#5ba58b">
-	 	<block type="find_lyric_than"/>
-		<block type="lyric"/>
-	</category>
-</category>
 
 <!--<category name="JeremyGamer13" colour="#FFAA00">-->
 <!--
@@ -1351,360 +1094,6 @@ export default (Blockly, value, searching) => {
 
         <!--</category>-->
         
-				<category name="{{ JOSE }}" colour="#00664d">
-            <label text="Note!"></label>
-            <label text="Some blocks here are outdated and have yet to be updated."></label>
-<category name = "embeds pagination" colour="#ed5a5a">
-                    <block type="pagination_embed"/>
-                    <block type="start_pagination"/>
-                </category>
-                <category name = "captcha" colour="#ed8b5a">
-                    <block type="create_captcha"/>
-                    <block type="captcha_image"/>
-                    <block type="captcha_value"/>
-                    <block type="send_captcha"/>
-                </category>
-                <!--
-                <category name = "progess bar" colour = "#edbc5a">
-                    <block type="filled_bar"/>
-                    <block type="split_bar"/>
-                </category>
-                <category name="firebase" colour="#eded5a">
-                    <block type="start_db"/>
-                </category> 
-                <category name="voice channel" colour="#bced5a">
-                    <block type="mute_member"/>
-                    <block type="unmute_member"/>
-                    <block type="deaf_member"/>
-                    <block type="undeaf_member"/>
-                    <block type="move_member"/>
-                </category>
-                -->
-                <category name="date" colour="#edbc5a">
-                    <block type="s4d_current"></block>
-                    <block type="unix_to_date"/>
-                    <block type="date_to_unix"/>
-                    <block type="get_in_date"/>
-		    
-                </category>
-                <category name="RegEx" colour="#5aed5a">
-                    <block type="new_regex"/>
-                    <block type="test_regex"/>
-                </category>
-                <category name="discord together" colour="#5aedbc">
-                    <block type="create_together"/>
-                    <block type="invite_code"/>
-		    <block type="vc_channel"/>
-                </category>
-                <!--
-                <category name="cooldown" colour="#5aeded">
-                    <block type="set_member_cooldown"/>
-                    <block type="delete_member_cooldown"/>
-                    <block type="is_member_on_cooldown"/>
-                </category>
-                -->
-                <category name="invite tracker" colour="#5abced">
-                        <!--
-                    <category name="joined" colour="#2873eb">
-                    -->
-            <label text="On member joined"></label>
-                        <block type="userinvited"/>
-                        <block type="Member"/>
-                        <block type="InviteMember"/>
-                        <block type="Server"/>
-                        <block type="Amount"/>
-                        <!--
-                    </category>
-                    <category name="leave" colour="#0d5ede">
-                    -->
-            <label text="On member leaved"></label>
-                        <block type="UserLeave"/>
-                        <block type="Member"/>
-                        <block type="InviteMember"/>
-                        <block type="Server"/>
-                        <block type="Amount"/>
-                        <!--
-                    </category>
-                    <category name="others" colour="#05409e">
-                    -->
-                        <block type="get_member_invites"/>
-                        <!--
-                    </category>
-                    -->
-                </category>
-                <category name="image generation" colour="#5a8bed">
-                    <block type="1imagepng">
-                    <mutation divisor_input="true"></mutation>
-                    </block>
-                    <block type="1imagegif"/>
-                    <block type="2imagepng"/>
-                    <block type="load_gif"/>
-                    <block type="load_image"/>
-                    <block type="send_on_channel"/>
-                    <block type="jose_send_image_slash"/>
-                </category>
-                <!--
-                <category name="YoutubeNotifier" colour="#8b5aed">
-                    <block type="video_raw"/>
-                    <block type="on_newvideo"/>
-                    <block type="add_channel"/>
-                </category>
-                -->
-                <category name="{{ DISCORDBACKUP }}" colour="#bc5aed">
-                    <block type="s4d_create_backup_of_guild_then"/>
-                    <block type="s4d_backup_load"/>
-                    <block type="s4d_delete_backup"/>
-                    <block type="s4d_backup_id"/>
-                </category>
-                <category name="{{ DISCORDGIVEAWAYS }}" colour="#ed5aed">
-                    <block type="s4d_create_giveaway"/> 
-                    <block type="s4d_giveaway_id"/>
-                    <block type="s4d_dd_giveaway"/>
-                    <block type="s4d_giveaway_data"/><!--
-                    <block type="s4d_delete_giveaway"/>
-                    <block type="s4d_end_giveaway"/>
-                    <block type="s4d_pause_giveaway"/>
-                    <block type="s4d_unpause_giveaway"/>
-                    -->
-                </category>
-				<category name="{{ DISCORDCANVAS }}" colour="#ed5abc">
-					<!--<category name="{{ WELCOME }}" colour="#e83aa5">-->
-                        <label text="Send any created card"></label>
-						<block type="s4d_send_in_channel"/>
-                        <label text="Welcome card"></label>
-						<block type="s4d_create_welcome_then"/>
-						<block type="s4d_set_username"/>
-						<block type="s4d_set_member_count"/>
-						<block type="s4d_set_discriminator"/>
-						<block type="s4d_set_background"/>
-						<block type="s4d_set_avatar"/>
-						<block type="s4d_set_guild_name"/>
-						<block type="s4d_set_color"/>
-					<!--</category>
-					<category name="{{ GOODBYE }}" colour="#c42186">-->
-                        <label text="Goodbye card"></label>
-						<block type="s4d_create_goodbye_then"/>
-						<block type="s4d_set_username"/>
-						<block type="s4d_set_member_count"/>
-						<block type="s4d_set_discriminator"/>
-						<block type="s4d_set_background"/>
-						<block type="s4d_set_avatar"/>
-						<block type="s4d_set_guild_name"/>
-						<block type="s4d_set_color"/>
-					<!--</category>
-					<category name="{{ RANKCARD }}" colour="#820954">-->
-                        <label text="Rank card"></label>
-						<block type="s4d_create_rankcard_then"/>
-						<block type="s4d_set_badge"/>
-						<block type="s4d_set_xp"/>
-						<block type="s4d_set_username"/>
-						<block type="s4d_set_background"/>
-						<block type="s4d_set_avatar"/>
-						<block type="s4d_set_rank_name"/>
-						<block type="s4d_set_rank"/>
-						<block type="s4d_set_level"/>
-						<block type="s4d_set_reputation"/>
-						<block type="s4d_set_color_r"/>
-						<label text="%{BKY_TEXT1}"/>
-						<label text="%{BKY_TEXT2}"/>
-						<label text="%{BKY_TEXT3}"/>
-						<label text="%{BKY_TEXT4}"/>
-						<block type="s4d_set_text"/>
-						<block type="s4d_set_transparency"/>
-						<block type="s4d_set_radius"/>
-						<block type="s4d_set_addon"/>
-					<!--</category>-->
-				</category>
-				<!--<category name="{{ TOOLBOX_JSONREQUEST }}" colour="#ed5a8b">
-					<block type="s4d_http_get_then"/>
-					<block type="s4d_get_string_of_data"/>
-				</category>
-				        <category name="{{ EMBED }}" colour="#ed5a5a">
-        <label text="Create A Perfect Embed" web-class="boldtext"></label>
-            <block type="s4d_create_embed_then"></block>
-            <label text="%{BKY_COLOR_MESSAGE}"></label>
-            <block type="s4d_create_embed_then_set_color"></block>
-            <block type="s4d_create_embed_then_set_author"></block>
-            <block type="s4d_create_embed_then_set_title"></block>
-            <block type="s4d_create_embed_then_add_link"></block>            
-            <block type="s4d_create_embed_then_set_thumbnail"></block>
-            <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
-            <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
-            <block type="s4d_create_embed_then_set_description"></block>
-            <block type="s4d_create_embed_then_add_field"></block>
-            <block type="s4d_create_embed_then_set_image"></block>
-            <block type="s4d_create_embed_then_set_footer"></block> 
-            <label text="%{BKY_SEND_EMBED}"></label>
-            <block type="s4d_create_embed_then_send"></block>
-            <block type="frost_send_embed_rr"/>
-    </category>-->
-					        
-        <category name="{{ TOOLBOX_BUTTON }}" colour="#a1a122">
-            <label text="%{BKY_BUTTON_EVENT}"></label>
-            <block type="s4d_on_click"></block>
-            <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
-            <block type="s4d_button_click_id"></block>
-            <block type="jose_jg_buttons_s4d_button_message"></block>
-            <block type="s4d_button_think"></block>
-            <block type="s4d_button_reply"></block>
-            <block type="s4d_button_edit"></block>
-            <block type="s4d_button_delete_reply"></block>
-            <block type="s4d_update"></block>
-            <label text="%{BKY_BUTTON_BLOCKS}"></label>
-            <block type="s4d_send_button"></block>
-            <block type="s4d_button_style"></block>
-            <block type="s4d_button_row"></block>
-            <block type="s4d_message_row_block"></block>
-        </category>
-      
-        <category name="{{ TOOLBOX_MENU }}" colour="#77a122">
-            <label text="%{BKY_BUTTON_EVENT}"></label>
-            <block type="s4d_on_menu_click"></block>
-            <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
-            <block type="s4d_menu_value"></block>
-            <block type="s4d_menu_click_id"></block>
-            <block type="s4d_menu_reply"></block>
-            <block type="s4d_button_think"></block>
-            <block type="s4d_button_edit"></block>
-            <block type="s4d_button_delete_reply"></block>
-	    <block type="s4d_send_button"></block>
-            <block type="s4d_update"></block>
-            <label text="%{BKY_BUTTON_BLOCKS}"></label>
-            <block type="s4d_button_menu"></block>
-            <block type="s4d_message_menu_block"></block>
-        </category>
-        <category name="{{ TOOLBOX_MUSIC }}" colour="#22a122">
-            <label text="%{BKY_MUSIC_EVENT}"></label>
-            <block type="s4d_track_playing"></block>
-            <block type="s4d_track_added"></block>
-            <block type="s4d_queue_finished"></block>
-            <label text="%{BKY_MUSIC_INFO}"></label>
-            <block type="s4d_track_name"></block>
-            <block type="s4d_track_channel"></block>
-            <block type="s4d_track_url"></block>
-            <block type="s4d_track_author"></block>
-            <block type="s4d_track_thumbnail"></block>
-            <block type="s4d_track_views"></block>
-            <block type="s4d_track_duration"></block>
-            <label text="%{BKY_MUSIC_BLOCKS}"></label>
-            <block type="s4d_bot_voice_channel"></block>
-            <block type="s4d_voice_channel"></block>
-            <block type="s4d_voice_channel_id"></block>
-            <block type="s4d_get_queue"></block>
-            <block type="s4d_playing"></block>
-            <block type="s4d_current_track"></block>
-            <block type="s4d_connected"></block>
-            <block type="s4d_search"></block>
-            <block type="s4d_loop"></block>
-            <block type="s4d_volume"></block>
-            <block type="s4d_back"></block>
-            <block type="s4d_resume"></block>
-            <block type="s4d_pause"></block>
-            <block type="s4d_stop"></block>
-            <block type="s4d_skip"></block>
-            <block type="s4d_play"></block>
-            <block type="s4d_create_queue"></block>
-            <block type="s4d_connect"></block>
-        </category>
-				</category>
-				<category name="{{ MRREDO }}" colour="#FF0000">
-                <!--
-        <category name="Event" colour="#00b3ff">
-        
-        </category>
-        -->
-
-	    <!--<category name="register" colour="#65700c">
-        </category>
-        <category name="slash" colour="#ff2f00">
-        <label text="%{BKY_T_RS}"></label>
-        <block type="on_slash"></block>
-        <block type="interaction_name"></block>
-        <block type="options">
-        <mutation mode="string"></mutation></block>
-        <block type="interaction_author"></block>
-        <block type="parham_slash_interactionmember"></block>
-        <block type="interaction_channel"></block>
-        <block type="interaction_guild"></block>
-        <block type="interaction_voice_channel"></block>
-        <block type="interaction_voice_channel_id"></block>
-        <block type="bot_voice_channel_id"></block>
-        <block type="slash_reply"></block>
-        <block type="slash_edit"></block>
-        <label text="Send an embed in slash"></label>
-        <label text="(for named embeds, the name has to be just called embed)"></label>
-        <block type="send_m_embed_string"></block>
-        <label text="ㅤ"></label>
-        </category>
-        -->
-		<!--<category name="context menu" colour="#f0f255">-->
-        <!--</category>-->
-				<!--<category name="interaction" colour="#ff0019">-->
-        <label text="Buttons" web-class="boldtext"></label>
-        <label text="%{BKY_T_EDI}"></label>
-        <block type="on_button"></block>
-        <label text="%{BKY_T_BS}"></label>
-        <block type="button_id"></block>
-        <block type="button_author"></block>
-        <block type="button_channel"></block>
-        <block type="button_guild"></block>
-        <block type="b_style"></block>
-        <label text="Reply and edit and send embed"></label>
-        <block type="b_send_msg"></block>
-        <block type="button_reply"></block>
-        <block type="button_edit"></block>
-        <block type="send_m_embed_string"></block>
-        <label text="%{BKY_T_CB}"></label>
-        <block type="b_create">
-                    <value name="B_NAME">
-                        <shadow type="text">
-                            <field name="TEXT">button_name</field>
-                        </shadow>
-                    </value>
-                </block>
-        <label text="%{BKY_T_BR}"></label>
-        <block type="b_row">
-                    <value name="BUTTON_NAME">
-                        <shadow type="text">
-                            <field name="TEXT">name</field>
-                        </shadow>
-                    </value>
-                </block>
-        <block type="b_row_comp">
-                <value name="BUTTON">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-            </block>
-
-
-
-        <label text="Context menus" web-class="boldtext"></label>
-        <label text="Register context menu" web-class="boldtext"></label>
-        <block type="register_c_m"></block>
-	    <block type="register_c_m_g"></block>
-        <label text="Event" web-class="boldtext"></label>
-        <block type="on_menu"></block>
-        <label text="Stuff" web-class="boldtext"></label>
-        <block type="m_name"></block>
-        <block type="m_member"></block>
-        <block type="m_channel"></block>
-        <block type="m_guild"></block>
-        <block type="c_options"></block>
-        <label text="Reply and Edit" web-class="boldtext"></label>
-        <block type="m_reply"></block>
-        <block type="m_edit"></block>
-        <label text="send embed" web-class="boldtext"></label>
-        <block type="send_m_embed_string"></block>
-
-
-        <!--</category>-->
-        
-		        
-				
-</category>
-		</category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
         <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
@@ -1750,6 +1139,9 @@ export default (Blockly, value, searching) => {
             <label text="Some more advanced features" web-class="boldtext"></label>
             <block type="jg_when_ran"/>
             <block type="jg_rbs_isRunButton"/>
+            <block type="ps_os_stats"/>
+		    <block type="get_cpu_uptime"/>
+			<block type="cpu"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#4C97FF">
@@ -2552,6 +1944,254 @@ export default (Blockly, value, searching) => {
                 <block type="gsa_add_field"/>
             </category>
         </category>
+        <category name="Interactions" colour="#c847ff">
+            <category name="Buttons" colour="#c847ff">
+                <category name="AHQ" colour="#c847ff">
+                    <label text="Buttons" web-class="boldtext"></label>
+                    <label text="Event" web-class="boldtext"></label>
+                    <block type="on_real_button"/>
+                    <label text="Button Information" web-class="boldtext"></label>
+                    <block type="id_btn_srv"/>
+                    <block type="id_btn_ch"/>
+                    <block type="id_btn_clkr"/>
+                    <block type="id_btn_ahq"/>
+                    <label text="Embed Information" web-class="boldtext"></label>
+                    <block type="embed_btn_ahq"/>
+                    <block type="embed_send_round">
+                        <value name="Label">
+                            <shadow type="text">
+                                <field name="TEXT"></field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <label text="Button Actions" web-class="boldtext"></label>
+                    <block type="updte_ahq_button"/>
+                    <block type="rply_ahq_button"/>
+                    <label text="Send button" web-class="boldtext"></label>
+                    <block type="snd_ahq_button"/>
+                    <label text="Button Creation Stuff" web-class="boldtext"></label>
+                    <block type="make_ahq_button"/>
+                    <block type="style_ahq_button"/>
+                    <block type="label_ahq_button"/>
+                    <block type="emoji_ahq_button"/>
+                    <block type="url_ahq_button"/>
+                    <block type="d_ahq_button"/>
+                    <label text="⠀" web-class="boldtext"></label>
+                </category>
+                <category name="Jose" colour="#c847ff">
+                    <label text="%{BKY_BUTTON_EVENT}"></label>
+                    <block type="s4d_on_click"></block>
+                    <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
+                    <block type="s4d_button_click_id"></block>
+                    <block type="jose_jg_buttons_s4d_button_message"></block>
+                    <block type="s4d_button_think"></block>
+                    <block type="s4d_button_reply"></block>
+                    <block type="s4d_button_edit"></block>
+                    <block type="s4d_button_delete_reply"></block>
+                    <block type="s4d_update"></block>
+                    <label text="%{BKY_BUTTON_BLOCKS}"></label>
+                    <block type="s4d_send_button"></block>
+                    <block type="s4d_button_style"></block>
+                    <block type="s4d_button_row"></block>
+                    <block type="s4d_message_row_block"></block>
+                </category>
+                <category name="MrRedo" colour="#c847ff">
+                    <label text="Buttons" web-class="boldtext"></label>
+                    <label text="%{BKY_T_EDI}"></label>
+                    <block type="on_button"></block>
+                    <label text="%{BKY_T_BS}"></label>
+                    <block type="button_id"></block>
+                    <block type="button_author"></block>
+                    <block type="button_channel"></block>
+                    <block type="button_guild"></block>
+                    <block type="b_style"></block>
+                    <label text="Reply and edit and send embed"></label>
+                    <block type="b_send_msg"></block>
+                    <block type="button_reply"></block>
+                    <block type="button_edit"></block>
+                    <block type="send_m_embed_string"></block>
+                    <label text="%{BKY_T_CB}"></label>
+                    <block type="b_create">
+                        <value name="B_NAME">
+                            <shadow type="text">
+                                <field name="TEXT">button_name</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <label text="%{BKY_T_BR}"></label>
+                    <block type="b_row">
+                        <value name="BUTTON_NAME">
+                            <shadow type="text">
+                                <field name="TEXT">name</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="b_row_comp">
+                        <value name="BUTTON">
+                            <shadow type="text">
+                                <field name="TEXT"></field>
+                            </shadow>
+                        </value>
+                    </block>
+                </category>
+            </category>
+            <category name="Menus" colour="#c847ff">
+                <label text="%{BKY_BUTTON_EVENT}"></label>
+                <block type="s4d_on_menu_click"></block>
+                <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
+                <block type="s4d_menu_value"></block>
+                <block type="s4d_menu_click_id"></block>
+                <block type="s4d_menu_reply"></block>
+                <block type="s4d_button_think"></block>
+                <block type="s4d_button_edit"></block>
+                <block type="s4d_button_delete_reply"></block>
+	            <block type="s4d_send_button"></block>
+                <block type="s4d_update"></block>
+                <label text="%{BKY_BUTTON_BLOCKS}"></label>
+                <block type="s4d_button_menu"></block>
+                <block type="s4d_message_menu_block"></block>
+            </category>
+            <category name="Context Menus" colour="#c847ff">
+                <label text="Context menus" web-class="boldtext"></label>
+                <label text="Register context menu" web-class="boldtext"></label>
+                <block type="register_c_m"></block>
+	            <block type="register_c_m_g"></block>
+                <label text="Event" web-class="boldtext"></label>
+                <block type="on_menu"></block>
+                <label text="Stuff" web-class="boldtext"></label>
+                <block type="m_name"></block>
+                <block type="m_member"></block>
+                <block type="m_channel"></block>
+                <block type="m_guild"></block>
+                <block type="c_options"></block>
+                <label text="Reply and Edit" web-class="boldtext"></label>
+                <block type="m_reply"></block>
+                <block type="m_edit"></block>
+                <label text="send embed" web-class="boldtext"></label>
+                <block type="send_m_embed_string"></block>
+            </category>
+            <category name="Forms" colour="#c847ff">
+                <label text="Forms" web-class="boldtext"></label>
+                <block type="on_real_form"/>
+                <!--
+                    <block type="ahq_ahq_modal"/>
+                -->
+                <block type="embed_send_round">
+                    <value name="Label">
+                        <shadow type="text">
+                            <field name="TEXT"></field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="ahq_ahq_ahq_modal"/>
+                <block type="ahqq_ahq_modal"/>
+                <label text="Form Info" web-class="boldtext"></label>
+                <block type="id_form_ahq"/>
+                <block type="id_textbox_ahq"/>
+                <block type="clkr_form_ahq"/>
+                <block type="channel_form_ahq"/>
+                <block type="server_form_ahq"/>
+                <block type="reply_ahq_modal_text"/>
+                <block type="something_modal"/>
+                <label text="Make Forms" web-class="boldtext"></label>
+                <block type="make_ahq_modal"/>
+                <block type="make_ahq_modal_text"/>
+                <block type="style_ahq_modal"/>
+                <label text="Send Forms" web-class="boldtext"></label>
+                <block type="snd_ahq_modal"/>
+                <label text="⠀" web-class="boldtext"></label>
+            </category>
+            
+        </category>
+        <category name="Utilities" colour="#d557ff">
+            <category name="Server Backups" colour="#d24dff">
+                <block type="s4d_create_backup_of_guild_then"/>
+                <block type="s4d_backup_load"/>
+                <block type="s4d_delete_backup"/>
+                <block type="s4d_backup_id"/>
+            </category>
+            <category name="Giveaways" colour="#d042ff">
+                <block type="s4d_create_giveaway"/> 
+                <block type="s4d_giveaway_id"/>
+                <block type="s4d_dd_giveaway"/>
+                <block type="s4d_giveaway_data"/>
+            </category>
+        </category>
+        <category name="Music" colour="#cd57ff">
+            <category name="Music Lyrics" colour="#c457ff">
+                <label text="Find lyrics for music" web-class="boldtext"></label>
+	 	        <block type="find_lyric_than"/>
+		        <block type="lyric"/>
+            </category>
+            <category name="Music Player" colour="#b957ff">
+			    <label text="Create a perfect music player" web-class="boldtext"></label>
+                <label text="Made with discord-music-player DMP" web-class="boldtext"></label>
+                <label text="WARNING DON'T USE WITH JOSE MUSIC BLOCKS" web-class="boldtext"></label>
+	            <label text="Events :D" web-class="boldtext"></label>
+                <block type="first_track"/>
+                <block type="track_start"/>
+                <block type="empty"/>
+                <block type="kicked"/>
+                <block type="queue_error"/>
+                <block type="track_added"/>
+                <label text="Blocks :D" web-class="boldtext"></label>
+                <block type="discord_connect"/>
+                <block type="better_stop"/>
+                <block type="better_play"/>
+                <block type="better_pause"/>
+                <block type="better_resume"/>
+                <block type="better_shuffle"/>
+                <block type="better_skip"/>
+                <block type="better_loop_song"/>
+                <block type="better_loop_queue"/>
+                <block type="loop_stop"/>
+	            <block type="better_volume"/>
+                <label text="Queue info :D" web-class="boldtext"></label>
+                <block type="better_song_thumbnail"/>
+                <block type="new_track_name"/>
+                <block type="added_song_name"/>
+                <block type="better_track_url"/>
+                <block type="retro_track_channel"/>
+                <block type="better_duration"/>
+	            <block type="better_voice_channel"/>
+	            <block type="better_vcid"/>
+                <block type="better_botvcid"/>
+	            <block type="song-first"/>
+            </category>
+            <category name="Discord Player" colour="#a557ff">
+                <label text="%{BKY_MUSIC_EVENT}"></label>
+                <block type="s4d_track_playing"></block>
+                <block type="s4d_track_added"></block>
+                <block type="s4d_queue_finished"></block>
+                <label text="%{BKY_MUSIC_INFO}"></label>
+                <block type="s4d_track_name"></block>
+                <block type="s4d_track_channel"></block>
+                <block type="s4d_track_url"></block>
+                <block type="s4d_track_author"></block>
+                <block type="s4d_track_thumbnail"></block>
+                <block type="s4d_track_views"></block>
+                <block type="s4d_track_duration"></block>
+                <label text="%{BKY_MUSIC_BLOCKS}"></label>
+                <block type="s4d_bot_voice_channel"></block>
+                <block type="s4d_voice_channel"></block>
+                <block type="s4d_voice_channel_id"></block>
+                <block type="s4d_get_queue"></block>
+                <block type="s4d_playing"></block>
+                <block type="s4d_current_track"></block>
+                <block type="s4d_connected"></block>
+                <block type="s4d_search"></block>
+                <block type="s4d_loop"></block>
+                <block type="s4d_volume"></block>
+                <block type="s4d_back"></block>
+                <block type="s4d_resume"></block>
+                <block type="s4d_pause"></block>
+                <block type="s4d_stop"></block>
+                <block type="s4d_skip"></block>
+                <block type="s4d_play"></block>
+                <block type="s4d_create_queue"></block>
+                <block type="s4d_connect"></block>
+            </category>
+        </category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>
@@ -2821,6 +2461,11 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
 
+            <label text="Discord Voice Activites (aka, Discord Together!)"></label>
+            <block type="create_together"/>
+            <block type="invite_code"/>
+		    <block type="vc_channel"/>
+
             <label text="Create a new perfect event!"/>
             <label text="⚠ ISO 8601 is needed for the dates! You can find it at : unixtimestamp.com"/>
 
@@ -2849,6 +2494,11 @@ export default (Blockly, value, searching) => {
                     </value>
                 </block>
 
+            <label text="Temporary Channels"/>
+                <block type="s4d_temp_register"/>
+                <block type="temp_member_name"/>
+                <block type="s4d_temp_unregister"/>
+
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Roles" colour="#2EB66B">
@@ -2859,10 +2509,12 @@ export default (Blockly, value, searching) => {
             <block type="get_all_roles"/>
             <block type="all_roles"/>
             <block type="hig_role"/>
+            <!--
+            <block type="monaco_random_role"/>
+            -->
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
             <block type="fz_role_info_text"/>
             <block type="fz_role_info_num"/>
-            <block type="monaco_random_role"/>
 			<block type="fz_role_info_bool"/>
             <block type="fz_role_info_color"/>
             <block type="s4d_add_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
@@ -2957,6 +2609,22 @@ export default (Blockly, value, searching) => {
             <block type="fz_unlock_emoji"/>
             <block type="fz_lock_emoji"/>
             <label text="ㅤ" web-class="boldtext"></label>
+        </category>
+        <category name="Invites" colour="#5abced">
+            <label text="On member joined"></label>
+                <block type="userinvited"/>
+                <block type="Member"/>
+                <block type="InviteMember"/>
+                <block type="Server"/>
+                <block type="Amount"/>
+            <label text="On member leaved"></label>
+                <block type="UserLeave"/>
+                <block type="Member"/>
+                <block type="InviteMember"/>
+                <block type="Server"/>
+                <block type="Amount"/>
+            <label text="Extras"></label>
+                <block type="get_member_invites"/>
         </category>
         <sep class="bt"/>
     <category name="Web Requests" colour="#4C97FF">
@@ -3232,6 +2900,17 @@ export default (Blockly, value, searching) => {
             <block type="on_newvideo"/>
             <block type="add_channel"/>
         </category>
+        <category name="Message Games" colour="#5ba58b">
+            <label text="Akinator gamemodes: character, animal, object" web-class="boldtext"></label>
+	 		<block type="Akinator">
+                <value name="MESSAGE">
+                    <shadow type="aki_gametype"/>
+                </value>
+            </block>
+			<block type="s4d_snake"/>
+            <block type="snake_js"/>
+            <block type="s4d_cal"/>
+		</category>
     </category>
     <category name="Securing" colour="#4c61ff">
         <label text="Output blocks" web-class="boldtext"></label>
@@ -3417,7 +3096,8 @@ export default (Blockly, value, searching) => {
                     <!--</category>-->
                 </category>
                 <category name="Images" colour="#fa8100">
-                    <!--<category name="Image Editing" colour="260">-->
+                    <category name="Image Editing" colour="#e67600">
+                        <label text="Creating / Editing an image" web-class="boldtext"></label>
                         <label text="Getting started" web-class="boldtext"></label>
                         <block type="jg_beginJimp"/>
                         <block type="jg_saveJimpageAs"/>
@@ -3468,7 +3148,68 @@ export default (Blockly, value, searching) => {
                         <block type="jg_jimp_kernels"/>
                         <block type="jg_jimp_setpixel"/>
                         <block type="jg_jimp_getpixel"/>
-                    <!--</category>-->
+                    </category>
+                    <category name="Simple Effects" colour="#cf6b00">
+                        <label text="Generating simple effects" web-class="boldtext"></label>
+                        <block type="1imagepng">
+                            <mutation divisor_input="true"/>
+                        </block>
+                        <block type="1imagegif"/>
+                        <block type="2imagepng"/>
+                        <block type="load_gif"/>
+                        <block type="load_image"/>
+                        <block type="send_on_channel"/>
+                        <block type="jose_send_image_slash"/>
+                    </category>
+                    <category name="Captchas" colour="#b85f00">
+                        <label text="Captchas" web-class="boldtext"></label>
+                        <block type="create_captcha"/>
+                        <block type="captcha_image"/>
+                        <block type="captcha_value"/>
+                        <block type="send_captcha"/>
+                    </category>
+                    <category name="Member Cards" colour="#a85700">
+                        <label text="Send any created card"></label>
+					    <block type="s4d_send_in_channel"/>
+                        <label text="Welcome card"></label>
+					    <block type="s4d_create_welcome_then"/>
+					    <block type="s4d_set_username"/>
+					    <block type="s4d_set_member_count"/>
+					    <block type="s4d_set_discriminator"/>
+					    <block type="s4d_set_background"/>
+					    <block type="s4d_set_avatar"/>
+					    <block type="s4d_set_guild_name"/>
+					    <block type="s4d_set_color"/>
+                        <label text="Goodbye card"></label>
+						<block type="s4d_create_goodbye_then"/>
+						<block type="s4d_set_username"/>
+						<block type="s4d_set_member_count"/>
+						<block type="s4d_set_discriminator"/>
+						<block type="s4d_set_background"/>
+						<block type="s4d_set_avatar"/>
+						<block type="s4d_set_guild_name"/>
+						<block type="s4d_set_color"/>
+                        <label text="Rank card"></label>
+						<block type="s4d_create_rankcard_then"/>
+						<block type="s4d_set_badge"/>
+						<block type="s4d_set_xp"/>
+						<block type="s4d_set_username"/>
+						<block type="s4d_set_background"/>
+						<block type="s4d_set_avatar"/>
+						<block type="s4d_set_rank_name"/>
+						<block type="s4d_set_rank"/>
+						<block type="s4d_set_level"/>
+						<block type="s4d_set_reputation"/>
+						<block type="s4d_set_color_r"/>
+						<label text="%{BKY_TEXT1}"/>
+						<label text="%{BKY_TEXT2}"/>
+						<label text="%{BKY_TEXT3}"/>
+						<label text="%{BKY_TEXT4}"/>
+						<block type="s4d_set_text"/>
+						<block type="s4d_set_transparency"/>
+						<block type="s4d_set_radius"/>
+						<block type="s4d_set_addon"/>
+				    </category>
                 </category>
                 <!--
                 <category name="Video" colour="#fa7000">
