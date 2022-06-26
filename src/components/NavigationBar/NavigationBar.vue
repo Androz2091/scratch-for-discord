@@ -189,7 +189,7 @@ require("./bot")
 }
 load()`);
                     }
-                    zip.file("bot.js", javascriptContent);
+                    zip.file("index.js", javascriptContent);
                     zip.file(".replit", 'run = "npm start"');
                   zip.file("database.json", "{}");
                     zip.file("package.json", `{\n
@@ -307,7 +307,7 @@ load()`);
             </ul>
             
   <input type="checkbox" id="file1" checked="checked">
-  <label for="file1"> bot.js </label>
+  <label for="file1"> index.js </label>
   <input type="checkbox" id="file2">
   <label for="file2"> package.json </label>
   <input type="checkbox" id="file3">
@@ -363,7 +363,7 @@ load()`);
                                     document.body.appendChild(a);
                                     const url = window.URL.createObjectURL(blob);
                                     a.href = url;
-                                    a.download = "bot.js";
+                                    a.download = "index.js";
                                     a.click();
                                     window.URL.revokeObjectURL(url);
                                     document.body.removeChild(a);
@@ -382,7 +382,7 @@ load()`);
                                     const javascriptContent = `{\n
                         "name": "scratch-for-discord-bot",\n
                         "version": "1.0.0",\n
-                        "main": "boot.js",\n
+                        "main": "index.js",\n
                         "scripts": {\n
                             "start": "npm i && node .",\n
                             "node-update": "npm i --save-dev node@17 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",\n
