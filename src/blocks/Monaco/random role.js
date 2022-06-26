@@ -14,7 +14,7 @@ const blockData = {
     }
     ],
     "colour": "#4C97FF",
-    "output": null,
+    "output": "Role",
   "inputsInline": true,
     "tooltip": "Gets a random role in a specified server.",
     "helpUrl": ""
