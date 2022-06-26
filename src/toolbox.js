@@ -1736,6 +1736,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_base_bot"/>
             <block type="s4d_bot_ping"></block>
             <block type="s4d_bot_server_count"></block>
+            <block type="s4d_bot_startup_time"></block>
             <block type="s4d_get_bot"></block>
 						<block type="s4d_bot_amount"/>
                         <block type="jg_s4duptime"/>
