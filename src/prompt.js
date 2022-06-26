@@ -34,7 +34,7 @@ const isMobile = function () {
 	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 }
 
-Blockly.prompt = function (msg, defaultValue, callback) {
+Blockly.dialog.prompt = function (msg, defaultValue, callback) {
 	if (isMobile()) {
 		callback(renameVar(prompt("Variable:")))
 		return
