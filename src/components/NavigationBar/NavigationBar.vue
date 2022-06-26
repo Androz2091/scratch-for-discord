@@ -57,7 +57,6 @@ import Blockly from "blockly";
 import JSZip from "jszip";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
-import { io } from "socket.io-client"
 //import LanguageMenu from "./LanguageMenu.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
@@ -68,8 +67,6 @@ import changelog from "./changelog.vue"
 import localforage from 'localforage';
 import r from "./requires";
 import swal from "sweetalert2";
-let connection = false 
-
 export default {
     name: "navbar",
     components: {
@@ -146,12 +143,10 @@ export default {
                         swal.fire("Sorry, but Retro and Jose music blocks do not work together.")
                         return;
                     }
-                    /*
                     if (String(javascriptContent).includes("let serverjs = ")) {
                         zip.file("server.js", `
 const express = require('express');
 const server = express();
-
 server.all('/', (req, res)=>{
     res.send('Your bot is alive!')
 })
@@ -194,14 +189,13 @@ require("./bot")
 }
 load()`);
                     }
-                    */
-                    zip.file("index.js", javascriptContent);
-                    // zip.file(".replit", 'run = "npm start"');
-                    // zip.file("database.json", "{}");
+                    zip.file("bot.js", javascriptContent);
+                    zip.file(".replit", 'run = "npm start"');
+                  zip.file("database.json", "{}");
                     zip.file("package.json", `{\n
                         "name": "scratch-for-discord-bot",\n
                         "version": "1.0.0",\n
-                        "main": "index.js",\n
+                        "main": "boot.js",\n
                         "scripts": {\n
                             "start": "npm i && node .",\n
                             "node-update": "npm i --save-dev node@17 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",\n
@@ -304,26 +298,26 @@ load()`);
                         const wrapper = document.createElement('div');
                         wrapper.innerHTML = `<h6>Explanations:</h6>
             <ul>
-                <li style='text-align:left'>"index.js" contains your bot's code. <p style="color:#9f54bf">Simple Host also requires this file only when hosting.</p></li>
+                <li style='text-align:left'>"bot.js" contains your bot's code. <p style="color:#9f54bf">Simple Host also requires this file only when hosting.</p></li>
                 <li style='text-align:left'>"package.json" contains all of the packages needed for hosting on your computer.</li>
                 <li style='text-align:left'>"blocks.xml" contains all of your blocks used to create your bot.</li>
-                <!--<li style='text-align:left'>".replit" allows the bot to start with a certain command. Not required if the bot file is named "index.js".</li>
+                <li style='text-align:left'>".replit" allows the bot to start with a certain command. Not required if the bot file is named "index.js".</li>
                 <li style='text-align:left'>"database.json" is an empty database ready for you to fill.</li>
-                <li style='text-align:left'>"boot.js" literally just runs the bot.js file.</li>-->
+                <li style='text-align:left'>"boot.js" literally just runs the bot.js file.</li>
             </ul>
             
   <input type="checkbox" id="file1" checked="checked">
-  <label for="file1"> index.js </label>
+  <label for="file1"> bot.js </label>
   <input type="checkbox" id="file2">
   <label for="file2"> package.json </label>
   <input type="checkbox" id="file3">
-  <label for="file3"> blocks.xml</label><br><!--
+  <label for="file3"> blocks.xml</label><br>
   <input type="checkbox" id="file4">
   <label for="file4"> .replit </label>
   <input type="checkbox" id="file5">
   <label for="file5"> database.json </label>
   <input type="checkbox" id="file6">
-  <label for="file6"> boot.js</label> <br><br>
+  <label for="file6"> boot.js</label><!--<br><br>
   <input type="checkbox" id="ZIP">
   <label for="ZIP"> ZIP Files</label>-->`;
                         //     zip.file(".replit", 'run = "npm start"');
@@ -348,17 +342,16 @@ load()`);
                                 var file1 = document.getElementById('file1').checked
                                 var file2 = document.getElementById('file2').checked
                                 var file3 = document.getElementById('file3').checked
-                                //var file4 = document.getElementById('file4').checked
-                                // var file5 = document.getElementById('file5').checked
-                                // var file6 = document.getElementById('file6').checked
+                                var file4 = document.getElementById('file4').checked
+                                var file5 = document.getElementById('file5').checked
+                                var file6 = document.getElementById('file6').checked
                                 //var zip = document.getElementById('ZIP').checked
-
                                 console.log(file1)
                                 console.log(file2)
                                 console.log(file3)
-                                // console.log(file4)
-                                // console.log(file5)
-                                // console.log(file6)
+                                console.log(file4)
+                                console.log(file5)
+                                console.log(file6)
                                 //console.log(zip)
                                 if (file1) {
                                     console.log("barry: hey can you go grab their code")
@@ -370,7 +363,7 @@ load()`);
                                     document.body.appendChild(a);
                                     const url = window.URL.createObjectURL(blob);
                                     a.href = url;
-                                    a.download = "index.js";
+                                    a.download = "bot.js";
                                     a.click();
                                     window.URL.revokeObjectURL(url);
                                     document.body.removeChild(a);
@@ -389,7 +382,7 @@ load()`);
                                     const javascriptContent = `{\n
                         "name": "scratch-for-discord-bot",\n
                         "version": "1.0.0",\n
-                        "main": "index.js",\n
+                        "main": "boot.js",\n
                         "scripts": {\n
                             "start": "npm i && node .",\n
                             "node-update": "npm i --save-dev node@17 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",\n
@@ -415,7 +408,6 @@ load()`);
                                     window.URL.revokeObjectURL(url);
                                     document.body.removeChild(a);
                                     console.log("barry: done")
-
                                 }
                                 if (file3) {
                                     console.log("barry: im gonna start getting their blocks")
@@ -432,8 +424,7 @@ load()`);
                                     window.URL.revokeObjectURL(url);
                                     document.body.removeChild(a);
                                     console.log("barry: finished")
-
-                                }/*
+                                }
                                 if (file4) {
                                     console.log("barry: lemme just type in a couple things real quick")
                                     console.log("johnathan: ok")
@@ -450,7 +441,6 @@ load()`);
                                     document.body.removeChild(a);
                                     console.log("barry: oh damn i accidentally added an underscore")
                                     console.log("johnathan: again?")
-
                                 }
                                 if (file5) {
                                     console.log("barry: im gonna grab one of our sample databases")
@@ -465,7 +455,6 @@ load()`);
                                     window.URL.revokeObjectURL(url);
                                     document.body.removeChild(a);
                                     console.log("barry: done")
-
                                 }
                                 if (file6) {
                                     console.log("barry: johnathan can you help me get the boot file out of the acid pool?")
@@ -496,8 +485,7 @@ load()`])
                                     window.URL.revokeObjectURL(url);
                                     document.body.removeChild(a);
                                     console.log("barry: thanks")
-
-                                }*/
+                                }
                                 console.log("barry: welp guess we are done")
                                 console.log("johnathan: lets get back to work, shall we?")
                             }
@@ -602,7 +590,6 @@ load()`])
                                 await localforage.removeItem(`token-${select.value}`);
                                 let tokens = await localforage.getItem("tokens")
                                 function arrayRemove(arr, value) {
-
                                     return arr.filter(function (ele) {
                                         return ele != value;
                                     });
@@ -632,7 +619,6 @@ load()`])
                             },
                         })
                         } else if (String(result) == "load") {
-
                             let keys = await localforage.getItem("tokens")
                             if (keys === null) {
                                 const Toast = swal.mixin({
@@ -685,8 +671,6 @@ load()`])
                                     navigator.clipboard.writeText(token)
                                 },
                             })
-
-
                         } else if (String(result) == "save") {
                             swal.fire({
                                 title: this.$t("token.text2"),
@@ -755,8 +739,6 @@ load()`])
                                     })
                                 }
                             })
-
-
                         }
                     })
                 } else if (String(result) == "prebuilds") {
@@ -776,8 +758,6 @@ load()`])
                         console.log(result)
                         if (result == null || result == false) { return }
                         if (String(result) == "delete") {
-
-
                             let keys = await localforage.getItem("prebuilds")
                             if (keys === null) {
                                 const Toast = swal.mixin({
@@ -813,7 +793,6 @@ load()`])
                                     await localforage.removeItem(`prebuild-${select.value}`);
                                     let tokens = await localforage.getItem("prebuilds")
                                     function arrayRemove(arr, value) {
-
                                         return arr.filter(function (ele) {
                                             return ele != value;
                                         });
@@ -841,9 +820,7 @@ load()`])
                                     })
                                 },
                             })
-
                         } else if (String(result) == "download") {
-
                             let keys = await localforage.getItem("prebuilds")
                             if (keys === null) {
                                 const Toast = swal.mixin({
@@ -912,11 +889,7 @@ load()`])
                                         });
                                 },
                             })
-
-
-
                         } else if (String(result) == "save") {
-
                             swal.fire({
                                 title: this.$t("prebuild.text2"),
                                 input: 'text',
@@ -965,8 +938,6 @@ load()`])
                                     })
                                 }
                             })
-
-
                         } else if (String(result) == "load") {
                             let keys = await localforage.getItem("prebuilds")
                             if (keys === null) {
@@ -1020,9 +991,6 @@ load()`])
                                     Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(token), this.$store.state.workspace);
                                 },
                             })
-
-
-
                         }
                     })
                 }
@@ -1110,55 +1078,92 @@ load()`])
                     //     console.error("barry and johnathan found music blocks...")
                     //     return;
                     // }
-
                     let api_key = process.env.VUE_APP_KEY
                     let modifiedJScontent = javascriptContent.replaceAll("const S4D_APP_RUN_BUTTON = false", "const S4D_APP_RUN_BUTTON = true")
                     console.log("barry: done")
                     console.log("johnathan: ok go send the post request")
                     console.log("barry: ok")
                     console.log("epic server: now going to be sending POST request to JeremyGamer13s dumb and insecure API!!1!1!!")
-                    // try {
-                    //     if (api_key == null) {
-                    //         swal.fire(
-                    //             "Cool! However..",
-                    //             `The bot would have been sent,<br><aew3f2 style="color:#188DC8">but the server S4D is currently running on does not have an API key present.</aew3f2><br><br><p>Using Netlify? <a href="https://scratch-for-discord-469.vercel.app/">Click here to go to Vercel!</a></p><!--<br><h6 style="color:#188DC8">This menu popped up because the API key is not present.</h6>-->`,
-                    //             "info"
-                    //         )
-                    //         console.log("epic server: POST request pretended to be sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
-                    //         console.log("barry: technically done")
-                    //         console.log("johnathan: nice, now lets get back to work")
-
-                    //         console.log("Code that would have been sent:")
-                    //         console.log(modifiedJScontent)
-                    //         return;
-                    //     }
-                    // }
-                    // catch (err)
-                    // {
-                    //     console.log("*zapping sounds come from epic server*")
-                    //     console.log("epic server: FUCK AHJGJEUYGE*&TIUG#*&IUKJNGUYEFJE(O")
-                    //     console.log("barry: epic server what happened?")
-                    //     console.log(`epic server: ${err}`)
-                    //     console.log("johnathan: damn we gotta get back to work barry")
-                    //     console.log("barry: sorry epic server but we gotta go for now")
-                    // }
-                    const socket = io('https://469runtest.jeremygamer13.repl.co:3000', {
-                        transports: ['websocket']
-                    })
-                    socket.on('connect_error', err => {
-                        console.log('Connection to the server failed due to ' + err)
-                    })
-                    socket.on('connect', () => {
-                        connection = true
-                        socket.on('error', e => {
-                            swal.fire(
-                                "An error occurred!",
-                                String(e),
-                                "error"
-                            )
+                    const requestOptions = {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            key: api_key,
+                            code: modifiedJScontent,
+                            update: "1"
                         })
-                        socket.emit('run', modifiedJScontent)
-                    })
+                    };
+                    try {
+                        if (api_key == null) {
+                            swal.fire(
+                                "Cool! However..",
+                                `The bot would have been sent,<br><aew3f2 style="color:#188DC8">but the server S4D is currently running on does not have an API key present.</aew3f2><br><br><p>Using Netlify? <a href="https://scratch-for-discord-469.vercel.app/">Click here to go to Vercel!</a></p><!--<br><h6 style="color:#188DC8">This menu popped up because the API key is not present.</h6>-->`,
+                                "info"
+                            )
+                            console.log("epic server: POST request pretended to be sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
+                            console.log("barry: technically done")
+                            console.log("johnathan: nice, now lets get back to work")
+                            console.log("Code that would have been sent:")
+                            console.log(modifiedJScontent)
+                            return;
+                        }
+                        fetch('https://469runtest.jeremygamer13.repl.co/?imbored=true', requestOptions)
+                        // fetch('https://469runtest.jeremygamer13.repl.co/?imbored=true')
+                        .then(async (response) => {
+                            console.log(response)
+                            console.log("S4D sent a request, the response status code is", response.status)
+                            if ((response.status >= 300) && (response.status < 400)) {
+                                console.log("epic server: oopsie poopsie something happen")
+                                console.log("barry: idk something happen")
+                                console.log("johnathan: thats not good but we cant do much")
+                                console.log("barry: true :(")
+                                swal.fire(
+                                    "Uhh..",
+                                    `Something may have gone wrong with the request. The server responded with status code ${String(response.status)}. You could check if your bot went online? You can also try to refresh.`,
+                                    "warning"
+                                )
+                            } else if (response.status >= 400) {
+                                console.log("epic server: broken")
+                                console.log("barry: bruh it broken")
+                                console.log("johnathan: :(")
+                                console.log("barry: :(")
+                                let morestuffIDK = response
+                                response.text().then((repons) => {
+                                    swal.fire(
+                                        "Whoops!",
+                                        `Something went wrong with the request. The server responded with status code <b>${String(morestuffIDK.status)}</b>. You may need to refresh the page or try again later as the server could be down.<br><br>Server Response:<br><code>${repons}</code>`,
+                                        "error"
+                                    )
+                                })
+                            } else {
+                                console.log("epic server: POST request sent to JeremyGamer13s dumb and insecure API😀😁😀👍😁👍👍👍")
+                                console.log("barry: done")
+                                console.log("johnathan: nice, now lets get back to work")
+                                swal.fire(
+                                    "Nice!",
+                                    `Your bot should go online soon.`,
+                                    "success"
+                                )
+                            }
+                        })
+                    }
+                    catch (err)
+                    {
+                        swal.fire(
+                            "An error occurred!",
+                            String(err),
+                            "error"
+                        )
+                        console.log("*zapping sounds come from epic server*")
+                        console.log("epic server: FUCK AHJGJEUYGE*&TIUG#*&IUKJNGUYEFJE(O")
+                        console.log("barry: epic server what happened?")
+                        console.log(`epic server: ${err}`)
+                        console.log("johnathan: damn we gotta get back to work barry")
+                        console.log("barry: sorry epic server but we gotta go for now")
+                    }
+                    // .then(response => response.json())
+                    // .then(data => element.innerHTML = data.id );
+                    
                 }
             })
         },
