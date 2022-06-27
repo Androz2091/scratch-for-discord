@@ -14,7 +14,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "BUTTON",
-            "check": ["String", "ButtonRow"]
+            "check": ["String", "ButtonRow", "ButtonMenu"]
         },
 
     ],

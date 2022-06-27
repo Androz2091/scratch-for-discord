@@ -3,18 +3,18 @@ import Blockly from "blockly/core";
 const blockName = "channel_perms";
 
 const blockData = {
-  "message0": "%1  permission  %2 in channel  %3 to member / role / everyone  %4",
+  "message0": "%1 permission %2 in channel %3 to member / role / everyone in the server %4",
   "args0": [
     {
       "type": "field_dropdown",
       "name": "ad",
       "options": [
         [
-          "Allow",
+          "allow",
           "true"
         ],
         [
-          "Deny",
+          "deny",
           "false"
         ]
       ]
@@ -24,39 +24,39 @@ const blockData = {
       "name": "perm",
       "options": [
         [
-          "CREATE_INSTANT_INVITE",
+          "create instant invite",
           "CREATE_INSTANT_INVITE"
         ],
         [
-          "VIEW_CHANNEL",
+          "view channel",
           "VIEW_CHANNEL"
         ],
         [
-          "SEND_MESSAGES",
+          "send messages",
           "SEND_MESSAGES"
         ],
         [
-          "SEND_TTS_MESSAGES",
+          "send TTS messages",
           "SEND_TTS_MESSAGES"
         ],
         [
-          "MANAGE_MESSAGES",
+          "manage messages",
           "MANAGE_MESSAGES"
         ],
         [
-          "EMBED_LINKS",
+          "embed links",
           "EMBED_LINKS"
         ],
         [
-          "ATTACH_FILES",
+          "attach files",
           "ATTACH_FILES"
         ],
         [
-          "READ_MESSAGE_HISTORY",
+          "read message history",
           "READ_MESSAGE_HISTORY"
         ],
         [
-          "MENTION_EVERYONE",
+          "mention everyone",
           "MENTION_EVERYONE"
         ]
       ]
@@ -69,7 +69,7 @@ const blockData = {
     {
       "type": "input_value",
       "name": "to",
-      "check": ["Member", "Role", "Everyone"]
+      "check": ["Member", "Role", "Everyone", "Server"]
     },
 
   ],
@@ -89,7 +89,16 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function (block) {
   const trufal = block.getFieldValue("ad");
   const perm = block.getFieldValue("perm");
-  const to = Blockly.JavaScript.valueToCode(block, "to", Blockly.JavaScript.ORDER_ATOMIC);
+  let to = Blockly.JavaScript.valueToCode(block, "to", Blockly.JavaScript.ORDER_ATOMIC);
+  let contentType = null
+  try {
+    contentType = block.getInput("to").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
+      block.getInput("to").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
+      null;
+  } catch {
+    contentType = null
+  }
+  if (String(contentType) === "Server") to = `(${to} || {}).id`
   const channel = Blockly.JavaScript.valueToCode(block, "channel", Blockly.JavaScript.ORDER_ATOMIC);
   const code = `${channel}.permissionOverwrites.edit(${to}, { ${perm}: ${trufal} });`;
   return code;

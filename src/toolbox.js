@@ -2505,6 +2505,8 @@ export default (Blockly, value, searching) => {
             <block type="s4d_get_role"></block>
             <block type="s4d_get_all_role"></block>
             <block type="s4d_get_all_role_role"></block>
+            <block type="jg_roles_get_all_member_roles_then_for_each_do"/>
+            <block type="jg_roles_get_all_member_roles_then_for_each_do_role"/>
             <block type="hig_role"/>
             <!--
             <block type="monaco_random_role"/>

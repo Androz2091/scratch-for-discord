@@ -1,7 +1,6 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../restrictions";
 import '@blockly/field-grid-dropdown';
-/*
 const restrictToParent = function (parents, name, msg) {
     registerRestrictions(name, [
         {
@@ -11,7 +10,6 @@ const restrictToParent = function (parents, name, msg) {
         }
     ]);
 }
-*/
 Blockly.Blocks["jg_messages_id_of_message"] = {
     init: function () {
         this.jsonInit(
@@ -3439,3 +3437,63 @@ Blockly.JavaScript["jg_members_member_s_nickname"] = function (block) {
     const code = [`${member}.nickname == null ? ${member}.user.username : ${member}.nickname`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+Blockly.Blocks["jg_roles_get_all_member_roles_then_for_each_do"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get all member %1 roles then for each %2 do %3",
+                "inputsInline": true,
+                "tooltip": "Run the blocks inside for each role the member has.",
+                "colour": "#2EB66B",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": "Member"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_roles_get_all_member_roles_then_for_each_do"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/(?<!client)\.user/gi, "");
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `${member}.roles.cache.forEach((member_role) => {
+    ${statements}
+})
+`;
+    return code;
+};
+Blockly.Blocks["jg_roles_get_all_member_roles_then_for_each_do_role"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "role",
+                "args0": [],
+                "colour": "#2EB66B",
+                "output": "Role",
+                "tooltip": "The current role in the member role loop.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_roles_get_all_member_roles_then_for_each_do_role"] = function () {
+    const code = [`member_role`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+restrictToParent(
+    ["jg_roles_get_all_member_roles_then_for_each_do"],
+    "jg_roles_get_all_member_roles_then_for_each_do_role",
+    'This block must be in a "get all member roles then for each do" block!'
+)
