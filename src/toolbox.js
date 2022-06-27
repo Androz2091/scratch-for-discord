@@ -2552,7 +2552,8 @@ export default (Blockly, value, searching) => {
             <block type="s4d_member_tag"></block>
             <block type="ahq_presence"/>
             <block type="s4d_member_username"></block>
-            <block type="s4d_member_nickname"></block>
+            <block type="jg_members_member_has_nickname"/>
+            <block type="jg_members_member_s_nickname"></block>
             <block type="s4d_member_icon"></block>
             <block type="s4d_member_dynamic_icon"></block>
             <block type="s4d_joined_at"></block>
@@ -2561,6 +2562,10 @@ export default (Blockly, value, searching) => {
             <label text="Information about a Server Member (6 options)"></label>
             <block type="jg_members_member_is_value"/>
             <label text="Blocks for users"></label>
+            <!--
+            <block type="jg_members_user_accent_color"/>
+            -->
+            <block type="jg_members_user_exactly_equals_user"/>
             <label text="Information about a User (20 options)"></label>
             <block type="jg_members_user_has_value"/>
             <label text="fetch members banner" web-class="boldtext"></label>

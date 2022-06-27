@@ -3263,7 +3263,7 @@ Blockly.Blocks["jg_members_user_has_value"] = {
                         ],
                     }
                 ],
-                "colour": "#4C97FF",
+                "colour": "#50a6c9",
                 "output": "Boolean",
                 "tooltip": "Check if the specified user has or is this property.",
                 "helpUrl": ""
@@ -3286,7 +3286,7 @@ Blockly.Blocks["jg_members_member_is_value"] = {
                     {
                         "type": "input_value",
                         "name": "MEMBER",
-                        "check": ["Member", "User"]
+                        "check": ["Member"]
                     },
                     {
                         "type": "field_dropdown",
@@ -3319,7 +3319,7 @@ Blockly.Blocks["jg_members_member_is_value"] = {
                         ],
                     }
                 ],
-                "colour": "#4C97FF",
+                "colour": "#50a6c9",
                 "output": "Boolean",
                 "tooltip": "Check if the specified member has or is this property.",
                 "helpUrl": ""
@@ -3331,5 +3331,111 @@ Blockly.JavaScript["jg_members_member_is_value"] = function (block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/(?<!client)\.user/gi, "");
     const property = block.getFieldValue("TYPE")
     const code = [`${member}${property}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_members_user_accent_color"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "user %1 accent color",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member", "User"]
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "String",
+                "tooltip": "The Hex color of a users accent color.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_user_accent_color"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${member}.hexAccentColor`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_members_user_exactly_equals_user"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "user %1 exactly equals user %2?",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member", "User"]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER2",
+                        "check": ["Member", "User"]
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "Boolean",
+                "tooltip": "Check if a user is the exact same as another user.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_user_exactly_equals_user"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const member2 = Blockly.JavaScript.valueToCode(block, "MEMBER2", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${member}.equals(${member2})`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_members_member_has_nickname"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "member %1 has nickname?",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member"]
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "Boolean",
+                "tooltip": "Check if a member has a nickname.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_member_has_nickname"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/(?<!client)\.user/gi, "");
+    const code = [`${member}.nickname != null`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_members_member_s_nickname"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "member %1 nickname",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member"]
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "String",
+                "tooltip": "The members nickname. Is also the member's username if the nickname is not found.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_member_s_nickname"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/(?<!client)\.user/gi, "");
+    const code = [`${member}.nickname == null ? ${member}.user.username : ${member}.nickname`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
