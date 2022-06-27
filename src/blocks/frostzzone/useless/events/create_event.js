@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "create_event";
 
 const blockData = {
-  "message0": "when I receive event %1 %2 do %3",
+  "message0": "when event %1 is received %2 do %3",
   "args0": [
     {
       "type": "input_value",
