@@ -32,7 +32,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC);
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    let code = `await axios('https://discord.com/api/users/' + ${id}, {
+    let code = `await S4D_APP_PKG_axios('https://discord.com/api/users/' + ${id}, {
         headers: {
           Authorization: "Bot " + s4d.client.token,
         },
