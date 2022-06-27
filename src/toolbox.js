@@ -331,12 +331,21 @@ const toolbox = `
                     </shadow>
                 </value>
             </block>
-</category>
-<sep class="bt" />
-<category name="Variables" colour="#a55b80" custom="VARIABLE">
-</category>
-<category name="Functions" colour="#995ba5" custom="PROCEDURE">
-</category>
+    </category>
+    <sep class="bt" />
+    <category name="Variables" colour="#a55b80" custom="VARIABLE">
+    </category>
+    <category name="Functions" colour="#995ba5" custom="PROCEDURE">
+    </category>
+    <category name="base" colour="#F46580">
+        <block type="s4d_login">
+        <value name="TOKEN">
+            <block type="text">
+                <field name="TEXT">Your bot token</field>
+            </block>
+        </value>
+    </block>
+    </category>
 </xml>
 `
 export default toolbox

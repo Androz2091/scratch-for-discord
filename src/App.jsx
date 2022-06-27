@@ -1,19 +1,15 @@
 import './App.css';
 import { useRef, useEffect } from 'react';
 import toolbox from './toolbox';
-// import DarkTheme from "@blockly/theme-dark";
+import DarkTheme from "@blockly/theme-dark";
+import './blocks/discord/base'
 import Blockly from 'blockly'
 function App() {
   const blocklyParent= useRef(null)
   useEffect(() => {
-    const blocklyDiv = document.createElement('div')
-    blocklyDiv.classList.add('h-full')
-    blocklyDiv.classList.add('w-full')
-    blocklyParent.current.append(blocklyDiv)
-
-    const workspace = Blockly.inject(blocklyDiv, {
+    const workspace = Blockly.inject(blocklyParent.current, {
       toolbox: toolbox,
-      // theme: DarkTheme,
+      theme: DarkTheme,
       renderer: 'zelos',
       grid: {
         spacing: 20,
@@ -41,10 +37,7 @@ function App() {
     }
   }, [])
   return (
-    <div ref={blocklyParent} className="w-screen h-screen"></div>
+    <div ref={blocklyParent} className="h-screen w-full"></div>
   );
 }
-// im dumb dont judge
-//dont remove app2.jsx
 export default App;
-// eruption dont stop the dev server ok thx ok afk
