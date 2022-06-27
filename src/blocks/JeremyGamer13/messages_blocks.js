@@ -2929,7 +2929,7 @@ Blockly.Blocks["jg_text_remake_in_text_replace_with"] = {
                     {
                         "type": "input_value",
                         "name": "REPLACE",
-                        "check": "String"
+                        "check": ["String", "RegEx"]
                     },
                     {
                         "type": "input_value",
@@ -2945,7 +2945,7 @@ Blockly.JavaScript["jg_text_remake_in_text_replace_with"] = function (block) {
     const origin = Blockly.JavaScript.valueToCode(block, "ORIGIN", Blockly.JavaScript.ORDER_ATOMIC);
     const replace = Blockly.JavaScript.valueToCode(block, "REPLACE", Blockly.JavaScript.ORDER_ATOMIC);
     const replaced = Blockly.JavaScript.valueToCode(block, "WITH", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`String(${origin}).replaceAll(String(${replace}), String(${replaced}))`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`String(${origin}).replaceAll(${replace}, String(${replaced}))`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 // is equal to and is the same type as
@@ -3570,5 +3570,63 @@ Blockly.Blocks["jg_emoji_text_regex_list_of_normal_emojis_in_text"] = {
 Blockly.JavaScript["jg_emoji_text_regex_list_of_normal_emojis_in_text"] = function (block) {
     const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
     const code = [`String(${text}).replaceAll(" ", "").match(/((\\u00a9|\\u00ae|[\\u2000-\\u3300]|\\ud83c[\\ud000-\\udfff]|\\ud83d[\\ud000-\\udfff]|\\ud83e[\\ud000-\\udfff]\\s?)+)/gm)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_text_regex_create_new_regex_of"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "create new RegEx of %1",
+                "args0": [
+                    {
+                        "type": "field_input",
+                        "name": "TEXT"
+                    }
+                ],
+                "colour": "%{BKY_TEXTS_HUE}",
+                "output": "RegEx",
+                "tooltip": "RegEx is a regular expression that can be used to find text inside of text with a couple checks to make sure that text is exactly the way you want it. You can create RegEx on the \"Help\" button on the block. You'll need to paste in the slashes and the flags from the RegEx into the block.",
+                "helpUrl": "https://regex101.com/"
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_text_regex_create_new_regex_of"] = function (block) {
+    let regex = block.getFieldValue("TEXT")
+    let matches = String(regex).match(/(\/)\S*(\/[a-z]{0,7})/gim)
+    if (!(regex && String(regex) && String(regex).startsWith("/") && matches && matches.length == 1)) regex = ""
+    const code = [`${regex}`, Blockly.JavaScript.ORDER_ATOMIC];
+    return code;
+};
+Blockly.Blocks["jg_lists_regex_list_of_matches_from_regex_on_text"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "list of matches from RegEx %1 on text %2",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "REGEX",
+                        "check": "RegEx"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "TEXT",
+                        "check": "String"
+                    }
+                ],
+                "inputsInline": true,
+                "colour": "%{BKY_LISTS_HUE}",
+                "output": ["List", "Array"],
+                "tooltip": "RegEx is a regular expression that can be used to find text inside of text with a couple checks to make sure that text is exactly the way you want it. This block outputs a list of matches from the RegEx being used on the text.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_lists_regex_list_of_matches_from_regex_on_text"] = function (block) {
+    const regex = Blockly.JavaScript.valueToCode(block, "REGEX", Blockly.JavaScript.ORDER_ATOMIC);
+    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`String(${text}).match(${regex})`, Blockly.JavaScript.ORDER_ATOMIC];
     return code;
 };

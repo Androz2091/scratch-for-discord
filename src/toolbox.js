@@ -65,9 +65,10 @@ export default (Blockly, value, searching) => {
                     <block type="s4d_lasercat_switch_default"/>
                 -->
                 <block type="s4d_lasercat_switch_break"></block>
+        <label text="ㅤ" web-class="boldtext"></label>
                 
-        </category>
-        <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
+    </category>
+    <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
             <block type="s4d_forever">
             </block>
             <block type="controls_repeat_ext">
@@ -124,7 +125,8 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
-        </category>
+        <label text="ㅤ" web-class="boldtext"></label>
+    </category>
         <category name="{{ TOOLBOX_MATH }}" colour="#5b67a5">
             <block type="math_number">
                 <field name="NUM">0</field>
@@ -224,6 +226,7 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
             <block type="math_random_float" />
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_TEXT }}" colour="#5ba58c">
             <!--
@@ -376,36 +379,38 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
-						<block type="text_count"></block>
-						<block type="jg_text_isboolean">
-                            <value name="TEXT">
-                                <shadow type="text">
-                                    <field name="TEXT">true</field>
-                                </shadow>
-                            </value>
-                        </block>
-						<block type="jg_text_booleanfrom">
-                            <value name="TEXT">
-                                <shadow type="text">
-                                    <field name="TEXT">true</field>
-                                </shadow>
-                            </value>
-                        </block>
-						<block type="jg_text_hasnumber">
-                            <value name="TEXT">
-                                <shadow type="text">
-                                    <field name="TEXT">abc123</field>
-                                </shadow>
-                            </value>
-                        </block>
-						<block type="jg_text_for_each_letter_in_text_do">
-                            <value name="TEXT">
-                                <shadow type="text">
-                                    <field name="TEXT">abc</field>
-                                </shadow>
-                            </value>
-                        </block>
-						<block type="jg_text_for_each_letter_in_text_do_letter"/>
+			<block type="text_count"></block>
+			<block type="jg_text_isboolean">
+                <value name="TEXT">
+                    <shadow type="text">
+                        <field name="TEXT">true</field>
+                    </shadow>
+                </value>
+            </block>
+			<block type="jg_text_booleanfrom">
+                <value name="TEXT">
+                    <shadow type="text">
+                        <field name="TEXT">true</field>
+                    </shadow>
+                </value>
+            </block>
+			<block type="jg_text_hasnumber">
+                <value name="TEXT">
+                    <shadow type="text">
+                        <field name="TEXT">abc123</field>
+                    </shadow>
+                </value>
+            </block>
+			<block type="jg_text_for_each_letter_in_text_do">
+                <value name="TEXT">
+                    <shadow type="text">
+                        <field name="TEXT">abc</field>
+                    </shadow>
+                </value>
+            </block>
+			<block type="jg_text_for_each_letter_in_text_do_letter"/>
+            <block type="jg_text_regex_create_new_regex_of"/>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_LISTS }}" colour="#745ba5">
             <block type="lists_create_with">
@@ -480,6 +485,8 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+            <block type="jg_lists_regex_list_of_matches_from_regex_on_text"/>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_COLORS }}" colour="#a5745b">
             <block type="colour_picker">
@@ -521,6 +528,7 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+            <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <sep class="bt" />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE"/>
