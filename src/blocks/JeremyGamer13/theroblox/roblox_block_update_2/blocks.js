@@ -45,7 +45,7 @@ Blockly.Blocks[blockNames[0]] = {
 Blockly.JavaScript[blockNames[0]] = function (block) {
     const cookie = Blockly.JavaScript.valueToCode(block, "COOKIE", Blockly.JavaScript.ORDER_ATOMIC);
     const then = Blockly.JavaScript.statementToCode(block, "THEN");
-    const code = `S4D_APP_NOBLOX.setCookie(String(${cookie})).then(function(roblox_currentUser) {
+    const code = `S4D_APP_NOBLOX.setCookie(String(${cookie})).then(async function(roblox_currentUser) {
   ${then}
 })
 `;
@@ -218,7 +218,7 @@ Blockly.Blocks[blockNames[4]] = {
 Blockly.JavaScript[blockNames[4]] = function (block) {
     const user = Blockly.JavaScript.valueToCode(block, "USER", Blockly.JavaScript.ORDER_ATOMIC);
     const then = Blockly.JavaScript.statementToCode(block, "THEN");
-    const code = `S4D_APP_NOBLOX.currentlyWearing(Number(${user})).then((roblox_currentlywearing) => {
+    const code = `S4D_APP_NOBLOX.currentlyWearing(Number(${user})).then(async (roblox_currentlywearing) => {
       ${then}
     })
 `;

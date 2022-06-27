@@ -36,21 +36,21 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-    }
+  init: function () {
+    this.jsonInit(blockData);
+  }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
   var code
   let value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
   let value_server = Blockly.JavaScript.valueToCode(block, 'SERVER', Blockly.JavaScript.ORDER_ATOMIC);
   let value_image = Blockly.JavaScript.valueToCode(block, 'IMAGE', Blockly.JavaScript.ORDER_ATOMIC);
   let statements_then = Blockly.JavaScript.statementToCode(block, 'THEN');
   if ((statements_then || null) == null) {
-  code = `${value_server}.emojis.create(${value_image},${value_name});\n`;
+    code = `${value_server}.emojis.create(${value_image},${value_name});\n`;
   } else {
-    code = `${value_server}.emojis.create(${value_image},${value_name}).then(emoj =>{
+    code = `${value_server}.emojis.create(${value_image},${value_name}).then(async emoj =>{
 ${statements_then}});\n`;
   }
   return code;

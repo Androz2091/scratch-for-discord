@@ -314,7 +314,7 @@ Blockly.JavaScript["jg_channel_get_last_messages_in_channel_then"] = function (b
     const amount = Blockly.JavaScript.valueToCode(block, "AMOUNT", Blockly.JavaScript.ORDER_ATOMIC);
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `${channel}.messages.fetch({ limit: ${amount} }).then((last_messages_in_channel) => {
+    const code = `${channel}.messages.fetch({ limit: ${amount} }).then(async (last_messages_in_channel) => {
     ${statements}
 });
 `;
@@ -2129,7 +2129,7 @@ Blockly.Blocks["jg_monaco_servers_on_server_get_audit_logs_then"] = {
 Blockly.JavaScript["jg_monaco_servers_on_server_get_audit_logs_then"] = function (block) {
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `${server}.fetchAuditLogs().then((audit_raw) => {
+    const code = `${server}.fetchAuditLogs().then(async (audit_raw) => {
         let audit = audit_raw.entries
         ${statements}
     })
@@ -2585,7 +2585,7 @@ Blockly.Blocks["jose_jg_webhooks_get_all_webhooks_in_channel_then"] = {
 Blockly.JavaScript["jose_jg_webhooks_get_all_webhooks_in_channel_then"] = function (block) {
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `${channel}.fetchWebhooks().then((webhooks) => {
+    const code = `${channel}.fetchWebhooks().then(async (webhooks) => {
         ${statements}
     })
     `;
@@ -3468,7 +3468,7 @@ Blockly.Blocks["jg_roles_get_all_member_roles_then_for_each_do"] = {
 Blockly.JavaScript["jg_roles_get_all_member_roles_then_for_each_do"] = function (block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/(?<!client)\.user/gi, "");
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `${member}.roles.cache.forEach((member_role) => {
+    const code = `${member}.roles.cache.forEach(async (member_role) => {
     ${statements}
 })
 `;

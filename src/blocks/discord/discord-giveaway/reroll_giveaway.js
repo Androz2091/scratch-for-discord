@@ -6,9 +6,9 @@ const blockData = {
     "message0": "%{BKY_REROLL_GIVEAWAY}",
     "args0": [
         {
-            "type":"input_value",
-            "name":"ID",
-            "check":["Number","String"]
+            "type": "input_value",
+            "name": "ID",
+            "check": ["Number", "String"]
         },
         {
             "type": "input_dummy"
@@ -24,14 +24,14 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
-      },
+    },
 }
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const statements = Blockly.JavaScript.statementToCode(block, "THEN");
     const id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC);
-    var code = `s4d.manager.reroll(${id}).then(() => {\n${statements}\n});\n`
+    var code = `s4d.manager.reroll(${id}).then(async () => {\n${statements}\n});\n`
     return code
 };

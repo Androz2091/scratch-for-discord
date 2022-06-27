@@ -38,6 +38,6 @@ Blockly.JavaScript[blockName] = function (block) {
   const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
   const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
 
-  const code = `fs.appendFileSync(${file}, ${content}, function (err) {\n ${statementThen} \n});\n`;
+  const code = `fs.appendFileSync(${file}, ${content}, async function (err) {\n ${statementThen} \n});\n`;
   return code
 };

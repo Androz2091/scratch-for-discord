@@ -63,17 +63,17 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
     const archiveAfter = block.getFieldValue("ARCHIVE");
     const code = Blockly.JavaScript.statementToCode(block, "CODE");
     const catchd = Blockly.JavaScript.statementToCode(block, "NOTENOUGH");
-    return(`s4dmessage.startThread({name: ${name}, autoArchiveDuration: ${archiveAfter}})\n.then(s4dCreatedThread => {\n${code}\n})\n.catch(s4dThreadErr => {if (String(s4dThreadErr) === 'DiscordAPIError: Guild premium subscription level too low'){\n${catchd}\n}});\n`)
+    return (`s4dmessage.startThread({name: ${name}, autoArchiveDuration: ${archiveAfter}})\n.then(async s4dCreatedThread => {\n${code}\n})\n.catch(async s4dThreadErr => {if (String(s4dThreadErr) === 'DiscordAPIError: Guild premium subscription level too low'){\n${catchd}\n}});\n`)
 }
 
 registerRestrictions(blockName, [
@@ -81,7 +81,7 @@ registerRestrictions(blockName, [
         type: "notempty",
         message: "RES_MISSING_CHANNEL",
         types: [
-          "CHANNEL"
+            "CHANNEL"
         ]
     },
     {
