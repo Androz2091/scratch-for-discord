@@ -1,5 +1,4 @@
 import Blockly from "blockly/core";
-import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_member_banner";
 
 const blockData = {
