@@ -2216,7 +2216,6 @@ export default (Blockly, value, searching) => {
             <!--
                 <block type="jg_monaco_servers_amount_of_channels_in_server"/>
             -->
-            <block type="everyn"/>
 
             <label text="Bot server actions"></label>
 
@@ -2506,8 +2505,6 @@ export default (Blockly, value, searching) => {
             <block type="s4d_get_role"></block>
             <block type="s4d_get_all_role"></block>
             <block type="s4d_get_all_role_role"></block>
-            <block type="get_all_roles"/>
-            <block type="all_roles"/>
             <block type="hig_role"/>
             <!--
             <block type="monaco_random_role"/>
