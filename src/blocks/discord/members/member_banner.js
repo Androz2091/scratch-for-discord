@@ -30,7 +30,7 @@ registerRestrictions(blockName, [{
     },
     {
         type: "toplevelparent",
-        message: "must be in 'get member banner' block",
+        message: "$must be in 'get member banner' block",
         types: [
             "s4d_get_user_banner"
         ]
