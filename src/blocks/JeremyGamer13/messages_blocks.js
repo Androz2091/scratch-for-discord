@@ -3497,3 +3497,78 @@ restrictToParent(
     "jg_roles_get_all_member_roles_then_for_each_do_role",
     'This block must be in a "get all member roles then for each do" block!'
 )
+Blockly.Blocks["jg_emoji_text_regex_list_of_custom_emojis_in_text"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "list of custom emojis in text %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "TEXT",
+                        "check": "String"
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": ["List", "Array"],
+                "tooltip": "A list of custom non-animated emojis in text.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_emoji_text_regex_list_of_custom_emojis_in_text"] = function (block) {
+    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${text}.match(/(?<!\\\\)<:(?<=<:)[a-zA-Z0-9_-]*(?=:):[0-9]*>/gim)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_emoji_text_regex_list_of_animated_emojis_in_text"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "list of animated emojis in text %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "TEXT",
+                        "check": "String"
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": ["List", "Array"],
+                "tooltip": "A list of custom animated emojis in text.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_emoji_text_regex_list_of_animated_emojis_in_text"] = function (block) {
+    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${text}.match(/(?<!\\\\)<a:(?<=<a:)[a-zA-Z0-9_-]*(?=:):[0-9]*>/gim)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_emoji_text_regex_list_of_normal_emojis_in_text"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "list of normal emojis in text %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "TEXT",
+                        "check": "String"
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": ["List", "Array"],
+                "tooltip": "A list of normal emojis in text, like the default thumbs up emoji.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_emoji_text_regex_list_of_normal_emojis_in_text"] = function (block) {
+    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`String(${text}).replaceAll(" ", "").match(/((\\u00a9|\\u00ae|[\\u2000-\\u3300]|\\ud83c[\\ud000-\\udfff]|\\ud83d[\\ud000-\\udfff]|\\ud83e[\\ud000-\\udfff]\\s?)+)/gm)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};

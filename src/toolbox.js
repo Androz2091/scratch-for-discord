@@ -2621,6 +2621,10 @@ export default (Blockly, value, searching) => {
             <block type="fz_get_all_emoj"/>
             <block type="fz_unlock_emoji"/>
             <block type="fz_lock_emoji"/>
+            <label text="Detect Emojis in text" web-class="boldtext"></label>
+            <block type="jg_emoji_text_regex_list_of_normal_emojis_in_text"/>
+            <block type="jg_emoji_text_regex_list_of_custom_emojis_in_text"/>
+            <block type="jg_emoji_text_regex_list_of_animated_emojis_in_text"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Invites" colour="#5abced">
