@@ -20,19 +20,3 @@ Blockly.JavaScript[blockName] = function() {
     const code = ["banner", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
-
-registerRestrictions(blockName, [{
-        type: "notempty",
-        message: "RES_MISSING_CONTENT",
-        types: [
-            "CONTENT"
-        ]
-    },
-    {
-        type: "toplevelparent",
-        message: "$must be in 'get member banner' block",
-        types: [
-            "s4d_get_user_banner"
-        ]
-    }
-]);

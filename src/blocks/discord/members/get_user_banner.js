@@ -36,7 +36,7 @@ Blockly.JavaScript[blockName] = function(block) {
         headers: {
           Authorization: "Bot " + s4d.client.token,
         },
-      }).then((res) => {
+      }).then(async (res) => {
     if (res.data.banner != null) {
     let format = 'png'
     if(res.data.banner.substring(0,2) === 'a_') {
