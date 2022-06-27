@@ -217,23 +217,23 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             ],
                             [
                                 "has thread?",
-                                '.hasThread'
+                                'hasThread'
                             ],
                             [
                                 "can be deleted by the bot?",
-                                '.deletable'
+                                'deletable'
                             ],
                             [
                                 "can be crossposted by the bot?",
-                                '.crosspostable'
+                                'crosspostable'
                             ],
                             [
                                 "can be edited by the bot?",
-                                '.editable'
+                                'editable'
                             ],
                             [
                                 "can be pinned by the bot?",
-                                '.pinnable'
+                                'pinnable'
                             ]
                         ],
                     }
@@ -567,7 +567,7 @@ Blockly.JavaScript["jg_message_mentioned_member_number_on_message"] = function (
     const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
     const msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
     const type = block.getFieldValue("TYPE")
-    const code = [`${msg}.mentions.${type}.at(${index})`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`${msg}.mentions.${type}.at(Number(${index}) - 1)`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 // next blok
@@ -3163,4 +3163,173 @@ Blockly.Blocks["jg_unused_any_color2"] = {
 }
 Blockly.JavaScript["jg_unused_any_color2"] = function () {
     return '';
+};
+Blockly.Blocks["jg_members_user_has_value"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "user %1 %2",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member", "User"]
+                    },
+                    {
+                        "type": "field_grid_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "has a banner?",
+                                '.banner != null'
+                            ],
+                            [
+                                "is a bot?",
+                                '.bot'
+                            ],
+                            [
+                                "is the bot?",
+                                ' == s4d.client.user'
+                            ],
+                            [
+                                "is a discord system?",
+                                '.system'
+                            ],
+                            [
+                                "has made a DM with the bot?",
+                                '.dmChannel != null'
+                            ],
+                            [
+                                "is missing information?",
+                                '.partial'
+                            ],
+                            // flags
+                            [
+                                "is a verified bot?",
+                                '.flags.has("VERIFIED_BOT")'
+                            ],
+                            [
+                                "is a discord employee?",
+                                '.flags.has("DISCORD_EMPLOYEE")'
+                            ],
+                            [
+                                "is a partnered server owner?",
+                                '.flags.has("PARTNERED_SERVER_OWNER")'
+                            ],
+                            [
+                                "is a HypeSquad events member?",
+                                '.flags.has("HYPESQUAD_EVENTS")'
+                            ],
+                            [
+                                "is a HypeSquad Bravery member?",
+                                '.flags.has("HOUSE_BRAVERY")'
+                            ],
+                            [
+                                "is a HypeSquad Brilliance member?",
+                                '.flags.has("HOUSE_BRILLIANCE")'
+                            ],
+                            [
+                                "is a HypeSquad Balance member?",
+                                '.flags.has("HOUSE_BALANCE")'
+                            ],
+                            [
+                                "is a bug hunter of level 1?",
+                                '.flags.has("BUGHUNTER_LEVEL_1")'
+                            ],
+                            [
+                                "is a bug hunter of level 2?",
+                                '.flags.has("BUGHUNTER_LEVEL_2")'
+                            ],
+                            [
+                                "is an early supporter?",
+                                '.flags.has("EARLY_SUPPORTER")'
+                            ],
+                            [
+                                "is a team user?",
+                                '.flags.has("TEAM_USER")'
+                            ],
+                            [
+                                "is an early verified bot developer?",
+                                '.flags.has("EARLY_VERIFIED_BOT_DEVELOPER")'
+                            ],
+                            [
+                                "is a discord certified moderator?",
+                                '.flags.has("DISCORD_CERTIFIED_MODERATOR")'
+                            ],
+                            [
+                                "is a bot HTTP interaction?",
+                                '.flags.has("BOT_HTTP_INTERACTIONS")'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": "Boolean",
+                "tooltip": "Check if the specified user has or is this property.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_user_has_value"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const property = block.getFieldValue("TYPE")
+    const code = [`${member}${property}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_members_member_is_value"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "member %1 %2",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member", "User"]
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "is bannable by the bot?",
+                                '.bannable'
+                            ],
+                            [
+                                "is kickable by the bot?",
+                                '.kickable'
+                            ],
+                            [
+                                "is below the bot in roles and managable by the bot?",
+                                '.manageable'
+                            ],
+                            [
+                                "is moderatable by the bot?",
+                                '.moderatable'
+                            ],
+                            [
+                                "is missing information?",
+                                '.partial'
+                            ],
+                            [
+                                "hasn't passed the server's rules screen?",
+                                '.pending'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": "Boolean",
+                "tooltip": "Check if the specified member has or is this property.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_member_is_value"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/(?<!client)\.user/gi, "");
+    const property = block.getFieldValue("TYPE")
+    const code = [`${member}${property}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
 };

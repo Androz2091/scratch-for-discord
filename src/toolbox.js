@@ -2558,6 +2558,11 @@ export default (Blockly, value, searching) => {
             <block type="s4d_joined_at"></block>
             <block type="s4d_created_at"></block>
             <block type="s4d_member_is_bot"/>
+            <label text="Information about a Server Member (6 options)"></label>
+            <block type="jg_members_member_is_value"/>
+            <label text="Blocks for users"></label>
+            <label text="Information about a User (20 options)"></label>
+            <block type="jg_members_user_has_value"/>
             <label text="fetch members banner" web-class="boldtext"></label>
             <block type="s4d_get_user_banner"/>
             <block type="s4d_member_banner"/>
