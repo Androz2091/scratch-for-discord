@@ -1,23 +1,21 @@
 <template>
-    <b-nav-item-dropdown id="v-step-0" :text="$t('examples.title')" right>
-        <b-dropdown-item @click="load('ping-pong')">{{ $t('examples.ping_pong') }}</b-dropdown-item>
-        <b-dropdown-item @click="load('command-parsing')">{{ $t('examples.command_parsing') }}</b-dropdown-item>
-      <b-dropdown-item @click="load('bettercmd')">{{$t('examples.bettercmd')}}</b-dropdown-item>
-      <b-dropdown-item @click="load('cooldown')">{{$t('examples.cooldown')}}</b-dropdown-item>
-        <b-dropdown-item @click="load('leveling')">{{ $t('examples.leveling') }}</b-dropdown-item>
-      <b-dropdown-item @click="load('aki')">{{ $t('examples.aki') }}</b-dropdown-item>
-        <b-dropdown-item @click="load('music')">{{ $t('examples.music') }}</b-dropdown-item>
-        <b-dropdown-item @click="load('image-gen')">{{ $t('examples.image_gen') }}</b-dropdown-item>
-        <b-dropdown-item @click="load('economy')">{{ $t('examples.economy') }}</b-dropdown-item>
-      <b-dropdown-item @click="load('backup')">{{ $t('examples.backup') }}</b-dropdown-item>
-      <b-dropdown-item @click="load('random')">{{ $t('examples.random') }}</b-dropdown-item>
-      <b-dropdown-item @click="load('ticket')">{{ $t('examples.ticket') }}</b-dropdown-item>
-      <b-dropdown-item @click="load('reddit')">{{ $t('examples.reddit') }}</b-dropdown-item>
-      <b-dropdown-item @click="load('button')">{{ $t('examples.button') }}</b-dropdown-item>
-      <b-dropdown-item @click="load('slash')">{{ "Slash comamnd" }}</b-dropdown-item>
-      <b-dropdown-item @click="load('advjsonreq')">Advanced JSON Request</b-dropdown-item>
-      
-      </b-nav-item-dropdown>
+    <b-nav-item-dropdown id="v-step-0" text="Examples" right>
+        <b-dropdown-item @click="load('ping-pong')">Ping-Pong Command</b-dropdown-item>
+        <b-dropdown-item @click="load('command-parsing')">Command Handler</b-dropdown-item>
+        <b-dropdown-item @click="load('bettercmd')">Prefix Command Handler</b-dropdown-item>
+        <b-dropdown-item @click="load('leveling')">Basic Leveling System</b-dropdown-item>
+        <b-dropdown-item @click="load('music')">Music System</b-dropdown-item>
+        <b-dropdown-item @click="load('image-gen')">Image Generation</b-dropdown-item>
+        <b-dropdown-item @click="load('economy')">Economy System</b-dropdown-item>
+        <b-dropdown-item @click="load('backup')">Backups</b-dropdown-item>
+        <b-dropdown-item @click="load('random')">Random Responses</b-dropdown-item>
+        <b-dropdown-item @click="load('ticket')">Tickets</b-dropdown-item>
+        <b-dropdown-item @click="load('reddit')">Reddit</b-dropdown-item>
+        <b-dropdown-item @click="load('button')">Buttons & Button rows</b-dropdown-item>
+        <b-dropdown-item @click="load('slash')">Slash Commands</b-dropdown-item>
+        <b-dropdown-item @click="load('advjsonreq')">Advanced JSON Request</b-dropdown-item>
+        <b-dropdown-item @click="load('regex')">RegEx: Finding specific text</b-dropdown-item>
+    </b-nav-item-dropdown>
 </template>
 
 <script>
@@ -32,31 +30,33 @@ import ImageGen from "../../examples/image_gen";
 import Economy from "../../examples/economy";
 import backup from "../../examples/backup";
 import random from "../../examples/random";
-  import aki from "../../examples/aki";
-  import reddit from "../../examples/reddit";
-  import ticket from "../../examples/ticket";
-  import button from "../../examples/button";
-  import cooldown from "../../examples/cooldown";
-  import slash from "../../examples/slash";
-  import advjsonreq from "../../examples/advjsonreq.js";
+import aki from "../../examples/aki";
+import reddit from "../../examples/reddit";
+import ticket from "../../examples/ticket";
+import button from "../../examples/button";
+import cooldown from "../../examples/cooldown";
+import slash from "../../examples/slash";
+import advjsonreq from "../../examples/advjsonreq.js";
+import regex from "../../examples/regex.js";
 
 const examples = {
     "ping-pong": PingPongExample,
     "command-parsing": CommandParsingExample,
-  "bettercmd": bettercmd,
+    "bettercmd": bettercmd,
     "leveling": LevelingExample,
     "music":MusicExample,
     "image-gen": ImageGen,
     "economy": Economy,
-  "backup": backup,
-  "random": random,
-  "aki": aki,
-  "reddit": reddit,
-  "ticket": ticket,
-  "button": button,
-  "cooldown": cooldown,
-  "slash": slash,
-  "advjsonreq": advjsonreq
+    "backup": backup,
+    "random": random,
+    "aki": aki,
+    "reddit": reddit,
+    "ticket": ticket,
+    "button": button,
+    "cooldown": cooldown,
+    "slash": slash,
+    "advjsonreq": advjsonreq,
+    "regex": regex
 };
 
 export default {
