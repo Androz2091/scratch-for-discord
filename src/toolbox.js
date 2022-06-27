@@ -1453,6 +1453,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_thread_raw"/>
             <block type="s4d_thread_guild_raw"/>
             <label text="%{BKY_MESSAGE_ACTIONS}"/>
+            <block type="s4d_message_start_thread"/>
             <block type="s4d_start_thread"/>
             <block type="s4d_started_thread"/>
             <block type="s4d_thread_reply">

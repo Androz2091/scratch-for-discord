@@ -24,3 +24,4 @@ import "./created-thread";
 import "./deleted_thread";
 import "./thread_name";
 import "./thread_server";
+import "./message_start_thread.js";
