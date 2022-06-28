@@ -20,7 +20,7 @@ export default {
                 <h5>Only for news/announcements channels.(Freslin)</h5>
                 <br> 
                 <h3><b>reg ex block</b></h2>
-                <img src='https://cdn.discordapp.com/attachments/935597297528610856/990498236525584456/unknown.png'>
+                <img src='https://media.discordapp.net/attachments/935597297528610856/991096256933818448/unknown.png'>
                 <h5>go to THIS WEBSITE <a href="https://regex101.com/">https://regex101.com/</a> to make yo regx
 works with (in text () replace () with ()) block aswell HYAYYYAYYAYAYAYYAA
 they might get updates because idk all of the regex stuff you can do with it(JeremyGamer13)</h5>
