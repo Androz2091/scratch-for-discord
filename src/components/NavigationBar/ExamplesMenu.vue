@@ -7,6 +7,7 @@
         <b-dropdown-item @click="load('music')">Music System</b-dropdown-item>
         <b-dropdown-item @click="load('image-gen')">Image Generation</b-dropdown-item>
         <b-dropdown-item @click="load('economy')">Economy System</b-dropdown-item>
+        <b-dropdown-item @click="load('leaderboard')">Leaderboard from Database</b-dropdown-item>
         <b-dropdown-item @click="load('backup')">Backups</b-dropdown-item>
         <b-dropdown-item @click="load('random')">Random Responses</b-dropdown-item>
         <b-dropdown-item @click="load('ticket')">Tickets</b-dropdown-item>
@@ -38,6 +39,7 @@ import cooldown from "../../examples/cooldown";
 import slash from "../../examples/slash";
 import advjsonreq from "../../examples/advjsonreq.js";
 import regex from "../../examples/regex.js";
+import leaderboard from "../../examples/leaderboard.js";
 
 const examples = {
     "ping-pong": PingPongExample,
@@ -56,7 +58,8 @@ const examples = {
     "cooldown": cooldown,
     "slash": slash,
     "advjsonreq": advjsonreq,
-    "regex": regex
+    "regex": regex,
+    "leaderboard": leaderboard
 };
 
 export default {
