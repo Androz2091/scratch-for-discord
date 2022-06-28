@@ -2382,6 +2382,7 @@ export default (Blockly, value, searching) => {
             <label text="Actions for the channel"></label>
 
             <block type="monaco_set_channel_nsfw"/>
+            <block type="monaco_toggle_follow_channel"/>
             <block type="renamec"/>
             <block type="channel_perms"/>
             <block type="set_perms_parent"/>
