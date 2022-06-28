@@ -1,13 +1,16 @@
 import './App.css';
-import { useRef, useEffect } from 'react';
+import { useCallback } from 'react';
 import toolbox from './toolbox';
 import DarkTheme from "@blockly/theme-dark";
 import './blocks/discord/base'
 import Blockly from 'blockly'
 function App() {
-  const blocklyParent= useRef(null)
-  useEffect(() => {
-    const workspace = Blockly.inject(blocklyParent.current, {
+  const blocklyParent = useCallback((e) => {
+    const blocklyDiv = document.createElement('div')
+    blocklyDiv.classList.add('h-full')
+    blocklyDiv.classList.add('w-full')
+    e.append(blocklyDiv)
+    const workspace = Blockly.inject(blocklyDiv, {
       toolbox: toolbox,
       theme: DarkTheme,
       renderer: 'zelos',
@@ -31,10 +34,6 @@ function App() {
         wheel: true
       },
     })
-    
-    return () => {
-      blocklyParent.innerHtml = ""
-    }
   }, [])
   return (
     <div ref={blocklyParent} className="h-screen w-full"></div>
