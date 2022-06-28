@@ -41,6 +41,6 @@ Blockly.JavaScript[blockName] = function(block) {
   var value_locationchannel = Blockly.JavaScript.valueToCode(block, 'locationchannel', Blockly.JavaScript.ORDER_ATOMIC);
   var value_reason = Blockly.JavaScript.valueToCode(block, 'reason', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = ` ${value_togglechannel}.addFollower(${value_locationchannel}, ('${value_reason}')\n`;
+  var code = ` ${value_togglechannel}.addFollower(${value_locationchannel}, String(${value_reason})\n`;
   return code;
 };
