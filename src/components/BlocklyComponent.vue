@@ -113,17 +113,30 @@ const defaultblocks = blocks
         // var searchparam = prompt("Search for a block with:")
         let searchparam = searchparameter
         if (!(searchparam)) {
-            searchparam = "null"
+            searchparam = ""
         }
         var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_").replaceAll("\"", "_")
+        if (searchparam == "") searchparamFiltered = "nothing (aka, no filter)"
         searchparam = searchparam.replaceAll(" ", "_").toLowerCase()
-        var repeat_end = defaultblocks.length;
-        for (var count = 0; count < repeat_end; count++) {
+        let repeat_end = defaultblocks.length;
+        for (let count = 0; count < repeat_end; count++) {
             check = defaultblocks[count];
             if (String(check).includes(String(searchparam)) && !(String(check).includes("LINE HIDDEN FROM SEARCH"))) {
                 newblocks.push(check);
             }
         }
+        // labels (bruhf mnvm :skull:)
+        /*
+        let labels = []
+        let pushed
+        for (let count = 0; count < toolboxArray.length; count++) {
+            if (toolboxArray[count].includes('<searchcategory label="')) {
+                pushed = `<label text="${toolboxArray[count].match(/(?<=")\S*(?=")/gmi)[0]}"></label>`
+                labels.push(pushed)
+            }
+        }
+        */
+        // end of labels
         if (newblocks.length > 1) {
             var s = "s"
         } else {
@@ -693,8 +706,8 @@ Blockly.ContextMenuRegistry.registry.register({
 }
 
 function blockCounter() {
-    let blocks = String(workspace.getAllBlocks().length)
     let counter = document.getElementById("block-counter")
+    let blocks = String(workspace.getAllBlocks().length)
     var rgb = "182, 182, 182"
     var bold = ["",""]
     if (Number(blocks) >= 300) {
@@ -721,11 +734,27 @@ function blockCounter() {
     }
     counter.innerHTML = bold[0] + `<p style="color:rgb(${rgb});">${blocks} block${s}</p>` + bold[1]
 }
+localforage.getItem("hide-blockcount").then((item) => {
+    if (String(item) == "true") {
+        let counter = document.getElementById("block-counter")
+        counter.remove()
+    }
+})
 window.addEventListener("click", () => {
-    blockCounter()
+    localforage.getItem("hide-blockcount").then((item) => {
+        if (String(item) == "true") {
+            return
+        }
+        blockCounter()
+    })
 })
 window.addEventListener('keydown', () => {
-    blockCounter()
+    localforage.getItem("hide-blockcount").then((item) => {
+        if (String(item) == "true") {
+            return
+        }
+        blockCounter()
+    })
 })
 /*
 Blockly.getMainWorkspace().addChangeListener(blockCounter(Blockly.getMainWorkspace()))

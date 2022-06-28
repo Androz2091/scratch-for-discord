@@ -266,6 +266,7 @@ load()`);
                 content: wrapper,
                 buttons: {
                     cancel: "Exit",
+                    optimizations: "Optimizations",
                     tokendb: "Token Database",
                     prebuilds: "Prebuilds",
                     clear: "Clear Autosave",
@@ -992,6 +993,32 @@ load()`])
                                     })
                                     Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(token), this.$store.state.workspace);
                                 },
+                            })
+                        }
+                    })
+                } else if (String(result) == "optimizations") {
+                    const wrapper = document.createElement('div');
+                    wrapper.innerHTML = `<h6>Most of these optimizations are minor, but can help if you have a good amount of blocks.</h6><h4><b>These do require a refresh to fully work.</b></h4>`
+                    this.$swal({
+                        title: "Site Optimizations",
+                        content: wrapper,
+                        buttons: {
+                            cancel: "Cancel",
+                            dbc: "Toggle Block Counter"
+                        },
+                    }).then(async (result) => {
+                        if (String(result) == "dbc") {
+                            localforage.getItem("hide-blockcount").then((item) => {
+                                if (item == null) {
+                                    localforage.setItem("hide-blockcount", true)
+                                    return
+                                }
+                                if (String(item) == "true") {
+                                    localforage.setItem("hide-blockcount", false)
+                                } else {
+                                    localforage.setItem("hide-blockcount", true)
+                                }
+                                localforage.getItem("hide-blockcount").then(console.log)
                             })
                         }
                     })
