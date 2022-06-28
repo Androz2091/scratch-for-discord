@@ -18,7 +18,6 @@
                 <Socials style="font-size: small;"></Socials>
                 <changelog style="font-size: small;"></changelog>
                 <Credit style="font-size: small;"></Credit>
-                <b-nav-item href="https://forms.gle/zmv3YKqPGCqaaiih9" target="_blank" style="font-size: small;">Vote for an Embed!</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
 <div id="block-counter" style="margin-right: 5px; font-size: 90%"><p style="color:rgb(182, 182, 182);">0 blocks</p></div>
