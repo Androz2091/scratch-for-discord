@@ -3630,3 +3630,34 @@ Blockly.JavaScript["jg_lists_regex_list_of_matches_from_regex_on_text"] = functi
     const code = [`String(${text}).match(${regex})`, Blockly.JavaScript.ORDER_ATOMIC];
     return code;
 };
+Blockly.Blocks["jg_member_is_user_in_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "is user %1 in server %2?",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member", "User"]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "Boolean",
+                "tooltip": "Check if the member is in the server.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_member_is_user_in_server"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`await ${server}.members.fetch(${member}.id) != null`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};

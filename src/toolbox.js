@@ -2574,6 +2574,7 @@ export default (Blockly, value, searching) => {
             <!--
             <block type="jg_members_user_accent_color"/>
             -->
+            <block type="jg_member_is_user_in_server"/>
             <block type="jg_members_user_exactly_equals_user"/>
             <label text="Information about a User (20 options)"></label>
             <block type="jg_members_user_has_value"/>
