@@ -14,16 +14,9 @@ export default `
       <shadow type="text" id="y5}IuCOjz%OfC}a/1P0r">
         <field name="TEXT">Your bot token</field>
       </shadow>
-      <block type="frost_env" id="I}8@q$*%SM0f%#Eao@qU">
-        <value name="VALUE">
-          <shadow type="text" id="CrjNtqa:$gOSnuhz*mB,">
-            <field name="TEXT">token</field>
-          </shadow>
-        </value>
-      </block>
     </value>
   </block>
-  <block type="jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot" id="?Th7$8UcKH9bWq9+F+O_" x="0" y="114">
+  <block type="jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot" id="?Th7$8UcKH9bWq9+F+O_" x="0" y="106">
     <statement name="STATEMENTS">
       <block type="variables_set" id="Fo+ksP#~73~o,EeQmq{u">
         <field name="VAR" id="OZ0l|^XRQH?T?s;b$B%X">arguments</field>
