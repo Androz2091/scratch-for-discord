@@ -21,7 +21,7 @@ export default {
                 <br> 
                 <h3><b>reg ex block</b></h2>
                 <img src='https://cdn.discordapp.com/attachments/935597297528610856/990498236525584456/unknown.png'>
-                <h5>go to THIS WEBSITE https://regex101.com/ to make yo regx
+                <h5>go to THIS WEBSITE <a href="https://regex101.com/">https://regex101.com/</a> to make yo regx
 works with (in text () replace () with ()) block aswell HYAYYYAYYAYAYAYYAA
 they might get updates because idk all of the regex stuff you can do with it(JeremyGamer13)</h5>
                 <br>
