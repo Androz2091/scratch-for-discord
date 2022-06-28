@@ -15,6 +15,22 @@ export default {
                 icon: 'info',
                 width: "900px",
                 html:`
+                <h3><b>Follow a channel!</b></h2>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/991203793423302686/unknown.png'>
+                <h5>Only for news/announcements channels.(Freslin)</h5>
+                <br> 
+                <h3><b>reg ex block</b></h2>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/990498236525584456/unknown.png'>
+                <h5>go to THIS WEBSITE https://regex101.com/ to make yo regx
+works with (in text () replace () with ()) block aswell HYAYYYAYYAYAYAYYAA
+they might get updates because idk all of the regex stuff you can do with it(JeremyGamer13)</h5>
+                <br>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/990837321668624394/unknown.png'>
+                <h5>(cat soup)</h5>
+                <br>
+                                                                <!-- new content -->
+                                        <h5 style = "border-bottom: 6px solid red">New content</h5> 
+                <br>
                 <img src='https://cdn.discordapp.com/attachments/935597297528610856/990520210652037150/unknown.png'>
                 <h5>(cat soup)</h5>
                 <br>
@@ -78,10 +94,7 @@ export default {
                 <h3>Server Settings</h3>
                 <img src='https://cdn.discordapp.com/attachments/898783648491397191/980201472245510224/screenshot.png' width='475'>
                 <h5>Set or get info about server settings (LimeNade)</h5>
-                <br>
-                                                                 <!-- new content -->
-                                        <h5 style = "border-bottom: 6px solid red">New content</h5> 
-                <br>
+                <br>                      
                 <h3>Hopefully you like Minecraft, because we have some <b>Minecraft Blocks</b> now!</h3>
                 <img src='https://media.discordapp.net/attachments/914411539887456296/980028856176111626/unknown.png?width=797&height=676' width='797' height='676'>
                 <h5>Bedrock blocks are limited until Minecraft allows more server features.</h5>
