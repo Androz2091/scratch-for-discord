@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    margin: 0
+}
+
+.blocklyScrollbarBackground {
+    display: none;
+}
+.blocklyScrollbarHandle {
+    display: none;
+}
