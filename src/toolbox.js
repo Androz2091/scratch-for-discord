@@ -2401,8 +2401,6 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
-            <block type="new_invite"/>
-            <block type="invite_ur"/>
 
             <label text="Voice channel events"></label>
 
