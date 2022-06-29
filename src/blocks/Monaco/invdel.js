@@ -40,6 +40,6 @@ Blockly.JavaScript['monaco_delete_invite'] = function(block) {
   var value_reason = Blockly.JavaScript.valueToCode(block, 'reason', Blockly.JavaScript.ORDER_ATOMIC);
   var value_server = Blockly.JavaScript.valueToCode(block, 'server', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = `${value_server}.invites.delete.(${value_invite}, [${value_reason}])\n`;
+  var code = `${value_server}.invites.delete.(${value_invite}, String(${value_reason})\n`;
   return code;
 };
