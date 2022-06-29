@@ -2401,8 +2401,6 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
-            <block type="new_invite"/>
-            <block type="invite_ur"/>
 
             <label text="Voice channel events"></label>
 
@@ -2639,6 +2637,16 @@ export default (Blockly, value, searching) => {
         </category>
         <category name="Invites" colour="#5abced">
         <searchcategory label="Invites category"/>
+             <label text="Create Invites"></label>
+                <block type="new_invite"/>
+                <block type="invite_ur"/>
+            <label text="Fetch Invites"></label>
+                <block type="monaco_all_invites"/>
+                <block type="monaco_invites_channels"/>
+                <block type="monaco_invite_with_code"/>
+            <label text="Delete Invites"></label>
+                <block type="monaco_delete_invite"/>
+            <label text="Invite Events"></label>
             <label text="On member joined"></label>
                 <block type="userinvited"/>
                 <block type="Member"/>
