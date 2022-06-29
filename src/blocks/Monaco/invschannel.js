@@ -35,7 +35,7 @@ Blockly.JavaScript['invs_channel'] = function(block) {
   var value_channel = Blockly.JavaScript.valueToCode(block, 'channel', Blockly.JavaScript.ORDER_ATOMIC);
   var value_server = Blockly.JavaScript.valueToCode(block, 'server', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = `${value_server}.invites.fetch({ channel: ${value_channel} })`;
+  var code = `${value_server}.invites.fetch({ channelId: ${value_channel}.id })`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
