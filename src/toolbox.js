@@ -2602,6 +2602,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_kick_member"></block>
             <block type="s4d_ban_member"></block>
             <block type="s4d_unban_member"></block>
+            <block type="monaco_expanded_punishments"></block>
             <block type="s4d_send_member"></block>
             <block type="s4d_set_member_nickname"></block>
             <label text="Member action events"></label>
