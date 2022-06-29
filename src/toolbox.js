@@ -1842,9 +1842,9 @@ export default (Blockly, value, searching) => {
             </category>
         </category>
         <sep class="bt"/>
-        <category name="Embeds" colour="#df61ff">
+        <category name="Embeds" colour="#fcca03">
         <searchcategory label="Embeds category"/>
-            <category name="no name: MrRedo" colour="#d557ff">
+            <category name="no name: MrRedo" colour="#fca903">
             <searchcategory label="Embeds > MrRedo category"/>
                 <label text="Create A Perfect Embed" web-class="boldtext"></label>
                 <block type="s4d_m_create_embed_then"></block>
@@ -1866,7 +1866,7 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_m_create_embed_then_send"></block>
                 <block type="frost_send_embed_rr"/>
             </category>
-            <category name="no name: Jose" colour="#cd57ff">
+            <category name="no name: Jose" colour="#fc9803">
             <searchcategory label="Embeds > Jose category"/>
                 <label text="Create A Perfect Embed" web-class="boldtext"></label>
                 <block type="s4d_create_embed_then"></block>
@@ -1886,7 +1886,7 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_create_embed_then_send"></block>
                 <block type="frost_send_embed_rr"/>
             </category>
-            <category name="no name: Eruption" colour="#c457ff">
+            <category name="no name: Eruption" colour="#fc8c03">
             <searchcategory label="Embeds > Eruption category"/>
                 <label text="Create a perfect embed" web-class="boldtext"></label>
                 <block type="s4d_embed_create"></block>
@@ -1903,7 +1903,7 @@ export default (Blockly, value, searching) => {
                 <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
                 <block type="s4d_embed_send"></block>
             </category>
-            <category name="named: AHQ" colour="#b957ff">
+            <category name="named: AHQ" colour="#fc8403">
             <searchcategory label="Embeds > AHQ category"/>
                 <block type="make_ahq_embed"/>
                 <label text="Embed Send" web-class="boldtext"></label>
@@ -1920,7 +1920,7 @@ export default (Blockly, value, searching) => {
                 <block type="footer_ahq_embed"/>
                 <block type="stamp_ahq_embed"/>
             </category>
-            <category name="named: RedMan13" colour="#a557ff">
+            <category name="named: RedMan13" colour="#fc7703">
             <searchcategory label="Embeds > RedMan13 category"/>
                 <block type="gsa_create_embed"/>
                 <block type="gsa_send_embed"/>
@@ -2100,16 +2100,16 @@ export default (Blockly, value, searching) => {
                 <label text="⠀" web-class="boldtext"></label>
             </category>
         </category>
-        <category name="Utilities" colour="#d557ff">
+        <category name="Utilities" colour="#03b6fc">
         <searchcategory label="Utilities category"/>
-            <category name="Server Backups" colour="#d24dff">
+            <category name="Server Backups" colour="#03a1fc">
             <searchcategory label="Utilities > Server Backups category"/>
                 <block type="s4d_create_backup_of_guild_then"/>
                 <block type="s4d_backup_load"/>
                 <block type="s4d_delete_backup"/>
                 <block type="s4d_backup_id"/>
             </category>
-            <category name="Giveaways" colour="#d042ff">
+            <category name="Giveaways" colour="#0390fc">
             <searchcategory label="Utilities > Giveaways category"/>
                 <block type="s4d_create_giveaway"/> 
                 <block type="s4d_giveaway_id"/>
@@ -2117,15 +2117,15 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_giveaway_data"/>
             </category>
         </category>
-        <category name="Music" colour="#cd57ff">
+        <category name="Music" colour="#52fc03">
         <searchcategory label="Music category"/>
-            <category name="Music Lyrics" colour="#c457ff">
+            <category name="Music Lyrics" colour="#4be802">
             <searchcategory label="Music > Music Lyrics category"/>
                 <label text="Find lyrics for music" web-class="boldtext"></label>
 	 	        <block type="find_lyric_than"/>
 		        <block type="lyric"/>
             </category>
-            <category name="Music Player" colour="#b957ff">
+            <category name="Music Player" colour="#43d400">
             <searchcategory label="Music > Music Player category"/>
 			    <label text="Create a perfect music player" web-class="boldtext"></label>
                 <label text="Made with discord-music-player DMP" web-class="boldtext"></label>
@@ -2161,7 +2161,7 @@ export default (Blockly, value, searching) => {
                 <block type="better_botvcid"/>
 	            <block type="song-first"/>
             </category>
-            <category name="Discord Player" colour="#a557ff">
+            <category name="Discord Player" colour="#3dbf00">
             <searchcategory label="Music > Discord Player category"/>
                 <label text="%{BKY_MUSIC_EVENT}"></label>
                 <block type="s4d_track_playing"></block>
