@@ -11,7 +11,7 @@ import Blockly from "blockly";
 import NavBarComponent from "./components/NavigationBar/NavigationBar.vue";
 import BlocklyComponent from "./components/BlocklyComponent.vue";
 
-
+console.log("User is currently on platform", navigator.userAgent)
 
 
 Blockly.Tooltip.HOVER_MS = 100;

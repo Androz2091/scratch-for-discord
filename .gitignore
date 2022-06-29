@@ -5,3 +5,6 @@ node_modules
 dist/
 package-lock.json
 yarn.lock
+
+# ur mom
+yarn-error.log

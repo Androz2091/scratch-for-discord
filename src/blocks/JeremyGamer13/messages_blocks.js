@@ -3326,7 +3326,7 @@ Blockly.Blocks["jg_members_member_is_value"] = {
     }
 }
 Blockly.JavaScript["jg_members_member_is_value"] = function (block) {
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/(?<!client)\.user/gi, "");
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/member(?=\.user)\.user/gi, "member");
     const property = block.getFieldValue("TYPE")
     const code = [`${member}${property}`, Blockly.JavaScript.ORDER_NONE];
     return code;
@@ -3408,7 +3408,7 @@ Blockly.Blocks["jg_members_member_has_nickname"] = {
     }
 }
 Blockly.JavaScript["jg_members_member_has_nickname"] = function (block) {
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/(?<!client)\.user/gi, "");
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/member(?=\.user)\.user/gi, "member");
     const code = [`${member}.nickname != null`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
@@ -3433,7 +3433,7 @@ Blockly.Blocks["jg_members_member_s_nickname"] = {
     }
 }
 Blockly.JavaScript["jg_members_member_s_nickname"] = function (block) {
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/(?<!client)\.user/gi, "");
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/member(?=\.user)\.user/gi, "member");
     const code = [`${member}.nickname == null ? ${member}.user.username : ${member}.nickname`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
@@ -3466,7 +3466,7 @@ Blockly.Blocks["jg_roles_get_all_member_roles_then_for_each_do"] = {
     }
 }
 Blockly.JavaScript["jg_roles_get_all_member_roles_then_for_each_do"] = function (block) {
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/(?<!client)\.user/gi, "");
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/member(?=\.user)\.user/gi, "member");
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
     const code = `${member}.roles.cache.forEach(async (member_role) => {
     ${statements}
