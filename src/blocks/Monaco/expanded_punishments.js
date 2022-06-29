@@ -56,6 +56,6 @@ Blockly.JavaScript['expanded_punishments'] = function(block) {
   var value_server = Blockly.JavaScript.valueToCode(block, 'server', Blockly.JavaScript.ORDER_ATOMIC);
   var value_reason = Blockly.JavaScript.valueToCode(block, 'reason', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = `${value_server}.members.${dropdown_punishments}(${value_member}, String(${value_reason}))\n`;
+  var code = `${value_server}.members.${dropdown_punishments}(${value_member}, { reason: String(${value_reason}) })\n`;
   return code;
 };
