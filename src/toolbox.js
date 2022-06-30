@@ -346,6 +346,9 @@ const toolbox = `
         </value>
     </block>
     </category>
+    <category name="Database" colour="#fff">
+        <block type="s4d_get_data" />
+    </category>
 </xml>
 `
 export default toolbox

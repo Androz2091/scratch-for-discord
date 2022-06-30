@@ -1076,6 +1076,11 @@
   resolved "https://registry.npmjs.org/@blockly/theme-dark/-/theme-dark-3.0.11.tgz#2f53af17ef53eeb296d97050cec72fee49d769a7"
   integrity sha512-R0WUM8iAlZ6pl05azp0GRWVUTJ6fJZvz4napje1P/zYYe8T0shxZswtr73CE5j62vRwR2snDdc12OE64yuohYw==
 
+"@blockly/theme-modern@^2.1.37":
+  version "2.1.37"
+  resolved "https://registry.npmjs.org/@blockly/theme-modern/-/theme-modern-2.1.37.tgz#6e9d726f17a8139637cdfc1a224ccf26d022db1c"
+  integrity sha512-KIFCmJRiclANeK4zt/Pe6dl2W7HFb8grEdGFBdEj5lqQnexUT5XoTusasQqqWSfZUr+XEL4/5UINR3yIl5aXCw==
+
 "@csstools/normalize.css@*":
   version "12.0.0"
   resolved "https://registry.npmjs.org/@csstools/normalize.css/-/normalize.css-12.0.0.tgz#a9583a75c3f150667771f30b60d9f059473e62c4"

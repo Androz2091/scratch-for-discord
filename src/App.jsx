@@ -1,14 +1,17 @@
 import './App.css'
-import { useCallback, /**, useState **/useRef } from 'react'
+import { useCallback, useRef } from 'react'
 import toolbox from './toolbox'
 import DarkTheme from "@blockly/theme-dark"
-import './blocks/discord/base'
+// import ModernTheme from '@blockly/theme-modern'
 import * as Blockly from 'blockly/core'
 // import Navbar from './components/Navbar'
 import javascript from 'blockly/javascript'
 
+//load Blocks
+import './blocks/discord/base'
+import './blocks/database'
+
 function App() {
-  // const [isDarkmode, setIsDarkmode] = useState(Boolean(localStorage.getItem('darkmode')) || false)
   let workspace = useRef()
   const blocklyParent = useCallback((e) => {
     const blocklyDiv = document.createElement('div')
@@ -40,7 +43,7 @@ function App() {
       },
       CSS: false,
     })
-  }, [/**isDarkmode**/])
+  }, [])
   return (
     <>
       <nav className="flex items-center justify-between flex-wrap bg-gray-1000 p-6">
@@ -69,6 +72,7 @@ function App() {
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
                     const s4d = {
                         Discord,
+                        database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/db.json\`),
                         joiningMember: null,
                         reply: null,
                         tokenInvalid: false,
