@@ -2520,12 +2520,14 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
             <block type="fz_role_info_text"/>
             <block type="fz_role_info_num"/>
+            <block type="monaco_get_role_on_position"/>
 			<block type="fz_role_info_bool"/>
             <block type="fz_role_info_color"/>
             <block type="s4d_add_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
             <block type="s4d_remove_role"><value name="MEMBER"><shadow type="s4d_message_member"/></value></block>
             <block type="s4d_delete_role"></block>
             <block type="monaco_delete_role"></block>
+            <block type="monaco_set_role_position"></block>
             <block type="s4d_has_role"></block>
 			<block type="s4d_role_exist"/>
             <block type="s4d_create_role"></block>
