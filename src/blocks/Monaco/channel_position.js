@@ -29,7 +29,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript['monaco_position_of_channel'] = function(block) {
   var value_channel = Blockly.JavaScript.valueToCode(block, 'channel', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = `${value_channel}.position()`;
+  var code = `${value_channel}.position`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
