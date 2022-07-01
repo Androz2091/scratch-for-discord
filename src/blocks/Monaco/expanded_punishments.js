@@ -50,7 +50,7 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript['expanded_punishments'] = function(block) {
+Blockly.JavaScript['monaco_expanded_punishments'] = function(block) {
   var dropdown_punishments = block.getFieldValue('punishments');
   var value_member = Blockly.JavaScript.valueToCode(block, 'member', Blockly.JavaScript.ORDER_ATOMIC);
   var value_server = Blockly.JavaScript.valueToCode(block, 'server', Blockly.JavaScript.ORDER_ATOMIC);

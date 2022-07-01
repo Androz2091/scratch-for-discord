@@ -2309,6 +2309,7 @@ export default (Blockly, value, searching) => {
             </block>
 	        <block type="s4d_channel_ahq_name"></block>
             <block type="s4d_channel_id"/>
+            <block type="monaco_position_of_channel"/>
             <block type="s4d_channel_guild_id"/>
             <block type="s4d_channel_parent_id"/>
             <block type="s4d_channel_message_id"/>
@@ -2375,6 +2376,7 @@ export default (Blockly, value, searching) => {
             <block type="fz_channel"/>
             <block type="frost_created_cat"/>
             <block type="s4d_delete_channel"></block>
+            <block type="monaco_set_channel_position"/>
 
             <label text="Actions for the channel"></label>
 
