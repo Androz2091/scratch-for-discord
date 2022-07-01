@@ -15,6 +15,21 @@ export default {
                 icon: 'info',
                 width: "900px",
                 html:`
+                <img src='https://media.discordapp.net/attachments/935597297528610856/991985618554994708/unknown.png' width='600'>
+                <h5>(Freslin)</h5>
+                <br> 
+                <h3><b>New Block!</b></h2>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/991739773616148590/unknown.png' width='600'>
+                <h5>(Freslin)</h5>
+                <br> 
+                <h3><b>Invites Category Revamp + New Blocks!</b></h2>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/991546543029096518/unknown.png'>
+                <h5>The invites category has been totally revamped with many new blocks!
+Here's an image of the revamp and the new blocks!(Freslin)</h5>
+                <br> 
+                                                           <!-- new content -->
+                                        <h5 style = "border-bottom: 6px solid red">New content</h5> 
+                <br>
                 <h3><b>Follow a channel!</b></h2>
                 <img src='https://cdn.discordapp.com/attachments/935597297528610856/991203793423302686/unknown.png'>
                 <h5>Only for news/announcements channels.(Freslin)</h5>
@@ -27,9 +42,6 @@ they might get updates because idk all of the regex stuff you can do with it(Jer
                 <br>
                 <img src='https://cdn.discordapp.com/attachments/935597297528610856/990837321668624394/unknown.png'>
                 <h5>(cat soup)</h5>
-                <br>
-                                                                <!-- new content -->
-                                        <h5 style = "border-bottom: 6px solid red">New content</h5> 
                 <br>
                 <img src='https://cdn.discordapp.com/attachments/935597297528610856/990520210652037150/unknown.png'>
                 <h5>(cat soup)</h5>
