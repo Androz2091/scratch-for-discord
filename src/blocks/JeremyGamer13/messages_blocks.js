@@ -2130,7 +2130,7 @@ Blockly.JavaScript["jg_monaco_servers_on_server_get_audit_logs_then"] = function
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
     const code = `${server}.fetchAuditLogs().then(async (audit_raw) => {
-        let audit = audit_raw.entries
+        let audit = audit_raw.entries;
         ${statements}
     })
     `;
