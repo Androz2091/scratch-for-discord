@@ -9,17 +9,17 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "Number", "String", "Embed", "MessageEmbed" ]
+            "check": ["Number", "String", "Embed", "MessageEmbed"]
         },
         {
             "type": "input_value",
             "name": "BOOLEAN",
-            "check": [ "Boolean" ]
+            "check": ["Boolean"]
         },
         {
             "type": "input_value",
             "name": "BUTTON",
-            "check": [ "String", "ButtonRow" ]
+            "check": ["String", "ButtonRow", "ButtonMenu"]
         },
     ],
     "colour": "#4C97FF",
@@ -30,25 +30,25 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC) || "No content"
     const boolean = Blockly.JavaScript.valueToCode(block, "BOOLEAN", Blockly.JavaScript.ORDER_ATOMIC) || true
     const button = Blockly.JavaScript.valueToCode(block, "BUTTON", Blockly.JavaScript.ORDER_ATOMIC);
-    let text1 = button.replace("'","")
-    let button2 = text1.replace("'","")
-    if(block.getInput("CONTENT").connection.targetConnection){
+    let text1 = button.replace("'", "")
+    let button2 = text1.replace("'", "")
+    if (block.getInput("CONTENT").connection.targetConnection) {
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
-        block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
-        null;
-        if((contentType === "Embed")){
+            block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
+            null;
+        if ((contentType === "Embed")) {
             const code = `await interaction.reply({ embeds: [${content}], ephemeral: ${boolean}, components: [${button2}] });\n`;
             return code;
-        } else if((contentType === "MessageEmbed")) {
+        } else if ((contentType === "MessageEmbed")) {
             const code = `await interaction.reply({${content}});\n`;
             return code;
         } else {

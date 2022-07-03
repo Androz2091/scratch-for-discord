@@ -45,7 +45,7 @@ Blockly.Blocks[blockNames[0]] = {
 Blockly.JavaScript[blockNames[0]] = function (block) {
     const cookie = Blockly.JavaScript.valueToCode(block, "COOKIE", Blockly.JavaScript.ORDER_ATOMIC);
     const then = Blockly.JavaScript.statementToCode(block, "THEN");
-    const code = `S4D_APP_NOBLOX.setCookie(String(${cookie})).then(function(roblox_currentUser) {
+    const code = `S4D_APP_NOBLOX.setCookie(String(${cookie})).then(async function(roblox_currentUser) {
   ${then}
 })
 `;
@@ -218,7 +218,7 @@ Blockly.Blocks[blockNames[4]] = {
 Blockly.JavaScript[blockNames[4]] = function (block) {
     const user = Blockly.JavaScript.valueToCode(block, "USER", Blockly.JavaScript.ORDER_ATOMIC);
     const then = Blockly.JavaScript.statementToCode(block, "THEN");
-    const code = `S4D_APP_NOBLOX.currentlyWearing(Number(${user})).then((roblox_currentlywearing) => {
+    const code = `S4D_APP_NOBLOX.currentlyWearing(Number(${user})).then(async (roblox_currentlywearing) => {
       ${then}
     })
 `;
@@ -273,7 +273,7 @@ Blockly.Blocks[blockNames[6]] = {
 }
 Blockly.JavaScript[blockNames[6]] = function (block) {
     const asset = Blockly.JavaScript.valueToCode(block, "ASSET", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`S4D_APP_NOBLOX.removeAssetId(Number(${asset}))`, Blockly.JavaScript.ORDER_NONE];
+    const code = `S4D_APP_NOBLOX.removeAssetId(Number(${asset}))`
     return code;
 };
 Blockly.Blocks[blockNames[7]] = {
@@ -307,7 +307,7 @@ Blockly.Blocks[blockNames[7]] = {
 }
 Blockly.JavaScript[blockNames[7]] = function (block) {
     const user = Blockly.JavaScript.valueToCode(block, "USER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`S4D_APP_NOBLOX.acceptFriendRequest(Number(${user}))`, Blockly.JavaScript.ORDER_NONE];
+    const code = `S4D_APP_NOBLOX.acceptFriendRequest(Number(${user}))`
     return code;
 };
 Blockly.Blocks[blockNames[8]] = {
@@ -341,7 +341,7 @@ Blockly.Blocks[blockNames[8]] = {
 }
 Blockly.JavaScript[blockNames[8]] = function (block) {
     const user = Blockly.JavaScript.valueToCode(block, "USER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`S4D_APP_NOBLOX.block(Number(${user}))`, Blockly.JavaScript.ORDER_NONE];
+    const code = `S4D_APP_NOBLOX.block(Number(${user}))`
     return code;
 };
 Blockly.Blocks[blockNames[9]] = {
@@ -375,7 +375,7 @@ Blockly.Blocks[blockNames[9]] = {
 }
 Blockly.JavaScript[blockNames[9]] = function (block) {
     const user = Blockly.JavaScript.valueToCode(block, "USER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`S4D_APP_NOBLOX.unblock(Number(${user}))`, Blockly.JavaScript.ORDER_NONE];
+    const code = `S4D_APP_NOBLOX.unblock(Number(${user}))`
     return code;
 };
 Blockly.Blocks[blockNames[10]] = {
@@ -403,7 +403,7 @@ Blockly.Blocks[blockNames[10]] = {
     }
 }
 Blockly.JavaScript[blockNames[10]] = function () {
-    const code = [`S4D_APP_NOBLOX.declineAllFriendRequests()`, Blockly.JavaScript.ORDER_NONE];
+    const code = `S4D_APP_NOBLOX.declineAllFriendRequests()`
     return code;
 };
 Blockly.Blocks[blockNames[11]] = {
@@ -437,7 +437,7 @@ Blockly.Blocks[blockNames[11]] = {
 }
 Blockly.JavaScript[blockNames[11]] = function (block) {
     const user = Blockly.JavaScript.valueToCode(block, "USER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`S4D_APP_NOBLOX.declineFriendRequest(Number(${user}))`, Blockly.JavaScript.ORDER_NONE];
+    const code = `S4D_APP_NOBLOX.declineFriendRequest(Number(${user}))`
     return code;
 };
 Blockly.Blocks["jg_roblox_U2_follow_user_id"] = {
@@ -471,7 +471,7 @@ Blockly.Blocks["jg_roblox_U2_follow_user_id"] = {
 }
 Blockly.JavaScript["jg_roblox_U2_follow_user_id"] = function (block) {
     const user = Blockly.JavaScript.valueToCode(block, "USER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`S4D_APP_NOBLOX.follow(Number(${user}))`, Blockly.JavaScript.ORDER_NONE];
+    const code = `S4D_APP_NOBLOX.follow(Number(${user}))`
     return code;
 };
 Blockly.Blocks["jg_roblox_U2_unfollow_user_id"] = {
@@ -505,7 +505,7 @@ Blockly.Blocks["jg_roblox_U2_unfollow_user_id"] = {
 }
 Blockly.JavaScript["jg_roblox_U2_unfollow_user_id"] = function (block) {
     const user = Blockly.JavaScript.valueToCode(block, "USER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`S4D_APP_NOBLOX.unfollow(Number(${user}))`, Blockly.JavaScript.ORDER_NONE];
+    const code = `S4D_APP_NOBLOX.unfollow(Number(${user}))`
     return code;
 };
 Blockly.Blocks["jg_roblox_U2_send_message_to_user_id"] = {
@@ -551,7 +551,7 @@ Blockly.JavaScript["jg_roblox_U2_send_message_to_user_id"] = function (block) {
     const user = Blockly.JavaScript.valueToCode(block, "USER", Blockly.JavaScript.ORDER_ATOMIC);
     const subject = Blockly.JavaScript.valueToCode(block, "SUBJECT", Blockly.JavaScript.ORDER_ATOMIC);
     const body = Blockly.JavaScript.valueToCode(block, "BODY", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`S4D_APP_NOBLOX.message(Number(${user}), String(${subject}), String(${body}))`, Blockly.JavaScript.ORDER_NONE];
+    const code = `S4D_APP_NOBLOX.message(Number(${user}), String(${subject}), String(${body}))`
     return code;
 };
 // adcnieb
@@ -586,7 +586,7 @@ Blockly.Blocks["jg_roblox_U2_send_friend_request"] = {
 }
 Blockly.JavaScript["jg_roblox_U2_send_friend_request"] = function (block) {
     const user = Blockly.JavaScript.valueToCode(block, "USER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`S4D_APP_NOBLOX.sendFriendRequest(Number(${user}))`, Blockly.JavaScript.ORDER_NONE];
+    const code = `S4D_APP_NOBLOX.sendFriendRequest(Number(${user}))`
     return code;
 };
 // adcnieb

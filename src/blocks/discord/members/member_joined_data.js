@@ -18,12 +18,13 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `(${member}.joinedAt)`, Blockly.JavaScript.ORDER_NONE ];
+Blockly.JavaScript[blockName] = function (block) {
+    let member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    if (String(member).endsWith(".user") || String(member).endsWith(".user)")) member = member.replace(".user", "")
+    return [`String(${member}.joinedAt)`, Blockly.JavaScript.ORDER_NONE];
 };

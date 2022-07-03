@@ -10,3 +10,4 @@ import "./set_bot_stream_text";
 import "./bot_amout";
 import "./start_antispam";
 import "./change";
+import "./bot_startup_time"

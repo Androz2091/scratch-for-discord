@@ -15,39 +15,39 @@ const blockData = {
             "name": "NAME",
             "options": [
                 [
-                    "CREATE_INSTANT_INVITE",
+                    "create instant invite",
                     "CREATE_INSTANT_INVITE"
                 ],
                 [
-                    "VIEW_CHANNEL",
+                    "view channel",
                     "VIEW_CHANNEL"
                 ],
                 [
-                    "SEND_MESSAGES",
+                    "send messages",
                     "SEND_MESSAGES"
                 ],
                 [
-                    "SEND_TTS_MESSAGES",
+                    "send tts messages",
                     "SEND_TTS_MESSAGES"
                 ],
                 [
-                    "MANAGE_MESSAGES",
+                    "manage messages",
                     "MANAGE_MESSAGES"
                 ],
                 [
-                    "EMBED_LINKS",
+                    "embed links",
                     "EMBED_LINKS"
                 ],
                 [
-                    "ATTACH_FILES",
+                    "attatch files",
                     "ATTACH_FILES"
                 ],
                 [
-                    "READ_MESSAGE_HISTORY",
+                    "read message history",
                     "READ_MESSAGE_HISTORY"
                 ],
                 [
-                    "MENTION_EVERYONE",
+                    "mention everyone",
                     "MENTION_EVERYONE"
                 ]
             ]
@@ -63,7 +63,7 @@ const blockData = {
     ],
     "inputsInline": true,
     "output": "Boolean",
-    "colour": 230,
+    "colour": "#5B80A5",
     "tooltip": "",
     "helpUrl": ""
 }
@@ -79,6 +79,7 @@ Blockly.JavaScript['member_channel_perms'] = function (block) {
     var member = Blockly.JavaScript.valueToCode(block, 'member', Blockly.JavaScript.ORDER_ATOMIC);
     var dropdown_name = block.getFieldValue('NAME');
     var channel = Blockly.JavaScript.valueToCode(block, 'channel', Blockly.JavaScript.ORDER_ATOMIC);
+
 
     var code = `ShsHSjJSjSJSJSGHkkhdjdmns.includes(${channel}.permissionsFor(${member}).toArray().filter(x => x == '${dropdown_name}')[0])`;
 

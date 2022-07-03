@@ -10,7 +10,7 @@ S4D 469 is forked from [the original S4D](https://scratch-for-discord.netlify.ap
 
 ## Example
 
-![example](./examples/example.png)
+![example](./examples/example2.png)
 
 ## Run On Repl.it
 
@@ -40,7 +40,7 @@ The discord.js guide has [instructions for setting up a bot application](https:/
 **[Google Play Store](https://play.google.com/store/apps/details?id=com.snowflakestudio.scratchfordiscord)**
 
 ### Preview
-![preview](https://i.imgur.com/UJ2SKlc.png)
+![preview](./examples/preview.png)
 
 ## Credits
 

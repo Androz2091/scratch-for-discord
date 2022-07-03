@@ -30,7 +30,7 @@ Blockly.Blocks["jg_text_for_each_letter_in_text_do"] = {
 Blockly.JavaScript["jg_text_for_each_letter_in_text_do"] = function (block) {
     const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `[...String(${text})].forEach((letter_inText) => {
+    const code = `[...String(${text})].forEach(async (letter_inText) => {
   ${statements}
 });
 `;
@@ -57,7 +57,7 @@ Blockly.JavaScript["jg_text_for_each_letter_in_text_do_letter"] = function () {
 registerRestrictions("jg_text_for_each_letter_in_text_do_letter", [
     {
         type: "hasparent",
-        message: "RES_GET_ALL_INPUT_PARENT",
+        message: "$This block needs to be placed inside of a \"for each letter in text do\" block!",
         types: [
             "jg_text_for_each_letter_in_text_do"
         ]

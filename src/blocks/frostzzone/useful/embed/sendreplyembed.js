@@ -4,13 +4,13 @@ import { registerRestrictions } from "../../../../restrictions";
 const blockName = "frost_send_embed_rr";
 
 const blockData = {
-    "message0": "send embed as real reply with text %1",
+    "message0": "send unnamed embed as reply with text %1",
     "args0": [
-    {
-        "type": "input_value",
-        "name": "TEXT",
-        "check": "STRING"
-    }],
+        {
+            "type": "input_value",
+            "name": "TEXT",
+            "check": "String"
+        }],
     "colour": "#40BF4A",
     "previousStatement": null,
     "nextStatement": null,
@@ -19,12 +19,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `s4dmessage.reply({${text === "" ? "" : `content:${text},`} embeds: [embed] });\n`;
     return code;

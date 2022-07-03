@@ -1,11 +1,11 @@
-export default async function require(array, code, js, ahq) {
+export default async function require(array, code, js) {
     if (js.includes(".chat")) {
         array.push(`const smartestchatbot = require('smartestchatbot');
     const client = new smartestchatbot.Client();
     `)
     }
     if (js.includes("new Modal()")) {
-        ahq.push(`const discordModals = require('discord-modals');
+        code.push(`const discordModals = require('discord-modals');
     discordModals(s4d.client);
     const { Modal, TextInputComponent, showModal } = require('discord-modals');`)
     }
@@ -223,5 +223,11 @@ dootabase.setFile("./database.json");`)
     }
     if (js.includes("synchronizeSlashCommands")) {
         array.push(`const synchronizeSlashCommands = require('@frostzzone/discord-sync-commands');`)
+    }
+    if (js.includes("ytdl")) {
+        array.push(`const ytdl = require('ytdl-core');`)
+    }
+    if (js.includes("S4D_APP_FFMPEG")) {
+        array.push(`const S4D_APP_FFMPEG = require('ffmpeg');`)
     }
 }

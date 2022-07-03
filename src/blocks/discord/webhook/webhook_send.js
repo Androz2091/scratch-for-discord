@@ -4,12 +4,12 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_send_webhook";
 
 const blockData = {
-    "message0": "%{BKY_SEND_WEBHOOK}",
+    "message0": "as webhook send %1",
     "args0": [
         {
             "type": "input_value",
             "name": "CONTENT",
-            "check": [ "String","Number","MessageEmbed" ]
+            "check": ["String", "Number", "MessageEmbed"]
         },
     ],
     "colour": "#135cc2",
@@ -20,28 +20,28 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-if(block.getInput("CONTENT").connection.targetConnection){
-    const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
-    block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
-    null;
-    if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-        const code = `gwebhook.send(${content});\n`;
-        return code;
+Blockly.JavaScript[blockName] = function (block) {
+    const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
+    if (block.getInput("CONTENT").connection.targetConnection) {
+        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
+            block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
+            null;
+        if ((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
+            const code = `gwebhook.send(${content});\n`;
+            return code;
+        } else {
+            const code = `gwebhook.send(String(${content}));\n`;
+            return code;
+        }
     } else {
         const code = `gwebhook.send(String(${content}));\n`;
         return code;
     }
-} else {
-    const code = `gwebhook.send(String(${content}));\n`;
-    return code;
-}
 };
 registerRestrictions(blockName, [
     {

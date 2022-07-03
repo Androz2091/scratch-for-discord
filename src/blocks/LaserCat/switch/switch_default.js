@@ -30,7 +30,7 @@ Blockly.JavaScript[blockName] = function (block) {
     const blocks = Blockly.JavaScript.statementToCode(block, "blocks");
 
     return `
-    default :
+    default:
     ${blocks}    
     `;
 };

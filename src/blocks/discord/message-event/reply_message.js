@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "rreply_message";
 
 const blockData = {
-    "message0": "reply_message",
+    "message0": "response message",
     "colour": "#5BA58C",
     "tooltip": "",
     "output": "Message",

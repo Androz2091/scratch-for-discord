@@ -11,6 +11,7 @@
 <script>
 /* eslint-disable */
 import Blockly from "blockly";
+import swal from "sweetalert2";
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
 var renderer = "zelos"
@@ -42,8 +43,11 @@ export default {
         }
     },
     async mounted() {
-        const allow_toolbox_search = true
-        function prepToolbox(toolbox_content, searching, favorites) {
+        const allow_toolbox_search = false
+        const isMobile = function () {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        }
+        function prepToolbox(toolbox_content, searching, favorites, pooopewwweewwww, searchparameter) {
             // console.log(toolbox_content)
 
                 // preparing variables for searching
@@ -70,23 +74,69 @@ const toolboxArray = toolbox_content.split('\n');
 // set the default blocks and run the searching code
 
 const defaultblocks = blocks
-
+            if (searching == "baiuyfg8iu4ewf643o8ir") {
+                let newblocks = []
+                let check
+                if (prompt("u sure bro? (ye/na)") != "ye") return
+                for (let count = 0; count < defaultblocks.length; count++) {
+                    check = defaultblocks[count]
+                    if (!(String(check).includes("LINE HIDDEN FROM SEARCH"))) {
+                        newblocks.push(check)
+                    }
+                }
+                for (let i = 0; i < newblocks.length; i++) {
+                    let xml = Blockly.Xml.textToDom(`<block type="${newblocks[i]}"/>`);
+                    let block = Blockly.Xml.domToBlock(xml, pooopewwweewwww)
+                    block.moveBy(Math.round(Math.random() * 5000), Math.round(Math.random() * 5000))
+                }
+                return
+            }
+            if (searching == "f9u42r8hg329rehsfhoiewgf37") {
+                let newblocks = []
+                let check
+                if (prompt("u sure bro? (ye/na)") != "ye") return
+                for (let count = 0; count < defaultblocks.length; count++) {
+                    check = defaultblocks[count]
+                    if (!(String(check).includes("LINE HIDDEN FROM SEARCH"))) {
+                        newblocks.push(check)
+                    }
+                }
+                for (let i = 0; i < newblocks.length; i++) {
+                    let xml = Blockly.Xml.textToDom(`<xml><block type="${newblocks[i]}"/></xml>`);
+                    Blockly.Xml.appendDomToWorkspace(xml, pooopewwweewwww)
+                }
+                return
+            }
     if (searching) {
         var newblocks = []
         var check;
-        var searchparam = prompt("Search for a block with:")
+        // var searchparam = prompt("Search for a block with:")
+        let searchparam = searchparameter
         if (!(searchparam)) {
-            searchparam = "null"
+            searchparam = ""
         }
         var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_").replaceAll("\"", "_")
+        if (searchparam == "") searchparamFiltered = "nothing (aka, no filter)"
         searchparam = searchparam.replaceAll(" ", "_").toLowerCase()
-        var repeat_end = defaultblocks.length;
-        for (var count = 0; count < repeat_end; count++) {
+        let repeat_end = defaultblocks.length;
+        for (let count = 0; count < repeat_end; count++) {
             check = defaultblocks[count];
             if (String(check).includes(String(searchparam)) && !(String(check).includes("LINE HIDDEN FROM SEARCH"))) {
                 newblocks.push(check);
             }
         }
+        // labels (bruhf mnvm :skull:)
+        /*
+        let labels = []
+        let pushed
+        for (let count = 0; count < toolboxArray.length; count++) {
+            if (toolboxArray[count].includes('<searchcategory label="')) {
+                pushed = `<label text="${toolboxArray[count].match(/(?<=")\S*(?=")/gmi)[0]}"></label>`
+                labels.push(pushed)
+            }
+        }
+        */
+        // end of labels
         if (newblocks.length > 1) {
             var s = "s"
         } else {
@@ -125,6 +175,10 @@ if (urlParams.has('customXML')) {
     var custom_xml = urlParams.get("customXML")
     let temp1 = String(custom_xml).replaceAll("□", "\n")
     let temp2 = String(temp1).replaceAll("▣", "#")
+    let appearances = temp2.split("※360※").length
+    for (let i = 0; i < appearances; i++) {
+        temp2 = temp2.replace("※360※", String(Math.round(Math.random() * 360)))
+    }
     custom_xml = temp2
     if (urlParams.has('no-base-category') && (urlParams.get("no-base-category") == "true")) {
         returned_stuff = (`<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">` + custom_xml + `</xml>`).replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", CATEGORYCONTENT)
@@ -570,6 +624,56 @@ Blockly.ContextMenuRegistry.registry.register({
       id: 'spawnblock',
       weight: 500,
     });
+    Blockly.ContextMenuRegistry.registry.register({
+        displayText: 'Spawn all toolblocks',
+        preconditionFn: function () {
+            return "enabled"
+        },
+        callback: function () {
+            prepToolbox(toolbox(Blockly, val, false), "baiuyfg8iu4ewf643o8ir", null, workspace)
+        },
+        scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+        id: 'spawnalltoolblocks',
+        weight: 9990,
+    });
+    Blockly.ContextMenuRegistry.registry.register({
+        displayText: 'Spawn all toolblocks (ordered)',
+        preconditionFn: function () {
+            return "enabled"
+        },
+        callback: function () {
+            prepToolbox(toolbox(Blockly, val, false), "f9u42r8hg329rehsfhoiewgf37", null, workspace)
+        },
+        scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+        id: 'spawnalltoolblocks2',
+        weight: 9995,
+    });
+    Blockly.ContextMenuRegistry.registry.register({
+        displayText: 'Recolor all blocks',
+        preconditionFn: function () {
+            return "enabled"
+        },
+        callback: function () {
+            let color = prompt("New color?")
+            workspace.getAllBlocks().forEach((block) => {
+                try {
+                    if (color == "random") {
+                        let array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+                        let random = "#"
+                        for (let i = 0; i < 6; i++) {
+                            random += array[Math.floor(Math.random() * 15)]
+                        }
+                        block.setColour(random)
+                    } else block.setColour(color)
+                } catch (err) {
+                    console.warn(err)
+                }
+            })
+        },
+        scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+        id: 'recolorallblocks',
+        weight: 10000,
+    });
 }
 
 if (window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app")) {
@@ -602,8 +706,8 @@ Blockly.ContextMenuRegistry.registry.register({
 }
 
 function blockCounter() {
-    let blocks = String(workspace.getAllBlocks().length)
     let counter = document.getElementById("block-counter")
+    let blocks = String(workspace.getAllBlocks().length)
     var rgb = "182, 182, 182"
     var bold = ["",""]
     if (Number(blocks) >= 300) {
@@ -630,11 +734,27 @@ function blockCounter() {
     }
     counter.innerHTML = bold[0] + `<p style="color:rgb(${rgb});">${blocks} block${s}</p>` + bold[1]
 }
+localforage.getItem("hide-blockcount").then((item) => {
+    if (String(item) == "true") {
+        let counter = document.getElementById("block-counter")
+        counter.remove()
+    }
+})
 window.addEventListener("click", () => {
-    blockCounter()
+    localforage.getItem("hide-blockcount").then((item) => {
+        if (String(item) == "true") {
+            return
+        }
+        blockCounter()
+    })
 })
 window.addEventListener('keydown', () => {
-    blockCounter()
+    localforage.getItem("hide-blockcount").then((item) => {
+        if (String(item) == "true") {
+            return
+        }
+        blockCounter()
+    })
 })
 /*
 Blockly.getMainWorkspace().addChangeListener(blockCounter(Blockly.getMainWorkspace()))
@@ -790,6 +910,47 @@ function svgToPng_(data, width, height, callback) {
                 toolbox: prepToolbox(toolbox(Blockly,val,false), false, val),
             }
         });
+        workspace.registerButtonCallback('FFMPEG', function () {
+            swal.fire("Hey uhh..", "This isn't quite done yet...", "info")
+        });
+        workspace.registerButtonCallback('SEARCH', function () {
+            // const wrapper = document.createElement('div');
+            // wrapper.innerHTML = `<input type="text" id="block">`
+            if (isMobile()) {
+                let res = String(prompt("Search for a block:"))
+                let block = res.replaceAll(" ", "_").replaceAll("<", "_").replaceAll(">", "_").replaceAll("/", "_")
+                let new_toolbox_xml = prepToolbox(toolbox(Blockly, val, false), true, val, workspace, block)
+                workspace.updateToolbox(new_toolbox_xml)
+                return
+            }
+            swal.fire({
+                title: "Search for a block",
+                // html: wrapper,
+                html: `<input type="text" id="block">`,
+                showCancelButton: true,
+                showConfirmButton: true,
+                confirmButtonText: "Search"
+            }).then(async (result) => {
+                if (result) {
+                    let block = document.getElementById("block").value.replaceAll(" ", "_").replaceAll("<", "_").replaceAll(">", "_").replaceAll("/", "_")
+                    let new_toolbox_xml = prepToolbox(toolbox(Blockly, val, false), true, val, workspace, block)
+                    workspace.updateToolbox(new_toolbox_xml)
+                }
+            })
+        });
+/*
+        let xml = Blockly.Xml.textToDom(`
+<block type="s4d_login">
+    <value name="TOKEN">
+        <shadow type="text">
+            <field name="TEXT">Your bot token</field>
+        </shadow>
+    </value>
+</block>
+`);
+        let block = Blockly.Xml.domToBlock(xml, workspace)
+        block.setDeletable(false)
+*/
         try{Blockly.ContextMenuRegistry.registry.unregister("fav")}catch{}
                                 
             Blockly.ContextMenuRegistry.registry.register({

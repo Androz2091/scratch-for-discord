@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_reply_id";
 
 const blockData = {
-    "message0": "%{BKY_REPLY_ID}",
+    "message0": "response ID",
     "colour": "#5BA58C",
     "tooltip": "",
     "output": "String",

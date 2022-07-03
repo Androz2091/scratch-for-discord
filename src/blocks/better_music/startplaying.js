@@ -17,13 +17,13 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.client.player.on('songChanged', (queue, newSong, oldSong) => { \n ${statements} \n })\n`;
+    const code = `s4d.client.player.on('songChanged', async (queue, newSong, oldSong) => { \n ${statements} \n })\n`;
     return code;
 };

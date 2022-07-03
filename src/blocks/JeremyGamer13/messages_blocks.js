@@ -1,6 +1,15 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../restrictions";
 import '@blockly/field-grid-dropdown';
+const restrictToParent = function (parents, name, msg) {
+    registerRestrictions(name, [
+        {
+            type: "hasparent",
+            message: ("$" + msg),
+            types: parents
+        }
+    ]);
+}
 Blockly.Blocks["jg_messages_id_of_message"] = {
     init: function () {
         this.jsonInit(
@@ -206,23 +215,23 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             ],
                             [
                                 "has thread?",
-                                '.hasThread'
+                                'hasThread'
                             ],
                             [
                                 "can be deleted by the bot?",
-                                '.deletable'
+                                'deletable'
                             ],
                             [
                                 "can be crossposted by the bot?",
-                                '.crosspostable'
+                                'crosspostable'
                             ],
                             [
                                 "can be edited by the bot?",
-                                '.editable'
+                                'editable'
                             ],
                             [
                                 "can be pinned by the bot?",
-                                '.pinnable'
+                                'pinnable'
                             ]
                         ],
                     }
@@ -305,7 +314,7 @@ Blockly.JavaScript["jg_channel_get_last_messages_in_channel_then"] = function (b
     const amount = Blockly.JavaScript.valueToCode(block, "AMOUNT", Blockly.JavaScript.ORDER_ATOMIC);
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `${channel}.messages.fetch({ limit: ${amount} }).then((last_messages_in_channel) => {
+    const code = `${channel}.messages.fetch({ limit: ${amount} }).then(async (last_messages_in_channel) => {
     ${statements}
 });
 `;
@@ -337,6 +346,15 @@ Blockly.JavaScript["jg_channel_last_message_number"] = function (block) {
     const code = [`last_messages_in_channel.at(${index} - 1)`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+registerRestrictions("jg_channel_last_message_number", [
+    {
+        type: "hasparent",
+        message: "$This block needs to be placed in a \"get last messages in channel then\" block!",
+        types: [
+            "jg_channel_get_last_messages_in_channel_then"
+        ]
+    }
+]);
 // next block
 Blockly.Blocks["jg_message_user_replied_to_in_message"] = {
     init: function () {
@@ -422,7 +440,7 @@ Blockly.Blocks["jg_attachment_get_attachment_number"] = {
 Blockly.JavaScript["jg_attachment_get_attachment_number"] = function (block) {
     const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
     const msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`${msg}.attachments.at(${index})`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`${msg}.attachments.at(Number(${index}) - 1)`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 Blockly.Blocks["jg_attachment_get_attachment_property"] = {
@@ -547,7 +565,7 @@ Blockly.JavaScript["jg_message_mentioned_member_number_on_message"] = function (
     const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
     const msg = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
     const type = block.getFieldValue("TYPE")
-    const code = [`${msg}.mentions.${type}.at(${index})`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`${msg}.mentions.${type}.at(Number(${index}) - 1)`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 // next blok
@@ -953,7 +971,8 @@ registerRestrictions("jg_messages_reply_with_allowed_list_of_pings_on_users_on_r
         type: "toplevelparent",
         message: "RES_MUST_BE_IN_ON_MESSAGE",
         types: [
-            "s4d_on_message"
+            "s4d_on_message",
+            "jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"
         ]
     }
 ]);
@@ -971,6 +990,127 @@ registerRestrictions("jg_messages_reply_with_allowed_list_of_pings_on_users_on_r
 // AFAFDWTGF^&
 // AFAFDWTGF^&
 // AFAFDWTGF^&
+Blockly.Blocks["jg_messages_respond_with_and_with_allowed_list_of_pings_on_users_on_roles"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "respond with %1 and with allowed list of pings %2 on user IDs %3 on role IDs %4",
+                "inputsInline": false,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "CONTENT",
+                        "check": ["Number", "String", "MessageEmbed", "embed", "var"]
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "USERS",
+                        "check": ["Array", "List"]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "ROLES",
+                        "check": ["Array", "List"]
+                    }
+                ],
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "Send a message but only ping the members and roles with the IDs in the list. If you dont want to ping anyone or any roles, just put an empty list. If you want to ping all members or all roles, just leave the input empty with no block there.",
+                "helpUrl": ""
+            }
+        );
+    }
+};
+Blockly.JavaScript["jg_messages_respond_with_and_with_allowed_list_of_pings_on_users_on_roles"] = function (block) {
+    const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
+    const users = Blockly.JavaScript.valueToCode(block, "USERS", Blockly.JavaScript.ORDER_ATOMIC);
+    const roles = Blockly.JavaScript.valueToCode(block, "ROLES", Blockly.JavaScript.ORDER_ATOMIC);
+    var usableA = ""
+    var usableB = ""
+    if (!((users === null) || (users === ""))) {
+        usableA = `users: ${users},`
+    }
+    if (!((roles === null) || (roles === ""))) {
+        usableB = `roles: ${roles},`
+    }
+    if (block.getInput("CONTENT").connection.targetConnection) {
+        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
+            block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
+            null;
+        if ((contentType === null)) {
+            const code = `s4dmessage.channel.send({
+                content: String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
+            return code;
+        } else if ((contentType === "embed") || (!contentType && typeof contentType === "object")) {
+            const code = `s4dmessage.channel.send({
+                 embeds:[${content}],
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+                });
+                `;
+            return code;
+        } else if ((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
+            const code = `s4dmessage.channel.send({
+                ${content},
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
+            return code;
+        } else {
+            const code = `s4dmessage.channel.send({
+                content: String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+            });
+            `;
+            return code;
+        }
+    } else {
+        const code = `s4dmessage.channel.send({
+            content:String(${content}),
+                allowedMentions: {
+                    ${usableA}
+                    ${usableB}
+                }
+        });
+        `;
+        return code;
+    }
+};
+registerRestrictions("jg_messages_respond_with_and_with_allowed_list_of_pings_on_users_on_roles", [
+    {
+        type: "notempty",
+        message: "RES_MISSING_CONTENT",
+        types: [
+            "CONTENT"
+        ]
+    },
+    {
+        type: "toplevelparent",
+        message: "RES_MUST_BE_IN_ON_MESSAGE",
+        types: [
+            "s4d_on_message",
+            "jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"
+        ]
+    }
+]);
 // AFAFDWTGF^&
 // AFAFDWTGF^&
 // AFAFDWTGF^&
@@ -1132,7 +1272,7 @@ Blockly.Blocks["jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bo
         this.jsonInit(
             {
                 "message0": "When a message is recieved & author isn't a bot %1 %2",
-                "colour": "#F5AB1A",
+                "colour": "#f79400",
                 "args0": [
                     {
                         "type": "input_dummy"
@@ -1451,7 +1591,7 @@ Blockly.Blocks["jg_comments_connected_image"] = {
             .appendField("Image URL:")
             .appendField(new Blockly.FieldTextInput("https://media.discordapp.net/attachments/977302952530305045/984125455881863208/load.png"), "TEXT")
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage("https://media.discordapp.net/attachments/977302952530305045/984125455881863208/load.png", 256, 256, { alt: "Custom Image", flipRtl: "FALSE" }), "IMG");
+            .appendField(new Blockly.FieldImage("https://media.discordapp.net/attachments/977302952530305045/984125455881863208/load.png", 512, 256, { alt: "Custom Image", flipRtl: "FALSE" }), "IMG");
         this.setInputsInline(false);
         this.setColour("#DDAA00");
         this.setTooltip("");
@@ -1544,6 +1684,30 @@ Blockly.Blocks["jg_events_all_label"] = {
                                 "When a message is deleted",
                                 "s4d.client.on('messageDelete', async (s4dmessage) => {"
                             ],
+                            [
+                                "When someone starts typing",
+                                "s4d.client.on('typingStart', async (s4dTyping) => {"
+                            ],
+                            [
+                                "When thread message is received",
+                                `s4d.client.on('messageCreate', async (s4dThread) => {
+        if(!(s4dThread.channel.type === "GUILD_PUBLIC_THREAD" || s4dThread.channel.type === "GUILD_PUBLIC_THREAD" )){
+            return
+        }`
+                            ],
+                            [
+                                "When a slash command is received",
+                                `s4d.client.on('interactionCreate', async (interaction) => {
+        let member = interaction.guild.members.cache.get(interaction.member.user.id)`
+                            ],
+                            [
+                                "When the bot is added to a server",
+                                "s4d.client.on('guildCreate', async (s4dguild) => {"
+                            ],
+                            [
+                                "When the bot is removed from a server",
+                                "s4d.client.on('guildDelete', async (s4dguild) => {"
+                            ],
                         ]
                     },
                     {
@@ -1563,7 +1727,7 @@ Blockly.Blocks["jg_events_all_label"] = {
     },
     onchange: function () {
         let color = this.getFieldValue("COLOR")
-        this.setColour(color, "#000000")
+        this.setColour(color)
     }
 }
 Blockly.JavaScript["jg_events_all_label"] = function (block) {
@@ -1758,6 +1922,7 @@ Blockly.JavaScript["jg_members_get_members_current_voice_channel"] = function (b
     const code = [`${(String(member).endsWith(".user") || String(member).endsWith(".user)")) ? member.replace(".user", "") : member}.voice.channel`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+// oopsie
 Blockly.Blocks["jg_messages_delete_message"] = {
     init: function () {
         this.jsonInit(
@@ -1784,6 +1949,35 @@ Blockly.JavaScript["jg_messages_delete_message"] = function (block) {
     `;
     return code;
 };
+// there we hgo
+
+Blockly.Blocks["jg_monaco_messages_delete_message"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "delete message %1",
+                "colour": "#4C97FF",
+                "tooltip": "Delete a message, if you have permission.",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MESSAGE",
+                        "check": "Message"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_messages_delete_message"] = function (block) {
+    const message = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `${message}.delete()
+    `;
+    return code;
+};
+// next
 Blockly.Blocks["jg_messages_react_to_message_with_reaction"] = {
     init: function () {
         this.jsonInit(
@@ -1875,5 +2069,1599 @@ Blockly.JavaScript["jg_messages_edit_message_to_text"] = function (block) {
     const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `${message}.edit(String(${text}))
     `;
+    return code;
+};
+Blockly.Blocks["jg_monaco_members_remove_timeout_from_member"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "remove timeout from member %1",
+                "inputsInline": true,
+                "tooltip": "Remove timeout from a certain member, if the bot has permission to.",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": "Member"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_members_remove_timeout_from_member"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `${member}.timeout(null)
+    `;
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_on_server_get_audit_logs_then"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "on server %1 get audit logs %2 then %3",
+                "inputsInline": true,
+                "tooltip": "Get audit logs on a server, then get information from the audit logs.",
+                "colour": "#E3317A",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_on_server_get_audit_logs_then"] = function (block) {
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `${server}.fetchAuditLogs().then(async (audit_raw) => {
+        let audit = audit_raw.entries;
+        ${statements}
+    })
+    `;
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_audit_log_number"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "audit log #%1",
+                "inputsInline": true,
+                "tooltip": "Get a certain log from the audit logs.",
+                "colour": "#E3317A",
+                "output": "AuditLog",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "NUMBER",
+                        "check": "Number"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_audit_log_number"] = function (block) {
+    const number = Blockly.JavaScript.valueToCode(block, "NUMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`audit.at(Number(${number}) - 1)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_amount_of_audit_logs"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of audit logs",
+                "inputsInline": true,
+                "tooltip": "Get the amount of logs in the audit logs.",
+                "colour": "#E3317A",
+                "output": "Number",
+                "args0": []
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_amount_of_audit_logs"] = function () {
+    const code = [`audit.size`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_get_property_from_log"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get %1 from log %2",
+                "inputsInline": true,
+                "tooltip": "Get information about a certain log.",
+                "colour": "#E3317A",
+                "output": null,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "PROP",
+                        "options": [
+                            [
+                                "target type",
+                                'targetType'
+                            ],
+                            [
+                                "action type",
+                                'actionType'
+                            ],
+                            [
+                                "action",
+                                'action'
+                            ],
+                            [
+                                "reason",
+                                'reason'
+                            ],
+                            [
+                                "user who did the action",
+                                'executor'
+                            ],
+                            [
+                                "changes",
+                                'changes'
+                            ],
+                            [
+                                "item the action was done to",
+                                'target'
+                            ]
+                        ],
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "LOG",
+                        "check": "AuditLog"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_get_property_from_log"] = function (block) {
+    const log = Blockly.JavaScript.valueToCode(block, "LOG", Blockly.JavaScript.ORDER_ATOMIC);
+    const prop = block.getFieldValue("PROP");
+    const code = [`${log}.${prop}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_log_has_reason"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "log %1 has reason?",
+                "inputsInline": true,
+                "tooltip": "Checks if a log has a reason on it.",
+                "colour": "#E3317A",
+                "output": "Boolean",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "LOG",
+                        "check": "AuditLog"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_log_has_reason"] = function (block) {
+    const log = Blockly.JavaScript.valueToCode(block, "LOG", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${log}.reason != null`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_amount_of_changes_in_log_changes"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of changes in log changes %1",
+                "inputsInline": true,
+                "tooltip": "Gets the amount of a log's changes.",
+                "colour": "#E3317A",
+                "output": "Number",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "CHANGES",
+                        "check": "AuditChanges"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_amount_of_changes_in_log_changes"] = function (block) {
+    const changes = Blockly.JavaScript.valueToCode(block, "CHANGES", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${changes}.length`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_change_number_in_changes"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "change #%1 in changes %2",
+                "inputsInline": true,
+                "tooltip": "Gets a change from a log's changes.",
+                "colour": "#E3317A",
+                "output": "AuditLogChanges",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "INDEX",
+                        "check": "Number"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "CHANGES",
+                        "check": "AuditChanges"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_change_number_in_changes"] = function (block) {
+    const changes = Blockly.JavaScript.valueToCode(block, "CHANGES", Blockly.JavaScript.ORDER_ATOMIC);
+    const number = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${changes}[${number}]`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_get_from_change"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get %1 from change %2",
+                "inputsInline": true,
+                "tooltip": "Gets information from a change.",
+                "colour": "#E3317A",
+                "output": null,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "PROP",
+                        "options": [
+                            [
+                                "name of changed item",
+                                'key'
+                            ],
+                            [
+                                "old state of changed item",
+                                'old'
+                            ],
+                            [
+                                "new state of changed item",
+                                'new'
+                            ]
+                        ],
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "CHANGE",
+                        "check": "AuditLogChanges"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_get_from_change"] = function (block) {
+    const change = Blockly.JavaScript.valueToCode(block, "CHANGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const type = block.getFieldValue("PROP");
+    const code = [`${change}.${type}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_unused_scratcjwtff"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "move %1 steps",
+                "inputsInline": true,
+                "tooltip": "",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "STEPS",
+                        "check": "Number"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_unused_scratcjwtff"] = function () {
+    const code = ``
+    return code;
+};
+Blockly.Blocks["jg_monaco_roles_hoist_role"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 role %2 with reason %3",
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "hoist",
+                                "true"
+                            ],
+                            [
+                                "unhoist",
+                                "false"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "ROLE",
+                        "check": "Role"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
+                ],
+                "inputsInline": true,
+                "previousStatement": null,
+                "nextStatement": null,
+                "colour": "#4C97FF",
+                "tooltip": "Hoist or unhoist a role. Hoisting a role allows it to be displayed seperately from other roles.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_roles_hoist_role"] = function (block) {
+    const type = block.getFieldValue("TYPE");
+    const role = Blockly.JavaScript.valueToCode(block, "ROLE", Blockly.JavaScript.ORDER_ATOMIC);
+    let reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    if (reason) {
+        reason = ", " + reason
+    }
+    const code = `${role}.setHoist(${type}${reason})
+    `
+    return code;
+};
+Blockly.Blocks["jg_monaco_channels_get_channel_number_from_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get channel #%1 from server %2",
+                "inputsInline": false,
+                "tooltip": "Gets a certain channel in the server.",
+                "colour": "#a55b80",
+                "output": "Channel",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "INDEX",
+                        "check": "Number"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_channels_get_channel_number_from_server"] = function (block) {
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${server}.channels.cache.at(Number(${index}) - 1)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_servers_amount_of_channels_in_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of channels in server %1",
+                "inputsInline": false,
+                "tooltip": "Gets the amount of channels in a server.",
+                "colour": "#D85E47",
+                "output": "Channel",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_servers_amount_of_channels_in_server"] = function (block) {
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${server}.channels.cache.size`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_alex_channels_first_channel_in_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 channel in server %2",
+                "inputsInline": true,
+                "tooltip": "Gets a certain channel in a server depending on the option picked.",
+                "colour": "#a55b80",
+                "output": "Channel",
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "first",
+                                "first"
+                            ],
+                            [
+                                "last",
+                                "last"
+                            ],
+                            [
+                                "random",
+                                "random"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_alex_channels_first_channel_in_server"] = function (block) {
+    const type = block.getFieldValue("TYPE")
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${server}.channels.cache.${type}()`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+//
+//
+//
+//
+//
+//
+// webhooks
+//
+//
+//
+//
+//
+//
+Blockly.Blocks["jose_jg_webhooks_get_all_webhooks_in_channel_then"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get all webhooks in channel %1 then %2 %3",
+                "inputsInline": true,
+                "tooltip": "Get all webhooks on a channel, then run the blocks inside.",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "CHANNEL",
+                        "check": "Channel"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_get_all_webhooks_in_channel_then"] = function (block) {
+    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `${channel}.fetchWebhooks().then(async (webhooks) => {
+        ${statements}
+    })
+    `;
+    return code;
+};
+Blockly.Blocks["jose_jg_webhooks_amount_of_webhooks"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "amount of webhooks",
+                "inputsInline": false,
+                "tooltip": "The amount of webhooks the channel has.",
+                "colour": "#4C97FF",
+                "output": "Number",
+                "args0": []
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_amount_of_webhooks"] = function () {
+    const code = [`webhooks.size`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+registerRestrictions("jose_jg_webhooks_amount_of_webhooks", [
+    {
+        type: "hasparent",
+        message: "RES_WEBHOOK_GET_ALL_CHANNEL",
+        types: [
+            "jose_jg_webhooks_get_all_webhooks_in_channel_then"
+        ]
+    }
+]);
+Blockly.Blocks["jose_jg_webhooks_webhook_with_id_exists_in_channel"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "webhook with ID %1 exists in channel?",
+                "inputsInline": true,
+                "tooltip": "Check if the channel we are checking webhooks on has a certain webhook.",
+                "colour": "#4C97FF",
+                "output": "Boolean",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "ID",
+                        "check": ["String", "Number"]
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_webhook_with_id_exists_in_channel"] = function (block) {
+    const id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`webhooks.has(String(${id}))`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+registerRestrictions("jose_jg_webhooks_webhook_with_id_exists_in_channel", [
+    {
+        type: "hasparent",
+        message: "RES_WEBHOOK_GET_ALL_CHANNEL",
+        types: [
+            "jose_jg_webhooks_get_all_webhooks_in_channel_then"
+        ]
+    }
+]);
+Blockly.Blocks["jose_jg_webhooks_get_webhook_with_id"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get webhook with ID %1",
+                "inputsInline": true,
+                "tooltip": "Get a webhook in the channel with a certain ID.",
+                "colour": "#4C97FF",
+                "output": "Webhook",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "ID",
+                        "check": ["String", "Number"]
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_get_webhook_with_id"] = function (block) {
+    const id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`webhooks.get(String(${id}))`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+registerRestrictions("jose_jg_webhooks_get_webhook_with_id", [
+    {
+        type: "hasparent",
+        message: "RES_WEBHOOK_GET_ALL_CHANNEL",
+        types: [
+            "jose_jg_webhooks_get_all_webhooks_in_channel_then"
+        ]
+    }
+]);
+Blockly.Blocks["jose_jg_webhooks_get_webhook_information"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get webhook %2 %1",
+                "inputsInline": true,
+                "tooltip": "Get information about a certain webhook.",
+                "colour": "#4C97FF",
+                "output": null,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "PROP",
+                        "options": [
+                            [
+                                "profile picture URL",
+                                'avatarURL()'
+                            ],
+                            [
+                                "channel ID",
+                                'channelId'
+                            ],
+                            [
+                                "created timestamp",
+                                'createdTimestamp'
+                            ],
+                            [
+                                "server ID",
+                                'guildId'
+                            ],
+                            [
+                                "ID",
+                                'id'
+                            ],
+                            [
+                                "name",
+                                'name'
+                            ],
+                            [
+                                "creator",
+                                'owner'
+                            ],
+                            [
+                                "token (creator only)",
+                                'token'
+                            ],
+                            [
+                                "URL",
+                                'url'
+                            ]
+                        ],
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "WEBHOOK",
+                        "check": "Webhook"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_get_webhook_information"] = function (block) {
+    const webhook = Blockly.JavaScript.valueToCode(block, "WEBHOOK", Blockly.JavaScript.ORDER_ATOMIC);
+    const prop = block.getFieldValue("PROP");
+    const code = [`${webhook}.${prop}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jose_jg_delete_created_webhook_with_reason"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "delete created webhook with reason %1",
+                "inputsInline": true,
+                "tooltip": "Delete the created webhook.",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_delete_created_webhook_with_reason"] = function (block) {
+    const reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `webhook.delete(String(${reason}))
+`;
+    return code;
+};
+registerRestrictions("jose_jg_delete_created_webhook_with_reason", [
+    {
+        type: "hasparent",
+        message: "RES_CREATE_WEBHOOK_PARENT",
+        types: [
+            "s4d_create_webhook_then",
+            "jose_jg_create_webhook_in_channel_with_name_and_profile_picture_url_then_do"
+        ]
+    }
+]);
+Blockly.Blocks["jose_jg_gained_delete_webhook_with_reason"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "delete webhook with reason %1",
+                "inputsInline": true,
+                "tooltip": "Delete the webhook.",
+                "colour": "#135cc2",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_gained_delete_webhook_with_reason"] = function (block) {
+    const reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `gwebhook.delete(String(${reason}))
+`;
+    return code;
+};
+registerRestrictions("jose_jg_gained_delete_webhook_with_reason", [
+    {
+        type: "hasparent",
+        message: "RES_GET_WEBHOOK_PARENT",
+        types: [
+            "s4d_get_webhook_then"
+        ]
+    }
+]);
+Blockly.Blocks["jose_jg_webhooks_delete_webhook_with_reason"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "delete webhook %1 with reason %2",
+                "inputsInline": true,
+                "tooltip": "Delete a webhook.",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "WEBHOOK",
+                        "check": "Webhook"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jose_jg_webhooks_delete_webhook_with_reason"] = function (block) {
+    const webhook = Blockly.JavaScript.valueToCode(block, "WEBHOOK", Blockly.JavaScript.ORDER_ATOMIC);
+    const reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `${webhook}.delete(String(${reason}))
+`;
+    return code;
+};
+Blockly.Blocks["jg_text_remake_paragraph_quotes"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1%2%3",
+                "inputsInline": true,
+                "tooltip": "A text input that allows multi-lines.",
+                "colour": "%{BKY_TEXTS_HUE}",
+                "output": ["String", "Multi-Line_Text"],
+                "args0": [
+                    {
+                        "type": "field_image",
+                        "src": "https://media.discordapp.net/attachments/914411539887456296/988614658812436490/download.png",
+                        "width": 12,
+                        "height": 12,
+                        "alt": '"',
+                        "flipRtl": false
+                    },
+                    {
+                        "type": "field_multilinetext",
+                        "name": "TEXT"
+                    },
+                    {
+                        "type": "field_image",
+                        "src": "https://media.discordapp.net/attachments/914411539887456296/988614658539802705/download_1.png",
+                        "width": 12,
+                        "height": 12,
+                        "alt": '"',
+                        "flipRtl": false
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_text_remake_paragraph_quotes"] = function (block) {
+    let text = block.getFieldValue("TEXT");
+    text = String(text).replaceAll("\\", "\\\\")
+    let multiline = "'"
+    if (String(text).includes("\n") || String(text).includes("\r")) multiline = "`"
+    if (multiline == "'") {
+        text = String(text).replaceAll("'", "\\'")
+    } else {
+        text = String(text).replaceAll("`", "\\`")
+    }
+    if (multiline == "`") {
+        text = String(text).replaceAll("${", "\\${")
+    }
+    const code = [`${multiline}${text}${multiline}`, Blockly.JavaScript.ORDER_ATOMIC];
+    return code;
+};
+Blockly.Blocks["jg_text_remake_in_text_replace_with"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "in text %1 replace %2 with %3",
+                "inputsInline": true,
+                "tooltip": "Replace all occurences of some text with other text.",
+                "colour": "%{BKY_TEXTS_HUE}",
+                "output": "String",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "ORIGIN",
+                        "check": "String"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "REPLACE",
+                        "check": ["String", "RegEx"]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "WITH",
+                        "check": "String"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_text_remake_in_text_replace_with"] = function (block) {
+    const origin = Blockly.JavaScript.valueToCode(block, "ORIGIN", Blockly.JavaScript.ORDER_ATOMIC);
+    const replace = Blockly.JavaScript.valueToCode(block, "REPLACE", Blockly.JavaScript.ORDER_ATOMIC);
+    const replaced = Blockly.JavaScript.valueToCode(block, "WITH", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`String(${origin}).replaceAll(${replace}, String(${replaced}))`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+// is equal to and is the same type as
+Blockly.Blocks["jg_logic_is_equal_to_and_is_the_same_type_as"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 is %2 the same type as %3",
+                "inputsInline": true,
+                "tooltip": "Checks if something is equal to another value, and is also the same type of thing as that value.",
+                "colour": "%{BKY_LOGIC_HUE}",
+                "output": "Boolean",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "A",
+                        "check": null
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "equal to and is",
+                                '==='
+                            ],
+                            [
+                                "not equal to or isn't",
+                                '!=='
+                            ]
+                        ],
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "B",
+                        "check": null
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_logic_is_equal_to_and_is_the_same_type_as"] = function (block) {
+    const a = Blockly.JavaScript.valueToCode(block, "A", Blockly.JavaScript.ORDER_ATOMIC);
+    const b = Blockly.JavaScript.valueToCode(block, "B", Blockly.JavaScript.ORDER_ATOMIC);
+    const type = block.getFieldValue("TYPE")
+    const code = [`${a} ${type} ${b}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_monaco_roles_change_role_to_be_mentionable_with_reason"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "change role %2 to %1 mentionable with reason %3",
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "be",
+                                "true"
+                            ],
+                            [
+                                "not be",
+                                "false"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "ROLE",
+                        "check": "Role"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
+                ],
+                "inputsInline": true,
+                "previousStatement": null,
+                "nextStatement": null,
+                "colour": "#4C97FF",
+                "tooltip": "Set a role to be mentionable or not.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_roles_change_role_to_be_mentionable_with_reason"] = function (block) {
+    const type = block.getFieldValue("TYPE");
+    const role = Blockly.JavaScript.valueToCode(block, "ROLE", Blockly.JavaScript.ORDER_ATOMIC);
+    let reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    if (reason) {
+        reason = ", " + reason
+    }
+    const code = `${role}.setMentionable(${type}${reason})
+`
+    return code;
+};
+Blockly.Blocks["jg_monaco_threads_add_member_to_from_thread_with_reason"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 %2 to/from thread %3 with reason %4",
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "add member",
+                                "add"
+                            ],
+                            [
+                                "remove member with ID",
+                                "remove"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member", "String"]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "THREAD",
+                        "check": "Thread"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "REASON",
+                        "check": "String"
+                    }
+                ],
+                "inputsInline": true,
+                "previousStatement": null,
+                "nextStatement": null,
+                "colour": "#2a97b8",
+                "tooltip": "Add or remove a member to or from a thread. Removing members requires their ID.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_threads_add_member_to_from_thread_with_reason"] = function (block) {
+    const type = block.getFieldValue("TYPE");
+    const thread = Blockly.JavaScript.valueToCode(block, "THREAD", Blockly.JavaScript.ORDER_ATOMIC);
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    let reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    if (reason) {
+        reason = ", " + reason
+    }
+    const code = `${thread}.members.${type}(${member}${reason})
+`
+    return code;
+};
+
+Blockly.Blocks["jg_unused_any_color"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "ㅤ%1ㅤ%2ㅤㅤㅤㅤ",
+                "colour": "#ff0000",
+                "inputsInline": false,
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "field_colour",
+                        "name": "COLOR",
+                        "colour": "#ff0000"
+                    },
+                    {
+                        "type": "input_dummy"
+                    }
+                ]
+            }
+        );
+    },
+    onchange: function () {
+        let color = this.getFieldValue("COLOR")
+        this.setColour(color)
+    }
+}
+Blockly.JavaScript["jg_unused_any_color"] = function () {
+    return '';
+};
+Blockly.Blocks["jg_unused_any_color2"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1",
+                "colour": "#ff0000",
+                "inputsInline": false,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "field_colour",
+                        "name": "COLOR",
+                        "colour": "#ff0000"
+                    }
+                ]
+            }
+        );
+    },
+    onchange: function () {
+        let color = this.getFieldValue("COLOR")
+        this.setColour(color)
+    }
+}
+Blockly.JavaScript["jg_unused_any_color2"] = function () {
+    return '';
+};
+Blockly.Blocks["jg_members_user_has_value"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "user %1 %2",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member", "User"]
+                    },
+                    {
+                        "type": "field_grid_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "has a banner?",
+                                '.banner != null'
+                            ],
+                            [
+                                "is a bot?",
+                                '.bot'
+                            ],
+                            [
+                                "is the bot?",
+                                ' == s4d.client.user'
+                            ],
+                            [
+                                "is a discord system?",
+                                '.system'
+                            ],
+                            [
+                                "has made a DM with the bot?",
+                                '.dmChannel != null'
+                            ],
+                            [
+                                "is missing information?",
+                                '.partial'
+                            ],
+                            // flags
+                            [
+                                "is a verified bot?",
+                                '.flags.has("VERIFIED_BOT")'
+                            ],
+                            [
+                                "is a discord employee?",
+                                '.flags.has("DISCORD_EMPLOYEE")'
+                            ],
+                            [
+                                "is a partnered server owner?",
+                                '.flags.has("PARTNERED_SERVER_OWNER")'
+                            ],
+                            [
+                                "is a HypeSquad events member?",
+                                '.flags.has("HYPESQUAD_EVENTS")'
+                            ],
+                            [
+                                "is a HypeSquad Bravery member?",
+                                '.flags.has("HOUSE_BRAVERY")'
+                            ],
+                            [
+                                "is a HypeSquad Brilliance member?",
+                                '.flags.has("HOUSE_BRILLIANCE")'
+                            ],
+                            [
+                                "is a HypeSquad Balance member?",
+                                '.flags.has("HOUSE_BALANCE")'
+                            ],
+                            [
+                                "is a bug hunter of level 1?",
+                                '.flags.has("BUGHUNTER_LEVEL_1")'
+                            ],
+                            [
+                                "is a bug hunter of level 2?",
+                                '.flags.has("BUGHUNTER_LEVEL_2")'
+                            ],
+                            [
+                                "is an early supporter?",
+                                '.flags.has("EARLY_SUPPORTER")'
+                            ],
+                            [
+                                "is a team user?",
+                                '.flags.has("TEAM_USER")'
+                            ],
+                            [
+                                "is an early verified bot developer?",
+                                '.flags.has("EARLY_VERIFIED_BOT_DEVELOPER")'
+                            ],
+                            [
+                                "is a discord certified moderator?",
+                                '.flags.has("DISCORD_CERTIFIED_MODERATOR")'
+                            ],
+                            [
+                                "is a bot HTTP interaction?",
+                                '.flags.has("BOT_HTTP_INTERACTIONS")'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "Boolean",
+                "tooltip": "Check if the specified user has or is this property.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_user_has_value"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const property = block.getFieldValue("TYPE")
+    const code = [`${member}${property}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_members_member_is_value"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "member %1 %2",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member"]
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "is bannable by the bot?",
+                                '.bannable'
+                            ],
+                            [
+                                "is kickable by the bot?",
+                                '.kickable'
+                            ],
+                            [
+                                "is below the bot in roles and managable by the bot?",
+                                '.manageable'
+                            ],
+                            [
+                                "is moderatable by the bot?",
+                                '.moderatable'
+                            ],
+                            [
+                                "is missing information?",
+                                '.partial'
+                            ],
+                            [
+                                "hasn't passed the server's rules screen?",
+                                '.pending'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "Boolean",
+                "tooltip": "Check if the specified member has or is this property.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_member_is_value"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/member(?=\.user)\.user/gi, "member");
+    const property = block.getFieldValue("TYPE")
+    const code = [`${member}${property}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_members_user_accent_color"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "user %1 accent color",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member", "User"]
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "String",
+                "tooltip": "The Hex color of a users accent color.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_user_accent_color"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${member}.hexAccentColor`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_members_user_exactly_equals_user"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "user %1 exactly equals user %2?",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member", "User"]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER2",
+                        "check": ["Member", "User"]
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "Boolean",
+                "tooltip": "Check if a user is the exact same as another user.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_user_exactly_equals_user"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const member2 = Blockly.JavaScript.valueToCode(block, "MEMBER2", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${member}.equals(${member2})`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_members_member_has_nickname"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "member %1 has nickname?",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member"]
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "Boolean",
+                "tooltip": "Check if a member has a nickname.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_member_has_nickname"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/member(?=\.user)\.user/gi, "member");
+    const code = [`${member}.nickname != null`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_members_member_s_nickname"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "member %1 nickname",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member"]
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "String",
+                "tooltip": "The members nickname. Is also the member's username if the nickname is not found.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_member_s_nickname"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/member(?=\.user)\.user/gi, "member");
+    const code = [`${member}.nickname == null ? ${member}.user.username : ${member}.nickname`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_roles_get_all_member_roles_then_for_each_do"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "get all member %1 roles then for each %2 do %3",
+                "inputsInline": true,
+                "tooltip": "Run the blocks inside for each role the member has.",
+                "colour": "#2EB66B",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": "Member"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_roles_get_all_member_roles_then_for_each_do"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC).replaceAll(/member(?=\.user)\.user/gi, "member");
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `${member}.roles.cache.forEach(async (member_role) => {
+    ${statements}
+})
+`;
+    return code;
+};
+Blockly.Blocks["jg_roles_get_all_member_roles_then_for_each_do_role"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "role",
+                "args0": [],
+                "colour": "#2EB66B",
+                "output": "Role",
+                "tooltip": "The current role in the member role loop.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_roles_get_all_member_roles_then_for_each_do_role"] = function () {
+    const code = [`member_role`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+restrictToParent(
+    ["jg_roles_get_all_member_roles_then_for_each_do"],
+    "jg_roles_get_all_member_roles_then_for_each_do_role",
+    'This block must be in a "get all member roles then for each do" block!'
+)
+Blockly.Blocks["jg_emoji_text_regex_list_of_custom_emojis_in_text"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "list of custom emojis in text %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "TEXT",
+                        "check": "String"
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": ["List", "Array"],
+                "tooltip": "A list of custom non-animated emojis in text.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_emoji_text_regex_list_of_custom_emojis_in_text"] = function (block) {
+    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${text}.match(/(?<!\\\\)<:(?<=<:)[a-zA-Z0-9_-]*(?=:):[0-9]*>/gim)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_emoji_text_regex_list_of_animated_emojis_in_text"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "list of animated emojis in text %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "TEXT",
+                        "check": "String"
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": ["List", "Array"],
+                "tooltip": "A list of custom animated emojis in text.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_emoji_text_regex_list_of_animated_emojis_in_text"] = function (block) {
+    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${text}.match(/(?<!\\\\)<a:(?<=<a:)[a-zA-Z0-9_-]*(?=:):[0-9]*>/gim)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_emoji_text_regex_list_of_normal_emojis_in_text"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "list of normal emojis in text %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "TEXT",
+                        "check": "String"
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": ["List", "Array"],
+                "tooltip": "A list of normal emojis in text, like the default thumbs up emoji.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_emoji_text_regex_list_of_normal_emojis_in_text"] = function (block) {
+    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`String(${text}).replaceAll(" ", "").match(/((\\u00a9|\\u00ae|[\\u2000-\\u3300]|\\ud83c[\\ud000-\\udfff]|\\ud83d[\\ud000-\\udfff]|\\ud83e[\\ud000-\\udfff]\\s?)+)/gm)`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_text_regex_create_new_regex_of"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "create new RegEx of %1",
+                "args0": [
+                    {
+                        "type": "field_input",
+                        "name": "TEXT"
+                    }
+                ],
+                "colour": "%{BKY_TEXTS_HUE}",
+                "output": "RegEx",
+                "tooltip": "RegEx is a regular expression that can be used to find text inside of text with a couple checks to make sure that text is exactly the way you want it. You can create RegEx on the \"Help\" button on the block. You'll need to paste in the slashes and the flags from the RegEx into the block.",
+                "helpUrl": "https://regex101.com/"
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_text_regex_create_new_regex_of"] = function (block) {
+    let regex = block.getFieldValue("TEXT")
+    try {
+        let matches = String(regex).match(/(\/)\S*(\/[a-z]{0,7})/gim)
+        if (!(regex && String(regex) && String(regex).startsWith("/") && matches && matches.length == 1)) regex = ""
+    } catch (err) {
+        console.error("This RegEx check is not supported on this platform.", err)
+    }
+    const code = [`${regex}`, Blockly.JavaScript.ORDER_ATOMIC];
+    return code;
+};
+Blockly.Blocks["jg_lists_regex_list_of_matches_from_regex_on_text"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "list of matches from RegEx %1 on text %2",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "REGEX",
+                        "check": "RegEx"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "TEXT",
+                        "check": "String"
+                    }
+                ],
+                "inputsInline": true,
+                "colour": "%{BKY_LISTS_HUE}",
+                "output": ["List", "Array"],
+                "tooltip": "RegEx is a regular expression that can be used to find text inside of text with a couple checks to make sure that text is exactly the way you want it. This block outputs a list of matches from the RegEx being used on the text.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_lists_regex_list_of_matches_from_regex_on_text"] = function (block) {
+    const regex = Blockly.JavaScript.valueToCode(block, "REGEX", Blockly.JavaScript.ORDER_ATOMIC);
+    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`String(${text}).match(${regex})`, Blockly.JavaScript.ORDER_ATOMIC];
+    return code;
+};
+Blockly.Blocks["jg_member_is_user_in_server"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "is user %1 in server %2?",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": ["Member", "User"]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "Boolean",
+                "tooltip": "Check if the member is in the server.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_member_is_user_in_server"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`await ${server}.members.fetch(${member}.id) != null`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };

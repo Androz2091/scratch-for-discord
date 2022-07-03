@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "s4d_add_reaction";
 
 const blockData = {
-    "message0": "%{BKY_ADD_REACTION}",
+    "message0": "add reaction %1 to the received message",
     "args0": [
         {
             "type": "input_value",
@@ -19,12 +19,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const reaction = Blockly.JavaScript.valueToCode(block, "REACTION", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `s4dmessage.react(${reaction});`;
     return code;

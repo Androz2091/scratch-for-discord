@@ -21,21 +21,21 @@ const blockData = {
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
 
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
- 
-  const code = `
-        os.cpuUsage(function(v){
+
+    const code = `
+        os.cpuUsage(async function(v){
 	      var obj = v * 100
         ${statementThen}   
 });      
 `;
-   
+
     return code;
 };

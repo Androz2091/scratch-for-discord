@@ -43,7 +43,7 @@ Blockly.JavaScript[blockName] = function (block) {
     const then = Blockly.JavaScript.statementToCode(block, "THEN");
     const code = `let S4D_APP_MC_GET_OPTIONS = {
         sessionID: 1,
-        timeout: 5000
+        timeout: 35000
     };
     S4D_APP_MC_GET.queryFull(String(${ip}), Number(${port}), S4D_APP_MC_GET_OPTIONS)
     .then(async (result_query_java) => {

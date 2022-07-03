@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../../restrictions";
 const blockName = "frost_real_reply_add_reaction";
 
 const blockData = {
-    "message0": "Add reaction %1 to real reply",
+    "message0": "Add reaction %1 to reply",
     "args0": [
         {
             "type": "input_value",
@@ -20,12 +20,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const reaction = Blockly.JavaScript.valueToCode(block, "REACTION", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `s4dfrost_real_reply.react(${reaction});\n`;
     return code;
@@ -43,7 +43,8 @@ registerRestrictions(blockName, [
         type: "hasparent",
         message: "RES_MUST_BE_IN_REPLY_THEN",
         types: [
-            "frost_real_reply_then"
+            "frost_real_reply_then",
+            "frost_jg_real_reply_to_message_with_mention_then"
         ]
     }
 ]);

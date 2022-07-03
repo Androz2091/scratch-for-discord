@@ -38,6 +38,6 @@ Blockly.JavaScript[blockName] = function (block) {
   const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
   const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
 
-  const code = `fs.renameFileSync(${file}, ${name}, function (err) {\n ${statementThen} \n});\n`;
+  const code = `fs.renameFileSync(${file}, ${name}, async function (err) {\n ${statementThen} \n});\n`;
   return code
 };

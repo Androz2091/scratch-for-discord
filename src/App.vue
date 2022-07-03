@@ -2,7 +2,6 @@
     <div id="app">
         <NavBarComponent id="navSpace"></NavBarComponent>
         <BlocklyComponent id="blocklySpace" :options="options"></BlocklyComponent>
-        <v-tour name="start-tour" :steps="vueTourOptions.steps" :options="vueTourOptions"></v-tour>
     </div>
 </template>
 
@@ -12,7 +11,7 @@ import Blockly from "blockly";
 import NavBarComponent from "./components/NavigationBar/NavigationBar.vue";
 import BlocklyComponent from "./components/BlocklyComponent.vue";
 
-
+console.log("User is currently on platform", navigator.userAgent)
 
 
 Blockly.Tooltip.HOVER_MS = 100;
@@ -60,6 +59,7 @@ import "./blocks/progess-bar/";
 import "./blocks/captcha/";
 import "./blocks/pagination/";
 import "./blocks/discord/thread-event"
+import "./blocks/godslayerakp"
   
 //my events
 //channel
@@ -156,7 +156,10 @@ import "./blocks/Eruption/message_embed/"
 // Parham
 import "./blocks/Parham"
 
+// Monaco
+import "./blocks/Monaco"
 
+  
 import "./blocks/quickdb"
 
 export default {
@@ -236,7 +239,9 @@ export default {
           vertical: true
         },
         drag: true,
-        wheel: true},
+        wheel: true}
+        /*
+        ,
             vueTourOptions: {
                 labels: {
                     buttonSkip: this.$t('tour.skip'),
@@ -268,6 +273,7 @@ export default {
                     }
                 ]
             }
+            */
         }
            } else {
       return {
@@ -288,7 +294,9 @@ export default {
           vertical: true
         },
         drag: true,
-        wheel: true},
+        wheel: true}
+        /*
+        ,
             vueTourOptions: {
                 labels: {
                     buttonSkip: this.$t('tour.skip'),
@@ -320,6 +328,7 @@ export default {
                     }
                 ]
             }
+            */
         }
            }
     }
@@ -338,7 +347,7 @@ export default {
 #blocklySpace {
     position: absolute;
     width: 100%;
-    height: 93.5%;
+    height: calc(100% - 66px);
 }
 
 .boldtext {

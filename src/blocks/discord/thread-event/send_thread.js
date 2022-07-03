@@ -37,14 +37,18 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
+
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
     const embed = Blockly.JavaScript.valueToCode(block, "EMBED", Blockly.JavaScript.ORDER_ATOMIC) || null;
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC) || "false";
+
+
     if(content.length > 2){
         return(`${channel}.send({embeds: ${embed}, content: ${content}});\n`)
     } else {
         return(`${channel}.send({embeds: ${embed}});\n`)
     }
+
 }
 
 registerRestrictions(blockName, [
@@ -52,7 +56,7 @@ registerRestrictions(blockName, [
         type: "notempty",
         message: "RES_MISSING_CONTENT",
         types: [
-          "CONTENT"
+            "CONTENT"
         ]
     }
 ]);

@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_remove_reactions";
 
 const blockData = {
-    "message0": "remove all message %1 reactions with id/name %2",
+    "message0": "remove all reactions on the message %1 with id/name %2",
     "args0": [
         {
             "type": "input_value",
@@ -25,12 +25,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const message = Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC);
     const id = Blockly.JavaScript.valueToCode(block, "EMOJI", Blockly.JavaScript.ORDER_ATOMIC);
     let code = `${message}.reactions.cache.get(${id}).remove()\n`;
@@ -39,9 +39,9 @@ Blockly.JavaScript[blockName] = function(block){
 
 registerRestrictions(blockName, [
     {
-        type:"notempty",
-        message:"RES_REACT_NO_MEMBER",
-        types:[
+        type: "notempty",
+        message: "RES_REACT_NO_MEMBER",
+        types: [
             "MEMBER"
         ]
     }
