@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "jg_web_foreachkey";
 
 const blockData = {
-    "message0": "Get all keys then for each %1 %2",
+    "message0": "get all keys then for each %1 %2",
     "args0": [
         {
             "type": "input_dummy"
@@ -21,12 +21,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
     let code = `Object.keys(JSONdataS4D).forEach( async s4dkey => {
 ${statementThen} 

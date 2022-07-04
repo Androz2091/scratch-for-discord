@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "fz_get_all_emoji";
 
 const blockData = {
-    "message0": "In server (optional) %1 get all emojis then %2 for each cached emoji %3",
+    "message0": "In server (optional) %1 get all emojis then for each cached emoji %2 do %3",
     "args0": [
         {
             "type": "input_value",
@@ -26,17 +26,17 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     let server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-  if ((server || null) == null) {
-    server = `(s4d.client)`
-  }
+    if ((server || null) == null) {
+        server = `(s4d.client)`
+    }
     let code = `${server}.emojis.cache.forEach(async emoj =>{ \n ${statementThen} \n})\n`;
     return code;
 };

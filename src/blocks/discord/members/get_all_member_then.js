@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "s4d_get_all";
 
 const blockData = {
-    "message0": "in server %1 get all members then for each %2 %3",
+    "message0": "in server %1 get all members then for each %2 do %3",
     "args0": [
         {
             "type": "input_value",
