@@ -3752,8 +3752,9 @@ Blockly.Blocks["jg_members_roles_fetch_with_id_from_server_then_do_fetched_item"
         );
     }
 }
-Blockly.JavaScript["jg_members_roles_fetch_with_id_from_server_then_do_fetched_item"] = function () {
-    const code = [`member_role`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript["jg_members_roles_fetch_with_id_from_server_then_do_fetched_item"] = function (block) {
+    const type = block.getFieldValue("TYPE")
+    const code = [`fetched_${type}_from_server`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 restrictToParent(
