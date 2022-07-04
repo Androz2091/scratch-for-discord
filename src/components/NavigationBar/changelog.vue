@@ -15,6 +15,18 @@ export default {
                 icon: 'info',
                 width: "900px",
                 html:`
+                <h3 style="color:#CB4335;"><b>User examples!</b></h2>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/993453529421328384/unknown.png' width='600'>
+                <h5>Do you want to make an example for something complicated?
+Now you can do it even easier with the new User Uploaded Examples menu!
+Upload examples, find examples, all created by the community!
+Find this menu by going to Examples > User Uploaded Examples.
+note: the server is a bit slow, so expect delays when you open user example menus.(JeremyGamer13)</h5>
+                <br> 
+                <h3><b>Channel Position Blocks!</b></h2>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/992465063107637348/unknown.png' width='600'>
+                <h5>(Freslin)</h5>
+                <br> 
                 <img src='https://media.discordapp.net/attachments/935597297528610856/991985618554994708/unknown.png' width='600'>
                 <h5>(Freslin)</h5>
                 <br> 
