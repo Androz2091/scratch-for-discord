@@ -160,7 +160,8 @@ export default {
                             body: JSON.stringify({
                                 name: String(document.getElementById("UserExampleName").value),
                                 desc: String(document.getElementById("UserExampleDescription").value),
-                                xml: String(xmlContent)
+                                xml: String(xmlContent),
+                                count: workspace.getAllBlocks().length
                             })
                         };
                         fetch('https://469exampletest.jeremygamer13.repl.co/api/upload', requestOptions)
