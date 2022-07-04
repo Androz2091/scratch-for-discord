@@ -241,7 +241,7 @@ export default {
                                     fetch(`https://469exampletest.jeremygamer13.repl.co/api/getExample?id=${selectedOption}`)
                                         .then(async (result) => {
                                             result.json().then((json) => {
-                                                lkjgenwhikgu4ewkjn.innerHTML = `<b>${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}</b> with <b><em>${json.example[2]} blocks</em></b><br><br><p>${json.example[1].replaceAll("<", "").replaceAll("\\", "")}</p>`
+                                                lkjgenwhikgu4ewkjn.innerHTML = `<b>${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}</b> with <b><em>${json.example[2]} blocks</em></b><br><br><p>${json.example[1].replaceAll("<", "").replaceAll("\\", "")}</p>${json.example[3] == null || json.example[3] == "" ? "" : `<image src="${String(json.example[3])}"></image>`}`
                                                 this.$swal({
                                                     title: "Load this example?",
                                                     content: lkjgenwhikgu4ewkjn,
@@ -364,7 +364,8 @@ export default {
                                         fetch(`https://469exampletest.jeremygamer13.repl.co/api/getExample?id=${selectedOption}`)
                                             .then(async (result) => {
                                                 result.json().then((json) => {
-                                                    lkjgenwhikgu4ewkjn.innerHTML = `<b>${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}</b> with <b><em>${json.example[2]} blocks</em></b><br><br><p>${json.example[1].replaceAll("<", "").replaceAll("\\", "")}</p>`
+                                                    console.log(json.example)
+                                                    lkjgenwhikgu4ewkjn.innerHTML = `<b>${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}</b> with <b><em>${json.example[2]} blocks</em></b><br><br><p>${json.example[1].replaceAll("<", "").replaceAll("\\", "")}</p>${json.example[3] == null || json.example[3] == "" ? "" : `<image src="${String(json.example[3])}"></image>`}`
                                                     this.$swal({
                                                         title: "Load this example?",
                                                         content: lkjgenwhikgu4ewkjn,
