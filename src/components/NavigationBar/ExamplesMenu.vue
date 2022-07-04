@@ -130,11 +130,19 @@ export default {
                 if (String(result) == "upload") {
                     const name = encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, ' ').replaceAll("\n", "").replaceAll(/[^a-z 0-9]/gmi, "")
                     const wrapper = document.createElement('div');
+                    const blockCounts = workspace.getAllBlocks().length
                     wrapper.innerHTML = `<h5>The content of the example is going to be the blocks you've placed.</h5>
 <label for="name">Name of your Example </label>
 <input type="text" id="UserExampleName" value="${name == "Untitled document" ? "Untitled example" : name}">
+<label for="author">Author of the Example </label>
+<input type="text" id="UserExampleAuthor" value="Anonymous">
+<br>
+<small><em>Note, impersonation is possible!</em></small>
+<br>
 <label for="name">Describe your Example...</label>
 <textarea id="UserExampleDescription" rows="4" cols="50"></textarea>
+<p>Your example has <b>${blockCounts} block${blockCounts == 1 ? "" : "s"}</b> in it.</p>
+${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is not encouraged.</h3>` : ''}
 `
                     this.$swal({
                         title: "Upload an example",
@@ -159,7 +167,8 @@ export default {
                                 name: String(document.getElementById("UserExampleName").value),
                                 desc: String(document.getElementById("UserExampleDescription").value),
                                 xml: String(xmlContent),
-                                count: workspace.getAllBlocks().length
+                                count: workspace.getAllBlocks().length,
+                                author: String(document.getElementById("UserExampleAuthor").value)
                             })
                         };
                         fetch('https://469exampletest.jeremygamer13.repl.co/api/upload', requestOptions)
@@ -241,7 +250,7 @@ export default {
                                     fetch(`https://469exampletest.jeremygamer13.repl.co/api/getExample?id=${selectedOption}`)
                                         .then(async (result) => {
                                             result.json().then((json) => {
-                                                lkjgenwhikgu4ewkjn.innerHTML = `<b>${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}</b> with <b><em>${json.example[2]} blocks</em></b><br><br><p>${json.example[1].replaceAll("<", "").replaceAll("\\", "")}</p>${json.example[3] == null || json.example[3] == "" ? "" : `<image src="${String(json.example[3])}"></image>`}`
+                                                lkjgenwhikgu4ewkjn.innerHTML = `<b>${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}</b> with <b><em>${json.example[2]} blocks</em></b> uploaded by <b>${json.example[4].replaceAll("\\", "").replaceAll("<", "").replaceAll(">", "").replaceAll("/", "")}</b> <br><br><p>${json.example[1].replaceAll("<", "").replaceAll("\\", "")}</p>${json.example[3] == null || json.example[3] == "" ? "" : `<image src="${String(json.example[3])}"></image>`}`
                                                 this.$swal({
                                                     title: "Load this example?",
                                                     content: lkjgenwhikgu4ewkjn,
@@ -332,7 +341,7 @@ export default {
                                     Object.entries(examples).forEach((i) => {
                                         // console.log("Found example with name", i[1][0])
                                         let name = i[1][0]
-                                        if (String(name).toLowerCase().includes(SEARCHQUERYBRO)) names.push([name, i[1][3], i[1][4]])
+                                        if (String(name).toLowerCase().includes(String(SEARCHQUERYBRO).toLowerCase())) names.push([name, i[1][3], i[1][4]])
                                     })
                                     names.forEach((name) => {
                                         boxes += `<div class="box" style="width: 425px; height: 75px; border: 2px solid lightgray; margin: 0.5; padding: 1;">
