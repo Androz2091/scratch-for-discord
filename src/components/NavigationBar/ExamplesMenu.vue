@@ -10,8 +10,6 @@
         <b-dropdown-item @click="load('leaderboard')">Leaderboard from Database</b-dropdown-item>
         <b-dropdown-item @click="load('backup')">Backups</b-dropdown-item>
         <b-dropdown-item @click="load('random')">Random Responses</b-dropdown-item>
-        <b-dropdown-item @click="load('ticket')">Tickets</b-dropdown-item>
-        <b-dropdown-item @click="load('reddit')">Reddit</b-dropdown-item>
         <b-dropdown-item @click="load('cooldown')">Cooldowns</b-dropdown-item>
         <b-dropdown-item @click="load('button')">Buttons & Button rows</b-dropdown-item>
         <b-dropdown-item @click="load('slash')">Slash Commands</b-dropdown-item>
