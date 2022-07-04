@@ -234,4 +234,7 @@ dootabase.setFile("./database.json");`)
         array.push(`const S4D_APP_PKG_Replit_DB = require("@replit/database")
         const S4D_APP_Replit_DB = new Replit_DB()`)
     }
+    if (js.includes("S4D_APP_REDDIT_musakui")) {
+        array.push(`const S4D_APP_REDDIT_musakui = require('musakui');`)
+    }
 }
