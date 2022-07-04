@@ -2092,11 +2092,18 @@ export default (Blockly, value, searching) => {
                 <block type="reply_ahq_modal_text"/>
                 <block type="something_modal"/>
                 <label text="Make Forms" web-class="boldtext"></label>
+                <!--
                 <block type="make_ahq_modal"/>
                 <block type="make_ahq_modal_text"/>
                 <block type="style_ahq_modal"/>
+                -->
+                <block type="gsa_modal_create"/>
+                <block type="gsa_modal_text"/>
                 <label text="Send Forms" web-class="boldtext"></label>
+                <!--
                 <block type="snd_ahq_modal"/>
+                -->
+                <block type="gsa_modal_send"/>
                 <label text="⠀" web-class="boldtext"></label>
             </category>
         </category>
