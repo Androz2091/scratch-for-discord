@@ -2071,40 +2071,41 @@ export default (Blockly, value, searching) => {
                 <block type="send_m_embed_string"></block>
             </category>
             <category name="Forms" colour="#c847ff">
-            <searchcategory label="Interactions > Forms category"/>
-                <label text="Forms" web-class="boldtext"></label>
-                <block type="on_real_form"/>
-                <block type="embed_send_round">
-                    <value name="Label">
-                        <shadow type="text">
-                            <field name="TEXT"></field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="ahq_ahq_ahq_modal"/>
-                <block type="ahqq_ahq_modal"/>
-                <label text="Form Info" web-class="boldtext"></label>
-                <block type="id_form_ahq"/>
-                <block type="id_textbox_ahq"/>
-                <block type="clkr_form_ahq"/>
-                <block type="channel_form_ahq"/>
-                <block type="server_form_ahq"/>
-                <block type="reply_ahq_modal_text"/>
-                <block type="something_modal"/>
-                <label text="Make Forms" web-class="boldtext"></label>
-                <!--
-                <block type="make_ahq_modal"/>
-                <block type="make_ahq_modal_text"/>
-                <block type="style_ahq_modal"/>
-                -->
-                <block type="gsa_modal_create"/>
-                <block type="gsa_modal_text"/>
-                <label text="Send Forms" web-class="boldtext"></label>
-                <!--
-                <block type="snd_ahq_modal"/>
-                -->
-                <block type="gsa_modal_send"/>
-                <label text="⠀" web-class="boldtext"></label>
+                <category name="ahq Forms" colour="#c847ff">
+                    <searchcategory label="Interactions > Forms category"/>
+                    <label text="Forms" web-class="boldtext"></label>
+                    <block type="on_real_form"/>
+                    <block type="embed_send_round">
+                        <value name="Label">
+                            <shadow type="text">
+                                <field name="TEXT"></field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="ahq_ahq_ahq_modal"/>
+                    <block type="ahqq_ahq_modal"/>
+                    <label text="Form Info" web-class="boldtext"></label>
+                    <block type="id_form_ahq"/>
+                    <block type="id_textbox_ahq"/>
+                    <block type="clkr_form_ahq"/>
+                    <block type="channel_form_ahq"/>
+                    <block type="server_form_ahq"/>
+                    <block type="reply_ahq_modal_text"/>
+                    <block type="something_modal"/>
+                    <label text="Make Forms" web-class="boldtext"></label>
+                    <block type="make_ahq_modal"/>
+                    <block type="make_ahq_modal_text"/>
+                    <block type="style_ahq_modal"/>
+                    <label text="Send Forms" web-class="boldtext"></label>
+                    <block type="snd_ahq_modal"/>
+                    <label text="⠀" web-class="boldtext"></label>
+                </category>
+                <category name="redman13 Forms" colour="#c847ff">
+                    <label text="use ahq's form blocks for recieve" web-class="boldtext"></label>
+                    <block type="gsa_modal_create"/>
+                    <block type="gsa_modal_text"/>
+                    <block type="gsa_modal_send"/>
+                </category>
             </category>
         </category>
         <category name="Utilities" colour="#03b6fc">
