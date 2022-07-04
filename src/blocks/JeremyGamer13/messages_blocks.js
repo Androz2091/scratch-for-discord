@@ -3665,3 +3665,99 @@ Blockly.JavaScript["jg_member_is_user_in_server"] = function (block) {
     const code = [`await ${server}.members.fetch(${member}.id) != null`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+Blockly.Blocks["jg_members_roles_fetch_with_id_from_server_then_do"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "fetch %1 with id %2 from server %3 then %4 do %5",
+                "inputsInline": true,
+                "tooltip": "Put a member or role from a server into the bot's memory, then run the blocks inside.",
+                "colour": "#2EB66B",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "member",
+                                'members'
+                            ],
+                            [
+                                "role",
+                                'roles'
+                            ]
+                        ],
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "ID",
+                        "check": "String"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_roles_fetch_with_id_from_server_then_do"] = function (block) {
+    const type = block.getFieldValue("TYPE")
+    const id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC);
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `${server}.${type}.fetch(String(${id})).then((fetched_${type}_from_server) => {
+    ${statements}
+})
+`;
+    return code;
+};
+Blockly.Blocks["jg_members_roles_fetch_with_id_from_server_then_do_fetched_item"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "fetched %1",
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "member",
+                                'members'
+                            ],
+                            [
+                                "role",
+                                'roles'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#2EB66B",
+                "output": "Member",
+                "tooltip": "The current role in the member role loop.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_members_roles_fetch_with_id_from_server_then_do_fetched_item"] = function () {
+    const code = [`member_role`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+restrictToParent(
+    ["jg_members_roles_fetch_with_id_from_server_then_do"],
+    "jg_members_roles_fetch_with_id_from_server_then_do_fetched_item",
+    'Missing Restriction Text'
+)

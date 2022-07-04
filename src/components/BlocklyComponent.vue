@@ -951,6 +951,9 @@ function svgToPng_(data, width, height, callback) {
         let block = Blockly.Xml.domToBlock(xml, workspace)
         block.setDeletable(false)
 */
+
+
+
         try{Blockly.ContextMenuRegistry.registry.unregister("fav")}catch{}
                                 
             Blockly.ContextMenuRegistry.registry.register({

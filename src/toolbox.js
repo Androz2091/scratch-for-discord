@@ -2239,8 +2239,8 @@ export default (Blockly, value, searching) => {
             <block type="s4d_set_server_name"></block>
 	        <block type="set_server_something">
                 <value name="reason">
-                    <shadow type ="text">
-                        <field name="TEXT"> </field>
+                    <shadow type="text">
+                        <field name="TEXT"></field>
                     </shadow>
                 </value>
             </block>

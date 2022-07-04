@@ -13,9 +13,26 @@
 import Blockly from "blockly";
 import JSZip from "jszip";
 import beautify from "js-beautify";
-
+// let changesAreUnsaved = false
+// let workspaceContent = `<xml xmlns="https://developers.google.com/blockly/xml"></xml>`
 export default {
     name: "filemenu",
+    /*
+    mounted(){
+        // unsaved changes stuff
+        window.onload = function () {
+            window.addEventListener("beforeunload", function (e) {
+                let currentWorkspaceContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace))
+                changesAreUnsaved = workspaceContent != currentWorkspaceContent
+                if (!changesAreUnsaved) return
+                let confirmationMessage = `You have unsaved blocks! Are you sure?`;
+                (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+                return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+            });
+        }
+        // end of unsaved changes stuff
+    },
+    */
     methods: {
         copy() {
             var url = beautify.js(this.getWorkspaceCode(), {
@@ -110,6 +127,8 @@ export default {
                 a.click();
                 window.URL.revokeObjectURL(url);
                 document.body.removeChild(a);
+                // changesAreUnsaved = false
+                // workspaceContent = xmlContent
             });
         },
         saveas(){
@@ -121,15 +140,16 @@ export default {
             })
             .then(async (blob) => {
                 const fileHandle = await window.showSaveFilePicker({
-                types: [{
-                  description: "S4D Bot File",
-                  accept: {"application/zip": [".s4d"]}
-                }]
+                    types: [{
+                        description: "S4D Bot File",
+                        accept: {"application/zip": [".s4d"]}
+                    }]
                 });
                 const fileStream = await fileHandle.createWritable();
- 
                 await fileStream.write(blob);
                 await fileStream.close();
+                // changesAreUnsaved = false
+                // workspaceContent = xmlContent
             },
           )
         }
