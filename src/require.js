@@ -230,4 +230,8 @@ dootabase.setFile("./database.json");`)
     if (js.includes("S4D_APP_FFMPEG")) {
         array.push(`const S4D_APP_FFMPEG = require('ffmpeg');`)
     }
+    if (js.includes("S4D_APP_Replit_DB")) {
+        array.push(`const S4D_APP_PKG_Replit_DB = require("@replit/database")
+        const S4D_APP_Replit_DB = new Replit_DB()`)
+    }
 }

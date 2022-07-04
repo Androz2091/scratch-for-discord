@@ -3523,6 +3523,38 @@ export default (Blockly, value, searching) => {
             <block type="s4d_delete_all_data2"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
+        <category name="Replit DB" colour="#150b91">
+        <block type="parham_replitdb_setto">
+            <value name="set">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="to">
+                <shadow type="text">
+                    <field name="TEXT">world</field>
+                </shadow>
+            </value>
+        </block>
+        <label text="On These Blocks You Can Use Data Block"/>
+        <block type="parham_replitdb_getall"/>
+        <block type="parham_replitdb_get">
+            <value name="get">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="parham_replitdb_data"/>
+        <label text="You can't use Data block on this blocks"/>
+        <block type="parham_replitdb_delete">
+            <value name="delete">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        </category>
 
         <category name="SQLite DB" colour="#A025DE">
             <label text="%{BKY_LABEL_READ_DB}"></label>
