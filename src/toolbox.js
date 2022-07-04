@@ -1515,119 +1515,6 @@ export default (Blockly, value, searching) => {
             <block type="s4d_thread_archive"/>
 	        <block type="jg_monaco_threads_add_member_to_from_thread_with_reason"/>
         </category>
-        <category name="Slash" colour="#4776ed">
-        <searchcategory label="Slash category"/>
-            <label text='⚠️ Deletes commands set by "Slash Command GUI"! ⚠️'></label>
-            <label text='Only one "Create slash commands" block should be placed.'></label>
-            <label text='Otherwise, it will break!'></label>
-
-            <label text="You also need to invite your bot with applications.commands enabled!" web-class="boldtext"></label>
-
-            <block type="frost_slash_register"/>
-            <block type="frost_slash_command">
-                <value name="NAME">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-                <value name="DESC">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="frost_slash_sub_command_group">
-                <value name="NAME">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-                <value name="DESC">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="frost_slash_sub_command">
-                <value name="NAME">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-                <value name="DESC">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="frost_slash_options1">
-                <value name="NAME">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-                <value name="DESC">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-                <value name="REQUIRED">
-                    <shadow type="logic_boolean">
-                        <field name="BOOL">TRUE</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="frost_slash_options2">
-                <value name="NAME">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-                <value name="DESC">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-                <value name="REQUIRED">
-                    <shadow type="logic_boolean">
-                        <field name="BOOL">TRUE</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="frost_slash_choices">
-                <value name="NAME">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-                <value name="OPTION_NAME">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
-            </block>
-            <label text="Handling slash commands:"></label>
-            <block type="on_slash"></block>
-            <block type="interaction_name"></block>
-            <block type="interaction_author"></block>
-            <block type="interaction_channel"></block>
-            <block type="interaction_guild"></block>
-            <block type="interaction_voice_channel"></block>
-            <block type="interaction_voice_channel_id"></block>
-            <block type="bot_voice_channel_id"></block>
-            <block type="options">
-                <mutation mode="string"/>
-            </block>
-            <block type="fz_attachment_info"/>
-            <block type="fz_attachment_info2"/>
-            <block type="slash_reply"></block>
-            <block type="slash_edit"></block>
-            <block type="jg_messages_files_send_reply_with_file_and_message_with_button_row_as_hidden"/>
-            <label text="Send an embed in slash"></label>
-            <label text="(for named embeds, the name has to be just called embed)"></label>
-            <block type="send_m_embed_string"></block>
-            <label text="ㅤ" web-class="boldtext"></label>
-        </category>
         <category name="Webhooks" colour="#475ded">
         <searchcategory label="Webhooks category"/>
             <block type="s4d_create_webhook_then"></block>
@@ -1938,6 +1825,119 @@ export default (Blockly, value, searching) => {
             </category>
         </category>
         <category name="Interactions" colour="#c847ff">
+        <category name="Slash" colour="#c847ff">
+        <searchcategory label="Slash category"/>
+            <label text='⚠️ Deletes commands set by "Slash Command GUI"! ⚠️'></label>
+            <label text='Only one "Create slash commands" block should be placed.'></label>
+            <label text='Otherwise, it will break!'></label>
+
+            <label text="You also need to invite your bot with applications.commands enabled!" web-class="boldtext"></label>
+
+            <block type="frost_slash_register"/>
+            <block type="frost_slash_command">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_slash_sub_command_group">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_slash_sub_command">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_slash_options1">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="REQUIRED">
+                    <shadow type="logic_boolean">
+                        <field name="BOOL">TRUE</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_slash_options2">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="REQUIRED">
+                    <shadow type="logic_boolean">
+                        <field name="BOOL">TRUE</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="frost_slash_choices">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="OPTION_NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+            <label text="Handling slash commands:"></label>
+            <block type="on_slash"></block>
+            <block type="interaction_name"></block>
+            <block type="interaction_author"></block>
+            <block type="interaction_channel"></block>
+            <block type="interaction_guild"></block>
+            <block type="interaction_voice_channel"></block>
+            <block type="interaction_voice_channel_id"></block>
+            <block type="bot_voice_channel_id"></block>
+            <block type="options">
+                <mutation mode="string"/>
+            </block>
+            <block type="fz_attachment_info"/>
+            <block type="fz_attachment_info2"/>
+            <block type="slash_reply"></block>
+            <block type="slash_edit"></block>
+            <block type="jg_messages_files_send_reply_with_file_and_message_with_button_row_as_hidden"/>
+            <label text="Send an embed in slash"></label>
+            <label text="(for named embeds, the name has to be just called embed)"></label>
+            <block type="send_m_embed_string"></block>
+            <label text="ㅤ" web-class="boldtext"></label>
+        </category>
         <searchcategory label="Interactions category"/>
             <category name="Buttons" colour="#c847ff">
             <searchcategory label="Interactions > Buttons category"/>
@@ -3529,6 +3529,39 @@ export default (Blockly, value, searching) => {
             </block>
             <block type="s4d_delete_all_data2"/>
             <label text="ㅤ" web-class="boldtext"></label>
+        </category>
+        <category name="Replit DB" colour="#150b91">
+        <searchcategory label="Replit DB"/>
+        <block type="parham_replitdb_setto">
+            <value name="set">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="to">
+                <shadow type="text">
+                    <field name="TEXT">world</field>
+                </shadow>
+            </value>
+        </block>
+        <label text="On These Blocks You Can Use Data Block"/>
+        <block type="parham_replitdb_getall"/>
+        <block type="parham_replitdb_get">
+            <value name="get">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="parham_replitdb_data"/>
+        <label text="You Can't Use Data Block On This Blocks"/>
+        <block type="parham_replitdb_delete">
+            <value name="delete">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
         </category>
 
         <category name="SQLite DB" colour="#A025DE">
