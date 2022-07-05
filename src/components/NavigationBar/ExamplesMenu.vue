@@ -15,6 +15,7 @@
         <b-dropdown-item @click="load('slash')">Slash Commands</b-dropdown-item>
         <b-dropdown-item @click="load('advjsonreq')">Advanced JSON Request</b-dropdown-item>
         <b-dropdown-item @click="load('regex')">RegEx: Finding specific text</b-dropdown-item>
+        <b-dropdown-item @click="load('embed example')">embed example</b-dropdown-item>
         <b-dropdown-divider></b-dropdown-divider>
         <b-dropdown-item @click="userexamples()">User Uploaded Examples</b-dropdown-item>
     </b-nav-item-dropdown>
@@ -41,6 +42,7 @@ import slash from "../../examples/slash";
 import advjsonreq from "../../examples/advjsonreq.js";
 import regex from "../../examples/regex.js";
 import leaderboard from "../../examples/leaderboard.js";
+import embed from "../../examples/embed example.js";
 
 const examples = {
     "ping-pong": PingPongExample,
@@ -60,7 +62,8 @@ const examples = {
     "slash": slash,
     "advjsonreq": advjsonreq,
     "regex": regex,
-    "leaderboard": leaderboard
+    "leaderboard": leaderboard,
+    "embed example": embed
 };
 
 export default {
