@@ -1,7 +1,7 @@
 <template>
     <b-navbar toggleable="lg" type="dark" style="background-color:#161719;user-select:none;" id="navbar nav-main">
         <b-navbar-brand style="font-size: 120%;">
-            <img src="scratch.png" width="35" draggable="false">
+            <img :src="decideNavBarImage" width="35" draggable="false">
             Scratch For Discord
         </b-navbar-brand>
 
@@ -84,6 +84,9 @@ export default {
             return  this.$store.state.workspace &&
                     this.$store.state.workspace.getAllBlocks().some((block) => block.type === "s4d_login") &&
                     this.$store.state.workspace.getAllBlocks().every((block) => !block.disabled && !block.warning);
+        },
+        decideNavBarImage: function() {
+            return window.location.origin + "/scratch.png"
         }
     },
     mounted(){
@@ -266,6 +269,7 @@ load()`);
                 content: wrapper,
                 buttons: {
                     cancel: "Exit",
+                    settings: "Settings",
                     optimizations: "Optimizations",
                     tokendb: "Token Database",
                     prebuilds: "Prebuilds",
@@ -1020,6 +1024,101 @@ load()`])
                                 }
                                 localforage.getItem("hide-blockcount").then(console.log)
                             })
+                        }
+                    })
+                } else if (String(result) == "settings") {
+                    const wrapper = document.createElement('div');
+                    wrapper.innerHTML = `Toggle shortcuts being enabled and change the theme!`
+                    this.$swal({
+                        title: "S4D Site Settings",
+                        content: wrapper,
+                        icon: "https://media.discordapp.net/attachments/914411539887456296/993734332302770237/setting2.png",
+                        buttons: {
+                            cancel: "Cancel",
+                            shortcut: "Toggle shortcuts",
+                            theme: "Set theme"
+                        },
+                    }).then(async result => {
+                        if (String(result) == "shortcut") {
+                            localforage.getItem("utilitiesShortcuts").then(item => {
+                                localforage.setItem("utilitiesShortcuts", (item == null ? false : null)).then(() => {
+                                    localforage.getItem("utilitiesShortcuts").then(item => {
+                                        this.$swal({
+                                            title: "Updated shortcuts!",
+                                            text: `Shortcuts have been toggled ${item == null ? "on" : "off"}. Please refresh the page.`,
+                                            icon: "success"
+                                        })
+                                    })
+                                })
+                            })
+                        } else if (String(result) == "theme") {
+                            const previews = `
+<style>
+.row123 {
+  display: flex;
+}
+.column123 {
+  flex: 33.33%;
+  padding: 5px;
+}
+</style>
+<center>
+    <image src="https://media.discordapp.net/attachments/914411539887456296/993745043741495336/screenshot_11.png?width=1084&height=676" width="213" height="133"></image>
+    <span>
+        <div class="row123">
+            <div class="column123">
+                <image src="https://media.discordapp.net/attachments/914411539887456296/993745043993137192/screenshot_10.png?width=1084&height=676" width="213" height="133"></image>
+            </div>
+            <div class="column123">
+                <image src="https://media.discordapp.net/attachments/914411539887456296/993745044907507822/screenshot_12.png?width=1084&height=676" width="213" height="133"></image>
+            </div>
+        </div>
+    </span>
+    <span>
+        <div class="row123">
+            <div class="column123">
+                <image src="https://media.discordapp.net/attachments/914411539887456296/993745044626493511/screenshot_13.png?width=1084&height=676" width="213" height="133"></image>
+            </div>
+            <div class="column123">
+                <image src="https://media.discordapp.net/attachments/914411539887456296/993745044290928640/screenshot_14.png?width=1084&height=676" width="213" height="133"></image>
+            </div>
+        </div>
+    </span>
+    <b>Switching themes may require a refresh to work properly.</b>
+</center>
+`
+                            const { value: result } = await swal.fire({
+                                title: "Basic Themes",
+                                iconHtml: `<img style="background-color: white;" src="https://media.discordapp.net/attachments/914411539887456296/993741275104804864/theme.png"/>`,
+                                html: previews,
+                                input: 'select',
+                                inputOptions: {
+                                    't1': 'Neo',
+                                    't2': 'Toon',
+                                    't3': 'Invert',
+                                    't4': 'Textless',
+                                    'none': 'Default'
+                                },
+                                inputPlaceholder: 'Select a theme',
+                                showCancelButton: true
+                            })
+                            switch (String(result)) {
+                                case "t1":
+                                    localforage.setItem("utilitiesTheme", "neo")
+                                    break
+                                case "t2":
+                                    localforage.setItem("utilitiesTheme", "toon")
+                                    break
+                                case "t3":
+                                    localforage.setItem("utilitiesTheme", "invert")
+                                    break
+                                case "t4":
+                                    localforage.setItem("utilitiesTheme", "textless")
+                                    break
+                                case "none":
+                                    localforage.removeItem("utilitiesTheme")
+                                    break
+                            }
                         }
                     })
                 }

@@ -513,7 +513,8 @@ Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
   this.mouseY = (point.y - rel.y) / this.scale;
 }
 */
-
+        localforage.getItem("utilitiesShortcuts").then(item => {
+            if (item != false) {
 window.addEventListener('keydown', (e) => {
     // console.log(e)
     // console.log(e.key)
@@ -600,6 +601,8 @@ window.addEventListener('keydown', (e) => {
         }
     }
 });
+            }
+        })
 
 if (window.location.pathname == "/debug" && (!window.location.href.includes("scratch-for-discord-469.vercel.app") && !window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app"))) {
 Blockly.ContextMenuRegistry.registry.register({
@@ -952,7 +955,188 @@ function svgToPng_(data, width, height, callback) {
         block.setDeletable(false)
 */
 
+        // the best addition to s4d
 
+        /*
+        function corrupt(amount, charArray) {
+            String.prototype.replaceAt = function (index, replacement) {
+                return this.substring(0, index) + String(replacement) + this.substring(index + String(replacement).length);
+            }
+            const elements = document.getElementsByTagName("path")
+            for (let i = 0; i < elements.length; i++) {
+                let current = elements.item(i)
+                let css = current.getAttribute("d")
+                for (let j = 0; j < amount; j++) {
+                    css = String(css).replaceAt(Math.round(Math.random() * String(css).length - 1), charArray[Math.round(Math.random() * charArray.length - 1)])
+                }
+                try {
+                    current.setAttribute("d", css)
+                } catch {
+                    continue
+                }
+            }
+        }
+        window.addEventListener("click", () => {
+            if (Math.round(Math.random() * 10) <= 3) return
+            corrupt(20, ["0","1","2","3","4","5","6","7","8","9"])
+        })
+        */
+
+        // uncomment the code and watch it all unfold
+        // it is great
+        //trust me\
+
+        function themeBlocks(strokeColor, fillColor, specialTag) {
+            // thanks Onur Yıldırım and Martin Delille for spoonfeed (real)
+            function invertColor(hex) {
+                if (hex.indexOf('#') === 0) {
+                    hex = hex.slice(1);
+                }
+                // convert 3-digit hex to 6-digits.
+                if (hex.length === 3) {
+                    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+                }
+                if (hex.length !== 6) {
+                    throw new Error('Invalid HEX color.');
+                }
+                // invert color components
+                var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+                    g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+                    b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+                // pad each with zeros and return
+                return '#' + padZero(r) + padZero(g) + padZero(b);
+            }
+            function padZero(str, len) {
+                len = len || 2;
+                var zeros = new Array(len).join('0');
+                return (zeros + str).slice(-len);
+            }
+            function hexToRgb(hex) {
+                let arrBuff = new ArrayBuffer(4);
+                let vw = new DataView(arrBuff);
+                vw.setUint32(0, parseInt(hex, 16), false);
+                let arrByte = new Uint8Array(arrBuff);
+                return [arrByte[1], arrByte[2], arrByte[3]];
+            }
+            function componentToHex(c) {
+                var hex = c.toString(16);
+                return hex.length == 1 ? "0" + hex : hex;
+            }
+            function rgbToHex(r, g, b) {
+                return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+            }
+            const elements = document.getElementsByTagName("path")
+            for (let i = 0; i < elements.length; i++) {
+                let current = elements.item(i)
+                if (current.getAttribute("stroke") == null) continue
+                if (current.getAttribute("fill") == null) continue
+                if (specialTag == "invert") {
+                    if (current.getAttribute("strokeORG") == null) current.setAttribute("strokeORG", current.getAttribute("stroke"))
+                    if (current.getAttribute("fillORG") == null) current.setAttribute("fillORG", current.getAttribute("fill"))
+                    current.setAttribute("stroke", invertColor(String(current.getAttribute("strokeORG"))))
+                    current.setAttribute("fill", invertColor(String(current.getAttribute("fillORG"))))
+                }
+                if (specialTag == "pastel") {
+                    if (current.getAttribute("strokeORG") == null) current.setAttribute("strokeORG", current.getAttribute("stroke"))
+                    if (current.getAttribute("fillORG") == null) current.setAttribute("fillORG", current.getAttribute("fill"))
+                    let rgb = hexToRgb(current.getAttribute("fillORG").substring(1))
+                    let r = ((rgb[0] + 72) > 255 ? 255 : (rgb[0] + 72))
+                    let g = ((rgb[1] + 72) > 255 ? 255 : (rgb[1] + 72))
+                    let b = ((rgb[2] + 72) > 255 ? 255 : (rgb[2] + 72))
+                    let newRgb = rgbToHex(r, g, b)
+                    current.setAttribute("fill", newRgb)
+                    rgb = hexToRgb(current.getAttribute("strokeORG").substring(1))
+                    r = ((rgb[0] + 72) > 255 ? 255 : (rgb[0] + 72))
+                    g = ((rgb[1] + 72) > 255 ? 255 : (rgb[1] + 72))
+                    b = ((rgb[2] + 72) > 255 ? 255 : (rgb[2] + 72))
+                    newRgb = rgbToHex(r, g, b)
+                    current.setAttribute("stroke", newRgb)
+                }
+                if (specialTag == "textless") {
+                    let elements = document.getElementsByClassName("blocklyText")
+                    for (let i = 0; i < elements.length; i++) {
+                        let current = elements.item(i)
+                        current.remove()
+                    }
+                    elements = document.getElementsByClassName("blocklyText blocklyDropdownText")
+                    for (let i = 0; i < elements.length; i++) {
+                        let current = elements.item(i)
+                        current.remove()
+                    }
+                    elements = document.getElementsByClassName("blocklyMenuItemContent goog-menuitem-content")
+                    for (let i = 0; i < elements.length; i++) {
+                        let current = elements.item(i)
+                        current.remove()
+                    }
+                    elements = document.getElementsByClassName("blocklyFlyoutLabelText")
+                    for (let i = 0; i < elements.length; i++) {
+                        let current = elements.item(i)
+                        current.remove()
+                    }
+                    elements = document.getElementsByClassName("blocklyMenuItemContent goog-menuitem-content")
+                    for (let i = 0; i < elements.length; i++) {
+                        let current = elements.item(i)
+                        current.remove()
+                    }
+                    elements = document.getElementsByClassName("blocklyTreeLabel")
+                    for (let i = 0; i < elements.length; i++) {
+                        let current = elements.item(i)
+                        current.remove()
+                    }
+                }
+                if (specialTag == "toon") {
+                    let celements = document.getElementsByClassName("blocklyFieldRect blocklyDropdownRect")
+                    for (let i = 0; i < celements.length; i++) {
+                        let current = celements.item(i)
+                        if (strokeColor != null) current.setAttribute("stroke", strokeColor)
+                    }
+                }
+                if (strokeColor != null) current.setAttribute("stroke", strokeColor)
+                if (fillColor != null) current.setAttribute("fill", fillColor)
+            }
+        }
+            window.addEventListener("click", () => {
+                localforage.getItem("utilitiesTheme").then((theme) => {
+                    switch (theme) {
+                        case "neo":
+                            themeBlocks(null, "#202020")
+                            break
+                        case "toon":
+                            themeBlocks("#000000", null)
+                            break
+                        case "invert":
+                            themeBlocks(null, null, "invert")
+                            break
+                        case "pastel":
+                            themeBlocks(null, null, "pastel")
+                            break
+                        case "textless":
+                            themeBlocks(null, null, "textless")
+                            break
+                    }
+                })
+            })
+            window.addEventListener("keydown", () => {
+                localforage.getItem("utilitiesTheme").then((theme) => {
+                    switch (theme) {
+                        case "neo":
+                            themeBlocks(null, "#202020")
+                            break
+                        case "toon":
+                            themeBlocks("#000000", null)
+                            break
+                        case "invert":
+                            themeBlocks(null, null, "invert")
+                            break
+                        case "pastel":
+                            themeBlocks(null, null, "pastel")
+                            break
+                        case "textless":
+                            themeBlocks(null, null, "textless")
+                            break
+                    }
+                })
+            })
 
         try{Blockly.ContextMenuRegistry.registry.unregister("fav")}catch{}
                                 
