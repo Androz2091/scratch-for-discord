@@ -103,6 +103,10 @@ function validateRestriction(block, blocks, restriction) {
                 }
             }
             return true;
+        case "dropdownofparent":
+            if (block.getParent() == null) return false
+            if (block.getParent().getFieldValue(restriction.option) == null) return false
+            return (String(block.getParent().getFieldValue(restriction.option)) == String(restriction.equals)) !== reverse;
         default:
             return true;
     }
@@ -124,6 +128,10 @@ function validateConfiguration(block, restriction) {
         case "custom":
         case "notempty":
             return true;
+        case "dropdownofparent":
+            return true
+        case "!dropdownofparent":
+            return true
         default:
             return false;
     }
