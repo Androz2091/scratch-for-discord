@@ -163,15 +163,15 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             ],
                             [
                                 "mentions members?",
-                                'mentions.users.size > 0'
+                                'mentions.users != null && mentions.users.size > 0'
                             ],
                             [
                                 "mentions roles?",
-                                'mentions.roles.size > 0'
+                                'mentions.roles != null && mentions.roles.size > 0'
                             ],
                             [
                                 "mentions channels?",
-                                'mentions.channels.size > 0'
+                                'mentions.channels != null && mentions.channels.size > 0'
                             ],
                             [
                                 "is a system message?",
@@ -199,19 +199,19 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             ],
                             [
                                 "has embeds?",
-                                'embeds.length > 0'
+                                'embeds != null && embeds.length > 0'
                             ],
                             [
                                 "has buttons or menus?",
-                                'components.length > 0'
+                                'components != null && components.length > 0'
                             ],
                             [
                                 "has attachments?",
-                                'attachments.size > 0'
+                                'attachments != null && attachments.size > 0'
                             ],
                             [
                                 "has stickers?",
-                                'stickers.size > 0'
+                                'stickers != null && stickers.size > 0'
                             ],
                             [
                                 "has thread?",

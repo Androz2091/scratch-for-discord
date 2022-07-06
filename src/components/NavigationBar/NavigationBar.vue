@@ -1064,6 +1064,7 @@ load()`])
 </style>
 <center>
     <image src="https://media.discordapp.net/attachments/914411539887456296/993745043741495336/screenshot_11.png?width=1084&height=676" width="213" height="133"></image>
+    <hr>
     <span>
         <div class="row123">
             <div class="column123">
@@ -1072,15 +1073,18 @@ load()`])
             <div class="column123">
                 <image src="https://media.discordapp.net/attachments/914411539887456296/993745044907507822/screenshot_12.png?width=1084&height=676" width="213" height="133"></image>
             </div>
+            <div class="column123">
+                <image src="https://media.discordapp.net/attachments/914411539887456296/993745044626493511/screenshot_13.png?width=1084&height=676" width="213" height="133"></image>
+            </div>
         </div>
     </span>
     <span>
         <div class="row123">
             <div class="column123">
-                <image src="https://media.discordapp.net/attachments/914411539887456296/993745044626493511/screenshot_13.png?width=1084&height=676" width="213" height="133"></image>
+                <image src="https://media.discordapp.net/attachments/914411539887456296/993745044290928640/screenshot_14.png?width=1084&height=676" width="213" height="133"></image>
             </div>
             <div class="column123">
-                <image src="https://media.discordapp.net/attachments/914411539887456296/993745044290928640/screenshot_14.png?width=1084&height=676" width="213" height="133"></image>
+                <image src="https://media.discordapp.net/attachments/914411539887456296/994153873214279720/screenshot_16.png?width=1084&height=676" width="213" height="133"></image>
             </div>
         </div>
     </span>
@@ -1097,10 +1101,13 @@ load()`])
                                     't2': 'Toon',
                                     't3': 'Invert',
                                     't4': 'Textless',
+                                    't5': 'Grayscale',
+                                    't6': 'Glowy',
                                     'none': 'Default'
                                 },
                                 inputPlaceholder: 'Select a theme',
-                                showCancelButton: true
+                                showCancelButton: true,
+                                width: "1000px"
                             })
                             switch (String(result)) {
                                 case "t1":
@@ -1114,6 +1121,12 @@ load()`])
                                     break
                                 case "t4":
                                     localforage.setItem("utilitiesTheme", "textless")
+                                    break
+                                case "t5":
+                                    localforage.setItem("utilitiesTheme", "gray")
+                                    break
+                                case "t6":
+                                    localforage.setItem("utilitiesTheme", "glow")
                                     break
                                 case "none":
                                     localforage.removeItem("utilitiesTheme")
