@@ -2682,6 +2682,7 @@ export default (Blockly, value, searching) => {
 	    <label text="https://poopoo-api.vercel.app/" web-class="boldtext"></label>
             <block type="s4d_http_get_then"/>
             <block type="s4d_get_string_of_data"/>
+            <block type="jg_imghttps"/>
         </category>
         <category name="Advanced" colour="#4c79ff">
             <block type="jg_web_request_advanced_new2_send_request_to_url_using_method_with_result_giving_request_headers_with_data_sections_then_if_error">
@@ -3136,7 +3137,6 @@ export default (Blockly, value, searching) => {
                 </category>
                 <category name="Data" colour="#fa9200">
                     <!--<category name="Data Blocks" colour="230">-->
-                        <block type="jg_imghttps"/>
                         <block type="jg_web_currentdata"/>
                         <block type="jg_web_valueofkey"/>
 						<block type="jg_web_keywithvalue"/>
