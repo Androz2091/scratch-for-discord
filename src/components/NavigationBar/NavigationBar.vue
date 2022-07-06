@@ -1068,7 +1068,7 @@ load()`])
     <span>
         <div class="row123">
             <div class="column123">
-                <image src="https://media.discordapp.net/attachments/914411539887456296/994145916091109406/screenshot_15.png?width=1084&height=676" width="213" height="133"></image>
+                <image src="https://media.discordapp.net/attachments/914411539887456296/994269048143626433/screenshot_20.png?width=1084&height=676" width="213" height="133"></image>
             </div>
             <div class="column123">
                 <image src="https://media.discordapp.net/attachments/914411539887456296/993745044907507822/screenshot_12.png?width=1084&height=676" width="213" height="133"></image>

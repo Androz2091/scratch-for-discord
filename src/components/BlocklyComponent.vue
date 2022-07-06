@@ -1092,6 +1092,7 @@ function svgToPng_(data, width, height, callback) {
                     }
                 }
                 if (specialTag == "neo") {
+                    current.setAttribute("stroke-width", "3")
                     let celements = document.getElementsByClassName("blocklyEditableText")
                     for (let i = 0; i < celements.length; i++) {
                         let current = celements.item(i)
@@ -1099,12 +1100,18 @@ function svgToPng_(data, width, height, callback) {
                         for (let i = 0; i < c2elements.length; i++) {
                             let current = c2elements.item(i)
                             current.setAttribute("style", `fill:${fillColor}`)
+                            current.setAttribute("stroke-width", "3")
                         }
                         c2elements = current.getElementsByClassName("blocklyText")
                         for (let i = 0; i < c2elements.length; i++) {
                             let current = c2elements.item(i)
                             current.setAttribute("style", "fill:#ffffff")
                         }
+                    }
+                    celements = document.getElementsByClassName("blocklyFieldRect blocklyDropdownRect")
+                    for (let i = 0; i < celements.length; i++) {
+                        let current = celements.item(i)
+                        current.setAttribute("stroke-width", "3")
                     }
                 }
                 if (specialTag == "gray") {

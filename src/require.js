@@ -232,7 +232,7 @@ dootabase.setFile("./database.json");`)
     }
     if (js.includes("S4D_APP_Replit_DB")) {
         array.push(`const S4D_APP_PKG_Replit_DB = require("@replit/database")
-        const S4D_APP_Replit_DB = new Replit_DB()`)
+        const S4D_APP_Replit_DB = new S4D_APP_PKG_Replit_DB()`)
     }
     if (js.includes("S4D_APP_REDDIT_musakui")) {
         array.push(`const S4D_APP_REDDIT_musakui = require('musakui');`)
