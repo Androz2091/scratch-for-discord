@@ -163,15 +163,15 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             ],
                             [
                                 "mentions members?",
-                                'mentions.users != null && mentions.users.size > 0'
+                                'mentions.users != null && ^{MSG_INPUT}mentions.users.size > 0'
                             ],
                             [
                                 "mentions roles?",
-                                '(mentions.roles != null && mentions.roles.size > 0) || (mentions._roles != null && mentions._roles.size > 0)'
+                                'mentions.roles != null && ^{MSG_INPUT}mentions.roles.size > 0 || ^{MSG_INPUT}mentions._roles != null && ^{MSG_INPUT}mentions._roles.size > 0'
                             ],
                             [
                                 "mentions channels?",
-                                'mentions.channels != null && mentions.channels.size > 0'
+                                'mentions.channels != null && ^{MSG_INPUT}mentions.channels.size > 0'
                             ],
                             [
                                 "is a system message?",
@@ -199,19 +199,19 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             ],
                             [
                                 "has embeds?",
-                                'embeds != null && embeds.length > 0'
+                                'embeds != null && ^{MSG_INPUT}embeds.length > 0'
                             ],
                             [
                                 "has buttons or menus?",
-                                'components != null && components.length > 0'
+                                'components != null && ^{MSG_INPUT}components.length > 0'
                             ],
                             [
                                 "has attachments?",
-                                'attachments != null && attachments.size > 0'
+                                'attachments != null && ^{MSG_INPUT}attachments.size > 0'
                             ],
                             [
                                 "has stickers?",
-                                'stickers != null && stickers.size > 0'
+                                'stickers != null && ^{MSG_INPUT}stickers.size > 0'
                             ],
                             [
                                 "has thread?",
@@ -246,7 +246,7 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
 }
 Blockly.JavaScript["jg_messages_message_is_value"] = function (block) {
     const message = Blockly.JavaScript.valueToCode(block, "MSG", Blockly.JavaScript.ORDER_ATOMIC);
-    const property = block.getFieldValue("TYPE")
+    const property = block.getFieldValue("TYPE").replaceAll("^{MSG_INPUT}", message + ".")
     const code = [`${message}.${property}`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
