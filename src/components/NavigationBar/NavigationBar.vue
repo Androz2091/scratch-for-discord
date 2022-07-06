@@ -1126,7 +1126,18 @@ load()`])
                                     localforage.setItem("utilitiesTheme", "gray")
                                     break
                                 case "t6":
-                                    localforage.setItem("utilitiesTheme", "glow")
+                                    this.$swal({
+                                        title: "Performance Warning!",
+                                        text: "This theme can be very laggy and make the site slow on low-end devices. Are you sure you want to enable it?",
+                                        icon: "warning",
+                                        buttons: {
+                                            cancel: "Cancel",
+                                            ye: "Use this theme"
+                                        },
+                                    }).then(async result => {
+                                        if (String(result) != "ye") return
+                                        localforage.setItem("utilitiesTheme", "glow")
+                                    })
                                     break
                                 case "none":
                                     localforage.removeItem("utilitiesTheme")
