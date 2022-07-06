@@ -1091,6 +1091,22 @@ function svgToPng_(data, width, height, callback) {
                         if (strokeColor != null) current.setAttribute("stroke", strokeColor)
                     }
                 }
+                if (specialTag == "neo") {
+                    let celements = document.getElementsByClassName("blocklyEditableText")
+                    for (let i = 0; i < celements.length; i++) {
+                        let current = celements.item(i)
+                        let c2elements = current.getElementsByClassName("blocklyFieldRect")
+                        for (let i = 0; i < c2elements.length; i++) {
+                            let current = c2elements.item(i)
+                            current.setAttribute("style", `fill:${fillColor}`)
+                        }
+                        c2elements = current.getElementsByClassName("blocklyText")
+                        for (let i = 0; i < c2elements.length; i++) {
+                            let current = c2elements.item(i)
+                            current.setAttribute("style", "fill:#ffffff")
+                        }
+                    }
+                }
                 if (strokeColor != null) current.setAttribute("stroke", strokeColor)
                 if (fillColor != null) current.setAttribute("fill", fillColor)
             }
@@ -1099,10 +1115,10 @@ function svgToPng_(data, width, height, callback) {
                 localforage.getItem("utilitiesTheme").then((theme) => {
                     switch (theme) {
                         case "neo":
-                            themeBlocks(null, "#202020")
+                            themeBlocks(null, "#202020", "neo")
                             break
                         case "toon":
-                            themeBlocks("#000000", null)
+                            themeBlocks("#000000", null, "toon")
                             break
                         case "invert":
                             themeBlocks(null, null, "invert")
@@ -1120,10 +1136,10 @@ function svgToPng_(data, width, height, callback) {
                 localforage.getItem("utilitiesTheme").then((theme) => {
                     switch (theme) {
                         case "neo":
-                            themeBlocks(null, "#202020")
+                            themeBlocks(null, "#202020", "neo")
                             break
                         case "toon":
-                            themeBlocks("#000000", null)
+                            themeBlocks("#000000", null, "toon")
                             break
                         case "invert":
                             themeBlocks(null, null, "invert")
