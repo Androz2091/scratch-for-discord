@@ -110,6 +110,12 @@ export default {
         },
         userexamples() {
             const workspace = this.$store.state.workspace
+            let url = "https://469exampletest.jeremygamer13.repl.co/"
+            if (String(process.env.NODE_ENV) == "development") {
+                url = prompt("Examples server URL to use?", "https://469exampletest.jeremygamer13.repl.co/")
+                if (!url.endsWith("/")) url += "/"
+            }
+            const SERVER = url
             this.$swal({
                 title: "User Examples",
                 text: "What would you like to do here?",
@@ -174,7 +180,7 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
                                 author: String(document.getElementById("UserExampleAuthor").value)
                             })
                         };
-                        fetch('https://469exampletest.jeremygamer13.repl.co/api/upload', requestOptions)
+                        fetch(SERVER + 'api/upload', requestOptions)
                             .then(async (response) => {
                                 console.log(response)
                                 console.log("S4D sent a request, the response status code is", response.status)
@@ -201,7 +207,7 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
                             })
                     });
                 } else if (String(result) == "seeall") {
-                    fetch('https://469exampletest.jeremygamer13.repl.co/api/examples')
+                    fetch(SERVER + 'api/examples')
                         .then(async (response) => {
                             console.log(response)
                             console.log("S4D sent a request, the response status code is", response.status)
@@ -250,7 +256,7 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
                                     if (selectedOption == null) return
                                     console.log(selectedOption)
                                     const lkjgenwhikgu4ewkjn = document.createElement('div');
-                                    fetch(`https://469exampletest.jeremygamer13.repl.co/api/getExample?id=${selectedOption}`)
+                                    fetch(SERVER + `api/getExample?id=${selectedOption}`)
                                         .then(async (result) => {
                                             result.json().then((json) => {
                                                 lkjgenwhikgu4ewkjn.innerHTML = `<b>${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}</b> with <b><em>${json.example[2]} blocks</em></b> uploaded by <b>${json.example[4].replaceAll("\\", "").replaceAll("<", "").replaceAll(">", "").replaceAll("/", "")}</b> <br><br><p>${json.example[1].replaceAll("<", "").replaceAll("\\", "")}</p>${json.example[3] == null || json.example[3] == "" ? "" : `<image src="${String(json.example[3])}"></image>`}`
@@ -289,7 +295,7 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
                                                             this.$store.state.workspace.getAllBlocks().forEach((block) => block.dispose());
                                                         }
                                                         let exampleXml = ""
-                                                        fetch(`https://469exampletest.jeremygamer13.repl.co/api/getExample?xml=true&id=${selectedOption}`).then(result => result.text().then(xml => {
+                                                        fetch(SERVER + `api/getExample?xml=true&id=${selectedOption}`).then(result => result.text().then(xml => {
                                                             exampleXml = String(xml)
                                                             Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(exampleXml), this.$store.state.workspace);
                                                             setTimeout(() => {
@@ -324,7 +330,7 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
                     }).then(async (result) => {
                         if (String(result) != "search") return
                         const SEARCHQUERYBRO = document.getElementById("searchforsomethingbruhOHHMYGODuserexampleswtf").value
-                        fetch('https://469exampletest.jeremygamer13.repl.co/api/examples')
+                        fetch(SERVER + 'api/examples')
                             .then(async (response) => {
                                 console.log(response)
                                 console.log("S4D sent a request, the response status code is", response.status)
@@ -373,7 +379,7 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
                                         if (selectedOption == null) return
                                         console.log(selectedOption)
                                         const lkjgenwhikgu4ewkjn = document.createElement('div');
-                                        fetch(`https://469exampletest.jeremygamer13.repl.co/api/getExample?id=${selectedOption}`)
+                                        fetch(SERVER + `api/getExample?id=${selectedOption}`)
                                             .then(async (result) => {
                                                 result.json().then((json) => {
                                                     console.log(json.example)
@@ -413,7 +419,7 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
                                                                 this.$store.state.workspace.getAllBlocks().forEach((block) => block.dispose());
                                                             }
                                                             let exampleXml = ""
-                                                            fetch(`https://469exampletest.jeremygamer13.repl.co/api/getExample?xml=true&id=${selectedOption}`).then(result => result.text().then(xml => {
+                                                            fetch(SERVER + `api/getExample?xml=true&id=${selectedOption}`).then(result => result.text().then(xml => {
                                                                 exampleXml = String(xml)
                                                                 Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(exampleXml), this.$store.state.workspace);
                                                                 setTimeout(() => {

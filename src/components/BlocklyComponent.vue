@@ -1195,7 +1195,6 @@ function svgToPng_(data, width, height, callback) {
                     }
                 })
             })
-
         try{Blockly.ContextMenuRegistry.registry.unregister("fav")}catch{}
                                 
             Blockly.ContextMenuRegistry.registry.register({

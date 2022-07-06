@@ -8,3 +8,4 @@ yarn.lock
 
 # ur mom
 yarn-error.log
+.env.local

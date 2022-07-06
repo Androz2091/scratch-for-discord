@@ -31,16 +31,16 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-    }
+  init: function () {
+    this.jsonInit(blockData);
+  }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    var value_set = Blockly.JavaScript.valueToCode(block, 'Set', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_to = Blockly.JavaScript.valueToCode(block, 'To', Blockly.JavaScript.ORDER_ATOMIC);
-    var statements_then = Blockly.JavaScript.statementToCode(block, 'then');
-    // TODO: Assemble JavaScript into code variable.
-    var code = `S4D_APP_Replit_DB.set(${value_set}, ${value_to}).then(() => {${statements_then}});\n`;
-    return code;
-  };
+Blockly.JavaScript[blockName] = function (block) {
+  var value_set = Blockly.JavaScript.valueToCode(block, 'set', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_to = Blockly.JavaScript.valueToCode(block, 'to', Blockly.JavaScript.ORDER_ATOMIC);
+  var statements_then = Blockly.JavaScript.statementToCode(block, 'then');
+  // TODO: Assemble JavaScript into code variable.
+  var code = `S4D_APP_Replit_DB.set(${value_set}, ${value_to}).then(() => {${statements_then}});\n`;
+  return code;
+};
