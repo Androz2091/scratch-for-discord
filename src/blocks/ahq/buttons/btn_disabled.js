@@ -18,7 +18,7 @@ const blockData = {
             "check": ["Boolean"]
         },
         {
-            "type": "input_space"
+            "type": "input_dummy"
         },
         {
             "type": "input_value",
@@ -26,17 +26,17 @@ const blockData = {
             "check": "String"
         },
     ],
-    "colour":  (listsGetRandomItem(ahqcolor, false)),
+    "colour": (listsGetRandomItem(ahqcolor, false)),
     "previousStatement": null,
     "nextStatement": null,
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const name = Blockly.JavaScript.valueToCode(block, "button name", Blockly.JavaScript.ORDER_NONE);
     const finaln = name.replace("'", "").replace("'", "");
     const statementsThen = Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE);

@@ -18,7 +18,7 @@ const blockData = {
             "check": ["String"]
         },
         {
-            "type": "input_space"
+            "type": "input_dummy"
         },
         {
             "type": "input_value",
@@ -32,11 +32,11 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     let code = "";
     const name = Blockly.JavaScript.valueToCode(block, "button name", Blockly.JavaScript.ORDER_NONE);
     const finaln = name.replace("'", "").replace("'", "");

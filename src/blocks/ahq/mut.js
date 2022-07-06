@@ -7,13 +7,13 @@ const blockData = {
         "name": "member",
         "check": "Member"
     },
-    { "type": "input_space" },
+    { "type": "input_dummy" },
     {
         "type": "input_value",
         "name": "time",
         "check": "Number"
     },
-    { "type": "input_space" }, {
+    { "type": "input_dummy" }, {
         "type": "input_value",
         "name": "reason",
         "check": "String"

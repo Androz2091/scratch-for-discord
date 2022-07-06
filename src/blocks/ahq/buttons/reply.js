@@ -13,7 +13,7 @@ const blockData = {
     "message0": "Reply %1 %2 %3 ephemeral %4 %5 button %6 %7 embed %8",
     "args0": [
         {
-            "type": "input_space"
+            "type": "input_dummy"
         },
         {
             "type": "input_value",
@@ -21,7 +21,7 @@ const blockData = {
             "check": ["String", "Integer"]
         },
         {
-            "type": "input_space"
+            "type": "input_dummy"
         },
         {
             "type": "input_value",
@@ -29,7 +29,7 @@ const blockData = {
             "check": "Boolean"
         },
         {
-            "type": "input_space"
+            "type": "input_dummy"
         },
         {
             "type": "input_value",
@@ -37,7 +37,7 @@ const blockData = {
             "check": "String"
         },
         {
-            "type": "input_space"
+            "type": "input_dummy"
         },
         {
             "type": "input_value",
@@ -51,11 +51,11 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     var ahq = ``;
     let extra = "";
     const data = Blockly.JavaScript.valueToCode(block, "Label", Blockly.JavaScript.ORDER_NONE);

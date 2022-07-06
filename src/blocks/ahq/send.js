@@ -17,7 +17,7 @@ const blockData = {
         "check": "String"
     },
     {
-        "type": "input_space"
+        "type": "input_dummy"
     },
     {
         "type": "input_value",
@@ -30,14 +30,14 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const value = Blockly.JavaScript.valueToCode(block, "value", Blockly.JavaScript.ORDER_NONE);
     const ch = Blockly.JavaScript.valueToCode(block, "ch", Blockly.JavaScript.ORDER_NONE);
-    const code =  `${ch}.send({
+    const code = `${ch}.send({
         content: String(${value})
     });`;
     return code;

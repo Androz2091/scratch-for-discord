@@ -1025,6 +1025,27 @@ function svgToPng_(data, width, height, callback) {
             function rgbToHex(r, g, b) {
                 return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
             }
+            const eventBlockSVGRegex = / m 0,0  m 0,4 a 4 4 0 0,1 4,-4  h [0-9\.]* a 4 4 0 0,1 4,4  v 4  V 8  V 40  V 44 a 4 4 0 0,1 -4,4  H 64  c -2,0  -3,1  -4,2  l -4,4  c -1,1  -2,2  -4,2  h -12/gmi
+            if (specialTag == "scratch-top") {
+                const elem2ents = document.getElementsByClassName("blocklyDraggable")
+                for (let i = 0; i < elem2ents.length; i++) {
+                    let current2 = elem2ents.item(i)
+                    if (current2 == null) continue
+                    const elements = current2.getElementsByClassName("blocklyPath")
+                    for (let i = 0; i < elements.length; i++) {
+                        let current = elements.item(i)
+                        if (current == null) continue
+                        if (current.getAttribute("d").match(eventBlockSVGRegex) != null) {
+                            const width = Number(current.getAttribute("d").match(/h [0-9\.]*/mi)[0].replace("h ", ""))
+                            current.setAttribute("d", `m 0 0 c 25 -22 71 -22 96 0 H ${width + 3.5} a 4 4 0 0 1 4 4 v 40 a 4 4 0 0 1 -4 4 H 48 c -2 0 -3 1 -4 2 l -4 4 c -1 1 -2 2 -4 2 h -12 c -2 0 -3 -1 -4 -2 l -4 -4 c -1 -1 -2 -2 -4 -2 H 4 a 4 4 0 0 1 -4 -4 z`)
+                            const asfcwsge = current2.getElementsByClassName("blocklyDraggable")
+                            if (asfcwsge.item(0) != null) asfcwsge.item(0).setAttribute("transform", "translate(0,48.000000000000114)")
+                        } else {
+                            continue
+                        }
+                    }
+                }
+            }
             const elements = document.getElementsByTagName("path")
             for (let i = 0; i < elements.length; i++) {
                 let current = elements.item(i)
@@ -1148,60 +1169,37 @@ function svgToPng_(data, width, height, callback) {
                 if (fillColor != null) current.setAttribute("fill", fillColor)
             }
         }
-            window.addEventListener("click", () => {
-                localforage.getItem("utilitiesTheme").then((theme) => {
-                    switch (theme) {
-                        case "neo":
-                            themeBlocks(null, "#202020", "neo")
-                            break
-                        case "toon":
-                            themeBlocks("#000000", null, "toon")
-                            break
-                        case "invert":
-                            themeBlocks(null, null, "invert")
-                            break
-                        case "pastel":
-                            themeBlocks(null, null, "pastel")
-                            break
-                        case "textless":
-                            themeBlocks(null, null, "textless")
-                            break
-                        case "gray":
-                            themeBlocks(null, null, "gray")
-                            break
-                        case "glow":
-                            themeBlocks(null, null, "glow")
-                            break
-                    }
-                })
+        setInterval(themeSwitchingHandler, 50)
+        function themeSwitchingHandler() {
+            localforage.getItem("utilitiesTheme").then((theme) => {
+                switch (theme) {
+                    case "neo":
+                        themeBlocks(null, "#202020", "neo")
+                        break
+                    case "toon":
+                        themeBlocks("#000000", null, "toon")
+                        break
+                    case "invert":
+                        themeBlocks(null, null, "invert")
+                        break
+                    case "pastel":
+                        themeBlocks(null, null, "pastel")
+                        break
+                    case "textless":
+                        themeBlocks(null, null, "textless")
+                        break
+                    case "gray":
+                        themeBlocks(null, null, "gray")
+                        break
+                    case "glow":
+                        themeBlocks(null, null, "glow")
+                        break
+                    case "scratch-top":
+                        themeBlocks(null, null, "scratch-top")
+                        break
+                }
             })
-            window.addEventListener("keydown", () => {
-                localforage.getItem("utilitiesTheme").then((theme) => {
-                    switch (theme) {
-                        case "neo":
-                            themeBlocks(null, "#202020", "neo")
-                            break
-                        case "toon":
-                            themeBlocks("#000000", null, "toon")
-                            break
-                        case "invert":
-                            themeBlocks(null, null, "invert")
-                            break
-                        case "pastel":
-                            themeBlocks(null, null, "pastel")
-                            break
-                        case "textless":
-                            themeBlocks(null, null, "textless")
-                            break
-                        case "gray":
-                            themeBlocks(null, null, "gray")
-                            break
-                        case "glow":
-                            themeBlocks(null, null, "glow")
-                            break
-                    }
-                })
-            })
+        }
         try{Blockly.ContextMenuRegistry.registry.unregister("fav")}catch{}
                                 
             Blockly.ContextMenuRegistry.registry.register({
