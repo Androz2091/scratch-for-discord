@@ -167,7 +167,7 @@ Blockly.Blocks["jg_messages_message_is_value"] = {
                             ],
                             [
                                 "mentions roles?",
-                                'mentions.roles != null && mentions.roles.size > 0'
+                                '(mentions.roles != null && mentions.roles.size > 0) || (mentions._roles != null && mentions._roles.size > 0)'
                             ],
                             [
                                 "mentions channels?",
