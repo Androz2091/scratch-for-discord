@@ -12,7 +12,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "Scale",
-            "check": [ "Number", "var", "Env"]
+            "check": ["Number", "var", "Env"]
         }
     ],
     "colour": 260,
@@ -23,14 +23,14 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-  const scale = Blockly.JavaScript.valueToCode(block, "Scale", Blockly.JavaScript.ORDER_ATOMIC);
-    return `image.scale( Number(` + scale + `) )\n`;
+Blockly.JavaScript[blockName] = function (block) {
+    const scale = Blockly.JavaScript.valueToCode(block, "Scale", Blockly.JavaScript.ORDER_ATOMIC);
+    return `await image.scale( Number(` + scale + `) )\n`;
 }
 
 registerRestrictions(blockName, [

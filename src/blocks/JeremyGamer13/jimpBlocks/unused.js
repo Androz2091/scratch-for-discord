@@ -14,13 +14,13 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
-    return `image.dither565()\n`;
+Blockly.JavaScript[blockName] = function () {
+    return `await image.dither565()\n`;
 }
 
 registerRestrictions(blockName, [

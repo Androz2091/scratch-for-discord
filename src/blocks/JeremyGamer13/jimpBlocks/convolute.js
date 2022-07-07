@@ -9,7 +9,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "val",
-            "check": [ "String", "var", "Env"]
+            "check": ["String", "var", "Env"]
         }
     ],
     "colour": 260,
@@ -20,14 +20,14 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-  const val = Blockly.JavaScript.valueToCode(block, "val", Blockly.JavaScript.ORDER_ATOMIC);
-    return `image.convolute( eval('[' + ${val} + ']'))
+Blockly.JavaScript[blockName] = function (block) {
+    const val = Blockly.JavaScript.valueToCode(block, "val", Blockly.JavaScript.ORDER_ATOMIC);
+    return `await image.convolute( eval('[' + ${val} + ']'))
 `;
 }
 

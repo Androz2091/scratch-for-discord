@@ -10,14 +10,14 @@ const blockData = {
             "name": "beginJimp"
         },
         {
-            "type": "input_value", 
+            "type": "input_value",
             "name": "JimpURL",
-            "check": ["String","var"]
+            "check": ["String", "var"]
         },
         {
             "type": "input_dummy"
         }
-        
+
     ],
     "colour": 260,
     "previousStatement": null,
@@ -27,19 +27,19 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const JimpURL = Blockly.JavaScript.valueToCode(block, "JimpURL", Blockly.JavaScript.ORDER_ATOMIC);
     const JimpCode = Blockly.JavaScript.statementToCode(block, "beginJimp");
     const code = `var JimpImageBlock = ` + JimpURL + `;
-    jimp.read(` + JimpURL + `, async (err, image) => {
-      if (err) throw err;
-      ${JimpCode}
-      });
+await jimp.read(` + JimpURL + `, async (err, image) => {
+    if (err) throw err;
+    ${JimpCode}
+});
 `;
     return code;
 };

@@ -10,18 +10,18 @@ const blockData = {
             "type": "field_dropdown",
             "name": "effect",
             "options": [
-              [
-                "emboss",
-                `[-2,-1, 0],
+                [
+                    "emboss",
+                    `[-2,-1, 0],
     [-1, 1, 1],
     [ 0, 1, 2]`
-              ],
-              [
-                "sharpen",
-                `[0,-1, 0],
+                ],
+                [
+                    "sharpen",
+                    `[0,-1, 0],
     [-1, 5, -1],
     [ 0, -1, 0]`
-              ]
+                ]
             ],
         }
     ],
@@ -33,14 +33,14 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const effect = block.getFieldValue("effect");
-    return `image.convolute([
+    return `await image.convolute([
 ${effect}
 ])
 `;

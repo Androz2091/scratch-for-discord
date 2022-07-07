@@ -9,7 +9,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "quality",
-            "check": [ "Number", "var", "Env"]
+            "check": ["Number", "var", "Env"]
         }
     ],
     "colour": 260,
@@ -20,14 +20,14 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-  const quality = Blockly.JavaScript.valueToCode(block, "quality", Blockly.JavaScript.ORDER_ATOMIC);
-    return `image.quality(Number(` + quality + `))\n`;
+Blockly.JavaScript[blockName] = function (block) {
+    const quality = Blockly.JavaScript.valueToCode(block, "quality", Blockly.JavaScript.ORDER_ATOMIC);
+    return `await image.quality(Number(` + quality + `))\n`;
 }
 
 registerRestrictions(blockName, [

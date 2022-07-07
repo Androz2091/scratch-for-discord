@@ -9,7 +9,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "blur",
-            "check": [ "Number", "var", "Env"]
+            "check": ["Number", "var", "Env"]
         }
     ],
     "colour": 260,
@@ -20,14 +20,14 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-  const blur = Blockly.JavaScript.valueToCode(block, "blur", Blockly.JavaScript.ORDER_ATOMIC);
-    return `image.blur( Number(` + blur + `) )\n`;
+Blockly.JavaScript[blockName] = function (block) {
+    const blur = Blockly.JavaScript.valueToCode(block, "blur", Blockly.JavaScript.ORDER_ATOMIC);
+    return `await image.blur( Number(` + blur + `) )\n`;
 }
 
 registerRestrictions(blockName, [

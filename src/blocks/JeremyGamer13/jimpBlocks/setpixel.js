@@ -12,17 +12,17 @@ const blockData = {
         {
             "type": "input_value",
             "name": "x",
-            "check": [ "Number", "var", "Env"]
+            "check": ["Number", "var", "Env"]
         },
         {
             "type": "input_value",
             "name": "y",
-            "check": [ "Number", "var", "Env"]
+            "check": ["Number", "var", "Env"]
         },
         {
             "type": "input_value",
             "name": "color",
-            "check": [ "Colour", "String", "var", "Env"]
+            "check": ["Colour", "String", "var", "Env"]
         },
     ],
     "colour": 260,
@@ -33,16 +33,16 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-  const color = Blockly.JavaScript.valueToCode(block, "color", Blockly.JavaScript.ORDER_ATOMIC);
-  const xpos = Blockly.JavaScript.valueToCode(block, "x", Blockly.JavaScript.ORDER_ATOMIC);
-  const ypos = Blockly.JavaScript.valueToCode(block, "y", Blockly.JavaScript.ORDER_ATOMIC);
-    return `image.setPixelColor(jimp.cssColorToHex(${color}), ${xpos}, ${ypos})
+Blockly.JavaScript[blockName] = function (block) {
+    const color = Blockly.JavaScript.valueToCode(block, "color", Blockly.JavaScript.ORDER_ATOMIC);
+    const xpos = Blockly.JavaScript.valueToCode(block, "x", Blockly.JavaScript.ORDER_ATOMIC);
+    const ypos = Blockly.JavaScript.valueToCode(block, "y", Blockly.JavaScript.ORDER_ATOMIC);
+    return `await image.setPixelColor(jimp.cssColorToHex(${color}), ${xpos}, ${ypos})
 `;
 }
 
