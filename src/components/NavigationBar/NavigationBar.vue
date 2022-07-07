@@ -21,11 +21,7 @@
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
 <div id="block-counter" style="margin-right: 5px; font-size: 90%"><p style="color:rgb(182, 182, 182);">0 blocks</p></div>
-<b-nav-item
-          class="theme-changer"
-          style="width: 32px; height: 32px; margin-top: 2px; margin-right: 5px;"
-          @click="changeTheme"
-        ></b-nav-item>
+<b-nav-item class="theme-changer" style="width: 32px; height: 32px; margin-top: 2px; margin-right: 5px;" @click="changeTheme"></b-nav-item>
 
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
                 <span id="docName" style="font-size: smaller" @click="changeFileName">{{ $t("untitled") }}</span>
@@ -1067,26 +1063,29 @@ load()`])
     <hr>
     <span>
         <div class="row123">
-            <div class="column123">
+            <div class="column123" name="neo">
                 <image src="https://media.discordapp.net/attachments/914411539887456296/994269048143626433/screenshot_20.png?width=1084&height=676" width="213" height="133"></image>
             </div>
-            <div class="column123">
+            <div class="column123" name="toon">
                 <image src="https://media.discordapp.net/attachments/914411539887456296/993745044907507822/screenshot_12.png?width=1084&height=676" width="213" height="133"></image>
             </div>
-            <div class="column123">
+            <div class="column123" name="invert">
                 <image src="https://media.discordapp.net/attachments/914411539887456296/993745044626493511/screenshot_13.png?width=1084&height=676" width="213" height="133"></image>
+            </div>
+            <div class="column123" name="textless">
+                <image src="https://media.discordapp.net/attachments/914411539887456296/993745044290928640/screenshot_14.png?width=1084&height=676" width="213" height="133"></image>
             </div>
         </div>
     </span>
     <span>
         <div class="row123">
-            <div class="column123">
-                <image src="https://media.discordapp.net/attachments/914411539887456296/993745044290928640/screenshot_14.png?width=1084&height=676" width="213" height="133"></image>
-            </div>
-            <div class="column123">
+            <div class="column123" name="grayscale">
                 <image src="https://media.discordapp.net/attachments/914411539887456296/994153873214279720/screenshot_16.png?width=1084&height=676" width="213" height="133"></image>
             </div>
-            <div class="column123">
+            <div class="column123" name="glowy">
+                <image src="https://media.discordapp.net/attachments/914411539887456296/994420310352863242/glowy_theme.png?width=981&height=676" width="213" height="133"></image>
+            </div>
+            <div class="column123" name="scratch block top">
                 <image src="https://media.discordapp.net/attachments/914411539887456296/994381648202309672/screenshot_21.png?width=979&height=676" width="213" height="133"></image>
             </div>
         </div>

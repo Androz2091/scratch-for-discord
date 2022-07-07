@@ -711,13 +711,14 @@ export default (Blockly, value, searching) => {
             </block>
             <block type="frost_other_err"/>
             <block type="s4d_return"></block>
+            <block type="jg_s4d_other_run_code_inside_file"/>
 	        <block type="is_a_number_or_string"></block>
             <block type="s4d_string_to_number"></block>
-            <block type="frost_current"/>
             <block type="frost_json_to_string"/>
-            <block type="anti_link"/>
+            <block type="frost_current"/>
             <block type="create_qr_then"/>
             <block type="qr"/>
+            <block type="anti_link"/>
         </category>
        
 	  

@@ -3762,3 +3762,31 @@ restrictToParent(
     "jg_members_roles_fetch_with_id_from_server_then_do_fetched_item",
     'Missing Restriction Text'
 )
+Blockly.Blocks["jg_s4d_other_run_code_inside_file"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "run code inside file %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "FILE",
+                        "check": "String"
+                    }
+                ],
+                "inputsInline": true,
+                "previousStatement": null,
+                "nextStatement": null,
+                "colour": "#D14081",
+                "tooltip": "Run JavaScript code inside a file in the bot's files.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_s4d_other_run_code_inside_file"] = function (block) {
+    const file = Blockly.JavaScript.valueToCode(block, "FILE", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `require((String(${file}).startsWith("./") ? String(${file}) : "./" + String(${file})))
+`
+    return code;
+};
