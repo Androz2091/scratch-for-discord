@@ -1035,6 +1035,7 @@ function svgToPng_(data, width, height, callback) {
                     for (let i = 0; i < elements.length; i++) {
                         let current = elements.item(i)
                         if (current == null) continue
+                        if (current.getAttribute("d") == null) continue
                         if (current.getAttribute("d").match(eventBlockSVGRegex) != null) {
                             const width = Number(current.getAttribute("d").match(/h [0-9\.]*/mi)[0].replace("h ", ""))
                             current.setAttribute("d", `m 0 0 c 25 -22 71 -22 96 0 H ${width + 3.5} a 4 4 0 0 1 4 4 v 40 a 4 4 0 0 1 -4 4 H 48 c -2 0 -3 1 -4 2 l -4 4 c -1 1 -2 2 -4 2 h -12 c -2 0 -3 -1 -4 -2 l -4 -4 c -1 -1 -2 -2 -4 -2 H 4 a 4 4 0 0 1 -4 -4 z`)
@@ -1163,6 +1164,15 @@ function svgToPng_(data, width, height, callback) {
                     for (let i = 0; i < celements.length; i++) {
                         let current = celements.item(i)
                         current.setAttribute("specializedCSS", "glow")
+                    }
+                    celements = document.getElementsByClassName("blocklyEditableText")
+                    for (let i = 0; i < celements.length; i++) {
+                        let current = celements.item(i)
+                        let celements2 = current.getElementsByClassName("blocklyText")
+                        for (let i = 0; i < celements2.length; i++) {
+                            let current = celements2.item(i)
+                            current.setAttribute("specializedCSS", "darkglow")
+                        }
                     }
                 }
                 if (strokeColor != null) current.setAttribute("stroke", strokeColor)

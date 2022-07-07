@@ -15,7 +15,7 @@
         <b-dropdown-item @click="load('slash')">Slash Commands</b-dropdown-item>
         <b-dropdown-item @click="load('advjsonreq')">Advanced JSON Request</b-dropdown-item>
         <b-dropdown-item @click="load('regex')">RegEx: Finding specific text</b-dropdown-item>
-        <b-dropdown-item @click="load('embed example')">embed example</b-dropdown-item>
+        <b-dropdown-item @click="load('embed example')">Using Embeds Category</b-dropdown-item>
         <b-dropdown-divider></b-dropdown-divider>
         <b-dropdown-item @click="userexamples()">User Uploaded Examples</b-dropdown-item>
     </b-nav-item-dropdown>

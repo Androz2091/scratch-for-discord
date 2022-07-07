@@ -1144,7 +1144,18 @@ load()`])
                                     })
                                     break
                                 case "t7":
-                                    localforage.setItem("utilitiesTheme", "scratch-top")
+                                    this.$swal({
+                                        title: "Warning!",
+                                        text: "This theme is experimental and may cause problems when trying to create your bot. Are you sure you want to enable it?",
+                                        icon: "warning",
+                                        buttons: {
+                                            cancel: "Cancel",
+                                            ye: "Use this theme"
+                                        },
+                                    }).then(async result => {
+                                        if (String(result) != "ye") return
+                                        localforage.setItem("utilitiesTheme", "scratch-top")
+                                    })
                                     break
                                 case "none":
                                     localforage.removeItem("utilitiesTheme")
