@@ -12,7 +12,7 @@ const blockName = "simple_host_auth";
 //block working now working
 const blockData = {
     "type": "block_type",
-    "message0": "Load Simple Host Auth %1 Core Config Id %2",
+    "message0": "load Simple Host auth %1 core config ID %2",
     "args0": [
         {
             "type": "input_dummy"

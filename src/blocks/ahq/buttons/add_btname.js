@@ -10,7 +10,7 @@ function listsGetRandomItem(list, remove) {
 }
 const blockName = "label_ahq_button";
 const blockData = {
-    "message0": "Set label %1 %2 to button %3",
+    "message0": "set label %1 %2 to button %3",
     "args0": [
         {
             "type": "input_value",

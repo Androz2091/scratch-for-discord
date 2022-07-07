@@ -5,7 +5,7 @@ import { registerRestrictions } from "../../../../restrictions";
 const blockName = "dash_g";
 //block working now working
 const blockData = {
-    "message0": "Server",
+    "message0": "server",
     "colour": '#0EB22B',
     "tooltip": "Server",
     "helpUrl": "",

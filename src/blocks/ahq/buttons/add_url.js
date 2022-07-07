@@ -10,7 +10,7 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Set url/id %1 %2 to button %3",
+    "message0": "set url/id %1 %2 to button %3",
     "args0": [
         {
             "type": "input_value",

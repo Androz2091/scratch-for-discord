@@ -10,7 +10,7 @@ function listsGetRandomItem(list, remove) {
 }
 const blockName = "emoji_ahq_button";
 const blockData = {
-    "message0": "Add emoji %1 %2 to button %3",
+    "message0": "add emoji %1 %2 to button %3",
     "args0": [
         {
             "type": "input_value",

@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "dash_perms";
 
 const blockData = {
-    "message0": "Server Management Permission %1",
+    "message0": "server management permission %1",
     "args0": [
         {
             "type": "field_dropdown",
@@ -143,13 +143,13 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const permission = block.getFieldValue("PERMISSION");
-    const code = [ `[Permissions.FLAGS.${permission}]`, Blockly.JavaScript.ORDER_NONE];
+    const code = [`[Permissions.FLAGS.${permission}]`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };

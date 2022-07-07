@@ -1,7 +1,7 @@
 import * as Blockly from "blockly";
 const blockName = "chat_ahq";
 const blockData = {
-    "message0": "Chat Message %1 %2 Bot Name %3 %4 UserId %5 %6 Channel %7",
+    "message0": "chat message %1 %2 bot name %3 %4 user ID %5 %6 channel %7",
     "args0": [
         {
             "type": "input_value",

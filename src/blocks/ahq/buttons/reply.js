@@ -10,7 +10,7 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Reply %1 %2 %3 ephemeral %4 %5 button %6 %7 embed %8",
+    "message0": "reply %1 %2 %3 ephemeral %4 %5 button %6 %7 embed %8",
     "args0": [
         {
             "type": "input_dummy"

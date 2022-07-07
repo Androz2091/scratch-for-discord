@@ -10,7 +10,7 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Make A Button with name %1 %2 then %3",
+    "message0": "make a button with name %1 %2 then %3",
     "args0": [
         {
             "type": "input_value",
@@ -31,11 +31,11 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const name = Blockly.JavaScript.valueToCode(block, "button name", Blockly.JavaScript.ORDER_NONE);
     const finaln = name.replace("'", "").replace("'", "");
     const statementsThen = Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC);

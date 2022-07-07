@@ -10,7 +10,7 @@ function listsGetRandomItem(list, remove) {
   }
 }
 const blockData = {
-  "message0": "Set style %1 %2 %3 to button %4",
+  "message0": "set style %1 %2 %3 to button %4",
   "inputsInline": true,
   "args0": [
     {

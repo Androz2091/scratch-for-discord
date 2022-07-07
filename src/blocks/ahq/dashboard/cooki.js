@@ -14,7 +14,7 @@ const blockName = "make_cookie";
 //block working now working
 const blockData = {
     "type": "block_type",
-    "message0": "Make cookie %1 Mongo URL %2 ",
+    "message0": "make cookie %1 Mongo URL %2 ",
     "args0": [{
         "type": "input_dummy"
     },
@@ -30,11 +30,11 @@ const blockData = {
 
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const code = `var cookieParser = require('cookie-parser');
     var session = require('express-session');
     var MongoStore = require('connect-mongo');
@@ -53,7 +53,7 @@ Blockly.JavaScript[blockName] = function(block){
           autoRemoveInterval: 60
         })
     };`
-return code;
+    return code;
 };
 
 registerRestrictions(blockName, [

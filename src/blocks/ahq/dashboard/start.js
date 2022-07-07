@@ -12,7 +12,7 @@ const blockName = "start_ahq_dash";
 //block working now working
 const blockData = {
     "type": "block_type",
-    "message0": "Start Dashboard",
+    "message0": "start dashboard",
     "colour": '#0EB22B',
     "tooltip": "Setup your dashboard",
     "helpUrl": "",

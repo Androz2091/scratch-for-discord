@@ -11,7 +11,7 @@ function listsGetRandomItem(list, remove) {
 const blockName = "ahq_bdwrd_cn";
 //block working now working
 const blockData = {
-    "message0": "Censored Version Of %1",
+    "message0": "censored version of %1",
     "args0": [{
         "type": "input_value",
         "name": "BAD",

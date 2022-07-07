@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "embed_send_round";
 
 const blockData = {
-    "message0": "Send Embed %1",
+    "message0": "send embed %1",
     "args0": [{
         "type": "input_value",
         "name": "Label",

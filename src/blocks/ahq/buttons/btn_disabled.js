@@ -10,7 +10,7 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Disable %1 %2 Button %3",
+    "message0": "disable %1 %2 button %3",
     "args0": [
         {
             "type": "input_value",

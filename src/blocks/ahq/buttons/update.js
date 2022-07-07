@@ -10,7 +10,7 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Update %1 %2 %3 button %4 %5 embeds %6",
+    "message0": "update %1 %2 %3 button %4 %5 embeds %6",
     "args0": [
         {
             "type": "input_dummy"

@@ -10,7 +10,7 @@ function listsGetRandomItem(list, remove) {
     }
 }
 const blockData = {
-    "message0": "Send button on channel %1 %2 text %3 %4 button %5 %6 embed %7",
+    "message0": "send button on channel %1 %2 text %3 %4 button %5 %6 embed %7",
     "args0": [
         {
             "type": "input_value",

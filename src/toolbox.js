@@ -1176,18 +1176,30 @@ export default (Blockly, value, searching) => {
 
             <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
 
-            <block type = 'lime_s4d_message_context'/>
+            <block type="Message"/>
+            <block type="s4d_message_channel"></block>
+            <block type="frost_message_category"></block>
+            <block type="s4d_message_guild"></block>
+            <!--
+                <block type = 'lime_s4d_message_context'/>
+            -->
 
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
 
-            <block type= 'lime_s4d_message_attributes_content_author_id_timestamp'/>
+            <block type="s4d_message_content"></block>
+            <block type="s4d_message_id"></block>
+	        <block type="s4d_message_ts"></block>
+            <block type="s4d_message_author"></block>
+            <block type="s4d_message_member"/>
+            <block type="s4d_mentioned_member"></block>
+            <block type="s4d_mentioned_channel"></block>
+            <block type="s4d_mentioned_role"></block>
+            <!--
+                <block type= 'lime_s4d_message_attributes_content_author_id_timestamp'/>
+            -->
             <block type='lime_msg_author_attributes'/>
 
-            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
-            <block type="s4d_message_author_raw"></block>
-            <block type="s4d_message_channel_raw"></block>
-            <block type="s4d_message_guild_raw"></block>
-
+            <label text="Attributes of the message"></label>
             <block type="jg_message_mentioned_member_number_on_message">
                 <value name="INDEX">
                     <shadow type="math_number">
@@ -2226,6 +2238,13 @@ export default (Blockly, value, searching) => {
                    </value>
                 </block>
             -->
+            <block type="s4d_server_name"></block>
+            <block type="s4d_member_count"></block>
+            <block type="s4d_icon_url"></block>
+            <block type="s4d_server_id"></block>
+            <block type="s4d_boost_level"></block>
+            <block type="s4d_server_owner"></block>
+            <block type="s4d_server_created_at"></block>
             <block type="s4d_number_of__server"></block>
             <!--
                 <block type="jg_monaco_servers_amount_of_channels_in_server"/>

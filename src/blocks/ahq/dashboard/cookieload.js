@@ -5,7 +5,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "load_cookie";
 //block working now working
 const blockData = {
-    "message0": "Cookie",
+    "message0": "cookie",
     "colour": '#0EB22B',
     "tooltip": "Load cookies in dash",
     "helpUrl": "",
