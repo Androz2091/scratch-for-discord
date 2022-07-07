@@ -1222,7 +1222,8 @@ load()`])
                         xmlContent.includes("block type=\"blank_code\"") ||
                         xmlContent.includes("block type=\"s4d_eval\"") ||
                         xmlContent.includes("block type=\"s4d_eval2\"") ||
-                        xmlContent.includes("block type=\"s4d_exec\"")
+                        xmlContent.includes("block type=\"s4d_exec\"") ||
+                        xmlContent.includes("block type=\"jg_s4d_other_run_code_inside_file\"")
                     ) {
                         swal.fire("Your bot contains blocks that run or insert code.", "Remove any \"insert code\" or \"run code\" blocks before running.", "error")
                         console.log("barry: ok so i finished but the user has custom code blocks")
@@ -1259,7 +1260,7 @@ load()`])
                         body: JSON.stringify({
                             key: api_key,
                             code: modifiedJScontent,
-                            update: "1"
+                            update: "2"
                         })
                     };
                     try {
