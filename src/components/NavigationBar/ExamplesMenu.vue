@@ -43,6 +43,7 @@ import advjsonreq from "../../examples/advjsonreq.js";
 import regex from "../../examples/regex.js";
 import leaderboard from "../../examples/leaderboard.js";
 import embed from "../../examples/embed example.js";
+import localforage from 'localforage';
 
 const examples = {
     "ping-pong": PingPongExample,
@@ -135,7 +136,7 @@ export default {
                     }
                 },
                 closeOnClickOutside: false
-            }).then(result => {
+            }).then(async result => {
                 if (String(result) == "upload") {
                     const name = encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, ' ').replaceAll("\n", "").replaceAll(/[^a-z 0-9]/gmi, "")
                     const wrapper = document.createElement('div');
@@ -164,11 +165,23 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
                             }
                         },
                         closeOnClickOutside: false
-                    }).then(result2 => {
+                    }).then(async result2 => {
                         if (String(result2) != "upload") {
                             return
                         }
                         const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace))
+                        let sessionIDe = await localforage.getItem("EXAMPLE_SESSION_ID")
+                        if (sessionIDe == null) {
+                            const usableChars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "-", "_", "=", "+", "[", "]", "(", ")"]
+                            let sesid = ""
+                            for (let i = 0; i < 55; i++) {
+                                let character = usableChars[(Math.round(Math.random() * (usableChars.length - 1)))]
+                                sesid += character
+                            }
+                            await localforage.setItem("EXAMPLE_SESSION_ID", String(sesid))
+                            sessionIDe = String(sesid)
+                        }
+                        console.log(sessionIDe)
                         const requestOptions = {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -177,7 +190,8 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
                                 desc: String(document.getElementById("UserExampleDescription").value),
                                 xml: String(xmlContent),
                                 count: workspace.getAllBlocks().length,
-                                author: String(document.getElementById("UserExampleAuthor").value)
+                                author: String(document.getElementById("UserExampleAuthor").value),
+                                sessionID: String(sessionIDe)
                             })
                         };
                         fetch(SERVER + 'api/upload', requestOptions)
