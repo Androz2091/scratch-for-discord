@@ -1088,6 +1088,9 @@ load()`])
             <div class="column123" name="scratch block top">
                 <image src="https://media.discordapp.net/attachments/914411539887456296/994381648202309672/screenshot_21.png?width=979&height=676" width="213" height="133"></image>
             </div>
+            <div class="column123" name="full colors">
+                <image src="https://media.discordapp.net/attachments/914411539887456296/994489879830470726/screenshot_22.png?width=981&height=676" width="213" height="133"></image>
+            </div>
         </div>
     </span>
     <b>Switching themes may require a refresh to work properly.</b>
@@ -1106,6 +1109,7 @@ load()`])
                                     't5': 'Grayscale',
                                     't6': 'Glowy',
                                     't7': "Scratch Block Top",
+                                    't8': "Full Colors",
                                     'none': 'Default'
                                 },
                                 inputPlaceholder: 'Select a theme',
@@ -1155,6 +1159,9 @@ load()`])
                                         if (String(result) != "ye") return
                                         localforage.setItem("utilitiesTheme", "scratch-top")
                                     })
+                                    break
+                                case "t8":
+                                    localforage.setItem("utilitiesTheme", "full-colors")
                                     break
                                 case "none":
                                     localforage.removeItem("utilitiesTheme")

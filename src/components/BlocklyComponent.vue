@@ -1175,6 +1175,30 @@ function svgToPng_(data, width, height, callback) {
                         }
                     }
                 }
+                if (specialTag == "full-colors") {
+                    let rgb = hexToRgb(current.getAttribute("fill").substring(1))
+                    let r = rgb[0] >= 128 ? 255 : 0
+                    let g = rgb[1] >= 128 ? 255 : 0
+                    let b = rgb[2] >= 128 ? 255 : 0
+                    let newRgb = rgbToHex(r, g, b)
+                    current.setAttribute("fill", newRgb)
+                    current.setAttribute("stroke", newRgb)
+                    let celements = document.getElementsByClassName("blocklyFieldRect blocklyDropdownRect")
+                    for (let i = 0; i < celements.length; i++) {
+                        let current = celements.item(i)
+                        current.setAttribute("stroke-width", "0")
+                    }
+                    celements = document.getElementsByClassName("blocklyFieldRect")
+                    for (let i = 0; i < celements.length; i++) {
+                        let current = celements.item(i)
+                        current.setAttribute("stroke-width", "0")
+                    }
+                    celements = document.getElementsByClassName("blocklyOutlinePath")
+                    for (let i = 0; i < celements.length; i++) {
+                        let current = celements.item(i)
+                        current.setAttribute("fill", newRgb)
+                    }
+                }
                 if (strokeColor != null) current.setAttribute("stroke", strokeColor)
                 if (fillColor != null) current.setAttribute("fill", fillColor)
             }
@@ -1206,6 +1230,9 @@ function svgToPng_(data, width, height, callback) {
                         break
                     case "scratch-top":
                         themeBlocks(null, null, "scratch-top")
+                        break
+                    case "full-colors":
+                        themeBlocks(null, null, "full-colors")
                         break
                 }
             })
