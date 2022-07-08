@@ -2561,6 +2561,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_has_role"></block>
 			<block type="s4d_role_exist"/>
             <block type="s4d_create_role"></block>
+            <block type="gsa_create_role"></block>
             <block type="s4d_set_role_perm"></block>
             <block type="role_color"/>
             <block type="role_name"/>

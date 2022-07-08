@@ -1,13 +1,17 @@
 import Blockly from "blockly/core";
-import { registerRestrictions } from "../../../restrictions";
-const blockName = "gsa_set_embed_thumbnail";
+import { registerRestrictions } from "../../../../restrictions";
+const blockName = "gsa_set_embed_footer";
 const blockData = {
-  "type": "gsa_set_embed_thumbnail",
-  "message0": "set embed thumbnail url %1",
+  "message0": "set footer text %1 icon %2",
   "args0": [
     {
       "type": "input_value",
       "name": "name",
+      "check": "String"
+    },
+    {
+      "type": "input_value",
+      "name": "icon_url",
       "check": "String"
     }
   ],
@@ -27,10 +31,11 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
   const name = Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_ATOMIC)
-  return `thumbnail: {
-	url: ${name},
-},
-`
+  const icon_url = Blockly.JavaScript.valueToCode(block, "icon_url", Blockly.JavaScript.ORDER_ATOMIC)
+  return `footer: {
+	text: ${name},
+	icon_url: ${icon_url},
+},`
 }
 registerRestrictions(blockName, [
   {

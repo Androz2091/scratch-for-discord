@@ -1,3 +1,2 @@
 import "./ytdl"
-import "./embeds"
-import "./modals"
+import "./discord"

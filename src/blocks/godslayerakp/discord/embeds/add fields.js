@@ -1,14 +1,18 @@
 import Blockly from "blockly/core";
-import { registerRestrictions } from "../../../restrictions";
-const blockName = "gsa_set_embed_description";
+import { registerRestrictions } from "../../../../restrictions";
+
+const blockName = "gsa_create_fields";
+
 const blockData = {
-  "type": "gsa_set_embed_description",
-  "message0": "set embed description %1",
+  "type": "gsa_create_fields",
+  "message0": "add fields %2 %1",
   "args0": [
     {
-      "type": "input_value",
-      "name": "name",
-      "check": "String"
+      "type": "input_statement",
+      "name": "STATEMENTS"
+    },
+    {
+      "type": "input_dummy"
     }
   ],
   "previousStatement": null,
@@ -26,10 +30,13 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-  const name = Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_ATOMIC)
-  return `description: ${name},
+  const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC)
+  return `fields: [
+${statements}
+	],
 `
 }
+
 registerRestrictions(blockName, [
   {
     type: "hasparent",

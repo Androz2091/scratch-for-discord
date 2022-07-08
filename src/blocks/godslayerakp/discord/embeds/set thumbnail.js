@@ -1,21 +1,21 @@
 import Blockly from "blockly/core";
-import { registerRestrictions } from "../../../restrictions";
-const blockName = "gsa_set_embed_timestamp";
+import { registerRestrictions } from "../../../../restrictions";
+const blockName = "gsa_set_embed_thumbnail";
 const blockData = {
-  "type": "gsa_set_embed_timestamp",
-  "message0": "add embed timestamp %1",
+  "type": "gsa_set_embed_thumbnail",
+  "message0": "set embed thumbnail url %1",
   "args0": [
     {
       "type": "input_value",
-      "name": "date",
-      "check": "String",
+      "name": "name",
+      "check": "String"
     }
   ],
   "previousStatement": null,
   "nextStatement": null,
   "inputsInline": false,
   "colour": 120,
-  "tooltip": "the number you put must be unix",
+  "tooltip": "must be in a make embed with name block",
   "helpUrl": ""
 };
 
@@ -26,15 +26,11 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-  const date = Blockly.JavaScript.valueToCode(block, "date", Blockly.JavaScript.ORDER_ATOMIC)
-  if (Blockly.JavaScript.valueToCode(block, "date", Blockly.JavaScript.ORDER_ATOMIC) === null) {
-    return `timestamp: new Date(),
-    `
-  } else {
-    return `timestamp: new Date(${date}),
-    `
-  }
-
+  const name = Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_ATOMIC)
+  return `thumbnail: {
+	url: ${name},
+},
+`
 }
 registerRestrictions(blockName, [
   {
