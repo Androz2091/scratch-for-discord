@@ -1,5 +1,5 @@
 import Blockly from "blockly/core";
-import { registerRestrictions } from "../../../restrictions";
+import { registerRestrictions } from "../../../../restrictions";
 const blockName = "gsa_add_field";
 const blockData = {
   "type": "gsa_add_field",
