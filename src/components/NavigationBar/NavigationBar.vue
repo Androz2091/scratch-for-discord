@@ -1,7 +1,7 @@
 <template>
     <b-navbar toggleable="lg" type="dark" style="background-color:#161719;user-select:none;" id="navbar nav-main">
         <b-navbar-brand style="font-size: 120%;">
-            <img :src="decideNavBarImage" width="35" draggable="false">
+            <img :src="decideNavBarImage" width="35" draggable="false" id="navigationBarS4DImage">
             Scratch For Discord
         </b-navbar-brand>
 

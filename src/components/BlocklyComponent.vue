@@ -1026,6 +1026,7 @@ function svgToPng_(data, width, height, callback) {
                 return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
             }
             const eventBlockSVGRegex = / m 0,0  m 0,4 a 4 4 0 0,1 4,-4  h [0-9\.]* a 4 4 0 0,1 4,4  v 4  V 8  V 40  V 44 a 4 4 0 0,1 -4,4  H 64  c -2,0  -3,1  -4,2  l -4,4  c -1,1  -2,2  -4,2  h -12/gmi
+            const outputBlockSVGRegex = / m [0-9]*,0  h [0-9\.]* a 20 20 0 0,1 20,20  v 0 a 20 20 0 0,1 -20,20  V 40  h [0-9\.-]* a 20 20 0 0,1 -20,-20  v 0 a 20 20 0 0,1 20,-20 z/gmi
             if (specialTag == "scratch-top") {
                 const elem2ents = document.getElementsByClassName("blocklyDraggable")
                 for (let i = 0; i < elem2ents.length; i++) {
@@ -1041,6 +1042,37 @@ function svgToPng_(data, width, height, callback) {
                             current.setAttribute("d", `m 0 0 c 25 -22 71 -22 96 0 H ${width + 3.5} a 4 4 0 0 1 4 4 v 40 a 4 4 0 0 1 -4 4 H 48 c -2 0 -3 1 -4 2 l -4 4 c -1 1 -2 2 -4 2 h -12 c -2 0 -3 -1 -4 -2 l -4 -4 c -1 -1 -2 -2 -4 -2 H 4 a 4 4 0 0 1 -4 -4 z`)
                             const asfcwsge = current2.getElementsByClassName("blocklyDraggable")
                             if (asfcwsge.item(0) != null) asfcwsge.item(0).setAttribute("transform", "translate(0,48.000000000000114)")
+                        } else {
+                            continue
+                        }
+                    }
+                }
+            }
+            if (specialTag == "april-fools") {
+                document.getElementById("navSpace").style = `background-color: rgb(255, 0, 255);`
+                document.getElementsByClassName("blocklyMainBackground").item(0).style = `fill:#00ff00;`
+                const text = document.getElementsByTagName("text")
+                for (let i = 0; i < text.length; i++) {
+                    let current = text.item(i)
+                    if (String(current.style).includes(`font-family: Comic Sans MS!important;`)) return
+                    current.style = `font-family: Comic Sans MS!important;`
+                }
+                const images4d = document.getElementById("navigationBarS4DImage")
+                images4d.setAttribute("width", "10")
+                images4d.setAttribute("height", "45")
+                const elem2ents = document.getElementsByClassName("blocklyDraggable")
+                for (let i = 0; i < elem2ents.length; i++) {
+                    let current2 = elem2ents.item(i)
+                    if (current2 == null) continue
+                    const elements = current2.getElementsByClassName("blocklyPath")
+                    for (let i = 0; i < elements.length; i++) {
+                        let current = elements.item(i)
+                        if (current == null) continue
+                        if (current.getAttribute("d") == null) continue
+                        if (current.getAttribute("d").match(outputBlockSVGRegex) != null) {
+                            let width = Number(current.getAttribute("d").match(/h [0-9\.]*/mi)[0].replace("h ", "")) - 55
+                            const VISOR_WIDTH = (width < 0 ? 0 : width)
+                            current.setAttribute("d", `m 77 0 h ${VISOR_WIDTH} a 20 20 0 0 1 20 20 v 0 a 20 20 0 0 1 -20 20 V 40 H 77 V 112 A 1 1 0 0 1 42 111 A 1 1 0 0 0 16 111 A 1 1 0 0 1 -18 111 V 74 H -29 C -35 74 -36 73 -36 67 V 5 C -36 -1 -35 -2 -29 -2 H -18 A 1 1 0 0 1 76 0`)
                         } else {
                             continue
                         }
@@ -1237,6 +1269,16 @@ function svgToPng_(data, width, height, callback) {
                 }
             })
         }
+
+        //month starts at 0, day starts at 1
+        let check = (new Date().getMonth()) == 3 && ((new Date().getDate())) == 1
+        if (check) {
+            setInterval(aprilFoolsContent, 50)
+            function aprilFoolsContent() {
+                themeBlocks(null, null, "april-fools")
+            }
+        }
+
         try{Blockly.ContextMenuRegistry.registry.unregister("fav")}catch{}
                                 
             Blockly.ContextMenuRegistry.registry.register({
