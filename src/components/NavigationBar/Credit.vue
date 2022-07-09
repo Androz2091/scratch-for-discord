@@ -39,7 +39,7 @@ export default {
                     <h3><b>Original S4D:</b></h3>
                     <b><p>
                     <span style="color:#36915a">Androz</span>,
-                    <span style="color:#568896">snowflake107</span>
+                    <span style="color:#568896">snowflake107</span>,
                     <span style="color:#8f815b">7coil</span>,
                     <span style="color:#6EB7BB">Andromeda</span>
                     </p></b>
