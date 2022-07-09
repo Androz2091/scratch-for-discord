@@ -48,7 +48,7 @@ Blockly.JavaScript[blockName] = function (block) {
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const color = Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC)
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `${server}.roles.create({ name: ${name},color:${color} }).then(s4d_create_role_then_role => {
+    const code = `${server}.roles.create({ name: ${name},color:${color} }).then(async s4d_create_role_then_role => {
     ${statements}
 })
 `;

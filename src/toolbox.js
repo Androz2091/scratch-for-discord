@@ -2386,6 +2386,13 @@ export default (Blockly, value, searching) => {
             <block type="reply_mentioned_channel"/>
             <block type="reply_message"/>
             <block type="reply_message_id"/>
+			<block type="jg_channels_wait_for_message_in_channel_to_meet_check_for_minutes_then_if_no_messages_pass">
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">5</field>
+                    </shadow>
+                </value>
+            </block>
 
             <label text="Actions on messages in the channel"></label>
 

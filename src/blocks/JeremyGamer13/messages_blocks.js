@@ -3827,3 +3827,67 @@ Blockly.JavaScript["jg_roles_fetch_all_roles_in_server_then_do"] = function (blo
     `;
     return code;
 };
+Blockly.Blocks["jg_channels_wait_for_message_in_channel_to_meet_check_for_minutes_then_if_no_messages_pass"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "wait for message in channel %1 to meet check %2 for %3 minutes then %4 %5 if no messages pass %6 %7",
+                "inputsInline": false,
+                "tooltip": "Wait for a message in the specified channel to meet the requirement (ex: message author ID being equal to someone elses ID) for a certain amount of time, then run the blocks inside depending on if a message passed or if a message didn't pass.",
+                "colour": "#4C97FF",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "CHANNEL",
+                        "check": "Channel"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "CHECK",
+                        "check": "Boolean"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "TIME",
+                        "check": "Number"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENT2"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_channels_wait_for_message_in_channel_to_meet_check_for_minutes_then_if_no_messages_pass"] = function (block) {
+    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
+    const filter = Blockly.JavaScript.valueToCode(block, "CHECK", Blockly.JavaScript.ORDER_ATOMIC);
+    const time = Blockly.JavaScript.valueToCode(block, "TIME", Blockly.JavaScript.ORDER_ATOMIC);
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const statement2 = Blockly.JavaScript.statementToCode(block, "STATEMENT2");
+    const code = `${channel}.awaitMessages({
+    filter: (s4dmessage) => ${filter},
+    time: (${time} * 60 * 1000),
+    max: 1 
+}).then(async (S4DAPP_MESSAGES_RETURNED_FCOLLECTED) => {
+    s4dmessage = S4DAPP_MESSAGES_RETURNED_FCOLLECTED.first()
+    ${statements}
+}).catch(async err => {
+    ${statement2}
+})
+`;
+    return code;
+};
