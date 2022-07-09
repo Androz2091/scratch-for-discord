@@ -1,10 +1,9 @@
 import * as Blockly from "blockly/core";
-import { registerRestrictions } from "../../../../restrictions";
 
-const blockName = "gsa_create_role";
+const blockName = "gsa_jg_create_role_with_name_in_server_with_color_then_do";
 
 const blockData = {
-    "message0": "%{BKY_CREATE_ROLE}",
+    "message0": "create role with name %1 in server %2 with color %3 then %4 do %5",
     "args0": [
         {
             "type": "input_value",
@@ -20,13 +19,21 @@ const blockData = {
             "type": "input_value",
             "name": "COLOR",
             "check": "Colour"
+        },
+        {
+            "type": "input_dummy"
+        },
+        {
+            "type": "input_statement",
+            "name": "STATEMENTS"
         }
 
     ],
-    "colour": "#4C97FF",
-    "output": "Role",
+    "colour": "#2EB66B",
+    "previousStatement": null,
+    "nextStatement": null,
     "inputsInline": false,
-    "tooltip": "",
+    "tooltip": "Creates a role in a server with the specified name and color, then runs the blocks inside.",
     "helpUrl": ""
 };
 
@@ -40,13 +47,10 @@ Blockly.JavaScript[blockName] = function (block) {
     const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     const color = Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC)
-    const code = `${server}.roles.create({ name: ${name},color:${color} })`;
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `${server}.roles.create({ name: ${name},color:${color} }).then(s4d_create_role_then_role => {
+    ${statements}
+})
+`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
-registerRestrictions("gsa_create_role", [
-    {
-        type: "hasparent",
-        message: "$This block has been updated in the toolbox.\nTry looking for: create role with name () in server () with color () then do",
-        types: ["!%%@@%#%EWFWEG@$#Y${^U)I^$%()OJ$E@WMLDCSOHG$R*#HT$#R(EWOJFWEDSNF*G$#IF$O)@#_+2---=3r]f][ds"]
-    }
-]);
