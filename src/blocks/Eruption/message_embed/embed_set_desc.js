@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const description = Blockly.JavaScript.valueToCode(block, "DESC", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `embed.setDescription(String(${description})) \n`; 
+    const code = `embed.setDescription(String(${description})); \n`; 
     return code;
 };
 
