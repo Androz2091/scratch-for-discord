@@ -27,7 +27,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const color = Blockly.JavaScript.valueToCode(block, "COLOUR", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `embed.setColor(${color}) \n`;
+    const code = `embed.setColor(${color}); \n`;
     return code;
 };
 
