@@ -2568,6 +2568,8 @@ export default (Blockly, value, searching) => {
 	        <block type="jg_monaco_roles_hoist_role"/>
 	        <block type="jg_monaco_roles_change_role_to_be_mentionable_with_reason"/>
 	        <block type="set_role_icon"/>
+            <label text="Caching roles"></label>
+			<block type="jg_roles_fetch_all_roles_in_server_then_do"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category> 
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">

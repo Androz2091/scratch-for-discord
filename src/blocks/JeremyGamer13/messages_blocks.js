@@ -3790,3 +3790,40 @@ Blockly.JavaScript["jg_s4d_other_run_code_inside_file"] = function (block) {
 `
     return code;
 };
+Blockly.Blocks["jg_roles_fetch_all_roles_in_server_then_do"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "fetch all roles in server %1 then %2 do %3",
+                "inputsInline": true,
+                "tooltip": "Get every role in a server and put it into the bot's memory, then run the blocks inside.",
+                "colour": "#2EB66B",
+                "previousStatement": null,
+                "nextStatement": null,
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "SERVER",
+                        "check": "Server"
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ]
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_roles_fetch_all_roles_in_server_then_do"] = function (block) {
+    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `${server}.roles.fetch().then(async (s4d_roles_from_server_auydewgfiyewfh) => {
+        ${statements}
+    })
+    `;
+    return code;
+};

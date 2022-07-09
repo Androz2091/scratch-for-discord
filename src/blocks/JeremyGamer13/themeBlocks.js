@@ -214,7 +214,15 @@ Blockly.Blocks["jg_s4d_themes_with_background_style_set_back_color_to_set_style_
     },
     onchange: function () {
         if (!this.isEnabled()) return
-
+        const STYLE = this.getFieldValue("STYLE")
+        const BGCOLOR = this.getFieldValue("COLOR1").substring(0, 7)
+        const bg = document.getElementsByClassName("blocklyMainBackground").item(0)
+        if (bg == null) return
+        if (STYLE == "none") {
+            bg.setAttribute("style", `fill: ${BGCOLOR};`)
+        } else if (STYLE == "dot") {
+            bg.setAttribute("style", `fill: url(#defaultBlocklyGridPattern);`)
+        }
     }
 }
 Blockly.JavaScript["jg_s4d_themes_top_name_block"] = function () { return '' };
