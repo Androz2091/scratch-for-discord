@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const image = Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `embed.setImage(String(${image})) \n`; 
+    const code = `embed.setImage(String(${image})); \n`; 
     return code;
 };
 
