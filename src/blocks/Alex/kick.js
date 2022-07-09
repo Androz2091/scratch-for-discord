@@ -14,7 +14,7 @@ const blockData = {
   "previousStatement": null,
   "nextStatement": null, 
   "colour": "#0c97f0",
-  "tooltip": "",
+  "tooltip": "Kick a memebr from a voice chat",
   "helpUrl": ""
 }
 
