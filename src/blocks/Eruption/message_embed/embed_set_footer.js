@@ -35,7 +35,7 @@ Blockly.JavaScript[blockName] = function(block){
       const code = `embed.setFooter({text: String(${footer})}) \n`; 
     return code;
     }
-  const code = `embed.setFooter({text: String(${footer}), iconURL: String(${icon})}) \n`; 
+  const code = `embed.setFooter({text: String(${footer}), iconURL: String(${icon})}); \n`; 
     return code;
 };
 
