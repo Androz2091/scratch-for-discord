@@ -22,7 +22,7 @@ const blockData = {
   "previousStatement": null,
   "nextStatement": null, 
   "colour": "#0c97f0",
-  "tooltip": "",
+  "tooltip": "Rename a channel",
   "helpUrl": ""
 }
 
