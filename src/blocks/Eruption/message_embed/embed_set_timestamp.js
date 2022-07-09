@@ -105,3 +105,5 @@ registerRestrictions(blockName, [
     ]
   }
 ]);
+
+// Eruption is cool;
