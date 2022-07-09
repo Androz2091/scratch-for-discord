@@ -91,7 +91,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
   const date = Blockly.JavaScript.valueToCode(block, "DATE", Blockly.JavaScript.ORDER_ATOMIC);
-  const code = `embed.setTimestamp(new Date(${date})) \n`
+  const code = `embed.setTimestamp(new Date(${date})); \n`
   return code;
 };
 
@@ -105,3 +105,5 @@ registerRestrictions(blockName, [
     ]
   }
 ]);
+
+// Eruption is cool;

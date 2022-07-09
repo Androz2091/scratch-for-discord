@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const thumbnail = Blockly.JavaScript.valueToCode(block, "THUMB", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `embed.setThumbnail(String(${thumbnail})) \n`; 
+    const code = `embed.setThumbnail(String(${thumbnail})); \n`; 
     return code;
 };
 

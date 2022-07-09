@@ -35,7 +35,7 @@ Blockly.JavaScript[blockName] = function(block){
       const code = `embed.setTitle(String(${title})) \n`; 
     return code; 
     }
-    const code = `embed.setTitle(String(${title})) \n embed.setURL(String(${hyperlink})) \n`; 
+    const code = `embed.setTitle(String(${title})) \n embed.setURL(String(${hyperlink})); \n`; 
     return code; 
 };
 
