@@ -37,10 +37,10 @@ Blockly.JavaScript[blockName] = function(block){
     const profile = Blockly.JavaScript.valueToCode(block, "PROFILE", Blockly.JavaScript.ORDER_ATOMIC);
     const url = Blockly.JavaScript.valueToCode(block, "URL", Blockly.JavaScript.ORDER_ATOMIC);
     if (url.length == 0) {
-      const code = `embed.setAuthor({name: String(${author}), iconURL: String(${profile})}) \n`;
+      const code = `embed.setAuthor({name: String(${author}), iconURL: String(${profile})}); \n`;
     return code;
     }
-    const code = `embed.setAuthor({name: String(${author}), iconURL: String(${profile}), url: String(${url})}) \n`;
+    const code = `embed.setAuthor({name: String(${author}), iconURL: String(${profile}), url: String(${url})}); \n`;
     return code;
 };
 
