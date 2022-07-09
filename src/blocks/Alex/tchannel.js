@@ -6,7 +6,7 @@ const blockData = {
     "message0": "Typing channel",
     "colour": "#1392ed",
     "output": "Channel",
-    "tooltip": "",
+    "tooltip": "Get a channel a member is typing in",
     "helpUrl": ""
 };
 
