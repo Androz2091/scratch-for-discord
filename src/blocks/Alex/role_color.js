@@ -22,7 +22,7 @@ const blockData = {
   "previousStatement": null,
   "nextStatement": null, 
   "colour": "#48a4f0",
-  "tooltip": "",
+  "tooltip": "Change a role color",
   "helpUrl": ""
 }
 
