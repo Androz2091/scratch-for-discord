@@ -6,7 +6,7 @@ const blockData = {
     "message0": "Typing server",
     "colour": "#7b3a9c",
     "output": "Server",
-    "tooltip": "",
+    "tooltip": "The server someone is typing in",
     "helpUrl": ""
 };
 
