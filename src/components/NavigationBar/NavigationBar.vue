@@ -20,8 +20,8 @@
                 <Credit style="font-size: small;"></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
-<div id="block-counter" style="margin-right: 5px; font-size: 90%"><p style="color:rgb(182, 182, 182);">0 blocks</p></div>
-<b-nav-item class="theme-changer" style="width: 32px; height: 32px; margin-top: 2px; margin-right: 5px;" @click="changeTheme"></b-nav-item>
+<div id="block-counter" style="margin-right: 5px; font-size: 90%"><p id="block-counter-textParagraph" style="color:rgb(182, 182, 182);">0 blocks</p></div>
+<b-nav-item class="theme-changer" id="themeSwitchingLD" style="width: 32px; height: 32px; margin-top: 2px; margin-right: 5px;" @click="changeTheme"></b-nav-item>
 
                 <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
                 <span id="docName" style="font-size: smaller" @click="changeFileName">{{ $t("untitled") }}</span>

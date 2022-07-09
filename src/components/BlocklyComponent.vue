@@ -709,8 +709,9 @@ Blockly.ContextMenuRegistry.registry.register({
 }
 
 function blockCounter() {
+    const ALLBLOCKS = workspace.getAllBlocks()
     let counter = document.getElementById("block-counter")
-    let blocks = String(workspace.getAllBlocks().length)
+    let blocks = String(ALLBLOCKS.length)
     var rgb = "182, 182, 182"
     var bold = ["",""]
     if (Number(blocks) >= 300) {
@@ -735,7 +736,15 @@ function blockCounter() {
     } else {
         s = "s"
     }
-    counter.innerHTML = bold[0] + `<p style="color:rgb(${rgb});">${blocks} block${s}</p>` + bold[1]
+    let iagfbekjf = true
+    ALLBLOCKS.forEach(block => {
+        if (block.type == "jg_s4d_themes_set_navigation_bar_button_color_to") {
+            counter.innerHTML = bold[0] + `<p id="block-counter-textParagraph">${blocks} block${s}</p>` + bold[1]
+            iagfbekjf = false
+            return
+        }
+    })
+    if (iagfbekjf) counter.innerHTML = bold[0] + `<p id="block-counter-textParagraph" style="color:rgb(${rgb});">${blocks} block${s}</p>` + bold[1]
 }
 localforage.getItem("hide-blockcount").then((item) => {
     if (String(item) == "true") {

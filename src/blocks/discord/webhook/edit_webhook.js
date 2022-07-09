@@ -47,7 +47,7 @@ registerRestrictions(blockName, [
         message: "RES_CREATE_WEBHOOK_PARENT",
         types: [
             "s4d_create_webhook_then",
-            "jose_jg_create_webhook_in_channel_with_name_and_profile_picture_url_then_do"
+            "jose_jg_create_webhook_in_channel_with_name_and_profile_picture_url_with_reason_then_do"
         ]
     }
 ]);
