@@ -54,13 +54,13 @@ import "./blocks/date/";
 import "./blocks/regex/";
 import "./blocks/list/";
 import "./blocks/firebase/";
-import  "./blocks/discord/voice-channel/";
+import "./blocks/discord/voice-channel/";
 import "./blocks/progess-bar/";
 import "./blocks/captcha/";
 import "./blocks/pagination/";
 import "./blocks/discord/thread-event"
 import "./blocks/godslayerakp"
-  
+
 //my events
 //channel
 import "./blocks/logs-events/channel/channel-permissions-update/";
@@ -138,6 +138,10 @@ import "./blocks/JeremyGamer13/"
 import "./blocks/JeremyGamer13/jimpBlocks"
 import "./blocks/JeremyGamer13/fileEdit"
 
+
+// afgrh4t5h5453j
+import "./blocks/example-t/"
+
 import "./blocks/discord/scheduled-events/scheduled-events"
 import "./blocks/Lime/Embed"
 import "./blocks/Lime/Events"
@@ -159,7 +163,7 @@ import "./blocks/Parham"
 // Monaco
 import "./blocks/Monaco"
 
-  
+
 import "./blocks/quickdb"
 
 export default {
@@ -168,10 +172,10 @@ export default {
         BlocklyComponent,
         NavBarComponent
     },
-    beforeCreate(){
+    beforeCreate() {
         this.$root.$i18n.locale = this.$store.state.blocklyLocale;
     },
-    mounted(){
+    mounted() {
         if (window.location.pathname == "/v2") {
             window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0"
         }
@@ -204,7 +208,7 @@ export default {
             this.setLanguage(blocklyLocale);
         }
 
-        if(!this.$store.state.tourDone){
+        if (!this.$store.state.tourDone) {
             this.$tours["start-tour"].start();
             this.$store.commit('setTour', {
                 status: true
@@ -212,125 +216,127 @@ export default {
         }
     },
     data() {
-      //month starts at 0 day starts at 1
-      if ((new Date().getMonth()) == 3 && ((new Date().getDate())) == 1) {
-        return {
-            options: {
-                renderer: "zelos",
-                theme: Theme,
-                  collapse : true, 
-	comments : true, 
-	disable : true, 
-	maxBlocks : Infinity, 
-	trashcan : true, 
-	horizontalLayout : false, 
-    rtl: true,
-                zoom: {
-                    controls: true,
-                    startScale: 0.9,
-                    maxScale: 3,
-                    minScale: 0.3,
-                    scaleSpeed: 1.2
-                }
-            },
-            move:{
-        scrollbars: {
-          horizontal: true,
-          vertical: true
-        },
-        drag: true,
-        wheel: true}
-        /*
-        ,
-            vueTourOptions: {
-                labels: {
-                    buttonSkip: this.$t('tour.skip'),
-                    buttonPrevious: this.$t('tour.previous'),
-                    buttonNext: this.$t('tour.next'),
-                    buttonStop: this.$t('tour.finish')
-                },
-                steps: [
-                    {
-                        target: '#v-step-0',
-                        content: this.$t('tour.steps.load_examples'),
-                        params: {
-                            enableScrolling: false
-                        }
-                    },
-                    {
-                        target: '#v-step-1',
-                        content: this.$t('tour.steps.run_test'),
-                        params: {
-                            enableScrolling: false
-                        }
-                    },
-                    {
-                        target: '#v-step-2',
-                        content: this.$t('tour.steps.export_code'),
-                        params: {
-                            enableScrolling: false
-                        }
+        //month starts at 0 day starts at 1
+        if ((new Date().getMonth()) == 3 && ((new Date().getDate())) == 1) {
+            return {
+                options: {
+                    renderer: "zelos",
+                    theme: Theme,
+                    collapse: true,
+                    comments: true,
+                    disable: true,
+                    maxBlocks: Infinity,
+                    trashcan: true,
+                    horizontalLayout: false,
+                    rtl: true,
+                    zoom: {
+                        controls: true,
+                        startScale: 0.9,
+                        maxScale: 3,
+                        minScale: 0.3,
+                        scaleSpeed: 1.2
                     }
-                ]
-            }
-            */
-        }
-           } else {
-      return {
-            options: {
-                renderer: "zelos",
-                theme: Theme,
-                zoom: {
-                    controls: true,
-                    startScale: 0.9,
-                    maxScale: 3,
-                    minScale: 0.3,
-                    scaleSpeed: 1.2
-                }
-            },
-            move:{
-        scrollbars: {
-          horizontal: true,
-          vertical: true
-        },
-        drag: true,
-        wheel: true}
-        /*
-        ,
-            vueTourOptions: {
-                labels: {
-                    buttonSkip: this.$t('tour.skip'),
-                    buttonPrevious: this.$t('tour.previous'),
-                    buttonNext: this.$t('tour.next'),
-                    buttonStop: this.$t('tour.finish')
                 },
-                steps: [
-                    {
-                        target: '#v-step-0',
-                        content: this.$t('tour.steps.load_examples'),
-                        params: {
-                            enableScrolling: false
-                        }
+                move: {
+                    scrollbars: {
+                        horizontal: true,
+                        vertical: true
                     },
-                    {
-                        target: '#v-step-1',
-                        content: this.$t('tour.steps.run_test'),
-                        params: {
-                            enableScrolling: false
-                        }
-                    },
-                    {
-                        target: '#v-step-2',
-                        content: this.$t('tour.steps.export_code'),
-                        params: {
-                            enableScrolling: false
-                        }
+                    drag: true,
+                    wheel: true
+                }
+                /*
+                ,
+                    vueTourOptions: {
+                        labels: {
+                            buttonSkip: this.$t('tour.skip'),
+                            buttonPrevious: this.$t('tour.previous'),
+                            buttonNext: this.$t('tour.next'),
+                            buttonStop: this.$t('tour.finish')
+                        },
+                        steps: [
+                            {
+                                target: '#v-step-0',
+                                content: this.$t('tour.steps.load_examples'),
+                                params: {
+                                    enableScrolling: false
+                                }
+                            },
+                            {
+                                target: '#v-step-1',
+                                content: this.$t('tour.steps.run_test'),
+                                params: {
+                                    enableScrolling: false
+                                }
+                            },
+                            {
+                                target: '#v-step-2',
+                                content: this.$t('tour.steps.export_code'),
+                                params: {
+                                    enableScrolling: false
+                                }
+                            }
+                        ]
                     }
-                ]
+                    */
             }
-            */
+        } else {
+            return {
+                options: {
+                    renderer: "zelos",
+                    theme: Theme,
+                    zoom: {
+                        controls: true,
+                        startScale: 0.9,
+                        maxScale: 3,
+                        minScale: 0.3,
+                        scaleSpeed: 1.2
+                    }
+                },
+                move: {
+                    scrollbars: {
+                        horizontal: true,
+                        vertical: true
+                    },
+                    drag: true,
+                    wheel: true
+                }
+                /*
+                ,
+                    vueTourOptions: {
+                        labels: {
+                            buttonSkip: this.$t('tour.skip'),
+                            buttonPrevious: this.$t('tour.previous'),
+                            buttonNext: this.$t('tour.next'),
+                            buttonStop: this.$t('tour.finish')
+                        },
+                        steps: [
+                            {
+                                target: '#v-step-0',
+                                content: this.$t('tour.steps.load_examples'),
+                                params: {
+                                    enableScrolling: false
+                                }
+                            },
+                            {
+                                target: '#v-step-1',
+                                content: this.$t('tour.steps.run_test'),
+                                params: {
+                                    enableScrolling: false
+                                }
+                            },
+                            {
+                                target: '#v-step-2',
+                                content: this.$t('tour.steps.export_code'),
+                                params: {
+                                    enableScrolling: false
+                                }
+                            }
+                        ]
+                    }
+                    */
+            }
         }
-           }
     }
 }
 
@@ -338,12 +344,12 @@ export default {
 
 <style>
 #app {
-        font-family: sans-serif;
+    font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
 }
- 
+
 #blocklySpace {
     position: absolute;
     width: 100%;
