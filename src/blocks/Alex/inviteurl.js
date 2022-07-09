@@ -5,7 +5,7 @@ const blockName = "invite_ur";
 const blockData = {
   "message0": "Invite URL",
   "colour": "#502e6e",
-  "tooltip": "",
+  "tooltip": "Get the URL of an invite",
   "helpUrl": "",
   "output": "String"
 }
