@@ -52,5 +52,5 @@ Blockly.JavaScript[blockName] = function (block) {
     ${statements}
 })
 `;
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return code;
 };
