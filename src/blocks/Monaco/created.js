@@ -6,7 +6,7 @@ const blockData = {
   "type": "monaco_created_guild",
   "message0": "created server",
   "colour": "#4C97FF",
-  "output": "Guild",
+  "output": "Server",
   "inputsInline": true,
   "tooltip": "Get the created guild.",
   "helpUrl": ""
