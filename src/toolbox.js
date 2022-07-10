@@ -2290,6 +2290,11 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
             <block type="jg_monaco_servers_get_from_change"/>
+            <label text="Create Servers"></label>
+            <block type="monaco_create_server"></block>
+            <block type="monaco_created_guild"/>
+            <label text="Delete a server (only if the bot is the owner)"></label>
+            <block type="monaco_delete_guild"/>
 
             <label text="ㅤ" web-class="boldtext"></label>
                 
