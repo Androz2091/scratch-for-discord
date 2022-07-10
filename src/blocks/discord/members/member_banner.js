@@ -2,7 +2,7 @@ import Blockly from "blockly/core";
 const blockName = "s4d_member_banner";
 
 const blockData = {
-    "message0": "Member Banner",
+    "message0": "Member Banner URL",
     "colour": "#187795",
     "output": "String",
     "tooltip": "",
