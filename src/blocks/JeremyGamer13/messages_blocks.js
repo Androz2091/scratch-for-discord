@@ -4019,3 +4019,4 @@ Blockly.JavaScript["jg_edited_old_new_message"] = function (block) {
     const code = [`${state}Message`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+// a
