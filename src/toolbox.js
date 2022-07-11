@@ -1235,6 +1235,9 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
 
+            <label text="Attributes of any message"></label>
+            <block type="jg_messages_value_dropdown_content_of_message"/>
+
             <label text="Get attachments on the message" web-class="boldtext"></label>
                 
                     <!--
@@ -1285,7 +1288,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_reply">
                 <value name="CONTENT">
                     <shadow type="text">
-                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                        <field name="TEXT">Hey!</field>
                     </shadow>
                 </value>
             </block>
@@ -1395,11 +1398,10 @@ export default (Blockly, value, searching) => {
             <block type="frost_real_reply_delete"/>
             <label text="Files"></label>
             <block type="jg_messages_send_file_and_message_with_button_row_to_channel"/>
+
             <label text="%{BKY_FIND_MESSAGE}"></label>
             <block type="s4d_get_msg_then"></block>
             <block type="edit_msg_by_id"></block>
-            <label text="Find a message if you only have the message itself"></label>
-            <block type="jg_messages_id_of_message"/>
 
             <label text ="Message actions"/>
     
@@ -1587,16 +1589,28 @@ export default (Blockly, value, searching) => {
         
             <category name="Edited" colour="#e85a66">
             
-                <label text="%{BKY_T_EDI}" web-class="boldtext"></label>
-                <block type="when_message_is_edited"></block>
-                <block type="s4d_replys"></block>
-                <label text="%{BKY_T_NMS}" web-class="boldtext"></label>
-                <block type="newmsg_channel"></block>
-                <block type="new_message_server"></block>
-                <block type="s4d_newmessage_content"></block>
-                <block type="newmsg_member"></block>
-                <block type="s4d_newmsg_del"></block>
-                <block type="newmsg_timestamp"></block>
+                <label text="Event" web-class="boldtext"></label>
+                <block type="when_message_is_edited"/>
+                <label text="Event attributes" web-class="boldtext"></label>
+                <block type="jg_edited_old_new_message"/>
+                <block type="jg_messages_value_dropdown_content_of_message"/>
+                <block type="redo_maybe_idk_jg_newmsg_edit_date_timestamp_of_message_edit"/>
+                <label text=""></label>
+                <block type="newmsg_channel"/>
+                <block type="new_message_server"/>
+                <block type="redo_maybe_idk_jg_newmsg_edit_original_new_message_content"/>
+                <block type="s4d_reply">
+                    <value name="CONTENT">
+                        <shadow type="text">
+                            <field name="TEXT">Hey!</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="jg_messages_delete_message">
+                    <value name="MESSAGE">
+                        <block type="Message"/>
+                    </value>
+                </block>
             </category>
             <category name="Deleted" colour="#a14c22">
             
@@ -1604,6 +1618,7 @@ export default (Blockly, value, searching) => {
                 <label text="%{BKY_DELETED_EVENT}"></label>
                 <block type="s4d_on_deleted"></block>
                 <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
+                <block type="Message"/>
                 <block type="s4d_message_content_deleted"></block>
                 <block type="s4d_message_server_deleted"></block>
                 <block type="s4d_message_channel_deleted"></block>

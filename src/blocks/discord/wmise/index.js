@@ -10,3 +10,5 @@ import "./oldMessage_delete";
 import "./oldmessage_content";
 import "./oldmsg_member";
 import "./when_message_is_edited";
+import "./actual_edit_timestamp"
+import "./message_content_old_new"

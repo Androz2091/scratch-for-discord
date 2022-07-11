@@ -3909,3 +3909,113 @@ Blockly.JavaScript["jg_joins_subleaves_leaving_member"] = function () {
     const code = [`s4d.leavingMember.user`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
+Blockly.Blocks["jg_messages_value_dropdown_content_of_message"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 of message %2",
+                "args0": [
+                    {
+                        "type": "field_grid_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "content",
+                                'content'
+                            ],
+                            [
+                                "ID",
+                                'id'
+                            ],
+                            [
+                                "timestamp",
+                                'createdTimestamp'
+                            ],
+                            [
+                                "author",
+                                'author'
+                            ],
+                            [
+                                "member",
+                                'member.user'
+                            ],
+                            [
+                                "mentioned member",
+                                'mentions.members.first().user'
+                            ],
+                            [
+                                "mentioned channel",
+                                'mentions.channels.first()'
+                            ],
+                            [
+                                "mentioned role",
+                                'mentions.roles.first()'
+                            ],
+                            [
+                                "channel",
+                                'channel'
+                            ],
+                            [
+                                "channel category",
+                                'channel.parent'
+                            ],
+                            [
+                                "server",
+                                'guild'
+                            ]
+                        ],
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "MSG",
+                        "check": "Message"
+                    }
+                ],
+                "colour": "#4C97FF",
+                "output": null,
+                "tooltip": "Get a property from a message.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_messages_value_dropdown_content_of_message"] = function (block) {
+    const property = block.getFieldValue("TYPE")
+    const message = Blockly.JavaScript.valueToCode(block, "MSG", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${message}.${property}`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+Blockly.Blocks["jg_edited_old_new_message"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 message",
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "new",
+                                'new'
+                            ],
+                            [
+                                "original",
+                                'old'
+                            ]
+                        ],
+                    }
+                ],
+                "colour": "#a55b80",
+                "output": "Message",
+                "tooltip": "The edited message in either it's original state or new state.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_edited_old_new_message"] = function (block) {
+    const state = block.getFieldValue("TYPE")
+    const code = [`${state}Message`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};

@@ -63,7 +63,8 @@ registerRestrictions(blockName, [
         message: "RES_MUST_BE_IN_ON_MESSAGE",
         types: [
             "s4d_on_message",
-            "jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"
+            "jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot",
+            "when_message_is_edited"
         ]
     }
 ]);

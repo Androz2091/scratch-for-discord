@@ -4,7 +4,7 @@ import * as Blockly from "blockly/core";
 const blockName = "s4d_newmessage_content";
 
 const blockData = {
-    "message0": "%{BKY_N_CON}", 
+    "message0": "new message content",
     "colour": "#5BA58C",
     "tooltip": "",
     "output": "String",
@@ -12,12 +12,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
+Blockly.JavaScript[blockName] = function () {
     const code = ["newMessage.content", Blockly.JavaScript.ORDER_NONE];
     return code;
 };

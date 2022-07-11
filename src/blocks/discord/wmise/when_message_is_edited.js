@@ -3,7 +3,7 @@ import * as Blockly from "blockly";
 const blockName = "when_message_is_edited";
 
 const blockData = {
-    "message0": "When message is edited %1 %2",
+    "message0": "When a message is edited %1 %2",
     "colour": "#F5AB1A",
     "args0": [
         {
@@ -17,13 +17,17 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.client.on('messageUpdate', async (oldMessage, newMessage) => {\n${statements}\n});\n`;
+    const code = `s4d.client.on('messageUpdate', async (oldMessage, newMessage) => {
+    s4dmessage = newMessage
+    ${statements}
+});
+`;
     return code;
 };

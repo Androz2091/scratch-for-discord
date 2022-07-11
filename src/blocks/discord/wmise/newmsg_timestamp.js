@@ -4,20 +4,20 @@ import * as Blockly from "blockly/core";
 const blockName = "newmsg_timestamp";
 
 const blockData = {
-    "message0": "%{BKY_N_TIME}",
+    "message0": "date of message edit",
     "colour": "#5BA58C",
-    "tooltip": "",
+    "tooltip": "The time that the message was edited at.",
     "output": "String",
     "helpUrl": ""
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
+Blockly.JavaScript[blockName] = function () {
     const code = ["newMessage.editedAt", Blockly.JavaScript.ORDER_NONE];
     return code;
 };

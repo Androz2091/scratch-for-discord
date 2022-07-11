@@ -4,7 +4,7 @@ import Blockly from "blockly/core";
 const blockName = "new_message_server";
 
 const blockData = {
-    "message0": "%{BKY_N_S}",
+    "message0": "message server",
     "colour": "#D85E47",
     "output": "Server",
     "tooltip": "",
@@ -12,12 +12,12 @@ const blockData = {
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
+Blockly.JavaScript[blockName] = function () {
     const code = ["newMessage.guild", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
