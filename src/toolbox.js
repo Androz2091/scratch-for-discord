@@ -1559,24 +1559,17 @@ export default (Blockly, value, searching) => {
         <searchcategory label="Joins category"/>
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
-            <block type="s4d_on_member_join"></block>
+            <block type="s4d_on_member_join"/>
             <label text="%{BKY_JOINING_MEMBER_INFORMATIONS}"></label>
-            <block type="s4d_joining_member"></block>
-            <block type="s4d_joining_guild"></block>
-            <label text="%{BKY_RELATED_TO_JOIN_STRINGS}"></label>
-            <block type="s4d_joining_member_raw"></block>
-            <block type="s4d_joining_guild_raw"></block>
-
-            <label text=" "/>
+            <block type="s4d_joining_member"/>
+            <block type="s4d_joining_guild"/>
             <label text=" "/>
             <label text="%{BKY_LEAVES_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_LEAVES}"></label>
-            <block type="s4d_on_member_leave"></block>
+            <block type="s4d_on_member_leave"/>
             <label text="%{BKY_LEAVING_MEMBER_INFORMATIONS}"></label>
-            <block type="s4d_leaving_guild"></block>
-            <label text="%{BKY_RELATED_TO_LEAVE_STRINGS}"></label>
-            <block type="s4d_leaving_member_raw"></block>
-            <block type="s4d_leaving_guild_raw"></block>
+            <block type="jg_joins_subleaves_leaving_member"/>
+            <block type="s4d_leaving_guild"/>
         </category>
         <category name="Reactions" colour="#89674A">
         <searchcategory label="Reactions category"/>

@@ -3891,3 +3891,21 @@ Blockly.JavaScript["jg_channels_wait_for_message_in_channel_to_meet_check_for_mi
 `;
     return code;
 };
+Blockly.Blocks["jg_joins_subleaves_leaving_member"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "leaving member",
+                "args0": [],
+                "colour": "#187795",
+                "output": "Member",
+                "tooltip": "The member that left the server.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_joins_subleaves_leaving_member"] = function () {
+    const code = [`s4d.leavingMember.user`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
