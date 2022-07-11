@@ -3,7 +3,7 @@ import * as Blockly from "blockly/core";
 const blockName = "fz_color";
 const defaultColor = "#a5745b";
 const blockData = {
-    "message0": "colour %1",
+  "message0": "colour %1",
   "args0": [
     {
       "type": "field_input",
@@ -11,35 +11,32 @@ const blockData = {
       "text": ""
     }
   ],
+  "output": "Colour",
   "tooltip": "",
   "helpUrl": ""
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
-        this.jsonInit(blockData);
-      var thisBlock = this
-        thisBlock.setColour(defaultColor);
-      this.setOutput(true, "JGUYGKHJFAJSFHDGM");
-    },
-  onchange: function() {
-  try {
-    if (!(this.getFieldValue('COLOR')).length) {
+  init: function () {
+    this.jsonInit(blockData);
+    var thisBlock = this
+    thisBlock.setColour(defaultColor);
+  },
+  onchange: function () {
+    try {
+      if (!(this.getFieldValue('COLOR')).length) {
+        this.setColour(defaultColor);
+      } else {
+        this.setColour(this.getFieldValue('COLOR'));
+      }
+    } catch {
       this.setColour(defaultColor);
-    this.setOutput(true, "JGUYGKHJFAJSFHDGM");
-    } else {
-    this.setColour(this.getFieldValue('COLOR'));
-    this.setOutput(true, "Colour");
     }
-  } catch {
-    this.setColour(defaultColor);
-    this.setOutput(true, "JGUYGKHJFAJSFHDGM");
-  }
   }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function (block) {
   const color = block.getFieldValue("COLOR");
-    const code = [`"${color}"`, Blockly.JavaScript.ORDER_ATOMIC];
-    return code;
+  const code = [`"${color}"`, Blockly.JavaScript.ORDER_ATOMIC];
+  return code;
 };

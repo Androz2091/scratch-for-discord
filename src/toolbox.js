@@ -1750,7 +1750,15 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt"/>
         <category name="Embeds" colour="#fcca03">
-        
+            <!--
+            <label text="Want to create an embed quickly?" web-class="boldtext"></label>
+            <label text="Try the new Embed Creator Menu!" web-class="boldtext"></label>
+            <button text="Simple Embed Creator" callbackKey="EMBED_GUI_POPUP"></button>
+            <label text="(Beta, 1.0)" web-class="boldtext"></label>
+            <label text=""></label>
+            <label text="Send a generated embed" web-class="boldtext"></label>
+            <block type="s4d_embed_send"></block>
+            -->
             <category name="no name: MrRedo" colour="#fca903">
             
                 <label text="Create A Perfect Embed" web-class="boldtext"></label>
