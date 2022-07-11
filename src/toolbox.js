@@ -1586,7 +1586,10 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="More Events" colour="#EABB11">
-        
+        <category name="Server" colour="#52fc03">
+        <block type="on_server_update"/>
+        <block type="server_update_vars"/>
+        </category>
             <category name="Edited" colour="#e85a66">
             
                 <label text="Event" web-class="boldtext"></label>
