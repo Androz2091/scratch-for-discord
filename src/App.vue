@@ -110,6 +110,7 @@ import "./blocks/events/member/join-event/";
 import "./blocks/events/member/leave-event/";
 import "./blocks/events/member/guildBanAdd/";
 import "./blocks/events/member/guildBanRemove/";
+import "./blocks/events/server/serverUpdate/";
 //role
 import "./blocks/events/role/roleCreate/";
 import "./blocks/events/role/roleUpdate/";
