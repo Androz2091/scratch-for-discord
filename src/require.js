@@ -14,7 +14,8 @@ export default async function require(array, code, js) {
     }
     if (js.includes("tempChannels.registerChannel")) {
         array.push(`const TempChannels = require("discord-temp-channels");`)
-        array.push(`const db = require("quick.db")`)
+        array.push(`const tcdbpkcgRequirementlolol = require("quick.db")`)
+        array.push(`const db = new tcdbpkcgRequirementlolol();`)
         code.push(`const tempChannels = new TempChannels(s4d.client);`)
         code.push(`
     s4d.client.on("ready", () => {
