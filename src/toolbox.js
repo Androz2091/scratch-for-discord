@@ -40,7 +40,6 @@ export default (Blockly, value, searching) => {
     <sep class="bt"/>
 
 	<category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
-    <searchcategory label="Logic category"/>
             <block type="controls_if" />
             <block type="logic_compare">
                 <field name="OP">EQ</field>
@@ -70,7 +69,6 @@ export default (Blockly, value, searching) => {
                 
     </category>
     <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
-    <searchcategory label="Loops category"/>
             <block type="s4d_forever">
             </block>
             <block type="controls_repeat_ext">
@@ -130,7 +128,6 @@ export default (Blockly, value, searching) => {
         <label text="ㅤ" web-class="boldtext"></label>
     </category>
     <category name="{{ TOOLBOX_MATH }}" colour="#5b67a5">
-    <searchcategory label="Math category"/>
             <block type="math_number">
                 <field name="NUM">0</field>
             </block>
@@ -232,7 +229,6 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_TEXT }}" colour="#5ba58c">
-        <searchcategory label="Text category"/>
             <!--
             <block type="text">
                 <field name="TEXT"/>
@@ -417,7 +413,7 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_LISTS }}" colour="#745ba5">
-        <searchcategory label="List category"/>
+        
             <block type="lists_create_with">
                 <mutation items="0" />
             </block>
@@ -494,7 +490,7 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_COLORS }}" colour="#a5745b">
-        <searchcategory label="Colours category"/>
+        
             <block type="colour_picker">
                 <field name="COLOUR">#ff0000</field>
             </block>
@@ -539,7 +535,7 @@ export default (Blockly, value, searching) => {
         <sep class="bt" />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE"/>
 <category name="Expanded {{ TOOLBOX_VARIABLES }}" colour="#9F5B93">
-<searchcategory label="Expanded Variables category"/>
+
 <label text="Make global/local variables for functions and other stuff"></label>
 <label text="Compatible with variables category"></label>
 <block type="import_all"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
@@ -552,7 +548,7 @@ export default (Blockly, value, searching) => {
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE"/>
 
         <category name="Collections" colour="#a354b3">
-        <searchcategory label="Collections category"/>
+        
         <label text="Collections are able to hold data." web-class="boldtext"></label>
         <label text="It's like a list, but you attach a key to the data." web-class="boldtext"></label>
         <label text="You can then grab the data using the key later." web-class="boldtext"></label>
@@ -640,7 +636,7 @@ export default (Blockly, value, searching) => {
         </category>
 
         <category name="Objects" colour="#BA4A9A">
-        <searchcategory label="Objects category"/>
+        
             <label text="Objects are similar to collections, but have more functionality." web-class="boldtext"></label>
             <label text="They also don't get converted when saving into a database!" web-class="boldtext"></label>
             <block type="jg_objects_create_new"/>
@@ -679,7 +675,7 @@ export default (Blockly, value, searching) => {
         </category>
 
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
-        <searchcategory label="Other category"/>
+        
             <block type="s4d_print">
                 <value name="PRINT">
                     <block type="frost_other_err"/>
@@ -724,7 +720,7 @@ export default (Blockly, value, searching) => {
 	  
 <!--
             <category name="V2 Embeds" colour="#cc60db">
-            <searchcategory label="(hidden) V2 Embeds category"/>
+            
                 <block type="lime_s4d_embed_create"/>
                 <block type="s4d_message_embed_lime"/>
                 <block type="s4d_embed_edit"/>
@@ -1116,7 +1112,7 @@ export default (Blockly, value, searching) => {
         
         <sep class="bt"/>
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
-        <searchcategory label="Base category"/>
+        
         <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
             <block type="s4d_login">
                 <value name="TOKEN">
@@ -1166,7 +1162,7 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#4C97FF">
-        <searchcategory label="Messages category"/>
+        
 
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
 			
@@ -1472,7 +1468,7 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Threads" colour="#478ded">
-        <searchcategory label="Threads category"/>
+        
             <label text="%{BKY_LABEL_THREAD_MESSAGE}"/>
             <block type="s4d_on_thread_message"/>
             <block type="s4d_send_thread"/>
@@ -1529,7 +1525,7 @@ export default (Blockly, value, searching) => {
 	        <block type="jg_monaco_threads_add_member_to_from_thread_with_reason"/>
         </category>
         <category name="Webhooks" colour="#475ded">
-        <searchcategory label="Webhooks category"/>
+        
             <block type="s4d_create_webhook_then"></block>
             <block type="jose_jg_create_webhook_in_channel_with_name_and_profile_picture_url_with_reason_then_do"></block>
             <block type="s4d_edit_webhook"></block>
@@ -1556,7 +1552,7 @@ export default (Blockly, value, searching) => {
 
 
         <category name="Joins" colour="#5AD05F">
-        <searchcategory label="Joins category"/>
+        
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
             <block type="s4d_on_member_join"/>
@@ -1572,7 +1568,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_leaving_guild"/>
         </category>
         <category name="Reactions" colour="#89674A">
-        <searchcategory label="Reactions category"/>
+        
             <label text="%{BKY_REACT_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_REACT}"></label>
             <block type="s4d_on_react_added"></block>
@@ -1588,9 +1584,9 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="More Events" colour="#EABB11">
-        <searchcategory label="More Events category"/>
+        
             <category name="Edited" colour="#e85a66">
-            <searchcategory label="More Events > Edited category"/>
+            
                 <label text="%{BKY_T_EDI}" web-class="boldtext"></label>
                 <block type="when_message_is_edited"></block>
                 <block type="s4d_replys"></block>
@@ -1603,7 +1599,7 @@ export default (Blockly, value, searching) => {
                 <block type="newmsg_timestamp"></block>
             </category>
             <category name="Deleted" colour="#a14c22">
-            <searchcategory label="More Events > Deleted category"/>
+            
                 <label text="%{BKY_DELETED_RELATED_BLOCKS}" web-class="boldtext"></label>
                 <label text="%{BKY_DELETED_EVENT}"></label>
                 <block type="s4d_on_deleted"></block>
@@ -1614,7 +1610,7 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_message_author_deleted"></block>
             </category>
             <category name="Channels" colour="#AF28B7">
-            <searchcategory label="More Events > Channels category"/>
+            
                 <block type="on_channelCreate"></block>
                 <block type="cc_name"></block>
                 <block type="cc_channel"></block>
@@ -1634,13 +1630,13 @@ export default (Blockly, value, searching) => {
                 -->
             </category>
             <category name="Scheduled events" colour="#AF88E2">
-            <searchcategory label="More Events > Scheduled events category"/>
+            
                 <block type="lime_guild_sheduled_events_create"></block>
                 <block type="lime_guild_sheduled_events_remove"></block>
                 <block type="lime_scheduled_event_attributes"></block>
             </category>
             <category name="Emojis" colour="#147AC3">
-            <searchcategory label="More Events > Emojis category"/>
+            
                 <block type="on_emojicreate"></block>
                 <block type="ec_name"></block>
                 <block type="on_emojiupdate"></block>
@@ -1649,7 +1645,7 @@ export default (Blockly, value, searching) => {
                 <block type="ed_name"></block>
             </category>
             <category name="Roles" colour="#14C36B">
-            <searchcategory label="More Events > Roles category"/>
+            
                 <block type="on_rolecreate"></block>
                 <block type="rc_name"></block>
                 <block type="on_roleupdate"></block>
@@ -1658,7 +1654,7 @@ export default (Blockly, value, searching) => {
                 <block type="rd_name"></block>
             </category>
             <category name="Stickers" colour="#00b3ff">
-            <searchcategory label="More Events > Stickers category"/>
+            
                 <block type="on_stickercreate"></block>
                 <block type="sc_name"></block>
                 <block type="on_stickerdelete"></block>
@@ -1667,7 +1663,7 @@ export default (Blockly, value, searching) => {
                 <block type="su_name"></block>
             </category>
             <category name="Member Roles" colour="#39A9E3">
-            <searchcategory label="More Events > Member Roles category"/>
+            
                 <block type="on_roleadd"/>
                 <block type="on_roleremove"/>
                 <block type="event-role"/>
@@ -1681,7 +1677,7 @@ export default (Blockly, value, searching) => {
                 -->
             </category>
             <category name="Bot Added" colour="#a17722">
-            <searchcategory label="More Events > Bot Added category"/>
+            
                 <label text="Blocks for detecting when the bot is added or removed" web-class="boldtext"></label>
                 <block type="s4d_on_added"></block>
                 <block type="s4d_on_remove"></block>
@@ -1692,7 +1688,7 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_add_server_owner"/>
             </category>
             <category name="Boosts" colour="#E545B1">
-            <searchcategory label="More Events > Boosts category"/>
+            
                 <block type="on_boost"/>
                 <block type="on_unboost"/>
                 <block type="member_raw"/>
@@ -1705,7 +1701,7 @@ export default (Blockly, value, searching) => {
                 <label text="ㅤ" web-class="boldtext"></label>
             </category>
             <category name="Server Customizations" colour="#E71F72">
-            <searchcategory label="More Events > Server Customizations category"/>
+            
                 <block type="on_banner_add"/>
                 <block type="on_vanity_add"/>
                 <block type="on_vanity_remove"/>
@@ -1717,7 +1713,7 @@ export default (Blockly, value, searching) => {
                 <label text="ㅤ" web-class="boldtext"></label>
             </category>
             <category name="Custom Events" colour="#F5AB1A">
-            <searchcategory label="More Events > Custom Events category"/>
+            
                 <block type="create_event">
                     <value name="NAME">
                         <shadow type="text">
@@ -1736,9 +1732,9 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt"/>
         <category name="Embeds" colour="#fcca03">
-        <searchcategory label="Embeds category"/>
+        
             <category name="no name: MrRedo" colour="#fca903">
-            <searchcategory label="Embeds > MrRedo category"/>
+            
                 <label text="Create A Perfect Embed" web-class="boldtext"></label>
                 <block type="s4d_m_create_embed_then"></block>
                 <label text="%{BKY_COLOR_MESSAGE}"></label>
@@ -1760,7 +1756,7 @@ export default (Blockly, value, searching) => {
                 <block type="frost_send_embed_rr"/>
             </category>
             <category name="no name: Jose" colour="#fc9803">
-            <searchcategory label="Embeds > Jose category"/>
+            
                 <label text="Create A Perfect Embed" web-class="boldtext"></label>
                 <block type="s4d_create_embed_then"></block>
                 <label text="%{BKY_COLOR_MESSAGE}"></label>
@@ -1780,7 +1776,7 @@ export default (Blockly, value, searching) => {
                 <block type="frost_send_embed_rr"/>
             </category>
             <category name="no name: Eruption" colour="#fc8c03">
-            <searchcategory label="Embeds > Eruption category"/>
+            
                 <label text="Create a perfect embed" web-class="boldtext"></label>
                 <block type="s4d_embed_create"></block>
                 <block type="s4d_embed_set_color"></block>
@@ -1797,7 +1793,7 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_embed_send"></block>
             </category>
             <category name="named: AHQ" colour="#fc8403">
-            <searchcategory label="Embeds > AHQ category"/>
+            
                 <block type="make_ahq_embed"/>
                 <label text="Embed Send" web-class="boldtext"></label>
                 <block type="send_ahq_embed"/>
@@ -1814,7 +1810,7 @@ export default (Blockly, value, searching) => {
                 <block type="stamp_ahq_embed"/>
             </category>
             <category name="named: RedMan13" colour="#fc7703">
-            <searchcategory label="Embeds > RedMan13 category"/>
+            
                 <block type="gsa_create_embed"/>
                 <block type="gsa_send_embed"/>
                 <block type="gsa_set_embed_title"/>
@@ -1832,7 +1828,7 @@ export default (Blockly, value, searching) => {
         </category>
         <category name="Interactions" colour="#c847ff">
         <category name="Slash" colour="#c847ff">
-        <searchcategory label="Slash category"/>
+        
             <label text='⚠️ Deletes commands set by "Slash Command GUI"! ⚠️'></label>
             <label text='Only one "Create slash commands" block should be placed.'></label>
             <label text='Otherwise, it will break!'></label>
@@ -1944,11 +1940,11 @@ export default (Blockly, value, searching) => {
             <block type="send_m_embed_string"></block>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-        <searchcategory label="Interactions category"/>
+        
             <category name="Buttons" colour="#c847ff">
-            <searchcategory label="Interactions > Buttons category"/>
+            
                 <category name="AHQ" colour="#c847ff">
-                <searchcategory label="Interactions > Buttons > AHQ category"/>
+                
                     <label text="Buttons" web-class="boldtext"></label>
                     <label text="Event" web-class="boldtext"></label>
                     <block type="on_real_button"/>
@@ -1981,7 +1977,7 @@ export default (Blockly, value, searching) => {
                     <label text="⠀" web-class="boldtext"></label>
                 </category>
                 <category name="Jose" colour="#c847ff">
-                <searchcategory label="Interactions > Buttons > Jose category"/>
+                
                     <label text="%{BKY_BUTTON_EVENT}"></label>
                     <block type="s4d_on_click"></block>
                     <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
@@ -1999,7 +1995,7 @@ export default (Blockly, value, searching) => {
                     <block type="s4d_message_row_block"></block>
                 </category>
                 <category name="MrRedo" colour="#c847ff">
-                <searchcategory label="Interactions > Buttons > MrRedo category"/>
+                
                     <label text="Buttons" web-class="boldtext"></label>
                     <label text="%{BKY_T_EDI}"></label>
                     <block type="on_button"></block>
@@ -2040,7 +2036,7 @@ export default (Blockly, value, searching) => {
                 </category>
             </category>
             <category name="Menus" colour="#c847ff">
-            <searchcategory label="Interactions > Menus category"/>
+            
                 <label text="%{BKY_BUTTON_EVENT}"></label>
                 <block type="s4d_on_menu_click"></block>
                 <label text="%{BKY_BUTTON_EVENT_BLOCKS}"></label>
@@ -2057,7 +2053,7 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_message_menu_block"></block>
             </category>
             <category name="Context Menus" colour="#c847ff">
-            <searchcategory label="Interactions > Context Menus category"/>
+            
                 <label text="Context menus" web-class="boldtext"></label>
                 <label text="Register context menu" web-class="boldtext"></label>
                 <block type="register_c_m"></block>
@@ -2078,7 +2074,7 @@ export default (Blockly, value, searching) => {
             </category>
             <category name="Forms" colour="#c847ff">
                 <category name="ahq Forms" colour="#c847ff">
-                    <searchcategory label="Interactions > Forms category"/>
+                    
                     <label text="Forms" web-class="boldtext"></label>
                     <block type="on_real_form"/>
                     <block type="embed_send_round">
@@ -2115,16 +2111,16 @@ export default (Blockly, value, searching) => {
             </category>
         </category>
         <category name="Utilities" colour="#03b6fc">
-        <searchcategory label="Utilities category"/>
+        
             <category name="Server Backups" colour="#03a1fc">
-            <searchcategory label="Utilities > Server Backups category"/>
+            
                 <block type="s4d_create_backup_of_guild_then"/>
                 <block type="s4d_backup_load"/>
                 <block type="s4d_delete_backup"/>
                 <block type="s4d_backup_id"/>
             </category>
             <category name="Giveaways" colour="#0390fc">
-            <searchcategory label="Utilities > Giveaways category"/>
+            
                 <block type="s4d_create_giveaway"/> 
                 <block type="s4d_giveaway_id"/>
                 <block type="s4d_dd_giveaway"/>
@@ -2132,15 +2128,15 @@ export default (Blockly, value, searching) => {
             </category>
         </category>
         <category name="Music" colour="#52fc03">
-        <searchcategory label="Music category"/>
+        
             <category name="Music Lyrics" colour="#4be802">
-            <searchcategory label="Music > Music Lyrics category"/>
+            
                 <label text="Find lyrics for music" web-class="boldtext"></label>
 	 	        <block type="find_lyric_than"/>
 		        <block type="lyric"/>
             </category>
             <category name="Music Player" colour="#43d400">
-            <searchcategory label="Music > Music Player category"/>
+            
 			    <label text="Create a perfect music player" web-class="boldtext"></label>
                 <label text="Made with discord-music-player DMP" web-class="boldtext"></label>
                 <label text="WARNING DON'T USE WITH JOSE MUSIC BLOCKS" web-class="boldtext"></label>
@@ -2176,7 +2172,7 @@ export default (Blockly, value, searching) => {
 	            <block type="song-first"/>
             </category>
             <category name="Discord Player" colour="#3dbf00">
-            <searchcategory label="Music > Discord Player category"/>
+            
                 <label text="%{BKY_MUSIC_EVENT}"></label>
                 <block type="s4d_track_playing"></block>
                 <block type="s4d_track_added"></block>
@@ -2212,7 +2208,7 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt"/>
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
-        <searchcategory label="Servers category"/>
+        
             <label text="%{BKY_FIND_SERVER}"></label>
 
             <block type="s4d_get_server"></block>
@@ -2293,7 +2289,7 @@ export default (Blockly, value, searching) => {
                 
         </category>
         <category name="Channels" colour="#a55b80">
-        <searchcategory label="Channels category"/>
+        
             <label text="Find a channel"></label>
 
             <block type="s4d_get_channel"></block>
@@ -2541,7 +2537,7 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Roles" colour="#2EB66B">
-        <searchcategory label="Roles category"/>
+        
             <label text="%{BKY_FIND_ROLE}"></label>
             <block type="s4d_get_role"></block>
             <block type="s4d_get_all_role"></block>
@@ -2579,7 +2575,7 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category> 
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
-        <searchcategory label="Members category"/>
+        
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
             <block type="jg_members_get_member_by_id">
@@ -2659,7 +2655,7 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Emojis" colour="#347dfa" hidden="false">
-        <searchcategory label="Emojis category"/>
+        
             <label text="Welcome to emojis"></label>
             <block type="fz_get_emoji"/>
             <block type="fz_create_emoji"/>
@@ -2678,7 +2674,7 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Invites" colour="#5abced">
-        <searchcategory label="Invites category"/>
+        
              <label text="Create Invites"></label>
                 <block type="new_invite"/>
                 <block type="invite_ur"/>
@@ -3568,7 +3564,7 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Replit DB" colour="#150b91">
-        <searchcategory label="Replit DB"/>
+        
         <block type="parham_replitdb_setto">
             <value name="set">
                 <shadow type="text">
