@@ -15,12 +15,14 @@ export default async function require(array, code, js) {
     if (js.includes("tempChannels.registerChannel")) {
         array.push(`const TempChannels = require("discord-temp-channels");`)
         array.push(`const tcdbpkcgRequirementlolol = require("quick.db")`)
-        array.push(`const db = new tcdbpkcgRequirementlolol.QuickDB();`)
+        array.push(`const db = new tcdbpkcgRequirementlolol.QuickDB({ filePath: "tempChannelsS4D.sqlite" });`)
         code.push(`const tempChannels = new TempChannels(s4d.client);`)
         code.push(`
-    s4d.client.on("ready", () => {
-        if (!db.get("temp-channels")) db.set("temp-channels", []);
-        db.get("temp-channels").forEach((channelData) => {
+    s4d.client.on("ready", async () => {
+        let thingie = await db.get("temp-channels")
+        if (!thingie) await db.set("temp-channels", []);
+        let arrayofstuff = await db.get("temp-channels")
+        arrayofstuff.forEach((channelData) => {
             tempChannels.registerChannel(channelData.channelID, channelData.options);
         });
     });
