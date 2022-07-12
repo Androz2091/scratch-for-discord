@@ -44,6 +44,8 @@ Blockly.JavaScript[blockName] = function(block) {
     }
     banner = 'https://cdn.discordapp.com/banners/' + id + '/' + res.data.banner + '.' +format + '?size=512'
     ${statementThen}
+    }
+      })
     `;
     return code;
 };
