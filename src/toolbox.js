@@ -2571,6 +2571,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_roles_get_all_member_roles_then_for_each_do"/>
             <block type="jg_roles_get_all_member_roles_then_for_each_do_role"/>
             <block type="hig_role"/>
+            <block type="monaco_members_with_role"/>
             <!--
             <block type="monaco_random_role"/>
             -->
