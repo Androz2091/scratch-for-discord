@@ -2971,6 +2971,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_roblox_U2_unfollow_user_id"/>
             <block type="jg_roblox_U2_send_message_to_user_id"/>
             <block type="jg_roblox_U2_send_friend_request"/>
+            <block type="monaco_roblox_buy"/>
         </category>
 		<category name="Reddit" colour="#5ba58b">
 		    <block type="ran_red_post"/>
