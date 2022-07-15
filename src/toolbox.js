@@ -2571,7 +2571,9 @@ export default (Blockly, value, searching) => {
             <block type="jg_roles_get_all_member_roles_then_for_each_do"/>
             <block type="jg_roles_get_all_member_roles_then_for_each_do_role"/>
             <block type="hig_role"/>
+            <!--
             <block type="monaco_members_with_role"/>
+            -->
             <!--
             <block type="monaco_random_role"/>
             -->
@@ -2971,6 +2973,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_roblox_U2_unfollow_user_id"/>
             <block type="jg_roblox_U2_send_message_to_user_id"/>
             <block type="jg_roblox_U2_send_friend_request"/>
+            <block type="monaco_roblox_buy"/>
         </category>
 		<category name="Reddit" colour="#5ba58b">
 		    <block type="ran_red_post"/>
