@@ -12,8 +12,8 @@ const blockData = {
         },
     ],
     "output": "Number",
-    "colour": "#5ba58b",
-    "tooltip": "",
+    "colour": "#D14081",
+    "tooltip": "Convert a UNIX timestamp to a date.",
     "helpUrl": ""
 };
 
