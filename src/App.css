@@ -6,9 +6,6 @@ body {
     margin: 0
 }
 
-.blocklyScrollbarBackground {
-    display: none;
-}
-.blocklyScrollbarHandle {
+.blocklyFlyoutScrollbar[display="none"] {
     display: none;
 }
