@@ -1784,6 +1784,7 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_m_create_embed_then_send"></block>
                 <block type="frost_send_embed_rr"/>
             </category>
+            <!--
             <category name="no name: Jose" colour="#fc9803">
             
                 <label text="Create A Perfect Embed" web-class="boldtext"></label>
@@ -1804,6 +1805,7 @@ export default (Blockly, value, searching) => {
                 <block type="s4d_create_embed_then_send"></block>
                 <block type="frost_send_embed_rr"/>
             </category>
+            -->
             <category name="no name: Eruption" colour="#fc8c03">
             
                 <label text="Create a perfect embed" web-class="boldtext"></label>
