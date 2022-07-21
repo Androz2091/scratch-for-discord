@@ -8,7 +8,7 @@
     <b-dropdown-item href="https://discord.gg/nJhYCSddVy" target="_blank">Simple Host</b-dropdown-item>
     <b-dropdown-item href="https://poopoo-api.vercel.app" target="_blank">PooPoo API</b-dropdown-item>
     <b-dropdown-divider></b-dropdown-divider>
-    <b-dropdown-item href="https://discord.gg/sMXe3nGW6Q" target="_blank">S4D Community</b-dropdown-item>
+    <b-dropdown-item href="https://discord.gg/yszpZgTa4s" target="_blank">S4D Community</b-dropdown-item>
     <b-dropdown-item href="https://discord.gg/fa3Exkkrpc" target="_blank">S4D World</b-dropdown-item>
   </b-nav-item-dropdown>
 </template>
