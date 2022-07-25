@@ -447,7 +447,7 @@ Blockly.Blocks["jg_attachment_get_attachment_property"] = {
     init: function () {
         this.jsonInit(
             {
-                "message0": "get property %2 from attachment %1",
+                "message0": "get %2 from attachment %1",
                 "inputsInline": true,
                 "args0": [
                     {

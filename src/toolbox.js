@@ -1165,7 +1165,15 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#4C97FF">
-        
+            <!--
+            <category name="Handling" colour="#4C97FF"/>
+            <category name="Embeds" colour="#4c8eff">
+                <category name="Non-nameable" colour="#4c8eff"/>
+                <category name="Nameable" colour="#4c8eff"/>
+            </category>
+            <category name="Reactions" colour="#4c82ff"/>
+            <category name="Webhooks" colour="#4c76ff"/>
+            -->
 
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
 			
@@ -1536,9 +1544,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_edit_webhook"></block>
             <block type="jose_jg_as_created_webhook_send"></block>
             <block type="jose_jg_s4d_as_created_webhook_send_with_allowed_mentions_on_lists_user_ids_role_ids"></block>
-            <!--
             <block type="jose_jg_webhooks_as_created_webhook_send_with_name_profile_picture_url"/>
-            -->
             <block type="jose_jg_delete_created_webhook_with_reason"/>
             <block type="s4d_webhook_id"></block>
             <block type="s4d_webhook_token"></block>

@@ -35,19 +35,36 @@ Blockly.Blocks[blockName] = {
 };
 Blockly.JavaScript[blockName] = function (block) {
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
+    const username = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
+    const avatar = Blockly.JavaScript.valueToCode(block, "URL", Blockly.JavaScript.ORDER_ATOMIC);
     if (block.getInput("CONTENT").connection.targetConnection) {
         const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
             block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
             null;
         if ((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")) {
-            const code = `webhook.send(${content});\n`;
+            const code = `webhook.send({
+    username: String(${username}),
+    avatarURL: String(${avatar}),
+    ${content}
+});
+`;
             return code;
         } else {
-            const code = `webhook.send(String(${content}));\n`;
+            const code = `webhook.send({
+    username: String(${username}),
+    avatarURL: String(${avatar}),
+    content: String(${content})
+});
+`;
             return code;
         }
     } else {
-        const code = `webhook.send(String(${content}));\n`;
+        const code = `webhook.send({
+    username: String(${username}),
+    avatarURL: String(${avatar}),
+    content: String(${content})
+});
+`;
         return code;
     }
 };
