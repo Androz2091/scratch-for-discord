@@ -120,10 +120,10 @@ Blockly.JavaScript[blockName] = function (block) {
         },
         ${BODY}
       })
-      .then(async function (response) {
+      .then(async (response) => {
         ${THEN}
       })
-      .catch(async function (err) {
+      .catch(async (err) => {
         ${IF_ERROR}
       });
     `;
