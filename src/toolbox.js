@@ -1841,7 +1841,7 @@ export default (Blockly, value, searching) => {
                 <block type="stamp_ahq_embed"/>
             </category>
             <category name="named: RedMan13" colour="#fc7703">
-            
+                
                 <block type="gsa_create_embed"/>
                 <block type="gsa_send_embed"/>
                 <block type="gsa_set_embed_title"/>
