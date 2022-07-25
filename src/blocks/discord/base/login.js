@@ -32,7 +32,7 @@ Blockly.JavaScript[blockName] = function(block) {
         if (e.toString().toLowerCase().includes("token")) {
             throw new Error("An invalid bot token was provided!")
         } else {
-            throw new Error("Privileged Gateway Intents are not enabled! \n Please go to https://discord.com/developers and turn on all of them.")
+            throw new Error("Privileged Gateway Intents are not enabled! Please go to https://discord.com/developers and turn on all of them.")
         }
     });\n`;
     return code;
