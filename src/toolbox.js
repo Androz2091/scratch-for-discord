@@ -1849,20 +1849,36 @@ export default (Blockly, value, searching) => {
                 <block type="stamp_ahq_embed"/>
             </category>
             <category name="named: RedMan13" colour="#fc7703">
-            
+                
                 <block type="gsa_create_embed"/>
-                <block type="gsa_send_embed"/>
-                <block type="gsa_set_embed_title"/>
-                <block type="gsa_set_embed_description"/>
-                <block type="gsa_set_embed_author"/>
-                <block type="gsa_set_embed_footer"/>
+                <label text="note that you CANNOT put ANYTHING other then these blocks in the create embed block" web-class="boldtext"></label>
                 <block type="gsa_set_embed_color"/>
-                <block type="gsa_set_embed_image"/>
+
+                <block type="gsa_set_embed_title"/>
+
+                <block type="gsa_set_embed_author"/>
+
+                <block type="gsa_set_embed_description"/>
+
                 <block type="gsa_set_embed_thumbnail"/>
-                <block type="gsa_set_embed_timestamp"/>
+
                 <block type="gsa_create_fields"/>
+
                 <block type="gsa_add_blank_field"/>
+
                 <block type="gsa_add_field"/>
+
+                <block type="gsa_set_embed_image"/>
+                <label text="leave the date blank for current date" web-class="boldtext"></label>
+                <block type="gsa_set_embed_timestamp"/>
+
+                <block type="gsa_set_embed_footer"/>
+
+                <block type="gsa_send_embed"/>
+
+                <label text="replacment for androz embed. may be removed" web-class="boldtext"></label>
+                <block type="gsa_simple_embed"/>
+                <block type="gsa_simple_field"/>
             </category>
         </category>
         <category name="Interactions" colour="#c847ff">
