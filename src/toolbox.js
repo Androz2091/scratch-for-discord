@@ -3094,6 +3094,7 @@ export default (Blockly, value, searching) => {
                     <shadow type="text"/>
                 </value>
             </block>
+	    <block type="create_random_string"/>
         <label text="Encoding text" web-class="boldtext"></label>
             <block type="jg_encode_main">
                 <value name="type">
