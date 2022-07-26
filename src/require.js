@@ -240,4 +240,16 @@ dootabase.setFile("./database.json");`)
     if (js.includes("S4D_APP_REDDIT_musakui")) {
         array.push(`const S4D_APP_REDDIT_musakui = require('musakui');`)
     }
+     if (js.includes("S4D_makeid")) {
+        code.push(`function S4D_makeid(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < Number(length); i++) {
+        result += characters.charAt(Math.floor(Math.random() *
+            charactersLength));
+    }
+    return result;
+}`)
+    }
 }
