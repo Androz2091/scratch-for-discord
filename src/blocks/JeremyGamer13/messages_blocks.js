@@ -3594,7 +3594,7 @@ Blockly.Blocks["jg_text_regex_create_new_regex_of"] = {
 Blockly.JavaScript["jg_text_regex_create_new_regex_of"] = function (block) {
     let regex = block.getFieldValue("TEXT")
     try {
-        let matches = String(regex).match(/(\/)\S*(\/[a-z]{0,7})/gim)
+        let matches = String(regex).match(/(\/)[\S ]*(\/[a-z]{0,7})/gim)
         if (!(regex && String(regex) && String(regex).startsWith("/") && matches && matches.length == 1)) regex = ""
     } catch (err) {
         console.error("This RegEx check is not supported on this platform.", err)
