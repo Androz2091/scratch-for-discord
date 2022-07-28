@@ -1182,7 +1182,6 @@ export default (Blockly, value, searching) => {
             <block type="jg_event_message_when_a_message_is_recieved_and_author_isnt_a_bot"></block>
 
             <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
-
             <block type="Message"/>
             <block type="s4d_message_channel"></block>
             <block type="frost_message_category"></block>
@@ -1551,6 +1550,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_get_webhook_then"></block>
             <block type="s4d_get_edit_webhook"></block>
             <block type="s4d_send_webhook"></block>
+            <block type="gsa_jose_jg_webhooks_as_webhook_send_with_name_profile_picture_url"/>
             <block type="jose_jg_s4d_as_webhook_send_with_allowed_mentions_on_lists_user_ids_role_ids"></block>
             <block type="jose_jg_gained_delete_webhook_with_reason"/>
             <block type="jose_jg_webhooks_get_all_webhooks_in_channel_then"/>
