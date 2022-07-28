@@ -1,9 +1,17 @@
 /* eslint-disable */
 import Blockly from "blockly/core";
 
-const mutatorNames = ['color', 'title', 'url', 'author', 'description', 'thumbnail', 'fields', 'image', 'timestamp', 'footer']
+const mutatorNames = ['message', 'color', 'title', 'url', 'author', 'description', 'thumbnail', 'fields', 'image', 'timestamp', 'footer']
 
 const mutatorArgs = {
+    "message": [
+      "message",
+      {
+        "type": "input_value",
+        "name": "msg",
+        "check": "String"
+      }
+    ],
     "color": [
       "color",
       {
@@ -219,6 +227,7 @@ const mutator = {
 Blockly.Extensions.registerMutator("gsa_simple_embed_mutator", mutator, null, [""]);
 
 Blockly.JavaScript[blockName] = function (block) {
+    let message = '';
     let color = '';
     let title = '';
     let url = '';
@@ -243,7 +252,7 @@ Blockly.JavaScript[blockName] = function (block) {
             name: String(${Blockly.JavaScript.valueToCode(block, "aname", Blockly.JavaScript.ORDER_ATOMIC)}),
             icon_url: String(${Blockly.JavaScript.valueToCode(block, "aicon_url", Blockly.JavaScript.ORDER_ATOMIC)}),
             url: String(${Blockly.JavaScript.valueToCode(block, "aurl", Blockly.JavaScript.ORDER_ATOMIC)})
-        } \n`
+        }, \n`
     }
     if (this.inputs[4]) {
         description = `description: String(${Blockly.JavaScript.valueToCode(block, "description", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
@@ -272,8 +281,11 @@ Blockly.JavaScript[blockName] = function (block) {
             icon_url: String(${Blockly.JavaScript.valueToCode(block, "ficon_url", Blockly.JavaScript.ORDER_ATOMIC)})
         } \n`
     }
+    if (Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_ATOMIC)) {
+      message = `content: ${Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_ATOMIC)}`
+    }
 
-    const code = `[{
-        ${color}${title}${url}${author}${description}${thumbnail}${fields}${image}${timestamp}${footer}}]`;
+    const code = `${message}embeds: [{
+${color}${title}${url}${author}${description}${thumbnail}${fields}${image}${timestamp}${footer}}]`;
     return [code, Blockly.JavaScript.ORDER_NONE];
   };
