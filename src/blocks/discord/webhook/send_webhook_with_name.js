@@ -24,7 +24,7 @@ const blockData = {
             "check": "String"
         },
     ],
-    "colour": "#4C97FF",
+    "colour": "#135CC2",
     "previousStatement": null,
     "nextStatement": null,
     "tooltip": "Send a message as the created webhook, but with a different name and or profile picture.",
