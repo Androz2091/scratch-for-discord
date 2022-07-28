@@ -2861,10 +2861,6 @@ export default (Blockly, value, searching) => {
         </category>
     </category>
     <category name="Applications" colour="#4c79ff">
-        <category name="Simple Host" colour="#993399">
-            <label text="AHQ's Simple Host Auth" web-class="boldtext"></label>
-            <block type="simple_host_auth"/>
-        </category>
         <category name="Minecraft" colour="110">
             <category name="Java" colour="120">
                 <label text="Start by grabbing the server to get data from." web-class="boldtext"></label>

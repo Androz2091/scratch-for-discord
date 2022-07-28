@@ -300,7 +300,7 @@ load()`);
                         const wrapper = document.createElement('div');
                         wrapper.innerHTML = `<h6>Explanations:</h6>
             <ul>
-                <li style='text-align:left'>"index.js" contains your bot's code. <p style="color:#9f54bf">Simple Host also requires this file only when hosting.</p></li>
+                <li style='text-align:left'>"index.js" contains your bot's code.</li>
                 <li style='text-align:left'>"package.json" contains all of the packages needed for hosting on your computer.</li>
                 <li style='text-align:left'>"blocks.xml" contains all of your blocks used to create your bot.</li><!--
                 <li style='text-align:left'>".replit" allows the bot to start with a certain command. Not required if the bot file is named "index.js".</li>
