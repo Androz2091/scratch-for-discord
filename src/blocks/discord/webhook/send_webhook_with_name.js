@@ -3,7 +3,7 @@
 import * as Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "jose_jg_webhooks_as_webhook_send_with_name_profile_picture_url";
+const blockName = "gsa_jose_jg_webhooks_as_webhook_send_with_name_profile_picture_url";
 
 const blockData = {
     "message0": "as webhook send %1 with name %2 profile picture URL %3",
