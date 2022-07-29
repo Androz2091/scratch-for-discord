@@ -7,7 +7,7 @@ export default (Blockly, value, searching) => {
     if (allow_toolbox_search) {
         var toolbox_search_category = `
     
-    <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">
+    <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">F
     <label text="Search category! Version 1.21"></label>
     <label text=""></label>
     <button text="Search for Block" callbackKey="SEARCH"></button>
@@ -1878,9 +1878,9 @@ export default (Blockly, value, searching) => {
 
                 <block type="gsa_send_embed"/>
 
-                <label text="Simple Embeds! If you want to keep it all simple, use these embeds. 
-But we prefer using the other ones as they may not always work. 
-THESE BLOCKS DO NOT WORK WITH OTHER EMBED SETS!" web-class="boldtext"></label>
+                <label text="Simple Embeds! If you want to keep it all simple, use these embeds."></label>
+                <label text="But we prefer using the other ones as they may not always work."></label> 
+                <label text="THESE BLOCKS DO NOT WORK WITH OTHER EMBED SETS!" web-class="boldtext"></label>
                 <block type="gsa_simple_embed"/>
                 <block type="gsa_simple_field"/>
             </category>
