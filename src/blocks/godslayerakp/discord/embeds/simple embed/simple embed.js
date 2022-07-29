@@ -149,47 +149,47 @@ Blockly.Blocks["gsa_simple_embed_mutator"] = {
 };
 
 const mutator = {
-    inputs: [true, true, false, false, false, false, false, false, false, false],
+    inputs_: [true, true, false, false, false, false, false, false, false, false],
 
     mutationToDom: function () {
-        if (!this.inputs) {
+        if (!this.inputs_) {
             return null
         }
         const container = document.createElement("mutation");
-        for (let i = 0; i < this.inputs.length; i++) {
-            if (this.inputs[i]) container.setAttribute(mutatorNames[i], String(this.inputs[i]))
+        for (let i = 0; i < this.inputs_.length; i++) {
+            if (this.inputs_[i]) container.setAttribute(mutatorNames[i], String(this.inputs_[i]))
         }
         return container;
     },
 
     domToMutation: function (xmlElement) {
-        for (let i = 0; i < this.inputs.length; i++) {
-            this.inputs[i] = xmlElement.getAttribute(mutatorNames[i]) == "true";
+        for (let i = 0; i < this.inputs_.length; i++) {
+            this.inputs_[i] = xmlElement.getAttribute(mutatorNames[i]) == "true";
         }
         this.updateShape_();
     },
 
     decompose: function (workspace) {
         const containerBlock = workspace.newBlock("gsa_simple_embed_mutator");
-        for (let i = 0; i < this.inputs.length; i++) {
+        for (let i = 0; i < this.inputs_.length; i++) {
             containerBlock.appendDummyInput()
                 .setAlign(Blockly.ALIGN_RIGHT)
                 .appendField(mutatorNames[i])
-                .appendField(new Blockly.FieldCheckbox(this.inputs[i] ? "TRUE" : "FALSE"), mutatorNames[i]);
+                .appendField(new Blockly.FieldCheckbox(this.inputs_[i] ? "TRUE" : "FALSE"), mutatorNames[i]);
         }
         containerBlock.initSvg();
         return containerBlock;
     },
 
     compose: function (containerBlock) {
-        for (let i = 0; i < this.inputs.length; i++) {
-            this.inputs[i] = (containerBlock.getFieldValue(mutatorNames[i]) == "TRUE");
+        for (let i = 0; i < this.inputs_.length; i++) {
+            this.inputs_[i] = (containerBlock.getFieldValue(mutatorNames[i]) == "TRUE");
         }
         this.updateShape_();
     },
 
     updateShape_: function () {
-        for (let i = 0; i < this.inputs.length; i++) {
+        for (let i = 0; i < this.inputs_.length; i++) {
             let args = mutatorArgs[String(mutatorNames[i])]
             for (let i = 1; i < args.length; i = i + 2) {
               if (this.getInput(args[i]["name"]) !== null) {
@@ -197,8 +197,8 @@ const mutator = {
               }
           }
         }
-        for (let i = 0; i < this.inputs.length; i++) {
-            if (this.inputs[i]) {
+        for (let i = 0; i < this.inputs_.length; i++) {
+            if (this.inputs_[i]) {
               let args = mutatorArgs[String(mutatorNames[i])]
                 for (let i = 1; i < args.length; i = i + 2) {
                     let current = args[i]
@@ -238,44 +238,44 @@ Blockly.JavaScript[blockName] = function (block) {
     let image = '';
     let timestamp = '';
     let footer = '';
-    if (this.inputs[0]) {
+    if (mutator.inputs_[0]) {
         color = `color: String(${Blockly.JavaScript.valueToCode(block, "color", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
     }
-    if (this.inputs[1]) {
+    if (mutator.inputs_[1]) {
         title = `title: String(${Blockly.JavaScript.valueToCode(block, "title", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
     }
-    if (this.inputs[2]) {
+    if (mutator.inputs_[2]) {
         url = `url: String(${Blockly.JavaScript.valueToCode(block, "url", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
     }
-    if (this.inputs[3]) {
+    if (mutator.inputs_[3]) {
         author = `author: {
             name: String(${Blockly.JavaScript.valueToCode(block, "aname", Blockly.JavaScript.ORDER_ATOMIC)}),
             icon_url: String(${Blockly.JavaScript.valueToCode(block, "aicon_url", Blockly.JavaScript.ORDER_ATOMIC)}),
             url: String(${Blockly.JavaScript.valueToCode(block, "aurl", Blockly.JavaScript.ORDER_ATOMIC)})
         }, \n`
     }
-    if (this.inputs[4]) {
+    if (mutator.inputs_[4]) {
         description = `description: String(${Blockly.JavaScript.valueToCode(block, "description", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
     }
-    if (this.inputs[5]) {
+    if (mutator.inputs_[5]) {
         thumbnail = `thumbnail: {
             url: String(${Blockly.JavaScript.valueToCode(block, "thumbnail", Blockly.JavaScript.ORDER_ATOMIC)})
         }, \n`
     }
-    if (this.inputs[6]) {
+    if (mutator.inputs_[6]) {
         fields = `fields: [
             ${Blockly.JavaScript.statementToCode(block, 'fields')}
         ], \n`
     }
-    if (this.inputs[7]) {
+    if (mutator.inputs_[7]) {
         image = `image: {
             url: String(${Blockly.JavaScript.valueToCode(block, "image", Blockly.JavaScript.ORDER_ATOMIC)})
         }, \n`
     }
-    if (this.inputs[8]) {
+    if (mutator.inputs_[8]) {
         timestamp = `timestamp: new date(String(${Blockly.JavaScript.valueToCode(block, "timestamp", Blockly.JavaScript.ORDER_ATOMIC)})),`
     }
-    if (this.inputs[9]) {
+    if (mutator.inputs_[9]) {
         footer = `footer: {
             text: String(${Blockly.JavaScript.valueToCode(block, "ftext", Blockly.JavaScript.ORDER_ATOMIC)}),
             icon_url: String(${Blockly.JavaScript.valueToCode(block, "ficon_url", Blockly.JavaScript.ORDER_ATOMIC)})
