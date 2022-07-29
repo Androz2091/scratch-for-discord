@@ -1878,7 +1878,9 @@ export default (Blockly, value, searching) => {
 
                 <block type="gsa_send_embed"/>
 
-                <label text="SImple Embeds! If you want to keep it all simple, use these embeds. But we prefer using the other ones as they may not always work. THESE BLOCKS DO NOT WORK WITH OTHER EMBED SETS!" web-class="boldtext"></label>
+                <label text="Simple Embeds! If you want to keep it all simple, use these embeds. 
+But we prefer using the other ones as they may not always work. 
+THESE BLOCKS DO NOT WORK WITH OTHER EMBED SETS!" web-class="boldtext"></label>
                 <block type="gsa_simple_embed"/>
                 <block type="gsa_simple_field"/>
             </category>
