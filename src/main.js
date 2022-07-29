@@ -143,7 +143,6 @@ Vue.mixin({
                     console.log(\`Error!\`);
                     console.log(err);
                   });
-                         ]
                   const events = require('events');
                   const { exec } = require("child_process")
                   const S4D_APP_RUN_BUTTON = false
@@ -181,9 +180,9 @@ fire:null,
                     return s4d
                     })();`
 
-            }
         }
     }
+}
 );
 
 
