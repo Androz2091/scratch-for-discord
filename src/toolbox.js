@@ -1168,8 +1168,8 @@ export default (Blockly, value, searching) => {
             <!--
             <category name="Handling" colour="#4C97FF"/>
             <category name="Embeds" colour="#4c8eff">
-                <category name="Non-nameable" colour="#4c8eff"/>
-                <category name="Nameable" colour="#4c8eff"/>
+                <category name="Constructor" colour="#4c8eff"/>
+                <category name="Object" colour="#4c8eff"/>
             </category>
             <category name="Reactions" colour="#4c82ff"/>
             <category name="Webhooks" colour="#4c76ff"/>
