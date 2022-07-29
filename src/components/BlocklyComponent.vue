@@ -27,7 +27,6 @@ else if (window.location.pathname == "/r/th") {
 else if (window.location.pathname == "/r/cw") {
     renderer = "cwest"
 }*/
-//import toolbox from "../easter-toolbox";
 import {Backpack} from '@blockly/workspace-backpack';
 import {WorkspaceSearch} from '@blockly/plugin-workspace-search';
 import theme from '@blockly/theme-dark';
