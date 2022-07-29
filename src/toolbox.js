@@ -7,7 +7,7 @@ export default (Blockly, value, searching) => {
     if (allow_toolbox_search) {
         var toolbox_search_category = `
     
-    <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">F
+    <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">
     <label text="Search category! Version 1.21"></label>
     <label text=""></label>
     <button text="Search for Block" callbackKey="SEARCH"></button>
