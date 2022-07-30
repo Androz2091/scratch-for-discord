@@ -238,50 +238,50 @@ Blockly.JavaScript[blockName] = function (block) {
     let image = '';
     let timestamp = '';
     let footer = '';
-    if (mutator.inputs_[0]) {
+    if (mutator.inputs_[1]) {
         color = `color: String(${Blockly.JavaScript.valueToCode(block, "color", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
     }
-    if (mutator.inputs_[1]) {
+    if (mutator.inputs_[2]) {
         title = `title: String(${Blockly.JavaScript.valueToCode(block, "title", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
     }
-    if (mutator.inputs_[2]) {
+    if (mutator.inputs_[3]) {
         url = `url: String(${Blockly.JavaScript.valueToCode(block, "url", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
     }
-    if (mutator.inputs_[3]) {
+    if (mutator.inputs_[4]) {
         author = `author: {
             name: String(${Blockly.JavaScript.valueToCode(block, "aname", Blockly.JavaScript.ORDER_ATOMIC)}),
             icon_url: String(${Blockly.JavaScript.valueToCode(block, "aicon_url", Blockly.JavaScript.ORDER_ATOMIC)}),
             url: String(${Blockly.JavaScript.valueToCode(block, "aurl", Blockly.JavaScript.ORDER_ATOMIC)})
         }, \n`
     }
-    if (mutator.inputs_[4]) {
+    if (mutator.inputs_[5]) {
         description = `description: String(${Blockly.JavaScript.valueToCode(block, "description", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
     }
-    if (mutator.inputs_[5]) {
+    if (mutator.inputs_[6]) {
         thumbnail = `thumbnail: {
             url: String(${Blockly.JavaScript.valueToCode(block, "thumbnail", Blockly.JavaScript.ORDER_ATOMIC)})
         }, \n`
     }
-    if (mutator.inputs_[6]) {
+    if (mutator.inputs_[7]) {
         fields = `fields: [
             ${Blockly.JavaScript.statementToCode(block, 'fields')}
         ], \n`
     }
-    if (mutator.inputs_[7]) {
+    if (mutator.inputs_[8]) {
         image = `image: {
             url: String(${Blockly.JavaScript.valueToCode(block, "image", Blockly.JavaScript.ORDER_ATOMIC)})
         }, \n`
     }
-    if (mutator.inputs_[8]) {
+    if (mutator.inputs_[9]) {
         timestamp = `timestamp: new date(String(${Blockly.JavaScript.valueToCode(block, "timestamp", Blockly.JavaScript.ORDER_ATOMIC)})),`
     }
-    if (mutator.inputs_[9]) {
+    if (mutator.inputs_[10]) {
         footer = `footer: {
             text: String(${Blockly.JavaScript.valueToCode(block, "ftext", Blockly.JavaScript.ORDER_ATOMIC)}),
             icon_url: String(${Blockly.JavaScript.valueToCode(block, "ficon_url", Blockly.JavaScript.ORDER_ATOMIC)})
         } \n`
     }
-    if (Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_ATOMIC)) {
+    if (mutator.inputs_[0]) {
       message = `content: ${Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_ATOMIC)}`
     }
 
