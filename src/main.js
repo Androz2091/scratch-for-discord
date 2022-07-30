@@ -137,68 +137,14 @@ Vue.mixin({
             setTimeout(async () => {
                 await localforage.setItem("requires", requires)
             }, 1000)
-            let ahqcode = ``;
-            if (Blockly.JavaScript.workspaceToCode(workspace).includes(`//simple host`)) {
-                ahqcode = `(async()=>{
-                    let process = require('process');
-                    const events = require('events');
-                      ${requires.join("\n")}
-    let fs = require('fs');
-                        const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
-                        const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-                        const s4d = {
-                            Discord,
-                            database: new Database(\`\${__dirname}/database.json\`),
-    fire:null,
-                            joiningMember:null,
-                            reply:null,
-                            tokenInvalid:false,
-                            tokenError: null,
-                            player:null,
-                            manager:null,
-                            Inviter:null,
-                            message:null,
-                            notifer:null,
-                            checkMessageExists() {
-                                if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
-                                if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
-                            }
-                        };
-                        s4d.client = new s4d.Discord.Client({
-                        intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
-                        partials: ["REACTION", "CHANNEL"]
-                        });
-                        s4d.client.on('ready', () => {
-                            console.log(s4d.client.user.tag + " is alive!")
-                        })
-                        ${requiresjscode.join("\n")}         
-                        ${Blockly.JavaScript.workspaceToCode(workspace)}
-                        return s4d
-                        })();
-                        `
-            } else {
-                ahqcode = `(async()=>{
+            return `(async()=>{
                 let process = require('process');
                 process.on('uncaughtException', function (err) {
                     console.log(\`Error!\`);
                     console.log(err);
                   });
-                                  const ShsHSjJSjSJSJSGHkkhdjdmns = ['CREATE_INSTANT_INVITE','MANAGE_CHANNELS','ADD_REACTIONS','STREAM','VIEW_CHANNEL','SEND_MESSAGES','SEND_TTS_MESSAGES','MANAGE_MESSAGES','EMBED_LINKS','ATTACH_FILES','READ_MESSAGE_HISTORY','MENTION_EVERYONE','USE_EXTERNAL_EMOJIS','CONNECT','SPEAK','USE_VAD','CHANGE_NICKNAME','MANAGE_ROLES','MANAGE_WEBHOOKS','USE_APPLICATION_COMMANDS','REQUEST_TO_SPEAK','MANAGE_THREADS','USE_PUBLIC_THREADS','CREATE_PUBLIC_THREADS','USE_PRIVATE_THREADS','CREATE_PRIVATE_THREADS','USE_EXTERNAL_STICKERS','SEND_MESSAGES_IN_THREADS','START_EMBEDDED_ACTIVITIES'
-                         
-                         
-     
-     
-     
-             
-             
-     
-     
-     
-                         
-                         ]
                   const events = require('events');
                   const { exec } = require("child_process")
-                  const S4D_APP_RUN_BUTTON = false
                   ${requires.join("\n")}
 let fs = require('fs');
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
@@ -233,11 +179,10 @@ fire:null,
                     return s4d
                     })();`
 
-            }
-            return ahqcode;
         }
     }
-});
+}
+);
 
 
 new Vue({

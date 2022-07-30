@@ -1168,8 +1168,8 @@ export default (Blockly, value, searching) => {
             <!--
             <category name="Handling" colour="#4C97FF"/>
             <category name="Embeds" colour="#4c8eff">
-                <category name="Non-nameable" colour="#4c8eff"/>
-                <category name="Nameable" colour="#4c8eff"/>
+                <category name="Constructor" colour="#4c8eff"/>
+                <category name="Object" colour="#4c8eff"/>
             </category>
             <category name="Reactions" colour="#4c82ff"/>
             <category name="Webhooks" colour="#4c76ff"/>
@@ -1814,7 +1814,7 @@ export default (Blockly, value, searching) => {
                 <block type="frost_send_embed_rr"/>
             </category>
             -->
-            <category name="no name: Eruption" colour="#fc8c03">
+            <category name="Non-Nameable" colour="#fc8c03">
             
                 <label text="Create a perfect embed" web-class="boldtext"></label>
                 <block type="s4d_embed_create"></block>
@@ -1831,6 +1831,7 @@ export default (Blockly, value, searching) => {
                 <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
                 <block type="s4d_embed_send"></block>
             </category>
+            <!--
             <category name="named: AHQ" colour="#fc8403">
             
                 <block type="make_ahq_embed"/>
@@ -1848,7 +1849,8 @@ export default (Blockly, value, searching) => {
                 <block type="footer_ahq_embed"/>
                 <block type="stamp_ahq_embed"/>
             </category>
-            <category name="named: RedMan13" colour="#fc7703">
+            -->
+            <category name="Nameable" colour="#fc7703">
                 
                 <block type="gsa_create_embed"/>
                 <label text="note that you CANNOT put ANYTHING other then these blocks in the create embed block" web-class="boldtext"></label>
@@ -1876,7 +1878,9 @@ export default (Blockly, value, searching) => {
 
                 <block type="gsa_send_embed"/>
 
-                <label text="replacment for androz embed. may be removed" web-class="boldtext"></label>
+                <label text="Simple Embeds! If you want to keep it all simple, use these embeds."></label>
+                <label text="But we prefer using the other ones as they may not always work."></label> 
+                <label text="THESE BLOCKS DO NOT WORK WITH OTHER EMBED SETS!" web-class="boldtext"></label>
                 <block type="gsa_simple_embed"/>
                 <block type="gsa_simple_field"/>
             </category>
