@@ -4020,3 +4020,29 @@ Blockly.JavaScript["jg_edited_old_new_message"] = function (block) {
     return code;
 };
 // a
+
+Blockly.Blocks["jg_monaco_members_member_is_timed_out"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "member %1 is timed out?",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "MEMBER",
+                        "check": "Member"
+                    }
+                ],
+                "colour": "#50a6c9",
+                "output": "Boolean",
+                "tooltip": "Checks if a Member is timed out.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_monaco_members_member_is_timed_out"] = function (block) {
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`${member}.isCommunicationDisabled()`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
