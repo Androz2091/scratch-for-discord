@@ -2664,6 +2664,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_joined_at"></block>
             <block type="s4d_created_at"></block>
             <block type="s4d_member_is_bot"/>
+            <block type="jg_monaco_members_member_is_timed_out"/>
             <label text="Information about a Server Member (6 options)"></label>
             <block type="jg_members_member_is_value"/>
             <label text="Blocks for users"></label>
