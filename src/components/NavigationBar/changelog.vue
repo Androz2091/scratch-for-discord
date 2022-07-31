@@ -15,6 +15,19 @@ export default {
                 icon: 'info',
                 width: "900px",
                 html:`
+                <h2> <a href="https://discord.gg/TsQPMrNyBv"> Official S4D Server https://discord.gg/TsQPMrNyBv</a></h2>
+                <br>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/1003148110714900530/unknown.png' width='600'>
+                <h5>(JeremyGamer13)</h5>
+                <br> 
+                <h3 style="color:#CB4335;"><b>Embeds got removed!</b></h2>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/1002577999478141008/unknown.png' width='600'>
+                <h5>Jose, Mrredo and AHQ Embeds were removed(Freslin)</h5>
+                <br> 
+                <h3><b>All members with role</b></h2>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/996770502901235823/unknown.png' width='600'>
+                <h5>(Freslin)</h5>
+                <br> 
                 <h3 style="color:#CB4335;"><b>User examples!</b></h2>
                 <img src='https://cdn.discordapp.com/attachments/935597297528610856/993453529421328384/unknown.png' width='600'>
                 <h5>Do you want to make an example for something complicated?
