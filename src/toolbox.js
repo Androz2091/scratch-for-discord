@@ -3466,24 +3466,53 @@ export default (Blockly, value, searching) => {
 </category>
             
             <category name="{{ TOOLBOX_DATABASE }}" colour="#F1DA54">
+             <label text="Create a new database name and file"></label>
+             <block type="s4d_database_create_new">
+            <value name="NAME">
+                <shadow type="text">
+                  <field name="TEXT">database1</field>
+                </shadow>
+            </value>
+            <value name="FILE">
+                <shadow type="text">
+                  <field name="TEXT">database</field>
+                </shadow>
+            </value>
+            </block>
             <label text="%{BKY_LABEL_READ_DB}"></label>
-            <block type="s4d_get_data">
+            <block type="s4d_get_data_new">
                 <value name="KEY">
                     <shadow type="text">
                         <field name="TEXT">hello</field>
                     </shadow>
                 </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
             </block>
-            <block type="s4d_has_data">
+            <block type="s4d_has_data_new">
                 <value name="KEY">
                     <shadow type="text">
                         <field name="TEXT">hello</field>
                     </shadow>
                 </value>
+                 <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
             </block>
-            <block type="s4d_get_all_data"/>
+            <block type="s4d_get_all_data_new">
+            <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
+            </block>
             <label text="%{BKY_LABEL_UPDATE_DB}"></label>
-            <block type="s4d_set_data">
+            <block type="s4d_set_data_new">
                 <value name="KEY">
                     <shadow type="text">
                         <field name="TEXT">hello</field>
@@ -3494,15 +3523,26 @@ export default (Blockly, value, searching) => {
                         <field name="TEXT">world</field>
                     </shadow>
                 </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
+                
             </block>
-            <block type="s4d_delete_data">
+            <block type="s4d_delete_data_new">
                 <value name="KEY">
                     <shadow type="text">
                         <field name="TEXT">hello</field>
                     </shadow>
                 </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
             </block>
-            <block type="s4d_add_data">
+            <block type="s4d_add_data_new">
                 <value name="COUNT">
                     <shadow type="math_number">
                         <field name="NUM">1</field>
@@ -3513,8 +3553,13 @@ export default (Blockly, value, searching) => {
                         <field name="TEXT">points</field>
                     </shadow>
                 </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
             </block>
-            <block type="s4d_subtract_data">
+            <block type="s4d_subtract_data_new">
                 <value name="COUNT">
                     <shadow type="math_number">
                         <field name="NUM">1</field>
@@ -3525,8 +3570,19 @@ export default (Blockly, value, searching) => {
                         <field name="TEXT">points</field>
                     </shadow>
                 </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
             </block>
-            <block type="s4d_delete_all_data"/>
+            <block type="s4d_delete_all_data_new">
+              <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+              </value>
+            </block>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
 	        <category name="Dootabase" colour="#25CADE">

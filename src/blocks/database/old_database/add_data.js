@@ -1,9 +1,9 @@
 import Blockly from "blockly/core";
 
-const blockName = "s4d_add_data_new";
+const blockName = "s4d_add_data";
 
 const blockData = {
-    "message0": "add %1 %2 to %3 from the database with name %4",
+    "message0": "%{BKY_ADD_DATA}",
     "args0": [
         {
             "type": "input_value",
@@ -11,18 +11,10 @@ const blockData = {
             "check": "Number"
         },
         {
-            "type": "input_dummy",
-        },
-        {
             "type": "input_value",
             "name": "KEY",
             "check": [ "String", "Number" ]
-        },
-        {
-            "type": "input_value",
-            "name": "NAME",
-            "check": "String"
-        },
+        }
     ],
     "nextStatement": null,
     "previousStatement": null,
@@ -39,8 +31,5 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const key = Blockly.JavaScript.valueToCode(block, "KEY", Blockly.JavaScript.ORDER_ATOMIC);
     const count = Blockly.JavaScript.valueToCode(block, "COUNT", Blockly.JavaScript.ORDER_ATOMIC);
-    const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const name2 = name.substring(1, (name.length - 1));
-    return `${name2}.add(String(${key}), parseInt(${count}));\n`; 
-  
+    return `s4d.database.add(String(${key}), parseInt(${count}));\n`;
 };

@@ -38,12 +38,13 @@ export default {
     data() {
         return {
             toastLogin: false,
+            toastDB: false,
             workspace: this.$store.state.workspace
         }
     },
     async mounted() {
         const allow_toolbox_search = false
-        const isMobile = function () {
+     const isMobile = function () {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
         }
         const validateForXML = function (text) {
@@ -1503,7 +1504,17 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
         this.$nextTick(() => {
             window.setInterval(() => {
                 disableUnapplicable(this.$store.state.workspace);
-                const loginBlock = this.$store.state.workspace.getAllBlocks().some((block) => block.type === "s4d_login");
+                const getAllBlocksInWorkspace = this.$store.state.workspace.getAllBlocks();
+                const loginBlock = getAllBlocksInWorkspace.some((block) => block.type === "s4d_login");
+                const db1 = getAllBlocksInWorkspace.some((block) => block.type == "s4d_add_data_new");
+                const db2 = getAllBlocksInWorkspace.some((block) => block.type == "s4d_database_create_new");
+                const db3 = getAllBlocksInWorkspace.some((block) => block.type == "s4d_delete_all_data_new");
+                const db4 = getAllBlocksInWorkspace.some((block) => block.type == "s4d_delete_data_new");
+                const db5 = getAllBlocksInWorkspace.some((block) => block.type == "s4d_get_all_data_new");
+                const db6 = getAllBlocksInWorkspace.some((block) => block.type == "s4d_get_data_new");
+                const db7 = getAllBlocksInWorkspace.some((block) => block.type == "s4d_has_data_new");
+                const db8 = getAllBlocksInWorkspace.some((block) => block.type == "s4d_set_data_new");
+                const db9 = getAllBlocksInWorkspace.some((block) => block.type == "s4d_subtract_data_new");
                 if(!loginBlock){
                     if(!this.toastLogin){
                         this.toastLogin = true;
@@ -1514,9 +1525,27 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
                             duration: 1000000000
                         });
                     }
-                } else if(this.toastLogin){
+                } else if (db1 || db3 || db4 || db5 || db6 || db7 || db8 || db9) {
+                  if (!db2) {
+                    if(!this.toastDB){
+                        this.toastDB = true;
+                        this.$toast.open({
+                            message: "The \"Create a new database\" block in the \"Database\" category is required.",
+                            type: "error",
+                            dismissible: false,
+                            duration: 1000000000
+                        });
+                    }
+                  } else {
+                    this.toastDB = false;
+                    this.$toast.clear(); 
+                  }
+                } else if (this.toastLogin) {
                     this.toastLogin = false;
-                    this.$toast.clear();
+                    this.$toast.clear(); 
+                } else {
+                    this.toastDB = false;
+                    this.$toast.clear(); 
                 }
             }, 100);
         });

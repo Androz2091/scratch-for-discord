@@ -1,10 +1,15 @@
 import Blockly from "blockly/core";
 
-const blockName = "s4d_delete_all_data";
+const blockName = "s4d_delete_all_data_new";
 
 const blockData = {
-    "message0": "Delete all data from database",
+    "message0": "delete all data from the database with name %1",
     "args0": [
+      {
+            "type": "input_value",
+            "name": "NAME",
+            "check": "String"
+      },
     ],
   "previousStatement": null,
     "nextStatement": null,
@@ -18,7 +23,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
-   const code ='s4d.database.clear()'
+Blockly.JavaScript[blockName] = function(block) {
+  const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
+  const name2 = name.substring(1, (name.length - 1));
+  const code =`${name2}.clear()`
   return code
 };
