@@ -28,7 +28,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function (block) {
   const name = Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_ATOMIC)
   return `image: {
-	url: ${name},
+	url: String(${name}),
 },
 `
 }

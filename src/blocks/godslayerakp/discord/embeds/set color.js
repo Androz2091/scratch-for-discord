@@ -31,7 +31,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
   const color = Blockly.JavaScript.valueToCode(block, "color", Blockly.JavaScript.ORDER_ATOMIC)
-  return `color: ${color},
+  return `color: String(${color}),
 `
 }
 registerRestrictions(blockName, [
