@@ -40,9 +40,9 @@ Blockly.JavaScript[blockName] = function (block) {
   const url = Blockly.JavaScript.valueToCode(block, "url", Blockly.JavaScript.ORDER_ATOMIC)
   const icon_url = Blockly.JavaScript.valueToCode(block, "icon_url", Blockly.JavaScript.ORDER_ATOMIC)
   return `author: {
-		name: ${name},
-		icon_url: ${icon_url},
-		url: ${url},
+		name: String(${name}),
+		icon_url: String(${icon_url}),
+		url: String(${url}),
   },
 `
 }

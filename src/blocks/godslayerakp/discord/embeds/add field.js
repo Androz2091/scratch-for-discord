@@ -39,9 +39,9 @@ Blockly.JavaScript[blockName] = function (block) {
   const description = Blockly.JavaScript.valueToCode(block, "description", Blockly.JavaScript.ORDER_ATOMIC)
   const inline = Blockly.JavaScript.valueToCode(block, "inline", Blockly.JavaScript.ORDER_ATOMIC)
   return `{
-	name: ${title},
-	value: ${description},
-	inline: ${inline},
+	name: String(${title}),
+	value: String(${description}),
+	inline: ${inline} || false,
 },
 `
 }
