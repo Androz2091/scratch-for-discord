@@ -3528,7 +3528,23 @@ export default (Blockly, value, searching) => {
                     <field name="TEXT">database1</field>
                   </shadow>
                 </value>
-                
+            </block>
+            <block type="s4d_push_data_new">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
             </block>
             <block type="s4d_delete_data_new">
                 <value name="KEY">
