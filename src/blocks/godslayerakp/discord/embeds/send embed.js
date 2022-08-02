@@ -35,5 +35,5 @@ Blockly.JavaScript[blockName] = function (block) {
     message = `content: String(${block.getFieldValue("message")}), `
   }
   const color = block.getFieldValue("NAME")
-  return [`${message}embeds: [${color.replaceAll(" ", "_").replace(/[!@#\$%\^&\*\(\)-=\]\[\|{}\+`~'":;\?\/\.<>,\/]/g, '_')}]`, Blockly.JavaScript.ORDER_NONE];
+  return [`${message}embeds: [${color.replaceAll(" ", "_").replace(/[!@#\$%\^&\*\(\)-=\]\[\|{}\+`~'":;\?\/\.<>,\/]/g, '_')}]`, Blockly.JavaScript.ORDER_ATOMIC];
 }
