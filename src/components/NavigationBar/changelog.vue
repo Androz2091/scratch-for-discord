@@ -15,7 +15,16 @@ export default {
                 icon: 'info',
                 width: "900px",
                 html:`
+                
                 <h2> <a href="https://discord.gg/TsQPMrNyBv"> Official S4D Server https://discord.gg/TsQPMrNyBv</a></h2>
+                <br>
+                <h3><b>Dootabase and Database have been merged</b></h3>
+                <img src='https://cdn.discordapp.com/attachments/935597297528610856/1002577999478141008/unknown.png' width='600'>
+                <h5>- Not get confused by what "Dootabase" is (because it's been removed)
+- Create multiple .json files for your database
+- Have different database names (variables)(Eruption)</h5>
+                <br>
+                <img src='https://cdn.discordapp.com/attachments/977890124912279563/988563449992847420/Snimek_obrazovky_2022-06-20_233808.png'>
                 <br>
                 <img src='https://cdn.discordapp.com/attachments/935597297528610856/1003148110714900530/unknown.png' width='600'>
                 <h5>(JeremyGamer13)</h5>
