@@ -11,6 +11,14 @@ import VueTour from 'vue-tour';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import Swal from "sweetalert2";
+
+Swal.fire({
+  title: "WARNING",
+  html: `<p>you are on an outdated version of s4d please use <a href="https://scratch-for-discord-469.vercel.app/">s4d 469</a> instead</p>`,
+  showCancelButton: false,
+  confirmButtonText: "ok"
+})
 
 library.add(faPowerOff)
 
