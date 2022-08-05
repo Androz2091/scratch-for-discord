@@ -1,37 +1,49 @@
-import BaseBlockly from "blockly";
 import Blockly from "blockly/core";
+import BaseBlockly from "blockly";
+const blockName = "s4d_message_embed"
+const menuName = "s4d_message_embed_mutator"
 
+const BlockColor = "#40BF4A"
+// menu customization
+const menuUsesBlockColor = false
+const menuTooltip = `Click the checkboxes to change the embed's contents.`
 
+// border fields is the name of the input when getting it for the exported code.
+// they HAVE to be uppercase currently or it won't work since im too lazy to change the uppercase function uses
 const BORDER_FIELDS = ["MESSAGE", "COLOR", "TITLE", "IMAGE", "FOOTER", "THUMBNAIL", "FIELD"];
-
+// border types is the input type of every input in the block
 const BORDER_TYPES = ["String", "Colour", "String", "String", "String", "String", "Field"];
+// names is the name of that input in the menu and in the final block
+const names = ["message", "color", "title", "image", "footer", "thumbnail", "field"];
+const amountOfInputs = names.length
 
-
-const s4d_message_embed = {
-    "message0": "%{BKY_MESSAGE_EMBED}",
-    "mutator": "s4d_message_embed_mutator",
+const blockData = {
+    "message0": "Message Embed",
     "output": ["MessageEmbed", "AndrozS4DEmbed"],
     "helpUrl": "",
     "tooltip": "",
-    "colour": "#40BF4A"
+    "colour": BlockColor
 };
-
-Blockly.Blocks["s4d_message_embed"] = {
+Blockly.Blocks[menuName] = {
     init: function () {
-        this.jsonInit(s4d_message_embed);
-    }
-};
-
-Blockly.Blocks["s4d_message_embed_mutator"] = {
-    init: function () {
-        this.setColour("#CECDCE");
-        this.setTooltip("");
+        this.setColour((menuUsesBlockColor ? BlockColor : "#CECDCE"));
+        this.setTooltip(menuTooltip);
         this.setHelpUrl("");
     }
 };
-
-const BORDER_MUTATOR_MIXIN = {
-    inputs_: [true, false, false, false, false, false, false],
+Blockly.Blocks[blockName] = {
+    init: function () {
+        this.jsonInit(blockData);
+        this.setMutator(new Blockly.Mutator([]));
+        this.inputs_ = []
+        for (let i = 0; i < amountOfInputs; i++) {
+            if (i == 0) {
+                this.inputs_.push(true)
+            } else {
+                this.inputs_.push(false)
+            }
+        }
+    },
 
 
     mutationToDom: function () {
@@ -53,11 +65,12 @@ const BORDER_MUTATOR_MIXIN = {
     },
 
     decompose: function (workspace) {
-        const containerBlock = workspace.newBlock("s4d_message_embed_mutator");
+        const containerBlock = workspace.newBlock(menuName);
         for (let i = 0; i < this.inputs_.length; i++) {
+            BaseBlockly.Msg[BORDER_FIELDS[i]] = names[i];
             containerBlock.appendDummyInput()
                 .setAlign(Blockly.ALIGN_RIGHT)
-                .appendField(BaseBlockly.Msg[BORDER_FIELDS[i]])
+                .appendField(names[i])
                 .appendField(new Blockly.FieldCheckbox(this.inputs_[i] ? "TRUE" : "FALSE"), BORDER_FIELDS[i].toUpperCase());
         }
         containerBlock.initSvg();
@@ -74,20 +87,20 @@ const BORDER_MUTATOR_MIXIN = {
 
     updateShape_: function () {
         for (let i = 0; i < this.inputs_.length; i++) {
-            if (this.getInput(BORDER_FIELDS[i].toUpperCase())) this.removeInput(BORDER_FIELDS[i].toUpperCase());
+            if ((!this.inputs_[i]) && (this.getInput(BORDER_FIELDS[i].toUpperCase()))) this.removeInput(BORDER_FIELDS[i].toUpperCase());
         }
         for (let i = 0; i < this.inputs_.length; i++) {
-            if (this.inputs_[i]) {
+            if ((this.inputs_[i]) && (!(this.getInput(BORDER_FIELDS[i].toUpperCase())))) {
+                BaseBlockly.Msg[BORDER_FIELDS[i]] = names[i];
                 this.appendValueInput(BORDER_FIELDS[i].toUpperCase())
                     .setCheck(BORDER_TYPES[i])
                     .setAlign(Blockly.ALIGN_RIGHT)
-                    .appendField(BaseBlockly.Msg[BORDER_FIELDS[i]]);
+                    .appendField(names[i]);
             }
         }
     }
-};
 
-Blockly.Extensions.registerMutator("s4d_message_embed_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
+};
 
 Blockly.JavaScript["s4d_message_embed"] = function (block) {
     let title = "";
