@@ -2721,17 +2721,19 @@ export default (Blockly, value, searching) => {
         </category>
         <category name="Emojis" colour="#347dfa" hidden="false">
         
-            <label text="Welcome to emojis"></label>
+            <label text="Create/Fetch Emojis"></label>
             <block type="fz_get_emoji"/>
             <block type="fz_create_emoji"/>
-            <block type="fz_delete_emoji"/>
+            <block type="fz_get_all_emoji"/>
+            <block type="fz_get_all_emoj"/>
+            <label text="Read Emojis"></label>
             <block type="fz_emoji_info"/>
             <block type="fz_emoji_animated"/>
             <block type="fz_emoji_exist"/>
-            <block type="fz_get_all_emoji"/>
-            <block type="fz_get_all_emoj"/>
-            <block type="fz_unlock_emoji"/>
+            <label text="Actions on Emojis"></label>
             <block type="fz_lock_emoji"/>
+            <block type="fz_unlock_emoji"/>
+            <block type="fz_delete_emoji"/>
             <label text="Detect Emojis in text" web-class="boldtext"></label>
             <block type="jg_emoji_text_regex_list_of_normal_emojis_in_text"/>
             <block type="jg_emoji_text_regex_list_of_custom_emojis_in_text"/>
