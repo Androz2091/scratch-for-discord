@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="./scratch.png">
+    <link rel="stylesheet" href="./themes.css">
     <title>Scratch For Discord - Make your own bot using blocks</title>
     <meta name="description" content="Make your own discord bot in 5 minutes
       using blocks with no coding required. Try your bot online and export it on
@@ -23,41 +24,20 @@
       content="cpALYx5PHSXOgLtp-1pxqyELC6zIekO0RDQnWmFvhXI" />
 
     <style>
+    @font-face {
+      font-family: "logo_font";
+      src: url("./logo_font.ttf");
+    }
+    
     * {
       font-family: sans-serif;
     }
-
-    [specializedCSS=glow] {
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffffc7, 0 0 40px #ffffff79, 0 0 50px rgba(255, 255, 255, 0.295)73, 0 0 60px #ffffff27, 0 0 70px #ffffff02;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ffffffbe, 0 0 40px rgba(255, 255, 255, 0.459), 0 0 50px #ffffff3b, 0 0 60px #ffffff38, 0 0 70px #ffffff1c, 0 0 80px #ffffff11;
-  }
-}
-[specializedCSS=darkglow] {
-  -webkit-animation: darkglow 1s ease-in-out infinite alternate;
-  -moz-animation: darkglow 1s ease-in-out infinite alternate;
-  animation: darkglow 1s ease-in-out infinite alternate;
-}
-
-@keyframes darkglow {
-  from {
-    text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px rgb(0, 0, 0), 0 0 30px #000000c7, 0 0 40px #00000079, 0 0 50px rgba(0, 0, 0, 0.295)73, 0 0 60px #00000027, 0 0 70px #00000002;
-  }
-  to {
-    text-shadow: 0 0 20px rgb(0, 0, 0), 0 0 30px #000000be, 0 0 40px rgba(0, 0, 0, 0.459), 0 0 50px #0000003b, 0 0 60px #00000038, 0 0 70px #0000001c, 0 0 80px #00000011;
-  }
-}
     
     .navbar-brand {
-      font-family: 'lato', serif;
+      font-family: 'logo_font', serif;
+      letter-spacing: 0.5px;
+      font-size: 140% !important;
+      font-weight: 400;
     }
     
 		.blocklyTreeSeparator {
@@ -66,7 +46,7 @@
       margin: 5px 0;
 		}
 		
-        .blocklyTreeIcon {
+    .blocklyTreeIcon {
 			filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
 		}
 
@@ -82,68 +62,6 @@
 		filter: invert(100%) sepia(0%) saturate(2950%) hue-rotate(348deg) brightness(118%) contrast(96%) !important;
 		}
 
-		.light-them .blocklyTreeIcon {
-			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
-		}
-		
-		.light-them #blocklyTreeIcon {
-			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
-		}
-		
-		.light-them .blocklyTreeIconClosed {
-			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
-		}
-		
-		.light-them #blocklyTreeIconClosed {
-			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
-		}
-
-
-		.light-them .blocklyFlyoutLabelText {
-      transition: all 0.5s ease-in-out;
-      fill: #575e75 !important;
-    }
-
-    .light-them .blocklyToolboxDiv {
-      transition: all 0.5s ease-in-out;
-      background-color: #ddd !important;
-    }
-
-    .light-them .blocklyTreeLabel {
-      transition: all 0.5s ease-in-out;
-      color: black !important;
-    }
-
-    .light-them .blocklyTreeSeparator {
-      transition: all 0.5s ease-in-out;
-      border-bottom: solid #ebf0f4 1px;
-      height: 0;
-      margin: 5px 0;
-    }
-
-    .light-them .btgr {
-      transition: border-bottom 0.5s ease-in-out;
-      border-bottom: solid #bbb 1px !important;
-    }
-
-    .light-them .blocklySvg {
-      transition: background-color 0.5s ease-in-out;
-      background-color: white !important;
-    }
-
-    .light-them .blocklyFlyoutBackground {
-      transition: fill 0.5s ease-in-out;
-      fill: #e4e4e4!important;
-    }
-
-    .light-them #navSpace {
-      transition: all 0.5s ease-in-out;
-      background-color: #666 !important;
-    }
-
-
-
-    
     .theme-changer {
       transition: all 0.5s ease-in-out;
       background-image: url("/moon.png");
@@ -193,42 +111,40 @@
 		}
 		
 		/* Rotate effect */
-			     .blocklyTreeIcon {
-              background-position: -32px -1px!important;
-            }
-
-            .blocklyTreeIconOpen {
-              transform:rotate(90deg);
-              transition: transform 3s
+   .blocklyTreeIcon {
+      background-position: -32px -1px!important;
     }
 
-            .blocklyTreeIcon[style="visibility: visible; display: inline-block;"] {
-              margin-left: 3px;
-              transition-duration: 300ms;
-              filter: invert(100%) sepia(33%) saturate(312%) hue-rotate(55deg) brightness(100%) contrast(106%);
-            }
-          
-            .blocklyTreeSeparator {
-              border-bottom: solid #555555 1px;
-              height: 0;
-              margin: 5px 0;
-            }
-/* Adds cool animations to the categories */
-        .blocklyTreeRow:hover, .blocklyTreeRow:focus {
+    .blocklyTreeIconOpen {
+      transform:rotate(90deg);
+      transition: transform 3s
+}
+
+    .blocklyTreeIcon[style="visibility: visible; display: inline-block;"] {
+      margin-left: 3px;
+      transition-duration: 300ms;
+      filter: invert(100%) sepia(33%) saturate(312%) hue-rotate(55deg) brightness(100%) contrast(106%);
+    }
+  
+    .blocklyTreeSeparator {
+      border-bottom: solid #555555 1px;
+      height: 0;
+      margin: 5px 0;
+    }
+      
+    /* Hovering and selecting categories animation */
+    .blocklyTreeRow:hover, .blocklyTreeRow:focus, .blocklyTreeSelected {
 		  border-radius: 4px;
-        }
-	
-        .bt {
+    }
+
+    /* Others */
+    .bt {
 		  border-bottom: solid #343434 1px;
 		  height: 0;
 		  margin: 5px 0;
 		}
-
-		body {
-		font-family: sans-serif;
-        }
 		
-        ::-webkit-scrollbar {
+    ::-webkit-scrollbar {
 			width: 1px;
 			height: 1px;
 		}

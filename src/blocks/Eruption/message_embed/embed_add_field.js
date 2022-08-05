@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_embed_add_field";
 
 const blockData = {
-    "message0": "add embed field %1 with title %2 with description %3 inline (optional) %4",
+    "message0": "add embed field %1 with title %2 with description %3 field inline?  %4",
     "args0": [
       {
         "type": "input_dummy",
