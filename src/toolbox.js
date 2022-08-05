@@ -2,24 +2,6 @@
 export default (Blockly, value, searching) => {
     /* eslint-disable */
 
-    const allow_toolbox_search = true
-
-    if (allow_toolbox_search) {
-        var toolbox_search_category = `
-    
-    <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">
-    <label text="Search category! Version 1.21"></label>
-    <label text=""></label>
-    <button text="Search for Block" callbackKey="SEARCH"></button>
-    <label text="Click the search category again if nothing happens."></label>
-    <label text=""></label>
-        <!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->
-    </category>
-    `
-    } else {
-        var toolbox_search_category = ``
-    }
-
     var toolbox_xml_contents = (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
 
@@ -32,7 +14,15 @@ export default (Blockly, value, searching) => {
     </category>
     -->
 	
-    ${toolbox_search_category}
+    <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">
+    <label text="Search category! Version 1.21"></label>
+    <label text=""></label>
+    <button text="Search for Block" callbackKey="SEARCH"></button>
+    <label text="Click the search category again if nothing happens."></label>
+    <label text=""></label>
+        <!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->
+    </category>
+
     <category name="Favorites" colour="#FFFF00" css-icon="customIcon fa fa-star">
     	<label text="Add your favorite blocks here by right clicking them and pressing &quot;Add to favorite!&quot;"></label>
                         <!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->
@@ -3375,101 +3365,10 @@ export default (Blockly, value, searching) => {
             </category>
             <category name="Databases" colour = "#2AC395">
 
-            <category name="Mongo" colour="#0db550">
-        <label text="connect to MongoDB"></label>
-        <block type="mongo_on"></block>
-        <block type="mongo_connect">
-        <value name="URL">
-        <shadow type="text">
-            <field name="TEXT">mongodb url</field>
-        </shadow>
-    </value>
-        </block>
-        <label text="nerd blocks"></label>
-        <block type="mongo_get_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_has_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_set_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-            <value name="VALUE">
-                <shadow type="text">
-                    <field name="TEXT">world</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_push_data">
-        <value name="KEY">
-            <shadow type="text">
-                <field name="TEXT">hello</field>
-            </shadow>
-        </value>
-        <value name="VALUE">
-            <shadow type="text">
-                <field name="TEXT">world</field>
-            </shadow>
-        </value>
-    </block>
-    <block type="mongo_pull_data">
-    <value name="KEY">
-        <shadow type="text">
-            <field name="TEXT">hello</field>
-        </shadow>
-    </value>
-    <value name="VALUE">
-        <shadow type="text">
-            <field name="TEXT">world</field>
-        </shadow>
-    </value>
-</block>
-        <block type="mongo_delete_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_add_data">
-            <value name="COUNT">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">points</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_subtract_data">
-            <value name="COUNT">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">points</field>
-                </shadow>
-            </value>
-        </block>
-</category>
             
-            <category name="{{ TOOLBOX_DATABASE }}" colour="#F1DA54">
+            
+            <category name="JSON" colour="#F1DA54">
+             <label text="Simplest database"></label>
              <label text="Create a new database name and file"></label>
              <block type="s4d_database_create_new">
             <value name="NAME">
@@ -3606,41 +3505,101 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
 
-        <category name="Replit DB" colour="#150b91">
-        
-        <block type="parham_replitdb_setto">
-            <value name="set">
+<category name="MongoDB" colour="#0db550">
+        <label text="connect to MongoDB"></label>
+        <block type="mongo_on"></block>
+        <block type="mongo_connect">
+        <value name="URL">
+        <shadow type="text">
+            <field name="TEXT">mongodb url</field>
+        </shadow>
+    </value>
+        </block>
+        <label text="nerd blocks"></label>
+        <block type="mongo_get_data">
+            <value name="KEY">
                 <shadow type="text">
                     <field name="TEXT">hello</field>
                 </shadow>
             </value>
-            <value name="to">
+        </block>
+        <block type="mongo_has_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_set_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="VALUE">
                 <shadow type="text">
                     <field name="TEXT">world</field>
                 </shadow>
             </value>
         </block>
-        <label text="On These Blocks You Can Use Data Block"/>
-        <block type="parham_replitdb_getall"/>
-        <block type="parham_replitdb_get">
-            <value name="get">
+        <block type="mongo_push_data">
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">hello</field>
+            </shadow>
+        </value>
+        <value name="VALUE">
+            <shadow type="text">
+                <field name="TEXT">world</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="mongo_pull_data">
+    <value name="KEY">
+        <shadow type="text">
+            <field name="TEXT">hello</field>
+        </shadow>
+    </value>
+    <value name="VALUE">
+        <shadow type="text">
+            <field name="TEXT">world</field>
+        </shadow>
+    </value>
+</block>
+        <block type="mongo_delete_data">
+            <value name="KEY">
                 <shadow type="text">
                     <field name="TEXT">hello</field>
                 </shadow>
             </value>
         </block>
-        <block type="parham_replitdb_data"/>
-        <label text="You Can't Use Data Block On This Blocks"/>
-        <block type="parham_replitdb_delete">
-            <value name="delete">
+        <block type="mongo_add_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
                 <shadow type="text">
-                    <field name="TEXT">hello</field>
+                    <field name="TEXT">points</field>
                 </shadow>
             </value>
         </block>
-        </category>
+        <block type="mongo_subtract_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">points</field>
+                </shadow>
+            </value>
+        </block>
+</category>
 
-        <category name="SQLite DB" colour="#A025DE">
+        <category name="SQLite" colour="#A025DE">
             <label text="%{BKY_LABEL_READ_DB}"></label>
             <block type="qdb_get">
                 <value name="KEY">
@@ -3725,6 +3684,39 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+        </category>
+        <category name="Replit" colour="#150b91">
+        
+        <block type="parham_replitdb_setto">
+            <value name="set">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="to">
+                <shadow type="text">
+                    <field name="TEXT">world</field>
+                </shadow>
+            </value>
+        </block>
+        <label text="On These Blocks You Can Use Data Block"/>
+        <block type="parham_replitdb_getall"/>
+        <block type="parham_replitdb_get">
+            <value name="get">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="parham_replitdb_data"/>
+        <label text="You Can't Use Data Block On This Blocks"/>
+        <block type="parham_replitdb_delete">
+            <value name="delete">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
         </category>
 
         <!--
