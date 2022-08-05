@@ -1759,7 +1759,7 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt"/>
         <category name="Embeds" colour="#fcca03">
-            <!--
+            
             <label text="Want to create an embed quickly?" web-class="boldtext"></label>
             <label text="Try the new Embed Creator Menu!" web-class="boldtext"></label>
             <button text="Simple Embed Creator" callbackKey="EMBED_GUI_POPUP"></button>
@@ -1767,89 +1767,85 @@ export default (Blockly, value, searching) => {
             <label text=""></label>
             <label text="Send a generated embed" web-class="boldtext"></label>
             <block type="s4d_embed_send"></block>
-            -->
-            <!--
-            <category name="no name: MrRedo" colour="#fca903">
-            
-                <label text="Create A Perfect Embed" web-class="boldtext"></label>
-                <block type="s4d_m_create_embed_then"></block>
-                <label text="%{BKY_COLOR_MESSAGE}"></label>
-                <block type="s4d_m_create_embed_then_set_color"></block>
-                <block type="s4d_m_create_embed_then_set_author"></block>
-                <block type="s4d_m_create_embed_then_set_title"></block>
-                <block type="s4d_m_create_embed_then_set_thumbnail"></block>
-                <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
-                <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
-                <block type="s4d_m_create_embed_then_set_description"></block>
-                <block type="s4d_m_create_embed_then_add_field"></block>
-                <block type="s4d_m_create_embed_then_add_blankfield"></block>
-                <block type="s4d_m_create_embed_then_set_image"></block>
-                <block type="s4d_m_create_embed_then_set_footer"></block> 
-                <block type="s4d_m_create_embed_then_set_time"></block>
-                <label text="%{BKY_SEND_EMBED}"></label>
-                <block type="send_m_embed_string"/>
-                <block type="s4d_m_create_embed_then_send"></block>
-                <block type="frost_send_embed_rr"/>
-            </category>
-            -->
-            <!--
-            <category name="no name: Jose" colour="#fc9803">
-            
-                <label text="Create A Perfect Embed" web-class="boldtext"></label>
-                <block type="s4d_create_embed_then"></block>
-                <label text="%{BKY_COLOR_MESSAGE}"></label>
-                <block type="s4d_create_embed_then_set_color"></block>
-                <block type="s4d_create_embed_then_set_author"></block>
-                <block type="s4d_create_embed_then_set_title"></block>
-                <block type="s4d_create_embed_then_add_link"></block>            
-                <block type="s4d_create_embed_then_set_thumbnail"></block>
-                <label text="%{BKY_HYPERLINK_MESSAGE}"></label>
-                <label text="%{BKY_HYPERLINK_MESSAGE_2}"></label>
-                <block type="s4d_create_embed_then_set_description"></block>
-                <block type="s4d_create_embed_then_add_field"></block>
-                <block type="s4d_create_embed_then_set_image"></block>
-                <block type="s4d_create_embed_then_set_footer"></block> 
-                <label text="%{BKY_SEND_EMBED}"></label>
-                <block type="s4d_create_embed_then_send"></block>
-                <block type="frost_send_embed_rr"/>
-            </category>
-            -->
             <category name="Non-Nameable" colour="#fc8c03">
             
                 <label text="Create a perfect embed" web-class="boldtext"></label>
                 <block type="s4d_embed_create"></block>
-                <block type="s4d_embed_set_color"></block>
-                <block type="s4d_embed_set_author"></block>
-                <block type="s4d_embed_set_title"></block>
-                <block type="s4d_embed_set_desc"></block>
-                <block type="s4d_embed_set_thumb"></block>
-                <block type="s4d_embed_add_field"></block>
-                <block type="s4d_embed_set_image"></block>
-                <block type="s4d_embed_set_footer"></block>
+                <block type="s4d_embed_set_color">
+                <value name="COLOUR">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#6666cc</field>
+                    </shadow>
+                  </value></block>
+                <block type="s4d_embed_set_author">
+                 <value name="AUTHOR">
+                    <shadow type="text">
+                        <field name="TEXT">Eruption</field>
+                    </shadow>
+                  </value>
+                  <value name="PROFILE">
+                    <shadow type="text">
+                        <field name="TEXT">https://image.com</field>
+                    </shadow>
+                  </value>
+                </block>
+                <block type="s4d_embed_set_title">
+                  <value name="TITLE">
+                    <shadow type="text">
+                        <field name="TEXT">Some title</field>
+                    </shadow>
+                  </value>
+                </block>
+                <block type="s4d_embed_set_desc">
+                  <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT">Some desc here...</field>
+                    </shadow>
+                  </value>
+                </block>
+                <block type="s4d_embed_set_thumb">
+                  <value name="THUMB">
+                    <shadow type="text">
+                        <field name="TEXT">https://image.com</field>
+                    </shadow>
+                  </value>
+                </block>
+                <block type="s4d_embed_add_field">
+                  <value name="TITLE">
+                    <shadow type="text">
+                        <field name="TEXT">Some field title</field>
+                    </shadow>
+                  </value>
+                  <value name="DESCRIPTION">
+                    <shadow type="text">
+                        <field name="TEXT">Some desc here...</field>
+                    </shadow>
+                  </value>
+                  <value name="INLINE">
+                    <shadow type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </shadow>
+                  </value>
+                </block>
+                <block type="s4d_embed_set_image">
+                  <value name="IMAGE">
+                    <shadow type="text">
+                        <field name="TEXT">https://image.com</field>
+                    </shadow>
+                  </value>
+                </block>
+                <block type="s4d_embed_set_footer">
+                  <value name="FOOTER">
+                    <shadow type="text">
+                        <field name="TEXT">Some footer text here...</field>
+                    </shadow>
+                  </value>
+                </block>
                 <label text="Custom date format: MM-DD-YYYY" web-class="boldtext"></label>
                 <block type="s4d_embed_set_timestamp"></block>
                 <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
                 <block type="s4d_embed_send"></block>
             </category>
-            <!--
-            <category name="named: AHQ" colour="#fc8403">
-            
-                <block type="make_ahq_embed"/>
-                <label text="Embed Send" web-class="boldtext"></label>
-                <block type="send_ahq_embed"/>
-                <label text="Embed Creator" web-class="boldtext"></label>
-                <block type="title_ahq_embed"/>
-                <block type="url_ahq_embed"/>
-                <block type="author_ahq_embed"/>
-                <block type="color_ahq_embed"/>
-                <block type="des_ahq_embed"/>
-                <block type="fld_ahq_embed"/>
-                <block type="image_ahq_embed"/>
-                <block type="thmb_ahq_embed"/>
-                <block type="footer_ahq_embed"/>
-                <block type="stamp_ahq_embed"/>
-            </category>
-            -->
             <category name="Nameable" colour="#fc7703">
                 
                 <block type="gsa_create_embed"/>

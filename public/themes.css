@@ -1,1 +1,87 @@
-/* Soon */
+[specializedCSS=glow] {
+      -webkit-animation: glow 1s ease-in-out infinite alternate;
+      -moz-animation: glow 1s ease-in-out infinite alternate;
+      animation: glow 1s ease-in-out infinite alternate;
+}
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffffc7, 0 0 40px #ffffff79, 0 0 50px rgba(255, 255, 255, 0.295)73, 0 0 60px #ffffff27, 0 0 70px #ffffff02;
+      }
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ffffffbe, 0 0 40px rgba(255, 255, 255, 0.459), 0 0 50px #ffffff3b, 0 0 60px #ffffff38, 0 0 70px #ffffff1c, 0 0 80px #ffffff11;
+      }
+    }
+    [specializedCSS=darkglow] {
+      -webkit-animation: darkglow 1s ease-in-out infinite alternate;
+      -moz-animation: darkglow 1s ease-in-out infinite alternate;
+      animation: darkglow 1s ease-in-out infinite alternate;
+    }
+
+@keyframes darkglow {
+  from {
+    text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px rgb(0, 0, 0), 0 0 30px #000000c7, 0 0 40px #00000079, 0 0 50px rgba(0, 0, 0, 0.295)73, 0 0 60px #00000027, 0 0 70px #00000002;
+  }
+  to {
+    text-shadow: 0 0 20px rgb(0, 0, 0), 0 0 30px #000000be, 0 0 40px rgba(0, 0, 0, 0.459), 0 0 50px #0000003b, 0 0 60px #00000038, 0 0 70px #0000001c, 0 0 80px #00000011;
+  }
+}
+
+.light-them .blocklyTreeIcon {
+			filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+		}
+		
+.light-them #blocklyTreeIcon {
+  filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+}
+
+.light-them .blocklyTreeIconClosed {
+  filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+}
+
+.light-them #blocklyTreeIconClosed {
+  filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(96%) contrast(108%) !important;
+}
+
+
+.light-them .blocklyFlyoutLabelText {
+  transition: all 0.5s ease-in-out;
+  fill: #575e75 !important;
+}
+
+.light-them .blocklyToolboxDiv {
+  transition: all 0.5s ease-in-out;
+  background-color: #ddd !important;
+}
+
+.light-them .blocklyTreeLabel {
+  transition: all 0.5s ease-in-out;
+  color: black !important;
+}
+
+.light-them .blocklyTreeSeparator {
+  transition: all 0.5s ease-in-out;
+  border-bottom: solid #ebf0f4 1px;
+  height: 0;
+  margin: 5px 0;
+}
+
+.light-them .btgr {
+  transition: border-bottom 0.5s ease-in-out;
+  border-bottom: solid #bbb 1px !important;
+}
+
+.light-them .blocklySvg {
+  transition: background-color 0.5s ease-in-out;
+  background-color: white !important;
+}
+
+.light-them .blocklyFlyoutBackground {
+  transition: fill 0.5s ease-in-out;
+  fill: #e4e4e4!important;
+}
+
+.light-them #navSpace {
+  transition: all 0.5s ease-in-out;
+  background-color: #666 !important;
+}
