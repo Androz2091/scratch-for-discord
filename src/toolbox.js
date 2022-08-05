@@ -1763,7 +1763,7 @@ export default (Blockly, value, searching) => {
             <label text="Want to create an embed quickly?" web-class="boldtext"></label>
             <label text="Try the new Embed Creator Menu!" web-class="boldtext"></label>
             <button text="Simple Embed Creator" callbackKey="EMBED_GUI_POPUP"></button>
-            <label text="(Beta, 1.0)" web-class="boldtext"></label>
+            <label text="(Highly work in progress, 0.1)" web-class="boldtext"></label>
             <label text=""></label>
             <label text="Send a generated embed" web-class="boldtext"></label>
             <block type="s4d_embed_send"></block>
