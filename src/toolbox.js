@@ -2,24 +2,6 @@
 export default (Blockly, value, searching) => {
     /* eslint-disable */
 
-    const allow_toolbox_search = true
-
-    if (allow_toolbox_search) {
-        var toolbox_search_category = `
-    
-    <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">
-    <label text="Search category! Version 1.21"></label>
-    <label text=""></label>
-    <button text="Search for Block" callbackKey="SEARCH"></button>
-    <label text="Click the search category again if nothing happens."></label>
-    <label text=""></label>
-        <!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->
-    </category>
-    `
-    } else {
-        var toolbox_search_category = ``
-    }
-
     var toolbox_xml_contents = (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
 
@@ -32,7 +14,15 @@ export default (Blockly, value, searching) => {
     </category>
     -->
 	
-    ${toolbox_search_category}
+    <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">
+    <label text="Search category! Version 1.21"></label>
+    <label text=""></label>
+    <button text="Search for Block" callbackKey="SEARCH"></button>
+    <label text="Click the search category again if nothing happens."></label>
+    <label text=""></label>
+        <!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->
+    </category>
+
     <category name="Favorites" colour="#FFFF00" css-icon="customIcon fa fa-star">
     	<label text="Add your favorite blocks here by right clicking them and pressing &quot;Add to favorite!&quot;"></label>
                         <!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->
@@ -696,6 +686,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_eval"></block>
             <block type="s4d_eval2"></block>
             <block type="s4d_exec"></block>
+            <!--
             <block type="s4d_try_and_catch">
                 <value name="catch">
                     <block type="s4d_print">
@@ -705,6 +696,18 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
+            -->
+            <block type="jg_other_try_catch_finally">
+                <mutation xmlns="http://www.w3.org/1999/xhtml" iferror="true"/>
+                <statement name="IFERROR">
+                    <block type="s4d_print">
+                        <value name="PRINT">
+                            <block type="frost_other_err"/>
+                        </value>
+                    </block>
+                </statement>
+            </block>  
+
             <block type="frost_other_err"/>
             <block type="s4d_return"></block>
             <block type="jg_s4d_other_run_code_inside_file"/>
@@ -2664,6 +2667,9 @@ export default (Blockly, value, searching) => {
             <block type="s4d_created_at"></block>
             <block type="s4d_member_is_bot"/>
             <block type="jg_monaco_members_member_is_timed_out"/>
+            <label text="These blocks only work if a member is timed out."/>
+            <block type="monaco_member_timeout_until"/>
+            <block type="monaco_member_timeout_until_timestamp"/>
             <label text="Information about a Server Member (6 options)"></label>
             <block type="jg_members_member_is_value"/>
             <label text="Blocks for users"></label>
@@ -2718,17 +2724,19 @@ export default (Blockly, value, searching) => {
         </category>
         <category name="Emojis" colour="#347dfa" hidden="false">
         
-            <label text="Welcome to emojis"></label>
+            <label text="Create/Fetch Emojis"></label>
             <block type="fz_get_emoji"/>
             <block type="fz_create_emoji"/>
-            <block type="fz_delete_emoji"/>
+            <block type="fz_get_all_emoji"/>
+            <block type="fz_get_all_emoj"/>
+            <label text="Read Emojis"></label>
             <block type="fz_emoji_info"/>
             <block type="fz_emoji_animated"/>
             <block type="fz_emoji_exist"/>
-            <block type="fz_get_all_emoji"/>
-            <block type="fz_get_all_emoj"/>
-            <block type="fz_unlock_emoji"/>
+            <label text="Actions on Emojis"></label>
             <block type="fz_lock_emoji"/>
+            <block type="fz_unlock_emoji"/>
+            <block type="fz_delete_emoji"/>
             <label text="Detect Emojis in text" web-class="boldtext"></label>
             <block type="jg_emoji_text_regex_list_of_normal_emojis_in_text"/>
             <block type="jg_emoji_text_regex_list_of_custom_emojis_in_text"/>
@@ -3370,101 +3378,10 @@ export default (Blockly, value, searching) => {
             </category>
             <category name="Databases" colour = "#2AC395">
 
-            <category name="Mongo" colour="#0db550">
-        <label text="connect to MongoDB"></label>
-        <block type="mongo_on"></block>
-        <block type="mongo_connect">
-        <value name="URL">
-        <shadow type="text">
-            <field name="TEXT">mongodb url</field>
-        </shadow>
-    </value>
-        </block>
-        <label text="nerd blocks"></label>
-        <block type="mongo_get_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_has_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_set_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-            <value name="VALUE">
-                <shadow type="text">
-                    <field name="TEXT">world</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_push_data">
-        <value name="KEY">
-            <shadow type="text">
-                <field name="TEXT">hello</field>
-            </shadow>
-        </value>
-        <value name="VALUE">
-            <shadow type="text">
-                <field name="TEXT">world</field>
-            </shadow>
-        </value>
-    </block>
-    <block type="mongo_pull_data">
-    <value name="KEY">
-        <shadow type="text">
-            <field name="TEXT">hello</field>
-        </shadow>
-    </value>
-    <value name="VALUE">
-        <shadow type="text">
-            <field name="TEXT">world</field>
-        </shadow>
-    </value>
-</block>
-        <block type="mongo_delete_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_add_data">
-            <value name="COUNT">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">points</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_subtract_data">
-            <value name="COUNT">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">points</field>
-                </shadow>
-            </value>
-        </block>
-</category>
             
-            <category name="{{ TOOLBOX_DATABASE }}" colour="#F1DA54">
+            
+            <category name="JSON" colour="#F1DA54">
+             <label text="Simplest database"></label>
              <label text="Create a new database name and file"></label>
              <block type="s4d_database_create_new">
             <value name="NAME">
@@ -3601,41 +3518,101 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
 
-        <category name="Replit DB" colour="#150b91">
-        
-        <block type="parham_replitdb_setto">
-            <value name="set">
+<category name="MongoDB" colour="#0db550">
+        <label text="connect to MongoDB"></label>
+        <block type="mongo_on"></block>
+        <block type="mongo_connect">
+        <value name="URL">
+        <shadow type="text">
+            <field name="TEXT">mongodb url</field>
+        </shadow>
+    </value>
+        </block>
+        <label text="nerd blocks"></label>
+        <block type="mongo_get_data">
+            <value name="KEY">
                 <shadow type="text">
                     <field name="TEXT">hello</field>
                 </shadow>
             </value>
-            <value name="to">
+        </block>
+        <block type="mongo_has_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_set_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="VALUE">
                 <shadow type="text">
                     <field name="TEXT">world</field>
                 </shadow>
             </value>
         </block>
-        <label text="On These Blocks You Can Use Data Block"/>
-        <block type="parham_replitdb_getall"/>
-        <block type="parham_replitdb_get">
-            <value name="get">
+        <block type="mongo_push_data">
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">hello</field>
+            </shadow>
+        </value>
+        <value name="VALUE">
+            <shadow type="text">
+                <field name="TEXT">world</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="mongo_pull_data">
+    <value name="KEY">
+        <shadow type="text">
+            <field name="TEXT">hello</field>
+        </shadow>
+    </value>
+    <value name="VALUE">
+        <shadow type="text">
+            <field name="TEXT">world</field>
+        </shadow>
+    </value>
+</block>
+        <block type="mongo_delete_data">
+            <value name="KEY">
                 <shadow type="text">
                     <field name="TEXT">hello</field>
                 </shadow>
             </value>
         </block>
-        <block type="parham_replitdb_data"/>
-        <label text="You Can't Use Data Block On This Blocks"/>
-        <block type="parham_replitdb_delete">
-            <value name="delete">
+        <block type="mongo_add_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
                 <shadow type="text">
-                    <field name="TEXT">hello</field>
+                    <field name="TEXT">points</field>
                 </shadow>
             </value>
         </block>
-        </category>
+        <block type="mongo_subtract_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">points</field>
+                </shadow>
+            </value>
+        </block>
+</category>
 
-        <category name="SQLite DB" colour="#A025DE">
+        <category name="SQLite" colour="#A025DE">
             <label text="%{BKY_LABEL_READ_DB}"></label>
             <block type="qdb_get">
                 <value name="KEY">
@@ -3721,6 +3698,39 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
         </category>
+        <category name="Replit" colour="#150b91">
+        
+        <block type="parham_replitdb_setto">
+            <value name="set">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="to">
+                <shadow type="text">
+                    <field name="TEXT">world</field>
+                </shadow>
+            </value>
+        </block>
+        <label text="On These Blocks You Can Use Data Block"/>
+        <block type="parham_replitdb_getall"/>
+        <block type="parham_replitdb_get">
+            <value name="get">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="parham_replitdb_data"/>
+        <label text="You Can't Use Data Block On This Blocks"/>
+        <block type="parham_replitdb_delete">
+            <value name="delete">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        </category>
 
         <!--
         <category name="Firebase" colour="#ffb866"/>
@@ -3785,83 +3795,5 @@ export default (Blockly, value, searching) => {
         return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
     }))
 
-    // OLD searching code
-    /*
-    
-    // preparing variables for searching
-    
-        const default_max_length = 250
-        var CATEGORYCONTENT;
-    
-    // set default blocks from BlocklyComponent function code
-    
-    const toolboxArray = toolbox_xml_contents.split('\n');
-                var blocks = []
-                var pushed
-                var repeat_end = toolboxArray.length;
-                for (var count = 0; count < repeat_end; count++) {
-                    if ((toolboxArray[count].includes('<block type="')) && !(toolboxArray[count].includes('LINE HIDDEN FROM SEARCH'))) {
-                        pushed = (((toolboxArray[count].replaceAll(" ", "")).replaceAll('blocktype="', "")).replaceAll("/", "").replaceAll("<", "").replaceAll('"', "")).replaceAll("'", "").replaceAll("\t", "")
-                        pushed = pushed.slice(0, pushed.indexOf('>'));
-                        if (!(blocks.includes(pushed))) {
-                            blocks.push(pushed)
-                        }
-                    }
-                }
-    
-    // set the default blocks and run the searching code
-    
-    const defaultblocks = blocks
-    
-        if (searching) {
-            var newblocks = []
-            var check;
-            var searchparam = prompt("Search for a block with:")
-            if (!(searchparam)) {
-                searchparam = "null"
-            }
-            var searchparamFiltered = ((searchparam.replaceAll("<", "_")).replaceAll(">", "_")).replaceAll("\\", "_")
-            searchparam = searchparam.replaceAll(" ", "_").toLowerCase()
-            var repeat_end = defaultblocks.length;
-            for (var count = 0; count < repeat_end; count++) {
-                check = defaultblocks[count];
-                if (String(check).includes(String(searchparam)) && !(String(check).includes("LINE HIDDEN FROM SEARCH"))) {
-                    newblocks.push(check);
-                }
-            }
-            if (newblocks.length > 1) {
-                var s = "s"
-            } else {
-                var s = ""
-            }
-            if (newblocks.length > 0) {
-                var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}, found ${newblocks.length} block${s} that matched" web-class="boldtext"></label><block type="${newblocks.join("\"/>\n<block type=\"")}"/>`
-            } else {
-                var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
-            }
-        } else {
-            var length_lessthan_350 = true
-            if (defaultblocks.length < default_max_length) {
-                var newblocks = defaultblocks
-            } else {
-                length_lessthan_350 = false
-                var newblocks = defaultblocks.slice(0, default_max_length)
-            }
-            if (newblocks.length > 0) {
-                var CATEGORYCONTENT = "<block type=\"" + newblocks.join("\"/>\n<block type=\"") + "\"/>"
-                if (length_lessthan_350 == false) {
-                    CATEGORYCONTENT = CATEGORYCONTENT + `<label text="${defaultblocks.length - default_max_length} blocks left..." web-class="boldtext"></label>`
-                }
-            } else {
-                var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`
-            }
-        }
-        toolbox_xml_contents = toolbox_xml_contents.replace("<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->", CATEGORYCONTENT)
-    
-    */
-
-
     return toolbox_xml_contents
-
-
 }
