@@ -1,119 +1,137 @@
 /* eslint-disable */
 import Blockly from "blockly/core";
+/* 
+smol doc on how dis works for anyone who wants to try and fix this since i cant
+mutatorArgs:
+the parts that get added to the block when the check mark is on.
+mutatorNames:
+a list of all the posible inputs
 
+now that thats out of the way lesgo
+
+    "message": [
+      {
+        "type": "input_value", // the input type the only supported ones are input value, dummy and statement
+        "name": "msg", // the input name
+        "check": "String", // the check
+        "field": "message" // the message to the left of the input
+      }
+      you can have as meany of the thing above as you want/need
+    ],
+*/
 const mutatorNames = ['message', 'color', 'title', 'url', 'author', 'description', 'thumbnail', 'fields', 'image', 'timestamp', 'footer']
 
 const mutatorArgs = {
     "message": [
-      "message",
       {
         "type": "input_value",
         "name": "msg",
-        "check": "String"
+        "check": "String",
+        "field": "message"
       }
     ],
     "color": [
-      "color",
       {
       "type": "input_value",
       "name": "color", 
-      "check": ["String", "Colour"]
+      "check": ["String", "Colour"],
+      "field": "color"
       }],
     "title": [
-      "title",
       {
         "type": "input_value",
         "name": "title",
-        "check": "String"
+        "check": "String",
+        "field": "title"
       }],
     "url": [
-      "title url",
       {
         "type": "input_value",
         "name": "url",
-        "check": "String"
+        "check": "String",
+        "field": "title url"
       }],
     "author": [
-      "author:",
       {
         "type": "input_dummy",
-        "name": "a"
+        "name": "a",
+        "field": "author:"
       },
-      "name",
       {
         "type": "input_value",
         "name": "aname",
-        "check": "String"
+        "check": "String",
+        "field": "name"
       },
-      "icon",
       {
         "type": "input_value",
         "name": "aicon_url",
-        "check": "String"
+        "check": "String",
+        "field": "icon"
       },
-      " author url",
       {
         "type": "input_value",
         "name": "aurl",
-        "check": "String"
+        "check": "String",
+        "field": " author url"
       }],
     "description": [
-      "description",
       {
         "type": "input_value",
         "name": "description",
-        "check": "String"
+        "check": "String",
+        "field": "description"
       }],
     "thumbnail": [
-      "thumbnail",
       {
         "type": "input_value",
         "name": "thumbnail",
-        "check": "String"
+        "check": "String",
+        "field": "thumbnail"
       }],
     "fields": [
-      "fields",
       {
         "type": "input_dummy",
-        "name": "fi"
+        "name": "fi",
+        "field": "fields"
       },
-      null,
       {
         "type": "input_statement",
         "name": "fields",
-        "check": "simple_field"
+        "check": "simple_field",
+        "field": null
       }],
     "image": [
-      "image",
       {
         "type": "input_value",
         "name": "image",
-        "check": "String"
+        "check": "String",
+        "field": "image"
       }],
     "timestamp": [
-      "timestamp",
       {
         "type": "input_value",
         "name": "timestamp",
-        "check": "String"
+        "check": "String",
+        "field": "timestamp"
       }],
     "footer": [
-      "footer:",
       {
         "type": "input_dummy",
-        "name": "f"
+        "name": "f",
+        "field": "footer:"
       },
-      "text",
       {
         "type": "input_value",
         "name": "ftext",
-        "check": "String"
+        "check": "String",
+        "field": "text"
       },
-      "icon url",
       {
         "type": "input_value",
         "name": "ficon_url",
-        "check": "String"
+        "check": "String",
+        "field": "icon url"
       }]
 };
 
@@ -141,6 +159,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.Blocks["gsa_simple_embed_mutator"] = {
+  inputs_: [true, true, false, false, false, false, false, false, false, false],
   init: function () {
       this.setColour("#CECDCE");
       this.setTooltip("");
@@ -149,7 +168,7 @@ Blockly.Blocks["gsa_simple_embed_mutator"] = {
 };
 
 const mutator = {
-    inputs_: [true, true, false, false, false, false, false, false, false, false],
+    
 
     mutationToDom: function () {
         if (!this.inputs_) {
@@ -191,7 +210,7 @@ const mutator = {
     updateShape_: function () {
         for (let i = 0; i < this.inputs_.length; i++) {
             let args = mutatorArgs[String(mutatorNames[i])]
-            for (let i = 1; i < args.length; i = i + 2) {
+            for (let i = 1; i < args.length; i++) {
               if (this.getInput(args[i]["name"]) !== null) {
                 this.removeInput(args[i]["name"]);
               }
@@ -200,9 +219,9 @@ const mutator = {
         for (let i = 0; i < this.inputs_.length; i++) {
             if (this.inputs_[i]) {
               let args = mutatorArgs[String(mutatorNames[i])]
-                for (let i = 1; i < args.length; i = i + 2) {
+                for (let i = 1; i < args.length; i++) {
                     let current = args[i]
-                    let text = args[i-1]
+                    let text = args[i]["field"]
                     if (current["type"] == 'input_dummy') {
                         this.appendDummyInput(String(current["name"]))
                             .setAlign(Blockly.ALIGN_CENTRE)
@@ -287,5 +306,5 @@ Blockly.JavaScript[blockName] = function (block) {
 
     const code = `${message}embeds: [{
 ${color}${title}${url}${author}${description}${thumbnail}${fields}${image}${timestamp}${footer}}]`;
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
