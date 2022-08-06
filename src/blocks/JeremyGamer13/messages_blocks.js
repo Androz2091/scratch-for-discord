@@ -1327,13 +1327,8 @@ Blockly.Blocks["jg_unused_floating_comment"] = {
         );
     }
 }
-Blockly.JavaScript["jg_unused_floating_comment"] = function (block) {
-    var text = block.getFieldValue('TEXT');
-    text = text.replaceAll("*/", "* /")
-    const code = `/*
-    ${text}
-    */`;
-    return code;
+Blockly.JavaScript["jg_unused_floating_comment"] = function () {
+    return ``;
 };
 Blockly.Blocks["jg_comments_floating_arrow"] = {
     init: function () {
@@ -4044,5 +4039,34 @@ Blockly.Blocks["jg_monaco_members_member_is_timed_out"] = {
 Blockly.JavaScript["jg_monaco_members_member_is_timed_out"] = function (block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
     const code = [`${member}.isCommunicationDisabled()`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+
+Blockly.Blocks["jg_s4d_other_throw_custom_error"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "throw custom error %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "ERROR",
+                        "check": null
+                    }
+                ],
+                "inputsInline": true,
+                "previousStatement": null,
+                "nextStatement": null,
+                "colour": "#D14081",
+                "tooltip": "Cause a custom error to occur.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_s4d_other_throw_custom_error"] = function (block) {
+    const err = Blockly.JavaScript.valueToCode(block, "ERROR", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `throw ${err ? err : null}
+`
     return code;
 };

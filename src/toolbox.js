@@ -707,7 +707,11 @@ export default (Blockly, value, searching) => {
                     </block>
                 </statement>
             </block>  
-
+            <block type="jg_s4d_other_throw_custom_error">
+                <value name="ERROR">
+                    <block type="text"/>
+                </value>
+            </block>
             <block type="frost_other_err"/>
             <block type="s4d_return"></block>
             <block type="jg_s4d_other_run_code_inside_file"/>
@@ -750,12 +754,7 @@ export default (Blockly, value, searching) => {
                     </value>
                 </block>
             </category>
-        <category name="chatbot" colour="#ff0000">
-        <block type="chat_ahq"/>
-        </category>
-        <category name="mod" colour="#ff0880">
-        <block type="ahq-mod"/>
-        </category>
+            
         <category name="Voice" colour="#000099">
         <block type="voice_event"/>
         <block type="voice_switch"/>

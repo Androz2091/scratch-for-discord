@@ -621,9 +621,9 @@ Blockly.ContextMenuRegistry.registry.register({
         let xml = Blockly.Xml.textToDom('<xml><block type="' + input + '"></block></xml>');
         try {
             Blockly.Xml.appendDomToWorkspace(xml, workspace)
-        } catch {
-            console.log("could not spawn block!")
-            alert(`Block ${String(input)} does not exist or was not defined`)
+        } catch (err) {
+            console.log("could not spawn block!", err)
+            alert(`Block ${String(input)} does not exist or was not defined correctly`)
         }
       },
       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
