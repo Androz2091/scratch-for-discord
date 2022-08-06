@@ -159,7 +159,6 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.Blocks["gsa_simple_embed_mutator"] = {
-  inputs_: [true, true, false, false, false, false, false, false, false, false],
   init: function () {
       this.setColour("#CECDCE");
       this.setTooltip("");
@@ -169,6 +168,7 @@ Blockly.Blocks["gsa_simple_embed_mutator"] = {
 
 const mutator = {
     
+  inputs_: [true, true, false, false, false, false, false, false, false, false],
 
     mutationToDom: function () {
         if (!this.inputs_) {
