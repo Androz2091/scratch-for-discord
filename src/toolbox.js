@@ -2394,6 +2394,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_channel_parent_id"/>
             <block type="s4d_channel_message_id"/>
             <block type="s4d_channel_topic"/>
+            <block type="monaco_slowmode_of_channel"/>
             <block type="s4d_channel_exist"/>
             <block type="s4d_is_channel_nsfw"/>
             <!--
