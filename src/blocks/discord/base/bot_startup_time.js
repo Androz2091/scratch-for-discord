@@ -5,7 +5,7 @@ const blockName = "s4d_bot_startup_time";
 const blockData = {
     "message0": "bot startup time",
     "colour": "#5b67a5",
-    "tooltip": "",
+    "tooltip": "The time of startup of the bot.",
     "output": "String",
     "helpUrl": ""
 };
