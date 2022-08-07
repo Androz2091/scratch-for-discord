@@ -41,5 +41,5 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH");
-    return [`interaction.options.${searchType}`, Blockly.JavaScript.ORDER_NONE];
+    return [`interaction.${searchType}`, Blockly.JavaScript.ORDER_NONE];
 };
