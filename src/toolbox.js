@@ -2012,7 +2012,9 @@ export default (Blockly, value, searching) => {
                     <block type="id_btn_clkr"/>
                     <block type="id_btn_ahq"/>
                     <label text="Embed Information" web-class="boldtext"></label>
+                    <!--
                     <block type="embed_btn_ahq"/>
+                    -->
                     <block type="embed_send_round">
                         <value name="Label">
                             <shadow type="text">
@@ -2143,7 +2145,9 @@ export default (Blockly, value, searching) => {
                         </value>
                     </block>
                     <block type="ahq_ahq_ahq_modal"/>
+                    <!--
                     <block type="ahqq_ahq_modal"/>
+                    -->
                     <label text="Form Info" web-class="boldtext"></label>
                     <block type="id_form_ahq"/>
                     <block type="id_textbox_ahq"/>
