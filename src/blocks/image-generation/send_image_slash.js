@@ -21,7 +21,7 @@ const blockData = {
     "previousStatement": null,
     "nextStatement": null,
     "inputsInline": true,
-    "tooltip": "",
+    "tooltip": "Send a image with a slash command.",
     "helpUrl": ""
 };
 
