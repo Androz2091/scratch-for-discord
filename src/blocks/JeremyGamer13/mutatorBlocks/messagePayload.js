@@ -1,28 +1,35 @@
 import Blockly from "blockly/core";
 import BaseBlockly from "blockly";
-const blockName = "s4d_message_embed"
-const menuName = "s4d_message_embed_mutator"
+const yourName = "jg"
+const blockName = yourName + "_" + "messages_new_message_payload";
+const menuName = blockName + "_checkboxMutatorMenu"
 
-const BlockColor = "#40BF4A"
+const BlockColor = "#4C97FF"
 // menu customization
-const menuUsesBlockColor = false
-const menuTooltip = `Click the checkboxes to change the embed's contents.`
+const menuUsesBlockColor = true
+const menuTooltip = ''
 
 // border fields is the name of the input when getting it for the exported code.
 // they HAVE to be uppercase currently or it won't work since im too lazy to change the uppercase function uses
-const BORDER_FIELDS = ["MESSAGE", "COLOR", "TITLE", "IMAGE", "FOOTER", "THUMBNAIL", "FIELD"];
+const BORDER_FIELDS = ["CONTENT", "TTS", "REPLYING_TO_MESSAGE"];
 // border types is the input type of every input in the block
-const BORDER_TYPES = ["String", "Colour", "String", "String", "String", "String", "Field"];
+const BORDER_TYPES = ["String", "Boolean", "Message"];
 // names is the name of that input in the menu and in the final block
-const names = ["message", "color", "title", "image", "footer", "thumbnail", "field"];
+const names = ["content", "text to speech?", "replying to message"];
 const amountOfInputs = names.length
 
 const blockData = {
-    "message0": "Message Embed",
-    "output": ["MessageEmbed", "AndrozS4DEmbed"],
-    "helpUrl": "",
-    "tooltip": "",
-    "colour": BlockColor
+    "message0": "new message for target %1",
+    "args0": [
+        {
+            "type": "input_value",
+            "name": "TARGET",
+            "check": ["Message", "Channel", "User", "Member"]
+        }
+    ],
+    "colour": BlockColor,
+    "tooltip": "Create a message to be sent later. The target can be any Channel, any Member, any User, etc.",
+    "output": "MessagePayload"
 };
 Blockly.Blocks[menuName] = {
     init: function () {
@@ -98,37 +105,24 @@ Blockly.Blocks[blockName] = {
 
 };
 
-Blockly.JavaScript["s4d_message_embed"] = function (block) {
-    let title = "";
-    let color = "";
-    let image = "";
-    let description = "";
-    let footer = "";
-    let thumbnail = "";
-    let field = "";
-    if ((Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
-        title = `\n.setTitle(String(${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC)}))`;
+Blockly.JavaScript[blockName] = function (block) {
+    // code should be the first couple lines of your code before the inputs
+    const TARGET = Blockly.JavaScript.valueToCode(block, "TARGET", Blockly.JavaScript.ORDER_NONE);
+    let code = [`new Discord.MessagePayload(${TARGET}, {`]
+    const CONTENT = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_NONE);
+    const TTS = Blockly.JavaScript.valueToCode(block, "TTS", Blockly.JavaScript.ORDER_NONE);
+    const REPLYINGTOMESSAGE = Blockly.JavaScript.valueToCode(block, "REPLYING_TO_MESSAGE", Blockly.JavaScript.ORDER_NONE);
+    // check if the inputs exist before adding them to the exported code
+    if (CONTENT) {
+        code.push(`content: ${CONTENT},`)
     }
-    if ((Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
-        color = `\n.setColor(String(${Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC)}))`;
+    if (TTS) {
+        code.push(`tts: ${TTS},`)
     }
-    if ((Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
-        image = `\n.setImage(String(${Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC)}))`;
+    if (REPLYINGTOMESSAGE) {
+        code.push(`reply: {messageReference: ${REPLYINGTOMESSAGE}},`)
     }
-    if ((Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
-        description = `\n.setDescription(String(${Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC)}))`;
-    }
-    if ((Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
-        footer = `\n.setFooter(String(${Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC)}))`;
-    }
-    if ((Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
-        thumbnail = `\n.setThumbnail(String(${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC)}))`;
-    }
-    if ((Blockly.JavaScript.statementToCode(block, "FIELD", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
-        field = `\n.addFields(${Blockly.JavaScript.statementToCode(block, "FIELD")})`;
-    }
-    return [`
-            embeds: [new MessageEmbed()${title}${color}${image}${description}${footer}${thumbnail}${field}
-            ]
-    `, Blockly.JavaScript.ORDER_ATOMIC];
+    // the last line of code here, do another code.push(``) if you need to put more code
+    code.push(`})`)
+    return [code.join("\n"), Blockly.JavaScript.ORDER_ATOMIC];
 };
