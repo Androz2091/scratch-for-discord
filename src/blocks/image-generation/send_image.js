@@ -21,7 +21,7 @@ const blockData = {
     "previousStatement": null,
     "nextStatement": null,
 		"inputsInline": true,
-    "tooltip": "",
+    "tooltip": "Send the image in a channel.",
     "helpUrl": ""
 };
 
