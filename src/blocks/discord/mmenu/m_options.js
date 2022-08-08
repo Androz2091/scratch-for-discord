@@ -12,7 +12,7 @@ const blockData = {
             "options": [
                 [
                     "message",
-                    "targetMessage"
+                    "options._hoistedOptions[0].message.content"
                 ],
                 [
                     "user",
