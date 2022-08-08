@@ -26,8 +26,7 @@ export default {
                     <span style="color:#e3aa24">AlexCdDg</span>,
                     <span style="color:#e88f68">Eruption</span>,
                     <span style="color:#429139">jose_trindade</span>,
-                    <span style="color:#9c2525">MrRedo</span>,
-                    <span style="color:#ff7b00">Cwheesy</span> <br><br> 
+                    <span style="color:#9c2525">MrRedo</span> <br><br> 
                     <h2><b>Contributors:</b></h2>
                     <span style="color:#26a39d">henpokpok</span>,
                     <span style="color:#D276F7">LimeNade</span>,
@@ -37,6 +36,10 @@ export default {
                     <span style="color:#eb4634">RedMan13</span>,
                     <span style="color:#9419FF">TropicGalxy</span>
                     </p></b>
+                    <b><p>
+                    <h3><b>Cwheesy Branch:</b></h3>
+                    <span style="color:#ff7b00">Cwheesy</span> <br><br>
+                    </p></b> 
                     <h3><b>Original S4D:</b></h3>
                     <b><p>
                     <span style="color:#36915a">Androz</span>,
