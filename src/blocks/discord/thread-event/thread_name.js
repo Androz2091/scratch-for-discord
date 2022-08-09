@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const thread = Blockly.JavaScript.valueToCode(block, "THREAD", Blockly.JavaScript.ORDER_ATOMIC);
-    return(`${thread}.name`)
+    return[`${thread}.name`, Blockly.JavaScript.ORDER_NONE]
 };
 
 registerRestrictions(blockName, [
