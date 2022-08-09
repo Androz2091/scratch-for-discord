@@ -1482,27 +1482,41 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Threads" colour="#478ded">
-            <label text="%{BKY_MESSAGE_ACTIONS}"/>
+            <label text="Find a thread"/>
+            <block type="s4d_thread_get_then">
+              <value name="ID">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="CHANNEL">
+                    <block type="s4d_message_channel"/>
+                </value>
+            </block>
+            <block type="s4d_gotten_thread"/>
+            <label text="Start a thread"/>
             <block type="s4d_message_start_thread"/>
             <block type="s4d_start_thread"/>
             <block type="s4d_started_thread"/>
             <label text="Detect an updated thread"/>
             <block type="s4d_on_thread_update"/>
             <block type="s4d_updated_thread"/>
-            <label text="%{BKY_THREAD_CREATE_LABEL}"/>
+            <label text="Detect a created thread"/>
             <block type="s4d_on_thread_create"/>
             <block type="s4d_created_thread_on"/>
-            <label text="%{BKY_THREAD_DELETE_LABEL}"/>
+            <label text="Detect a deleted thread"/>
             <block type="s4d_on_thread_delete"/>
             <block type="s4d_deleted_thread"/>
-            <label text="%{BKY_THREAD_OTHER_LABEL}"/>
-            <block type="s4d_if_thread_archived"/>
+            <label text="Information about the thread"/>
+            <block type="s4d_thread_boolean"/>
             <block type="s4d_thread_channel"/>
             <block type="s4d_thread_name"/>
+            <block type="s4d_thread_id"/>
             <block type="s4d_thread_server"/>
             <block type="s4d_thread_info"/>
+            <label text="Actions on the thread"/>
             <block type="s4d_thread_archive"/>
-	        <block type="jg_monaco_threads_add_member_to_from_thread_with_reason"/>
+	          <block type="s4d_thread_member_add"/>
         </category>
         <category name="Webhooks" colour="#475ded">
         

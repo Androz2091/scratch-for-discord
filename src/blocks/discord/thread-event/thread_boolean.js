@@ -1,7 +1,7 @@
 import Blockly from "blockly/core";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_if_thread_archived";
+const blockName = "s4d_thread_boolean";
 
 const blockData = {
     "message0": "thread %1 is %2?",

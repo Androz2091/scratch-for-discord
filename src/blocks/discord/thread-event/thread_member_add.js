@@ -1,8 +1,8 @@
 import Blockly from "blockly/core";
 import BaseBlockly from "blockly";
 import { registerRestrictions } from "../../../restrictions";
-const blockName = "s4d_thread_archive"
-const menuName = "s4d_thread_archive_mutator"
+const blockName = "s4d_thread_member_add"
+const menuName = "s4d_thread_member_add_mutator"
 
 const BlockColor = "#2a97b8"
 // menu customization
@@ -19,39 +19,32 @@ const names = ["with reason"];
 const amountOfInputs = names.length
 
 const blockData = {
-    "message0": "%{BKY_THREAD_ARCHIVE}",
+    "message0": "%1 %2 to / from thread %3",
     "args0": [
         {
             "type": "field_dropdown",
             "name": "TYPE",
             "options": [
                 [
-                    "archive",
-                    "true"
+                    "add member",
+                    "add"
                 ],
                 [
-                    "unarchive",
-                    "false"
-                ],
-                [
-                    "lock",
-                    "lock"
-                ],
-                [
-                    "unlock",
-                    "unlock"
-                ],
-                [
-                    "delete",
-                    "delete"
+                    "remove member with ID",
+                    "remove"
                 ]
             ]
         },
         {
             "type": "input_value",
+            "name": "MEMBER",
+            "check": ["Member", "String"]
+        },
+        {
+            "type": "input_value",
             "name": "THREAD",
             "check": "Thread"
-        },
+        }
       ],
     "previousStatement": null,
     "nextStatement": null,
@@ -67,13 +60,14 @@ Blockly.Blocks[menuName] = {
         this.setHelpUrl("");
     }
 };
+
 Blockly.Blocks[blockName] = {
     init: function () {
         this.jsonInit(blockData);
         this.setMutator(new Blockly.Mutator([]));
         this.inputs_ = []
         for (let i = 0; i < amountOfInputs; i++) {
-            this.inputs_.push((false))
+            this.inputs_.push(false)
         }
     },
 
@@ -134,31 +128,17 @@ Blockly.Blocks[blockName] = {
 
 };
 
-Blockly.JavaScript["s4d_thread_archive"] = function (block) {
+Blockly.JavaScript[blockName] = function (block) {
     const type = block.getFieldValue("TYPE");
     const thread = Blockly.JavaScript.valueToCode(block, "THREAD", Blockly.JavaScript.ORDER_ATOMIC);
-    const reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
-     if ((reason.length) !== 0) {
-      if(type === "true" || type === "false"){
-        return(`${thread}.setArchived(${type}, ${reason});\n`);
-      } else if (type == "lock") {
-        return(`${thread}.setLocked(true, ${reason});\n`)
-      } else if (type == "unlock") {
-        return(`${thread}.setLocked(false, ${reason});\n`)
-      } else {
-        return(`${thread}.delete(${reason})`)
-      } 
-     } else {
-       if(type === "true" || type === "false"){
-        return(`${thread}.setArchived(${type});\n`);
-      } else if (type == "lock") {
-        return(`${thread}.setLocked(true);\n`)
-      } else if (type == "unlock") {
-        return(`${thread}.setLocked(false, ${reason});\n`)
-      } else {
-        return(`${thread}.delete(${reason})`)
-      } 
-     }
+    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    let reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
+    if (reason) {
+        reason = ", " + reason
+    }
+    const code = `${thread}.members.${type}(${member}${reason})
+`
+    return code;
 };
 
 registerRestrictions(blockName, [
