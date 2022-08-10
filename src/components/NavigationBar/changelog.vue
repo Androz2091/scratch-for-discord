@@ -6,6 +6,16 @@
 
 <script>
 import Swal from "sweetalert2";
+
+/* eslint-disable */
+function convertBlocklyHTMLElementToDisplayableContent(path, width, height) {
+    let newPath = path
+    newPath = path.replace(/transform="translate\([0-9\.\-]*,[0-9\.\-]*\)">/mi, `transform="translate(0,0)">`)
+    let returned = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklySvg" tabindex="0" width="${width}px" height="${height}px" style="display: inline;position: inherit;fill: white;font: bold 11px Helvetica Neue, Segoe UI, Helvetica, sans-serif">` + newPath
+    returned += "</svg>"
+    return returned
+}
+
 export default {
     name: "Changelog",
     methods: {
@@ -18,6 +28,12 @@ export default {
                   <p style="font-weight: bold;">Update logs are moved to our official <a style="color: #ff4500;" href="https://www.reddit.com/r/s4d/">r/s4d</a> Subreddit</p>
                   <iframe id="reddit-embed" src="https://www.redditmedia.com/r/s4d/comments/wk4koo/thread_blocks_are_revamped_with_a_bunch_of_new/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="631" width="640" scrolling="no"></iframe>
                 `,
+                /*
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklySvg" tabindex="0" width="400px" height="400px">
+                  <g data-id="O9tj,(PCVV2w/CsiPNGV" class="blocklyDraggable" transform="translate(0,0)"><path class="blocklyPath" stroke="#b96f00" fill="#f79400" d=" m 0,0  m 0,4 a 4 4 0 0,1 4,-4  h 217.3828125 a 4 4 0 0,1 4,4  v 4  V 8  V 40  V 44 a 4 4 0 0,1 -4,4  H 64  c -2,0  -3,1  -4,2  l -4,4  c -1,1  -2,2  -4,2  h -12  c -2,0  -3,-1  -4,-2  l -4,-4  c -1,-1  -2,-2  -4,-2  h -8 a 4 4 0 0,0 -4,4  v 16 a 4 4 0 0,0 4,4  h 8  c 2,0  3,1  4,2  l 4,4  c 1,1  2,2  4,2  h 12  c 2,0  3,-1  4,-2  l 4,-4  c 1,-1  2,-2  4,-2  H 221.3828125 a 4 4 0 0,1 4,4  V 80  V 100 a 4 4 0 0,1 -4,4  h -217.3828125 a 4 4 0 0,1 -4,-4 z
+"></path><g transform="translate(8,13.5)"><text class="blocklyText" dominant-baseline="central" x="0" y="10.5">When&nbsp;a&nbsp;message&nbsp;is&nbsp;received</text></g></g>
+                  </svg>
+                */
 //                 html:`
                 
 //                 <h2> <a href="https://discord.gg/TsQPMrNyBv"> Official S4D Server https://discord.gg/TsQPMrNyBv</a></h2>
