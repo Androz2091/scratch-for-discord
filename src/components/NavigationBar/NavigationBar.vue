@@ -1093,6 +1093,13 @@ load()`])
             </div>
         </div>
     </span>
+    <span>
+        <div class="row123">
+            <div class="column123" name="textonly">
+                <image src="https://media.discordapp.net/attachments/914411539887456296/1006879208397611048/screenshot_23.png?width=1084&height=676" width="213" height="133"></image>
+            </div>
+        </div>
+    </span>
     <b>Switching themes may require a refresh to work properly.</b>
 </center>
 `
@@ -1110,6 +1117,7 @@ load()`])
                                     't6': 'Glowy',
                                     't7': "Scratch Block Top",
                                     't8': "Full Colors",
+                                    't9': "Text only",
                                     'none': 'Default'
                                 },
                                 inputPlaceholder: 'Select a theme',
@@ -1162,6 +1170,20 @@ load()`])
                                     break
                                 case "t8":
                                     localforage.setItem("utilitiesTheme", "full-colors")
+                                    break
+                                case "t9":
+                                    this.$swal({
+                                        title: "Warning!",
+                                        text: "This theme is experimental and may cause problems when trying to create your bot. Are you sure you want to enable it?",
+                                        icon: "warning",
+                                        buttons: {
+                                            cancel: "Cancel",
+                                            ye: "Use this theme"
+                                        },
+                                    }).then(async result => {
+                                        if (String(result) != "ye") return
+                                        localforage.setItem("utilitiesTheme", "text-only")
+                                    })
                                     break
                                 case "none":
                                     localforage.removeItem("utilitiesTheme")
