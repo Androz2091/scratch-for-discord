@@ -1327,13 +1327,8 @@ Blockly.Blocks["jg_unused_floating_comment"] = {
         );
     }
 }
-Blockly.JavaScript["jg_unused_floating_comment"] = function (block) {
-    var text = block.getFieldValue('TEXT');
-    text = text.replaceAll("*/", "* /")
-    const code = `/*
-    ${text}
-    */`;
-    return code;
+Blockly.JavaScript["jg_unused_floating_comment"] = function () {
+    return ``;
 };
 Blockly.Blocks["jg_comments_floating_arrow"] = {
     init: function () {
@@ -3047,64 +3042,6 @@ Blockly.JavaScript["jg_monaco_roles_change_role_to_be_mentionable_with_reason"] 
 `
     return code;
 };
-Blockly.Blocks["jg_monaco_threads_add_member_to_from_thread_with_reason"] = {
-    init: function () {
-        this.jsonInit(
-            {
-                "message0": "%1 %2 to/from thread %3 with reason %4",
-                "args0": [
-                    {
-                        "type": "field_dropdown",
-                        "name": "TYPE",
-                        "options": [
-                            [
-                                "add member",
-                                "add"
-                            ],
-                            [
-                                "remove member with ID",
-                                "remove"
-                            ]
-                        ]
-                    },
-                    {
-                        "type": "input_value",
-                        "name": "MEMBER",
-                        "check": ["Member", "String"]
-                    },
-                    {
-                        "type": "input_value",
-                        "name": "THREAD",
-                        "check": "Thread"
-                    },
-                    {
-                        "type": "input_value",
-                        "name": "REASON",
-                        "check": "String"
-                    }
-                ],
-                "inputsInline": true,
-                "previousStatement": null,
-                "nextStatement": null,
-                "colour": "#2a97b8",
-                "tooltip": "Add or remove a member to or from a thread. Removing members requires their ID.",
-                "helpUrl": ""
-            }
-        );
-    }
-}
-Blockly.JavaScript["jg_monaco_threads_add_member_to_from_thread_with_reason"] = function (block) {
-    const type = block.getFieldValue("TYPE");
-    const thread = Blockly.JavaScript.valueToCode(block, "THREAD", Blockly.JavaScript.ORDER_ATOMIC);
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    let reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
-    if (reason) {
-        reason = ", " + reason
-    }
-    const code = `${thread}.members.${type}(${member}${reason})
-`
-    return code;
-};
 
 Blockly.Blocks["jg_unused_any_color"] = {
     init: function () {
@@ -4044,5 +3981,34 @@ Blockly.Blocks["jg_monaco_members_member_is_timed_out"] = {
 Blockly.JavaScript["jg_monaco_members_member_is_timed_out"] = function (block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
     const code = [`${member}.isCommunicationDisabled()`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+
+Blockly.Blocks["jg_s4d_other_throw_custom_error"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "throw custom error %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "ERROR",
+                        "check": null
+                    }
+                ],
+                "inputsInline": true,
+                "previousStatement": null,
+                "nextStatement": null,
+                "colour": "#D14081",
+                "tooltip": "Cause a custom error to occur.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_s4d_other_throw_custom_error"] = function (block) {
+    const err = Blockly.JavaScript.valueToCode(block, "ERROR", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `throw ${err ? err : null}
+`
     return code;
 };

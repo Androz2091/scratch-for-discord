@@ -621,9 +621,9 @@ Blockly.ContextMenuRegistry.registry.register({
         let xml = Blockly.Xml.textToDom('<xml><block type="' + input + '"></block></xml>');
         try {
             Blockly.Xml.appendDomToWorkspace(xml, workspace)
-        } catch {
-            console.log("could not spawn block!")
-            alert(`Block ${String(input)} does not exist or was not defined`)
+        } catch (err) {
+            console.log("could not spawn block!", err)
+            alert(`Block ${String(input)} does not exist or was not defined correctly`)
         }
       },
       scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
@@ -1158,6 +1158,13 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
                     }
                 }
             }
+            if (specialTag == "text-only") {
+                const elem2ents = document.getElementsByClassName("blocklyPath")
+                for (let i = 0; i < elem2ents.length; i++) {
+                    let current = elem2ents.item(i)
+                    current.setAttribute("d", "")
+                }
+            }
             if (specialTag == "april-fools") {
                 document.getElementById("navSpace").style = `background-color: rgb(255, 0, 255);`
                 document.getElementsByClassName("blocklyMainBackground").item(0).style = `fill:#00ff00;`
@@ -1375,6 +1382,9 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
                         break
                     case "full-colors":
                         themeBlocks(null, null, "full-colors")
+                        break
+                    case "text-only":
+                        themeBlocks(null, null, "text-only")
                         break
                 }
             })

@@ -707,7 +707,11 @@ export default (Blockly, value, searching) => {
                     </block>
                 </statement>
             </block>  
-
+            <block type="jg_s4d_other_throw_custom_error">
+                <value name="ERROR">
+                    <block type="text"/>
+                </value>
+            </block>
             <block type="frost_other_err"/>
             <block type="s4d_return"></block>
             <block type="jg_s4d_other_run_code_inside_file"/>
@@ -750,12 +754,7 @@ export default (Blockly, value, searching) => {
                     </value>
                 </block>
             </category>
-        <category name="chatbot" colour="#ff0000">
-        <block type="chat_ahq"/>
-        </category>
-        <category name="mod" colour="#ff0880">
-        <block type="ahq-mod"/>
-        </category>
+            
         <category name="Voice" colour="#000099">
         <block type="voice_event"/>
         <block type="voice_switch"/>
@@ -1483,61 +1482,41 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Threads" colour="#478ded">
-        
-            <label text="%{BKY_LABEL_THREAD_MESSAGE}"/>
-            <block type="s4d_on_thread_message"/>
-            <block type="s4d_send_thread"/>
-            <label text="Thread message info"/>
-            <block type="s4d_thread_message_content"/>
-            <block type="s4d_thread_message_id"/>
-            <block type="s4d_thread_message_author"/>
-            <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"/>
-            <block type="s4d_message_thread"/>
-            <block type="s4d_server_thread"/>
-            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"/>
-            <block type="s4d_thread_message_author_raw"/>
-            <block type="s4d_thread_raw"/>
-            <block type="s4d_thread_guild_raw"/>
-            <label text="%{BKY_MESSAGE_ACTIONS}"/>
+            <label text="Find a thread"/>
+            <block type="s4d_thread_get_then">
+              <value name="ID">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="CHANNEL">
+                    <block type="s4d_message_channel"/>
+                </value>
+            </block>
+            <block type="s4d_gotten_thread"/>
+            <label text="Start a thread"/>
             <block type="s4d_message_start_thread"/>
             <block type="s4d_start_thread"/>
             <block type="s4d_started_thread"/>
-            <block type="s4d_thread_reply">
-                <value name="CONTENT">
-                    <shadow type="text">
-                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
-                    </shadow>
-                </value>
-                <value name="MENTION">
-                    <block type="logic_boolean">
-                        <field name="BOOL">FALSE</field>
-                    </block>
-                </value>
-            </block>
-            <block type="s4d_thread_reaction">
-                <value name="REACTION">
-                    <shadow type="text">
-                        <field name="TEXT">👍</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_thread_message_delete"/>
-            <label text="%{BKY_LABEL_THREAD_ARCHIVE}"/>
-            <block type="s4d_on_thread_archive"/>
-            <block type="s4d_on_thread_unarchive"/>
-            <block type="s4d_unarchived_thread"/>
-            <label text="%{BKY_THREAD_CREATE_LABEL}"/>
+            <label text="Detect an updated thread"/>
+            <block type="s4d_on_thread_update"/>
+            <block type="s4d_updated_thread"/>
+            <label text="Detect a created thread"/>
             <block type="s4d_on_thread_create"/>
             <block type="s4d_created_thread_on"/>
-            <label text="%{BKY_THREAD_DELETE_LABEL}"/>
+            <label text="Detect a deleted thread"/>
             <block type="s4d_on_thread_delete"/>
             <block type="s4d_deleted_thread"/>
-            <label text="%{BKY_THREAD_OTHER_LABEL}"/>
+            <label text="Information about the thread"/>
+            <block type="s4d_thread_boolean"/>
             <block type="s4d_thread_channel"/>
             <block type="s4d_thread_name"/>
+            <block type="s4d_thread_id"/>
             <block type="s4d_thread_server"/>
+            <block type="s4d_thread_info"/>
+            <label text="Actions on the thread"/>
             <block type="s4d_thread_archive"/>
-	        <block type="jg_monaco_threads_add_member_to_from_thread_with_reason"/>
+	          <block type="s4d_thread_member_add"/>
         </category>
         <category name="Webhooks" colour="#475ded">
         
@@ -2013,7 +1992,9 @@ export default (Blockly, value, searching) => {
                     <block type="id_btn_clkr"/>
                     <block type="id_btn_ahq"/>
                     <label text="Embed Information" web-class="boldtext"></label>
+                    <!--
                     <block type="embed_btn_ahq"/>
+                    -->
                     <block type="embed_send_round">
                         <value name="Label">
                             <shadow type="text">
@@ -2144,7 +2125,9 @@ export default (Blockly, value, searching) => {
                         </value>
                     </block>
                     <block type="ahq_ahq_ahq_modal"/>
+                    <!--
                     <block type="ahqq_ahq_modal"/>
+                    -->
                     <label text="Form Info" web-class="boldtext"></label>
                     <block type="id_form_ahq"/>
                     <block type="id_textbox_ahq"/>
@@ -2395,6 +2378,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_channel_parent_id"/>
             <block type="s4d_channel_message_id"/>
             <block type="s4d_channel_topic"/>
+            <block type="monaco_slowmode_of_channel"/>
             <block type="s4d_channel_exist"/>
             <block type="s4d_is_channel_nsfw"/>
             <!--
