@@ -90,11 +90,11 @@ export default {
                         <li>Create multiple .json files for your database.</li>
                         <li>Have different database names (variables).</li>
                       </ul>
-                      <img src="https://media.discordapp.net/attachments/935597297528610856/1003568916284588032/unknown.png?width=419&height=492" alt="New database blocks" class="img-size1"></img>
+                      <img src="https://media.discordapp.net/attachments/935597297528610856/1003568916284588032/unknown.png?width=419&height=492" alt="New database blocks" class="img-size2"></img>
                     </details>
                     <br>
                     <p>This update comes with no cost of your old S4D projects getting corrupted!</p>
-                    <p>By the way, if you are using the new database blocks but don't have Create a new database with name () & set file to ().json then this error will pops up!</p>
+                    <p>By the way, if you are using the new database blocks but don't have <code style="color: #5ba58b;">Create a new database with name () & set file to ().json</code> then this error will pops up!</p>
                     <img src="https://media.discordapp.net/attachments/935597297528610856/1003569471279083550/unknown.png" alt="Error" class="img-size1"></img>
                   </div>
                   <div>
@@ -103,8 +103,7 @@ export default {
                     <img src='https://cdn.discordapp.com/attachments/935597297528610856/1003148110714900530/unknown.png' alt="Timed out block" class="img-size1">
                   </div>
                   <div>
-                    <time datetime="07/29/2022
-">07/29/2022 - Freslin</time>
+                    <time datetime="07/29/2022">07/29/2022 - Freslin</time>
                     <h3>Jose, Mrredo and AHQ Embeds are removed!</h3> 
                     <p><b>The removed embeds will be permanently removed once v2 arrives! So change up your codes.</b></p>
                     <p>Also these were the embeds chosen not only because of the poll, but also as they have most of the features and compatibility.</p>
@@ -112,72 +111,73 @@ export default {
                     <img src='https://media.discordapp.net/attachments/935597297528610856/1002577999478141008/unknown.png' alt="Embeds" class="img-size2">
                   </div>
                   <div>
-                    <time datetime="07/13/2022
-">07/13/2022 - Freslin</time>
+                    <time datetime="07/13/2022">07/13/2022 - Freslin</time>
                     <h3>New <code style="color: #4C97FF;">get all members with role ()</code> block!</h3> 
                     <img src='https://cdn.discordapp.com/attachments/935597297528610856/996770502901235823/unknown.png' alt="All members with role block" class="img-size2">
                   </div>
                   <div>
-                    <time datetime="07/4/2022
-">07/13/2022 - JeremyGamer13</time>
+                    <time datetime="07/4/2022">07/13/2022 - JeremyGamer13</time>
                     <h3>User examples!</h3> 
                     <p>Do you want to make an example for something complicated? Now you can do it even easier with the new <b>User Uploaded Examples</b> menu!</p>
                     <p>Upload examples, find examples, all created by the community! Find this menu by going to <b>Examples > User Uploaded Examples</b>.<br>
 <i>note: the server is a bit slow, so expect delays when you open user example menus</i></p>
                     <img src='https://cdn.discordapp.com/attachments/935597297528610856/993453529421328384/unknown.png' alt="User examples" class="img-size1">
                   </div>
-                <h3><b>Channel Position Blocks!</b></h2>
-                <h5>(Freslin)</h5>
-                <br> 
-                <img src='https://media.discordapp.net/attachments/935597297528610856/991985618554994708/unknown.png' width='600'>
-                <h5>(Freslin)</h5>
-                <br> 
-                <h3><b>New Block!</b></h2>
-                <img src='https://cdn.discordapp.com/attachments/935597297528610856/991739773616148590/unknown.png' width='600'>
-                <h5>(Freslin)</h5>
-                <br> 
-                <h3><b>Invites Category Revamp + New Blocks!</b></h2>
-                <img src='https://cdn.discordapp.com/attachments/935597297528610856/991546543029096518/unknown.png'>
-                <h5>The invites category has been totally revamped with many new blocks!
-Here's an image of the revamp and the new blocks!(Freslin)</h5>
-                <br> 
-                <h3><b>Follow a channel!</b></h2>
-                <img src='https://cdn.discordapp.com/attachments/935597297528610856/991203793423302686/unknown.png'>
-                <h5>Only for news/announcements channels.(Freslin)</h5>
-                <br> 
-                <h3><b>reg ex block</b></h2>
-                <img src='https://media.discordapp.net/attachments/935597297528610856/991096256933818448/unknown.png'>
-                <h5>go to THIS WEBSITE <a href="https://regex101.com/">https://regex101.com/</a> to make yo regx
-works with (in text () replace () with ()) block aswell HYAYYYAYYAYAYAYYAA
-they might get updates because idk all of the regex stuff you can do with it(JeremyGamer13)</h5>
-                <br>
-                <img src='https://cdn.discordapp.com/attachments/935597297528610856/990837321668624394/unknown.png'>
-                <h5>(cat soup)</h5>
-                <br>
-                <img src='https://cdn.discordapp.com/attachments/935597297528610856/990520210652037150/unknown.png'>
-                <h5>(cat soup)</h5>
-                <br>
-                <h3><b>New Block!</b></h2>
-                <img src='https://cdn.discordapp.com/attachments/935597297528610856/990498236525584456/unknown.png'>
-                <h5>(Freslin)</h5>
-                <br>
-                <h3>Updated search category to use the epic new technology!!!!</h2>
-                <img src='https://cdn.discordapp.com/attachments/935597297528610856/989826004384112720/unknown.png'>
-                <h5>Felt this would be a better way to search then to right click on the workspace and search like that (JeremyGamer13)</h5>
-                <br>
-                <h2 style="color:#CB4335;">Lots of blocks were merged to find blocks more easier!</h2>
-                <img src='https://cdn.discordapp.com/attachments/898783648491397191/986238992024489994/unknown.png'>
-                <h5>(LimeNade)</h5>
-                <br>
-                <h3>Webhook blocks have gotten a bit of an upgrade!</h3>
-                <img src='https://cdn.discordapp.com/attachments/898783648491397191/987584184388296784/screenshot_9.png' width='475'>
-                <h5>On another note, we are inching towards a member categoryless 469...(JeremyGamer13)</h5>
-                <br>
-                <h3>audit log blocks</h3>
-                <img src='https://cdn.discordapp.com/attachments/898783648491397191/985859194894823454/unknown-42.png'>
-                <h5>(JeremyGamer13)</h5>
-                <br>
-                <h3>switch blocks</h3>
+                  <div>
+                    <time datetime="07/01/2022">07/01/2022 - Freslin</time>
+                    <h3>New channel position blocks!</h3> 
+                    <img src='https://media.discordapp.net/attachments/935597297528610856/991985618554994708/unknown.png' alt="Channel position blocks" class="img-size1">
+                  </div>
+                  <div>
+                    <time datetime="06/29/2022">06/29/2022 - Freslin</time>
+                    <h3>New moderation blocks!</h3> 
+                    <img src='https://cdn.discordapp.com/attachments/935597297528610856/991739773616148590/unknown.png' alt="Moderation blocks" class="img-size1">
+                    <br>
+                    <h3>Invites category revamp + New blocks!</h3>
+                    <p>The invites category has been totally revamped with many new blocks!</p>
+                    <img src='https://cdn.discordapp.com/attachments/935597297528610856/991546543029096518/unknown.png' alt="Invite blocks" class="img-size2">
+                  </div>
+                  <div>
+                    <time datetime="06/28/2022">06/28/2022 - Freslin</time>
+                    <h3>Follow a channel!</h3>
+                    <p>Only for news/announcements channels.</p>
+                    <img src='https://cdn.discordapp.com/attachments/935597297528610856/991203793423302686/unknown.png' alt="Follow channel block" class="img-size2">
+                  </div>
+                  <div>
+                    <time datetime="06/28/2022">06/28/2022 - JeremyGamer13</time>
+                    <h3>New regex blocks!</h3>
+                    <p>Go to <a href="https://regex101.com/">https://regex101.com/</a> to make your own regex.<br>Works with <code style="color: #5ba58b">in text () replace () with ()</code>.</p>
+                    <img src='https://media.discordapp.net/attachments/935597297528610856/991096256933818448/unknown.png' alt="RegEx blocks" class="img-size1">
+                  </div>
+                  <div>
+                    <time datetime="06/26/2022">06/26/2022 - cat soup</time>
+                    <h3>New <code style="color: #5b67a5;">bot startup time</code> block!</h3>
+                    <img src='https://cdn.discordapp.com/attachments/935597297528610856/990520210652037150/unknown.png' alt="bot startup time block" class="img-size2">
+                  </div>
+                  <div>
+                    <time datetime="06/26/2022">06/26/2022 - Freslin</time>
+                    <h3>New <code style="color: #4C97FF;">random role in server ()</code> block!</h3>
+                    <img src='https://cdn.discordapp.com/attachments/935597297528610856/990498236525584456/unknown.png' alt="Random role in server block" class="img-size2">
+                  </div>
+                  <div>
+                    <time datetime="06/26/2022">06/24/2022 - JeremyGamer13</time>
+                    <h3>Updated search category to use the epic new technology!</h3>
+                    <p>This is a better way to search than to right click on the workspace and search like that.</p>
+                    <img src='https://cdn.discordapp.com/attachments/935597297528610856/989826004384112720/unknown.png' alt="Search category" class="img-size1">
+                  </div>
+                  <div>
+                    <time datetime="unknown">Unknown date - LimeNade, JeremyGamer13, LaserCat, Retro, cat soup, frostzzone</time>
+                    <h3>Lots of blocks were merged to find blocks more easier!</h3>
+                    <img src='https://cdn.discordapp.com/attachments/1006868250598064198/1007146250103177326/IMG_7700.png' alt="Merged blocks" class="img-size1">
+                    <br>
+                    <h3>Webhook blocks have gotten a bit of an upgrade!</h3>
+                    <p>On another note, we are inching towards a member categoryless 469...</p>
+                    <img src='https://cdn.discordapp.com/attachments/1006868250598064198/1006871253606481930/screenshot_8.png' alt="Webhook blocks" class="img-size1">
+                    <br> 
+                    <h3>Audit log blocks!</h3>
+                    <img src='https://cdn.discordapp.com/attachments/1006868250598064198/1007160221002641418/IMG_7701.png' alt="Audit log blocks" class="img-size2">
+                    <h3></h3>
+                  </div>
                 <img src='https://cdn.discordapp.com/attachments/898783648491397191/984931074805231706/unknown.png'>
                 <h5>(lasercat)</h5>
                 <br>
