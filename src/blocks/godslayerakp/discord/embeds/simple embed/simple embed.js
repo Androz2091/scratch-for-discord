@@ -1,251 +1,117 @@
-/* eslint-disable */
+// the current state of my checkbox mutator
+// the goal is to have this checkbox mutator solve the following problems with existing checkbox mutators:
+
+// 1. dont kick out any inputs when the mutator menu is opened
+// 2. dont apply the same inputs as another mutator on the workspace
+// 3. dont have any save & loading issues that will cause problems with the users blocks
+
+// current goals achieved: 1, 2, 3(?)!!!!
+
 import Blockly from "blockly/core";
-/* 
-smol doc on how dis works for anyone who wants to try and fix this since i cant
-mutatorArgs:
-the parts that get added to the block when the check mark is on.
-mutatorNames:
-a list of all the posible inputs
-
-now that thats out of the way lesgo
-
-    "message": [
-      {
-        "type": "input_value", // the input type the only supported ones are input value, dummy and statement
-        "name": "msg", // the input name
-        "check": "String", // the check
-        "field": "message" // the message to the left of the input
-      }
-      you can have as meany of the thing above as you want/need
-    ],
-*/
-const mutatorNames = ['message', 'color', 'title', 'url', 'author', 'description', 'thumbnail', 'fields', 'image', 'timestamp', 'footer']
-
-const mutatorArgs = {
-    "message": [
-      {
-        "type": "input_value",
-        "name": "msg",
-        "check": "String",
-        "field": "message"
-      }
-    ],
-    "color": [
-      {
-      "type": "input_value",
-      "name": "color", 
-      "check": ["String", "Colour"],
-      "field": "color"
-      }],
-    "title": [
-      {
-        "type": "input_value",
-        "name": "title",
-        "check": "String",
-        "field": "title"
-      }],
-    "url": [
-      {
-        "type": "input_value",
-        "name": "url",
-        "check": "String",
-        "field": "title url"
-      }],
-    "author": [
-      {
-        "type": "input_dummy",
-        "name": "a",
-        "field": "author:"
-      },
-      {
-        "type": "input_value",
-        "name": "aname",
-        "check": "String",
-        "field": "name"
-      },
-      {
-        "type": "input_value",
-        "name": "aicon_url",
-        "check": "String",
-        "field": "icon"
-      },
-      {
-        "type": "input_value",
-        "name": "aurl",
-        "check": "String",
-        "field": " author url"
-      }],
-    "description": [
-      {
-        "type": "input_value",
-        "name": "description",
-        "check": "String",
-        "field": "description"
-      }],
-    "thumbnail": [
-      {
-        "type": "input_value",
-        "name": "thumbnail",
-        "check": "String",
-        "field": "thumbnail"
-      }],
-    "fields": [
-      {
-        "type": "input_dummy",
-        "name": "fi",
-        "field": "fields"
-      },
-      {
-        "type": "input_statement",
-        "name": "fields",
-        "check": "simple_field",
-        "field": null
-      }],
-    "image": [
-      {
-        "type": "input_value",
-        "name": "image",
-        "check": "String",
-        "field": "image"
-      }],
-    "timestamp": [
-      {
-        "type": "input_value",
-        "name": "timestamp",
-        "check": "String",
-        "field": "timestamp"
-      }],
-    "footer": [
-      {
-        "type": "input_dummy",
-        "name": "f",
-        "field": "footer:"
-      },
-      {
-        "type": "input_value",
-        "name": "ftext",
-        "check": "String",
-        "field": "text"
-      },
-      {
-        "type": "input_value",
-        "name": "ficon_url",
-        "check": "String",
-        "field": "icon url"
-      }]
-};
-
+import BaseBlockly from "blockly";
 const blockName = "gsa_simple_embed";
+const menuName = blockName + "_checkboxMutatorMenu"
+
+const BlockColor = '#40BF4A'
+// menu customization
+const menuUsesBlockColor = true
+const menuTooltip = ''
+
+// border fields is the name of the input when getting it for the exported code.
+// they HAVE to be uppercase currently or it won't work since im too lazy to change the uppercase function uses
+const BORDER_FIELDS = ['message', 'color', 'title', 'url', 'author', 'description', 'thumbnail', 'fields', 'image', 'timestamp', 'footer'];
+// border types is the input type of every input in the block
+const BORDER_TYPES = ['String', ['String', 'Colour'], 'String', 'String', 'gsa_set_simple_embed_author', 'String', 'String', 'gsa_create_simple_embed_fields', 'String', 'String', 'gsa_set_simple_embed_footer'];
+// names is the name of that input in the menu and in the final block
+const names = ['message', 'color', 'title', 'url', 'author:', 'description', 'thumbnail', 'fields:', 'image', 'timestamp', 'footer:'];
+const amountOfInputs = names.length
 
 const blockData = {
-    "message0": "message embeds %1",
+    "message0": "simple embed %1",
     "args0": [
         {
-            "type": "input_dummy"
+            "type": "input_dummy",
         }
     ],
-    "mutator": "gsa_simple_embed_mutator",
-    "inputsInline": false,
-    "output": "MessageEmbed",
-    "colour": "#40BF4A",
-    "tooltip": "",
-    "helpUrl": ""
+    "colour": BlockColor,
+    "output": 'MessageEmbed',
 };
-
+Blockly.Blocks[menuName] = {
+    init: function () {
+        this.setColour((menuUsesBlockColor ? BlockColor : "#CECDCE"));
+        this.setTooltip(menuTooltip);
+        this.setHelpUrl("");
+    }
+};
 Blockly.Blocks[blockName] = {
-  init: function () {
-    this.jsonInit(blockData);
-  }
-};
+    init: function () {
+        this.jsonInit(blockData);
+        this.setMutator(new Blockly.Mutator([]));
+        this.inputs_ = []
+        for (let i = 0; i < amountOfInputs; i++) {
+            this.inputs_.push(i < 3)
+        }
+    },
 
-Blockly.Blocks["gsa_simple_embed_mutator"] = {
-  init: function () {
-      this.setColour("#CECDCE");
-      this.setTooltip("");
-      this.setHelpUrl("");
-  }
-};
-
-const mutator = {
-    
-  inputs_: [true, true, false, false, false, false, false, false, false, false],
 
     mutationToDom: function () {
         if (!this.inputs_) {
-            return null
+            return null;
         }
         const container = document.createElement("mutation");
         for (let i = 0; i < this.inputs_.length; i++) {
-            if (this.inputs_[i]) container.setAttribute(mutatorNames[i], String(this.inputs_[i]))
+            if (this.inputs_[i]) container.setAttribute(BORDER_FIELDS[i], this.inputs_[i])
         }
         return container;
     },
 
     domToMutation: function (xmlElement) {
         for (let i = 0; i < this.inputs_.length; i++) {
-            this.inputs_[i] = xmlElement.getAttribute(mutatorNames[i]) == "true";
+            this.inputs_[i] = xmlElement.getAttribute(BORDER_FIELDS[i].toLowerCase()) == "true";
         }
         this.updateShape_();
     },
 
     decompose: function (workspace) {
-        const containerBlock = workspace.newBlock("gsa_simple_embed_mutator");
+        const containerBlock = workspace.newBlock(menuName);
         for (let i = 0; i < this.inputs_.length; i++) {
+            BaseBlockly.Msg[BORDER_FIELDS[i]] = names[i];
             containerBlock.appendDummyInput()
                 .setAlign(Blockly.ALIGN_RIGHT)
-                .appendField(mutatorNames[i])
-                .appendField(new Blockly.FieldCheckbox(this.inputs_[i] ? "TRUE" : "FALSE"), mutatorNames[i]);
+                .appendField(names[i])
+                .appendField(new Blockly.FieldCheckbox(this.inputs_[i] ? "TRUE" : "FALSE"), BORDER_FIELDS[i].toUpperCase());
         }
         containerBlock.initSvg();
         return containerBlock;
     },
 
     compose: function (containerBlock) {
+        // Set states
         for (let i = 0; i < this.inputs_.length; i++) {
-            this.inputs_[i] = (containerBlock.getFieldValue(mutatorNames[i]) == "TRUE");
+            this.inputs_[i] = (containerBlock.getFieldValue(BORDER_FIELDS[i].toUpperCase()) == "TRUE");
         }
         this.updateShape_();
     },
 
     updateShape_: function () {
         for (let i = 0; i < this.inputs_.length; i++) {
-            let args = mutatorArgs[String(mutatorNames[i])]
-            for (let i = 1; i < args.length; i++) {
-              if (this.getInput(args[i]["name"]) !== null) {
-                this.removeInput(args[i]["name"]);
-              }
-          }
+            if ((!this.inputs_[i]) && (this.getInput(BORDER_FIELDS[i].toUpperCase()))) this.removeInput(BORDER_FIELDS[i].toUpperCase());
         }
         for (let i = 0; i < this.inputs_.length; i++) {
-            if (this.inputs_[i]) {
-              let args = mutatorArgs[String(mutatorNames[i])]
-                for (let i = 1; i < args.length; i++) {
-                    let current = args[i]
-                    let text = args[i]["field"]
-                    if (current["type"] == 'input_dummy') {
-                        this.appendDummyInput(String(current["name"]))
-                            .setAlign(Blockly.ALIGN_CENTRE)
-                            .appendField(text);
-                    } else if (current["type"] == 'input_statement') {
-                        this.appendStatementInput(String(current["name"]))
-                            .setCheck(current["check"])
-                            .setAlign(Blockly.ALIGN_RIGHT)
-                            .appendField(text);
-                    } else {
-                        this.appendValueInput(String(current["name"]))
-                            .setCheck(current["check"])
-                            .setAlign(Blockly.ALIGN_RIGHT)
-                            .appendField(text);
-                    }
-                }
+            if ((this.inputs_[i]) && (!(this.getInput(BORDER_FIELDS[i].toUpperCase())))) {
+                BaseBlockly.Msg[BORDER_FIELDS[i]] = names[i];
+                this.appendValueInput(BORDER_FIELDS[i].toUpperCase())
+                    .setCheck(BORDER_TYPES[i])
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(names[i]);
             }
         }
     }
+
 };
 
-Blockly.Extensions.registerMutator("gsa_simple_embed_mutator", mutator, null, [""]);
-
 Blockly.JavaScript[blockName] = function (block) {
+    // code should be the first couple lines of your code before the inputs
     let message = '';
     let color = '';
     let title = '';
@@ -257,54 +123,49 @@ Blockly.JavaScript[blockName] = function (block) {
     let image = '';
     let timestamp = '';
     let footer = '';
-    if (mutator.inputs_[1]) {
-        color = `color: String(${Blockly.JavaScript.valueToCode(block, "color", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
+    // check if the inputs exist before adding them to the exported code
+    if (this.inputs_[1]) {
+        color = `color: String(${Blockly.JavaScript.valueToCode(block, "color", Blockly.JavaScript.ORDER_NONE)}), \n`
     }
-    if (mutator.inputs_[2]) {
-        title = `title: String(${Blockly.JavaScript.valueToCode(block, "title", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
+    if (this.inputs_[2]) {
+        title = `title: String(${Blockly.JavaScript.valueToCode(block, "title", Blockly.JavaScript.ORDER_NONE)}), \n`
     }
-    if (mutator.inputs_[3]) {
-        url = `url: String(${Blockly.JavaScript.valueToCode(block, "url", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
+    if (this.inputs_[3]) {
+        url = `url: String(${Blockly.JavaScript.valueToCode(block, "url", Blockly.JavaScript.ORDER_NONE)}), \n`
     }
-    if (mutator.inputs_[4]) {
-        author = `author: {
-            name: String(${Blockly.JavaScript.valueToCode(block, "aname", Blockly.JavaScript.ORDER_ATOMIC)}),
-            icon_url: String(${Blockly.JavaScript.valueToCode(block, "aicon_url", Blockly.JavaScript.ORDER_ATOMIC)}),
-            url: String(${Blockly.JavaScript.valueToCode(block, "aurl", Blockly.JavaScript.ORDER_ATOMIC)})
-        }, \n`
+    if (this.inputs_[4]) {
+        author = Blockly.JavaScript.valueToCode(block, "author", Blockly.JavaScript.ORDER_ATOMIC)
     }
-    if (mutator.inputs_[5]) {
-        description = `description: String(${Blockly.JavaScript.valueToCode(block, "description", Blockly.JavaScript.ORDER_ATOMIC)}), \n`
+    if (this.inputs_[5]) {
+        description = `description: String(${Blockly.JavaScript.valueToCode(block, "description", Blockly.JavaScript.ORDER_NONE)}), \n`
     }
-    if (mutator.inputs_[6]) {
+    if (this.inputs_[6]) {
         thumbnail = `thumbnail: {
-            url: String(${Blockly.JavaScript.valueToCode(block, "thumbnail", Blockly.JavaScript.ORDER_ATOMIC)})
+            url: String(${Blockly.JavaScript.valueToCode(block, "thumbnail", Blockly.JavaScript.ORDER_NONE)})
         }, \n`
     }
-    if (mutator.inputs_[7]) {
-        fields = `fields: [
-            ${Blockly.JavaScript.statementToCode(block, 'fields')}
-        ], \n`
+    if (this.inputs_[7]) {
+        fields = Blockly.JavaScript.valueToCode(block, "fields", Blockly.JavaScript.ORDER_ATOMIC)
     }
-    if (mutator.inputs_[8]) {
+    if (this.inputs_[8]) {
         image = `image: {
-            url: String(${Blockly.JavaScript.valueToCode(block, "image", Blockly.JavaScript.ORDER_ATOMIC)})
+            url: String(${Blockly.JavaScript.valueToCode(block, "image", Blockly.JavaScript.ORDER_NONE)})
         }, \n`
     }
-    if (mutator.inputs_[9]) {
-        timestamp = `timestamp: new date(String(${Blockly.JavaScript.valueToCode(block, "timestamp", Blockly.JavaScript.ORDER_ATOMIC)})),`
+    if (this.inputs_[9]) {
+        timestamp = `timestamp: new date(String(${Blockly.JavaScript.valueToCode(block, "timestamp", Blockly.JavaScript.ORDER_NONE)})),`
     }
-    if (mutator.inputs_[10]) {
-        footer = `footer: {
-            text: String(${Blockly.JavaScript.valueToCode(block, "ftext", Blockly.JavaScript.ORDER_ATOMIC)}),
-            icon_url: String(${Blockly.JavaScript.valueToCode(block, "ficon_url", Blockly.JavaScript.ORDER_ATOMIC)})
-        } \n`
+    if (this.inputs_[10]) {
+        footer = Blockly.JavaScript.valueToCode(block, "footer", Blockly.JavaScript.ORDER_ATOMIC)
     }
-    if (mutator.inputs_[0]) {
-      message = `content: ${Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_ATOMIC)}`
+    if (this.inputs_[0]) {
+      message = `content: String(${Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_NONE)})`
     }
-
+    // the last line of code here, do another code.push(``) if you need to put more code
     const code = `${message}embeds: [{
 ${color}${title}${url}${author}${description}${thumbnail}${fields}${image}${timestamp}${footer}}]`;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
-  };
+};
+
+
+
