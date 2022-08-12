@@ -38,7 +38,7 @@
                 <b-button id="v-step-2" style="border-right-color: #161719; border-radius: 0em" @click="util">
                     <b-icon-gear></b-icon-gear>
                 </b-button>
-                <b-button id="v-step-3" :disabled="!configurationValidated" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
+                <b-button id="v-step-3" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
                     <b-icon-download></b-icon-download>
                 </b-button>
             </b-navbar-nav>
@@ -76,11 +76,11 @@ export default {
         Socials
     },
     computed: {
-        configurationValidated: function () {
-            return  this.$store.state.workspace &&
-                    this.$store.state.workspace.getAllBlocks().some((block) => block.type === "s4d_login") &&
-                    this.$store.state.workspace.getAllBlocks().every((block) => !block.disabled && !block.warning);
-        },
+        // configurationValidated: function () {
+        //     return  this.$store.state.workspace &&
+        //             this.$store.state.workspace.getAllBlocks().some((block) => block.type === "s4d_login") &&
+        //             this.$store.state.workspace.getAllBlocks().every((block) => !block.disabled && !block.warning);
+        // },
         decideNavBarImage: function() {
             return window.location.origin + "/scratch.png"
         }
@@ -114,14 +114,61 @@ export default {
     },
     methods: {
         exportToCode(){
+            function getWorkspaceProblems(workspace) {
+                let problems = []
+                let problematic = false
+                let blockProblems = []
+                let allBlocks = workspace.getAllBlocks()
+                if (!allBlocks.some((block) => block.type === "s4d_login")) {
+                    problems.push(`<li style='text-align:left'>The <b>Connect to Discord</b> block is missing.</li>`)
+                }
+                allBlocks.forEach(block => {
+                    if (block.warning) {
+                        blockProblems.push(`<li style='text-align:left'>` + block.warning.getText() + `</li>`)
+                        problematic = true
+                    }
+                })
+                let newString = ""
+                if (problems.length > 0 || problematic) {
+                    newString = `<h2>Hold up!</h2>
+<p>Some problems on the workspace need to be solved before you can get a working download.</p>
+<ul>
+`
+                    newString += problems.join("")
+                    if (blockProblems.length > 0) {
+                        newString += `<details style='text-align:left'>
+    <summary><b>Some blocks have some errors on them.</b></summary>
+    <div>`
+                        newString += blockProblems.join("")
+                        newString += `</div>
+</details>`
+                    }
+                    newString += `</ul>
+<b style="color:darkred">If you continue with the download, the bot may not work correctly!</b>
+<br><br>`
+                }
+                return newString
+            }
             const wrapper = document.createElement('div');
-            wrapper.innerHTML = `<h6>${this.$t('download.content.title')}</h6><ul><li style='text-align:left'>${this.$t('download.content.unzipFile')}</li><li style='text-align:left'>${this.$t('download.content.node')}</li><li style='text-align:left'>${this.$t('download.content.start')}</li><li style='text-align:left'>${this.$t('download.content.done')}</li></ul>`;
+            wrapper.innerHTML = `${getWorkspaceProblems(this.$store.state.workspace)}<h6>How to start your bot once downloaded?</h6>
+<ul>
+<li style='text-align:left'>Unzip the Downloaded File.</li>
+<li style='text-align:left'>Install NPM and Node.js (Hint: Google Search).</li>
+<li style='text-align:left'>Run 'npm install' and 'npm start' in a terminal</li>
+<li style='text-align:left'>Your bot is started!</li>
+</ul>
+<style>
+.lololoEPIC_EXPORT_CLASS_NAME_bruh_xd_1123123123 {
+    width: 35%
+}
+</style>`;
             this.$swal({
-                title: this.$t('download.title'),
+                title: "Download your bot?",
                 content: wrapper,
+                className: "lololoEPIC_EXPORT_CLASS_NAME_bruh_xd_1123123123",
                 buttons: {
-                    cancel: this.$t('download.cancel'),
-                    confirm: this.$t('download.confirm')
+                    cancel: "Cancel",
+                    confirm: "Download"
                 },
             }).then(async result => {
                 let requires = [`"discord.js": "^13.7.0",`,`"process":"^0.11.10",`,`"easy-json-database": "^1.5.0",`]
