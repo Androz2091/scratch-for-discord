@@ -143,12 +143,12 @@ export default {
                     const blockCounts = workspace.getAllBlocks().length
                     wrapper.innerHTML = `<h5>The content of the example is going to be the blocks you've placed.</h5>
 <label for="name">Name of your Example </label>
-<input type="text" id="UserExampleName" value="${name == "Untitled document" ? "Untitled example" : name}">
+<input type="text" id="UserExampleName" value="${name == "Untitled document" ? "Untitled example" : name}" maxlength="50">
 <label for="author">Author of the Example </label>
-<input type="text" id="UserExampleAuthor" value="Anonymous">
+<input type="text" id="UserExampleAuthor" value="Anonymous" maxlength="50">
 <br>
 <label style="font-weight: bold;" for="name">Describe your Example...</label>
-<textarea id="UserExampleDescription" rows="4" cols="50"></textarea>
+<textarea id="UserExampleDescription" rows="4" cols="50" maxlength="200"></textarea>
 <p>Your example has <b>${blockCounts} block${blockCounts == 1 ? "" : "s"}</b> in it.</p>
 ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading near empty examples is not encouraged.</p>` : ''}
 `
