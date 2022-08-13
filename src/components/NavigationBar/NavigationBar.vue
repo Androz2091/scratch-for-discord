@@ -1283,6 +1283,7 @@ load()`])
                     //     `<block type="better_stop"`,
                     //     `<block type="better_play"`,
                     // ]
+                    // jg_express_start_website_then_using_port
                     if (
                         javascriptContent.includes("process.env") ||
                         javascriptContent.includes("http.createServer((req, res) => {") ||
@@ -1313,6 +1314,14 @@ load()`])
                         console.log("barry: ok so i finished but the user uses simple host")
                         console.log("johnathan: LMAOOOOOOOOOOOOOOOOOOOOOOOO")
                         console.error("barry and johnathan found out you use simple host...")
+                        return;
+                    } else if (
+                        xmlContent.includes("block type=\"jg_express_start_website_then_using_port\"")
+                    ) {
+                        swal.fire("Your bot contains blocks for starting websites.", "Remove any \"start website\" blocks before running.", "error")
+                        console.log("barry: ok so i finished but the user has website block")
+                        console.log("johnathan: zamn")
+                        console.error("barry and johnathan found out you have a website...")
                         return;
                     }
                     //  else if (
