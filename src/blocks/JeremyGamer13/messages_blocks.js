@@ -4084,6 +4084,42 @@ restrictToParent(
     "jg_express_website_on_page_on_request_type_do",
     'This block must be in a "start website then" block!'
 )
+Blockly.Blocks["jg_express_website_on_invalid_request_do"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "on invalid request %1 do %2",
+                "args0": [
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ],
+                "colour": "#4c8eff",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "When a request fails, the blocks inside will run.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_express_website_on_invalid_request_do"] = function (block) {
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `S4D_WEBSITECREATION_EXPRESS_app.use(function(req, res) {
+  ${statements}
+})
+`;
+    return code;
+};
+restrictToParent(
+    ["jg_express_start_website_then_using_port"],
+    "jg_express_website_on_invalid_request_do",
+    'This block must be in a "start website then" block!'
+)
 Blockly.Blocks["jg_express_website_respond_with_text"] = {
     init: function () {
         this.jsonInit(
@@ -4112,7 +4148,7 @@ Blockly.JavaScript["jg_express_website_respond_with_text"] = function (block) {
     return code;
 };
 restrictToParent(
-    ["jg_express_website_on_page_on_request_type_do"],
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
     "jg_express_website_respond_with_text",
     'This block must be in a "on page on request type do" block!'
 )
@@ -4144,7 +4180,7 @@ Blockly.JavaScript["jg_express_website_respond_with_file"] = function (block) {
     return code;
 };
 restrictToParent(
-    ["jg_express_website_on_page_on_request_type_do"],
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
     "jg_express_website_respond_with_file",
     'This block must be in a "on page on request type do" block!'
 )
@@ -4176,7 +4212,7 @@ Blockly.JavaScript["jg_express_website_respond_with_object"] = function (block) 
     return code;
 };
 restrictToParent(
-    ["jg_express_website_on_page_on_request_type_do"],
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
     "jg_express_website_respond_with_object",
     'This block must be in a "on page on request type do" block!'
 )
@@ -4208,7 +4244,7 @@ Blockly.JavaScript["jg_express_website_set_response_status_code_to"] = function 
     return code;
 };
 restrictToParent(
-    ["jg_express_website_on_page_on_request_type_do"],
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
     "jg_express_website_set_response_status_code_to",
     'This block must be in a "on page on request type do" block!'
 )
@@ -4266,7 +4302,7 @@ Blockly.JavaScript["jg_express_website_set_content_type_to"] = function (block) 
     return code;
 };
 restrictToParent(
-    ["jg_express_website_on_page_on_request_type_do"],
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
     "jg_express_website_set_content_type_to",
     'This block must be in a "on page on request type do" block!'
 )
@@ -4305,7 +4341,7 @@ Blockly.JavaScript["jg_express_website_query_item_parameter"] = function (block)
     return code;
 };
 restrictToParent(
-    ["jg_express_website_on_page_on_request_type_do"],
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
     "jg_express_website_query_item_parameter",
     'This block must be in a "on page on request type do" block!'
 )
@@ -4335,7 +4371,7 @@ Blockly.JavaScript["jg_express_website_post_request_item"] = function (block) {
     return code;
 };
 restrictToParent(
-    ["jg_express_website_on_page_on_request_type_do"],
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
     "jg_express_website_post_request_item",
     'This block must be in a "on page on request type do" block!'
 )
@@ -4374,7 +4410,7 @@ Blockly.JavaScript["jg_express_website_set_header_to"] = function (block) {
     return code;
 };
 restrictToParent(
-    ["jg_express_website_on_page_on_request_type_do"],
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
     "jg_express_website_set_header_to",
     'This block must be in a "on page on request type do" block!'
 )

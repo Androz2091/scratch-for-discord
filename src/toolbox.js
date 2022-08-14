@@ -2765,6 +2765,7 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+            <block type="jg_express_website_on_invalid_request_do"/>
             <block type="jg_express_website_set_content_type_to"/>
             <block type="jg_express_website_set_response_status_code_to">
                 <value name="STATUS">
