@@ -73,13 +73,30 @@ export default {
                   </div>
                   <p style="font-weight: bold;">Detailed logs are posted in our official <a style="color: #ff4500;" href="https://www.reddit.com/r/s4d/">r/s4d</a> Subreddit</p>
                   <div class="latest-change">
-                    <time datetime="08/09/2022">08/09/2022 - Eruption</time>
-                    <h3>Thread blocks are revamped with a bunch of new features!</h3>  
-                    <iframe id="reddit-embed" src="https://www.redditmedia.com/r/s4d/comments/wk4koo/thread_blocks_are_revamped_with_a_bunch_of_new/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="631" width="80%" scrolling="no"></iframe>
+                    <time datetime="08/09/2022">08/13/2022 - Eruption</time>
+                    <h3>User examples & Changelog menu are revamped!</h3>
+                    <p>Currently in the process of updating popups because some of them looks bad. Will give the website a more consistent feelings in the future.<br>So far the user examples menu and changelogs have been updated.</p>
+                    <img src="https://cdn.discordapp.com/attachments/1006868250598064198/1008030396832829520/unknown.png" alt="Updated popups" class="img-size2"></img>   
                   </div>
                   <details>
                   <summary class="past-changes">Click here to view past changes</summary>
                   <div>
+                    <div>
+                      <time datetime="08/09/2022">08/13/2022 - JeremyGamer13</time>
+                      <h3>Added some website blocks!</h3>  
+                      <p>They are in the "Websites" category under "Creation".</p>
+                      <img src="https://cdn.discordapp.com/attachments/935597297528610856/1007876775474368552/unknown.png" alt="Website blocks" class="img-size2"></img>
+                    </div>
+                    <div>
+                      <time datetime="08/09/2022">08/09/2022 - Eruption</time>
+                      <h3>Thread blocks are revamped with a bunch of new features!</h3>
+                      <details>
+                        <summary>Reddit post</summary>
+                     
+                      <p>Check the Reddit post for more information.</p>
+                      <iframe id="reddit-embed" src="https://www.redditmedia.com/r/s4d/comments/wk4koo/thread_blocks_are_revamped_with_a_bunch_of_new/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="631" width="80%" scrolling="no"></iframe>
+                      </details>
+                    </div>
                     <div>
                       <time datetime="08/01/2022">08/01/2022 - Eruption</time>
                       <h3>Dootabase and Database have been merged into new and improved database blocks!</h3>    
