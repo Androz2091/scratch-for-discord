@@ -8,6 +8,5 @@
     <b-dropdown-divider></b-dropdown-divider>
     <b-dropdown-item href="https://discord.gg/yszpZgTa4s" target="_blank">S4D Community</b-dropdown-item>
     <b-dropdown-item href="https://discord.gg/fa3Exkkrpc" target="_blank">S4D World</b-dropdown-item>
-    <b-dropdown-item href="https://devcard.link/w4ak3I" target="_blank">Cwheesy</b-dropdown-item>
   </b-nav-item-dropdown>
 </template>
