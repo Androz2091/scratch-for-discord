@@ -1,10 +1,10 @@
 import * as Blockly from "blockly";
 import { registerRestrictions } from "../../../restrictions";
 
-const blockName = "s4d_thread_server";
+const blockName = "s4d_thread_id";
 
 const blockData = {
-    "message0": "%{BKY_THREAD_SERVER}",
+    "message0": "id of thread %1",
     "args0": [
         {
             "type": "input_value",
@@ -13,7 +13,7 @@ const blockData = {
         }
     ],
     "colour": "#2a97b8",
-    "output": "Server",
+    "output": "Thread",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const thread = Blockly.JavaScript.valueToCode(block, "THREAD", Blockly.JavaScript.ORDER_ATOMIC);
-    return[`${thread}.guild`, Blockly.JavaScript.ORDER_NONE]
+    return[`${thread}.id`, Blockly.JavaScript.ORDER_NONE]
 };
 
 registerRestrictions(blockName, [

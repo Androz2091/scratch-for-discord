@@ -1482,61 +1482,41 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Threads" colour="#478ded">
-        
-            <label text="%{BKY_LABEL_THREAD_MESSAGE}"/>
-            <block type="s4d_on_thread_message"/>
-            <block type="s4d_send_thread"/>
-            <label text="Thread message info"/>
-            <block type="s4d_thread_message_content"/>
-            <block type="s4d_thread_message_id"/>
-            <block type="s4d_thread_message_author"/>
-            <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"/>
-            <block type="s4d_message_thread"/>
-            <block type="s4d_server_thread"/>
-            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"/>
-            <block type="s4d_thread_message_author_raw"/>
-            <block type="s4d_thread_raw"/>
-            <block type="s4d_thread_guild_raw"/>
-            <label text="%{BKY_MESSAGE_ACTIONS}"/>
+            <label text="Find a thread"/>
+            <block type="s4d_thread_get_then">
+              <value name="ID">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="CHANNEL">
+                    <block type="s4d_message_channel"/>
+                </value>
+            </block>
+            <block type="s4d_gotten_thread"/>
+            <label text="Start a thread"/>
             <block type="s4d_message_start_thread"/>
             <block type="s4d_start_thread"/>
             <block type="s4d_started_thread"/>
-            <block type="s4d_thread_reply">
-                <value name="CONTENT">
-                    <shadow type="text">
-                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
-                    </shadow>
-                </value>
-                <value name="MENTION">
-                    <block type="logic_boolean">
-                        <field name="BOOL">FALSE</field>
-                    </block>
-                </value>
-            </block>
-            <block type="s4d_thread_reaction">
-                <value name="REACTION">
-                    <shadow type="text">
-                        <field name="TEXT">👍</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="s4d_thread_message_delete"/>
-            <label text="%{BKY_LABEL_THREAD_ARCHIVE}"/>
-            <block type="s4d_on_thread_archive"/>
-            <block type="s4d_on_thread_unarchive"/>
-            <block type="s4d_unarchived_thread"/>
-            <label text="%{BKY_THREAD_CREATE_LABEL}"/>
+            <label text="Detect an updated thread"/>
+            <block type="s4d_on_thread_update"/>
+            <block type="s4d_updated_thread"/>
+            <label text="Detect a created thread"/>
             <block type="s4d_on_thread_create"/>
             <block type="s4d_created_thread_on"/>
-            <label text="%{BKY_THREAD_DELETE_LABEL}"/>
+            <label text="Detect a deleted thread"/>
             <block type="s4d_on_thread_delete"/>
             <block type="s4d_deleted_thread"/>
-            <label text="%{BKY_THREAD_OTHER_LABEL}"/>
+            <label text="Information about the thread"/>
+            <block type="s4d_thread_boolean"/>
             <block type="s4d_thread_channel"/>
             <block type="s4d_thread_name"/>
+            <block type="s4d_thread_id"/>
             <block type="s4d_thread_server"/>
+            <block type="s4d_thread_info"/>
+            <label text="Actions on the thread"/>
             <block type="s4d_thread_archive"/>
-	        <block type="jg_monaco_threads_add_member_to_from_thread_with_reason"/>
+	          <block type="s4d_thread_member_add"/>
         </category>
         <category name="Webhooks" colour="#475ded">
         
@@ -2012,7 +1992,9 @@ export default (Blockly, value, searching) => {
                     <block type="id_btn_clkr"/>
                     <block type="id_btn_ahq"/>
                     <label text="Embed Information" web-class="boldtext"></label>
+                    <!--
                     <block type="embed_btn_ahq"/>
+                    -->
                     <block type="embed_send_round">
                         <value name="Label">
                             <shadow type="text">
@@ -2143,7 +2125,9 @@ export default (Blockly, value, searching) => {
                         </value>
                     </block>
                     <block type="ahq_ahq_ahq_modal"/>
+                    <!--
                     <block type="ahqq_ahq_modal"/>
+                    -->
                     <label text="Form Info" web-class="boldtext"></label>
                     <block type="id_form_ahq"/>
                     <block type="id_textbox_ahq"/>
@@ -2771,105 +2755,171 @@ export default (Blockly, value, searching) => {
                 <block type="get_member_invites"/>
         </category>
         <sep class="bt"/>
-    <category name="Web Requests" colour="#4C97FF">
-        <category name="Simple" colour="#4c8bff">
-	    <label text="Want to do cool things with json requests? Check out PooPoo API" web-class="boldtext"></label>
-	    <label text="https://poopoo-api.vercel.app/" web-class="boldtext"></label>
-            <block type="s4d_http_get_then"/>
-            <block type="s4d_get_string_of_data"/>
-            <block type="jg_imghttps"/>
-        </category>
-        <category name="Advanced" colour="#4c79ff">
-            <block type="jg_web_request_advanced_new2_send_request_to_url_using_method_with_result_giving_request_headers_with_data_sections_then_if_error">
-                <value name="URL">
-                    <block type="text">
-                        <field name="TEXT">https://jsonplaceholder.typicode.com/posts</field>
-                    </block>
-                </value>
-                <value name="HEADERS">
-                    <block type="jg_web_request_advanced_header">
-                        <value name="KEY">
-                            <block type="text">
-                                <field name="TEXT">content-type</field>
-                            </block>
-                        </value>
-                        <value name="VALUE">
-                            <block type="text">
-                                <field name="TEXT">application/json</field>
-                            </block>
-                        </value>
-                    </block>
-                </value>
-                <value name="BODY">
-                    <block type="jg_web_request_advanced_data_section">
-                        <field name="LABEL">body</field>
-                        <value name="STATEMENTS">
-                            <block type="jg_web_request_advanced_data">
-                                <value name="KEY">
-                                    <block type="text">
-                                        <field name="TEXT">key</field>
-                                    </block>
-                                </value>
-                                <value name="VALUE">
-                                    <block type="text">
-                                        <field name="TEXT">value</field>
-                                    </block>
-                                </value>
-                            </block>
-                        </value>
-                    </block>
-                </value>
-                <value name="IF_ERROR">
-                    <block type="s4d_print">
-                        <value name="PRINT">
-                            <block type="frost_other_err"/>
-                        </value>
-                    </block>
-                </value>
-            </block>
-            <block type="jg_web_request_advanced_header">
-                <value name="KEY">
-                    <block type="text">
-                        <field name="TEXT">content-type</field>
-                    </block>
-                </value>
-                <value name="VALUE">
-                    <block type="text">
-                        <field name="TEXT">application/json</field>
-                    </block>
-                </value>
-            </block>
-            <block type="jg_web_request_advanced_data_section"/>
-            <block type="jg_web_request_advanced_data">
-                <value name="KEY">
-                    <block type="text">
-                        <field name="TEXT">key</field>
-                    </block>
-                </value>
-                <value name="VALUE">
-                    <block type="text">
-                        <field name="TEXT">value</field>
-                    </block>
-                </value>
-            </block>
-            <block type="jg_web_request_advanced_get_response_data">
-                <value name="VALUE">
-                    <block type="text">
-                        <field name="TEXT">key</field>
-                    </block>
-                </value>
-            </block>
-            <block type="jg_web_request_advanced_response"/>
-            <block type="jg_web_request_advanced_response_status"/>
-            <block type="jg_web_request_advanced_response_headers"/>
-            <block type="jg_web_request_advanced_response_data"/>
-            <block type="jg_web_request_advanced_save_downloadable_response_as">
-                <value name="FILE">
+    <category name="Websites" colour="#4C97FF">
+        <category name="Creation" colour="#4c8eff">
+            <block type="jg_express_start_website_then_using_port"/>
+            <block type="jg_express_website_on_page_on_request_type_do">
+                <value name="PAGE">
                     <shadow type="text">
-                        <field name="TEXT">file.png</field>
+                        <field name="TEXT">/</field>
                     </shadow>
                 </value>
             </block>
+            <block type="jg_express_website_on_invalid_request_do"/>
+            <block type="jg_express_website_set_content_type_to"/>
+            <block type="jg_express_website_set_response_status_code_to">
+                <value name="STATUS">
+                    <shadow type="math_number">
+                        <field name="NUM">200</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_express_website_respond_with_text">
+                <value name="TEXT">
+                    <shadow type="text">
+                        <field name="TEXT">Hey!</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_express_website_respond_with_file">
+                <value name="TEXT">
+                    <shadow type="text">
+                        <field name="TEXT">index.html</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_express_website_respond_with_object">
+                <value name="OBJECT">
+                    <shadow type="jg_objects_create_new"/>
+                </value>
+            </block>
+            <block type="jg_express_website_set_header_to">
+                <value name="HEADER">
+                    <shadow type="text">
+                        <field name="TEXT"/>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT"/>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_express_website_query_item_parameter">
+                <value name="ITEM">
+                    <shadow type="text">
+                        <field name="TEXT"/>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_express_website_post_request_item">
+                <value name="ITEM">
+                    <shadow type="text">
+                        <field name="TEXT"/>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="Requests" colour="#4c8bff">
+            <category name="Simple" colour="#4c79ff">
+	        <label text="Want to do cool things with json requests? Check out PooPoo API" web-class="boldtext"></label>
+	        <label text="https://poopoo-api.vercel.app/" web-class="boldtext"></label>
+                <block type="s4d_http_get_then"/>
+                <block type="s4d_get_string_of_data"/>
+                <block type="jg_imghttps"/>
+            </category>
+            <category name="Advanced" colour="#4c6aff">
+                <block type="jg_web_request_advanced_new2_send_request_to_url_using_method_with_result_giving_request_headers_with_data_sections_then_if_error">
+                    <value name="URL">
+                        <block type="text">
+                            <field name="TEXT">https://jsonplaceholder.typicode.com/posts</field>
+                        </block>
+                    </value>
+                    <value name="HEADERS">
+                        <block type="jg_web_request_advanced_header">
+                            <value name="KEY">
+                                <block type="text">
+                                    <field name="TEXT">content-type</field>
+                                </block>
+                            </value>
+                            <value name="VALUE">
+                                <block type="text">
+                                    <field name="TEXT">application/json</field>
+                                </block>
+                            </value>
+                        </block>
+                    </value>
+                    <value name="BODY">
+                        <block type="jg_web_request_advanced_data_section">
+                            <field name="LABEL">body</field>
+                            <value name="STATEMENTS">
+                                <block type="jg_web_request_advanced_data">
+                                    <value name="KEY">
+                                        <block type="text">
+                                            <field name="TEXT">key</field>
+                                        </block>
+                                    </value>
+                                    <value name="VALUE">
+                                        <block type="text">
+                                            <field name="TEXT">value</field>
+                                        </block>
+                                    </value>
+                                </block>
+                            </value>
+                        </block>
+                    </value>
+                    <value name="IF_ERROR">
+                        <block type="s4d_print">
+                            <value name="PRINT">
+                                <block type="frost_other_err"/>
+                            </value>
+                        </block>
+                    </value>
+                </block>
+                <block type="jg_web_request_advanced_header">
+                    <value name="KEY">
+                        <block type="text">
+                            <field name="TEXT">content-type</field>
+                        </block>
+                    </value>
+                    <value name="VALUE">
+                        <block type="text">
+                            <field name="TEXT">application/json</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="jg_web_request_advanced_data_section"/>
+                <block type="jg_web_request_advanced_data">
+                    <value name="KEY">
+                        <block type="text">
+                            <field name="TEXT">key</field>
+                        </block>
+                    </value>
+                    <value name="VALUE">
+                        <block type="text">
+                            <field name="TEXT">value</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="jg_web_request_advanced_get_response_data">
+                    <value name="VALUE">
+                        <block type="text">
+                            <field name="TEXT">key</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="jg_web_request_advanced_response"/>
+                <block type="jg_web_request_advanced_response_status"/>
+                <block type="jg_web_request_advanced_response_headers"/>
+                <block type="jg_web_request_advanced_response_data"/>
+                <block type="jg_web_request_advanced_save_downloadable_response_as">
+                    <value name="FILE">
+                        <shadow type="text">
+                            <field name="TEXT">file.png</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
         </category>
     </category>
     <category name="Applications" colour="#4c79ff">

@@ -19,11 +19,11 @@ const menuTooltip = ''
 
 // border fields is the name of the input when getting it for the exported code.
 // they HAVE to be uppercase currently or it won't work since im too lazy to change the uppercase function uses
-const BORDER_FIELDS = ["A", "B", "C", "D"];
+const BORDER_FIELDS = ["A", "B", "C", "D", "E", "F"];
 // border types is the input type of every input in the block
-const BORDER_TYPES = ["String", "Boolean", "Colour", "Number"];
+const BORDER_TYPES = ["String", "Boolean", "Colour", "Number", "Number", "String"];
 // names is the name of that input in the menu and in the final block
-const names = ["Text", "Question", "Color", "Number"];
+const names = ["Text", "Question", "Color", "Number", "Number", "Text"];
 const amountOfInputs = names.length
 
 const blockData = {

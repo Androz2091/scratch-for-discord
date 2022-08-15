@@ -1,9 +1,9 @@
 import * as Blockly from "blockly";
 
-const blockName = "s4d_on_thread_unarchive";
+const blockName = "s4d_on_thread_update";
 
 const blockData = {
-    "message0": "%{BKY_ON_THREAD_UNARCHIVE} %1 %2",
+    "message0": "When a thread is updated %1 %2",
     "colour": "#F5AB1A",
     "args0": [
         {
@@ -24,6 +24,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.client.on('threadUpdate', async (s4dOldThread, s4dNewThread) => {\nif (s4dOldThread.archived && !s4dNewThread.archived) {\n${statements}\n}\n});\n`;
+    const code = `s4d.client.on('threadUpdate', async (s4dOldThread, s4dNewThread) => {\n${statements}\n});\n`;
     return code;
 };

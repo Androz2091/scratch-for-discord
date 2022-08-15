@@ -13,6 +13,7 @@ const decode = (html) => {
     return txt.value;
 }
 
+let excusedBlocks = ["lasercat_jg_case_default"]
 export const disableUnapplicable = (workspace) => {
 
     // Gets all blocks in the workspace
@@ -24,6 +25,7 @@ export const disableUnapplicable = (workspace) => {
         // Checks
         if (!block) continue;
         if (!restrictions[block.type]) restrictions[block.type] = [];
+
 
         const messages = [];
         let issues = 0;
@@ -58,7 +60,7 @@ export const disableUnapplicable = (workspace) => {
                     if (Blockly.Msg[restriction.message]) {
                         messages.push(Blockly.Msg[restriction.message]);
                     } else {
-                        window.alert("KEY NOT FOUND: " + restriction.message);
+                        //  window.alert("KEY NOT FOUND: " + restriction.message);
                         messages.push(decode(restriction.message));
                     }
                 }
@@ -67,6 +69,7 @@ export const disableUnapplicable = (workspace) => {
         }
 
         if (issues < 1) {
+            if (excusedBlocks.includes(block.type)) continue
             block.setWarningText(null);
         } else {
             if (messages.length > 0) {

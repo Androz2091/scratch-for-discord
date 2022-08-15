@@ -60,7 +60,7 @@ const blockData = {
     "previousStatement": null,
     "nextStatement": null,
     "inputsInline": true,
-    "tooltip": "Set the bot's status.",
+    "tooltip": "Set your bot's game/status.",
     "helpUrl": ""
 };
 

@@ -1158,6 +1158,13 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
                     }
                 }
             }
+            if (specialTag == "text-only") {
+                const elem2ents = document.getElementsByClassName("blocklyPath")
+                for (let i = 0; i < elem2ents.length; i++) {
+                    let current = elem2ents.item(i)
+                    current.setAttribute("d", "")
+                }
+            }
             if (specialTag == "april-fools") {
                 document.getElementById("navSpace").style = `background-color: rgb(255, 0, 255);`
                 document.getElementsByClassName("blocklyMainBackground").item(0).style = `fill:#00ff00;`
@@ -1375,6 +1382,9 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
                         break
                     case "full-colors":
                         themeBlocks(null, null, "full-colors")
+                        break
+                    case "text-only":
+                        themeBlocks(null, null, "text-only")
                         break
                 }
             })

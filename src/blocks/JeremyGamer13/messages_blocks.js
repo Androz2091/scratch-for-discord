@@ -3042,64 +3042,6 @@ Blockly.JavaScript["jg_monaco_roles_change_role_to_be_mentionable_with_reason"] 
 `
     return code;
 };
-Blockly.Blocks["jg_monaco_threads_add_member_to_from_thread_with_reason"] = {
-    init: function () {
-        this.jsonInit(
-            {
-                "message0": "%1 %2 to/from thread %3 with reason %4",
-                "args0": [
-                    {
-                        "type": "field_dropdown",
-                        "name": "TYPE",
-                        "options": [
-                            [
-                                "add member",
-                                "add"
-                            ],
-                            [
-                                "remove member with ID",
-                                "remove"
-                            ]
-                        ]
-                    },
-                    {
-                        "type": "input_value",
-                        "name": "MEMBER",
-                        "check": ["Member", "String"]
-                    },
-                    {
-                        "type": "input_value",
-                        "name": "THREAD",
-                        "check": "Thread"
-                    },
-                    {
-                        "type": "input_value",
-                        "name": "REASON",
-                        "check": "String"
-                    }
-                ],
-                "inputsInline": true,
-                "previousStatement": null,
-                "nextStatement": null,
-                "colour": "#2a97b8",
-                "tooltip": "Add or remove a member to or from a thread. Removing members requires their ID.",
-                "helpUrl": ""
-            }
-        );
-    }
-}
-Blockly.JavaScript["jg_monaco_threads_add_member_to_from_thread_with_reason"] = function (block) {
-    const type = block.getFieldValue("TYPE");
-    const thread = Blockly.JavaScript.valueToCode(block, "THREAD", Blockly.JavaScript.ORDER_ATOMIC);
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    let reason = Blockly.JavaScript.valueToCode(block, "REASON", Blockly.JavaScript.ORDER_ATOMIC);
-    if (reason) {
-        reason = ", " + reason
-    }
-    const code = `${thread}.members.${type}(${member}${reason})
-`
-    return code;
-};
 
 Blockly.Blocks["jg_unused_any_color"] = {
     init: function () {
@@ -4070,3 +4012,405 @@ Blockly.JavaScript["jg_s4d_other_throw_custom_error"] = function (block) {
 `
     return code;
 };
+
+// hosting websites YAYAYAY
+
+Blockly.Blocks["jg_express_website_on_page_on_request_type_do"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "on page %1 on request type %2 %3 do %4",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "PAGE",
+                        "check": "String"
+                    },
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            [
+                                "GET",
+                                'get'
+                            ],
+                            [
+                                "POST",
+                                'post'
+                            ],
+                            [
+                                "PUT",
+                                'put'
+                            ],
+                            [
+                                "DELETE",
+                                "delete"
+                            ],
+                            [
+                                "All",
+                                'all'
+                            ]
+                        ],
+                    },
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ],
+                "colour": "#4c8eff",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "When this page is entered using this request type, the blocks inside will run.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_express_website_on_page_on_request_type_do"] = function (block) {
+    const page = Blockly.JavaScript.valueToCode(block, "PAGE", Blockly.JavaScript.ORDER_ATOMIC);
+    const type = block.getFieldValue("TYPE")
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `S4D_WEBSITECREATION_EXPRESS_app.${type}(${page}, async function(req, res) {
+  ${statements}
+})
+`;
+    return code;
+};
+restrictToParent(
+    ["jg_express_start_website_then_using_port"],
+    "jg_express_website_on_page_on_request_type_do",
+    'This block must be in a "start website then" block!'
+)
+Blockly.Blocks["jg_express_website_on_invalid_request_do"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "on invalid request %1 do %2",
+                "args0": [
+                    {
+                        "type": "input_dummy"
+                    },
+                    {
+                        "type": "input_statement",
+                        "name": "STATEMENTS"
+                    }
+                ],
+                "colour": "#4c8eff",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "When a request fails, the blocks inside will run.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_express_website_on_invalid_request_do"] = function (block) {
+    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+    const code = `S4D_WEBSITECREATION_EXPRESS_app.use(function(req, res) {
+  ${statements}
+})
+`;
+    return code;
+};
+restrictToParent(
+    ["jg_express_start_website_then_using_port"],
+    "jg_express_website_on_invalid_request_do",
+    'This block must be in a "start website then" block!'
+)
+Blockly.Blocks["jg_express_website_respond_with_text"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "respond with text %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "TEXT",
+                        "check": "String"
+                    }
+                ],
+                "colour": "#4c8eff",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "Sends back text to the page.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_express_website_respond_with_text"] = function (block) {
+    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `res.send(String(${text}))
+`;
+    return code;
+};
+restrictToParent(
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
+    "jg_express_website_respond_with_text",
+    'This block must be in a "on page on request type do" block!'
+)
+Blockly.Blocks["jg_express_website_respond_with_file"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "respond with file %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "TEXT",
+                        "check": "String"
+                    }
+                ],
+                "colour": "#4c8eff",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "Sends back the contents of a certain file to the page.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_express_website_respond_with_file"] = function (block) {
+    const text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `res.sendFile(S4D_WEBSITECREATION_path.join(__dirname, String(${text})))
+`;
+    return code;
+};
+restrictToParent(
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
+    "jg_express_website_respond_with_file",
+    'This block must be in a "on page on request type do" block!'
+)
+Blockly.Blocks["jg_express_website_respond_with_object"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "respond with object %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "OBJECT",
+                        "check": "Object"
+                    }
+                ],
+                "colour": "#4c8eff",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "Sends back an object to the page.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_express_website_respond_with_object"] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, "OBJECT", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `res.json(${object})
+`;
+    return code;
+};
+restrictToParent(
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
+    "jg_express_website_respond_with_object",
+    'This block must be in a "on page on request type do" block!'
+)
+Blockly.Blocks["jg_express_website_set_response_status_code_to"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "set response status code to %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "STATUS",
+                        "check": "Number"
+                    }
+                ],
+                "colour": "#4c8eff",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "Sets the page's status code to the specified number. You can find a status code reference by Right Clicking on this block and clicking Help.",
+                "helpUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_express_website_set_response_status_code_to"] = function (block) {
+    const status = Blockly.JavaScript.valueToCode(block, "STATUS", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `res.status(Number(${status}))
+`;
+    return code;
+};
+restrictToParent(
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
+    "jg_express_website_set_response_status_code_to",
+    'This block must be in a "on page on request type do" block!'
+)
+Blockly.Blocks["jg_express_website_set_content_type_to"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "set content type to %1",
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            ["application/javascript", "application/javascript"],
+                            ["application/ogg", "application/ogg"],
+                            ["application/pdf", "application/pdf"],
+                            ["application/json", "application/json"],
+                            ["application/ld+json", "application/ld+json"],
+                            ["application/xml", "application/xml"],
+                            ["application/zip", "application/zip"],
+                            ["audio/mpeg", "audio/mpeg"],
+                            ["image/gif", "image/gif"],
+                            ["image/jpeg", "image/jpeg"],
+                            ["image/png", "image/png"],
+                            ["image/tiff", "image/tiff"],
+                            ["image/x-icon", "image/x-icon"],
+                            ["image/svg+xml", "image/svg+xml"],
+                            ["text/css", "text/css"],
+                            ["text/csv", "text/csv"],
+                            ["text/html", "text/html"],
+                            ["text/plain", "text/plain"],
+                            ["text/xml", "text/xml"],
+                            ["video/mpeg", "video/mpeg"],
+                            ["video/mp4", "video/mp4"],
+                            ["video/x-ms-wmv", "video/x-ms-wmv"],
+                            ["video/x-msvideo", "video/x-msvideo"],
+                            ["video/x-flv", "video/x-flv"],
+                            ["video/webm", "video/webm"]
+                        ]
+                    }
+                ],
+                "colour": "#4c8eff",
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "Sets the page's content type to the specified one.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_express_website_set_content_type_to"] = function (block) {
+    const type = block.getFieldValue("TYPE")
+    const code = `res.header("Content-Type", '${type}')
+`;
+    return code;
+};
+restrictToParent(
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
+    "jg_express_website_set_content_type_to",
+    'This block must be in a "on page on request type do" block!'
+)
+Blockly.Blocks["jg_express_website_query_item_parameter"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "%1 %2",
+                "args0": [
+                    {
+                        "type": "field_dropdown",
+                        "name": "TYPE",
+                        "options": [
+                            ["query item", "query"],
+                            ["parameter", "params"]
+                        ]
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "ITEM",
+                        "check": "String"
+                    }
+                ],
+                "colour": "#4c8eff",
+                "output": "String",
+                "tooltip": "Gets a certain item from the URL's query items or parameters. (ex: ?item1=yes&item2=no) (ex: /:item)",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_express_website_query_item_parameter"] = function (block) {
+    const type = block.getFieldValue("TYPE")
+    const item = Blockly.JavaScript.valueToCode(block, "ITEM", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`req.${type}[String(${item})]`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+restrictToParent(
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
+    "jg_express_website_query_item_parameter",
+    'This block must be in a "on page on request type do" block!'
+)
+Blockly.Blocks["jg_express_website_post_request_item"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "post request item %1",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "ITEM",
+                        "check": "String"
+                    }
+                ],
+                "colour": "#4c8eff",
+                "output": null,
+                "tooltip": "Gets a certain item from a post request, like the request's body information.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_express_website_post_request_item"] = function (block) {
+    const item = Blockly.JavaScript.valueToCode(block, "ITEM", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = [`req[String(${item})]`, Blockly.JavaScript.ORDER_NONE];
+    return code;
+};
+restrictToParent(
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
+    "jg_express_website_post_request_item",
+    'This block must be in a "on page on request type do" block!'
+)
+Blockly.Blocks["jg_express_website_set_header_to"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "set header %1 to %2",
+                "args0": [
+                    {
+                        "type": "input_value",
+                        "name": "HEADER",
+                        "check": "String"
+                    },
+                    {
+                        "type": "input_value",
+                        "name": "VALUE",
+                        "check": null
+                    }
+                ],
+                "colour": "#4c8eff",
+                "inputsInline": true,
+                "previousStatement": null,
+                "nextStatement": null,
+                "tooltip": "Sets a header on the page to a certain value.",
+                "helpUrl": ""
+            }
+        );
+    }
+}
+Blockly.JavaScript["jg_express_website_set_header_to"] = function (block) {
+    const header = Blockly.JavaScript.valueToCode(block, "HEADER", Blockly.JavaScript.ORDER_ATOMIC);
+    const value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_ATOMIC);
+    const code = `res.header(${header}, ${value})
+`;
+    return code;
+};
+restrictToParent(
+    ["jg_express_website_on_page_on_request_type_do", "jg_express_website_on_invalid_request_do"],
+    "jg_express_website_set_header_to",
+    'This block must be in a "on page on request type do" block!'
+)
