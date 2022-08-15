@@ -64,45 +64,63 @@ Blockly.Blocks[blockName] = {
         if(newMode === "null") return
         let a = newMode.toLowerCase()
         newMode = a
+        if (this.getInput('BOOLEAN') != null) {
+          this.removeInput('BOOLEAN')
+        }
         if (newMode == 'string') {
-
+            this.appendValueInput('BOOLEAN')
+            .setCheck('String')
+            .appendField("option name");
           this.setOutput(true,'String');
 
         }else if (newMode == 'integer') {
-
+            this.appendValueInput('BOOLEAN')
+            .setCheck('String')
+            .appendField("option name");
             this.setOutput(true,'Number');
 
         }else if (newMode == 'boolean') {
-
+            this.appendValueInput('BOOLEAN')
+            .setCheck('String')
+            .appendField("option name");
             this.setOutput(true,'Boolean');
 
         } else if (newMode == 'user') {
-
+            this.appendValueInput('BOOLEAN')
+            .setCheck('String')
+            .appendField("option name");
             this.setOutput(true,'Member');
 
         } else if (newMode == 'channel') {
-
+            this.appendValueInput('BOOLEAN')
+            .setCheck('String')
+            .appendField("option name");
             this.setOutput(true,'Channel');
 
         } else if (newMode == 'role') {
-
+            this.appendValueInput('BOOLEAN')
+            .setCheck('String')
+            .appendField("option name");
             this.setOutput(true,'Role');
 
         } else if (newMode == 'subcommand') {
-
             this.setOutput(true,'String');
 
         } else if (newMode == 'subcommand group') {
-
             this.setOutput(true,'String');
-
+          
         } else if (newMode == 'attachment') {
-          this.setOutput(true,'Attachment');
+            this.appendValueInput('BOOLEAN')
+            .setCheck('String')
+            .appendField("option name");
+            this.setOutput(true,'Attachment');
+          
         }
       },
       mutationToDom: function() {
         var container = Blockly.utils.xml.createElement('mutation');
         container.setAttribute('mode', this.getFieldValue('SEARCH'));
+        container.setAttribute('type', this.getFieldValue('TYPE'));
         return container;
       },
       domToMutation: function(xmlElement) {
