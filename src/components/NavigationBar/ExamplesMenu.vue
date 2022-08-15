@@ -50,7 +50,7 @@ const examples = {
     "command-parsing": CommandParsingExample,
     "bettercmd": bettercmd,
     "leveling": LevelingExample,
-    "music":MusicExample,
+    "music": MusicExample,
     "image-gen": ImageGen,
     "economy": Economy,
     "backup": backup,
@@ -72,7 +72,7 @@ export default {
     computed: {
     },
     methods: {
-        load(example){
+        load(example) {
             this.$swal({
                 title: this.$t('examples.confirm.title'),
                 text: this.$t('examples.confirm.text'),
@@ -90,7 +90,7 @@ export default {
                 },
                 closeOnClickOutside: false
             }).then(result => {
-                if(typeof result == "object"){
+                if (typeof result == "object") {
                     return;
                 } else if (result) {
                     this.$store.state.workspace.getAllBlocks().forEach((block) => block.dispose());
@@ -242,18 +242,27 @@ ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading ne
                                     names.push([name, i[1][3], i[1][4], i[1][6], i[1][1]])
                                 })
                                 names.forEach((name) => {
-                                    boxes += `<label name="pickThisExampleToImportButton"><div class="box""><input type="radio" id="${name[2]}" name="pickThisExampleToImportButton">
-    <center>
-        <h4>${name[0].replaceAll("<", "").replaceAll(">", "").replaceAll("/", "").replaceAll("\\", "")}</h4>
-        <p><i class="fa fa-cube"></i> ${String(name[1])} blocks	&#8226 <i class="fas fa-id-badge"></i> ID: ${name[2]}<br><i class="fas fa-user-shield"></i> Creator: ${name[3]}</p>
-        <p style="font-style: italic;">${name[4]}</p>
-    </center>
-</input> 
-</div>
+                                    boxes += `<label name="pickThisExampleToImportButton">
+    <div class="box">
+        <input type="radio" id="${name[2]}" name="pickThisExampleToImportButton">
+            <center>
+                <h4>${name[0].replaceAll("<", "").replaceAll(">", "").replaceAll("/", "").replaceAll("\\", "")}</h4>
+                <p><i class="fa fa-cube"></i> ${String(name[1])} blocks	&#8226 <i class="fas fa-id-badge"></i> ID: ${name[2]}<br><i class="fas fa-user-shield"></i> Creator: ${name[3]}</p>
+                <p style="font-style: italic;">${name[4]}</p>
+            </center>
+        </input>
+        <button type="button" name="like" onclick="let id = ${name[2]}; " style="background-color: white;border: none;color:gray">
+            <i class="fa-solid fa-thumbs-up"> 0</i>
+        </button>
+        <button type="button" name="dislike" onclick="console.log(${name[2]})" style="background-color: white;border: none;color:gray">
+            <i class="fa-solid fa-thumbs-down"> 0</i>
+        </button>
+    </div>
 </label>
 <br>`
                                 })
-                                responseHTML.innerHTML = "<center><form style=\"width: 100%; display: flex; flex-wrap: wrap; justify-content: center;\">" + boxes + "</form></center>"          
+                                /* eslint-disable */
+                                responseHTML.innerHTML = `<center><form style="width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">${boxes}</form></center>`
                                 this.$swal({
                                     title: "Pick an Example",
                                     content: responseHTML,
@@ -464,19 +473,19 @@ ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading ne
 }
 </script>
 <style>
-  .swal-wide {
+.swal-wide {
     width: 900px;
-  }
+}
 
-  .swal-wide .swal-content {
+.swal-wide .swal-content {
     height: 30em;
     overflow: auto;
-  }
+}
 
-  .swal-wide h4 {
+.swal-wide h4 {
     font-weight: bold;
-    color: rgba(0,0,0,.65); 
-  }
+    color: rgba(0, 0, 0, .65);
+}
 
 /*  .sr-only {
     clip: rect(0 0 0 0);
@@ -489,34 +498,34 @@ ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading ne
     pointer-events: auto;
 } */
 
-  label {
+label {
     width: 48%;
-  }
-  
-  .box {
+}
+
+.box {
     height: 200px;
     border: 2px solid lightgray;
     border-radius: 0.25em;
     margin: 0.25em 0.25em;
     padding: 0.5em;
     background-color: white;
-  }
+}
 
-  .box:hover {
+.box:hover {
     border: 2px solid lightblue;
-  }
-  
-  .box:active {
+}
+
+.box:active {
     border: 3px solid lightblue;
     padding: 0.75em;
-  }
+}
 
-  .box p {
+.box p {
     color: gray;
     margin-top: -0.5em;
-  }
-  
-  input[type="radio"]:checked {
+}
+
+input[type="radio"]:checked {
     background: lightblue;
-  }
+}
 </style>
