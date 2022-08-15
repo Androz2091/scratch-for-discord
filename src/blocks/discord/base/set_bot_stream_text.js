@@ -20,7 +20,7 @@ const blockData = {
     "colour": "#4C97FF",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "",
+    "tooltip": "Set a stream link.",
     "helpUrl": ""
 };
 

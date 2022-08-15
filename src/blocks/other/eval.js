@@ -14,7 +14,7 @@ const blockData = {
     "colour": "#D14081",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "",
+    "tooltip": "Run some code.",
     "helpUrl": ""
 };
 Blockly.Blocks[blockName] = {

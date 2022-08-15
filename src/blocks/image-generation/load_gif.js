@@ -13,7 +13,7 @@ const blockData = {
     ],
     "colour": "#4C97FF",
     "output":"image",
-    "tooltip": "",
+    "tooltip": "Load a GIF to use.",
     "helpUrl": ""
 };
 
