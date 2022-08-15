@@ -143,16 +143,14 @@ export default {
                     const blockCounts = workspace.getAllBlocks().length
                     wrapper.innerHTML = `<h5>The content of the example is going to be the blocks you've placed.</h5>
 <label for="name">Name of your Example </label>
-<input type="text" id="UserExampleName" value="${name == "Untitled document" ? "Untitled example" : name}">
+<input type="text" id="UserExampleName" value="${name == "Untitled document" ? "Untitled example" : name}" maxlength="50">
 <label for="author">Author of the Example </label>
-<input type="text" id="UserExampleAuthor" value="Anonymous">
+<input type="text" id="UserExampleAuthor" value="Anonymous" maxlength="50">
 <br>
-<small><em>Note, impersonation is possible!</em></small>
-<br>
-<label for="name">Describe your Example...</label>
-<textarea id="UserExampleDescription" rows="4" cols="50"></textarea>
+<label style="font-weight: bold;" for="name">Describe your Example...</label>
+<textarea id="UserExampleDescription" rows="4" cols="50" maxlength="200"></textarea>
 <p>Your example has <b>${blockCounts} block${blockCounts == 1 ? "" : "s"}</b> in it.</p>
-${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is not encouraged.</h3>` : ''}
+${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading near empty examples is not encouraged.</p>` : ''}
 `
                     this.$swal({
                         title: "Upload an example",
@@ -241,22 +239,25 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
                                 Object.entries(examples).forEach((i) => {
                                     // console.log("Found example with name", i[1][0])
                                     let name = i[1][0]
-                                    names.push([name, i[1][3], i[1][4]])
+                                    names.push([name, i[1][3], i[1][4], i[1][6], i[1][1]])
                                 })
                                 names.forEach((name) => {
-                                    boxes += `<div class="box" style="width: 425px; height: 75px; border: 2px solid lightgray; margin: 0.5; padding: 1;">
+                                    boxes += `<label name="pickThisExampleToImportButton"><div class="box""><input type="radio" id="${name[2]}" name="pickThisExampleToImportButton">
     <center>
         <h4>${name[0].replaceAll("<", "").replaceAll(">", "").replaceAll("/", "").replaceAll("\\", "")}</h4>
-        <input type="radio" id="${name[2]}" name="pickThisExampleToImportButton">
-        <em style="color: Gray">${String(name[1])} blocks</em>
+        <p><i class="fa fa-cube"></i> ${String(name[1])} blocks	&#8226 <i class="fas fa-id-badge"></i> ID: ${name[2]}<br><i class="fas fa-user-shield"></i> Creator: ${name[3]}</p>
+        <p style="font-style: italic;">${name[4]}</p>
     </center>
+</input> 
 </div>
+</label>
 <br>`
                                 })
-                                responseHTML.innerHTML = "<center><form>" + boxes + "</form></center>"
+                                responseHTML.innerHTML = "<center><form style=\"width: 100%; display: flex; flex-wrap: wrap; justify-content: center;\">" + boxes + "</form></center>"          
                                 this.$swal({
                                     title: "Pick an Example",
                                     content: responseHTML,
+                                    className: "swal-wide",
                                     buttons: {
                                         cancel: "Cancel",
                                         confirm: {
@@ -364,22 +365,25 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
                                     Object.entries(examples).forEach((i) => {
                                         // console.log("Found example with name", i[1][0])
                                         let name = i[1][0]
-                                        if (String(name).toLowerCase().includes(String(SEARCHQUERYBRO).toLowerCase())) names.push([name, i[1][3], i[1][4]])
+                                        if (String(name).toLowerCase().includes(String(SEARCHQUERYBRO).toLowerCase())) names.push([name, i[1][3], i[1][4], i[1][6], i[1][1]])
                                     })
                                     names.forEach((name) => {
-                                        boxes += `<div class="box" style="width: 425px; height: 75px; border: 2px solid lightgray; margin: 0.5; padding: 1;">
+                                        boxes += `<label name="pickThisExampleToImportButton"><div class="box""><input type="radio" id="${name[2]}" name="pickThisExampleToImportButton">
     <center>
         <h4>${name[0].replaceAll("<", "").replaceAll(">", "").replaceAll("/", "").replaceAll("\\", "")}</h4>
-        <input type="radio" id="${name[2]}" name="pickThisExampleToImportButton">
-        <em style="color: Gray">${String(name[1])} blocks</em>
+        <p><i class="fa fa-cube"></i> ${String(name[1])} blocks	&#8226 <i class="fas fa-id-badge"></i> ID: ${name[2]}<br><i class="fas fa-user-shield"></i> Creator: ${name[3]}</p>
+        <p style="font-style: italic;">${name[4]}</p>
     </center>
+</input> 
 </div>
+</label>
 <br>`
                                     })
-                                    responseHTML.innerHTML = "<center><form>" + boxes + "</form></center>"
+                                    responseHTML.innerHTML = "<center><form style=\"width: 100%; display: flex; flex-wrap: wrap; justify-content: center;\">" + boxes + "</form></center>"
                                     this.$swal({
                                         title: "Pick an Example",
                                         content: responseHTML,
+                                        className: "swal-wide",
                                         buttons: {
                                             cancel: "Cancel",
                                             confirm: {
@@ -459,3 +463,60 @@ ${blockCounts <= 5 ? `<h3 style="color:darkred">Uploading near empty examples is
     }
 }
 </script>
+<style>
+  .swal-wide {
+    width: 900px;
+  }
+
+  .swal-wide .swal-content {
+    height: 30em;
+    overflow: auto;
+  }
+
+  .swal-wide h4 {
+    font-weight: bold;
+    color: rgba(0,0,0,.65); 
+  }
+
+/*  .sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+    pointer-events: auto;
+} */
+
+  label {
+    width: 48%;
+  }
+  
+  .box {
+    height: 200px;
+    border: 2px solid lightgray;
+    border-radius: 0.25em;
+    margin: 0.25em 0.25em;
+    padding: 0.5em;
+    background-color: white;
+  }
+
+  .box:hover {
+    border: 2px solid lightblue;
+  }
+  
+  .box:active {
+    border: 3px solid lightblue;
+    padding: 0.75em;
+  }
+
+  .box p {
+    color: gray;
+    margin-top: -0.5em;
+  }
+  
+  input[type="radio"]:checked {
+    background: lightblue;
+  }
+</style>
