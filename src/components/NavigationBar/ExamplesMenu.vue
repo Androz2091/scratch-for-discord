@@ -469,7 +469,7 @@ fetch("${SERVER + 'api/examples/updateVotes'}", requestOptions)
                                             .getElementsByTagName("center").item(0)
                                             .getElementsByTagName("h4").item(0)
                                             .innerText
-                                        if (!name.toLowerCase().includes(searchBox.value)) current.remove()
+                                        if (!name.toLowerCase().includes(String(searchBox.value).toLowerCase())) current.remove()
                                         kept = boxes.length
                                     }
                                     if (kept <= 0) {
