@@ -34,8 +34,9 @@ export default {
                     <span style="color:#ff7b00">Parham</span>,
                     <span style="color:#69b0d6">Monaco</span>,
                     <span style="color:#eb4634">RedMan13</span>,
-                    <span style="color:#9419FF">TropicGalxy</span>
-                    </p></b> 
+                    <span style="color:#9419FF">TropicGalxy</span>,
+                    <span style="color:#f28a29">ChsyDev</span>
+                    </p></b>
                     <h3><b>Original S4D:</b></h3>
                     <b><p>
                     <span style="color:#36915a">Androz</span>,
