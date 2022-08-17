@@ -251,24 +251,29 @@ ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading ne
                                 let voteButtonSessionList = {}
                                 names.forEach((name) => {
                                     voteButtonSessionList[String(name[2])] = {likes: name[8], dislikes: name[9]}
-                                    boxes += `<label name="pickThisExampleToImportButton">
+                                    boxes += `<label name="pickThisExampleToImportButton" style="width: 48%;">
     <div class="box">
         <input type="radio" id="${name[2]}" name="pickThisExampleToImportButton" class="sr-only-basic">
             <center>
                 <h4>${name[0].replaceAll("<", "").replaceAll(">", "").replaceAll("/", "").replaceAll("\\", "")}</h4>
-                <p><i class="fa fa-cube"></i> ${String(name[1])} blocks	&#8226 <i class="fas fa-id-badge"></i> ID: ${name[2]}<br><i class="fas fa-user-shield"></i> Creator: ${name[3]}</p>
-                <p style="font-style: italic;font-size:small;" title="${name[4]}">${name[4].length > 100 ? name[4].substring(0, 96) + "..." : name[4]}</p>
+                <p><i class="fas fa-user-shield"></i> Creator: ${name[3]} &#8226 <i class="fas fa-id-badge"></i> ID: ${name[2]}</p>
+                <p style="font-style: italic;font-size:small;" title="${name[4]}">${name[4]}</p>
             </center>
         </input>
-        <button type="button" name="like" class="examplesMenuBox_Likes" id="${name[2]}" title="Like this example" style="background-color: Transparent;border: none;color:gray">
-            <i class="fa-solid fa-thumbs-up"> ${name[5]}</i>
-        </button>
-        <button type="button" name="dislike" class="examplesMenuBox_Dislikes" id="${name[2]}" title="Dislike this example" style="background-color: Transparent;border: none;color:gray">
-            <i class="fa-solid fa-thumbs-down"> ${name[6]}</i>
-        </button>
-        <button type="button" name="downloads" class="examplesMenuBox_Downloads" id="${name[2]}" title="Total number of Imports" style="background-color: Transparent;border: none;color:gray">
-            <i class="fa-solid fa-file-import"> ${name[7]}</i>
-        </button>
+        <div style="position: absolute;bottom: 0%;left: 0%">
+            <button type="button" name="like" class="examplesMenuBox_Likes" id="${name[2]}" title="Like this example" style="background-color: Transparent;border: none;color:gray">
+                <i class="fa-solid fa-thumbs-up"> ${name[5]}</i>
+            </button>
+            <button type="button" name="dislike" class="examplesMenuBox_Dislikes" id="${name[2]}" title="Dislike this example" style="background-color: Transparent;border: none;color:gray">
+                <i class="fa-solid fa-thumbs-down"> ${name[6]}</i>
+            </button>
+            <button type="button" name="downloads" class="examplesMenuBox_Downloads" id="${name[2]}" title="Total number of Imports" style="background-color: Transparent;border: none;color:gray">
+                <i class="fa-solid fa-file-import"> ${name[7]}</i>
+            </button>
+        </div>
+        <div style="position: absolute;bottom: 0%;right: 0%;color:gray;">
+            <span><i class="fa fa-cube"></i> ${String(name[1])} blocks</span><span style="color:transparent">&#8226</span>
+        </div>
     </div>
 </label>
 <br>`
@@ -276,8 +281,51 @@ ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading ne
                                 /* eslint-disable */
                                 responseHTML.innerHTML = `<!-- buttons to search & stuff -->
 <div>
-    <i title="Search for an Example" class="fa-solid fa-magnifying-glass">: </i>
-    <input type="text" size="60" id="swal_dialog_box_searchForUserExamples" title="Name of the example you are looking for">
+    <i title="Search for an Example" class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" size="75" id="swal_dialog_box_searchForUserExamples" title="Name of the example you are looking for">
+    <button type="button" id="swal_menu_CaseSensitiveUserExampleSearch" title="Case Sensitive Searching" style="background-color: Transparent;border: none;">
+        <i class="fa-solid fa-font"></i>
+    </button>
+    <button type="button" id="swal_menu_FilterUserExampleSearch" title="Filter Search" style="background-color: Transparent;border: none;display: none">
+        <i class="fa-solid fa-filter"></i>
+    </button>
+    <button type="button" id="swal_menu_ChangeBoxSizeUserExamples" title="Change the amount of examples on screen" style="background-color: Transparent;border: none;">
+        <i class="fa-solid fa-table-cells-large"></i>
+    </button>
+</div>
+<div id="swal_menu_SearchFilterOptionsInUserExamples" style="display: none">
+    <br>
+    <button type="button" id="SearchFilterOptions_name" title="Search by Example name" class="searchButton">
+        <i class="fa-solid fa-file-pen fa-xl"></i>
+    </button>
+    <button type="button" id="SearchFilterOptions_description" title="Search by Example description" class="searchButton">
+        <i class="fa-solid fa-file-lines fa-xl"></i>
+    </button>
+    <button type="button" id="SearchFilterOptions_author" title="Search by Example author" class="searchButton">
+        <i class="fa-solid fa-user-shield fa-xl"></i>
+    </button>
+    <button type="button" id="SearchFilterOptions_id" title="Search by Example ID" class="searchButton">
+        <i class="fa-solid fa-id-badge fa-xl"></i>
+    </button>
+    &#8226
+    <button type="button" id="SearchFilterOptions_likes" title="Search by amount of Likes" class="searchButton">
+        <i class="fa-solid fa-thumbs-up fa-xl"></i>
+    </button>
+    <button type="button" id="SearchFilterOptions_dislikes" title="Search by amount of Dislikes" class="searchButton">
+        <i class="fa-solid fa-thumbs-down fa-xl"></i>
+    </button>
+    <button type="button" id="SearchFilterOptions_imports" title="Search by amount of Imports" class="searchButton">
+        <i class="fa-solid fa-file-import fa-xl"></i>
+    </button>
+    <button type="button" id="SearchFilterOptions_blocks" title="Search by amount of Blocks" class="searchButton">
+        <i class="fa-solid fa-cube fa-xl"></i>
+    </button>
+    <i class="fa-solid fa-angle-right"></i>
+    <input type="text" size="2" id="SearchFilterOptions_amount_min" title="Minimum amount of selected item">
+    <i class="fa-solid fa-minus"></i>
+    <input type="text" size="2" id="SearchFilterOptions_amount_max" title="Maximum amount of selected item">
+    <br>
+    <br>
 </div>
 <!--<div style="float: right;">
     <i title="Sort the examples menu" class="fa-solid fa-arrow-down-wide-short">: </i>
@@ -456,21 +504,62 @@ fetch("${SERVER + 'api/examples/updateVotes'}", requestOptions)
                                 // selectMenu.onchange = function () {
                                 //     console.log()
                                 // }
-                                let unsearchedHtml = document.getElementById("swal_user_examples_dialog_box-form_area").innerHTML
                                 let searchBox = document.getElementById("swal_dialog_box_searchForUserExamples")
+                                let caseSensitive = false
+                                let caseSensitiveButton = document.getElementById("swal_menu_CaseSensitiveUserExampleSearch")
+                                caseSensitiveButton.onclick = function () {
+                                    caseSensitive = !caseSensitive
+                                    caseSensitive ?
+                                        caseSensitiveButton.setAttribute("style", "background-color: Transparent;border: none;color:#00aaff")
+                                    :
+                                        caseSensitiveButton.setAttribute("style", "background-color: Transparent;border: none;")
+                                    searchBox.oninput()
+                                }
+                                let gridSize3 = false
+                                let gridSizeButton = document.getElementById("swal_menu_ChangeBoxSizeUserExamples")
+                                gridSizeButton.onclick = function () {
+                                    gridSize3 = !gridSize3
+                                    let icon = gridSizeButton.getElementsByTagName("i").item(0)
+                                    if (gridSize3) {
+                                        icon.setAttribute("class", "fa-solid fa-table-cells")
+                                    } else {
+                                        icon.setAttribute("class", "fa-solid fa-table-cells-large")
+                                    }
+                                    let size = 48 - (Number(gridSize3) * 18)
+                                    let labels = document.getElementById("swal_user_examples_dialog_box-form_area").getElementsByTagName("label")
+                                    for (let i = 0; i < labels.length; i++) {
+                                        let current = labels.item(i)
+                                        if (!current.getAttribute("style").includes("display: none")) {
+                                            current.setAttribute("style", `width: ${size}%;`)
+                                        }
+                                    }
+                                }
+                                let unsearchedHtml = document.getElementById("swal_user_examples_dialog_box-form_area").innerHTML
                                 searchBox.oninput = function () {
                                     let area = document.getElementById("swal_user_examples_dialog_box-form_area")
                                     area.innerHTML = unsearchedHtml
+                                    if (gridSize3) {
+                                        gridSize3 = false
+                                        gridSizeButton.onclick()
+                                    }
                                     let boxes = area.getElementsByTagName("label")
                                     let kept = boxes.length
-                                    for (let i = boxes.length - 1; i >= 0; i--) {
+                                    for (let i = 0; i < boxes.length; i++) {
                                         let current = boxes.item(i)
                                         let name = current.getElementsByClassName("box").item(0)
                                             .getElementsByTagName("center").item(0)
                                             .getElementsByTagName("h4").item(0)
                                             .innerText
-                                        if (!name.toLowerCase().includes(String(searchBox.value).toLowerCase())) current.remove()
-                                        kept = boxes.length
+                                        let searchingInside = String(name)
+                                        let searchingWith = String(searchBox.value)
+                                        if (!caseSensitive) {
+                                            searchingInside = searchingInside.toLowerCase()
+                                            searchingWith = searchingWith.toLowerCase()
+                                        }
+                                        if (!searchingInside.includes(searchingWith)) {
+                                            current.setAttribute("style", "display: none")
+                                            kept--
+                                        }
                                     }
                                     if (kept <= 0) {
                                         area.innerHTML = `<div style="display: grid">
@@ -500,6 +589,9 @@ fetch("${SERVER + 'api/examples/updateVotes'}", requestOptions)
 }
 </script>
 <style>
+
+
+
 .swal-wide {
     width: 900px;
 }
@@ -525,9 +617,9 @@ fetch("${SERVER + 'api/examples/updateVotes'}", requestOptions)
     pointer-events: auto;
 } */
 
-label {
+/*label {
     width: 48%;
-}
+}*/
 
 .box {
     height: 200px;
@@ -536,6 +628,7 @@ label {
     margin: 0.25em 0.25em;
     padding: 0.5em;
     background-color: white;
+    position: relative;
 }
 
 .box:hover {
@@ -554,5 +647,10 @@ label {
 
 input[type="radio"]:checked {
     background: lightblue;
+}
+
+.searchButton {
+    background-color: Transparent;
+    border: none;
 }
 </style>
