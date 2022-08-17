@@ -1,7 +1,7 @@
 /* eslint-disable */
 export default (Blockly, value, searching) => {
     /* eslint-disable */
-
+    
     var toolbox_xml_contents = (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
 
@@ -537,7 +537,10 @@ export default (Blockly, value, searching) => {
 
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE"/>
 
-        <category name="Collections" colour="#a354b3">
+        <category name="Collections" colour="#a354b3" custom="COLLECTIONS"/>
+
+       <!-- <category name="Collections" colour="#a354b3">
+       
         
         <label text="Collections are able to hold data." web-class="boldtext"></label>
         <label text="It's like a list, but you attach a key to the data." web-class="boldtext"></label>
@@ -623,7 +626,7 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
-        </category>
+        </category> -->
 
         <category name="Objects" colour="#BA4A9A">
         

@@ -271,7 +271,7 @@ ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading ne
                 <i class="fa-solid fa-file-import"> ${name[7]}</i>
             </button>
         </div>
-        <div style="position: absolute;bottom: 0%;right: 0%;color:gray;">
+        <div style="position: absolute; bottom: 0%; right: 0%; color:gray;">
             <span><i class="fa fa-cube"></i> ${String(name[1])} blocks</span><span style="color:transparent">&#8226</span>
         </div>
     </div>
@@ -280,9 +280,9 @@ ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading ne
                                 })
                                 /* eslint-disable */
                                 responseHTML.innerHTML = `<!-- buttons to search & stuff -->
-<div>
-    <i title="Search for an Example" class="fa-solid fa-magnifying-glass"></i>
-    <input type="text" size="75" id="swal_dialog_box_searchForUserExamples" title="Name of the example you are looking for">
+<div style="margin-bottom: 0.5em;">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" size="75" id="swal_dialog_box_searchForUserExamples" placeholder="Search for an Example">
     <button type="button" id="swal_menu_CaseSensitiveUserExampleSearch" title="Case Sensitive Searching" style="background-color: Transparent;border: none;">
         <i class="fa-solid fa-font"></i>
     </button>
@@ -596,7 +596,7 @@ fetch("${SERVER + 'api/examples/updateVotes'}", requestOptions)
     width: 900px;
 }
 
-.swal-wide .swal-content {
+.swal-wide form {
     height: 30em;
     overflow: auto;
 }
@@ -605,21 +605,6 @@ fetch("${SERVER + 'api/examples/updateVotes'}", requestOptions)
     font-weight: bold;
     color: rgba(0, 0, 0, .65);
 }
-
-/*  .sr-only {
-    clip: rect(0 0 0 0);
-    clip-path: inset(100%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap; 
-    width: 1px;
-    pointer-events: auto;
-} */
-
-/*label {
-    width: 48%;
-}*/
 
 .box {
     height: 200px;
@@ -652,5 +637,9 @@ input[type="radio"]:checked {
 .searchButton {
     background-color: Transparent;
     border: none;
+}
+
+#swal_menu_CaseSensitiveUserExampleSearch:active, #swal_menu_ChangeBoxSizeUserExamples:active {
+    font-size: 120%;
 }
 </style>
