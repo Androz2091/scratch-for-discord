@@ -43,7 +43,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "THREAD",
-            "check": "Thread"
+            "check": "Channel"
         }
       ],
     "previousStatement": null,

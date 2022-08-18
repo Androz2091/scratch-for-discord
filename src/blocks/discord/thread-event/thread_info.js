@@ -38,7 +38,7 @@ const blockData = {
     }
   ],
   "colour": "#50a6c9",
-  "output": "Thread",
+  "output": "String",
   "tooltip": "",
   "helpUrl": ""
 };

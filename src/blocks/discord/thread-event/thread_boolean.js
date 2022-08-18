@@ -9,7 +9,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "THREAD",
-            "check":  "Thread" 
+            "check":  "Channel" 
         },
         {
             "type": "field_dropdown",

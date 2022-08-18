@@ -9,11 +9,11 @@ const blockData = {
         {
             "type": "input_value",
             "name": "CHANNEL",
-            "check": "Thread"
+            "check": "Channel"
         }
     ],
     "colour": "#50a6c9",
-    "output": "Thread",
+    "output": "Channel",
     "tooltip": "",
     "helpUrl": ""
 };
