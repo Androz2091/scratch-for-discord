@@ -674,7 +674,6 @@ fetch("${SERVER + 'api/examples/updateVotes'}", requestOptions)
 </script>
 <style>
 
-
 .swal-wide {
     width: 900px;
 }
@@ -728,10 +727,17 @@ input[type="radio"]:checked {
 
 #swal_popup_BlocklyUserExampleViewer {
     font-family: sans-serif;
-    height: 42em;
-    width: 100%;
+    position: absolute;
+    height: 78%;
+    width: 97.5%;
     text-align: left;
     overflow: hidden;
+}
+
+.swal-modal.swal-userExamples-preview-popup > .swal-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .swal-userExamples-preview-popup {
