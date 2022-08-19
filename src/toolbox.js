@@ -665,7 +665,7 @@ export default (Blockly, value, searching) => {
             </block>
         </category>
 
-        <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"> 
+        <category name="{{ TOOLBOX_OTHER }}s" colour="#D14081"> 
         
             <block type="s4d_print">
                 <value name="PRINT">
@@ -725,7 +725,6 @@ export default (Blockly, value, searching) => {
             <block type="date_to_unix"/>
             <block type="create_qr_then"/>
             <block type="qr"/>
-            <block type="anti_link"/>
         </category>
        
 	  
@@ -1146,19 +1145,14 @@ export default (Blockly, value, searching) => {
             <block type="s4d_on_connected"></block>
             <label text="%{BKY_BOT_INFORMATIONS}"></label>
             <block type="jg_base_bot"/>
-            <block type="s4d_bot_ping"></block>
             <block type="s4d_bot_server_count"></block>
             <block type="s4d_bot_startup_time"></block>
             <block type="s4d_get_bot"></block>
 						<block type="s4d_bot_amount"/>
-                        <block type="jg_s4duptime"/>
             <label text="%{BKY_BOT_ACTIONS}"></label>
             <block type="s4d_set_bot_game"></block>
             <block type="s4d_set_bot_stream_text"></block>
             <block type="s4d_bot_shutdown"></block>
-	    <block type="setbot"/>
-<label text="{@user} = user ping . {user_tag} = user tag" web-class="boldtext"></label>
-            <block type="start_antispam"/>
             <label text="Some more advanced features" web-class="boldtext"></label>
             <block type="jg_when_ran"/>
             <block type="jg_rbs_isRunButton"/>
@@ -1472,8 +1466,7 @@ export default (Blockly, value, searching) => {
                 <value name="MESSAGE">
                     <block type="Message"/>
                 </value>
-            </block>
-            <block type="anti_spam"/>            
+            </block>       
             
             <label text="Blocks for handling typing" web-class="boldtext"></label>
 

@@ -10,7 +10,11 @@ const blockData = {
             "name": "T",
             "options": [
                 [
-                    "%{BKY_SERVERS}",
+                    "pings",
+                    "pings"
+                ],
+                [
+                    "%{BKY_SERVERS}s",
                     "servers"
                 ],
                 [
@@ -20,6 +24,10 @@ const blockData = {
                 [
                     "%{BKY_CHANNELS}",
                     "channels"
+                ],
+                [
+                    "uptime",
+                    "uptime"
                 ]
             ]
         },
@@ -40,12 +48,16 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const t =  block.getFieldValue("T");
 		let code = ""
-    if(t === "servers"){
-			code = "s4d.client.guilds.cache.size"
-		}else if(t === "channels"){
-			code = "s4d.client.channels.cache.size"
-		}else if(t === "users"){
-			code = "s4d.client.users.cache.size"
-		}
+    if (t === "pings") {
+      code = "s4d.client.ws.ping";
+    } else if (t === "servers") {
+			code = "s4d.client.guilds.cache.size";
+		} else if (t === "channels") {
+			code = "s4d.client.channels.cache.size";
+		} else if (t === "users") {
+			code = "s4d.client.users.cache.size";
+		} else if (t === "uptime") {
+      code = "s4d.client.uptime";
+    }
     return [code, Blockly.JavaScript.ORDER_NONE ];
 };
