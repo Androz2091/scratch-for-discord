@@ -147,11 +147,12 @@ function displaySwalPopupForUserExample(json, lkjgenwhikgu4ewkjn, selectedOption
     copyToClipboardButton.onclick = () => {
     copyToClipboardButton.innerHTML = `<i class="fa-solid fa-paste"></i> &#8226 Copying...`
     navigator.clipboard.writeText(`Check out this User Uploaded Example at https://scratch-for-discord.com/?exampleid=${selectedOption}
-**${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}**
+> **${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}**
 > ${json.example[1].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "").replaceAll("\n", "\n> ")}
 > -----
 > 🚹: ${json.example[6].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}
-> 🧱: ${Number(json.example[3])} blocks`)
+> 🧱: ${Number(json.example[3])} blocks
+> 👍: ${Math.round((Number(json.example[8]) / (Number(json.example[8]) + Number(json.example[9]))) * 100)}% people liked this example`)
         console.log(json.example)
     copyToClipboardButton.innerHTML = `<i class="fa-solid fa-clipboard-check"></i> &#8226 Copied to clipboard!`
 
