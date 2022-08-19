@@ -18,7 +18,6 @@
                 <Socials style="font-size: small;"></Socials>
                 <changelog style="font-size: small;"></changelog>
                 <Credit style="font-size: small;"></Credit>
-                <s4dCommunityLeave id="leave"></s4dCommunityLeave>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
 <div id="block-counter" style="margin-right: 5px; font-size: 90%"><p id="block-counter-textParagraph" style="color:rgb(182, 182, 182);">0 blocks</p></div>
@@ -59,7 +58,6 @@ import CodeModal from "./CodeModal.vue";
 import ToolboxModal from "./ToolboxModal.vue";
 import Socials from "./socials.vue";
 import Credit from "./Credit";
-import s4dCommunityLeave from "./s4dCommunityLeave.vue";
 import changelog from "./changelog.vue"
 import localforage from 'localforage';
 import r from "./requires";
@@ -74,7 +72,6 @@ export default {
         CodeModal,
         ToolboxModal,
         Credit,
-        s4dCommunityLeave,
         changelog,
         Socials
     },
@@ -1497,8 +1494,3 @@ if(localStorage.getItem("theme") == null){
       }
        })()
 </script>
-<style>
-  #leave a {
-    color: rgb(255, 0, 0) !important;
-  }
-</style>
