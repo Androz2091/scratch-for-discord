@@ -140,7 +140,7 @@ export const websiteMessages = {
         confirm:"Load",
         title:"Auto Save",
         text:"Your auto save has been loaded!",
-        title2:"An auto save of a project has been found! Do you want to load it?",
+        title2:"An auto save of a project has been found!",
     },
     save:{
         title:"Auto Save",
