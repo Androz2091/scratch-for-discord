@@ -374,10 +374,21 @@ ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading ne
                                     fetch(SERVER + `api/getExample?id=${selectedOption}`)
                                         .then(async (result) => {
                                             result.json().then((json) => {
-                                                lkjgenwhikgu4ewkjn.innerHTML = `<b>${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}</b> with <b><em>${json.example[2]} blocks</em></b> uploaded by <b>${json.example[4].replaceAll("\\", "").replaceAll("<", "").replaceAll(">", "").replaceAll("/", "")}</b> <br><br><p>${json.example[1].replaceAll("<", "").replaceAll("\\", "")}</p>${json.example[3] == null || json.example[3] == "" ? "" : `<image src="${String(json.example[3])}"></image>`}`
+                                                lkjgenwhikgu4ewkjn.innerHTML = `<h2><i class="fa-solid fa-file-pen"></i> &#8226 <b>${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}</b>${json.example[3] == null || json.example[3] == "" ? "" : ` &#8226 <i class="fa-solid fa-star"></i>`}</h2>
+<i class="fa-solid fa-user-shield"></i> <b>${json.example[4].replaceAll("\\", "").replaceAll("<", "").replaceAll(">", "").replaceAll("/", "")}</b>
+&#8226
+<i class="fa-solid fa-cube"></i> <b><em>${Number(json.example[2])}</em></b>
+<p style="color:rgb(45,45,45)"><i class="fa-solid fa-file-lines"></i> &#8226 <i>${json.example[1].replaceAll("<", "").replaceAll("\\", "")}</i></p>
+<div id="swal_popup_BlocklyUserExampleViewer"></div>
+<div class="swal_popup_BlocklyUserExampleViewer_bottom_left_div">
+    <i class="fa-solid fa-id-badge"></i> &#8226 ${selectedOption}
+</div>
+`
+                                                let previewWorkspace = false
                                                 this.$swal({
-                                                    title: "Load this example?",
+                                                    //title: "Load this example?",
                                                     content: lkjgenwhikgu4ewkjn,
+                                                    className: "swal-userExamples-preview-popup",
                                                     buttons: {
                                                         cancel: "Cancel",
                                                         confirm: {
@@ -386,6 +397,9 @@ ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading ne
                                                         }
                                                     },
                                                 }).then(async (result) => {
+                                                    console.log("disposing of workspace")
+                                                    if (previewWorkspace) previewWorkspace.dispose()
+                                                    console.log("disposed of workspace")
                                                     if (String(result) != "load") return
                                                     this.$swal({
                                                         title: "Delete current blocks?",
@@ -432,6 +446,40 @@ ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading ne
                                                         fetch(`${SERVER}api/examples/updateDownloads`, requestOptions)
                                                     });
                                                 })
+                                                const userExamplesPreviewMenu = document.getElementById("swal_popup_BlocklyUserExampleViewer")
+                                                previewWorkspace = Blockly.inject(userExamplesPreviewMenu, {
+                                                    readOnly: true,
+                                                    grid: {
+                                                        spacing: 25,
+                                                        length: 3,
+                                                        colour: "#ccc",
+                                                    },
+                                                    renderer: "zelos",
+                                                    //theme: theme,
+                                                    zoom: {
+                                                        controls: true,
+                                                        startScale: 0.9,
+                                                        maxScale: 3,
+                                                        minScale: 0.3,
+                                                        scaleSpeed: 1.2
+                                                    },
+                                                    move: {
+                                                        scrollbars: {
+                                                            horizontal: true,
+                                                            vertical: true
+                                                        },
+                                                        drag: true,
+                                                        wheel: true
+                                                    }
+                                                });
+                                                console.log("injected workspace")
+                                                console.log("loading xml for workspace")
+                                                let currentMS = new Date().getTime()
+                                                fetch(SERVER + `api/getExample?xml=true&id=${selectedOption}`).then(result => result.text().then(xml => {
+                                                    const exampleXml = String(xml)
+                                                    Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(exampleXml), previewWorkspace);
+                                                    console.log("loaded xml for workspace in", ((new Date().getTime() - currentMS) + "ms"))
+                                                }))
                                             })
                                         })
                                 })
@@ -592,6 +640,13 @@ fetch("${SERVER + 'api/examples/updateVotes'}", requestOptions)
 
 
 
+
+
+
+
+
+
+
 .swal-wide {
     width: 900px;
 }
@@ -642,4 +697,25 @@ input[type="radio"]:checked {
 #swal_menu_CaseSensitiveUserExampleSearch:active, #swal_menu_ChangeBoxSizeUserExamples:active {
     font-size: 120%;
 }
+
+#swal_popup_BlocklyUserExampleViewer {
+    font-family: sans-serif;
+    height: 42em;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+}
+
+.swal-userExamples-preview-popup {
+    width: 90%;
+    height: 95%;
+}
+
+.swal_popup_BlocklyUserExampleViewer_bottom_left_div {
+    color: rgb(120, 120, 120);
+    position: absolute;
+    bottom: 1%;
+    left: 1%;
+}
+
 </style>
