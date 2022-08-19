@@ -67,9 +67,149 @@ const examples = {
     "embed example": embed
 };
 
+function displaySwalPopupForUserExample(json, lkjgenwhikgu4ewkjn, selectedOption, SERVER, swal, workspace, toast) {
+    lkjgenwhikgu4ewkjn.innerHTML = `<h2><i class="fa-solid fa-file-pen"></i> &#8226 <b>${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}</b>${json.example[5] == null || json.example[5] == "" ? "" : ` &#8226 <i class="fa-solid fa-star"></i>`}</h2>
+<i class="fa-solid fa-user-shield"></i> <b>${json.example[6].replaceAll("\\", "").replaceAll("<", "").replaceAll(">", "").replaceAll("/", "")}</b>
+&#8226
+<i class="fa-solid fa-cube"></i> <b><em>${Number(json.example[3])}</em></b>
+<p style="color:rgb(45,45,45)"><i class="fa-solid fa-file-lines"></i> &#8226 <i>${json.example[1].replaceAll("<", "").replaceAll("\\", "")}</i></p>
+<div id="swal_popup_BlocklyUserExampleViewer"></div>
+<div class="swal_popup_BlocklyUserExampleViewer_bottom_left_div">
+    <i class="fa-solid fa-id-badge"></i> &#8226 ${selectedOption}<br>
+    <div id="userExamplesButton_menu2_shareLinkToExample">
+        <i class="fa-solid fa-share-from-square"></i> &#8226 Share a link to this Example
+    </div>
+</div>
+`
+    let previewWorkspace = false
+    swal({
+        //title: "Load this example?",
+        content: lkjgenwhikgu4ewkjn,
+        className: "swal-userExamples-preview-popup",
+        buttons: {
+            cancel: "Cancel",
+            confirm: {
+                text: "Load",
+                value: "load"
+            }
+        },
+    }).then(async (result) => {
+        console.log("disposing of workspace")
+        if (previewWorkspace) previewWorkspace.dispose()
+        console.log("disposed of workspace")
+        if (String(result) != "load") return
+        swal({
+            title: "Delete current blocks?",
+            text: "Would you like to remove the current blocks before importing the example?",
+            buttons: {
+                cancel: "Cancel",
+                no: {
+                    text: "No",
+                    value: false,
+                    className: "red-button"
+                },
+                yes: {
+                    text: "Yes",
+                    value: true
+                }
+            },
+            closeOnClickOutside: false
+        }).then(result => {
+            if (typeof result == "object") {
+                return;
+            } else if (result) {
+                workspace.getAllBlocks().forEach((block) => block.dispose());
+            }
+            let exampleXml = ""
+            fetch(SERVER + `api/getExample?xml=true&id=${selectedOption}`).then(result => result.text().then(xml => {
+                exampleXml = String(xml)
+                Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(exampleXml), workspace);
+                setTimeout(() => {
+                    toast.open({
+                        message: "Loaded a custom example!",
+                        type: "success",
+                        dismissible: true,
+                        duration: 10000
+                    });
+                }, (200));
+            }))
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id: selectedOption,
+                })
+            }
+            fetch(`${SERVER}api/examples/updateDownloads`, requestOptions)
+        });
+    })
+    const copyToClipboardButton = document.getElementById("userExamplesButton_menu2_shareLinkToExample")
+    copyToClipboardButton.onclick = () => {
+    copyToClipboardButton.innerHTML = `<i class="fa-solid fa-paste"></i> &#8226 Copying...`
+    navigator.clipboard.writeText(`Check out this User Uploaded Example at https://scratch-for-discord.com/?exampleid=${selectedOption}
+**${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}**
+> ${json.example[1].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "").replaceAll("\n", "\n> ")}
+> -----
+> 🚹: ${json.example[6].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}
+> 🧱: ${Number(json.example[3])} blocks`)
+        console.log(json.example)
+    copyToClipboardButton.innerHTML = `<i class="fa-solid fa-clipboard-check"></i> &#8226 Copied to clipboard!`
+
+    }
+    const userExamplesPreviewMenu = document.getElementById("swal_popup_BlocklyUserExampleViewer")
+    previewWorkspace = Blockly.inject(userExamplesPreviewMenu, {
+        readOnly: true,
+        grid: {
+            spacing: 25,
+            length: 3,
+            colour: "#ccc",
+        },
+        renderer: "zelos",
+        //theme: theme,
+        zoom: {
+            controls: true,
+            startScale: 0.9,
+            maxScale: 3,
+            minScale: 0.3,
+            scaleSpeed: 1.2
+        },
+        move: {
+            scrollbars: {
+                horizontal: true,
+                vertical: true
+            },
+            drag: true,
+            wheel: true
+        }
+    });
+    console.log("injected workspace")
+    console.log("loading xml for workspace")
+    let currentMS = new Date().getTime()
+    fetch(SERVER + `api/getExample?xml=true&id=${selectedOption}`).then(result => result.text().then(xml => {
+        const exampleXml = String(xml)
+        Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(exampleXml), previewWorkspace);
+        console.log("loaded xml for workspace in", ((new Date().getTime() - currentMS) + "ms"))
+    }))
+
+}
+
 export default {
     name: "editmenu",
     computed: {
+    },
+    mounted() {
+        setTimeout(() => {
+            let urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('exampleid')) {
+                fetch(`https://469exampletest.jeremygamer13.repl.co/api/getExample?id=${urlParams.get("exampleid")}`)
+                    .then(async (result) => {
+                        result.json().then((json) => {
+                            const lkjgenwhikgu4ewkjn = document.createElement('div');
+                            displaySwalPopupForUserExample(json, lkjgenwhikgu4ewkjn, urlParams.get("exampleid"), "https://469exampletest.jeremygamer13.repl.co/", this.$swal, this.$store.state.workspace, this.$toast)
+                        })
+                    })
+            }
+        }, 500);
     },
     methods: {
         load(example) {
@@ -374,112 +514,7 @@ ${blockCounts <= 5 ? `<p style="color: darkred; font-weight: bold;">Uploading ne
                                     fetch(SERVER + `api/getExample?id=${selectedOption}`)
                                         .then(async (result) => {
                                             result.json().then((json) => {
-                                                lkjgenwhikgu4ewkjn.innerHTML = `<h2><i class="fa-solid fa-file-pen"></i> &#8226 <b>${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}</b>${json.example[3] == null || json.example[3] == "" ? "" : ` &#8226 <i class="fa-solid fa-star"></i>`}</h2>
-<i class="fa-solid fa-user-shield"></i> <b>${json.example[4].replaceAll("\\", "").replaceAll("<", "").replaceAll(">", "").replaceAll("/", "")}</b>
-&#8226
-<i class="fa-solid fa-cube"></i> <b><em>${Number(json.example[2])}</em></b>
-<p style="color:rgb(45,45,45)"><i class="fa-solid fa-file-lines"></i> &#8226 <i>${json.example[1].replaceAll("<", "").replaceAll("\\", "")}</i></p>
-<div id="swal_popup_BlocklyUserExampleViewer"></div>
-<div class="swal_popup_BlocklyUserExampleViewer_bottom_left_div">
-    <i class="fa-solid fa-id-badge"></i> &#8226 ${selectedOption}
-</div>
-`
-                                                let previewWorkspace = false
-                                                this.$swal({
-                                                    //title: "Load this example?",
-                                                    content: lkjgenwhikgu4ewkjn,
-                                                    className: "swal-userExamples-preview-popup",
-                                                    buttons: {
-                                                        cancel: "Cancel",
-                                                        confirm: {
-                                                            text: "Load",
-                                                            value: "load"
-                                                        }
-                                                    },
-                                                }).then(async (result) => {
-                                                    console.log("disposing of workspace")
-                                                    if (previewWorkspace) previewWorkspace.dispose()
-                                                    console.log("disposed of workspace")
-                                                    if (String(result) != "load") return
-                                                    this.$swal({
-                                                        title: "Delete current blocks?",
-                                                        text: "Would you like to remove the current blocks before importing the example?",
-                                                        buttons: {
-                                                            cancel: "Cancel",
-                                                            no: {
-                                                                text: "No",
-                                                                value: false,
-                                                                className: "red-button"
-                                                            },
-                                                            yes: {
-                                                                text: "Yes",
-                                                                value: true
-                                                            }
-                                                        },
-                                                        closeOnClickOutside: false
-                                                    }).then(result => {
-                                                        if (typeof result == "object") {
-                                                            return;
-                                                        } else if (result) {
-                                                            this.$store.state.workspace.getAllBlocks().forEach((block) => block.dispose());
-                                                        }
-                                                        let exampleXml = ""
-                                                        fetch(SERVER + `api/getExample?xml=true&id=${selectedOption}`).then(result => result.text().then(xml => {
-                                                            exampleXml = String(xml)
-                                                            Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(exampleXml), this.$store.state.workspace);
-                                                            setTimeout(() => {
-                                                                this.$toast.open({
-                                                                    message: "Loaded a custom example!",
-                                                                    type: "success",
-                                                                    dismissible: true,
-                                                                    duration: 10000
-                                                                });
-                                                            }, (200));
-                                                        }))
-                                                        const requestOptions = {
-                                                            method: 'POST',
-                                                            headers: { 'Content-Type': 'application/json' },
-                                                            body: JSON.stringify({
-                                                                id: selectedOption,
-                                                            })
-                                                        }
-                                                        fetch(`${SERVER}api/examples/updateDownloads`, requestOptions)
-                                                    });
-                                                })
-                                                const userExamplesPreviewMenu = document.getElementById("swal_popup_BlocklyUserExampleViewer")
-                                                previewWorkspace = Blockly.inject(userExamplesPreviewMenu, {
-                                                    readOnly: true,
-                                                    grid: {
-                                                        spacing: 25,
-                                                        length: 3,
-                                                        colour: "#ccc",
-                                                    },
-                                                    renderer: "zelos",
-                                                    //theme: theme,
-                                                    zoom: {
-                                                        controls: true,
-                                                        startScale: 0.9,
-                                                        maxScale: 3,
-                                                        minScale: 0.3,
-                                                        scaleSpeed: 1.2
-                                                    },
-                                                    move: {
-                                                        scrollbars: {
-                                                            horizontal: true,
-                                                            vertical: true
-                                                        },
-                                                        drag: true,
-                                                        wheel: true
-                                                    }
-                                                });
-                                                console.log("injected workspace")
-                                                console.log("loading xml for workspace")
-                                                let currentMS = new Date().getTime()
-                                                fetch(SERVER + `api/getExample?xml=true&id=${selectedOption}`).then(result => result.text().then(xml => {
-                                                    const exampleXml = String(xml)
-                                                    Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(exampleXml), previewWorkspace);
-                                                    console.log("loaded xml for workspace in", ((new Date().getTime() - currentMS) + "ms"))
-                                                }))
+                                                displaySwalPopupForUserExample(json, lkjgenwhikgu4ewkjn, selectedOption, SERVER, this.$swal, workspace, this.$toast)
                                             })
                                         })
                                 })
@@ -639,14 +674,6 @@ fetch("${SERVER + 'api/examples/updateVotes'}", requestOptions)
 <style>
 
 
-
-
-
-
-
-
-
-
 .swal-wide {
     width: 900px;
 }
@@ -716,6 +743,20 @@ input[type="radio"]:checked {
     position: absolute;
     bottom: 1%;
     left: 1%;
+    text-align: left;
 }
+
+/*
+#userExamplesButton_menu2_shareLinkToExample {
+    left: 0%;
+    bottom: 0%;
+    color: rgb(120, 120, 120);
+    background-color: transparent !important;
+    outline-width: 0px !important;
+    border-width: 0px !important;
+    outline: none !important;
+    width: 100%;
+}
+*/
 
 </style>
