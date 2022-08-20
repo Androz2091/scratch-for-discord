@@ -6,7 +6,7 @@ const blockName = "s4d_deleted_thread";
 const blockData = {
     "message0": "%{BKY_DELETED_THREAD}",
     "colour": "#2a97b8",
-    "output": "Thread",
+    "output": "Channel",
     "tooltip": "",
     "helpUrl": ""
 };

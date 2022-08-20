@@ -22,6 +22,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
     "@fortawesome/vue-fontawesome": "^2.0.8",
+    "@jaames/iro": "^5.5.2",
     "@sweetalert2/theme-dark": "^5.0.5",
     "blockly": "^8.0.2",
     "bootstrap": "^4.6.0",

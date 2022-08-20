@@ -6,7 +6,7 @@ const blockName = "s4d_gotten_thread";
 const blockData = {
     "message0": "gotten thread",
     "colour": "#2a97b8",
-    "output": "Thread",
+    "output": "Channel",
     "tooltip": "",
     "helpUrl": ""
 };

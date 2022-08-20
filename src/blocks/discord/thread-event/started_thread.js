@@ -6,7 +6,7 @@ const blockName = "s4d_started_thread";
 const blockData = {
     "message0": "%{BKY_CREATED_THREAD}",
     "colour": "#2a97b8",
-    "output": "Thread",
+    "output": "Channel",
     "tooltip": "",
     "helpUrl": ""
 };

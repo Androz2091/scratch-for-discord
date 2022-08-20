@@ -9,6 +9,7 @@
 
 <script>
 import beautify from "js-beautify";
+
 // https://filehost.jeremygamer13.repl.co/s4d/prism/js
 // https://filehost.jeremygamer13.repl.co/s4d/prism/css
 export default {
@@ -49,15 +50,32 @@ window.addEventListener("click", () => {
 
 <style>
 
+#code-modal___BV_modal_title_ {
+  color: white;
+  text-shadow: 7px 5px 5px black;
+}
 
+.close {
+  display: none;
+}
+  
 #code_TextArea_element_exporting_code {
     min-width: 100%;
     min-height: 100%;
     resize: none;
+    background-color: rgb(255 255 255 / 83%);
 }
 #code_TextArea_element_exporting_code::-webkit-scrollbar {
     width: 12px;
     background: #f1f1f1;
+}
+
+.modal-header, .modal-footer {
+  border: none !important;
+}
+
+.modal-footer {
+  justify-content: flex-start !important;
 }
 
 #code-modal .modal-dialog {
@@ -71,6 +89,10 @@ window.addEventListener("click", () => {
     display: flex;
     position: fixed;
     z-index: 100000;
+}
+
+#code-modal___BV_modal_content_ {
+    background-color: rgba(0,0,0,.4);
 }
 
 </style>
