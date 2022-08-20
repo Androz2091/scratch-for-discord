@@ -51,20 +51,20 @@ window.addEventListener("click", () => {
 <style>
 
 #code-modal___BV_modal_title_ {
-  color: white;
-  text-shadow: 7px 5px 5px black;
+    color: white;
+    text-shadow: 7px 5px 5px black;
 }
 
 .close {
-  display: none;
+    display: none;
 }
   
 #code_TextArea_element_exporting_code {
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
     resize: none;
-    background-color: rgb(255 255 255 / 83%);
 }
+  
 #code_TextArea_element_exporting_code::-webkit-scrollbar {
     width: 12px;
     background: #f1f1f1;
@@ -80,6 +80,7 @@ window.addEventListener("click", () => {
 
 #code-modal .modal-dialog {
     max-width: 100%;
+    max-height: 100%;
     margin: 0;
     top: 0;
     bottom: 0;
@@ -89,6 +90,7 @@ window.addEventListener("click", () => {
     display: flex;
     position: fixed;
     z-index: 100000;
+    
 }
 
 #code-modal___BV_modal_content_ {
