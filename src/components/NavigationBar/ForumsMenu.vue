@@ -146,7 +146,10 @@ function loadForumsPage(page, div) {
         case 'home':
             /* eslint-disable */
             div.innerHTML = `
-<p id="s4d_forums_homeMenu_logout" class="forums-fakeUrl" style="float:right;margin-right:0.5%;">Log out</p>
+<div style="float:right;margin-right:0.5%;text-align:right">
+    <p id="s4d_forums_homeMenu_logout" class="forums-fakeUrl">Log out</p>
+    <p id="s4d_forums_homeMenu_accountMenu" class="forums-fakeUrl">Edit Account</p>
+</div>
 <h1 id="s4d_forums_welcome_sign" class="forums-home-sideMessages">Hey!</h1>
 <p id="s4d_forums_welcome_message" class="forums-home-sideMessages">An error has occurred.</p>
 <br>
@@ -211,7 +214,8 @@ function loadForumsPage(page, div) {
                 "zzzzzzzzzzzzzzz...",
                 "<a href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>",
                 "<p style=\"color:green\">look at me im colored green</p>",
-                "<i class=\"fa-solid fa-bullhorn\"></i> I AM THE ONE WHO DID THE POO"
+                "<i class=\"fa-solid fa-bullhorn\"></i> I AM THE ONE WHO DID THE POO",
+                "Note: New colors may be added to the accounts menu. It'll be rare when it happens but it can."
             ]
             messages.push("Fun fact: There are " + messages.length + " different Home messages! Can you find them all?")
             document.getElementById("s4d_forums_welcome_message").innerHTML = messages[Math.round(Math.random() * (messages.length - 1))]
@@ -221,6 +225,9 @@ function loadForumsPage(page, div) {
                         loadForumsPage("login", div)
                     })
                 })
+            }
+            document.getElementById("s4d_forums_homeMenu_accountMenu").onclick = () => {
+                loadForumsPage("accountMenu", div)
             }
             document.getElementById("s4d_forums_homeMenu_buttons_category_Announcements").onclick = () => {
                 localforage.setItem("FORUMS_CATEGORY", "announcement").then(() => {
@@ -731,6 +738,121 @@ function loadForumsPage(page, div) {
                 })
             }
             break;
+        case 'accountMenu':
+            div.innerHTML = `<p id="s4d_forums_accountMenu_back" class="forums-fakeUrl" style="float:right;">Back</p>
+<center>
+    <h1>Manage your account</h1>
+    <p>You are currently logged in as <b id="s4d_forums_accountMenu_username">Unknown Account</b></p>
+    <img id="s4d_forums_accountMenu_profilePicture" width="326" height="326" alt="Loading image...">
+    <div id="s4d_forums_accountMenu_profilePicture_modsOnly" style="display:none">
+        <p><small>You're a moderator!</small><br><small>You can click the picture to set a custom profile picture.</small></p>
+    </div>
+    <br>
+    Choose a color: <select id="s4d_forums_accountMenu_profilePicture_colorDropdown" style="display:none">
+    </select>
+    <br>
+    <br>
+    <p>Display Name: <input id="s4d_forums_accountMenu_profilePicture_displayName" type="text" placeholder="john32"></p>
+    <input id="s4d_forums_accountMenu_profilePicture_displayName_update" type="submit" value="Update Display Name"><i id="s4d_forums_accountMenu_profilePicture_displayName_update_waiting" style="display:none" class="fa-solid fa-spinner"></i>
+</center>
+`
+            document.getElementById("s4d_forums_accountMenu_back").onclick = () => {
+                loadForumsPage("home", div)
+            }
+            const imageArea = document.getElementById("s4d_forums_accountMenu_profilePicture")
+            const colorSelection = document.getElementById("s4d_forums_accountMenu_profilePicture_colorDropdown")
+            localforage.getItem("FORUMS_USERNAME").then(username => {
+                if (!username) {
+                    loadForumsPage("login", div)
+                    return
+                }
+                document.getElementById("s4d_forums_accountMenu_username").innerText = username
+                localforage.getItem("FORUMS_PASSWORD").then(password => {
+                    if (!password) {
+                        loadForumsPage("login", div)
+                        return
+                    }
+                    fetch(`https://469-forumstest.jeremygamer13.repl.co/accounts/getUser?username=${username}`).then(result => result.json().then(json => {
+                        if (result.status != 200) {
+                            alert(json.error)
+                        }
+                        imageArea.src = (json.custompfp ? json.custompfp : "https://469-forumstest.jeremygamer13.repl.co/getFallbackIcon")
+                        document.getElementById("s4d_forums_accountMenu_profilePicture_displayName").value = json.display
+                        if (json.moderator == true) {
+                            document.getElementById("s4d_forums_accountMenu_profilePicture_modsOnly").removeAttribute("style")
+                            imageArea.onclick = () => {
+                                const url = prompt("New PFP image url (make sure its appropriate!)", json.custompfp)
+                                if (!url || url == "") return
+                                const requestOptions = {
+                                    method: 'PUT',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        'username': username,
+                                        'password': password,
+                                        'url': url
+                                    })
+                                };
+                                fetch(`https://469-forumstest.jeremygamer13.repl.co/accounts/setUserCustomPFP`, requestOptions).then(result => result.json().then(json => {
+                                    if (json.error) {
+                                        alert(json.error)
+                                        return
+                                    }
+                                    imageArea.src = json.success
+                                }))
+                            }
+                        }
+                    }))
+                    fetch(`https://469-forumstest.jeremygamer13.repl.co/getAllColors`).then(result => result.json().then(json => {
+                        colorSelection.removeAttribute("style")
+                        colorSelection.innerHTML = `<option>${json.join("</option><option>")}</option>`
+                        colorSelection.onchange = (event) => {
+                            const newColor = event.target.options[event.target.selectedIndex].innerText
+                            const requestOptions = {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    'username': username,
+                                    'password': password,
+                                    'color': newColor
+                                })
+                            };
+                            fetch(`https://469-forumstest.jeremygamer13.repl.co/accounts/setUserColor`, requestOptions).then(result => result.json().then(json => {
+                                if (json.error) {
+                                    alert(json.error)
+                                    return
+                                }
+                                imageArea.src = json.success
+                            }))
+                        }
+                    }))
+                    document.getElementById("s4d_forums_accountMenu_profilePicture_displayName_update").onclick = () => {
+                        document.getElementById("s4d_forums_accountMenu_profilePicture_displayName_update_waiting").removeAttribute("style")
+                        const requestOptions = {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                'username': username,
+                                'password': password,
+                                'display': String(document.getElementById("s4d_forums_accountMenu_profilePicture_displayName").value)
+                            })
+                        };
+                        fetch(`https://469-forumstest.jeremygamer13.repl.co/accounts/setUserDisplayName`, requestOptions).then(result => result.json().then(json => {
+                            document.getElementById("s4d_forums_accountMenu_profilePicture_displayName_update_waiting").setAttribute("style", "display:none")
+                            if (json.error) {
+                                alert(json.error)
+                                return
+                            }
+                        }))
+                    }
+                })
+            })
+            break;
         default:
             div.innerHTML = `<br><p>Unknown page type '${page.replace(/[^a-zA-Z0-9]/gmi, "_")}', please report to JeremyGamer13#7984</p>
 <br>
@@ -829,6 +951,7 @@ export default {
 
 .swal_forums_instructions {
     width: 60%;
+    overflow: auto;
 }
 
 .forums-div {
@@ -846,6 +969,7 @@ export default {
 .forums-class {
     width: 90%;
     height: 88%;
+    overflow: auto;
 }
 
 .forums-fakeUrl {
