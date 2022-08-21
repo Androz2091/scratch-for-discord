@@ -1649,15 +1649,6 @@ export default (Blockly, value, searching) => {
                 <block type="on_emojidelete"></block>
                 <block type="ed_name"></block>
             </category>
-	    
-	    <category name="Stickers" colour="#02a836">
-        <block type="create_sticker"/>
-        <block type="get_sticker"/>  
-        <block type="delete_sticker"/>  
-        <block type="sticker_exist"/> 
-        <block type="send_sticker"/> 
-        <block type="info_of_sticker"/> 
-        </category>
 	
             <category name="Roles" colour="#14C36B">
             
@@ -2733,6 +2724,16 @@ export default (Blockly, value, searching) => {
             <block type="jg_emoji_text_regex_list_of_animated_emojis_in_text"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
+	
+	 <category name="Stickers" colour="#02a836">
+        <block type="create_sticker"/>
+        <block type="get_sticker"/>  
+        <block type="delete_sticker"/>  
+        <block type="sticker_exist"/> 
+        <block type="send_sticker"/> 
+        <block type="info_of_sticker"/> 
+        </category>
+	
         <category name="Invites" colour="#5abced">
         
              <label text="Create Invites"></label>
