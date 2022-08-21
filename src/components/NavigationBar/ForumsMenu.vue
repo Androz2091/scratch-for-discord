@@ -488,7 +488,7 @@ function loadForumsPage(page, div) {
     <div class="forums-post-author-information">
         <div>
             <p>Posted by <b id="s4d_forums_post_author_name">${post.author}</b></p>
-            <img id="s4d_forums_post_author_image" width="96" src="https://469-forumstest.jeremygamer13.repl.co/getFallbackIcon">
+            <img id="s4d_forums_post_author_image" width="96" height="96" src="https://469-forumstest.jeremygamer13.repl.co/getFallbackIcon">
         </div>
     </div>
 </div>
@@ -754,6 +754,12 @@ function loadForumsPage(page, div) {
     <br>
     <p>Display Name: <input id="s4d_forums_accountMenu_profilePicture_displayName" type="text" placeholder="john32"></p>
     <input id="s4d_forums_accountMenu_profilePicture_displayName_update" type="submit" value="Update Display Name"><i id="s4d_forums_accountMenu_profilePicture_displayName_update_waiting" style="display:none" class="fa-solid fa-spinner"></i>
+    <br>
+    <br>
+    <p>Change your password</p>
+    <p>Old password: <input id="s4d_forums_accountMenu_profilePicture_updatePassword_old" type="password"></p>
+    <p>New password: <input id="s4d_forums_accountMenu_profilePicture_updatePassword_new" type="password"></p>
+    <input id="s4d_forums_accountMenu_profilePicture_updatePassword_submitButton" type="submit" value="Update Password"><i id="s4d_forums_accountMenu_profilePicture_password_update_waiting" style="display:none" class="fa-solid fa-spinner"></i>
 </center>
 `
             document.getElementById("s4d_forums_accountMenu_back").onclick = () => {
@@ -848,6 +854,36 @@ function loadForumsPage(page, div) {
                                 alert(json.error)
                                 return
                             }
+                        }))
+                    }
+                    document.getElementById("s4d_forums_accountMenu_profilePicture_updatePassword_submitButton").onclick = () => {
+                        const confirmationCode = String(Buffer.from((String((Math.random() * 9999) + 2799)), ('UTF8')).toString(('Base64'))).substring(0, 7).toUpperCase()
+                        const newContent = prompt(`Are you sure you want to change your password? This will break ALL sessions currently logged in. (Type ${confirmationCode} to confirm.)`, "")
+                        if (newContent != confirmationCode) return
+                        document.getElementById("s4d_forums_accountMenu_profilePicture_password_update_waiting").removeAttribute("style")
+                        const requestOptions = {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                'username': username,
+                                'password': password,
+                                'oldPassword': String(document.getElementById("s4d_forums_accountMenu_profilePicture_updatePassword_old").value),
+                                'newPassword': String(document.getElementById("s4d_forums_accountMenu_profilePicture_updatePassword_new").value)
+                            })
+                        };
+                        fetch(`https://469-forumstest.jeremygamer13.repl.co/accounts/setUserNewPassword`, requestOptions).then(result => result.json().then(json => {
+                            document.getElementById("s4d_forums_accountMenu_profilePicture_password_update_waiting").setAttribute("style", "display:none")
+                            if (json.error) {
+                                alert(json.error)
+                                return
+                            }
+                            localforage.setItem("FORUMS_PASSWORD", null).then(() => {
+                                localforage.setItem("FORUMS_USERNAME", null).then(() => {
+                                    loadForumsPage("login", div)
+                                })
+                            })
                         }))
                     }
                 })
