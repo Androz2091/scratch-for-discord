@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "sticker_exist";
 
 const blockData = {
-  "message0": "Sticker %1 exis?",
+  "message0": "Sticker %1 exist?",
   "args0": [
     {
       "type": "input_value",
