@@ -6,7 +6,7 @@
         </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-        
+
         <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
                 <CodeModal></CodeModal>
@@ -16,15 +16,21 @@
                 <!--<LanguageMenu></LanguageMenu>-->
                 <ExamplesMenu style="font-size: small;"></ExamplesMenu>
                 <Socials style="font-size: small;"></Socials>
+                <Forums style="font-size: small;"></Forums>
                 <changelog style="font-size: small;"></changelog>
                 <Credit style="font-size: small;"></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
-<div id="block-counter" style="margin-right: 5px; font-size: 90%"><p id="block-counter-textParagraph" style="color:rgb(182, 182, 182);">0 blocks</p></div>
-<b-nav-item class="theme-changer" id="themeSwitchingLD" style="width: 32px; height: 32px; margin-top: 2px; margin-right: 5px;" @click="changeTheme"></b-nav-item>
+                <div id="block-counter" style="margin-right: 5px; font-size: 90%">
+                    <p id="block-counter-textParagraph" style="color:rgb(182, 182, 182);">0 blocks</p>
+                </div>
+                <b-nav-item class="theme-changer" id="themeSwitchingLD"
+                    style="width: 32px; height: 32px; margin-top: 2px; margin-right: 5px;" @click="changeTheme">
+                </b-nav-item>
 
-                <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
-                <span id="docName" style="font-size: smaller" @click="changeFileName">{{ $t("untitled") }}</span>
+                <b-button
+                    style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
+                    <span id="docName" style="font-size: smaller" @click="changeFileName">{{ $t("untitled") }}</span>
                 </b-button>
                 <!-- border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em -->
                 <b-button id="v-step-4" style="border-right-color: #161719; border-radius: 0em" @click="runbot">
@@ -38,7 +44,9 @@
                 <b-button id="v-step-2" style="border-right-color: #161719; border-radius: 0em" @click="util">
                     <b-icon-gear></b-icon-gear>
                 </b-button>
-                <b-button id="v-step-3" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
+                <b-button id="v-step-3"
+                    style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em"
+                    @click="exportToCode">
                     <b-icon-download></b-icon-download>
                 </b-button>
             </b-navbar-nav>
@@ -58,23 +66,27 @@ import CodeModal from "./CodeModal.vue";
 import ToolboxModal from "./ToolboxModal.vue";
 import Socials from "./socials.vue";
 import Credit from "./Credit";
+import Forums from "./ForumsMenu.vue";
 import changelog from "./changelog.vue"
 import localforage from 'localforage';
 import r from "./requires";
 import swal from "sweetalert2";
+import ForumsMenu from "./ForumsMenu.vue";
 export default {
     name: "navbar",
     components: {
-        FileMenu,
-        EditMenu,
-        //LanguageMenu,
-        ExamplesMenu,
-        CodeModal,
-        ToolboxModal,
-        Credit,
-        changelog,
-        Socials
-    },
+    FileMenu,
+    EditMenu,
+    //LanguageMenu,
+    ExamplesMenu,
+    CodeModal,
+    ToolboxModal,
+    Credit,
+    Forums,
+    changelog,
+    Socials,
+    ForumsMenu
+},
     computed: {
         // configurationValidated: function () {
         //     return  this.$store.state.workspace &&

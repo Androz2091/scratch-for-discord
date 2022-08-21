@@ -145,9 +145,9 @@ function displaySwalPopupForUserExample(json, lkjgenwhikgu4ewkjn, selectedOption
     })
     const copyToClipboardButton = document.getElementById("userExamplesButton_menu2_shareLinkToExample")
     copyToClipboardButton.onclick = () => {
-    copyToClipboardButton.innerHTML = `<i class="fa-solid fa-paste"></i> &#8226 Copying...`
-    let likesPercentage = Math.round((Number(json.example[8]) / (Number(json.example[8]) + Number(json.example[9]))) * 100)
-    navigator.clipboard.writeText(`Check out this User Uploaded Example at https://scratch-for-discord.com/?exampleid=${selectedOption}
+        copyToClipboardButton.innerHTML = `<i class="fa-solid fa-paste"></i> &#8226 Copying...`
+        let likesPercentage = Math.round((Number(json.example[8]) / (Number(json.example[8]) + Number(json.example[9]))) * 100)
+        navigator.clipboard.writeText(`Check out this User Uploaded Example at https://scratch-for-discord.com/?exampleid=${selectedOption}
 > **${json.example[0].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "")}**
 > ${json.example[1].replaceAll("<", "").replaceAll("/", "").replaceAll("\\", "").replaceAll("\n", "\n> ")}
 > -----
@@ -155,8 +155,7 @@ function displaySwalPopupForUserExample(json, lkjgenwhikgu4ewkjn, selectedOption
 > 🧱: ${Number(json.example[3])} blocks
 > 👍: ${likesPercentage ? likesPercentage + "% of people liked this example" : "No likes or dislikes have been placed on this example"}`)
         console.log(json.example)
-    copyToClipboardButton.innerHTML = `<i class="fa-solid fa-clipboard-check"></i> &#8226 Copied to clipboard!`
-
+        copyToClipboardButton.innerHTML = `<i class="fa-solid fa-clipboard-check"></i> &#8226 Copied to clipboard!`
     }
     const userExamplesPreviewMenu = document.getElementById("swal_popup_BlocklyUserExampleViewer")
     previewWorkspace = Blockly.inject(userExamplesPreviewMenu, {
