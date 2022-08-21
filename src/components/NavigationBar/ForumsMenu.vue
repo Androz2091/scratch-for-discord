@@ -753,6 +753,24 @@ export default {
             localforage.setItem("FORUMS_USERNAME", null)
             localforage.setItem("FORUMS_PASSWORD", null)
         }
+        const b = await localforage.getItem("HAS_SEEN_FORUMS_MESSAGE")
+        if (!b) {
+            setTimeout(() => {
+                const html = document.createElement("div")
+                html.innerHTML = `<p>We got <b>S4D Forums</b> now!</p>
+<p>Click the <b>Forums</b> button at the top of the page to open the forums!</p>
+<img src="https://media.discordapp.net/attachments/914411539887456296/1010878859354320896/unknown.png" alt="clik the buton">`
+                this.$swal({
+                    title: "New Feature..",
+                    content: html,
+                    className: "swal_forums_instructions",
+                    buttons: {
+                        confirm: "Nice!"
+                    }
+                })
+                localforage.setItem("HAS_SEEN_FORUMS_MESSAGE", true)
+            }, 500);
+        }
         setTimeout(() => {
             let urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('forumpost') && urlParams.has('forumcategory')) {
@@ -809,7 +827,9 @@ export default {
 
 <style>
 
-
+.swal_forums_instructions {
+    width: 60%;
+}
 
 .forums-div {
     background-color: rgb(232, 232, 232);
