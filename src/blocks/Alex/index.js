@@ -25,3 +25,9 @@ import "./renamec";
 import "./channel";
 import "./reset_role_perimssions"
 import "./role_has_permission"
+import "./createsticker";
+import "./getsticker";
+import "./deletesticker";
+import "./stickerexist";
+import "./sendsticker";
+import "./stickerinfo";
