@@ -346,8 +346,9 @@ const toolbox = `
         </value>
     </block>
     </category>
-    <category name="Database" colour="#fff">
+    <category name="Database" colour="#2AC395">
         <block type="s4d_get_data" />
+        <block type="s4d_set_data" />
     </category>
 </xml>
 `
