@@ -55,6 +55,6 @@ Blockly.JavaScript[blockName] = function(block) {
 const sticker = Blockly.JavaScript.valueToCode(block, "sticker", Blockly.JavaScript.ORDER_ATOMIC);
 const info = block.getFieldValue("info");
 
-    const code = `${sticker}.${info}`;
+    const code = [`${sticker}.${info}`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
