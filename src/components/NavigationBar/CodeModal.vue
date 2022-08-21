@@ -63,6 +63,7 @@ window.addEventListener("click", () => {
     width: 100%;
     height: 100%;
     resize: none;
+    background-color: #ffffffe6 !important;
 }
   
 #code_TextArea_element_exporting_code::-webkit-scrollbar {
