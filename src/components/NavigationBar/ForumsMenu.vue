@@ -756,26 +756,27 @@ export default {
         setTimeout(() => {
             let urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('forumpost') && urlParams.has('forumcategory')) {
-                localforage.setItem("FORUMS_CATEGORY", urlParams.get("forumcategory")).then(async () => {
-                    localforage.setItem("FORUMS_POST_ID", urlParams.get("forumpost")).then(async () => {
-                        const html = document.createElement("div")
-                        const div = document.createElement("div")
-                        html.appendChild(div)
-                        div.setAttribute("class", "forums-div")
-                        const warning = document.createElement("div")
-                        html.appendChild(warning)
-                        warning.setAttribute("class", "forums-warning")
-                        warning.innerHTML = `<i style="margin-left: 0.5%" class="fa-solid fa-triangle-exclamation"></i> S4D forums are in a "Beta - candidate" state. Don't hesitate to give feedback in the official Discord server.`
-                        this.$swal({
-                            title: "S4D Forums",
-                            className: "forums-class",
-                            content: html,
-                            buttons: {
-                                cancel: "Exit"
-                            }
+                localforage.setItem("FORUMS_PAGE", "forumPost").then(async () => {
+                    localforage.setItem("FORUMS_CATEGORY", urlParams.get("forumcategory")).then(async () => {
+                        localforage.setItem("FORUMS_POST_ID", urlParams.get("forumpost")).then(async () => {
+                            const html = document.createElement("div")
+                            const div = document.createElement("div")
+                            html.appendChild(div)
+                            div.setAttribute("class", "forums-div")
+                            const warning = document.createElement("div")
+                            html.appendChild(warning)
+                            warning.setAttribute("class", "forums-warning")
+                            warning.innerHTML = `<i style="margin-left: 0.5%" class="fa-solid fa-triangle-exclamation"></i> S4D forums are in a "Beta - candidate" state. Don't hesitate to give feedback in the official Discord server.`
+                            this.$swal({
+                                title: "S4D Forums",
+                                className: "forums-class",
+                                content: html,
+                                buttons: {
+                                    cancel: "Exit"
+                                }
+                            })
+                            loadForumsPage("forumPost", div)
                         })
-                        const currentPage = await localforage.getItem("FORUMS_PAGE")
-                        loadForumsPage(currentPage, div)
                     })
                 })
             }
