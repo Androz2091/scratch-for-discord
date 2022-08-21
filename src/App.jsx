@@ -1,12 +1,14 @@
 import './App.css'
 import { useCallback, useRef } from 'react'
+import 'prismjs/themes/prism-tomorrow.css'
 import toolbox from './toolbox'
 import DarkTheme from "@blockly/theme-dark"
 // import ModernTheme from '@blockly/theme-modern'
 import * as Blockly from 'blockly/core'
 // import Navbar from './components/Navbar'
+import * as Prism from 'prismjs'
 import javascript from 'blockly/javascript'
-
+import Swal from 'sweetalert2'
 //load Blocks
 import './blocks/discord/base'
 import './blocks/database'
@@ -43,7 +45,7 @@ function App() {
       },
       CSS: false,
     })
-  }, [])
+  }, [workspace])
   return (
     <>
       <nav className="flex items-center justify-between flex-wrap bg-gray-1000 p-6">
@@ -65,8 +67,7 @@ function App() {
                     Toolbox
                 </a>
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-all ml-4" onClick={() => {
-                  const code = `
-                  (async () => {
+                  const code = `(async () => {
                     const Discord = require("discord.js")
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -90,7 +91,22 @@ function App() {
                     return s4d
                   })()
                   `
-                  console.log(code)
+                  Swal.fire({
+                    title: "<strong class=\"text-white\">JavaScript Code</strong>",
+                    html: `<pre data-example-id="customHtml" data-codepen-css-external="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" class="code">
+                      <code class="lang-javascript hljs language-javascript">
+                        ${Prism.highlight(code, Prism.languages.javascript, 'javascript')}
+                      </code>
+                    </pre>`,
+                    confirmButtonText: "Copy To Clipboard",
+                    denyButtonText: "Close"
+                  }).then(res => {
+                    if(res.isConfirmed) {
+                      navigator.clipboard.writeText(code).then(() => {
+                        Swal.fire('Copied To Clipboard', undefined, 'success')
+                      })
+                    }
+                  })
                 }}>Generate Code</button>
             </div>
         </div>

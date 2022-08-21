@@ -7502,6 +7502,11 @@ pretty-format@^28.0.0, pretty-format@^28.1.1:
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
 
+prismjs@^1.28.0:
+  version "1.28.0"
+  resolved "https://registry.npmjs.org/prismjs/-/prismjs-1.28.0.tgz#0d8f561fa0f7cf6ebca901747828b149147044b6"
+  integrity sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==
+
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
@@ -8711,6 +8716,11 @@ svgo@^2.7.0:
     csso "^4.2.0"
     picocolors "^1.0.0"
     stable "^0.1.8"
+
+sweetalert2@^11.4.29:
+  version "11.4.29"
+  resolved "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.4.29.tgz#0b42c924dc79eda6580a753e045a5ec7044a0e2e"
+  integrity sha512-UMCZgyEk0m+KizxspB8Bsm5ZQRdguba2t2+Rf0r8XBmq5YqhXq7ItV2C15A3VLfRlxHnEJBTYg6hkSk/x+5Ofw==
 
 symbol-tree@^3.2.2, symbol-tree@^3.2.4:
   version "3.2.4"

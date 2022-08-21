@@ -9,3 +9,12 @@ body {
 .blocklyFlyoutScrollbar[display="none"] {
     display: none;
 }
+.swal2-popup {
+    width: 250vw !important;
+    background-color: gray !important;
+}
+.swal2-html-container {
+    text-align: justify !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
