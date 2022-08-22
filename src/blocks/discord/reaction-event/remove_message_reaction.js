@@ -36,13 +36,3 @@ Blockly.JavaScript[blockName] = function (block) {
     let code = `${message}.reactions.cache.get(${id}).remove()\n`;
     return code;
 };
-
-registerRestrictions(blockName, [
-    {
-        type: "notempty",
-        message: "RES_REACT_NO_MEMBER",
-        types: [
-            "MEMBER"
-        ]
-    }
-]);

@@ -78,13 +78,6 @@ Blockly.JavaScript[blockName] = function (block) {
 
 registerRestrictions(blockName, [
     {
-        type: "notempty",
-        message: "RES_MISSING_CHANNEL",
-        types: [
-            "CHANNEL"
-        ]
-    },
-    {
         type: "toplevelparent",
         message: "RES_MUST_BE_IN_ON_MESSAGE",
         types: [
