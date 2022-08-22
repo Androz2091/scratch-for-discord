@@ -118,6 +118,6 @@ Blockly.JavaScript[blockName] = function (block) {
     const role = Blockly.JavaScript.valueToCode(block, "role", Blockly.JavaScript.ORDER_ATOMIC);
     const perm = block.getFieldValue("perm");
 
-    const code = `${role}.permissions.has('${perm}')`;
+    const code = [`${role}.permissions.has('${perm}')`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
