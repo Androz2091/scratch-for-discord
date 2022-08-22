@@ -36,7 +36,7 @@ Blockly.JavaScript[blockName] = function (block) {
     const switchh = Blockly.JavaScript.valueToCode(block, "switch", Blockly.JavaScript.ORDER_ATOMIC);
     const blocks = Blockly.JavaScript.statementToCode(block, "blocks");
 
-    return `switch ${switchh} {
+    return `switch (${switchh}) {
         ${blocks}
     };
     `;

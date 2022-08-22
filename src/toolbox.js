@@ -1,7 +1,7 @@
 /* eslint-disable */
 export default (Blockly, value, searching) => {
     /* eslint-disable */
-    
+
     var toolbox_xml_contents = (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
 
@@ -53,8 +53,8 @@ export default (Blockly, value, searching) => {
                 <!--
                     <block type="s4d_lasercat_switch_case"/>
                     <block type="s4d_lasercat_switch_default"/>
+                    <block type="s4d_lasercat_switch_break"></block>
                 -->
-                <block type="s4d_lasercat_switch_break"></block>
         <label text="ㅤ" web-class="boldtext"></label>
                 
     </category>
