@@ -23,7 +23,7 @@ function syntaxifyString(str) {
     newString = newString.replace(/((?<=(?<!((?<!\\)\\)){{)[^}]+(?=}}))/gmi, '<code>$1</code>')
     newString = newString.replace(/((?<=(?<!((?<!\\)\\)){{)[^}]+(?=}}))/gmi, '<code>$1</code>')
     */
-    const matches = String(newString).match(/\w+:\/\/\S*/gmi)
+    const matches = String(newString).match(/\w+:\/\/\S+/gmi)
     if (matches) {
         matches.forEach(match => {
             newString = newString.replace(match, '<a target="_blank" href="https://469-forumstest.jeremygamer13.repl.co/forums/getUrlRedirectPage/?url=' + Buffer.from(match, 'UTF8').toString('Hex') + '">' + match + '</a>')
@@ -396,7 +396,7 @@ function loadForumsPage(page, div) {
                         }
                         forumPost.innerHTML = `<div class="forums-post-author"><p id="forums_post_${post.id}_author_name">${post.author}</p> &#8226 <div class="forums-post-author-image" id="forums_post_${post.id}_author_imageContainer"><img src="https://469-forumstest.jeremygamer13.repl.co/getFallbackIcon" width="32" height="32" alt="${post.author}"></div></div>
 <h2>${syntaxifyString(post.title)}${tags.includes("pinned") ? ` &#8226 <i class="fa-solid fa-thumbtack"></i>` : ""}</h2>
-<p>${syntaxifyString(String(post.desc).substring(0, 99).replaceAll("\n", " "))}</p>
+<p>${syntaxifyString(String(post.desc).substring(0, 99)).replaceAll("\n", " ")}</p>
 <small style="color:dodgerblue">${displayTags.join(", ")}</small>`
                         const br = document.createElement("br")
                         if (tags.includes("pinned")) {
@@ -483,7 +483,7 @@ function loadForumsPage(page, div) {
                                 display.setAttribute("class", "forums-screen-post")
                                 display.innerHTML = `<div id="s4d_forums_post_managable_div">
     <h2>${syntaxifyString(post.title)}${post.author == username ? ` &#8226 <button style="border-width:0;background-color:transparent" id="s4d_forums_post_button_title_EditAsAuthor"><i class="fa-solid fa-square-pen"></i></button>` : ""}</h2>
-    <p>${post.author == username ? `<button style="border-width:0;background-color:transparent" id="s4d_forums_post_button_content_EditAsAuthor"><i class="fa-solid fa-square-pen"></i></button> &#8226 ` : ""}${syntaxifyString(post.desc.replaceAll("\n", "<br>"))}</p>
+    <p>${post.author == username ? `<button style="border-width:0;background-color:transparent" id="s4d_forums_post_button_content_EditAsAuthor"><i class="fa-solid fa-square-pen"></i></button> &#8226 ` : ""}${syntaxifyString(post.desc).replaceAll("\n", "<br>")}</p>
     <div id="s4d_forums_post_blockly_file_div"></div>
     <div class="forums-post-author-information">
         <div>

@@ -13,12 +13,13 @@
 import Blockly from "blockly";
 import JSZip from "jszip";
 import beautify from "js-beautify";
+import localforage from "localforage";
 // let changesAreUnsaved = false
 // let workspaceContent = `<xml xmlns="https://developers.google.com/blockly/xml"></xml>`
 export default {
     name: "filemenu",
-    /*
-    mounted(){
+    mounted() {
+        /*
         // unsaved changes stuff
         window.onload = function () {
             window.addEventListener("beforeunload", function (e) {
@@ -31,8 +32,22 @@ export default {
             });
         }
         // end of unsaved changes stuff
+        */
+        localforage.getItem("utilitiesShortcuts").then(item => {
+            if (item == false) return
+            window.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && (e.key == "s")) {
+                    e.preventDefault()
+                    if (e.altKey) {
+                        this.saveas()
+                    } else {
+                        this.save()
+                    }
+                    return false
+                }
+            })
+        })
     },
-    */
     methods: {
         copy() {
             var url = beautify.js(this.getWorkspaceCode(), {

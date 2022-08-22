@@ -521,6 +521,25 @@ Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
 window.addEventListener('keydown', (e) => {
     // console.log(e)
     // console.log(e.key)
+    /*if (e.shiftKey) {
+        if (e.key == "Y") {
+            console.log(">")
+            Blockly.getMainWorkspace().getAllBlocks().forEach(block => {
+                console.log("rendered:", block.rendered)
+                console.log(">")
+            })
+        }
+        if (e.key == "U") {
+            Blockly.getMainWorkspace().getAllBlocks().forEach(block => {
+                block.rendered = !block.rendered
+            })
+        }
+        if (e.key == "B") {
+            Blockly.getMainWorkspace().getAllBlocks().forEach(block => {
+                console.log(block.width + ",", block.height)
+            })
+        }
+    }*/
     if ((e.altKey)) {
         console.log(e.key)
         if (
