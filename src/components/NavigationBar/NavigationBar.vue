@@ -18,6 +18,7 @@
                 <Socials style="font-size: small;"></Socials>
                 <Forums style="font-size: small;"></Forums>
                 <changelog style="font-size: small;"></changelog>
+                <shortcuts style="font-size: small;"></shortcuts>
                 <Credit style="font-size: small;"></Credit>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
@@ -61,6 +62,7 @@ import JSZip from "jszip";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
 //import LanguageMenu from "./LanguageMenu.vue";
+import shortcuts from './shortcuts.vue';
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
 import ToolboxModal from "./ToolboxModal.vue";
@@ -81,6 +83,7 @@ export default {
     ExamplesMenu,
     CodeModal,
     ToolboxModal,
+    shortcuts,
     Credit,
     Forums,
     changelog,
