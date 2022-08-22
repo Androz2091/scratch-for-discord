@@ -1,5 +1,4 @@
 import * as Blockly from "blockly/core";
-import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_remove_reactions";
 
