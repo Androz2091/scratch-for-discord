@@ -4,8 +4,10 @@
 
 <script>
 import Blockly from "blockly";
+import scratchblocks from "scratchblocks";
 import localforage from 'localforage';
 import JSZip from "jszip";
+let mainWorkspace
 //import Swal from "sweetalert2";
 /* eslint-disable */
 const workspacesCurrentlyInsideMemory = []
@@ -23,10 +25,17 @@ function syntaxifyString(str) {
     newString = newString.replace(/((?<=(?<!((?<!\\)\\)){{)[^}]+(?=}}))/gmi, '<code>$1</code>')
     newString = newString.replace(/((?<=(?<!((?<!\\)\\)){{)[^}]+(?=}}))/gmi, '<code>$1</code>')
     */
+    const sbmatches = String(newString).match(/\|scratch-blocks\|[^\|\|]+\|\/scratch-blocks\|/gm)
+    if (sbmatches) {
+        sbmatches.forEach(match => {
+            let replacedWith = match.replace("|scratch-blocks|", "").replace("|/scratch-blocks|", "").replaceAll("^^-", "&lt;").replaceAll("^^+", "&gt;")
+            newString = newString.replace(match, '<pre class="blocks">' + replacedWith + '</pre><small><details><summary>Display scratch-blocks code</summary><div style="width:80%;background-color:rgb(220,220,220)"><code style="color:black">' + replacedWith + '</code></div></details></small>')
+        })
+    }
     const matches = String(newString).match(/\w+:\/\/\S+/gmi)
     if (matches) {
         matches.forEach(match => {
-            newString = newString.replace(match, '<a target="_blank" href="https://469-forumstest.jeremygamer13.repl.co/forums/getUrlRedirectPage/?url=' + Buffer.from(match, 'UTF8').toString('Hex') + '">' + match + '</a>')
+            newString = newString.replace(match, '<img alt="Icon for this Website" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=' + encodeURIComponent(match) + '&size=16"> <a target="_blank" href="https://469-forumstest.jeremygamer13.repl.co/forums/getUrlRedirectPage/?url=' + Buffer.from(match, 'UTF8').toString('Hex') + '">' + match + '</a>')
         })
     }
     return newString
@@ -452,6 +461,21 @@ function loadForumsPage(page, div) {
     <br>
     <div class="forums-post-commentSection" id="s4d_forums_post_comments_div">
     </div>
+    <!--
+    <div id="s4d_forums_comments_subposts_div">
+        <div class="forums-post-subposts">
+            <h2>title</h2>
+            <p>description</p>
+            <p>description2</p>
+            <div class="forums-post-author-information">
+                <div>
+                    <p>Posted by <b id="s4d_forums_post_author_name">Unknown Account</b></p>
+                    <img id="s4d_forums_post_author_image" width="96" height="96" src="https://469-forumstest.jeremygamer13.repl.co/getFallbackIcon">
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
 </center>
 `
             localforage.getItem("FORUMS_USERNAME").then(username => {
@@ -483,8 +507,17 @@ function loadForumsPage(page, div) {
                                 display.setAttribute("class", "forums-screen-post")
                                 display.innerHTML = `<div id="s4d_forums_post_managable_div">
     <h2>${syntaxifyString(post.title)}${post.author == username ? ` &#8226 <button style="border-width:0;background-color:transparent" id="s4d_forums_post_button_title_EditAsAuthor"><i class="fa-solid fa-square-pen"></i></button>` : ""}</h2>
-    <p>${post.author == username ? `<button style="border-width:0;background-color:transparent" id="s4d_forums_post_button_content_EditAsAuthor"><i class="fa-solid fa-square-pen"></i></button> &#8226 ` : ""}${syntaxifyString(post.desc).replaceAll("\n", "<br>")}</p>
+    <div id="s4d_forums_editing_screen_post_div" style="display:none">
+        <p>Post Title: <input type="text" id="s4d_forums_editing_screen_post_input_Title" value="${post.title.replaceAll('"', '\\"')}"></p>
+        <p>Post Description:</p>
+        <textarea id="s4d_forums_editing_screen_post_input_Description" rows="8" cols="150" maxlength="875">${post.desc.replaceAll("<", "&lt;").replaceAll(">", "&gt;") }</textarea>
+        <br>
+        <input type="submit" id="s4d_forums_editing_screen_post_input_Submit" value="Edit post">
+    </div>
+    <p>${syntaxifyString(post.desc).replaceAll("\n", "<br>")}</p>
     <div id="s4d_forums_post_blockly_file_div"></div>
+    ${post.file != null ? `<input type="submit" id="s4d_forums_screen_post_files_Download" value="Download file">` : ``}
+    ${post.file != null ? `<input type="submit" id="s4d_forums_screen_post_files_Import" value="Import to S4D">` : ``}
     <div class="forums-post-author-information">
         <div>
             <p>Posted by <b id="s4d_forums_post_author_name">${post.author}</b></p>
@@ -523,6 +556,30 @@ function loadForumsPage(page, div) {
                                         document.getElementById("s4d_forums_post_author_image").src = json.custompfp
                                     }
                                 }))
+                                const downloadFile = document.getElementById("s4d_forums_screen_post_files_Download")
+                                if (downloadFile) {
+                                    downloadFile.onclick = () => {
+                                        console.log("clicked doownload")
+                                        const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.textToDom(post.file));
+                                        const blob = new Blob([xmlContent])
+                                        const a = document.createElement("a");
+                                        a.style = "display: none";
+                                        document.body.appendChild(a);
+                                        const url = window.URL.createObjectURL(blob);
+                                        a.href = url;
+                                        a.download = "forums_blocks.xml";
+                                        a.click();
+                                        window.URL.revokeObjectURL(url);
+                                        document.body.removeChild(a);
+                                    }
+                                }
+                                const importFile = document.getElementById("s4d_forums_screen_post_files_Import")
+                                if (importFile) {
+                                    importFile.onclick = () => {
+                                        console.log("clicked import")
+                                        Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(post.file), mainWorkspace);
+                                    }
+                                }
                                 const blocklyDiv = document.getElementById("s4d_forums_post_blockly_file_div")
                                 if (post.file != null) {
                                     const BlockWorkspace = Blockly.inject(blocklyDiv, {
@@ -563,7 +620,7 @@ function loadForumsPage(page, div) {
                                 post.comments.forEach(comment => {
                                     const p = document.createElement("p")
                                     // <p>cry about it &#8226 <b style="color:blue">JeremyGamer13</b></p>
-                                    p.innerHTML = `${comment.comment} &#8226 <b style="color:blue">${comment.author}</b> on <i>${unixToDate(comment.time)}</i> `
+                                    p.innerHTML = `${syntaxifyString(comment.comment)} &#8226 <b style="color:blue">${comment.author}</b> on <i>${unixToDate(comment.time)}</i> `
                                     const trashIcon = document.createElement("i")
                                     trashIcon.setAttribute("style", "display:none")
                                     trashIcon.setAttribute("class", "fa-solid fa-trash-can")
@@ -604,6 +661,7 @@ function loadForumsPage(page, div) {
                                         }
                                     }
                                 })
+                                scratchblocks.renderMatching('pre.blocks', { style: 'scratch3', scale: 0.75 });
                                 const shareButton = document.getElementById("s4d_forums_post_shareButton")
                                 shareButton.onclick = () => {
                                     localforage.getItem("FORUMS_CATEGORY").then(category => {
@@ -618,9 +676,15 @@ function loadForumsPage(page, div) {
                                 }
                                 const editTitleButton = document.getElementById("s4d_forums_post_button_title_EditAsAuthor")
                                 if (editTitleButton) {
+                                    const submitButton = document.getElementById("s4d_forums_editing_screen_post_input_Submit")
                                     editTitleButton.onclick = () => {
-                                        const newTitle = prompt("Post Title", post.title)
+                                        document.getElementById("s4d_forums_editing_screen_post_div").removeAttribute("style")
+                                    }
+                                    submitButton.onclick = () => {
+                                        const newTitle = document.getElementById("s4d_forums_editing_screen_post_input_Title").value
                                         if (!newTitle || newTitle == "") return
+                                        const newDescription = document.getElementById("s4d_forums_editing_screen_post_input_Description").value
+                                        if (!newDescription || newDescription == "") return
                                         const requestOptions = {
                                             method: 'PUT',
                                             headers: {
@@ -631,7 +695,8 @@ function loadForumsPage(page, div) {
                                                 'password': password,
                                                 'category': category,
                                                 'post': post.id,
-                                                'title': newTitle
+                                                'title': newTitle,
+                                                'content': newDescription
                                             })
                                         };
                                         fetch(`https://469-forumstest.jeremygamer13.repl.co/forums/editPost`, requestOptions).then(result => result.json().then(json => {
@@ -642,6 +707,7 @@ function loadForumsPage(page, div) {
                                             alert(json.error)
                                         }))
                                     }
+                                    
                                 }
                                 if (post.author == username) {
                                     document.getElementById("s4d_forums_ifCanDeletePostThen_showthisDiv").setAttribute("style", "color:#ff0000")
@@ -651,33 +717,6 @@ function loadForumsPage(page, div) {
                                             document.getElementById("s4d_forums_ifCanDeletePostThen_showthisDiv").setAttribute("style", "color:#ff0000")
                                         }
                                     }))
-                                }
-                                const editContentButton = document.getElementById("s4d_forums_post_button_content_EditAsAuthor")
-                                if (editContentButton) {
-                                    editContentButton.onclick = () => {
-                                        const newContent = prompt("Post Content (use < for new lines)", "").replaceAll("<", "\n")
-                                        if (!newContent || newContent == "") return
-                                        const requestOptions = {
-                                            method: 'PUT',
-                                            headers: {
-                                                'Content-Type': 'application/json'
-                                            },
-                                            body: JSON.stringify({
-                                                'username': username,
-                                                'password': password,
-                                                'category': category,
-                                                'post': post.id,
-                                                'content': newContent
-                                            })
-                                        };
-                                        fetch(`https://469-forumstest.jeremygamer13.repl.co/forums/editPost`, requestOptions).then(result => result.json().then(json => {
-                                            if (!json.error) {
-                                                loadForumsPage("forumPost", div)
-                                                return
-                                            }
-                                            alert(json.error)
-                                        }))
-                                    }
                                 }
                                 const deletePostButton = document.getElementById("s4d_forums_post_deleteButton")
                                 deletePostButton.onclick = () => {
@@ -930,6 +969,7 @@ export default {
             }, 500);
         }
         setTimeout(() => {
+            mainWorkspace = this.$store.state.workspace
             let urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('forumpost') && urlParams.has('forumcategory')) {
                 localforage.setItem("FORUMS_PAGE", "forumPost").then(async () => {
@@ -1040,6 +1080,11 @@ export default {
 
 .forums-screen-post {
     width: 90%;
+    background-color: white;
+}
+
+.forums-post-subposts {
+    width: 80%;
     background-color: white;
 }
 
