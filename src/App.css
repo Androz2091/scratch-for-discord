@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: uni-sans;
+    src: url("./logo-font.otf");
+}
+
 body {
-    margin: 0
+    margin: 0;
+    overflow: hidden;
 }
 
 .blocklyFlyoutScrollbar[display="none"] {
@@ -11,10 +17,29 @@ body {
 }
 .swal2-popup {
     width: 250vw !important;
-    background-color: gray !important;
+    background-color: #282b30 !important;
 }
 .swal2-html-container {
     text-align: justify !important;
     margin: 0px !important;
     padding: 0px !important;
+}
+
+h1, h2, h3, h4, h5, h6, .swal-title {
+    font-family: uni-sans, sans-serif !important;
+}
+
+nav {
+    background-color: #282b30 !important;
+    padding: 0.5em !important;
+}
+
+nav svg {
+    display: inline-block;
+    margin-right: 0.25em;
+}
+
+.logo {
+    user-select: none;
+    font-family: uni-sans, sans-serif;
 }
