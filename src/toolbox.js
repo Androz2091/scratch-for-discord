@@ -1858,6 +1858,9 @@ export default (Blockly, value, searching) => {
                 <label text="But we prefer using the other ones as they may not always work."></label> 
                 <label text="THESE BLOCKS DO NOT WORK WITH OTHER EMBED SETS!" web-class="boldtext"></label>
                 <block type="gsa_simple_embed"/>
+                <block type="gsa_set_simple_embed_author"/>
+                <block type="gsa_set_simple_embed_footer"/>
+                <block type="gsa_create_simple_embed_fields"/>
                 <block type="gsa_simple_field"/>
             </category>
         </category>

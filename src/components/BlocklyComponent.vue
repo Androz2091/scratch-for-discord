@@ -23,6 +23,9 @@ else if (window.location.pathname == "/r/mi") {
 }
 else if (window.location.pathname == "/r/th") {
     renderer = "thrasos"
+}
+else if (window.location.pathname == "/r/sd") {
+    renderer = "sdeloz"
 }/*
 else if (window.location.pathname == "/r/cw") {
     renderer = "cwest"
@@ -802,6 +805,12 @@ window.addEventListener('keydown', () => {
         blockCounter()
     })
 })
+// EPIC sdeloz renderer code
+const SDELOZRenderer = function (name) {
+    SDELOZRenderer.superClass_.constructor.call(this, name);
+};
+Blockly.utils.object.inherits(SDELOZRenderer, Blockly.zelos.Renderer);
+Blockly.blockRendering.register('sdeloz', SDELOZRenderer);
 /*
 Blockly.getMainWorkspace().addChangeListener(blockCounter(Blockly.getMainWorkspace()))
 */
@@ -956,6 +965,52 @@ function svgToPng_(data, width, height, callback) {
                 toolbox: prepToolbox(toolbox(Blockly,val,false), false, val),
             }
         });
+        /*
+        let testCategoryXMLContents = `<button text="Create" callbackKey="CREATETESTVARIABLE"></button>`
+        workspace.registerToolboxCategoryCallback("VARIABLETESTREMAKE", function () {
+            const button = document.createElement("button")
+            button.setAttribute("text", "Create")
+            button.setAttribute("callbackKey", "CREATETESTVARIABLE")
+            return [button]
+        })
+        let currentTestVariableName = 0
+        let currentTestVariableNameLength = 1
+        workspace.registerButtonCallback('CREATETESTVARIABLE', function () {
+            const allowedCharacters = `abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`.split("")
+            let varName = ""
+            for (let i = 0; i < currentTestVariableNameLength; i++) {
+                varName += allowedCharacters[currentTestVariableName]
+            }
+            currentTestVariableName++
+            if (currentTestVariableName > allowedCharacters.length - 1) {
+                currentTestVariableName = 0
+                currentTestVariableNameLength++
+            }
+            Blockly.Blocks["jg_test_variables_" + varName] = {
+                init: function () {
+                    this.jsonInit({
+                        "message0": varName,
+                        "inputsInline": true,
+                        "tooltip": "",
+                        "colour": "#ff0000",
+                        "output": null,
+                        "args0": []
+                    });
+                }
+            }
+            Blockly.JavaScript["jg_test_variables_" + varName] = function () {
+                const code = `${varName}`
+                return code;
+            };
+            const toolbox = workspace.toolbox_
+            const category = toolbox.getToolboxItems()[10]
+            testCategoryXMLContents += `<block type="jg_test_variables_${varName}"/>`
+            console.log(category.getContents())
+            category.flyoutItems_ = testCategoryXMLContents
+            console.log(category.getContents())
+            toolbox.refreshSelection()
+        });
+        */
         workspace.registerButtonCallback('FFMPEG', function () {
             swal.fire("Hey uhh..", "This isn't quite done yet...", "info")
         });

@@ -1,5 +1,11 @@
 <template>
-    <b-nav-item @click="forums">Forums</b-nav-item>
+    <b-nav-item @click="forums">Forums
+        <i class="fa-solid fa-circle-dot" id="forums_notification_indicator_wakeupmf_tyougotanotif_brh" style="display:none">
+            <div style="position:absolute;background-color:red;width: 50%;height: 50%;left: 29%;top:15%;border-radius: 50%;color:red"></div>
+            <div id="forums_notification_indicator_wakeupmf_tyougotanotif_brh_MMMMMMM" style="position:absolute;color:white;left: 22%;top:6%;font-size:smaller">1</div>
+            <!--<div id="forums_notification_indicator_wakeupmf_tyougotanotif_brh_MMMMMMM" style="margin-left:180%;">1</div>-->
+        </i>
+    </b-nav-item>
 </template>
 
 <script>
@@ -35,7 +41,13 @@ function syntaxifyString(str) {
     const matches = String(newString).match(/\w+:\/\/\S+/gmi)
     if (matches) {
         matches.forEach(match => {
-            newString = newString.replace(match, '<img alt="Icon for this Website" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=' + encodeURIComponent(match) + '&size=16"> <a target="_blank" href="https://469-forumstest.jeremygamer13.repl.co/forums/getUrlRedirectPage/?url=' + Buffer.from(match, 'UTF8').toString('Hex') + '">' + match + '</a>')
+            newString = newString.replace(match, '<img alt="Icon for this Website" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=' + encodeURIComponent(match) + '&size=16"> <a target="_blank" href="https://469-forumstest.jeremygamer13.repl.co/forums/getUrlRedirectPage/?url=' + Buffer.from(match, 'UTF8').toString('Hex') + '">' + match.replace(/(http(s|):\/\/|\/\S*)/gmi, "") + '</a>')
+        })
+    }
+    const mmatches = String(newString).match(/@\S+/gmi)
+    if (mmatches) {
+        mmatches.forEach(match => {
+            newString = newString.replace(match, '<b style="color:blue">' + match.replaceAll("@", `<i class="fa-solid fa-at" title="Mentioned user ${match.replaceAll("@", "")}"></i>`) + '</b>')
         })
     }
     return newString
@@ -44,6 +56,7 @@ function unixToDate(unix) {
     return (new Date(unix).toDateString() + ", " + new Date(unix).toLocaleTimeString())
 }
 function loadForumsPage(page, div) {
+    document.getElementById("s4d_forums_notifications_text_div_agegeafafdafsdfsdfsdgfdsgfdddddgdhgdfff").parentElement.innerHTML = `<div id="s4d_forums_notifications_text_div_agegeafafdafsdfsdfsdgfdsgfdddddgdhgdfff"></div>`
     flushMemoryWorkspaces()
     localforage.setItem("FORUMS_PAGE", page)
     switch (page) {
@@ -217,14 +230,15 @@ function loadForumsPage(page, div) {
                 "Choose your favorite category post, and comment reply",
                 "Let's see what's been happening recently...",
                 "Fun fact: S4D forums was pretty much completed in two days",
-                "Tip: There is some special text stuff you can use when creating posts/comments like [bold] and (small). Try using them!",
                 "Note: The API for the forums is publicly usable. If requested and allowed, blocks might be made for it.",
                 "Tip: There may be some more helpers in our Discord servers than on here due to how new it is. If your question hasn't been answered for a while, try checking those.",
                 "zzzzzzzzzzzzzzz...",
                 "<a href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>",
                 "<p style=\"color:green\">look at me im colored green</p>",
                 "<i class=\"fa-solid fa-bullhorn\"></i> I AM THE ONE WHO DID THE POO",
-                "Note: New colors may be added to the accounts menu. It'll be rare when it happens but it can."
+                "Note: New colors may be added to the accounts menu. It'll be rare when it happens but it can.",
+                "Tip: There are ways to type blocked characters without them actually needing to be the real thing. If you need to use them, try looking up how to type them in HTML.",
+                "Tip: Wanna learn how to use scratchblocks? You can find some things <a href=\"https://en.scratch-wiki.info/wiki/Block_Plugin/Syntax#Arguments\">here!</a>"
             ]
             messages.push("Fun fact: There are " + messages.length + " different Home messages! Can you find them all?")
             document.getElementById("s4d_forums_welcome_message").innerHTML = messages[Math.round(Math.random() * (messages.length - 1))]
@@ -406,7 +420,8 @@ function loadForumsPage(page, div) {
                         forumPost.innerHTML = `<div class="forums-post-author"><p id="forums_post_${post.id}_author_name">${post.author}</p> &#8226 <div class="forums-post-author-image" id="forums_post_${post.id}_author_imageContainer"><img src="https://469-forumstest.jeremygamer13.repl.co/getFallbackIcon" width="32" height="32" alt="${post.author}"></div></div>
 <h2>${syntaxifyString(post.title)}${tags.includes("pinned") ? ` &#8226 <i class="fa-solid fa-thumbtack"></i>` : ""}</h2>
 <p>${syntaxifyString(String(post.desc).substring(0, 99)).replaceAll("\n", " ")}</p>
-<small style="color:dodgerblue">${displayTags.join(", ")}</small>`
+<small style="color:dodgerblue">${displayTags.join(", ")}</small>
+<small><i class="fa-solid fa-user-pen"></i> ${(post.comments || []).length}, <i class="fa-solid fa-message"></i> ${(post.subposts || []).length}</small>`
                         const br = document.createElement("br")
                         if (tags.includes("pinned")) {
                             pinnedPostsToMove.push(forumPost)
@@ -460,8 +475,16 @@ function loadForumsPage(page, div) {
     <br>
     <br>
     <div class="forums-post-commentSection" id="s4d_forums_post_comments_div">
-    </div>
-    <!--
+    </div><!--
+    <p>Subpost Title: <input type="text" id="s4d_forums_post_subposts_new_inputText" size="70" maxlength="55"></p>
+    <p>Subpost Content:</p>
+    <textarea id="s4d_forums_post_subposts_new_inputContent" rows="8" cols="150" maxlength="875"></textarea>
+    <br>
+    <input id="s4d_forums_post_subposts_new_inputFile" accept=".s4d,.xml" type="file">
+    <br>
+    <button style="background-color:dodgerBlue;border-color:blue;color:white" id="s4d_forums_post_subposts_postSubpost">Post</button>
+    <br>
+    <br>
     <div id="s4d_forums_comments_subposts_div">
         <div class="forums-post-subposts">
             <h2>title</h2>
@@ -473,9 +496,13 @@ function loadForumsPage(page, div) {
                     <img id="s4d_forums_post_author_image" width="96" height="96" src="https://469-forumstest.jeremygamer13.repl.co/getFallbackIcon">
                 </div>
             </div>
+            <div style="text-align: left;margin-left:0.5%;">
+                <i title="ID of this post" class="fa-solid fa-id-badge"></i> 0<br>
+                <i title="Time of post" class="fa-solid fa-clock"></i> ${unixToDate(0)}
+                <div id="s4d_forums_post_subpost_0_ifCanDeletePostThen_showthisDiv" style="display:none;color:#ff0000"><i title="Delete this subpost" id="s4d_forums_post_subpost_id0_deleteButton" class="fa-solid fa-trash-can"></i> Click the trash can to delete this subpost</div>
+            </div>
         </div>
-    </div>
-    -->
+    </div>-->
 </center>
 `
             localforage.getItem("FORUMS_USERNAME").then(username => {
@@ -782,6 +809,7 @@ function loadForumsPage(page, div) {
 <center>
     <h1>Manage your account</h1>
     <p>You are currently logged in as <b id="s4d_forums_accountMenu_username">Unknown Account</b></p>
+    <h3>Customization</h3>
     <img id="s4d_forums_accountMenu_profilePicture" width="326" height="326" alt="Loading image...">
     <div id="s4d_forums_accountMenu_profilePicture_modsOnly" style="display:none">
         <p><small>You're a moderator!</small><br><small>You can click the picture to set a custom profile picture.</small></p>
@@ -794,6 +822,11 @@ function loadForumsPage(page, div) {
     <p>Display Name: <input id="s4d_forums_accountMenu_profilePicture_displayName" type="text" placeholder="john32"></p>
     <input id="s4d_forums_accountMenu_profilePicture_displayName_update" type="submit" value="Update Display Name"><i id="s4d_forums_accountMenu_profilePicture_displayName_update_waiting" style="display:none" class="fa-solid fa-spinner"></i>
     <br>
+    <br>
+    <h3>Settings</h3>
+    <p>Forums Notifications
+    <input id="s4d_forums_accountMenu_forums_NotificationsToggle" type="checkbox"><br>
+    <small>(you may need to refresh for this to take effect)</small></p>
     <br>
     <p>Change your password</p>
     <p>Old password: <input id="s4d_forums_accountMenu_profilePicture_updatePassword_old" type="password"></p>
@@ -847,6 +880,10 @@ function loadForumsPage(page, div) {
                                     imageArea.src = json.success
                                 }))
                             }
+                        }
+                        const notificationsCheckbox = document.getElementById("s4d_forums_accountMenu_forums_NotificationsToggle")
+                        notificationsCheckbox.onclick = () => {
+                            localforage.setItem("FORUMS_NOTIFICATIONS_ENABLED", notificationsCheckbox.checked)
                         }
                     }))
                     fetch(`https://469-forumstest.jeremygamer13.repl.co/getAllColors`).then(result => result.json().then(json => {
@@ -937,6 +974,131 @@ function loadForumsPage(page, div) {
             }
             break;
     }
+    const notifications = document.getElementById("s4d_forums_notifications_text_div_agegeafafdafsdfsdfsdgfdsgfdddddgdhgdfff")
+    notifications.innerHTML = ""
+    const readButton = document.createElement("div")
+    readButton.setAttribute("class", "forums-notifications-markAsReadButton")
+    readButton.title = "Mark notifications as read"
+    readButton.innerHTML = `<i class="fa-solid fa-envelope-circle-check" style="color:white"></i>`
+    readButton.onclick = () => {
+        localforage.getItem("FORUMS_USERNAME").then(username => {
+            localforage.getItem("FORUMS_PASSWORD").then(password => {
+                const requestOptions = {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        'username': username,
+                        'password': password
+                    })
+                };
+                fetch(`https://469-forumstest.jeremygamer13.repl.co/accounts/clearNotifications`, requestOptions).then(result => result.json().then(json => {
+                    if (json.error) {
+                        alert(json.error)
+                    }
+                    localforage.getItem("FORUMS_PAGE").then(page => {
+                        loadForumsPage(page, div)
+                    })
+                }))
+            })
+        })
+    }
+    notifications.parentElement.append(readButton)
+    notifications.parentElement.setAttribute("style", "display:none")
+    function addToNotifications(notif) {
+        function sanitizeString(str) {
+            return String(str).replaceAll("<", "_").replaceAll("\\", "_").replaceAll("/", "_").replaceAll("\n", " ")
+        }
+        if (notifications.innerHTML == "") {
+            notifications.innerHTML = sanitizeString(notif)
+            return
+        }
+        notifications.innerHTML += `<br>${sanitizeString(notif)}`
+    }
+    localforage.getItem("FORUMS_USERNAME").then(username => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'username': username
+            }
+        };
+        fetch(`https://469-forumstest.jeremygamer13.repl.co/accounts/getNotifications`, requestOptions).then(result => result.json().then(json => {
+            if (json.amount == null || json.notifications == null || json.notifications.length == null) {
+                addToNotifications(`Your notifications are corrupted & unreadable. Please mark them as read to fix this.`)
+                return
+            }
+            if (json.amount > 0) {
+                notifications.parentElement.removeAttribute("style")
+            } else return
+            if (json.amount > json.notifications.length) addToNotifications(`Your notifications are somewhat corrupted. They may not appear correctly.`)
+            json.notifications.forEach(notif => {
+                switch (notif.type) {
+                    case 'mention':
+                        if (!notif.meta) {
+                            addToNotifications("Mention notification, no Metadata provided")
+                        } else {
+                            switch (notif.meta.type) {
+                                case 'post':
+                                    addToNotifications("A post by " + notif.meta.author + " mentioned you!")
+                                    break;
+                                case 'postcomment':
+                                case 'postComment':
+                                    addToNotifications("A comment by " + notif.meta.mentioner + " on a post by " + notif.meta.author + " mentioned you!")
+                                    break;
+                                case 'subpost':
+                                case 'subPost':
+                                    addToNotifications("A subpost by " + notif.meta.mentioner + " on a post by " + notif.meta.author + " mentioned you!")
+                                    break;
+                                case 'subpostcomment':
+                                case 'subpostComment':
+                                case 'subPostcomment':
+                                case 'subPostComment':
+                                    addToNotifications("A comment by " + notif.meta.mentioner + " on a subpost by " + notif.meta.author + " mentioned you!")
+                                    break;
+                                default:
+                                    addToNotifications("Mention notification, invalid mention type")
+                                    break;
+                            }
+                        }
+                        break;
+                    case 'userCommented':
+                        if (!notif.meta) {
+                            addToNotifications("User Commented notification, no Metadata provided")
+                        } else if (!notif.meta.commenter) {
+                            addToNotifications("User Commented notification, invalid metadata provided")
+                        } else {
+                            switch (notif.meta.type) {
+                                case 'post':
+                                    addToNotifications(notif.meta.commenter + " commented on your post!")
+                                    break;
+                                case 'subpost':
+                                case 'subPost':
+                                    addToNotifications(notif.meta.commenter + " commented on your sub-post!")
+                                    break;
+                                default:
+                                    addToNotifications("User Commented notification, invalid comment parent type")
+                                    break;
+                            }
+                        }
+                        break;
+                    case 'outdated':
+                        addToNotifications("This notification is missing information that a new forums update needs.")
+                        break;
+                    case 'legacy':
+                        addToNotifications("Legacy Notification, no data provided")
+                        break;
+                    case null:
+                    case undefined:
+                        addToNotifications("Corrupted notification")
+                        break;
+                    default:
+                        addToNotifications("Unknown notification type '" + notif.type + "'")
+                        break;
+                }
+            })
+        }))
+    })
 }
 export default {
     name: "forums",
@@ -949,24 +1111,7 @@ export default {
             localforage.setItem("FORUMS_POST_COMMENT_ID", null)
             localforage.setItem("FORUMS_USERNAME", null)
             localforage.setItem("FORUMS_PASSWORD", null)
-        }
-        const b = await localforage.getItem("HAS_SEEN_FORUMS_MESSAGE")
-        if (!b) {
-            setTimeout(() => {
-                const html = document.createElement("div")
-                html.innerHTML = `<p>We got <b>S4D Forums</b> now!</p>
-<p>Click the <b>Forums</b> button at the top of the page to open the forums!</p>
-<img src="https://media.discordapp.net/attachments/914411539887456296/1010878859354320896/unknown.png" alt="clik the buton">`
-                this.$swal({
-                    title: "New Feature..",
-                    content: html,
-                    className: "swal_forums_instructions",
-                    buttons: {
-                        confirm: "Nice!"
-                    }
-                })
-                localforage.setItem("HAS_SEEN_FORUMS_MESSAGE", true)
-            }, 500);
+            localforage.setItem("FORUMS_NOTIFICATIONS_ENABLED", true)
         }
         setTimeout(() => {
             mainWorkspace = this.$store.state.workspace
@@ -983,6 +1128,12 @@ export default {
                             html.appendChild(warning)
                             warning.setAttribute("class", "forums-warning")
                             warning.innerHTML = `<i style="margin-left: 0.5%" class="fa-solid fa-triangle-exclamation"></i> S4D forums are in a "Beta - candidate" state. Don't hesitate to give feedback in the official Discord server.`
+                            const notifications = document.createElement("div")
+                            notifications.setAttribute("class", "forums-screen-notifications")
+                            const notifTextDiv = document.createElement("div")
+                            notifTextDiv.id = "s4d_forums_notifications_text_div_agegeafafdafsdfsdfsdgfdsgfdddddgdhgdfff"
+                            notifications.appendChild(notifTextDiv)
+                            html.appendChild(notifications)
                             this.$swal({
                                 title: "S4D Forums",
                                 className: "forums-class",
@@ -997,6 +1148,33 @@ export default {
                 })
             }
         }, 500);
+        setTimeout(() => {
+            function yourmother() {
+                localforage.getItem("FORUMS_USERNAME").then(username => {
+                    if (!username) return
+                    localforage.getItem("FORUMS_PASSWORD").then(password => {
+                        if (!password) return
+                        const requestOptions = {
+                            method: 'GET',
+                            headers: {
+                                'username': username
+                            }
+                        };
+                        fetch(`https://469-forumstest.jeremygamer13.repl.co/accounts/getNotifications`, requestOptions).then(result => result.json().then(json => {
+                            const notificator = document.getElementById("forums_notification_indicator_wakeupmf_tyougotanotif_brh")
+                            if (json.amount > 0) {
+                                notificator.setAttribute("style", "color:red;position:relative")
+                                document.getElementById("forums_notification_indicator_wakeupmf_tyougotanotif_brh_MMMMMMM").innerText = String(Number(json.amount) > 9 ? "9+" : Number(json.amount))
+                            } else {
+                                notificator.setAttribute("style", "display:none")
+                            }
+                        }))
+                    })
+                })
+            }
+            yourmother()
+            setInterval(yourmother, 20000);
+        }, 1000);
     },
     methods: {
         async forums() {
@@ -1008,6 +1186,12 @@ export default {
             html.appendChild(warning)
             warning.setAttribute("class", "forums-warning")
             warning.innerHTML = `<i style="margin-left: 0.5%" class="fa-solid fa-triangle-exclamation"></i> S4D forums are in a "Beta - candidate" state. Don't hesitate to give feedback in the official Discord server.`
+            const notifications = document.createElement("div")
+            notifications.setAttribute("class", "forums-screen-notifications")
+            const notifTextDiv = document.createElement("div")
+            notifTextDiv.id = "s4d_forums_notifications_text_div_agegeafafdafsdfsdfsdgfdsgfdddddgdhgdfff"
+            notifications.appendChild(notifTextDiv)
+            html.appendChild(notifications)
             this.$swal({
                 title: "S4D Forums",
                 className: "forums-class",
@@ -1114,6 +1298,28 @@ export default {
     width: 85%;
     height: 30em;
     overflow: hidden;
+}
+
+.forums-screen-notifications {
+    position: absolute;
+    background-color: red;
+    color: white;
+    width: 50%;
+    height: 4.3em;
+    margin-top: 0.5%;
+    text-align: left;
+    font-weight: 600;
+    overflow: auto;
+}
+
+div.forums-screen-notifications > div {
+    margin-left: 0.5%;
+}
+
+.forums-notifications-markAsReadButton {
+    position: absolute;
+    bottom: 0%;
+    right: 0.5%;
 }
 
 </style>
