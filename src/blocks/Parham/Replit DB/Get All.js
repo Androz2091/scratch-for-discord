@@ -29,6 +29,6 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     var statements_then = Blockly.JavaScript.statementToCode(block, 'then');
     // TODO: Assemble JavaScript into code variable.
-    var code = `S4D_APP_Replit_DB.list().then(S4D_APP_Replit_DB_Data => {${statements_then}});;\n`;
+    var code = `S4D_APP_Replit_DB.list().then(async (S4D_APP_Replit_DB_Data) => {${statements_then}});;\n`;
     return code;
   };
