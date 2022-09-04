@@ -24,6 +24,10 @@ Blockly.Blocks[blockName] = {
                     "User"
                 ],
                 [
+                    "member",
+                    "Member"
+                ],
+                [
                     "channel",
                     "Channel"
                 ],
@@ -89,9 +93,15 @@ Blockly.Blocks[blockName] = {
             this.appendValueInput('BOOLEAN')
             .setCheck('String')
             .appendField("option name");
+            this.setOutput(true,'User');
+
+        } else if (newMode == 'user') {
+            this.appendValueInput('BOOLEAN')
+            .setCheck('String')
+            .appendField("option name");
             this.setOutput(true,'Member');
 
-        } else if (newMode == 'channel') {
+        }else if (newMode == 'channel') {
             this.appendValueInput('BOOLEAN')
             .setCheck('String')
             .appendField("option name");
