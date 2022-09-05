@@ -1886,6 +1886,24 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+            <block type="gsa_frost_slash_options">
+                <value name="NAME">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="REQUIRED">
+                    <shadow type="logic_boolean">
+                        <field name="BOOL">TRUE</field>
+                    </shadow>
+                </value>
+            </block>
+<!--
             <block type="frost_slash_sub_command_group">
                 <value name="NAME">
                     <shadow type="text">
@@ -1944,6 +1962,7 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
+            -->
             <block type="frost_slash_choices">
                 <value name="NAME">
                     <shadow type="text">
