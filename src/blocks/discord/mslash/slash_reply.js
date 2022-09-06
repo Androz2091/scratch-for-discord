@@ -46,17 +46,17 @@ Blockly.JavaScript[blockName] = function (block) {
             block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
             null;
         if ((contentType === "Embed")) {
-            const code = `await interaction.reply({ embeds: [${content}], ephemeral: ${boolean}, components: [${button2}] });\n`;
+            const code = `await interaction.reply({ embeds: [${content}], ephemeral: ${boolean || false}, components: [${button2}] });\n`;
             return code;
         } else if ((contentType === "MessageEmbed")) {
-            const code = `await interaction.reply({${content}});\n`;
+            const code = `await interaction.reply({${content}, ephemeral: ${boolean || false}, components: [${button2}] });\n`;
             return code;
         } else {
-            const code = `await interaction.reply({ content: ${content}, ephemeral: ${boolean} || false, components: [${button2}] });\n`;
+            const code = `await interaction.reply({ content: ${content}, ephemeral: ${boolean || false}, components: [${button2}] });\n`;
             return code;
         }
     } else {
-        const code = `await interaction.reply({ content: ${content}, ephemeral: ${boolean} , components: [${button2}] });\n`;
+        const code = `await interaction.reply({ content: ${content}, ephemeral: ${boolean || false} , components: [${button2}] });\n`;
         return code;
     }
 };

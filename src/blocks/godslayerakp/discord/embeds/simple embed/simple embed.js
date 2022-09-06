@@ -159,7 +159,7 @@ Blockly.JavaScript[blockName] = function (block) {
         footer = Blockly.JavaScript.valueToCode(block, "footer", Blockly.JavaScript.ORDER_ATOMIC)
     }
     if (this.inputs_[0]) {
-      message = `content: String(${Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_NONE)})`
+      message = `content: String(${Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_NONE)}), `
     }
     // the last line of code here, do another code.push(``) if you need to put more code
     const code = `${message}embeds: [{
