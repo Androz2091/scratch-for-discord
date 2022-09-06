@@ -30,9 +30,9 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
   // const color = Blockly.JavaScript.valueToCode(block, "title", Blockly.JavaScript.ORDER_ATOMIC)
-  const message = "";
-  if (block.getFieldValue("message") !== null) {
-    message = `content: String(${block.getFieldValue("message")}), `
+  let message = "";
+  if (Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_ATOMIC) != null) {
+    message = `content: String(${Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_ATOMIC)}), `
   }
   const color = block.getFieldValue("NAME")
   return [`${message}embeds: [${color.replaceAll(" ", "_").replace(/[!@#\$%\^&\*\(\)-=\]\[\|{}\+`~'":;\?\/\.<>,\/]/g, '_')}]`, Blockly.JavaScript.ORDER_ATOMIC];
