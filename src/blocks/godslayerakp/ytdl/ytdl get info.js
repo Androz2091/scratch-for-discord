@@ -13,39 +13,35 @@ const blockData = {
       "options": [
         [
           "title",
-          ".videoDetails.title"
+          "videoDetails.title"
         ],
         [
           "description",
-          ".videoDetails.description"
+          "videoDetails.description"
         ],
         [
           "length",
-          ".videoDetails.lengthSeconds"
+          "videoDetails.lengthSeconds"
         ],
         [
           "channel url",
-          ".videoDetails.author.user_url"
+          "videoDetails.author.user_url"
         ],
         [
           "likes",
-          ".videoDetails.likes"
+          "videoDetails.likes"
         ],
         [
           "channel name",
-          ".videoDetails.author.name"
+          "videoDetails.author.name"
         ],
         [
           "views",
-          ".videoDetails.viewCount"
+          "videoDetails.viewCount"
         ],
         [
           "upload date",
-          ".videoDetails.publishDate"
-        ],
-        [
-          "all data (returns object)",
-          ""
+          "videoDetails.publishDate"
         ]
       ]
     }
@@ -65,7 +61,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
   const get_data = block.getFieldValue("get_data");
-  return [`S4D_APP_json${get_data}`, Blockly.JavaScript.ORDER_NONE];
+  return [`S4D_APP_json.${get_data}`, Blockly.JavaScript.ORDER_NONE];
 }
 registerRestrictions(blockName, [
   {

@@ -30,9 +30,8 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function (block) {
   const name = Blockly.JavaScript.valueToCode(block, "name", Blockly.JavaScript.ORDER_ATOMIC)
   const icon_url = Blockly.JavaScript.valueToCode(block, "icon_url", Blockly.JavaScript.ORDER_ATOMIC)
-  const code = `footer: {
+  return `footer: {
 	text: String(${name}),
 	icon_url: String(${icon_url}),
 }, \n`
-return [code, Blockly.JavaScript.ORDER_ATOMIC];
 }

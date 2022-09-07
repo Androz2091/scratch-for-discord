@@ -28,9 +28,8 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
   const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC)
-  const code = `fields: [
+  return `fields: [
 ${statements}
-	], 
+	], \n
 `
-return [code, Blockly.JavaScript.ORDER_ATOMIC];
 }
