@@ -4,7 +4,14 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_embed_send";
 
 const blockData = {
-    "message0": "send embed",
+    "message0": "send embed with message %1",
+    "args0": [
+        {
+            "type": "input_value",
+            "check": "String",
+            "name": "MESSAGE"
+        }
+    ],
     "output": "MessageEmbed",
     "colour": "#40BF4A",
     "tooltip": "Send a perfect embed.",
@@ -17,8 +24,12 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(){
-       const code = [`embeds: [embed]`, Blockly.JavaScript.ORDER_ATOMIC];
+Blockly.JavaScript[blockName] = function(block){
+    let message = ''
+    if (Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC)) {
+        message = `, content: ${Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC)}`
+    }
+    const code = [`embeds: [embed]${message}`, Blockly.JavaScript.ORDER_ATOMIC];
     return code;
 };
 

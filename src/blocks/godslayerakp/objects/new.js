@@ -1,21 +1,22 @@
 import Blockly from "blockly/core";
 
-const blockName = "gsa_create_simple_embed_fields";
+const blockName = "gsa_new_object_creator_empty_search_moment_searchMoment";
 
 const blockData = {
-  "message0": "add fields %2 %1",
+  "message0": "create new object with %2 %1",
   "args0": [
     {
       "type": "input_statement",
+      "check": "object",
       "name": "STATEMENTS"
     },
     {
       "type": "input_dummy"
     }
   ],
-  "output": blockName,
+  "output": "Object",
   "inputsInline": false,
-  "colour": '#40BF4A',
+  "colour": '#BA4A9A',
   "tooltip": "must be in a make embed with name block",
   "helpUrl": ""
 };
@@ -27,10 +28,5 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-  const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC)
-  const code = `fields: [
-${statements}
-	], 
-`
-return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  return [`{${Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC)}}`, Blockly.JavaScript.ORDER_ATOMIC];
 }
