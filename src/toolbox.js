@@ -630,31 +630,6 @@ export default (Blockly, value, searching) => {
         
             <label text="Objects are similar to collections, but have more functionality." web-class="boldtext"></label>
             <label text="They also don't get converted when saving into a database!" web-class="boldtext"></label>
-            <block type="gsa_new_object_creator_empty_search_moment_searchMoment">
-                <value name="value">
-                    <shadow type="text">
-                        <field name="TEXT">key</field>
-                    </shadow>
-                </value>
-                <value name="object">
-                    <block type="variables_get">
-                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
-                    </block>
-                </value>
-            </block>
-            <block type="gsa_new_object_item_creator_empty_search_moment_searchMoment">
-                <value name="value">
-                    <shadow type="text">
-                        <field name="TEXT">key</field>
-                    </shadow>
-                </value>
-                <value name="object">
-                    <block type="variables_get">
-                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
-                    </block>
-                </value>
-            </block>
-
             <block type="jg_objects_create_new"/>
             <block type="jg_objects_set_key_to_value_in_object">
                 <value name="KEY">
@@ -680,32 +655,6 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
-
-            <block type="gsa_object_has_value_search_moment">
-                <value name="value">
-                    <shadow type="text">
-                        <field name="TEXT">key</field>
-                    </shadow>
-                </value>
-                <value name="object">
-                    <block type="variables_get">
-                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
-                    </block>
-                </value>
-            </block>
-            <block type="gsa_delete_object_search_moment_searchMoment">
-                <value name="value">
-                    <shadow type="text">
-                        <field name="TEXT">key</field>
-                    </shadow>
-                </value>
-                <value name="object">
-                    <block type="variables_get">
-                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
-                    </block>
-                </value>
-            </block>
-
             <label text="For something like getting the amount of keys in an object..." web-class="boldtext"></label>
             <block type="jg_objects_get_objects_key_names_in_list">
                 <value name="OBJECT">
