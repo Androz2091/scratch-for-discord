@@ -717,6 +717,7 @@ export default (Blockly, value, searching) => {
         </category>
 
         <category name="{{ TOOLBOX_OTHER }}s" colour="#D14081"> 
+        <block type="gsa_bypass_type"/>
         
             <block type="s4d_print">
                 <value name="PRINT">
