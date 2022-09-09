@@ -40,7 +40,8 @@ export default {
                 alt + b - true/false block<br>
                 alt + n - number block<br>
                 alt + m - message content<br>
-                alt + = - ()==()
+                alt + = - ()==()<br><br>
+                ctrl + shift + c - open the console
                 </h2>
                 `,
                 confirmButtonText:

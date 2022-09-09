@@ -93,7 +93,7 @@ Blockly.Blocks[blockName] = {
             this.appendValueInput('BOOLEAN')
             .setCheck('String')
             .appendField("option name");
-            this.setOutput(true,'User');
+            this.setOutput(true,['Member', 'User']);
 
         } else if (newMode == 'member') {
             this.appendValueInput('BOOLEAN')
