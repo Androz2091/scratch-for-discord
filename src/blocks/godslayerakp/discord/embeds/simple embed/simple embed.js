@@ -161,8 +161,7 @@ Blockly.JavaScript[blockName] = function (block) {
     if (this.inputs_[0]) {
       message = `content: String(${Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_NONE)}), `
     }
-    // the last line of code here, do another code.push(``) if you need to put more code
-    const code = `${message}embeds: [{
+    const code = `${message || 'NULL'}embeds: [{
 ${color}${title}${url}${author}${description}${thumbnail}${fields}${image}${timestamp}${footer}}]`;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
