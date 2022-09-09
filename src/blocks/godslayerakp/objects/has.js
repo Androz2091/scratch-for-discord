@@ -19,7 +19,7 @@ const blockData = {
   "output": "Boolean",
   "inputsInline": true,
   "colour": '#BA4A9A',
-  "tooltip": "must be in a make embed with name block",
+  "tooltip": "checks if an object has somthing",
   "helpUrl": ""
 };
 

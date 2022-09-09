@@ -19,7 +19,7 @@ const blockData = {
   "nextStatement": "object",
   "inputsInline": true,
   "colour": '#BA4A9A',
-  "tooltip": "can be used to send the embed with the name",
+  "tooltip": "used in \"create new object with\" block to add items to it",
   "helpUrl": ""
 };
 
