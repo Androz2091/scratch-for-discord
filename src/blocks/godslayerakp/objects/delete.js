@@ -21,7 +21,7 @@ const blockData = {
   "nextStatement": null,
   "inputsInline": true,
   "colour": '#BA4A9A',
-  "tooltip": "can be used to send the embed with the name",
+  "tooltip": "deletes something from an object",
   "helpUrl": ""
 };
 
@@ -34,5 +34,5 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function (block) {
   const v = Blockly.JavaScript.valueToCode(block, "value", Blockly.JavaScript.ORDER_ATOMIC)
   const o = Blockly.JavaScript.valueToCode(block, "object", Blockly.JavaScript.ORDER_ATOMIC)
-  return `delete ${o}[String(${v})]`;
+  return `delete ${o}[String(${v})] \n`;
 }

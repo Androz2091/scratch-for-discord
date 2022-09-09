@@ -17,7 +17,7 @@ const blockData = {
   "output": "Object",
   "inputsInline": false,
   "colour": '#BA4A9A',
-  "tooltip": "must be in a make embed with name block",
+  "tooltip": "creates a new object with components",
   "helpUrl": ""
 };
 

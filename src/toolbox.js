@@ -3513,6 +3513,7 @@ export default (Blockly, value, searching) => {
             <category name="JSON" colour="#F1DA54">
              <label text="Simplest database"></label>
              <label text="Create a new database name and file"></label>
+             <block type="gsa_make_db_with_path_x"/>
              <block type="s4d_database_create_new">
             <value name="NAME">
                 <shadow type="text">
