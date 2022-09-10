@@ -1799,7 +1799,7 @@ export default (Blockly, value, searching) => {
             <label text="Send a generated embed" web-class="boldtext"></label>
             <block type="s4d_embed_send"></block>
 	    -->
-            <category name="Non-Nameable" colour="#fc8c03">
+            <category name="Constructor" colour="#fc8c03">
             
                 <label text="Create a perfect embed" web-class="boldtext"></label>
                 <block type="s4d_embed_create"></block>
@@ -1811,14 +1811,9 @@ export default (Blockly, value, searching) => {
                   </value></block>
                 <block type="s4d_embed_set_author">
                  <value name="AUTHOR">
-                    <shadow type="text">
-                        <field name="TEXT">Eruption</field>
-                    </shadow>
-                  </value>
-                  <value name="PROFILE">
-                    <shadow type="text">
-                        <field name="TEXT">https://image.com</field>
-                    </shadow>
+                    <block type="s4d_member_username">
+                        <field name="s4d_member_username"></field>
+                    </block>
                   </value>
                 </block>
                 <block type="s4d_embed_set_title">
@@ -1878,7 +1873,7 @@ export default (Blockly, value, searching) => {
                 <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
                 <block type="s4d_embed_send"></block>
             </category>
-            <category name="Nameable" colour="#fc7703">
+            <category name="Objects" colour="#fc7703">
                 
                 <block type="gsa_create_embed"/>
                 <label text="note that you CANNOT put ANYTHING other then these blocks in the create embed block" web-class="boldtext"></label>

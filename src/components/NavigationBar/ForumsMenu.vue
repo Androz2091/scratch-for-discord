@@ -14,6 +14,7 @@ import scratchblocks from "scratchblocks";
 import localforage from 'localforage';
 import JSZip from "jszip";
 let mainWorkspace
+const emojiObject = {}
 //import Swal from "sweetalert2";
 /* eslint-disable */
 const workspacesCurrentlyInsideMemory = []
@@ -50,6 +51,12 @@ function syntaxifyString(str) {
             newString = newString.replace(match, '<b style="color:blue">' + match.replaceAll("@", `<i class="fa-solid fa-at" title="Mentioned user ${match.replaceAll("@", "")}"></i>`) + '</b>')
         })
     }
+    // const emojimatch = String(newString).replace(/\s*/gmi, "").match(/((\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff]\s?))/gm)
+    // if (emojimatch) {
+        // emojimatch.forEach(match => {
+            // newString = String(newString).replaceAll(match, "<img width='20' height='20' draggable=false src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/322/" + emojiObject[String(match)] + "_" + String(match).codePointAt(0).toString(16) + ".png'>")
+        // })
+    // }
     return newString
 }
 function unixToDate(unix) {
@@ -1205,6 +1212,15 @@ export default {
         },
     }
 }
+emojiObject["😀"] = "grinning-face"
+emojiObject["😃"] = "grinning-face-with-big-eyes"
+emojiObject["😄"] = "grinning-face-with-smiling-eyes"
+emojiObject["😁"] = "beaming-face-with-smiling-eyes"
+emojiObject["😆"] = "grinning-squinting-face"
+emojiObject["😅"] = "grinning-face-with-sweat"
+emojiObject["🤣"] = "rolling-on-the-floor-laughing"
+emojiObject["😂"] = "face-with-tears-of-joy"
+emojiObject["🙂"] = "slightly-smiling-face"
 </script>
 
 <style>
@@ -1318,7 +1334,7 @@ div.forums-screen-notifications > div {
 
 .forums-notifications-markAsReadButton {
     position: absolute;
-    bottom: 0%;
+    top: 0%;
     right: 0.5%;
 }
 
