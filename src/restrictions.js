@@ -70,6 +70,7 @@ export const disableUnapplicable = (workspace) => {
 
         if (issues < 1) {
             if (excusedBlocks.includes(block.type)) continue
+            if (block["___blockWarnings-blocklyModule"] != null) continue
             block.setWarningText(null);
         } else {
             if (messages.length > 0) {
