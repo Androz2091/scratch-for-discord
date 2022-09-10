@@ -1,4 +1,5 @@
 import Blockly from "blockly/core";
+import blocklyModule from "../blocklyModule"
 import { registerRestrictions } from "../../restrictions";
 import '@blockly/field-grid-dropdown';
 const restrictToParent = function (parents, name, msg) {
@@ -4414,3 +4415,26 @@ restrictToParent(
     "jg_express_website_set_header_to",
     'This block must be in a "on page on request type do" block!'
 )
+blocklyModule.createMutatorBlock("checkbox", {
+    blockName: "jg_testing_urmother_epic_block_test_deez_mf_nuts", // required
+    blockData: { // required
+        "message0": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "args0": [],
+        "colour": "#7b2d9b",
+        "previousStatement": null,
+        "nextStatement": null,
+        "tooltip": "your mother you tyour hyoyooyoymuyj89898989898989898989898989898989898989",
+        "helpUrl": ""
+    },
+    menuTooltip: "urm om", // optional
+    menuUsesBlockColor: true, // optional
+    alignLeft: true, // optional
+    // all after here are requried
+    fields: ["a", "b", "c"],
+    types: ["String", "Boolean", "Colour"],
+    names: ["text", "question", "color"]
+}, function () { // export code function
+    const code = `abc cabbcebwf 8y432900[2]3rf2\\ew`
+    return code
+})
+

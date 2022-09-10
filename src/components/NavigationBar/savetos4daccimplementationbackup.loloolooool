@@ -1,0 +1,277 @@
+<template>
+    <b-nav-item-dropdown :text="$t('file.title')" right>
+        <b-dropdown-item @click="askForFile">{{ $t('file.open') }}</b-dropdown-item>
+        <input hidden @change="load" id="load-code" type="file" accept=".s4d,.zip,.xml">
+        <b-dropdown-item v-b-modal.code-modal>Export to Javascript</b-dropdown-item>
+        <b-dropdown-item @click="copy">Copy Javascript Code</b-dropdown-item>
+        <b-dropdown-item @click="save">Save</b-dropdown-item>
+        <b-dropdown-item @click="saveas">Replace</b-dropdown-item>
+        <b-dropdown-divider></b-dropdown-divider>
+        <b-dropdown-item @click="loadFromServerStorage">Load from S4D Account</b-dropdown-item>
+        <b-dropdown-item @click="saveToServerStorage">Save to S4D Account</b-dropdown-item>
+    </b-nav-item-dropdown>
+</template>
+
+<script>
+    /* eslint-disable */
+import Blockly from "blockly";
+import JSZip from "jszip";
+import beautify from "js-beautify";
+import localforage from "localforage";
+import accounts from "./accountModule"
+// let changesAreUnsaved = false
+// let workspaceContent = `<xml xmlns="https://developers.google.com/blockly/xml"></xml>`
+function showSwalRegister(swal) {
+    return new Promise((resolve, reject) => {
+        const html = document.createElement("div")
+        function loadPage(page, div) {
+            switch (page) {
+                case 'register':
+                    div.innerHTML = `<h1>Register an S4D Account</h1>
+<p><small>(Discord login will come at some point!)</small></p>
+<br>
+<i class="fa-solid fa-user"></i> <input type="text" id="s4d_account_menu_register_username"><br>
+<i class="fa-solid fa-key"></i> <input type="password" id="s4d_account_menu_register_password">
+<br>
+<br>
+<input type="submit" id="s4d_account_menu_register_submit" value="Register">
+<br>
+<button class="imAButtonButIHateLookingLikeOneLmao fakeUrlRedirect">I already own an account</button>`
+                    break;
+                case 'login':
+                    div.innerHTML = `<h1>Login to an S4D Account</h1>
+<p><small>(Discord login will come at some point!)</small></p>
+<br>`
+                    break;
+                default:
+                    div.innerHTML = `Invalid page type`
+                    break;
+            }
+        }
+        loadPage('register', html)
+        swal({
+            "content": html,
+            "buttons": {}
+        }).then(result => {
+            if (!result) {
+                reject("User did not login or register")
+                return
+            }
+        })
+    })
+}
+function handleAccountLogin(swal) {
+    let loggedIn = true
+    return new Promise((resolve, reject) => {
+        localforage.getItem("S4D_ACCOUNTS_USERNAME", (username) => {
+            if (!username) {
+                loggedIn = false
+            }
+            localforage.getItem("S4D_ACCOUNTS_PASSWORD", (password) => {
+                if (!password) {
+                    loggedIn = false
+                }
+                if (!loggedIn) {
+                    showSwalRegister(swal).then(() => { handleAccountLogin(swal) })
+                } else {
+                    const requestOptions = {
+                        method: 'GET',
+                        headers: {
+                            'username': username,
+                            'password': password
+                        },
+                    }
+                    fetch(accounts.apiURL + "accounts/validateLogin/", requestOptions).then(result => result.json().then(json => {
+                        if (json.error != null) {
+                            showSwalRegister(swal).then(() => { handleAccountLogin(swal) })
+                        } else {
+                            resolve(username, password)
+                        }
+                    }))
+                }
+            })
+        })
+    })
+}
+export default {
+    name: "filemenu",
+    mounted() {
+        /*
+        // unsaved changes stuff
+        window.onload = function () {
+            window.addEventListener("beforeunload", function (e) {
+                let currentWorkspaceContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace))
+                changesAreUnsaved = workspaceContent != currentWorkspaceContent
+                if (!changesAreUnsaved) return
+                let confirmationMessage = `You have unsaved blocks! Are you sure?`;
+                (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+                return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+            });
+        }
+        // end of unsaved changes stuff
+        */
+        localforage.getItem("utilitiesShortcuts").then(item => {
+            if (item == false) return
+            window.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && (e.key == "s")) {
+                    e.preventDefault()
+                    if (e.altKey) {
+                        this.saveas()
+                    } else {
+                        this.save()
+                    }
+                    return false
+                }
+            })
+        })
+    },
+    methods: {
+        copy() {
+            var url = beautify.js(this.getWorkspaceCode(), {
+                indent_size: 4,
+                space_in_empty_paren: true
+            });
+           navigator.clipboard.writeText(url)
+        },
+        viewCode() {
+			alert(this.getWorkspaceCode());
+        },
+        askForFile(){
+            document.querySelector("#load-code").click();
+        },
+        load(){
+          this.$swal({
+            title: this.$t('file.confirm.title'),
+            text: this.$t('file.confirm.text'),
+            buttons: {
+                cancel: this.$t('file.confirm.cancel'),
+                no: {
+                    text: this.$t('file.confirm.no'),
+                    value: false,
+                    className: "red-button"
+                },
+                yes: {
+                    text: this.$t('file.confirm.yes'),
+                    value: true
+                }
+            },
+            closeOnClickOutside: false
+        }).then(result => {
+            if (typeof result == "object") {
+                return
+            } else if (result) {
+                this.$store.state.workspace.clear()
+            }
+            const file = document.getElementById("load-code").files[0];
+            const documentName = file.name.split(".").slice(0, file.name.split(".").length-1);
+            document.querySelector("#docName").textContent = documentName;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                // console.log(e.target.result)
+                if (file.type == "text/xml") {
+                    const decoder = new TextDecoder("utf-8")
+                    const raw = decoder.decode(e.target.result)
+                    const xml = Blockly.Xml.textToDom(raw);
+                    Blockly.Xml.domToWorkspace(xml, this.$store.state.workspace);
+                    return
+                }
+                JSZip.loadAsync(e.target.result)
+                    .then((data) => {
+                    if (data.file("blocks.xml")) {
+                        return data.file("blocks.xml").async("string")
+                    }
+                })
+                .then((text) => {
+                    const xml = Blockly.Xml.textToDom(text);
+                    Blockly.Xml.domToWorkspace(xml, this.$store.state.workspace);
+                })
+                .catch((err) => {
+                    this.$toast.open({
+                        message: this.$t('load.error'),
+                        type: "error",
+                        dismissible: true,
+                        duration: 10000
+                    });
+                    console.warn("An error occurred when loading a file!", String(err).substring(0, 250))
+                });
+            };
+            if (file) {
+                reader.readAsArrayBuffer(file);
+                document.getElementById("load-code").setAttribute("value", "");
+            }
+        });
+        },
+        save(){
+            const zip = new JSZip();
+            const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
+            const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, ' ')}.s4d`;
+            zip.file("blocks.xml", xmlContent);
+            zip.generateAsync({
+                type: "blob"
+            })
+            .then((blob) => {
+                const a = document.createElement("a");
+                a.style = "display: none";
+                document.body.appendChild(a);
+                const url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = fileName;
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+                // changesAreUnsaved = false
+                // workspaceContent = xmlContent
+            });
+        },
+        saveas(){
+            const zip = new JSZip();
+            const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
+            zip.file("blocks.xml", xmlContent);
+            zip.generateAsync({
+                type: "blob"
+            })
+            .then(async (blob) => {
+                const fileHandle = await window.showSaveFilePicker({
+                    types: [{
+                        description: "S4D Bot File",
+                        accept: {"application/zip": [".s4d"]}
+                    }]
+                });
+                const fileStream = await fileHandle.createWritable();
+                await fileStream.write(blob);
+                await fileStream.close();
+                // changesAreUnsaved = false
+                // workspaceContent = xmlContent
+            },
+          )
+        },
+        saveToServerStorage() {
+            handleAccountLogin(this.$swal).then((username, password) => {
+
+            }).catch(err => {
+                alert("Failed to login! " + err)
+                console.error(err)
+            })
+        },
+        loadFromServerStorage() {
+            handleAccountLogin(this.$swal).then((username, password) => {
+
+            }).catch(err => {
+                alert("Failed to login! " + err)
+                console.error(err)
+            })
+        }
+    }
+}
+</script>
+
+<style>
+    .imAButtonButIHateLookingLikeOneLmao {
+        background-color: transparent;
+        border-width: 0px;
+        outline-width: 0px;
+    }
+    .fakeUrlRedirect {
+        color: dodgerblue;
+    }
+</style>
