@@ -113,9 +113,9 @@ Blockly.JavaScript[blockName] = function(block){
     const code = `{
     type: ${type},
 	name: ${name},
+    ${Number(type) > 2 ? `required: ${required||false},` : ''}
 	description: ${desc}, ${Number(type) >= 5 && !type == '10' ? '' : `
-    required: ${required||false},
-    choices: [
+    ${Number(type) < 3 ? 'options' : 'choices'}: [
         ${choices}
     ]`}
 },`;

@@ -718,6 +718,7 @@ export default (Blockly, value, searching) => {
 
         <category name="{{ TOOLBOX_OTHER }}s" colour="#D14081"> 
         
+        
             <block type="s4d_print">
                 <value name="PRINT">
                     <block type="frost_other_err"/>
@@ -776,6 +777,7 @@ export default (Blockly, value, searching) => {
             <block type="date_to_unix"/>
             <block type="create_qr_then"/>
             <block type="qr"/>
+            <block type="gsa_bypass_type"/>
         </category>
        
 	  
