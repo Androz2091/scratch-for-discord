@@ -1810,14 +1810,9 @@ export default (Blockly, value, searching) => {
                   </value></block>
                 <block type="s4d_embed_set_author">
                  <value name="AUTHOR">
-                    <shadow type="text">
-                        <field name="TEXT">Eruption</field>
-                    </shadow>
-                  </value>
-                  <value name="PROFILE">
-                    <shadow type="text">
-                        <field name="TEXT">https://image.com</field>
-                    </shadow>
+                    <block type="s4d_member_username">
+                        <field name="s4d_member_username"></field>
+                    </block>
                   </value>
                 </block>
                 <block type="s4d_embed_set_title">
