@@ -71,15 +71,68 @@ export default {
                   </style>
                   <h2>Changelog</h2>
                   </div>
-                  <p style="font-weight: bold;">Detailed logs are posted in our official <a style="color: #ff4500;" href="https://www.reddit.com/r/s4d/">r/s4d</a> Subreddit</p>
+                  <p style="font-weight: bold;">Detailed logs are posted in our official <a style="color: #5865F2;" href="https://discord.gg/TsQPMrNyBv/">Discord</a> Server</p>
+                  
                   <div class="latest-change">
-                    <time datetime="08/09/2022">08/13/2022 - Eruption</time>
-                    <h3>User examples & Changelog menu are revamped!</h3>
-                    <p>Currently in the process of updating popups because some of them looks bad. Will give the website a more consistent feelings in the future.<br>So far the user examples menu and changelogs have been updated.</p>
-                    <img src="https://cdn.discordapp.com/attachments/1006868250598064198/1008030396832829520/unknown.png" alt="Updated popups" class="img-size2"></img>   
+                      <div>
+                  <time datetime="09/11/2022">09/11/2022 - JeremyGamer13</time>
+                    <h3>updated the shortcuts menu to look a bit nicer</h3>
+                    <img src="https://cdn.discordapp.com/attachments/935597297528610856/1018421563202228274/unknown.png" alt="Updated popups" class="img-size2"></img> 
+                  </div>
                   </div>
                   <details>
                   <summary class="past-changes">Click here to view past changes</summary>
+                  
+                  
+                  
+                  <div>
+                  <time datetime="09/11/2022">09/11/2022 - Freslin</time>
+                    <h3>Update #2 on Important Links Graphics:</h3>
+                    <p>Added more labelings to enhance the looks and show the purpose.<br>Unofficial column will be removed when v2 arrives</p>
+                    <img src="https://cdn.discordapp.com/attachments/935597297528610856/1018387298754240522/Screenshot_20220911-103430_Chrome.jpg" alt="Updated popups" class="img-size2"></img> 
+                  </div>
+                  <div>
+                  <time datetime="09/11/2022">09/11/2022 - JeremyGamer13</time>
+                    <h3>Updated the Examples menu to show User Examples first & renamed it to Online Examples</h3>
+                    <img src="https://cdn.discordapp.com/attachments/935597297528610856/1018356201970479164/unknown.png" alt="Updated popups" class="img-size2"></img> 
+                  </div>
+                  <div>
+                  <time datetime="09/10/2022">09/0/2022 - Eruption</time>
+                    <h3>Final embed update</h3>
+                    <img src="https://cdn.discordapp.com/attachments/935597297528610856/1018103604235747378/unknown.png" alt="Updated popups" class="img-size2"></img> 
+                  </div>
+                  <div>
+                  <time datetime="08/09/2022">09/09/2022 - redman13</time>
+                    <h3>added new abject stoof</h3>
+                    <img src="https://cdn.discordapp.com/attachments/935597297528610856/1017710014053494794/unknown.png" alt="Updated popups" class="img-size2"></img> 
+                  </div>
+                  <div>
+                  <time datetime="08/09/2022">08/21/2022 - JeremyGamer13</time>
+                    <h3>A "little experiment" is now on the site: S4D Forums!</h3>
+                    <img src="https://cdn.discordapp.com/attachments/935597297528610856/1010869508870778972/unknown.png" alt="Updated popups" class="img-size2"></img> 
+                  </div>
+                  <div>
+                  <time datetime="08/09/2022">08/21/2022 - AlexCdDg</time>
+                    <h3>Sticker blocks are here!</h3>
+                    <img src="https://cdn.discordapp.com/attachments/935597297528610856/1010790683021418526/unknown.png" alt="Updated popups" class="img-size2"></img> 
+                  </div>
+                  <div>
+                  <time datetime="08/09/2022">08/21/2022 - Eruption</time>
+                    <h3>Late but export to Javascript UI is much cooler now</h3>
+                    <img src="https://cdn.discordapp.com/attachments/935597297528610856/1010756164633497611/unknown.png" alt="Updated popups" class="img-size2"></img> 
+                  </div>
+                  <div>
+                  <time datetime="08/09/2022">08/19/2022 - Eruption</time>
+                    <h3>Fixed thread blocks</h3>
+                    <img src="https://cdn.discordapp.com/attachments/935597297528610856/1010226460860100738/unknown.png" alt="Updated popups" class="img-size2"></img> 
+                  </div>
+                  <div>
+                  <time datetime="08/09/2022">08/13/2022 - Eruption</time>
+                    <h3>User examples & Changelog menu are revamped!</h3>
+                    <p>Currently in the process of updating popups because some of them looks bad. Will give the website a more consistent feelings in the future.<br>So far the user examples menu and changelogs have been updated.</p>
+                    <img src="https://cdn.discordapp.com/attachments/1006868250598064198/1008030396832829520/unknown.png" alt="Updated popups" class="img-size2"></img> 
+                  </div>
+                  
                   <div>
                     <div>
                       <time datetime="08/09/2022">08/13/2022 - JeremyGamer13</time>
