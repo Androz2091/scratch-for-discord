@@ -778,20 +778,32 @@ window.addEventListener("keypress", (e) => {
             const keyValuePairsDetailsSummary = document.createElement("summary")
             keyValuePairsDetailsSummary.innerHTML = "keyValuePairs"
             keyValuePairsDetails.append(keyValuePairsDetailsSummary)
-            localforage.keys().then((keys) => {
-                keys.forEach(key => {
-                    localforage.getItem(key).then((value) => {
-                        const keyValue = document.createElement("p")
-                        keyValue.style.height = "2em"
-                        keyValue.style.overflow = "auto"
-                        const data = valueToDisplayData(value)
-                        let appearAs = data.value
-                        let valueColor = data.color
-                        keyValue.innerHTML = "<b style=\"color:#ff8888\">" + String(key).replace(/</gmi, "&lt;") + "</b>: <b style=\"color:" + valueColor + "\">" + String(appearAs).replace(/</gmi, "&lt;") + "</b>"
-                        keyValuePairsDetails.append(keyValue)
+            const refreshButton = menu.createDecoratedButton()
+            refreshButton.innerHTML = "Refresh"
+            keyValuePairsDetails.append(refreshButton)
+            const valuePairsDiv = document.createElement("div")
+            keyValuePairsDetails.append(valuePairsDiv)
+            function resetKeyvaluepairs() {
+                valuePairsDiv.innerHTML = ""
+                localforage.keys().then((keys) => {
+                    keys.forEach(key => {
+                        localforage.getItem(key).then((value) => {
+                            const keyValue = document.createElement("p")
+                            keyValue.style.height = "2em"
+                            keyValue.style.overflow = "auto"
+                            const data = valueToDisplayData(value)
+                            let appearAs = data.value
+                            let valueColor = data.color
+                            keyValue.innerHTML = "<b style=\"color:#ff8888\">" + String(key).replace(/</gmi, "&lt;") + "</b>: <b style=\"color:" + valueColor + "\">" + String(appearAs).replace(/</gmi, "&lt;") + "</b>"
+                            valuePairsDiv.append(keyValue)
+                        })
                     })
                 })
-            })
+            }
+            resetKeyvaluepairs()
+            refreshButton.onclick = () => {
+                resetKeyvaluepairs()
+            }
             localforageDetails.append(keyValuePairsDetails)
         }, 0)
     }, 0)
