@@ -1,13 +1,10 @@
 <template>
     <b-nav-item-dropdown :text="$t('edit.title')" right>
-        <b-dropdown-item @click="undo">{{ $t('edit.undo') }}</b-dropdown-item>
-        <b-dropdown-item @click="redo">{{ $t('edit.redo') }}</b-dropdown-item>
-        <b-dropdown-item @click="clear">{{ $t('edit.clear', {
-            blockCount
-        }) }}</b-dropdown-item>
-        <b-dropdown-item @click="cleanUp">{{ $t('edit.cleanup') }}</b-dropdown-item>
-        <b-dropdown-item @click="clearDB">{{ $t('edit.cleardb') }}</b-dropdown-item>
-        <b-dropdown-item @click="clearGhost">{{ $t('edit.clearGhost') }}</b-dropdown-item>
+        <b-dropdown-item @click="undo">Undo</b-dropdown-item>
+        <b-dropdown-item @click="redo">Redo</b-dropdown-item>
+        <b-dropdown-item @click="clear">Delete {{ blockCount }} blocks</b-dropdown-item>
+        <b-dropdown-item @click="clearGhost">Delete unused blocks</b-dropdown-item>
+        <b-dropdown-item @click="cleanUp">Clean up blocks</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
 
