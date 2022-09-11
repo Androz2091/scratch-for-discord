@@ -4462,6 +4462,7 @@ Blockly.Blocks["jg_testing_epic_menu_api_test_pooop_lolo_fard"] = {
                 height: 360, // required, sets the window's height (not including top bar)
                 title: "Test Window", // not required, sets the window's title
                 animateCloseButton: true, // not required, enables or disables the window going offscreen on close button click
+                // zindex: number will set the z-index style attribute for the menu (defaults at 10 million)
                 // lerp: number will set the interpolation amount when moving the window
                 // canclose: false will remove the close button
                 // canminimize: false will remove the minimize button

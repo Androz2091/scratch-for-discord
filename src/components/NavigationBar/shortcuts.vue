@@ -52,7 +52,10 @@ export default {
                     </div>
                     <h3 style="text-align:center">Non-block shortcuts</h3>
                     <div style="height:18em;overflow:auto;background-color:#e3e3e3">
+                        <p>${toShortcut("ctrl + s")} - Save</p>
+                        <p>${toShortcut("ctrl + alt + s")} - Save as</p>
                         <p>${toShortcut("ctrl + shift + c")} - Open the Developer Console</p>
+                        <p>${toShortcut("ctrl + shift + u")} - Open the S4D Developer Tools</p>
                     </div>
                 </div>
                 `,

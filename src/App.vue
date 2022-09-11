@@ -16,6 +16,8 @@ console.log("User is currently on platform", navigator.userAgent)
 
 Blockly.Tooltip.HOVER_MS = 100;
 
+import "./components/S4DDebugTool"
+
 // Load blocks
 // load the entire folder mf
 import "./blocks/"

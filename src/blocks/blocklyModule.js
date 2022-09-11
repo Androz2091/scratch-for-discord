@@ -147,6 +147,15 @@ module.exports.createMutatorBlock = (mutator_type, data, exportCodeCallback) => 
         Blockly.JavaScript[blockName] = exportCodeCallback
     }
 }
+module.exports.getWorkspace = () => {
+    return window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e
+}
+module.exports.workspaceToXml = (workspace) => {
+    return Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace))
+}
+module.exports.xmlToWorkspace = (xml, workspace) => {
+    Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(xml), workspace)
+}
 module.exports.menus = {}
 module.exports.menus.createMenu = (data) => {
     if (!data) throw new Error("Cannot create a menu with no data")
@@ -164,12 +173,15 @@ module.exports.menus.createMenu = (data) => {
     let movingMenu = false
     menu.style.width = Number(data.width) + "px"
     menu.style.height = Number(data.height) + "px"
+    menu.style.zIndex = data.zindex == null ? 10000000 : Number(data.zindex)
     menu.style.position = "absolute"
     menu.style.left = targetX + "px"
     menu.style.top = targetY + "px"
     menu.style.backgroundColor = "#161719"
     menu.style.color = "white"
     menu.style.fontFamily = "monospace"
+    menu.style.userSelect = "none"
+    menu.style.webkitUserSelect = "none"
     menu.content = document.createElement("div")
     menu.append(menu.content)
     menu.topbar = document.createElement("div")
@@ -287,6 +299,7 @@ module.exports.menus.createMenu = (data) => {
         button.style.outlineWidth = "0px"
         button.style.color = "white"
         button.style.textAlign = "center"
+        button.style.margin = "4px"
         return button
     }
     return menu
