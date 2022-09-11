@@ -272,6 +272,7 @@ module.exports.menus.createMenu = (data) => {
             return
         }
         canMoveMenu = false
+        menu.style.overflow = "hidden"
         let height = data.height
         let closeAmount = 1
         let int = setInterval(() => {
