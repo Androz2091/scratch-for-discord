@@ -241,6 +241,170 @@ window.addEventListener("keypress", (e) => {
             }
             workspaceDetails.append(removeToolboxCategoryCallback)
 
+            const renameVariableById = menu.createDecoratedButton()
+            renameVariableById.innerHTML = "Rename Variable by ID "
+            const renameVariableByIdId = document.createElement("input")
+            renameVariableByIdId.placeholder = "Variable ID"
+            renameVariableById.append(renameVariableByIdId)
+            const renameVariableByIdNewName = document.createElement("input")
+            renameVariableByIdNewName.placeholder = "New Name"
+            renameVariableById.append(renameVariableByIdNewName)
+            renameVariableById.onclick = () => {
+                blocklyModule.getWorkspace().renameVariableById(renameVariableByIdId.value, renameVariableByIdNewName.value)
+            }
+            workspaceDetails.append(renameVariableById)
+
+            const render = menu.createDecoratedButton()
+            render.innerHTML = "Render All Blocks"
+            render.onclick = () => {
+                blocklyModule.getWorkspace().render()
+            }
+            workspaceDetails.append(render)
+
+            const resizeContents = menu.createDecoratedButton()
+            resizeContents.innerHTML = "Reposition & Resize Elements"
+            resizeContents.onclick = () => {
+                blocklyModule.getWorkspace().resize()
+                blocklyModule.getWorkspace().resizeContents()
+            }
+            workspaceDetails.append(resizeContents)
+
+            const scroll = menu.createDecoratedButton()
+            scroll.innerHTML = "Scroll workspace "
+            const scrollx = document.createElement("input")
+            scrollx.placeholder = "X"
+            scroll.append(scrollx)
+            const scrolly = document.createElement("input")
+            scrolly.placeholder = "Y"
+            scroll.append(scrolly)
+            scroll.onclick = () => {
+                blocklyModule.getWorkspace().scroll(Number(scrollx.value) ? Number(scrollx.value) : 0, Number(scrolly.value) ? Number(scrolly.value) : 0)
+            }
+            workspaceDetails.append(scroll)
+
+            const scrollCenter = menu.createDecoratedButton()
+            scrollCenter.innerHTML = "Center Workspace"
+            scrollCenter.onclick = () => {
+                blocklyModule.getWorkspace().scrollCenter()
+            }
+            workspaceDetails.append(scrollCenter)
+
+            const setScale = menu.createDecoratedButton()
+            setScale.innerHTML = "Zoom Scale "
+            const setScaleScale = document.createElement("input")
+            setScaleScale.placeholder = "Scale"
+            setScale.append(setScaleScale)
+            setScale.onclick = () => {
+                blocklyModule.getWorkspace().setScale(Number(setScaleScale.value) ? Number(setScaleScale.value) : 1)
+            }
+            workspaceDetails.append(setScale)
+
+            const setTheme = menu.createDecoratedButton()
+            setTheme.innerHTML = "Remove Theme"
+            setTheme.onclick = () => {
+                blocklyModule.getWorkspace().setTheme()
+            }
+            workspaceDetails.append(setTheme)
+
+            const setVisible = menu.createDecoratedButton()
+            setVisible.innerHTML = "Show workspace"
+            setVisible.onclick = () => {
+                blocklyModule.getWorkspace().setVisible(true)
+            }
+            workspaceDetails.append(setVisible)
+
+            const setVisible2 = menu.createDecoratedButton()
+            setVisible2.innerHTML = "Hide workspace"
+            setVisible2.onclick = () => {
+                blocklyModule.getWorkspace().setVisible(false)
+            }
+            workspaceDetails.append(setVisible2)
+
+            const showContextMenu = menu.createDecoratedButton()
+            showContextMenu.innerHTML = "Show context menu"
+            showContextMenu.onclick = () => {
+                blocklyModule.getWorkspace().showContextMenu(window.event)
+            }
+            workspaceDetails.append(showContextMenu)
+
+            const translate = menu.createDecoratedButton()
+            translate.innerHTML = "Translate workspace "
+            const translatex = document.createElement("input")
+            translatex.placeholder = "X"
+            translate.append(translatex)
+            const translatey = document.createElement("input")
+            translatey.placeholder = "Y"
+            translate.append(translatey)
+            translate.onclick = () => {
+                blocklyModule.getWorkspace().translate(Number(translatex.value) ? Number(translatex.value) : 0, Number(translatey.value) ? Number(translatey.value) : 0)
+            }
+            workspaceDetails.append(translate)
+
+            const undo = menu.createDecoratedButton()
+            undo.innerHTML = "Undo"
+            undo.onclick = () => {
+                blocklyModule.getWorkspace().undo(false)
+            }
+            workspaceDetails.append(undo)
+
+            const redo = menu.createDecoratedButton()
+            redo.innerHTML = "Redo"
+            redo.onclick = () => {
+                blocklyModule.getWorkspace().undo(true)
+            }
+            workspaceDetails.append(redo)
+
+            const updateInverseScreenCTM = menu.createDecoratedButton()
+            updateInverseScreenCTM.innerHTML = "Mark Inverse Screen CTM as dirty"
+            updateInverseScreenCTM.onclick = () => {
+                blocklyModule.getWorkspace().updateInverseScreenCTM()
+            }
+            workspaceDetails.append(updateInverseScreenCTM)
+
+            const updateScreenCalculationsIfScrolled = menu.createDecoratedButton()
+            updateScreenCalculationsIfScrolled.innerHTML = "updateScreenCalculationsIfScrolled"
+            updateScreenCalculationsIfScrolled.onclick = () => {
+                blocklyModule.getWorkspace().updateScreenCalculationsIfScrolled()
+            }
+            workspaceDetails.append(updateScreenCalculationsIfScrolled)
+
+            const zoom = menu.createDecoratedButton()
+            zoom.innerHTML = "Zoom workspace "
+            const zoomx = document.createElement("input")
+            zoomx.placeholder = "X"
+            zoom.append(zoomx)
+            const zoomy = document.createElement("input")
+            zoomy.placeholder = "Y"
+            zoom.append(zoomy)
+            const zooma = document.createElement("input")
+            zooma.placeholder = "Amount"
+            zoom.append(zooma)
+            zoom.onclick = () => {
+                blocklyModule.getWorkspace().zoom(Number(zoomx.value) ? Number(zoomx.value) : 0, Number(zoomy.value) ? Number(zoomy.value) : 0, Number(zooma.value) ? Number(zooma.value) : 0)
+            }
+            workspaceDetails.append(zoom)
+
+            const zoomCenter = menu.createDecoratedButton()
+            zoomCenter.innerHTML = "Zoom Center Blocks In"
+            zoomCenter.onclick = () => {
+                blocklyModule.getWorkspace().zoomCenter(1)
+            }
+            workspaceDetails.append(zoomCenter)
+
+            const zoomCenter2 = menu.createDecoratedButton()
+            zoomCenter2.innerHTML = "Zoom Center Blocks Out"
+            zoomCenter2.onclick = () => {
+                blocklyModule.getWorkspace().zoomCenter(-1)
+            }
+            workspaceDetails.append(zoomCenter2)
+
+            const zoomToFit = menu.createDecoratedButton()
+            zoomToFit.innerHTML = "Zoom blocks to fit"
+            zoomToFit.onclick = () => {
+                blocklyModule.getWorkspace().zoomToFit()
+            }
+            workspaceDetails.append(zoomToFit)
+
             // workspace readout
             workspaceDetails.append(document.createElement("br"))
             workspaceDetails.append(document.createElement("br"))
