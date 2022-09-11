@@ -1,7 +1,7 @@
 <template>
     <b-navbar toggleable="lg" type="dark" style="background-color:#161719;user-select:none;" id="navbar nav-main">
         <b-navbar-brand style="font-size: 120%;">
-            <img :src="decideNavBarImage" width="35" draggable="false" id="navigationBarS4DImage">
+            <button id="hideAllGuiElements" class="hide-gui-button"><img :src="decideNavBarImage" width="35" draggable="false" id="navigationBarS4DImage"></button>
             Scratch For Discord
         </b-navbar-brand>
 
@@ -12,7 +12,7 @@
                 <CodeModal></CodeModal>
                 <FileMenu style="font-size: small;"></FileMenu>
                 <EditMenu style="font-size: small;"></EditMenu>
-                <ToolboxModal style="font-size: small;"></ToolboxModal>
+                <!--<ToolboxModal style="font-size: small;"></ToolboxModal>-->
                 <!--<LanguageMenu></LanguageMenu>-->
                 <ExamplesMenu style="font-size: small;"></ExamplesMenu>
                 <Socials style="font-size: small;"></Socials>
@@ -65,7 +65,7 @@ import EditMenu from "./EditMenu.vue";
 import shortcuts from './shortcuts.vue';
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
-import ToolboxModal from "./ToolboxModal.vue";
+//import ToolboxModal from "./ToolboxModal.vue";
 import Socials from "./socials.vue";
 import Credit from "./Credit";
 import Forums from "./ForumsMenu.vue";
@@ -82,7 +82,7 @@ export default {
     //LanguageMenu,
     ExamplesMenu,
     CodeModal,
-    ToolboxModal,
+    //ToolboxModal,
     shortcuts,
     Credit,
     Forums,
@@ -125,6 +125,26 @@ export default {
                 audio.onended = function () { audio.play() }
                 window.onclick = function () { if (!audio_played) if (audio.play()) audio_played = true }
             }
+        }
+        document.getElementById("hideAllGuiElements").onclick = () => {
+            const navSpace = document.getElementById("navSpace")
+            const blocklySpace = document.getElementById("blocklySpace")
+            const blocklyToolboxDiv = document.getElementsByClassName("blocklyToolboxDiv").item(0)
+            navSpace.classList.add("hideAllGuiElements")
+            blocklySpace.classList.add("hideAllGuiElements")
+            blocklyToolboxDiv.classList.add("hideAllGuiElements")
+            const showButton = document.createElement("button")
+            showButton.classList.add("show-gui-button")
+            showButton.onclick = () => {
+                navSpace.classList.remove("hideAllGuiElements")
+                blocklySpace.classList.remove("hideAllGuiElements")
+                blocklyToolboxDiv.classList.remove("hideAllGuiElements")
+                showButton.remove()
+                Blockly.svgResize(window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e)
+            }
+            showButton.innerHTML = '<img src="' + window.location.origin + "/scratch.png" + '" width="35" draggable="false">'
+            document.body.append(showButton)
+            Blockly.svgResize(window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e)
         }
     },
     methods: {
@@ -1509,3 +1529,21 @@ if(localStorage.getItem("theme") == null){
       }
        })()
 </script>
+
+<style>
+    .hide-gui-button {
+        background-color: transparent;
+        border-width: 0px;
+        outline-width: 0px;
+    }
+    .show-gui-button {
+        background-color: transparent;
+        border-width: 0px;
+        outline-width: 0px;
+        margin: 13px;
+        position: absolute;
+        left: 3px;
+        top: 0px;
+        z-index: 99999;
+    }
+</style>

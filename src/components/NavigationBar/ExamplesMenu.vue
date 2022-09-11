@@ -1,23 +1,26 @@
 <template>
     <b-nav-item-dropdown id="v-step-0" text="Examples" right>
-        <b-dropdown-item @click="load('ping-pong')">Ping-Pong Command</b-dropdown-item>
-        <b-dropdown-item @click="load('command-parsing')">Command Handler</b-dropdown-item>
-        <b-dropdown-item @click="load('bettercmd')">Prefix Command Handler</b-dropdown-item>
-        <b-dropdown-item @click="load('leveling')">Basic Leveling System</b-dropdown-item>
-        <b-dropdown-item @click="load('music')">Music System</b-dropdown-item>
-        <b-dropdown-item @click="load('image-gen')">Image Generation</b-dropdown-item>
-        <b-dropdown-item @click="load('economy')">Economy System</b-dropdown-item>
-        <b-dropdown-item @click="load('leaderboard')">Leaderboard from Database</b-dropdown-item>
-        <b-dropdown-item @click="load('backup')">Backups</b-dropdown-item>
-        <b-dropdown-item @click="load('random')">Random Responses</b-dropdown-item>
-        <b-dropdown-item @click="load('cooldown')">Cooldowns</b-dropdown-item>
-        <b-dropdown-item @click="load('button')">Buttons & Button rows</b-dropdown-item>
-        <b-dropdown-item @click="load('slash')">Slash Commands</b-dropdown-item>
-        <b-dropdown-item @click="load('advjsonreq')">Advanced JSON Request</b-dropdown-item>
-        <b-dropdown-item @click="load('regex')">RegEx: Finding specific text</b-dropdown-item>
-        <b-dropdown-item @click="load('embed example')">Using Embeds Category</b-dropdown-item>
+        <b-dropdown-item @click="userexamples()"><i class="fa-solid fa-user"></i> &#8226; Online Examples</b-dropdown-item>
         <b-dropdown-divider></b-dropdown-divider>
-        <b-dropdown-item @click="userexamples()">User Uploaded Examples</b-dropdown-item>
+        <p style="text-align:center"><b>Built-in:</b></p>
+        <div style="height:8.75em;overflow:auto">
+            <b-dropdown-item @click="load('ping-pong')">Ping-Pong Command</b-dropdown-item>
+            <b-dropdown-item @click="load('command-parsing')">Command Handler</b-dropdown-item>
+            <b-dropdown-item @click="load('bettercmd')">Prefix Command Handler</b-dropdown-item>
+            <b-dropdown-item @click="load('leveling')">Basic Leveling System</b-dropdown-item>
+            <b-dropdown-item @click="load('music')">Music System</b-dropdown-item>
+            <b-dropdown-item @click="load('image-gen')">Image Generation</b-dropdown-item>
+            <b-dropdown-item @click="load('economy')">Economy System</b-dropdown-item>
+            <b-dropdown-item @click="load('leaderboard')">Leaderboard from Database</b-dropdown-item>
+            <b-dropdown-item @click="load('backup')">Backups</b-dropdown-item>
+            <b-dropdown-item @click="load('random')">Random Responses</b-dropdown-item>
+            <b-dropdown-item @click="load('cooldown')">Cooldowns</b-dropdown-item>
+            <b-dropdown-item @click="load('button')">Buttons & Button rows</b-dropdown-item>
+            <b-dropdown-item @click="load('slash')">Slash Commands</b-dropdown-item>
+            <b-dropdown-item @click="load('advjsonreq')">Advanced JSON Request</b-dropdown-item>
+            <b-dropdown-item @click="load('regex')">RegEx: Finding specific text</b-dropdown-item>
+            <b-dropdown-item @click="load('embed example')">Using Embeds Category</b-dropdown-item>
+        </div>
     </b-nav-item-dropdown>
 </template>
 

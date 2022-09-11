@@ -965,6 +965,7 @@ function svgToPng_(data, width, height, callback) {
                 toolbox: prepToolbox(toolbox(Blockly,val,false), false, val),
             }
         });
+        window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e = workspace
         /*
         let testCategoryXMLContents = `<button text="Create" callbackKey="CREATETESTVARIABLE"></button>`
         workspace.registerToolboxCategoryCallback("VARIABLETESTREMAKE", function () {

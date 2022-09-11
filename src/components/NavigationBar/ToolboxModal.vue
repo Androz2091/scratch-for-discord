@@ -12,10 +12,10 @@ export default {
     name: "filemenu",
     methods: {
         hide(){
-        Blockly.getMainWorkspace().getToolbox().setVisible(false)
+            Blockly.getMainWorkspace().getToolbox().setVisible(false)
         },
         show(){
-        Blockly.getMainWorkspace().getToolbox().setVisible(true)
+            Blockly.getMainWorkspace().getToolbox().setVisible(true)
         },
     }
 }
