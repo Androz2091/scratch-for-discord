@@ -491,6 +491,7 @@ window.addEventListener("keypress", (e) => {
                 if (setWarningTextWarning.value == "") {
                     getBlock()["___blockWarnings-blocklyModule"] = []
                     getBlock().setWarningText(null)
+                    return
                 }
                 getBlock()["___blockWarnings-blocklyModule"] = String(setWarningTextWarning.value).split("\n")
                 getBlock().setWarningText(setWarningTextWarning.value)
