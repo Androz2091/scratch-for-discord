@@ -826,7 +826,7 @@ window.addEventListener("keypress", (e) => {
             displayApi("RunButtonApi", "https://469runtest.jeremygamer13.repl.co")
             displayApi("UserExampleApi", "https://469exampletest.jeremygamer13.repl.co")
             displayApi("ForumsApi", "https://469-forumstest.jeremygamer13.repl.co")
-            displayApi("469MasterApi", "https://s4d469apis.scratch4discord.repl.co/")
+            //displayApi("469MasterApi", "https://s4d469apis.scratch4discord.repl.co/")
         }
         refreshButton.click()
         apisDetails.append(apisDetailsSummary)
