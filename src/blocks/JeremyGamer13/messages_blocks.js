@@ -4437,4 +4437,56 @@ blocklyModule.createMutatorBlock("checkbox", {
     const code = `abc cabbcebwf 8y432900[2]3rf2\\ew`
     return code
 })
-
+Blockly.Blocks["jg_testing_epic_menu_api_test_pooop_lolo_fard"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "Menu API Test %1",
+                "args0": [
+                    {
+                        "type": "field_checkbox",
+                        "name": "A"
+                    }
+                ],
+                "colour": "#abc87d"
+            }
+        );
+        this.canLoadMenu = true
+    },
+    onchange: function () {
+        const bool = this.getFieldValue("A") == "TRUE"
+        if (bool && this.canLoadMenu) {
+            this.canLoadMenu = false
+            const menu = blocklyModule.menus.createMenu({
+                width: 640, // required, sets the window's width
+                height: 360, // required, sets the window's height (not including top bar)
+                title: "Test Window", // not required, sets the window's title
+                animateCloseButton: true, // not required, enables or disables the window going offscreen on close button click
+                // lerp: number will set the interpolation amount when moving the window
+                // canclose: false will remove the close button
+                // canminimize: false will remove the minimize button
+            })
+            menu.onclosed = () => { // fired when menu.close() is fired
+                this.setColour(Math.round(Math.random() * 360))
+            }
+            const header = document.createElement("h1")
+            header.innerHTML = "Menu API Test"
+            menu.content.append(header)
+            const p = document.createElement("p")
+            p.innerHTML = "Menus are made using the blocklyModule function. Check this block's code for the code example shown here."
+            menu.content.append(p)
+            const input = document.createElement("input")
+            input.value = "HTML Inputs"
+            menu.content.append(input)
+            const button = menu.createDecoratedButton()
+            button.innerHTML = "Decorated Buttons"
+            menu.content.append(button)
+            const button2 = document.createElement("button")
+            button2.innerHTML = "Default Buttons"
+            menu.content.append(button2)
+        } else if (!bool) {
+            this.canLoadMenu = true
+        }
+    }
+}
+Blockly.JavaScript["jg_testing_epic_menu_api_test_pooop_lolo_fard"] = function () { return '' };
