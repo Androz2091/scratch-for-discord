@@ -29,12 +29,12 @@ export default {
                       font-weight: bold;
                     }
 
-                    .past-changes {
+                    .past-changeBTN {
                       text-align: center;
                       font-weight: bold;
                     }
 
-                    details > div {
+                    .past-changes {
                       height: 30em;
                       overflow: auto;
                     }
@@ -48,7 +48,7 @@ export default {
                       
                     }
 
-                    .latest-change, details > div > div {
+                    .latest-change, .past-changes > div {
                       border: solid 2px;
                       padding: 1em;
                       border-radius: 0.25em;
@@ -81,11 +81,9 @@ export default {
                   </div>
                   </div>
                   <details>
-                  <summary class="past-changes">Click here to view past changes</summary>
-                  
-                  
-                  
-                  <div>
+                  <summary class="past-changesBTN">Click here to view past changes</summary>        
+                  <div class="past-changes">
+                     <div>
                   <time datetime="09/11/2022">09/11/2022 - Freslin</time>
                     <h3>Update #2 on Important Links Graphics:</h3>
                     <p>Added more labelings to enhance the looks and show the purpose.<br>Unofficial column will be removed when v2 arrives</p>
@@ -132,8 +130,6 @@ export default {
                     <p>Currently in the process of updating popups because some of them looks bad. Will give the website a more consistent feelings in the future.<br>So far the user examples menu and changelogs have been updated.</p>
                     <img src="https://cdn.discordapp.com/attachments/1006868250598064198/1008030396832829520/unknown.png" alt="Updated popups" class="img-size2"></img> 
                   </div>
-                  
-                  <div>
                     <div>
                       <time datetime="08/09/2022">08/13/2022 - JeremyGamer13</time>
                       <h3>Added some website blocks!</h3>  
