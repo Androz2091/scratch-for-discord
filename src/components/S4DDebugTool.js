@@ -326,6 +326,21 @@ window.addEventListener("keypress", (e) => {
             blockDetails.append(jsonInit)
             blockDetails.append(jsonInitTextarea)
 
+            const moveBy = menu.createDecoratedButton()
+            moveBy.innerHTML = "Move By "
+            const moveByX = document.createElement("input")
+            moveByX.placeholder = "X"
+            moveBy.append(moveByX)
+            const moveByY = document.createElement("input")
+            moveByY.placeholder = "Y"
+            moveBy.append(moveByY)
+            moveBy.onclick = () => {
+                const x = moveByX.value == "" ? 0 : Number(moveByX.value)
+                const y = moveByY.value == "" ? 0 : Number(moveByY.value)
+                getBlock().moveBy(x, y)
+            }
+            blockDetails.append(moveBy)
+
             const setCollapsedTrue = menu.createDecoratedButton()
             setCollapsedTrue.innerHTML = "Collapse"
             setCollapsedTrue.onclick = () => {
@@ -349,6 +364,20 @@ window.addEventListener("keypress", (e) => {
                 getBlock().setColour(setColourColor.value)
             }
             blockDetails.append(setColour)
+
+            const setCommentText = menu.createDecoratedButton()
+            setCommentText.innerHTML = "Set Comment Text "
+            const setCommentTextText = document.createElement("input")
+            setCommentTextText.placeholder = "Comment Text"
+            setCommentText.append(setCommentTextText)
+            setCommentText.onclick = () => {
+                if (setCommentTextText.value == "") {
+                    getBlock().setCommentText(null)
+                    return
+                }
+                getBlock().setCommentText(setCommentTextText.value)
+            }
+            blockDetails.append(setCommentText)
 
             const setEnabled = menu.createDecoratedButton()
             setEnabled.innerHTML = "Enable"
@@ -443,6 +472,29 @@ window.addEventListener("keypress", (e) => {
                 getBlock().setNextStatement(false)
             }
             blockDetails.append(setNextStatement2)
+
+            const setOutputTextarea = document.createElement("textarea")
+            setOutputTextarea.style.width = "100%"
+            setOutputTextarea.style.height = "5em"
+            setOutputTextarea.placeholder = "Block Output Types (Array)"
+            const setOutput = menu.createDecoratedButton()
+            setOutput.innerHTML = "Set Block Output Array"
+            setOutput.onclick = () => {
+                const array = JSON.parse(setOutputTextarea.value)
+                getBlock().setOutput(array.length > 0, (array.length > 0 ? array : null))
+            }
+            blockDetails.append(setOutput)
+            blockDetails.append(setOutputTextarea)
+
+            const setOutputShape = menu.createDecoratedButton()
+            setOutputShape.innerHTML = "Set Output Shape "
+            const setOutputShapeNum = document.createElement("input")
+            setOutputShapeNum.placeholder = "Number"
+            setOutputShape.append(setOutputShapeNum)
+            setOutputShape.onclick = () => {
+                getBlock().setOutputShape(Number(setOutputShapeNum.value) ? Number(setOutputShapeNum.value) : 0)
+            }
+            blockDetails.append(setOutputShape)
 
             const setPreviousStatement = menu.createDecoratedButton()
             setPreviousStatement.innerHTML = "Allow top blocks"

@@ -180,14 +180,14 @@ module.exports.menus.createMenu = (data) => {
     menu.style.backgroundColor = "#161719"
     menu.style.color = "white"
     menu.style.fontFamily = "monospace"
-    menu.style.userSelect = "none"
-    menu.style.webkitUserSelect = "none"
     menu.content = document.createElement("div")
     menu.append(menu.content)
     menu.topbar = document.createElement("div")
     menu.topbar.style.textAlign = "center"
     menu.topbar.style.width = "100%"
     menu.topbar.style.height = "32px"
+    menu.topbar.style.userSelect = "none"
+    menu.topbar.style.webkitUserSelect = "none"
     menu.topbar.style.transformOrigin = "bottom center"
     menu.topbar.style.backgroundColor = "#FEA918"
     menu.topbar.contentDiv = document.createElement("div")
