@@ -41,10 +41,10 @@ Blockly.JavaScript[blockName] = function(block){
     const description = Blockly.JavaScript.valueToCode(block, "DESCRIPTION", Blockly.JavaScript.ORDER_ATOMIC);
   const inline = Blockly.JavaScript.valueToCode(block, "INLINE", Blockly.JavaScript.ORDER_ATOMIC);
   if (inline.length == 0) {
-    const code = `embed.addField(String(${title}), String(${description}), false); \n`;
+    const code = `hnxgcjtirh.addField(String(${title}), String(${description}), false); \n`;
     return code;
   }
-  const code = `embed.addField(String(${title}), String(${description}), ${inline}); \n`;
+  const code = `hnxgcjtirh.addField(String(${title}), String(${description}), ${inline}); \n`;
   return code;
 };
 

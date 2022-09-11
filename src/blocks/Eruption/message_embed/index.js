@@ -9,3 +9,4 @@ import "./embed_set_image";
 import "./embed_set_timestamp";
 import "./embed_set_footer";
 import "./embed_send";
+// redman is cool 😎

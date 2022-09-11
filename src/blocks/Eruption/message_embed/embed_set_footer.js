@@ -110,7 +110,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block){
     const footer = Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC);
     const icon = Blockly.JavaScript.valueToCode(block, "ICON", Blockly.JavaScript.ORDER_ATOMIC);
-  const code = `embed.setFooter({text: String(${footer}), iconURL: String(${icon})}); \n`; 
+  const code = `hnxgcjtirh.setFooter({text: String(${footer}), iconURL: String(${icon})}); \n`; 
     return code;
 };
 
