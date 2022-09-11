@@ -265,8 +265,9 @@ module.exports.menus.createMenu = (data) => {
         currentY = Math.lerp(currentY, targetY, data.lerp ? data.lerp : 0.1)
         menu.updatePosition()
     }, 10)
+    let minimized = false
     closeButton.onmousedown = () => {
-        if (data.animateCloseButton == false) {
+        if (data.animateCloseButton == false || minimized) {
             menu.close()
             return
         }
@@ -283,7 +284,6 @@ module.exports.menus.createMenu = (data) => {
             }
         }, 10);
     }
-    let minimized = false
     let contentDisplayStyle = menu.content.style.display
     minimizeButton.onmousedown = () => {
         if (!canMoveMenu) return
