@@ -795,4 +795,41 @@ window.addEventListener("keypress", (e) => {
             localforageDetails.append(keyValuePairsDetails)
         }, 0)
     }, 0)
+    setTimeout(() => {//apis
+        const apisDetails = document.createElement("details")
+        const apisDetailsSummary = document.createElement("summary")
+        apisDetailsSummary.innerHTML = "APIs"
+        const apiDiv = document.createElement("div")
+        function displayApi(name, url) {
+            const waitingLabel = document.createElement("p")
+            waitingLabel.innerHTML = '<small style="color:gray">Fetching ' + name + ' (' + url + '), please wait...</small>'
+            apiDiv.append(waitingLabel)
+            let reqStartTime = new Date().getTime()
+            fetch(url).then(res => {
+                waitingLabel.remove()
+                const r = document.createElement("div")
+                r.innerHTML = '<p>' + name + ' <small>(' + url + ')</small></p><h1 style="color:lime;font-size:300%">Online</h1><br><p>' + (new Date().getTime() - reqStartTime) + 'ms to respond; got status <b style="color:' + (res.status >= 200 && res.status < 400 ? "lime" : "red") + '">' + res.status + '</b></p>'
+                apiDiv.append(r)
+            }).catch(() => {
+                waitingLabel.remove()
+                const r = document.createElement("div")
+                r.innerHTML = '<p>' + name + ' <small>(' + url + ')</small></p><h1 style="color:red;font-size:300%">Offline</h1><br><p>' + (new Date().getTime() - reqStartTime) + 'ms to error</p>'
+                apiDiv.append(r)
+            })
+        }
+        const refreshButton = menu.createDecoratedButton()
+        refreshButton.innerHTML = "Refresh"
+        apisDetails.append(refreshButton)
+        apisDetails.append(apiDiv)
+        refreshButton.onclick = () => {
+            apiDiv.innerHTML = ""
+            displayApi("RunButtonApi", "https://469runtest.jeremygamer13.repl.co")
+            displayApi("UserExampleApi", "https://469exampletest.jeremygamer13.repl.co")
+            displayApi("ForumsApi", "https://469-forumstest.jeremygamer13.repl.co")
+            displayApi("469MasterApi", "https://s4d469apis.scratch4discord.repl.co/")
+        }
+        refreshButton.click()
+        apisDetails.append(apisDetailsSummary)
+        menu.content.append(apisDetails)
+    }, 0)
 })
