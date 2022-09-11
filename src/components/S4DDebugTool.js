@@ -51,6 +51,18 @@ window.addEventListener("keypress", (e) => {
         blocklyDetailsSummary.innerHTML = "Blockly"
         blocklyDetails.append(blocklyDetailsSummary)
         menu.content.append(blocklyDetails)
+
+        const mainWorkspaceCheckDiv = document.createElement("div")
+        const refreshCheckMainWorkspace = menu.createDecoratedButton()
+        refreshCheckMainWorkspace.innerHTML = "Refresh"
+        refreshCheckMainWorkspace.onclick = () => {
+            const mainWorkspace = blocklyModule.getWorkspace()
+            const blocklysMainWorkspace = Blockly.getMainWorkspace()
+            mainWorkspaceCheckDiv.innerHTML = '<p>Main workspace: <b>' + mainWorkspace.id + '</b></p><p>Blockly\'s main workspace: <b>' + blocklysMainWorkspace.id + '</b></p><p>Blockly is ' + (mainWorkspace.id == blocklysMainWorkspace.id ? '<b style="color:lime">Correct</b>' : '<b style="color:red">Incorrect</b>') + '!</p>'
+        }
+        refreshCheckMainWorkspace.click()
+        blocklyDetails.append(refreshCheckMainWorkspace)
+        blocklyDetails.append(mainWorkspaceCheckDiv)
         setTimeout(() => {// workspace
             const workspaceDetails = document.createElement("details")
             const workspaceDetailsSummary = document.createElement("summary")
@@ -420,6 +432,152 @@ window.addEventListener("keypress", (e) => {
             blocklyDetails.append(workspaceDetails)
         }, 0)
         setTimeout(() => {// toolbox
+            const toolboxDetails = document.createElement("details")
+            const toolboxDetailsSummary = document.createElement("summary")
+            toolboxDetailsSummary.innerHTML = "Toolbox"
+            toolboxDetails.append(toolboxDetailsSummary)
+            const toolboxInformation = document.createElement("div")
+            toolboxInformation.style.width = "100%"
+            toolboxInformation.style.height = "50em"
+            toolboxInformation.style.overflow = "auto"
+            const toolboxInformationDetails = document.createElement("details")
+            const toolboxInformationDetailsSummary = document.createElement("summary")
+            toolboxInformationDetailsSummary.innerHTML = "Toolbox Information Read-out"
+            const refreshToolboxInformation = menu.createDecoratedButton()
+            toolboxInformationDetails.append(toolboxInformationDetailsSummary)
+            refreshToolboxInformation.innerHTML = "Refresh"
+            toolboxInformationDetails.append(refreshToolboxInformation)
+            refreshToolboxInformation.onclick = () => {
+                const toolbox = blocklyModule.getToolbox()
+                toolboxInformation.innerHTML = ""
+                Object.getOwnPropertyNames(toolbox).forEach(property => {
+                    const keyValue = document.createElement("p")
+                    keyValue.style.height = "4em"
+                    keyValue.style.overflow = "auto"
+                    const data = valueToDisplayData(toolbox[property])
+                    let appearAs = data.value
+                    let valueColor = data.color
+                    keyValue.innerHTML = "<b style=\"color:#ff8888\">" + String(property).replace(/</gmi, "&lt;") + "</b>: <b style=\"color:" + valueColor + "\">" + String(appearAs).replace(/</gmi, "&lt;") + "</b>"
+                    toolboxInformation.append(keyValue)
+                })
+            }
+            refreshToolboxInformation.click()
+            toolboxInformationDetails.append(toolboxInformation)
+            // function
+
+            const addStyle = menu.createDecoratedButton()
+            addStyle.innerHTML = "Add Style "
+            const addStyleStyle = document.createElement("input")
+            addStyleStyle.placeholder = "Class"
+            addStyle.append(addStyleStyle)
+            addStyle.onclick = () => {
+                blocklyModule.getToolbox().addStyle(addStyleStyle.value)
+            }
+            toolboxDetails.append(addStyle)
+
+            const clearSelection = menu.createDecoratedButton()
+            clearSelection.innerHTML = "Clear Selection"
+            clearSelection.onclick = () => {
+                blocklyModule.getToolbox().clearSelection()
+            }
+            toolboxDetails.append(clearSelection)
+
+            const dispose = menu.createDecoratedButton()
+            dispose.innerHTML = "Dispose"
+            dispose.onclick = () => {
+                blocklyModule.getToolbox().dispose()
+            }
+            toolboxDetails.append(dispose)
+
+            const handleToolboxItemResize = menu.createDecoratedButton()
+            handleToolboxItemResize.innerHTML = "Handle Toolbox Item Resize"
+            handleToolboxItemResize.onclick = () => {
+                blocklyModule.getToolbox().handleToolboxItemResize()
+            }
+            toolboxDetails.append(handleToolboxItemResize)
+
+            const init = menu.createDecoratedButton()
+            init.innerHTML = "Initialize"
+            init.onclick = () => {
+                blocklyModule.getToolbox().init()
+            }
+            toolboxDetails.append(init)
+
+            const position = menu.createDecoratedButton()
+            position.innerHTML = "Refresh Position"
+            position.onclick = () => {
+                blocklyModule.getToolbox().position()
+            }
+            toolboxDetails.append(position)
+
+            const refreshSelection = menu.createDecoratedButton()
+            refreshSelection.innerHTML = "Refresh Current Category"
+            refreshSelection.onclick = () => {
+                blocklyModule.getToolbox().refreshSelection()
+            }
+            toolboxDetails.append(refreshSelection)
+
+            const refreshTheme = menu.createDecoratedButton()
+            refreshTheme.innerHTML = "Refresh Theme"
+            refreshTheme.onclick = () => {
+                blocklyModule.getToolbox().refreshTheme()
+            }
+            toolboxDetails.append(refreshTheme)
+
+            const removeStyle = menu.createDecoratedButton()
+            removeStyle.innerHTML = "Remove Style "
+            const removeStyleStyle = document.createElement("input")
+            removeStyleStyle.placeholder = "Class"
+            removeStyle.append(removeStyleStyle)
+            removeStyle.onclick = () => {
+                blocklyModule.getToolbox().removeStyle(removeStyleStyle.value)
+            }
+            toolboxDetails.append(removeStyle)
+
+            const selectItemByPosition = menu.createDecoratedButton()
+            selectItemByPosition.innerHTML = "Select Item "
+            const selectItemByPositionIndex = document.createElement("input")
+            selectItemByPositionIndex.placeholder = "Index"
+            selectItemByPosition.append(selectItemByPositionIndex)
+            selectItemByPosition.onclick = () => {
+                blocklyModule.getToolbox().selectItemByPosition(Number(selectItemByPositionIndex.value) ? Number(selectItemByPositionIndex.value) : 0)
+            }
+            toolboxDetails.append(selectItemByPosition)
+
+            const setVisible = menu.createDecoratedButton()
+            setVisible.innerHTML = "Show"
+            setVisible.onclick = () => {
+                blocklyModule.getToolbox().setVisible(true)
+            }
+            toolboxDetails.append(setVisible)
+
+            const setVisible2 = menu.createDecoratedButton()
+            setVisible2.innerHTML = "Hide"
+            setVisible2.onclick = () => {
+                blocklyModule.getToolbox().setVisible(false)
+            }
+            toolboxDetails.append(setVisible2)
+
+            const updateCursorDeleteStyle_ = menu.createDecoratedButton()
+            updateCursorDeleteStyle_.innerHTML = "addUpdateCursorDeleteStyle"
+            updateCursorDeleteStyle_.onclick = () => {
+                blocklyModule.getToolbox().updateCursorDeleteStyle_(true)
+            }
+            toolboxDetails.append(updateCursorDeleteStyle_)
+
+            const updateCursorDeleteStyle_2 = menu.createDecoratedButton()
+            updateCursorDeleteStyle_2.innerHTML = "removeUpdateCursorDeleteStyle"
+            updateCursorDeleteStyle_2.onclick = () => {
+                blocklyModule.getToolbox().updateCursorDeleteStyle_(false)
+            }
+            toolboxDetails.append(updateCursorDeleteStyle_2)
+
+            // info
+            toolboxDetails.append(document.createElement("br"))
+            toolboxDetails.append(document.createElement("br"))
+            toolboxDetails.append(document.createElement("br"))
+            toolboxDetails.append(toolboxInformationDetails)
+            blocklyDetails.append(toolboxDetails)
         }, 0)
         setTimeout(() => {// blocks
             const blockDetails = document.createElement("details")

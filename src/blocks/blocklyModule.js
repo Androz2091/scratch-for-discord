@@ -150,6 +150,9 @@ module.exports.createMutatorBlock = (mutator_type, data, exportCodeCallback) => 
 module.exports.getWorkspace = () => {
     return window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e
 }
+module.exports.getToolbox = () => {
+    return module.exports.getWorkspace().toolbox_
+}
 module.exports.workspaceToXml = (workspace) => {
     return Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace))
 }
