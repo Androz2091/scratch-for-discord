@@ -1512,14 +1512,17 @@ export default (Blockly, value, searching) => {
             <block type="s4d_wait_react_emoji_name"></block>
 
             <block type="lime_s4d_pin"/>
-            <block type="s4d_message_embed"/>
-            <block type="frost_create_field"/>
-            <block type="frost_add_field"/>
             <block type="jg_messages_crosspost_message">
                 <value name="MESSAGE">
                     <block type="Message"/>
                 </value>
-            </block>       
+            </block>    
+            <label text="Simple Embeds! If you want to keep it all simple, use these embeds."></label>
+            <block type="gsa_simple_embed"/>
+            <block type="gsa_set_simple_embed_author"/>
+            <block type="gsa_set_simple_embed_footer"/>
+            <block type="gsa_create_simple_embed_fields"/>
+            <block type="gsa_simple_field"/>   
             
             <label text="Blocks for handling typing" web-class="boldtext"></label>
 
@@ -1800,117 +1803,78 @@ export default (Blockly, value, searching) => {
             <label text="Send a generated embed" web-class="boldtext"></label>
             <block type="s4d_embed_send"></block>
 	    -->
-            <category name="Constructor" colour="#fc8c03">
             
-                <label text="Create a perfect embed" web-class="boldtext"></label>
-                <block type="s4d_embed_create"></block>
-                <block type="s4d_embed_set_color">
-                <value name="COLOUR">
-                    <shadow type="colour_picker">
-                        <field name="COLOUR">#6666cc</field>
-                    </shadow>
-                  </value></block>
-                <block type="s4d_embed_set_author">
-                 <value name="AUTHOR">
-                    <block type="s4d_member_username">
-                        <field name="s4d_member_username"></field>
-                    </block>
-                  </value>
+            <label text="Create a perfect embed" web-class="boldtext" css-container="yourClassName"></label>
+            <block type="s4d_embed_create"></block>
+            <block type="s4d_embed_set_color">
+            <value name="COLOUR">
+                <shadow type="colour_picker">
+                    <field name="COLOUR">#6666cc</field>
+                </shadow>
+              </value></block>
+            <block type="s4d_embed_set_author">
+             <value name="AUTHOR">
+                <block type="s4d_member_username">
+                    <field name="s4d_member_username"></field>
                 </block>
-                <block type="s4d_embed_set_title">
-                  <value name="TITLE">
-                    <shadow type="text">
-                        <field name="TEXT">Some title</field>
-                    </shadow>
-                  </value>
-                </block>
-                <block type="s4d_embed_set_desc">
-                  <value name="DESC">
-                    <shadow type="text">
-                        <field name="TEXT">Some desc here...</field>
-                    </shadow>
-                  </value>
-                </block>
-                <block type="s4d_embed_set_thumb">
-                  <value name="THUMB">
-                    <shadow type="text">
-                        <field name="TEXT">https://image.com</field>
-                    </shadow>
-                  </value>
-                </block>
-                <block type="s4d_embed_add_field">
-                  <value name="TITLE">
-                    <shadow type="text">
-                        <field name="TEXT">Some field title</field>
-                    </shadow>
-                  </value>
-                  <value name="DESCRIPTION">
-                    <shadow type="text">
-                        <field name="TEXT">Some desc here...</field>
-                    </shadow>
-                  </value>
-                  <value name="INLINE">
-                    <shadow type="logic_boolean">
-                        <field name="BOOL">FALSE</field>
-                    </shadow>
-                  </value>
-                </block>
-                <block type="s4d_embed_set_image">
-                  <value name="IMAGE">
-                    <shadow type="text">
-                        <field name="TEXT">https://image.com</field>
-                    </shadow>
-                  </value>
-                </block>
-                <block type="s4d_embed_set_footer">
-                  <value name="FOOTER">
-                    <shadow type="text">
-                        <field name="TEXT">Some footer text here...</field>
-                    </shadow>
-                  </value>
-                </block>
-                <label text="Custom date format: MM-DD-YYYY" web-class="boldtext"></label>
-                <block type="s4d_embed_set_timestamp"></block>
-                <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
-                <block type="s4d_embed_send"></block>
-            </category>
-            <category name="Objects" colour="#fc7703">
-                
-                <block type="gsa_create_embed"/>
-                <label text="note that you CANNOT put ANYTHING other then these blocks in the create embed block" web-class="boldtext"></label>
-                <block type="gsa_set_embed_color"/>
-
-                <block type="gsa_set_embed_title"/>
-
-                <block type="gsa_set_embed_author"/>
-
-                <block type="gsa_set_embed_description"/>
-
-                <block type="gsa_set_embed_thumbnail"/>
-
-                <block type="gsa_create_fields"/>
-
-                <block type="gsa_add_blank_field"/>
-
-                <block type="gsa_add_field"/>
-
-                <block type="gsa_set_embed_image"/>
-                <label text="leave the date blank for current date" web-class="boldtext"></label>
-                <block type="gsa_set_embed_timestamp"/>
-
-                <block type="gsa_set_embed_footer"/>
-
-                <block type="gsa_send_embed"/>
-
-                <label text="Simple Embeds! If you want to keep it all simple, use these embeds."></label>
-                <label text="But we prefer using the other ones as they may not always work."></label> 
-                <label text="THESE BLOCKS DO NOT WORK WITH OTHER EMBED SETS!" web-class="boldtext"></label>
-                <block type="gsa_simple_embed"/>
-                <block type="gsa_set_simple_embed_author"/>
-                <block type="gsa_set_simple_embed_footer"/>
-                <block type="gsa_create_simple_embed_fields"/>
-                <block type="gsa_simple_field"/>
-            </category>
+              </value>
+            </block>
+            <block type="s4d_embed_set_title">
+              <value name="TITLE">
+                <shadow type="text">
+                    <field name="TEXT">Some title</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="s4d_embed_set_desc">
+              <value name="DESC">
+                <shadow type="text">
+                    <field name="TEXT">Some desc here...</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="s4d_embed_set_thumb">
+              <value name="THUMB">
+                <shadow type="text">
+                    <field name="TEXT">https://image.com</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="s4d_embed_add_field">
+              <value name="TITLE">
+                <shadow type="text">
+                    <field name="TEXT">Some field title</field>
+                </shadow>
+              </value>
+              <value name="DESCRIPTION">
+                <shadow type="text">
+                    <field name="TEXT">Some desc here...</field>
+                </shadow>
+              </value>
+              <value name="INLINE">
+                <shadow type="logic_boolean">
+                    <field name="BOOL">FALSE</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="s4d_embed_set_image">
+              <value name="IMAGE">
+                <shadow type="text">
+                    <field name="TEXT">https://image.com</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="s4d_embed_set_footer">
+              <value name="FOOTER">
+                <shadow type="text">
+                    <field name="TEXT">Some footer text here...</field>
+                </shadow>
+              </value>
+            </block>
+            <label text="Custom date format: MM-DD-YYYY" web-class="boldtext"></label>
+            <block type="s4d_embed_set_timestamp"></block>
+            <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
+            <block type="s4d_embed_send"></block>
         </category>
         <category name="Interactions" colour="#c847ff">
         <category name="Slash" colour="#c847ff">

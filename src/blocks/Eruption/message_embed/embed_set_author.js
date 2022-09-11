@@ -111,7 +111,7 @@ Blockly.JavaScript[blockName] = function(block){
     const author = Blockly.JavaScript.valueToCode(block, "AUTHOR", Blockly.JavaScript.ORDER_ATOMIC);
     const profile = Blockly.JavaScript.valueToCode(block, "PROFILE", Blockly.JavaScript.ORDER_ATOMIC);
     const url = Blockly.JavaScript.valueToCode(block, "URL", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `embed.setAuthor({name: String(${author}), iconURL: String(${profile}), url: String(${url})}); \n`;
+    const code = `hnxgcjtirh.setAuthor({name: String(${author}), iconURL: String(${profile}), url: String(${url})}); \n`;
     return code;
 };
 
