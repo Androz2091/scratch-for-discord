@@ -773,7 +773,7 @@ window.addEventListener("keypress", (e) => {
         localforageWarning.innerHTML = "Warning!<br><h5>It's possible that sensitive information is saved here uncensored! Be careful when opening this tab.</h5>"
         localforageWarning.style.color = "#ffff00"
         localforageDetails.append(localforageWarning)
-        setTimeout(() => {// localforage
+        setTimeout(() => {// keyvaluepairs
             const keyValuePairsDetails = document.createElement("details")
             const keyValuePairsDetailsSummary = document.createElement("summary")
             keyValuePairsDetailsSummary.innerHTML = "keyValuePairs"

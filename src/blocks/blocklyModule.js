@@ -172,7 +172,7 @@ module.exports.menus.createMenu = (data) => {
     let mouseDown = false
     let movingMenu = false
     menu.style.width = Number(data.width) + "px"
-    menu.style.height = Number(data.height) + "px"
+    menu.style.height = (Number(data.height) + 32) + "px"
     menu.style.zIndex = data.zindex == null ? 10000000 : Number(data.zindex)
     menu.style.position = "absolute"
     menu.style.left = targetX + "px"
@@ -250,7 +250,7 @@ module.exports.menus.createMenu = (data) => {
     }
     menu.setSize = (width, height) => {
         menu.style.width = Number(width) + "px"
-        menu.style.height = Number(height) + "px"
+        menu.style.height = (Number(height) + 32) + "px"
     }
     setInterval(() => {
         if (!canMoveMenu) movingMenu = false
