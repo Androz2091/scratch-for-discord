@@ -271,11 +271,17 @@ module.exports.menus.createMenu = (data) => {
             return
         }
         canMoveMenu = false
-        targetX = 0 - data.width
-        targetY = 0 - data.height
-        setTimeout(() => {
-            menu.close()
-        }, 1500);
+        let height = data.height
+        let closeAmount = 1
+        let int = setInterval(() => {
+            menu.setSize(data.width, height)
+            height -= Math.round(closeAmount)
+            closeAmount += 0.35
+            if (height < 0) {
+                menu.close()
+                clearInterval(int)
+            }
+        }, 10);
     }
     let minimized = false
     let contentDisplayStyle = menu.content.style.display
