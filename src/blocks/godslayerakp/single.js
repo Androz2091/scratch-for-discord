@@ -8,9 +8,9 @@ Blockly.Blocks["gsa_make_db_with_path_x"] = {
       "message0": "create a new db with path %1 .json",
       "args0": [
         {
-            "type": "input_value",
-            "name": "path",
-            "check": "String"
+          "type": "input_value",
+          "name": "path",
+          "check": "String"
         }
       ],
       "output": null,
@@ -36,13 +36,13 @@ Blockly.Blocks["gsa_bypass_type"] = {
       "message0": "force %1",
       "args0": [
         {
-            "type": "input_value",
-            "name": "path"
+          "type": "input_value",
+          "name": "path"
         }
       ],
       "output": null,
       "inputsInline": true,
-      "colour": '#5ba58b',
+      "colour": '#D14081',
       "tooltip": "forces a block into where ever you want",
       "helpUrl": ""
     });
