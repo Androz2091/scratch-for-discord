@@ -168,10 +168,10 @@ module.exports.menus.createMenu = (data) => {
     menu.setAttribute("isS4DMenu", true)
     let mouseX = 0
     let mouseY = 0
-    let currentX = 320
-    let currentY = 180
-    let targetX = 320
-    let targetY = 180
+    let currentX = 160
+    let currentY = 90
+    let targetX = 160
+    let targetY = 90
     let mouseDown = false
     let movingMenu = false
     menu.style.width = Number(data.width) + "px"

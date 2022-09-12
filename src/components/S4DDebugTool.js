@@ -573,6 +573,18 @@ window.addEventListener("keypress", (e) => {
             }
             toolboxDetails.append(updateCursorDeleteStyle_2)
 
+            const toolboxXMLTextarea = document.createElement("textarea")
+            toolboxXMLTextarea.placeholder = "Toolbox XML"
+            toolboxXMLTextarea.style.width = "100%"
+            toolboxXMLTextarea.style.height = "10em"
+            const updateToolboxXML = menu.createDecoratedButton()
+            updateToolboxXML.innerHTML = "Update Toolbox XML"
+            updateToolboxXML.onclick = () => {
+                blocklyModule.getWorkspace().updateToolbox(toolboxXMLTextarea.value)
+            }
+            toolboxDetails.append(updateToolboxXML)
+            toolboxDetails.append(toolboxXMLTextarea)
+
             // info
             toolboxDetails.append(document.createElement("br"))
             toolboxDetails.append(document.createElement("br"))
@@ -904,6 +916,16 @@ window.addEventListener("keypress", (e) => {
             blockDetails.append(setPathTo)
             blockDetails.append(getCurrentPath)
             blockDetails.append(setPathToTextarea)
+            const svgPathEditorDetails = document.createElement("details")
+            const svgPathEditorDetailsSummary = document.createElement("summary")
+            svgPathEditorDetailsSummary.innerHTML = "Visual SVG Path Editor (credits to Yqnn on GitHub!)"
+            svgPathEditorDetails.append(svgPathEditorDetailsSummary)
+            const svgPathEditorIframe = document.createElement("iframe")
+            svgPathEditorIframe.src = "https://yqnn.github.io/svg-path-editor/"
+            svgPathEditorIframe.style.width = "100%"
+            svgPathEditorIframe.style.height = "40em"
+            svgPathEditorDetails.append(svgPathEditorIframe)
+            blockDetails.append(svgPathEditorDetails)
 
             // info
             blockDetails.append(document.createElement("br"))
