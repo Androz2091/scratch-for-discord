@@ -278,7 +278,7 @@ module.exports.menus.createMenu = (data) => {
         let int = setInterval(() => {
             menu.setSize(data.width, height)
             height -= Math.round(closeAmount)
-            closeAmount += 0.35
+            closeAmount += 1
             if (height < 0) {
                 menu.close()
                 clearInterval(int)

@@ -1,6 +1,7 @@
 const Blockly = require("blockly")
 const localforage = require("localforage")
 const blocklyModule = require("../blocks/blocklyModule")
+window.devBlocklyModule = blocklyModule
 function valueToDisplayData(value) {
     let appearAs
     try {
@@ -885,6 +886,24 @@ window.addEventListener("keypress", (e) => {
                 getBlock().unplug(true)
             }
             blockDetails.append(unplug2)
+
+            const setPathToTextarea = document.createElement("textarea")
+            setPathToTextarea.style.width = "100%"
+            setPathToTextarea.style.height = "10em"
+            setPathToTextarea.placeholder = "SVG Path"
+            const setPathTo = menu.createDecoratedButton()
+            setPathTo.innerHTML = "Set SVG Path"
+            setPathTo.onclick = () => {
+                getBlock().pathObject.svgPath.setAttribute("d", setPathToTextarea.value)
+            }
+            const getCurrentPath = menu.createDecoratedButton()
+            getCurrentPath.innerHTML = "Fetch Current Block SVG Path"
+            getCurrentPath.onclick = () => {
+                setPathToTextarea.value = getBlock().pathObject.svgPath.getAttribute("d")
+            }
+            blockDetails.append(setPathTo)
+            blockDetails.append(getCurrentPath)
+            blockDetails.append(setPathToTextarea)
 
             // info
             blockDetails.append(document.createElement("br"))
