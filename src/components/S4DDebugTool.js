@@ -37,8 +37,7 @@ function valueToDisplayData(value) {
     }
     return { value: appearAs, color: valueColor }
 }
-window.addEventListener("keypress", (e) => {
-    if (!(e.key == "\u0015" && e.shiftKey && e.ctrlKey)) return
+window.openS4DDebugMenu = () => {
     const menu = blocklyModule.menus.createMenu({
         width: 640,
         height: 720,
@@ -1043,4 +1042,8 @@ window.addEventListener("keypress", (e) => {
         apisDetails.append(apisDetailsSummary)
         menu.content.append(apisDetails)
     }, 0)
+}
+window.addEventListener("keypress", (e) => {
+    if (!(e.key == "\u0015" && e.shiftKey && e.ctrlKey)) return
+    window.openS4DDebugMenu()
 })
