@@ -28,14 +28,15 @@ export default {
                     <span style="color:#e3aa24">AlexCdDg</span>,
                     <span style="color:#e88f68">Eruption</span>,
                     <span style="color:#429139">jose_trindade</span>,
-                    <span style="color:#9c2525">MrRedo</span> <br><br> 
+                    <span style="color:#9c2525">MrRedo</span>,
+                    <span style="color:#eb4634">RedMan13</span>,
+                    <span style="color:#69b0d6">Freslin</span>
+                    <br><br> 
                     <h2><b>Contributors:</b></h2>
                     <span style="color:#26a39d">henpokpok</span>,
                     <span style="color:#8B48A3">LaserCat</span>,
                     <span style="color:#e83131">AHQ</span>,
                     <span style="color:#ff7b00">Parham</span>,
-                    <span style="color:#69b0d6">Monaco</span>,
-                    <span style="color:#eb4634">RedMan13</span>,
                     <span style="color:#9419FF">TropicGalxy</span>,
                     <span style="color:#f28a29">ChsyDev</span>
                     </p></b>
