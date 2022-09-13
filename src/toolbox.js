@@ -15,18 +15,23 @@ export default (Blockly, value, searching) => {
     -->
 	
     <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">
-    <label text="Search category! Version 1.21"></label>
-    <label text=""></label>
-    <button text="Search for Block" callbackKey="SEARCH"></button>
-    <label text="Click the search category again if nothing happens."></label>
-    <label text=""></label>
+        <label text="Search category! Version 1.21"></label>
+        <label text=""></label>
+        <button text="Search for Block" callbackKey="SEARCH"></button>
+        <label text="Click the search category again if nothing happens."></label>
+        <label text=""></label>
         <!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->
     </category>
 
     <category name="Favorites" colour="#FFFF00" css-icon="customIcon fa fa-star">
     	<label text="Add your favorite blocks here by right clicking them and pressing &quot;Add to favorite!&quot;"></label>
-                        <!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->
+        <!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->
     </category>
+
+    ${window.customBlocks.length > 0 ? `<category name="Custom Blocks" colour="#808080" css-icon="customIcon2 fa fa-gear">
+    	<block type="${window.customBlocks.join('"></block><block type="')}"></block>
+    </category>` : ""}
+
     <sep class="bt"/>
 
 	<category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">

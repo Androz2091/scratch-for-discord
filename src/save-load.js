@@ -45,6 +45,10 @@ export default async function register(self) {
               title: self.$t("autosave.text")
             })
             console.log('loaded a save!')
+            const cb = await localforage.getItem("autosave_customBlocks")
+            if (cb && cb != "[]") {
+              await window.laodadfcusitomsoanblopocoocksooskfetchCustomBlocksocososc({ customBlocks: (typeof cb === "object" ? JSON.stringify(cb) : cb) })
+            }
             Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(xml), workspace);
             const saveNickname = await localforage.getItem("autosaveName")
             document.querySelector("#docName").textContent = (saveNickname == null || saveNickname == "" ? "Untitled autosave" : saveNickname)
@@ -65,4 +69,5 @@ async function handle(workspace) {
   const content = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace));
   await localforage.setItem("save3", content);
   await localforage.setItem("autosaveName", document.querySelector("#docName").textContent)
+  await localforage.setItem("autosave_customBlocks", JSON.stringify(window.saveCustomBlocksOutput))
 }

@@ -12,6 +12,7 @@
 /* eslint-disable */
 import Blockly from "blockly";
 import swal from "sweetalert2";
+const blocklyModule = require("../blocks/blocklyModule")
 import { disableUnapplicable } from "../restrictions";
 import toolbox from "../toolbox";
 var renderer = "zelos"
@@ -206,6 +207,8 @@ returned_stuff = returned_stuff.replace("<!-- FAVORITES_CATEGORY_CONTENT_GOES_HE
     return String(returned_stuff)
             
         }
+        window.loadtoolltovobocaopjsd9fuw4fpoewjoiphgf9ewpojndsfoihgew8ninjagoLOllioolo = prepToolbox
+        window.loadtoolltovobocaopjsd9fuw4fpoewjoiphgf9ewpojndsfoihgew8ninjagoLOllioolo2222222222222 = prepToolbox
                 async function reloadWorkspace2(workspace, abc){
                                 Blockly.ContextMenuRegistry.registry.unregister("fav")
             Blockly.ContextMenuRegistry.registry.unregister("refav")
@@ -1013,6 +1016,16 @@ function svgToPng_(data, width, height, callback) {
             toolbox.refreshSelection()
         });
         */
+        workspace.registerButtonCallback('LAUNCHCUSTOMBLOCKBUILDER', function () {
+            const menu = blocklyModule.menus.createMenu({
+                width: 1280,
+                height: 720,
+                title: "Custom Block Builder"
+            })
+            const p = document.createElement("p")
+            p.innerHTML = "placeholder"
+            menu.append(p)
+        });
         workspace.registerButtonCallback('FFMPEG', function () {
             swal.fire("Hey uhh..", "This isn't quite done yet...", "info")
         });
@@ -1102,6 +1115,10 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
                 workspace.centerOnBlock(block.id)
             })
         });
+        window.loadtoolltovobocaopjsd9fuw4fpoewjoiphgf9ewpojndsfoihgew8ninjagoLOllioolo2222222222222 = () => {
+            let new_toolbox_xml = prepToolbox(toolbox(Blockly, val, false), false, val, workspace, null)
+            workspace.updateToolbox(new_toolbox_xml)
+        }
         workspace.registerButtonCallback('SEARCH', function () {
             // const wrapper = document.createElement('div');
             // wrapper.innerHTML = `<input type="text" id="block">`

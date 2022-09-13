@@ -645,7 +645,7 @@ function loadForumsPage(page, div) {
                                         Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(post.file), BlockWorkspace)
                                     } catch {
                                         BlockWorkspace.dispose()
-                                        blocklyDiv.innerHTML = `<p style="color:red"><i class="fa-solid fa-triangle-exclamation"></i> Blockly was unable to read the post's file!</p>`
+                                        blocklyDiv.innerHTML = `<p style="color:red"><i class="fa-solid fa-triangle-exclamation"></i> Blockly was unable to read the post's file! If the post uses custom blocks, please wait until Forums supports them.</p>`
                                     }
                                 } else {
                                     blocklyDiv.remove()

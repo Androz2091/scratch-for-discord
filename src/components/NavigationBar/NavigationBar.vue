@@ -373,7 +373,9 @@ load()`);
                         },
                     }).then(async (result) => {
                         if (result) {
-                            localforage.setItem("save3", "")
+                            localforage.removeItem("save3")
+                            localforage.removeItem("autosaveName")
+                            localforage.removeItem("autosave_customBlocks")
                             console.log("Autosave cleared...")
                         }
                     })
