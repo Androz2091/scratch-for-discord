@@ -83,7 +83,7 @@ export default {
                 if(typeof result == "object"){
                     return;
                 } else if (result) {
-                    this.$store.state.workspace.getAllBlocks().forEach((block) => block.dispose());
+                    this.$store.state.workspace.clear()
                 }
             const file = document.getElementById("load-code").files[0];
             const documentName = file.name.split(".").slice(0, file.name.split(".").length-1);
