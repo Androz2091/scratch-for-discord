@@ -55,7 +55,7 @@ export default {
                         <p>${toShortcut("ctrl + s")} - Save</p>
                         <p>${toShortcut("ctrl + alt + s")} - Save as</p>
                         <p>${toShortcut("ctrl + shift + c")} - Open the Developer Console</p>
-                        <p>${toShortcut("ctrl + shift + u")} - Open the S4D Developer Tools</p>
+                        <button style="border-width:0px;outline-width:0px;background-color:transparent;padding:0px;color:inherit" id="s4d_shortcuts_menu_button_opens4ddevelopertools"><p>${toShortcut("ctrl + shift + u")} - Open the S4D Developer Tools</p></button>
                     </div>
                 </div>
                 `,
@@ -63,6 +63,9 @@ export default {
                 '<i class="fa fa-thumbs-up"></i> Great!',
                 confirmButtonAriaLabel: 'Thumbs up, great!',
             })
+            document.getElementById("s4d_shortcuts_menu_button_opens4ddevelopertools").onclick = () => {
+                window.openS4DDebugMenu()
+            }
         },
     }
 }

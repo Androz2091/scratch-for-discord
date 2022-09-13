@@ -256,7 +256,7 @@ export default {
         userexamples() {
             const workspace = this.$store.state.workspace
             let url = "https://469exampletest.jeremygamer13.repl.co/"
-            if (String(process.env.NODE_ENV) == "development") {
+            if (window.isInS4DDebugMode) {
                 url = prompt("Examples server URL to use?", "https://469exampletest.jeremygamer13.repl.co/")
                 if (!url.endsWith("/")) url += "/"
             }
