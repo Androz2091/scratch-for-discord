@@ -1025,6 +1025,17 @@ window.openS4DDebugMenu = () => {
             }
             otherDetails.append(createBlock)
 
+            otherDetails.append(document.createElement("br"))
+            otherDetails.append(document.createElement("br"))
+            otherDetails.append(document.createElement("br"))
+
+            const launchCustomBlockBuilder = menu.createDecoratedButton()
+            launchCustomBlockBuilder.innerHTML = '<div style="float:left;margin-right:15px">Launch Custom Block Builder</div><div style="float:left;color:' + menu.topbar.style.backgroundColor + ';background-color:white;width:125px;height:25px;padding:4px;border-radius:32px;font-size:75%"><b>Experimental</b></div>'
+            launchCustomBlockBuilder.onclick = () => {
+                blocklyModule.getWorkspace().getButtonCallback("LAUNCHCUSTOMBLOCKBUILDER")({})
+            }
+            otherDetails.append(launchCustomBlockBuilder)
+
             //
             blocklyDetails.append(otherDetails)
         }, 0)
