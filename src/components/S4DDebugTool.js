@@ -983,6 +983,51 @@ window.openS4DDebugMenu = () => {
             blockDetails.append(blockInformationDetails)
             blocklyDetails.append(blockDetails)
         }, 0)
+        setTimeout(() => {// Other
+            const otherDetails = document.createElement("details")
+            const otherDetailsSummary = document.createElement("summary")
+            otherDetailsSummary.innerHTML = "Other"
+            otherDetails.append(otherDetailsSummary)
+            //
+
+            const blockDataInput = document.createElement("textarea")
+            blockDataInput.placeholder = "Block JSON Data"
+            blockDataInput.style.width = "100%"
+            blockDataInput.style.height = "10em"
+            otherDetails.append(blockDataInput)
+
+            const blockNameInput = document.createElement("input")
+            blockNameInput.placeholder = "Block Internal Name"
+            blockNameInput.style.width = "100%"
+            otherDetails.append(blockNameInput)
+
+            const createBlock = menu.createDecoratedButton()
+            createBlock.innerHTML = "Create Block"
+            createBlock.onclick = () => {
+                const blockName = blockNameInput.value
+                let json = blockDataInput.value
+                try {
+                    json = JSON.parse(json)
+                } catch (err) {
+                    alert(err)
+                    return
+                }
+                if (Blockly.Blocks[blockName]) {
+                    alert("This block already exists")
+                    return
+                }
+                Blockly.Blocks[blockName] = {
+                    init: function () {
+                        this.jsonInit(json);
+                    }
+                }
+                Blockly.JavaScript[blockName] = function () { return '' }
+            }
+            otherDetails.append(createBlock)
+
+            //
+            blocklyDetails.append(otherDetails)
+        }, 0)
     }, 0)
     setTimeout(() => {//localforage
         const localforageDetails = document.createElement("details")
