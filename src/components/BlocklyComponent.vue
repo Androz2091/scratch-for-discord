@@ -629,92 +629,92 @@ window.addEventListener('keydown', (e) => {
             }
         })
 
-if (window.location.pathname == "/debug" && (!window.location.href.includes("scratch-for-discord-469.vercel.app") && !window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app"))) {
-Blockly.ContextMenuRegistry.registry.register({
-      displayText: 'Spawn block via Internal name',
-      preconditionFn: function() {
-         return "enabled"
-      },
-      callback: function() {
-        let input = prompt("Block Internal Name")
-        if (!input) {
-            return
-        }
-        let xml = Blockly.Xml.textToDom('<xml><block type="' + input + '"></block></xml>');
-        try {
-            Blockly.Xml.appendDomToWorkspace(xml, workspace)
-        } catch (err) {
-            console.log("could not spawn block!", err)
-            alert(`Block ${String(input)} does not exist or was not defined correctly`)
-        }
-      },
-      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
-      id: 'spawnblock',
-      weight: 500,
-    });
-    Blockly.ContextMenuRegistry.registry.register({
-        displayText: 'Spawn all toolblocks',
-        preconditionFn: function () {
-            return "enabled"
-        },
-        callback: function () {
-            prepToolbox(toolbox(Blockly, val, false), "baiuyfg8iu4ewf643o8ir", null, workspace)
-        },
-        scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
-        id: 'spawnalltoolblocks',
-        weight: 9990,
-    });
-    Blockly.ContextMenuRegistry.registry.register({
-        displayText: 'Spawn all toolblocks (ordered)',
-        preconditionFn: function () {
-            return "enabled"
-        },
-        callback: function () {
-            prepToolbox(toolbox(Blockly, val, false), "f9u42r8hg329rehsfhoiewgf37", null, workspace)
-        },
-        scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
-        id: 'spawnalltoolblocks2',
-        weight: 9995,
-    });
-    Blockly.ContextMenuRegistry.registry.register({
-        displayText: 'Recolor all blocks',
-        preconditionFn: function () {
-            return "enabled"
-        },
-        callback: function () {
-            let color = prompt("New color?")
-            workspace.getAllBlocks().forEach((block) => {
-                try {
-                    if (color == "random") {
-                        let array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
-                        let random = "#"
-                        for (let i = 0; i < 6; i++) {
-                            random += array[Math.floor(Math.random() * 15)]
+        window.s4dDebugEvents.push(() => {
+            Blockly.ContextMenuRegistry.registry.register({
+                displayText: 'Spawn block via Internal name',
+                preconditionFn: function () {
+                    return "enabled"
+                },
+                callback: function () {
+                    let input = prompt("Block Internal Name")
+                    if (!input) {
+                        return
+                    }
+                    let xml = Blockly.Xml.textToDom('<xml><block type="' + input + '"></block></xml>');
+                    try {
+                        Blockly.Xml.appendDomToWorkspace(xml, workspace)
+                    } catch (err) {
+                        console.log("could not spawn block!", err)
+                        alert(`Block ${String(input)} does not exist or was not defined correctly`)
+                    }
+                },
+                scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+                id: 'spawnblock',
+                weight: 500,
+            });
+            Blockly.ContextMenuRegistry.registry.register({
+                displayText: 'Spawn all toolblocks',
+                preconditionFn: function () {
+                    return "enabled"
+                },
+                callback: function () {
+                    prepToolbox(toolbox(Blockly, val, false), "baiuyfg8iu4ewf643o8ir", null, workspace)
+                },
+                scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+                id: 'spawnalltoolblocks',
+                weight: 9990,
+            });
+            Blockly.ContextMenuRegistry.registry.register({
+                displayText: 'Spawn all toolblocks (ordered)',
+                preconditionFn: function () {
+                    return "enabled"
+                },
+                callback: function () {
+                    prepToolbox(toolbox(Blockly, val, false), "f9u42r8hg329rehsfhoiewgf37", null, workspace)
+                },
+                scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+                id: 'spawnalltoolblocks2',
+                weight: 9995,
+            });
+            Blockly.ContextMenuRegistry.registry.register({
+                displayText: 'Recolor all blocks',
+                preconditionFn: function () {
+                    return "enabled"
+                },
+                callback: function () {
+                    let color = prompt("New color?")
+                    workspace.getAllBlocks().forEach((block) => {
+                        try {
+                            if (color == "random") {
+                                let array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+                                let random = "#"
+                                for (let i = 0; i < 6; i++) {
+                                    random += array[Math.floor(Math.random() * 15)]
+                                }
+                                block.setColour(random)
+                            } else block.setColour(color)
+                        } catch (err) {
+                            console.warn(err)
                         }
-                        block.setColour(random)
-                    } else block.setColour(color)
-                } catch (err) {
-                    console.warn(err)
-                }
-            })
-        },
-        scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
-        id: 'recolorallblocks',
-        weight: 10000,
-    });
-    Blockly.ContextMenuRegistry.registry.register({
-        displayText: 'Log Workspace XML',
-        preconditionFn: function () {
-            return "enabled"
-        },
-        callback: function () {
-            console.log(Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace)))
-        },
-        scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
-        id: 'logworkspacexml',
-        weight: 10005,
-    });
-}
+                    })
+                },
+                scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+                id: 'recolorallblocks',
+                weight: 10000,
+            });
+            Blockly.ContextMenuRegistry.registry.register({
+                displayText: 'Log Workspace XML',
+                preconditionFn: function () {
+                    return "enabled"
+                },
+                callback: function () {
+                    console.log(Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace)))
+                },
+                scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+                id: 'logworkspacexml',
+                weight: 10005,
+            });
+        })
 
 if (window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app")) {
 Blockly.ContextMenuRegistry.registry.register({
@@ -817,20 +817,21 @@ Blockly.getMainWorkspace().addChangeListener(blockCounter(Blockly.getMainWorkspa
 // Comment this context menu out later!
 // 👍
 // jk no!!
-if (window.location.pathname == "/debug" && (!window.location.href.includes("scratch-for-discord-469.vercel.app") && !window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app"))) {
-    Blockly.ContextMenuRegistry.registry.register({
-          displayText: 'Log all Toolbox blocks',
-          preconditionFn: function() {
-             return "enabled"
-          },
-          callback: function() {
-               logtoolblocks(true)
-          },
-          scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
-          id: 'logtoolblocks',
-          weight: 500,
-        });
-}
+
+        window.s4dDebugEvents.push(() => {
+            Blockly.ContextMenuRegistry.registry.register({
+                displayText: 'Log all Toolbox blocks',
+                preconditionFn: function() {
+                   return "enabled"
+                },
+                callback: function() {
+                     logtoolblocks(true)
+                },
+                scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+                id: 'logtoolblocks',
+                weight: 500,
+            });
+        })
 
 
         let val = await localforage.getItem("fav") === null ? null : await localforage.getItem("fav")

@@ -37,7 +37,24 @@ function valueToDisplayData(value) {
     }
     return { value: appearAs, color: valueColor }
 }
+const s4dDebugEvents = []
+window.s4dDebugEvents = s4dDebugEvents
+window.isInS4DDebugMode = false
+function runDebugEvents() {
+    window.s4dDebugEvents.forEach(event => {
+        event()
+        window.s4dDebugEvents.splice(window.s4dDebugEvents.indexOf(event), 1)
+    })
+}
+window.addEventListener('load', () => {
+    if (location.pathname.includes("/debug") || String(process.env.NODE_ENV) == "development") {
+        window.isInS4DDebugMode = true
+        runDebugEvents()
+    }
+})
 window.openS4DDebugMenu = () => {
+    window.isInS4DDebugMode = true
+    runDebugEvents()
     const menu = blocklyModule.menus.createMenu({
         width: 640,
         height: 720,
@@ -907,6 +924,11 @@ window.openS4DDebugMenu = () => {
             setPathTo.onclick = () => {
                 getBlock().pathObject.svgPath.setAttribute("d", setPathToTextarea.value)
             }
+            //const attachPathToEvent = menu.createDecoratedButton()
+            //attachPathToEvent.innerHTML = "Attach SVG Path to onchange event"
+            //attachPathToEvent.onclick = () => {
+            //    getBlock().onchange = () => { getBlock().pathObject.svgPath.setAttribute("d", setPathToTextarea.value) }
+            //}
             const getCurrentPath = menu.createDecoratedButton()
             getCurrentPath.innerHTML = "Fetch Current Block SVG Path"
             getCurrentPath.onclick = () => {
@@ -914,6 +936,7 @@ window.openS4DDebugMenu = () => {
             }
             blockDetails.append(setPathTo)
             blockDetails.append(getCurrentPath)
+            //blockDetails.append(attachPathToEvent)
             blockDetails.append(setPathToTextarea)
             const svgPathEditorDetails = document.createElement("details")
             const svgPathEditorDetailsSummary = document.createElement("summary")
