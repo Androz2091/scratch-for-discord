@@ -11,11 +11,7 @@
     import localforage from "localforage";
     export default {
         name: "userDataExport",
-        computed: {
-            blockCount: function() {
-                return this.$store.state.workspace ? this.$store.state.workspace.getAllBlocks().length : 0;
-            }
-        },
+        computed: {},
         methods: {
             askForFile(){
                 document.querySelector("#load-s4dData-code").click();
