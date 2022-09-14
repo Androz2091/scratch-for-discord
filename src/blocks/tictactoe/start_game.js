@@ -25,8 +25,7 @@ const blockData = {
       },
       {
         "type": "input_value",
-        "name": "color",
-        "check": "Color"
+        "name": "color"
       },
       {
         "type": "input_value",
@@ -135,6 +134,8 @@ const blockData = {
       }
     ],
     "inputsInline": false,
+    "previousStatement": null,
+    "nextStatement": null,
     "colour": 240,
     "tooltip": "Play a Tic Tac Toe Game",
     "helpUrl": ""
