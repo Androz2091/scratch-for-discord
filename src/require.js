@@ -100,10 +100,10 @@ export default async function require(array, code, js) {
     if (js.includes("DB")) {
         array.push(`let { DB } = require("mongquick");`)
     }
-    if (js.includes("tictactoe")) {
+    /*if (js.includes("tictactoe")) {
         array.push(`const TicTacToe = require('discord-tictactoe');`)
         array.push(`const game = new TicTacToe({ language: 'en' })`)
-    }
+    } */
     if (js.includes("canvas")) {
         array.push(`let canvas = require("discord-canvas") `)
     }
