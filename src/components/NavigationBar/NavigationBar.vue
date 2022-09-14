@@ -17,7 +17,7 @@
                 <ExamplesMenu style="font-size: small;"></ExamplesMenu>
                 <Socials style="font-size: small;"></Socials>
                 <Forums style="font-size: small;"></Forums>
-                <data style="font-size: small;"></data>
+                <drtrrlrlrlrlrl style="font-size: small;"></drtrrlrlrlrlrl>
                 <changelog style="font-size: small;"></changelog>
                 <shortcuts style="font-size: small;"></shortcuts>
                 <Credit style="font-size: small;"></Credit>
@@ -70,7 +70,7 @@ import CodeModal from "./CodeModal.vue";
 import Socials from "./socials.vue";
 import Credit from "./Credit";
 import Forums from "./ForumsMenu.vue";
-import data from "./data.vue"
+import drtrrlrlrlrlrl from "./data.vue"
 import changelog from "./changelog.vue"
 import localforage from 'localforage';
 import r from "./requires";
@@ -88,7 +88,7 @@ export default {
     shortcuts,
     Credit,
     Forums,
-    data,
+    drtrrlrlrlrlrl,
     changelog,
     Socials,
     ForumsMenu
