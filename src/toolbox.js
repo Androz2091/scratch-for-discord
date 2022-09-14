@@ -3902,6 +3902,7 @@ export default (Blockly, value, searching) => {
                 <shadow type="text">
                     <field name="TEXT">Tic Tac Toe</field>
                 </shadow>
+                </value>
           </category>
         </category>
 
