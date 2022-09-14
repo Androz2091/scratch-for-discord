@@ -3896,13 +3896,10 @@ export default (Blockly, value, searching) => {
               <block type="send_chart"></block>
           </category>
           <category name="Tic Tac Toe" colour="#ffa500">
-          <label text="Tic Tac Toe game FROM MESSAGE"/>
+            <label text="Tic Tac Toe game FROM MESSAGE"/>
               <block type="tictactoe"></block>
-              <value name="EMB_TITLE">
-                <shadow type="text">
-                    <field name="TEXT">Tic Tac Toe</field>
-                </shadow>
-                </value>
+            <label text="Tic Tac Toe game FROM SLASH COMMAND"/>
+              <block type="slash_tictactoe"></block>
           </category>
         </category>
 
