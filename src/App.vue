@@ -141,6 +141,10 @@ import "./blocks/JeremyGamer13/"
 import "./blocks/JeremyGamer13/jimpBlocks"
 import "./blocks/JeremyGamer13/fileEdit"
 
+// Farf things
+
+import "./blocks/charts"
+
 
 // afgrh4t5h5453j
 import "./blocks/example-t/"

@@ -3887,6 +3887,16 @@ export default (Blockly, value, searching) => {
         </category>
         -->
         
+        <sep class="bt"/>
+
+        <category name="Experimental" colour="#ff0000">
+          <category name="Charts" colour="#ffa500">
+          <label text="Chart Blocks"/>
+              <block type="create_chart"></block>
+              <block type="send_chart"></block>
+          </category>
+        </category>
+
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
         return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
