@@ -3898,6 +3898,11 @@ export default (Blockly, value, searching) => {
           <category name="Tic Tac Toe" colour="#ffa500">
           <label text="Tic Tac Toe game FROM MESSAGE"/>
               <block type="tictactoe"></block>
+            <value name="emb_title">
+                <shadow type="text">
+                    <field name="TEXT">Tic Tac Toe</field>
+                </shadow>
+            </value>
           </category>
         </category>
 
