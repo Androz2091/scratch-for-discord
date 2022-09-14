@@ -143,7 +143,8 @@ import "./blocks/JeremyGamer13/fileEdit"
 
 // Farf things
 
-import "./blocks/charts"
+import "./blocks/charts/";
+import "./blocks/tictactoe/";
 
 
 // afgrh4t5h5453j

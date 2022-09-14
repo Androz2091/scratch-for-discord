@@ -3895,6 +3895,10 @@ export default (Blockly, value, searching) => {
               <block type="create_chart"></block>
               <block type="send_chart"></block>
           </category>
+          <category name="Tic Tac Toe" colour="#ffa500">
+          <label text="Tic Tac Toe game FROM MESSAGE"/>
+              <block type="tictactoe"></block>
+          </category>
         </category>
 
     </xml>

@@ -198,6 +198,9 @@ export default async function require(array, code, js) {
     if (js.includes("bcrypt.")) {
         array.push(`const bcrypt = require("bcrypt");`)
     }
+    if (js.includes("new TicTacToe")) {
+        array.push(`const TicTacToe = require("discord-gamecord");`)
+    }
     if (js.includes("xml2json({")) {
         array.push(`const xml2json = require('xml-to-json')`)
     }
