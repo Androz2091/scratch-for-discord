@@ -14,8 +14,105 @@ import Blockly from "blockly";
 import JSZip from "jszip";
 import beautify from "js-beautify";
 import localforage from "localforage";
+const smm = require("./module")
+const blocklyModule = require("../../blocks/blocklyModule")
 // let changesAreUnsaved = false
 // let workspaceContent = `<xml xmlns="https://developers.google.com/blockly/xml"></xml>`
+function fetchCustomBlocks(dataobj, loadfunc) {
+    //window.isInS4DDebugMode = false
+    if (!window.isInS4DDebugMode) {
+        const w = blocklyModule.menus.createMenu({
+            width: 640,
+            height: 240
+        })
+        w.content.style.textAlign = "center"
+        w.content.append(document.createElement("br"))
+        const h3 = document.createElement("h3")
+        h3.innerHTML = "Enter Debug Mode to use custom blocks as it is experimental currently."
+        const clear = w.createDecoratedButton()
+        clear.innerHTML = "Remove custom blocks from my autosaves"
+        clear.onclick = () => {
+            clear.innerHTML = 'Removing...'
+            localforage.removeItem("autosave_customBlocks").then(() => {
+                clear.innerHTML = 'Cleared!'
+            }).catch(() => {
+                clear.innerHTML = 'An error occurred'
+            })
+        }
+        w.content.append(h3)
+        w.content.append(document.createElement("br"))
+        w.content.append(document.createElement("br"))
+        w.content.append(clear)
+        return
+    }
+    let j = {}
+    try {
+        j = JSON.parse(dataobj.customBlocks)
+    } catch (err) {
+        this.$toast.open({
+            message: "Custom block data for this file is corrupted.",
+            type: "error",
+            dismissible: true,
+            duration: 10000
+        });
+        console.warn("An error occurred when loading custom blocks!", String(err).substring(0, 250))
+        if (loadfunc) loadfunc()
+        return
+    }
+    const blocks = j
+    const bringBack_setTimeout = window.setTimeout
+    const bringBack_setInterval = window.setInterval
+    const bringBack_fetch = window.fetch
+    const bringBack_Worker = Worker
+    const bringBack_SharedWorker = SharedWorker
+    const bringBack_ServiceWorker = ServiceWorker
+    window.setTimeout = null
+    window.setInterval = null
+    window.fetch = null
+    window.Worker = null
+    window.SharedWorker = null
+    window.ServiceWorker = null
+    window.BlocklyService = {}
+    window.BlocklyService.Blocks = {}
+    window.BlocklyService.JavaScript = {}
+    window.BlocklyService.JavaScript = Blockly.JavaScript
+    blocks.forEach(b => {
+        /* eslint-disable */
+        let bringBack_setTimeout
+        let bringBack_setInterval
+        let bringBack_fetch
+        let bringBack_Worker
+        let bringBack_SharedWorker
+        let bringBack_ServiceWorker
+        let works = true
+        try {
+            Blockly.Blocks[b.name] = {
+                init: function () {
+                    eval(b.blocks)
+                }
+            }
+            smm.bypassStrictModeRegister(b.name, b.javascript)
+        } catch (err) {
+            console.warn("An error occurred when loading a custom block!", String(err).substring(0, 250))
+            works = false
+        } finally {
+            if (works) {
+                window.customBlocks.push(b.name)
+                window.saveCustomBlocksOutput.push(b)
+            }
+        }
+    })
+    localforage.setItem("autosave_customBlocks", JSON.stringify(window.saveCustomBlocksOutput))
+    window.setTimeout = bringBack_setTimeout
+    window.setInterval = bringBack_setInterval
+    window.fetch = bringBack_fetch
+    window.Worker = bringBack_Worker
+    window.SharedWorker = bringBack_SharedWorker
+    window.ServiceWorker = bringBack_ServiceWorker
+    if (loadfunc) loadfunc()
+    window.loadtoolltovobocaopjsd9fuw4fpoewjoiphgf9ewpojndsfoihgew8ninjagoLOllioolo2222222222222()
+}
+window.laodadfcusitomsoanblopocoocksooskfetchCustomBlocksocososc = fetchCustomBlocks
 export default {
     name: "filemenu",
     mounted() {
@@ -62,7 +159,7 @@ export default {
         askForFile(){
             document.querySelector("#load-code").click();
         },
-        load(){
+        async load(){
           this.$swal({
                 title: this.$t('file.confirm.title'),
                 text: this.$t('file.confirm.text'),
@@ -79,34 +176,46 @@ export default {
                     }
                 },
                 closeOnClickOutside: false
-            }).then(result => {
+          }).then(async result => {
                 if(typeof result == "object"){
                     return;
                 } else if (result) {
-                    this.$store.state.workspace.clear()
+                    window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e.clear()
                 }
-            const file = document.getElementById("load-code").files[0];
-            const documentName = file.name.split(".").slice(0, file.name.split(".").length-1);
-            document.querySelector("#docName").textContent = documentName;
-            const reader = new FileReader();
-            reader.onload = (e) => {
+                const file = document.getElementById("load-code").files[0];
+                const documentName = file.name.split(".").slice(0, file.name.split(".").length-1);
+                document.querySelector("#docName").textContent = documentName;
+                const reader = new FileReader();
+                reader.onload = async (e) => {
                 // console.log(e.target.result)
                 if (file.type == "text/xml") {
                     const decoder = new TextDecoder("utf-8")
                     const raw = decoder.decode(e.target.result)
                     const xml = Blockly.Xml.textToDom(raw);
-                    Blockly.Xml.domToWorkspace(xml, this.$store.state.workspace);
+                    Blockly.Xml.domToWorkspace(xml, window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e);
                     return
                 }
-                JSZip.loadAsync(e.target.result)
-                    .then((data) => {
+                JSZip.loadAsync(e.target.result).then(async (data) => {
+                    const dataObject = {}
                     if (data.file("blocks.xml")) {
-                        return data.file("blocks.xml").async("string")
+                        dataObject.xml = await data.file("blocks.xml").async("string")
                     }
+                    if (data.file("customBlocks.json")) {
+                        dataObject.customBlocks = await data.file("customBlocks.json").async("string")
+                    }
+                    return dataObject
                 })
-                .then((text) => {
-                    const xml = Blockly.Xml.textToDom(text);
-                    Blockly.Xml.domToWorkspace(xml, this.$store.state.workspace);
+                .then((dataobj) => {
+                    if (dataobj.xml == null) return
+                    function load() {
+                        const xml = Blockly.Xml.textToDom(dataobj.xml);
+                        Blockly.Xml.domToWorkspace(xml, window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e);
+                    }
+                    if (dataobj.customBlocks == null) {
+                        load()
+                        return
+                    }
+                    fetchCustomBlocks(dataobj, load)
                 })
                 .catch((err) => {
                     this.$toast.open({
@@ -126,9 +235,13 @@ export default {
         },
         save(){
             const zip = new JSZip();
-            const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
+            const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e));
             const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, ' ')}.s4d`;
             zip.file("blocks.xml", xmlContent);
+            if (window.saveCustomBlocksOutput.length > 0) {
+                zip.file("customBlocks.json", JSON.stringify(window.saveCustomBlocksOutput));
+                localforage.setItem("autosave_customBlocks", JSON.stringify(window.saveCustomBlocksOutput))
+            }
             zip.generateAsync({
                 type: "blob"
             })
@@ -148,8 +261,12 @@ export default {
         },
         saveas(){
             const zip = new JSZip();
-            const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
+            const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e));
             zip.file("blocks.xml", xmlContent);
+            if (window.saveCustomBlocksOutput.length > 0) {
+                zip.file("customBlocks.json", JSON.stringify(window.saveCustomBlocksOutput));
+                localforage.setItem("autosave_customBlocks", JSON.stringify(window.saveCustomBlocksOutput))
+            }
             zip.generateAsync({
                 type: "blob"
             })

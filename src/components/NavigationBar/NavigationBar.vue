@@ -17,7 +17,7 @@
                 <ExamplesMenu style="font-size: small;"></ExamplesMenu>
                 <Socials style="font-size: small;"></Socials>
                 <Forums style="font-size: small;"></Forums>
-                <datadl style="font-size: small;"></datadl>
+                <data style="font-size: small;"></data>
                 <changelog style="font-size: small;"></changelog>
                 <shortcuts style="font-size: small;"></shortcuts>
                 <Credit style="font-size: small;"></Credit>
@@ -70,7 +70,7 @@ import CodeModal from "./CodeModal.vue";
 import Socials from "./socials.vue";
 import Credit from "./Credit";
 import Forums from "./ForumsMenu.vue";
-import datadl from "./data.vue"
+import data from "./data.vue"
 import changelog from "./changelog.vue"
 import localforage from 'localforage';
 import r from "./requires";
@@ -88,7 +88,7 @@ export default {
     shortcuts,
     Credit,
     Forums,
-    datadl,
+    data,
     changelog,
     Socials,
     ForumsMenu
@@ -373,7 +373,9 @@ load()`);
                         },
                     }).then(async (result) => {
                         if (result) {
-                            localforage.setItem("save3", "")
+                            localforage.removeItem("save3")
+                            localforage.removeItem("autosaveName")
+                            localforage.removeItem("autosave_customBlocks")
                             console.log("Autosave cleared...")
                         }
                     })
