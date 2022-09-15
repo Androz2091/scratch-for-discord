@@ -16,7 +16,7 @@ const blockData = {
     {
       "type": "field_input",
       "name": "emb_title",
-      "text": "Tic Tac Toe" 
+      "text": "Tic Tac Toe"
     },
     {
       "type": "input_dummy"
