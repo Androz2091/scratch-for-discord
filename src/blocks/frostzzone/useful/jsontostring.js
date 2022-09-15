@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "frost_json_to_string";
 
 const blockData = {
-    "message0": "Convert JSON/object data %1 to string",
+    "message0": "Convert object/list data %1 to string",
     "args0": [
     {
         "type": "input_value",
