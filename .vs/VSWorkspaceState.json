@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\blocks",
+    "\\src\\blocks\\charts",
+    "\\src\\blocks\\dashboard",
+    "\\src\\blocks\\mongodb",
+    "\\src\\components",
+    "\\src\\components\\NavigationBar"
   ],
-  "SelectedNode": "\\C:\\Users\\Leo\\Source\\Repos\\s4dmod",
+  "SelectedNode": "\\src\\blocks\\dashboard\\new_dashboard.js",
   "PreviewInSolutionExplorer": false
 }

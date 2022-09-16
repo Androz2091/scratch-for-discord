@@ -145,6 +145,8 @@ import "./blocks/JeremyGamer13/fileEdit"
 
 import "./blocks/charts/";
 import "./blocks/tictactoe/";
+import "./blocks/dashboard";
+
 
 
 // afgrh4t5h5453j

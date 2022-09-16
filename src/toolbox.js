@@ -4043,6 +4043,10 @@ export default (Blockly, value, searching) => {
                     </value>
               </block>
           </category>
+          <category name="Dashboard" colour="#ffa500">
+          <label text="Initialize a new dashboard"/>
+              <block type="initialize_dashboard"></block>
+          </category>
         </category>
 
     </xml>

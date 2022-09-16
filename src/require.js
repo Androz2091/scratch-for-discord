@@ -12,6 +12,9 @@ export default async function require(array, code, js) {
     if (js.includes('QRCode.toString')) {
         array.push(`const QRCode = require('qrcode')`)
     }
+    if (js.includes('s4d.client.dashboard = new Dashboard')) {
+        array.push(`const Dashboard = require('discord-easy-dashboard');`)
+    }
     if (js.includes("tempChannels.registerChannel")) {
         array.push(`const TempChannels = require("discord-temp-channels");`)
         array.push(`const tcdbpkcgRequirementlolol = require("quick.db")`)
