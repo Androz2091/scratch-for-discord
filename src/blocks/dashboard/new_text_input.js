@@ -4,7 +4,7 @@ const blockName = "add_text_input";
 
 const blockData = {
     "type": "add_text_input",
-    "message0": "Add a text input %1 Set input title to %2 Set input description to %3 %4 Set input ID to (DO NOT INCLUDE SPACES)  %5 %6 Set validator %7 Set value setter %8 Set value getter %9 Default value getter value %10",
+    "message0": "Add a text input %1 Set input title to %2 Set input description to %3 %4 Set input ID to (DO NOT INCLUDE SPACES) %5 %6 Set validator %7 Set value setter %8 Set value getter %9 Default value getter value %10",
     "args0": [
         {
             "type": "input_dummy"
@@ -49,6 +49,8 @@ const blockData = {
         }
     ],
     "inputsInline": false,
+    "previousStatement": null,
+    "nextStatement": null,
     "colour": 230,
     "tooltip": "",
     "helpUrl": ""

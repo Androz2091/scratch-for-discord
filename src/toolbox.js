@@ -4065,9 +4065,12 @@ export default (Blockly, value, searching) => {
           <category name="Dashboard" colour="#ffa500">
           <label text="Initialize a new dashboard"/>
               <block type="initialize_dashboard"></block>
+          <label text="Add inputs"/>
+              <block type="add_inputs"></block>
+              <block type="add_text_input"></block>
+          <label text="Variables"/>
               <block type="dash_guild_id"></block>
               <block type="dash_value"></block>
-              <block type="add_text_input"></block>
           </category>
         </category>
 
