@@ -4068,6 +4068,7 @@ export default (Blockly, value, searching) => {
           <label text="Add inputs"/>
               <block type="add_inputs"></block>
               <block type="add_text_input"></block>
+              <block type="add_boolean_input"></block>
           <label text="Variables"/>
               <block type="dash_guild_id"></block>
               <block type="dash_value"></block>

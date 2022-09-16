@@ -47,7 +47,10 @@ const blockData = {
         {
             "type": "input_value",
             "name": "secret",
-            "check": "String"
+            "check": [
+                "String",
+                "frost_env"
+            ]
         },
         {
             "type": "input_value",
