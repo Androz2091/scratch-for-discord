@@ -28,8 +28,12 @@ export default (Blockly, value, searching) => {
         <!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->
     </category>
 
-    ${window.customBlocks.length > 0 ? `<category name="Custom Blocks" colour="#808080" css-icon="customIcon2 fa fa-gear">
-    	<block type="${window.customBlocks.join('"></block><block type="')}"></block>
+    ${window.isInS4DDebugMode ? `<category name="Custom Blocks" colour="#808080" css-icon="customIcon2 fa fa-gear">
+        <label text="Custom blocks are currently in testing!"></label>
+        <label text="If you found any vulnerabilities or bugs, let us know!"></label>
+        <button text="Create block..." callbackKey="LAUNCHCUSTOMBLOCKBUILDER"></button>
+        <label text=""></label>
+    	${window.customBlocks.length > 0 ? `<block type="${window.customBlocks.join('"></block><block type="')}"></block>` : ""}
     </category>` : ""}
 
     <sep class="bt"/>

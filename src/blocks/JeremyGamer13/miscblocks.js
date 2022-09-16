@@ -376,7 +376,7 @@ Blockly.Blocks["jg_blocklyfp_load_workspace"] = {
         if (loaded_workspace_state == 1) {
             try {
                 let xml = Blockly.Xml.textToDom(work);
-                Blockly.Xml.appendDomToWorkspace(xml, Blockly.getMainWorkspace())
+                Blockly.Xml.appendDomToWorkspace(xml, window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e)
             } catch (err) {
                 window.alert(err)
                 console.log(err)
@@ -429,7 +429,7 @@ Blockly.Blocks["jg_blocklyfp_load_workspace_website"] = {
             try {
                 fetch(work, requestOptions).then((response) => {
                     let xml = Blockly.Xml.textToDom(response);
-                    Blockly.Xml.appendDomToWorkspace(xml, Blockly.getMainWorkspace())
+                    Blockly.Xml.appendDomToWorkspace(xml, window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e)
                 }).catch((err) => {
                     window.alert(err)
                     console.log(err)
