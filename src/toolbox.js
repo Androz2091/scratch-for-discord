@@ -719,9 +719,21 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
-            <lable text="for working with json" web-class="boldtext"></lable>
-            <block type="frost_json_to_string"/>
-            <block type="gsa_convert_parse_json_so_it_becomes_list_or_object"/>
+            <label text="for working with json" web-class="boldtext"></label>
+            <block type="frost_json_to_string">
+                <value name="STRING">
+                    <block type="variables_get">
+                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                    </block>
+                </value>
+            </block>
+            <block type="gsa_convert_parse_json_so_it_becomes_list_or_object">
+                <value name="message">
+                    <shadow type="text">
+                        <field name="TEXT">{ "example": "🐔" }</field>
+                    </shadow>
+                </value>
+            </block>
         </category>
 
         <category name="{{ TOOLBOX_OTHER }}s" colour="#D14081"> 

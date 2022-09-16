@@ -3,17 +3,17 @@ import Blockly from "blockly/core";
 const blockName = "frost_json_to_string";
 
 const blockData = {
-    "message0": "Convert object/list data %1 to string",
+    "message0": "Convert object/list %1 to json string",
     "args0": [
     {
         "type": "input_value",
         "name": "STRING",
-        "check": ["JSON", "Member", "Server", "Channel", "Emoji", "Role"]
+        "check": ["Object", "List", "Array", "JSON", "Member", "Server", "Channel", "Emoji", "Role"]
     }
     ],
     "output": "String",
-    "colour": "#D14081",
-    "tooltip": "Converts JSON/Objects to a string",
+    "colour": "#BA4A9A",
+    "tooltip": "Converts Object/lists to a json string",
     "helpUrl": ""
 };
 
