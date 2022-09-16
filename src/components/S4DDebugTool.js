@@ -54,6 +54,7 @@ window.addEventListener('load', () => {
 })
 window.openS4DDebugMenu = () => {
     window.isInS4DDebugMode = true
+    window.loadtoolltovobocaopjsd9fuw4fpoewjoiphgf9ewpojndsfoihgew8ninjagoLOllioolo2222222222222()
     runDebugEvents()
     const menu = blocklyModule.menus.createMenu({
         width: 640,
@@ -914,6 +915,18 @@ window.openS4DDebugMenu = () => {
                 getBlock().unplug(true)
             }
             blockDetails.append(unplug2)
+
+            const malixTest1 = menu.createDecoratedButton()
+            malixTest1.innerHTML = "Mutator Test"
+            malixTest1.onclick = () => {
+                getBlock().mutationToDom = Blockly.Blocks['lasercat_jg_case_default'].mutationToDom
+                getBlock().domToMutation = Blockly.Blocks['lasercat_jg_case_default'].domToMutation
+                getBlock().decompose = Blockly.Blocks['lasercat_jg_case_default'].decompose
+                getBlock().compose = Blockly.Blocks['lasercat_jg_case_default'].compose
+                getBlock().saveConnections = Blockly.Blocks['lasercat_jg_case_default'].saveConnections
+                getBlock().updateShape_ = Blockly.Blocks['lasercat_jg_case_default'].updateShape_
+            }
+            blockDetails.append(malixTest1)
 
             const setPathToTextarea = document.createElement("textarea")
             setPathToTextarea.style.width = "100%"

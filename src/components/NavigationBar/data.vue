@@ -1,5 +1,5 @@
 <template>
-    <b-nav-item-dropdown text="data" right>
+    <b-nav-item-dropdown text="Data" right>
         <b-dropdown-item @click="askForFile">Load data</b-dropdown-item>
         <input hidden @change="load" id="load-s4dData-code" type="file" accept=".zip,.data"/>
         <b-dropdown-item @click="dld">Download data</b-dropdown-item>

@@ -1309,7 +1309,8 @@ load()`])
                     const javascriptContent = this.getWorkspaceCode();
                     // http.createServer((req, res) => {
                     // let serverjs = 'true'
-                    const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
+                    const workspace = this.$store.state.workspace
+                    const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace));
                     // block type="frost_env"
                     // block type="frost_webserver"
                     // const banned_music_blocks = [
@@ -1324,6 +1325,15 @@ load()`])
                     //     `<block type="better_play"`,
                     // ]
                     // jg_express_start_website_then_using_port
+                    function customBlocksHasAMcxdondalldakdoij9() {
+                        let epic = false
+                        window.customBlocks.forEach(name => {
+                            workspace.getAllBlocks().forEach(block => {
+                                if (block.type == name) epic = true
+                            })
+                        })
+                        return epic
+                    }
                     if (
                         javascriptContent.includes("process.env") ||
                         javascriptContent.includes("http.createServer((req, res) => {") ||
@@ -1362,6 +1372,22 @@ load()`])
                         console.log("barry: ok so i finished but the user has website block")
                         console.log("johnathan: zamn")
                         console.error("barry and johnathan found out you have a website...")
+                        return;
+                    } else if (
+                        customBlocksHasAMcxdondalldakdoij9()
+                    ) {
+                        swal.fire("Your bot contains custom blocks.", "Custom blocks are currently unsupported for the run button. Please remove them before continuing.", "error")
+                        console.log("barry: this mf got custom blocks")
+                        console.log("johnathan: dayumm")
+                        console.error("barry and johnathan found out you are epic gamer...")
+                        return;
+                    } else if (
+                        window.isInS4DDebugMode == true
+                    ) {
+                        swal.fire("S4D is currently in debug mode.", "Please disable debug mode to run your bot.", "error")
+                        console.log("barry: placeholder")
+                        console.log("johnathan: placeholder")
+                        console.error("placeholder")
                         return;
                     }
                     //  else if (
