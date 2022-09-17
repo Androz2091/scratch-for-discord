@@ -22,7 +22,7 @@ const blockData = {
         {
             "type": "field_input",
             "name": "name",
-            "text": "My input"
+            "text": "My_text_input"
         },
         {
             "type": "input_dummy"

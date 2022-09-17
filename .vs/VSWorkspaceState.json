@@ -3,12 +3,11 @@
     "",
     "\\src",
     "\\src\\blocks",
-    "\\src\\blocks\\charts",
     "\\src\\blocks\\dashboard",
-    "\\src\\blocks\\mongodb",
-    "\\src\\components",
+    "\\src\\blocks\\database",
+    "\\src\\blocks\\database\\dootabase",
     "\\src\\components\\NavigationBar"
   ],
-  "SelectedNode": "\\src\\blocks\\dashboard\\new_dashboard.js",
+  "SelectedNode": "\\src\\blocks\\dashboard\\add_boolean_input.js",
   "PreviewInSolutionExplorer": false
 }
