@@ -4,7 +4,7 @@ const blockName = "slash_tictactoe";
 
 const blockData = {
     "type": "tictactoe",
-    "message0": "Start a new tic tac toe game with %1 Opponent %2 Embed title %3 Game Over Title %4 Color %5 O Emoji %6 X Emoji %7 Blank Emoji %8 O Color %9 %10 X Color %11 %12 Wait Message %13 Turn Message %14 Ask Message %15 Cancel Message %16 Time end message %17 Draw Message %18 Win Message %19 Game End Message %20",
+    "message0": "[ SLASH ] Start a new tic tac toe game with %1 Opponent %2 Embed title %3 Game Over Title %4 Color %5 O Emoji %6 X Emoji %7 Blank Emoji %8 O Color %9 %10 X Color %11 %12 Wait Message %13 Turn Message %14 Ask Message %15 Cancel Message %16 Time end message %17 Draw Message %18 Win Message %19 Game End Message %20",
     "args0": [
         {
             "type": "input_dummy"
