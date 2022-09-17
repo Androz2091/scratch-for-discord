@@ -2821,6 +2821,20 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt"/>
     <category name="Websites" colour="#4C97FF">
+          <category name="Dashboard" colour="#7c87f2">
+          <label text="Initialize a new dashboard"/>
+              <block type="initialize_dashboard"></block>
+          <label text="Add inputs"/>
+              <block type="add_inputs"></block>
+              <block type="add_text_input"></block>
+              <block type="add_boolean_input"></block>
+              <block type="add_dropdown_input"></block>
+              <block type="new_couple"></block>
+              <block type="add_color_input"></block>
+          <label text="Variables"/>
+              <block type="dash_guild_id"></block>
+              <block type="dash_value"></block>
+          </category>
         <category name="Creation" colour="#4c8eff">
             <block type="jg_express_start_website_then_using_port"/>
             <block type="jg_express_website_on_page_on_request_type_do">
@@ -3164,6 +3178,11 @@ export default (Blockly, value, searching) => {
             <block type="on_newvideo"/>
             <block type="add_channel"/>
         </category>
+          <category name="Charts" colour="#ffa500">
+          <label text="Chart Blocks"/>
+              <block type="create_chart"></block>
+              <block type="send_chart"></block>
+        </category>
         <category name="Message Games" colour="#5ba58b">
             <label text="Akinator gamemodes: character, animal, object" web-class="boldtext"></label>
 	 		<block type="Akinator">
@@ -3174,6 +3193,152 @@ export default (Blockly, value, searching) => {
 			<block type="s4d_snake"/>
             <block type="snake_js"/>
             <block type="s4d_cal"/>
+            <label text="Tic Tac Toe game FROM MESSAGE"/>
+              <block type="tictactoe">
+                    <value name="emb_title">
+                        <shadow type="text">
+                            <field name="TEXT">Tic Tac Toe</field>
+                        </shadow>
+                    </value>
+                    <value name="gover_title">
+                        <shadow type="text">
+                            <field name="TEXT">Game Over</field>
+                        </shadow>
+                    </value>
+                    <value name="color">
+                        <shadow type="text">
+                            <field name="TEXT">#5865F2</field>
+                        </shadow>
+                    </value>
+                    <value name="oEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">🔵</field>
+                        </shadow>
+                    </value>
+                    <value name="xEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">❌</field>
+                        </shadow>
+                    </value>
+                    <value name="blankEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">➖</field>
+                        </shadow>
+                    </value>
+                    <value name="waitMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Waiting for the opponent...</field>
+                        </shadow>
+                    </value>
+                    <value name="turnMessage">
+                        <shadow type="text">
+                            <field name="TEXT">{emoji} | Its now **{player}** turn!</field>
+                        </shadow>
+                    </value>
+                    <value name="askMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Hey {opponent}, {challenger} challenged you for a game of Tic Tac Toe!</field>
+                        </shadow>
+                    </value>
+                    <value name="cancelMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Looks like they refused to have a game of Tic Tac Toe. \:(</field>
+                        </shadow>
+                    </value>
+                    <value name="timeEndMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Since the opponent didnt answer, i dropped the game!</field>
+                        </shadow>
+                    </value>
+                    <value name="drawMessage">
+                        <shadow type="text">
+                            <field name="TEXT">It was a draw!</field>
+                        </shadow>
+                    </value>
+                    <value name="winMessage">
+                        <shadow type="text">
+                            <field name="TEXT">{emoji} | **{winner}** won the game!</field>
+                        </shadow>
+                    </value>
+                    <value name="gameEndMessage">
+                        <shadow type="text">
+                            <field name="TEXT">The game went unfinished :(</field>
+                        </shadow>
+                    </value>
+              </block>
+            <label text="Tic Tac Toe game FROM SLASH COMMAND"/>
+              <block type="slash_tictactoe">
+                    <value name="emb_title">
+                        <shadow type="text">
+                            <field name="TEXT">Tic Tac Toe</field>
+                        </shadow>
+                    </value>
+                    <value name="gover_title">
+                        <shadow type="text">
+                            <field name="TEXT">Game Over</field>
+                        </shadow>
+                    </value>
+                    <value name="color">
+                        <shadow type="text">
+                            <field name="TEXT">#5865F2</field>
+                        </shadow>
+                    </value>
+                    <value name="oEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">🔵</field>
+                        </shadow>
+                    </value>
+                    <value name="xEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">❌</field>
+                        </shadow>
+                    </value>
+                    <value name="blankEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">➖</field>
+                        </shadow>
+                    </value>
+                    <value name="waitMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Waiting for the opponent...</field>
+                        </shadow>
+                    </value>
+                    <value name="turnMessage">
+                        <shadow type="text">
+                            <field name="TEXT">{emoji} | Its now **{player}** turn!</field>
+                        </shadow>
+                    </value>
+                    <value name="askMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Hey {opponent}, {challenger} challenged you for a game of Tic Tac Toe!</field>
+                        </shadow>
+                    </value>
+                    <value name="cancelMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Looks like they refused to have a game of Tic Tac Toe. \:(</field>
+                        </shadow>
+                    </value>
+                    <value name="timeEndMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Since the opponent didnt answer, i dropped the game!</field>
+                        </shadow>
+                    </value>
+                    <value name="drawMessage">
+                        <shadow type="text">
+                            <field name="TEXT">It was a draw!</field>
+                        </shadow>
+                    </value>
+                    <value name="winMessage">
+                        <shadow type="text">
+                            <field name="TEXT">{emoji} | **{winner}** won the game!</field>
+                        </shadow>
+                    </value>
+                    <value name="gameEndMessage">
+                        <shadow type="text">
+                            <field name="TEXT">The game went unfinished :(</field>
+                        </shadow>
+                    </value>
+              </block>
 		</category>
     </category>
     <category name="Securing" colour="#4c61ff">
@@ -3905,178 +4070,6 @@ export default (Blockly, value, searching) => {
             <block type="gsa_set_embed_footer"/>
         </category>
         -->
-        
-        <sep class="bt"/>
-
-        <category name="Experimental" colour="#ff0000">
-          <category name="Charts" colour="#ffa500">
-          <label text="Chart Blocks"/>
-              <block type="create_chart"></block>
-              <block type="send_chart"></block>
-          </category>
-          <category name="Tic Tac Toe" colour="#ffa500">
-            <label text="Tic Tac Toe game FROM MESSAGE"/>
-              <block type="tictactoe">
-                    <value name="emb_title">
-                        <shadow type="text">
-                            <field name="TEXT">Tic Tac Toe</field>
-                        </shadow>
-                    </value>
-                    <value name="gover_title">
-                        <shadow type="text">
-                            <field name="TEXT">Game Over</field>
-                        </shadow>
-                    </value>
-                    <value name="color">
-                        <shadow type="text">
-                            <field name="TEXT">#5865F2</field>
-                        </shadow>
-                    </value>
-                    <value name="oEmoji">
-                        <shadow type="text">
-                            <field name="TEXT">🔵</field>
-                        </shadow>
-                    </value>
-                    <value name="xEmoji">
-                        <shadow type="text">
-                            <field name="TEXT">❌</field>
-                        </shadow>
-                    </value>
-                    <value name="blankEmoji">
-                        <shadow type="text">
-                            <field name="TEXT">➖</field>
-                        </shadow>
-                    </value>
-                    <value name="waitMessage">
-                        <shadow type="text">
-                            <field name="TEXT">Waiting for the opponent...</field>
-                        </shadow>
-                    </value>
-                    <value name="turnMessage">
-                        <shadow type="text">
-                            <field name="TEXT">{emoji} | Its now **{player}** turn!</field>
-                        </shadow>
-                    </value>
-                    <value name="askMessage">
-                        <shadow type="text">
-                            <field name="TEXT">Hey {opponent}, {challenger} challenged you for a game of Tic Tac Toe!</field>
-                        </shadow>
-                    </value>
-                    <value name="cancelMessage">
-                        <shadow type="text">
-                            <field name="TEXT">Looks like they refused to have a game of Tic Tac Toe. \:(</field>
-                        </shadow>
-                    </value>
-                    <value name="timeEndMessage">
-                        <shadow type="text">
-                            <field name="TEXT">Since the opponent didnt answer, i dropped the game!</field>
-                        </shadow>
-                    </value>
-                    <value name="drawMessage">
-                        <shadow type="text">
-                            <field name="TEXT">It was a draw!</field>
-                        </shadow>
-                    </value>
-                    <value name="winMessage">
-                        <shadow type="text">
-                            <field name="TEXT">{emoji} | **{winner}** won the game!</field>
-                        </shadow>
-                    </value>
-                    <value name="gameEndMessage">
-                        <shadow type="text">
-                            <field name="TEXT">The game went unfinished :(</field>
-                        </shadow>
-                    </value>
-              </block>
-            <label text="Tic Tac Toe game FROM SLASH COMMAND"/>
-              <block type="slash_tictactoe">
-                    <value name="emb_title">
-                        <shadow type="text">
-                            <field name="TEXT">Tic Tac Toe</field>
-                        </shadow>
-                    </value>
-                    <value name="gover_title">
-                        <shadow type="text">
-                            <field name="TEXT">Game Over</field>
-                        </shadow>
-                    </value>
-                    <value name="color">
-                        <shadow type="text">
-                            <field name="TEXT">#5865F2</field>
-                        </shadow>
-                    </value>
-                    <value name="oEmoji">
-                        <shadow type="text">
-                            <field name="TEXT">🔵</field>
-                        </shadow>
-                    </value>
-                    <value name="xEmoji">
-                        <shadow type="text">
-                            <field name="TEXT">❌</field>
-                        </shadow>
-                    </value>
-                    <value name="blankEmoji">
-                        <shadow type="text">
-                            <field name="TEXT">➖</field>
-                        </shadow>
-                    </value>
-                    <value name="waitMessage">
-                        <shadow type="text">
-                            <field name="TEXT">Waiting for the opponent...</field>
-                        </shadow>
-                    </value>
-                    <value name="turnMessage">
-                        <shadow type="text">
-                            <field name="TEXT">{emoji} | Its now **{player}** turn!</field>
-                        </shadow>
-                    </value>
-                    <value name="askMessage">
-                        <shadow type="text">
-                            <field name="TEXT">Hey {opponent}, {challenger} challenged you for a game of Tic Tac Toe!</field>
-                        </shadow>
-                    </value>
-                    <value name="cancelMessage">
-                        <shadow type="text">
-                            <field name="TEXT">Looks like they refused to have a game of Tic Tac Toe. \:(</field>
-                        </shadow>
-                    </value>
-                    <value name="timeEndMessage">
-                        <shadow type="text">
-                            <field name="TEXT">Since the opponent didnt answer, i dropped the game!</field>
-                        </shadow>
-                    </value>
-                    <value name="drawMessage">
-                        <shadow type="text">
-                            <field name="TEXT">It was a draw!</field>
-                        </shadow>
-                    </value>
-                    <value name="winMessage">
-                        <shadow type="text">
-                            <field name="TEXT">{emoji} | **{winner}** won the game!</field>
-                        </shadow>
-                    </value>
-                    <value name="gameEndMessage">
-                        <shadow type="text">
-                            <field name="TEXT">The game went unfinished :(</field>
-                        </shadow>
-                    </value>
-              </block>
-          </category>
-          <category name="Dashboard" colour="#ffa500">
-          <label text="Initialize a new dashboard"/>
-              <block type="initialize_dashboard"></block>
-          <label text="Add inputs"/>
-              <block type="add_inputs"></block>
-              <block type="add_text_input"></block>
-              <block type="add_boolean_input"></block>
-              <block type="add_dropdown_input"></block>
-              <block type="new_couple"></block>
-              <block type="add_color_input"></block>
-          <label text="Variables"/>
-              <block type="dash_guild_id"></block>
-              <block type="dash_value"></block>
-          </category>
-        </category>
 
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
