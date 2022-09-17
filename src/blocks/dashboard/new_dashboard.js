@@ -141,7 +141,7 @@ Blockly.JavaScript['initialize_dashboard'] = function (block) {
         logRequests: ${value_logrequests},
         injectCSS: ${value_injectcss},
         faviconPath: ${value_favicon_path},
-        theme: ${text_custom_theme},
+        theme: '${text_custom_theme}',
         permissions: ${value_permissions},
     });
 `;
