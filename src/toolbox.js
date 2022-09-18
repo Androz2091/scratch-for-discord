@@ -2823,20 +2823,12 @@ export default (Blockly, value, searching) => {
     <category name="Websites" colour="#4C97FF">
           <category name="Dashboard" colour="#7c87f2">
           <label text="Initialize a new dashboard"/>
-              <block type="initialize_dashboard">
-                    <value name="permissions">
-                        <shadow type="lists_create_with"></shadow>
-                    </value>
-              </block>
+              <block type="initialize_dashboard"></block>
           <label text="Add inputs"/>
               <block type="add_inputs"></block>
               <block type="add_text_input"></block>
               <block type="add_boolean_input"></block>
-              <block type="add_dropdown_input">
-                    <value name="selector_entries">
-                        <shadow type="lists_create_with"></shadow>
-                    </value>
-              </block>
+              <block type="add_dropdown_input"></block>
               <block type="new_couple"></block>
               <block type="add_color_input"></block>
           <label text="[OPTIONAL] Commands page tab"/>
