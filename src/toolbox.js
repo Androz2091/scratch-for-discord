@@ -2831,6 +2831,25 @@ export default (Blockly, value, searching) => {
               <block type="add_dropdown_input"></block>
               <block type="new_couple"></block>
               <block type="add_color_input"></block>
+          <label text="[OPTIONAL] Commands page tab"/>
+              <block type="register_commands"></block>
+              <block type="add_command_dash">
+                    <value name="NAME">
+                        <shadow type="text">
+                            <field name="TEXT">ping</field>
+                        </shadow>
+                    </value>
+                    <value name="DESC">
+                        <shadow type="text">
+                            <field name="TEXT">Get bot's ping</field>
+                        </shadow>
+                    </value>
+                    <value name="tutorial">
+                        <shadow type="text">
+                            <field name="TEXT">!ping</field>
+                        </shadow>
+                    </value>
+              </block>
           <label text="Variables"/>
               <block type="dash_guild_id"></block>
               <block type="dash_value"></block>

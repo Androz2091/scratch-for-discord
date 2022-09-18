@@ -5,9 +5,8 @@
     "\\src\\blocks",
     "\\src\\blocks\\dashboard",
     "\\src\\blocks\\database",
-    "\\src\\blocks\\database\\dootabase",
-    "\\src\\components\\NavigationBar"
+    "\\src\\blocks\\database\\dootabase"
   ],
-  "SelectedNode": "\\src\\blocks\\dashboard\\add_boolean_input.js",
+  "SelectedNode": "\\src\\blocks\\dashboard\\add_command.js",
   "PreviewInSolutionExplorer": false
 }
