@@ -2823,7 +2823,11 @@ export default (Blockly, value, searching) => {
     <category name="Websites" colour="#4C97FF">
           <category name="Dashboard" colour="#7c87f2">
           <label text="Initialize a new dashboard"/>
-              <block type="initialize_dashboard"></block>
+              <block type="initialize_dashboard">
+                    <value name="permissions">
+                        <shadow type="lists_create_with"></shadow>
+                    </value>
+              </block>
           <label text="Add inputs"/>
               <block type="add_inputs"></block>
               <block type="add_text_input"></block>
