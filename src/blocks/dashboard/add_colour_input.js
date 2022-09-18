@@ -4,7 +4,7 @@ const blockName = "add_color_input";
 
 const blockData = {
     "type": "add_color_input",
-    "message0": "Add a color input %1 Set input title to %2 Set input description to %3 Set input ID to (DO NOT INCLUDE SPACES) %4 %5 Set value setter %6 Set value getter %7 Default value getter value %8",
+    "message0": "Add a color input %1 Set input title to %2 Set input description to %3 Set input ID to %4 %5 Set value setter %6 Set value getter %7 Default value getter value %8",
     "args0": [
         {
             "type": "input_dummy"
@@ -58,6 +58,7 @@ Blockly.JavaScript['add_color_input'] = function (block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
     var value_description = Blockly.JavaScript.valueToCode(block, 'description', Blockly.JavaScript.ORDER_ATOMIC);
     var text_name = block.getFieldValue('name');
+    text_name = text_name.replace(/ /g, '_');
     var statements_setter = Blockly.JavaScript.statementToCode(block, 'setter');
     var value_getter = Blockly.JavaScript.valueToCode(block, 'getter', Blockly.JavaScript.ORDER_ATOMIC);
     var value_gett_def = Blockly.JavaScript.valueToCode(block, 'gett_def', Blockly.JavaScript.ORDER_ATOMIC);

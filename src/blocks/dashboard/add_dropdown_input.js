@@ -4,7 +4,7 @@ const blockName = "add_dropdown_input";
 
 const blockData = {
     "type": "add_dropdown_input",
-    "message0": "Add a selector input %1 Set input title to %2 Set input description to %3 Set input ID to (DO NOT INCLUDE SPACES) %4 %5 Set value setter %6 Set value getter ID %7 Set value getter NAME %8 Get Selector Entries %9",
+    "message0": "Add a selector input %1 Set input title to %2 Set input description to %3 Set input ID to %4 %5 Set value setter %6 Set value getter ID %7 Set value getter NAME %8 Get Selector Entries %9",
     "args0": [
         {
             "type": "input_dummy"
@@ -63,6 +63,7 @@ Blockly.JavaScript['add_dropdown_input'] = function (block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
     var value_description = Blockly.JavaScript.valueToCode(block, 'description', Blockly.JavaScript.ORDER_ATOMIC);
     var text_name = block.getFieldValue('name');
+    text_name = text_name.replace(/ /g, '_');
     var statements_setter = Blockly.JavaScript.statementToCode(block, 'setter');
     var value_getter_id = Blockly.JavaScript.valueToCode(block, 'getter_id', Blockly.JavaScript.ORDER_ATOMIC);
     var value_getter_name = Blockly.JavaScript.valueToCode(block, 'getter_name', Blockly.JavaScript.ORDER_ATOMIC);
