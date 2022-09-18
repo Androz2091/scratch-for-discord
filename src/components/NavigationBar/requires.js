@@ -11,6 +11,12 @@ export default async function require(array, oldarray) {
         if (js.includes("const qdb = new QuickDB()")) {
             array.push(`"quick.db": "9.0.2",`)
         }
+        if (js.includes("const { TicTacToe } = require(discord-gamecord)")){
+            array.push(`"discord-gamecord": "^2.1.0",`)
+        }
+        if (js.includes("s4d.client.dashboard = new Dashboard")) {
+            array.push(`"discord-easy-dashboard": "^1.2.1",`)
+        }
         if (js.includes("const QRCode = require('qrcode')")) {
             array.push(`"qrcode": "1.5.0",`)
         }

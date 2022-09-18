@@ -12,6 +12,9 @@ export default async function require(array, code, js) {
     if (js.includes('QRCode.toString')) {
         array.push(`const QRCode = require('qrcode')`)
     }
+    if (js.includes('s4d.client.dashboard = new Dashboard')) {
+        array.push(`const Dashboard = require('discord-easy-dashboard');`)
+    }
     if (js.includes("tempChannels.registerChannel")) {
         array.push(`const TempChannels = require("discord-temp-channels");`)
         array.push(`const tcdbpkcgRequirementlolol = require("quick.db")`)
@@ -100,10 +103,10 @@ export default async function require(array, code, js) {
     if (js.includes("DB")) {
         array.push(`let { DB } = require("mongquick");`)
     }
-    if (js.includes("tictactoe")) {
+    /*if (js.includes("tictactoe")) {
         array.push(`const TicTacToe = require('discord-tictactoe');`)
         array.push(`const game = new TicTacToe({ language: 'en' })`)
-    }
+    } */
     if (js.includes("canvas")) {
         array.push(`let canvas = require("discord-canvas") `)
     }
@@ -197,6 +200,9 @@ export default async function require(array, code, js) {
     }
     if (js.includes("bcrypt.")) {
         array.push(`const bcrypt = require("bcrypt");`)
+    }
+    if (js.includes("new TicTacToe")) {
+        array.push(`const { TicTacToe } = require("discord-gamecord");`)
     }
     if (js.includes("xml2json({")) {
         array.push(`const xml2json = require('xml-to-json')`)

@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\blocks",
+    "\\src\\blocks\\dashboard",
+    "\\src\\blocks\\database",
+    "\\src\\blocks\\database\\dootabase"
+  ],
+  "SelectedNode": "\\src\\blocks\\dashboard\\add_command.js",
+  "PreviewInSolutionExplorer": false
+}
