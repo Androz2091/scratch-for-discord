@@ -2832,7 +2832,11 @@ export default (Blockly, value, searching) => {
               <block type="add_inputs"></block>
               <block type="add_text_input"></block>
               <block type="add_boolean_input"></block>
-              <block type="add_dropdown_input"></block>
+              <block type="add_dropdown_input">
+                    <value name="selector_entries">
+                        <shadow type="lists_create_with"></shadow>
+                    </value>
+              </block>
               <block type="new_couple"></block>
               <block type="add_color_input"></block>
           <label text="[OPTIONAL] Commands page tab"/>
