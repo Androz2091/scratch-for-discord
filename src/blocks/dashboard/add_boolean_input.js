@@ -4,7 +4,7 @@ const blockName = "add_boolean_input";
 
 const blockData = Blockly.Blocks['add_boolean_input'] = {
     "type": "add_boolean_input",
-    "message0": "Add a boolean input %1 Set input title to %2 Set input description to %3 Set input ID to (DO NOT INCLUDE SPACES) %4 %5 Set value setter %6 Set value getter %7",
+    "message0": "Add a boolean input %1 Set input title to %2 Set input description to %3 Set input ID to %4 %5 Set value setter %6 Set value getter %7",
     "args0": [
         {
             "type": "input_dummy"
