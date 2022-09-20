@@ -2824,6 +2824,30 @@ export default (Blockly, value, searching) => {
           <category name="Dashboard" colour="#7c87f2">
           <label text="Initialize a new dashboard"/>
               <block type="initialize_dashboard"></block>
+          <label text="[OPTIONAL] Cookies"/>
+              <block type="new_session_obj">
+                <value name="secure">
+                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                        <field name="BOOL">FALSE</field>
+                    </block>
+                  </value>
+                <value name="httpOnly">
+                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                        <field name="BOOL">FALSE</field>
+                    </block>
+                  </value>
+                <value name="resave">
+                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                        <field name="BOOL">FALSE</field>
+                    </block>
+                  </value>
+                <value name="saveUninitialized">
+                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                        <field name="BOOL">FALSE</field>
+                    </block>
+                  </value>
+              </block>
+           <block type="random_sekret"></block>
           <label text="Add inputs"/>
               <block type="add_text_input"></block>
               <block type="add_boolean_input"></block>

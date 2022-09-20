@@ -3,10 +3,13 @@
     "",
     "\\src",
     "\\src\\blocks",
+    "\\src\\blocks\\ahq",
+    "\\src\\blocks\\ahq\\forms",
     "\\src\\blocks\\dashboard",
     "\\src\\blocks\\database",
-    "\\src\\blocks\\database\\dootabase"
+    "\\src\\blocks\\database\\dootabase",
+    "\\src\\blocks\\JeremyGamer13\\tests"
   ],
-  "SelectedNode": "\\src\\blocks\\dashboard\\add_command.js",
+  "SelectedNode": "\\src\\toolbox.js",
   "PreviewInSolutionExplorer": false
 }
