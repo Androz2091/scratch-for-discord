@@ -739,8 +739,13 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
         </category>
+        
+        <!--<category name="Types" colour="#C6458E">
+            <label text="Types let you create a type for things to be with it's own attributes and functions." web-class="boldtext"></label>
+            <label text="You could use them to give all things of a type a certain attribute like mass or speed." web-class="boldtext"></label>
+        </category>-->
 
-        <category name="{{ TOOLBOX_OTHER }}s" colour="#D14081"> 
+        <category name="Others" colour="#D14081"> 
         
         
             <block type="s4d_print">
@@ -2821,41 +2826,41 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt"/>
     <category name="Websites" colour="#4C97FF">
-          <category name="Dashboard" colour="#7c87f2">
-          <label text="Initialize a new dashboard"/>
-              <block type="initialize_dashboard"></block>
-          <label text="[OPTIONAL] Cookies"/>
-              <block type="new_session_obj">
-                <value name="secure">
-                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
-                        <field name="BOOL">FALSE</field>
-                    </block>
-                  </value>
-                <value name="httpOnly">
-                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
-                        <field name="BOOL">FALSE</field>
-                    </block>
-                  </value>
-                <value name="resave">
-                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
-                        <field name="BOOL">FALSE</field>
-                    </block>
-                  </value>
-                <value name="saveUninitialized">
-                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
-                        <field name="BOOL">FALSE</field>
-                    </block>
-                  </value>
-              </block>
-           <block type="random_sekret"></block>
-          <label text="Add inputs"/>
-              <block type="add_text_input"></block>
-              <block type="add_boolean_input"></block>
-              <block type="add_dropdown_input"></block>
-              <block type="new_couple"></block>
-              <block type="add_color_input"></block>
-          <label text="[OPTIONAL] Commands page tab"/>
-              <block type="add_command_dash">
+        <category name="Dashboard" colour="#4C93FF">
+            <label text="Initialize a new dashboard"/>
+                <block type="initialize_dashboard"></block>
+            <label text="[OPTIONAL] Cookies"/>
+                <block type="new_session_obj">
+                    <value name="secure">
+                        <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                            <field name="BOOL">FALSE</field>
+                        </block>
+                    </value>
+                    <value name="httpOnly">
+                        <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                            <field name="BOOL">FALSE</field>
+                        </block>
+                    </value>
+                    <value name="resave">
+                        <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                            <field name="BOOL">FALSE</field>
+                        </block>
+                    </value>
+                    <value name="saveUninitialized">
+                        <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                            <field name="BOOL">FALSE</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="random_sekret"></block>
+            <label text="Add inputs"/>
+                <block type="add_text_input"></block>
+                <block type="add_boolean_input"></block>
+                <block type="add_dropdown_input"></block>
+                <block type="new_couple"></block>
+                <block type="add_color_input"></block>
+            <label text="[OPTIONAL] Commands page tab"/>
+                <block type="add_command_dash">
                     <value name="NAME">
                         <shadow type="text">
                             <field name="TEXT">ping</field>
@@ -2871,11 +2876,11 @@ export default (Blockly, value, searching) => {
                             <field name="TEXT">!ping</field>
                         </shadow>
                     </value>
-              </block>
-          <label text="Variables"/>
-              <block type="dash_guild_id"></block>
-              <block type="dash_value"></block>
-          </category>
+                </block>
+            <label text="Variables"/>
+                <block type="dash_guild_id"></block>
+                <block type="dash_value"></block>
+        </category>
         <category name="Creation" colour="#4c8eff">
             <block type="jg_express_start_website_then_using_port"/>
             <block type="jg_express_website_on_page_on_request_type_do">
