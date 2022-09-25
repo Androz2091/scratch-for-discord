@@ -3,7 +3,6 @@ import Blockly from "blockly/core";
 const blockName = "gsa_ytdl_info";
 
 const blockData = {
-  "type": "gsa_ytdl_info",
   "message0": "get info from url %1 then %2 %3",
   "args0": [
     {
@@ -35,7 +34,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function (block) {
   const url = Blockly.JavaScript.valueToCode(block, "url", Blockly.JavaScript.ORDER_ATOMIC)
   const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC)
-  return `let S4D_APP_json = await ytdl.getInfo(${url})
+  return `let S4D_APP_YTDL_JSON = await ytdl.getInfo(${url})
 ${statements}
 `
 }
