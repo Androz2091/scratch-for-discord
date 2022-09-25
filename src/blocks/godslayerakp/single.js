@@ -24,7 +24,7 @@ Blockly.Blocks["gsa_make_db_with_path_x"] = {
 
 Blockly.JavaScript["gsa_make_db_with_path_x"] = function (block) {
   const path = Blockly.JavaScript.valueToCode(block, "path", Blockly.JavaScript.ORDER_ATOMIC)
-  return `new Database(String(${path + '.json'}))`;
+  return [`new Database(String(${path + '.json'}))`, Blockly.JavaScript.ORDER_ATOMIC];
 }
 
 
@@ -50,6 +50,6 @@ Blockly.Blocks["gsa_bypass_type"] = {
 };
 
 Blockly.JavaScript["gsa_bypass_type"] = function (block) {
-  return Blockly.JavaScript.valueToCode(block, "path", Blockly.JavaScript.ORDER_ATOMIC);
+  return [Blockly.JavaScript.valueToCode(block, "path", Blockly.JavaScript.ORDER_ATOMIC), Blockly.JavaScript.ORDER_ATOMIC];
 }
 
