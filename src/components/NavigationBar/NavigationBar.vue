@@ -12,8 +12,8 @@
                 <CodeModal></CodeModal>
                 <FileMenu style="font-size: small;"></FileMenu>
                 <EditMenu style="font-size: small;"></EditMenu>
-                <ToolboxModal style="font-size: small;"></ToolboxModal>
-                <LanguageMenu></LanguageMenu>
+                <!--<ToolboxModal style="font-size: small;"></ToolboxModal>-->
+                <!--<LanguageMenu></LanguageMenu>-->
                 <ExamplesMenu style="font-size: small;"></ExamplesMenu>
                 <Socials style="font-size: small;"></Socials>
                 <Forums style="font-size: small;"></Forums>
@@ -21,7 +21,6 @@
                 <changelog style="font-size: small;"></changelog>
                 <shortcuts style="font-size: small;"></shortcuts>
                 <Credit style="font-size: small;"></Credit>
-                <s4dCommunityLeave id="leave"></s4dCommunityLeave>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <div id="block-counter" style="margin-right: 5px; font-size: 90%">
@@ -39,9 +38,11 @@
                 <b-button id="v-step-4" style="border-right-color: #161719; border-radius: 0em" @click="runbot">
                     <b-icon-play></b-icon-play>
                 </b-button>
+                <!--
                 <b-button id="v-step-5" style="border-right-color: #161719; border-radius: 0em" @click="console">
                     <b-icon-newspaper></b-icon-newspaper>
                 </b-button>
+                -->
                 <b-button id="v-step-2" style="border-right-color: #161719; border-radius: 0em" @click="util">
                     <b-icon-gear></b-icon-gear>
                 </b-button>
@@ -61,14 +62,13 @@ import Blockly from "blockly";
 import JSZip from "jszip";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
-import LanguageMenu from "./LanguageMenu.vue";
+//import LanguageMenu from "./LanguageMenu.vue";
 import shortcuts from './shortcuts.vue';
 import ExamplesMenu from "./ExamplesMenu.vue";
 import CodeModal from "./CodeModal.vue";
-import ToolboxModal from "./ToolboxModal.vue";
+//import ToolboxModal from "./ToolboxModal.vue";
 import Socials from "./socials.vue";
 import Credit from "./Credit";
-import s4dCommunityLeave from "./s4dCommunityLeave.vue";
 import Forums from "./ForumsMenu.vue";
 import drtrrlrlrlrlrl from "./data.vue"
 import changelog from "./changelog.vue"
@@ -81,13 +81,12 @@ export default {
     components: {
     FileMenu,
     EditMenu,
-    LanguageMenu,
+    //LanguageMenu,
     ExamplesMenu,
     CodeModal,
-    ToolboxModal,
+    //ToolboxModal,
     shortcuts,
-        Credit,
-        s4dCommunityLeave,
+    Credit,
     Forums,
     drtrrlrlrlrlrl,
     changelog,
@@ -1563,7 +1562,7 @@ if(localStorage.getItem("theme") == null){
 </script>
 
 <style>
-.hide-gui-button {
+    .hide-gui-button {
         background-color: transparent;
         border-width: 0px;
         outline-width: 0px;
@@ -1577,7 +1576,5 @@ if(localStorage.getItem("theme") == null){
         left: 3px;
         top: 0px;
         z-index: 99999;
-    }#leave a {
-        color: rgb(255, 0, 0) !important;
     }
 </style>
