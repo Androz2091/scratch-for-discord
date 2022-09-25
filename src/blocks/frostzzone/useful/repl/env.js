@@ -24,7 +24,6 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
   const value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_ATOMIC);
-  const replacedValue = value.replace("'", '').replace("'", '')
-  const code = [`process.env.${replacedValue}`, Blockly.JavaScript.ORDER_NONE];
+  const code = [`process.env[String(${value})]`, Blockly.JavaScript.ORDER_NONE];
   return code;
 };
