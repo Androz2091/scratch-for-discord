@@ -26,6 +26,10 @@ const BORDER_TYPES = ['String', ['String', 'Colour'], 'String', 'String', 'gsa_s
 const names = ['message', 'color', 'title', 'url', 'author:', 'description', 'thumbnail', 'fields:', 'image', 'timestamp', 'footer:'];
 const amountOfInputs = names.length
 
+for (let i = 0; i < BORDER_FIELDS.length; i++) { 
+    BORDER_FIELDS[i] = BORDER_FIELDS[i].toUpperCase()
+}
+
 const blockData = {
     "message0": "simple embed %1",
     "args0": [
@@ -111,6 +115,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
+    console.log(this.inputs_)
     // code should be the first couple lines of your code before the inputs
     let message = '';
     let color = '';
@@ -125,43 +130,43 @@ Blockly.JavaScript[blockName] = function (block) {
     let footer = '';
     // check if the inputs exist before adding them to the exported code
     if (this.inputs_[1]) {
-        color = `color: String(${Blockly.JavaScript.valueToCode(block, "color", Blockly.JavaScript.ORDER_NONE)}), \n`
+        color = `color: String(${Blockly.JavaScript.valueToCode(block, BORDER_FIELDS[1], Blockly.JavaScript.ORDER_NONE)}), \n`
     }
     if (this.inputs_[2]) {
-        title = `title: String(${Blockly.JavaScript.valueToCode(block, "title", Blockly.JavaScript.ORDER_NONE)}), \n`
+        title = `title: String(${Blockly.JavaScript.valueToCode(block, BORDER_FIELDS[2], Blockly.JavaScript.ORDER_NONE)}), \n`
     }
     if (this.inputs_[3]) {
-        url = `url: String(${Blockly.JavaScript.valueToCode(block, "url", Blockly.JavaScript.ORDER_NONE)}), \n`
+        url = `url: String(${Blockly.JavaScript.valueToCode(block, BORDER_FIELDS[3], Blockly.JavaScript.ORDER_NONE)}), \n`
     }
     if (this.inputs_[4]) {
-        author = Blockly.JavaScript.valueToCode(block, "author", Blockly.JavaScript.ORDER_ATOMIC)
+        author = Blockly.JavaScript.valueToCode(block, BORDER_FIELDS[4], Blockly.JavaScript.ORDER_ATOMIC)
     }
     if (this.inputs_[5]) {
-        description = `description: String(${Blockly.JavaScript.valueToCode(block, "description", Blockly.JavaScript.ORDER_NONE)}), \n`
+        description = `description: String(${Blockly.JavaScript.valueToCode(block, BORDER_FIELDS[5], Blockly.JavaScript.ORDER_NONE)}), \n`
     }
     if (this.inputs_[6]) {
         thumbnail = `thumbnail: {
-            url: String(${Blockly.JavaScript.valueToCode(block, "thumbnail", Blockly.JavaScript.ORDER_NONE)})
+            url: String(${Blockly.JavaScript.valueToCode(block, BORDER_FIELDS[6], Blockly.JavaScript.ORDER_NONE)})
         }, \n`
     }
     if (this.inputs_[7]) {
-        fields = Blockly.JavaScript.valueToCode(block, "fields", Blockly.JavaScript.ORDER_ATOMIC)
+        fields = Blockly.JavaScript.valueToCode(block, BORDER_FIELDS[7], Blockly.JavaScript.ORDER_ATOMIC)
     }
     if (this.inputs_[8]) {
         image = `image: {
-            url: String(${Blockly.JavaScript.valueToCode(block, "image", Blockly.JavaScript.ORDER_NONE)})
+            url: String(${Blockly.JavaScript.valueToCode(block, BORDER_FIELDS[8], Blockly.JavaScript.ORDER_NONE)})
         }, \n`
     }
     if (this.inputs_[9]) {
-        timestamp = `timestamp: new date(String(${Blockly.JavaScript.valueToCode(block, "timestamp", Blockly.JavaScript.ORDER_NONE)})),`
+        timestamp = `timestamp: new date(String(${Blockly.JavaScript.valueToCode(block, BORDER_FIELDS[9], Blockly.JavaScript.ORDER_NONE)})),`
     }
     if (this.inputs_[10]) {
-        footer = Blockly.JavaScript.valueToCode(block, "footer", Blockly.JavaScript.ORDER_ATOMIC)
+        footer = Blockly.JavaScript.valueToCode(block, BORDER_FIELDS[10], Blockly.JavaScript.ORDER_ATOMIC)
     }
     if (this.inputs_[0]) {
-      message = `content: String(${Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_NONE)}), `
+      message = `content: String(${Blockly.JavaScript.valueToCode(block, BORDER_FIELDS[0], Blockly.JavaScript.ORDER_NONE)}), `
     }
-    const code = `${message || 'NULL'}embeds: [{
+    const code = `${message}embeds: [{
 ${color}${title}${url}${author}${description}${thumbnail}${fields}${image}${timestamp}${footer}}]`;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };

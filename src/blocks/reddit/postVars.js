@@ -12,23 +12,27 @@ const blockData = {
         "options": [
             [
                 "Post Title",
-                "postTitle"
+                ".title"
             ],
             [
                 "Post Image",
-                "postImg"
+                ".reddit_url"
             ],
              [
                 "Post URL",
-                "postUrl"
+                ".media_url"
             ],
-           [
+            [
                 "Post Upvotes",
-                "postUpvotes"
+                ".upvotes"
             ],
             [
                 "Post Comments",
-                "postComs"
+                ".comments"
+            ],
+            [
+                "All data (object)",
+                "nulloolelaler"
             ]
           
         ],
@@ -36,7 +40,7 @@ const blockData = {
 
     ],
     "colour": "#5ba58b",
-    "output": "String",
+    "output": ["String", "Object"], // im lazy and dont want to register a validator just so it can chanje type when you select a single specific item
     "tooltip": "",
     "helpUrl": ""
 };
@@ -49,7 +53,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
   const stats = block.getFieldValue("INFO");
-  const code = [`${stats}`, Blockly.JavaScript.ORDER_NONE]
+  const code = [`result${stats}`.replace('nulloolelaler', ''), Blockly.JavaScript.ORDER_NONE]
 
     return code;
 

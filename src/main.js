@@ -43,6 +43,7 @@ const i18n = new Vuei18n({
 });
 
 import toolbox from "./toolbox";
+
 //import {Backpack} from '@blockly/workspace-backpack';
 import Theme from '@blockly/theme-dark';
 Vue.mixin({

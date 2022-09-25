@@ -22,7 +22,7 @@ const blockData = {
                 "Total Karma",
                 "total_karma"
             ],
-           [
+            [
                 "Awarder Karma",
                 "awarder_karma"
             ],
