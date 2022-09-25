@@ -1,18 +1,16 @@
-# [Scratch For Discord](https://scratch-for-discord.netlify.com)
+# [Scratch For Discord Preview 469](https://deploy-preview-469--scratch-for-discord.netlify.com)
 
-🐱 Make your Discord bot using Scratch blocks! [Scratch For Discord](https://scratch-for-discord.netlify.com) is an advanced fork of [discord-blocks](https://discordblocks.leondrolio.com/). Thanks to [7coil](https://github.com/7coil) for their great work!
+🐱 Make your Discord bot using Scratch blocks! [Scratch For Discord](https://deploy-preview-469--scratch-for-discord.netlify.com) is an advanced fork of [discord-blocks](https://discordblocks.leondrolio.com/). Thanks to [7coil](https://github.com/7coil) for their great work!
 
+S4D 469 is forked from [the original S4D](https://scratch-for-discord.netlify.app) made by Androz2091
 ## Features
 
 * 🖥️ No code knowledge required!  
 * ⏩ Make a bot in less than 2 minutes!  
-* 🧪 Start and test your bot directly on the site!
-* 🇫🇷 French is supported!
-* 📦 Android, MacOS, Windows and Linux apps
 
-## Example
+## Example 
 
-![example](./examples/example.png)
+![example](./examples/example2.png)
 
 ## Run On Repl.it
 
@@ -26,7 +24,7 @@ And you're done!
 
 To run Scratch For Discord, follow these steps:
 
-* Clone the project. Run `git clone https://github.com/Androz2091/scratch-for-discord`.
+* Clone the project. Run `git clone https://github.com/frostzzone/scratch-for-discord`.
 * Run `yarn install` to install project dependencies.
 * Run `yarn start` to start the development server.
 * Go to `http://localhost:3000`!
@@ -42,7 +40,7 @@ The discord.js guide has [instructions for setting up a bot application](https:/
 **[Google Play Store](https://play.google.com/store/apps/details?id=com.snowflakestudio.scratchfordiscord)**
 
 ### Preview
-![preview](https://i.imgur.com/UJ2SKlc.png)
+![preview](./examples/preview.png)
 
 ## Credits
 
@@ -50,3 +48,5 @@ The discord.js guide has [instructions for setting up a bot application](https:/
 * Discord.js ([discordjs/discord.js](https://github.com/discordjs/discord.js))
 * Blockly ([google/blockly](https://github.com/google/blockly))
 * And, of course, Discordblocks ([7coil/discordblocks](https://github.com/7coil/discord-blocks))
+* The original S4D ([Androz2091/Scratch-For-Discord](https://github.com/Androz2091/scratch-for-discord/))
+* Pull request 454 (S4D) ([mrredo-and-josetrindade1/Scratch-For-Discord](https://github.com/mrredo-and-josetrindade1/scratch-for-discord))

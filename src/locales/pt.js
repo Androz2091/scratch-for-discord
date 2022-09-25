@@ -3,7 +3,7 @@ import Blockly from "blockly";
 import blocklyMessages from "./pt-BR.json";
 
 export const applyBlocklyLocale = () => {
-    for (let key in blocklyMessages) {
+    for(let key in blocklyMessages){
         Blockly.Msg[key] = blocklyMessages[key];
     }
 };
@@ -14,11 +14,43 @@ export const websiteMessages = {
     load: {
         error: "O arquivo enviado está corrompido e não pode ser carregado pelo Scratch For Discord..."
     },
+    token:{
+        title:"Token Database",
+        load:"Carregar Token",
+        save:"Salva Token Como...",
+        text2:"nome do token que você quer salva na Database",
+        save2:"procimo",
+        error:"error ja tem um token com esse nome",
+        text3:"token que você quer salva",
+        save3:"salvar",
+        success:"salvado token com sucesso! nome ",
+        erros:"você não tem tokens salvo na database!",
+        load2:"carregar token",
+        text4:"escolha um token para carregar!",
+        cancels:"cancelar",
+        loadss:"carregar",
+        successs:"carregado token com sucesso!(o token esta no teu copiar)",
+        delete:"Deletar Token Na Database",
+        all:"tando de tokens: {blockCount}",
+        deletee:{
+            title:"deletar token",
+            success:"deletado token com sucesso!",
+            load:"deletar",
+            cancel:"cancelar",
+            text:"escolha um token para deletar da database",
+        }
+    },
     file: {
+        copy:"Copiar codigo javascript",
         title: "Arquivo",
         javascript: "Exporta para javascirpt",
         open: "abrir arquivo...",
         save: "Salva"
+    },
+    toolbox:{
+        title:"Toolbox",
+        hide:"Esconder",
+        show:"Mostrar"
     },
     edit: {
         title: "Edita",
@@ -26,13 +58,11 @@ export const websiteMessages = {
         redo: "refazer",
         clear: "deleta {blockCount} blocos",
         cleanup: "limpa blocos",
-        cleardb: "limpa database"
+        cleardb: "limpa database",
+        clearGhost:"deletar blocos fantasmas"
     },
     lang: {
         title: "linguagem"
-    },
-    theme: {
-        title: "Theme"
     },
     examples: {
         title: "Exemplos",
@@ -46,7 +76,15 @@ export const websiteMessages = {
         loaded: "Exemplo {example} importando com sucesso!",
         ping_pong: "comando ping-pong",
         command_parsing: "handler de comandos",
-        leveling: "XP e sistema de níveis"
+        leveling: "XP e sistema de níveis",
+        button: "Butão e lista de butão",
+        music: "exemplo de blocos de musica",
+      image_gen: "Exemplo de gerador de imagem",
+        economy: "Exemplo de economia",
+          aki: "Exemplo de Akinator",
+      backup: "Exemplo de backup",
+      random: "Exemplo de resposta aleatória",
+      reddit:"reddit",
     },
     download: {
         title: "Instale o seu bot",
@@ -72,7 +110,7 @@ export const websiteMessages = {
         }
     },
     warnings: {
-        login_block: 'O bloco "Conectar ao Discord" na categoria "Base" é obrigatório.'
+        login_block: "O bloco \"Conectar ao Discord\" na categoria \"Base\" é obrigatório."
     },
     run_modal: {
         title: "Clique em Iniciar para testar seu bot!",
@@ -86,15 +124,48 @@ export const websiteMessages = {
     code_modal: {
         title: "Código JavaScript do seu bot"
     },
-    autosave: {
-        title: "Restorar um projeto",
-        text: "Vocé não savou seu projeto antes de sair do Scratch For Discord? Sem problema, vocé pode escolher o projeto que vocé quer restorar no menu abaixo!",
-        restore: "Restorar",
-        cancel: "Cancelar",
+    autosave:{
+        cancell:"cancela",
+        confirm:"confirma",
+        title:"auto save",
+        text:"seu save foi carregado!",
+        title2:"eu encontrei um auto save de um projeto! você quer carregar ele?",
+    },
+    save:{
+        title:"auto save"
+    },
+    prebuild:{
+        title:"Pre Builds",
+        load:"Carregar Pre Build",
+        save:"Salvar Pre Build como...",
+        text2:"nome do Pre Build quer você quer salvar",
+        save2:"salvar",
+        error:"error tem um Pre Build ja com esse nome",
+        text3:"Pre Build que você quer salvar",
+        save3:"salvar",
+        success:"salvado com sucesso o seu Pre Build com nome ",
+        erros:"você não tem nenhum Pre Build na database!",
+        load2:"carregar Pre Build",
+        text4:"escolha um Pre Build para carregar!",
+        cancels:"cancelar",
+        loadss:"carregar",
+        successs:"Pre Build carregado com sucesso!",
+        all:"amount of Pre Build: {blockCount}",
+        delete:"deletar Pre Build na database",
+        deletee:{
+            title:"deletar Pre Build",
+            success:"deletado Pre Build com sucesso da database!",
+            load:"deletar",
+            cancel:"cancelar",
+            text:"escolher um Pre Build para deletar",
+        },
+        download:{
+            
+        }
     }
 };
 
 export default {
-    applyBlocklyLocale,
-    websiteMessages
+	applyBlocklyLocale,
+	websiteMessages
 };

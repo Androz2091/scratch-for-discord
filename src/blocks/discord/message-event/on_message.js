@@ -3,15 +3,15 @@ import * as Blockly from "blockly";
 const blockName = "s4d_on_message";
 
 const blockData = {
-    message0: "%{BKY_ON_MESSAGE} %1 %2",
-    colour: "#F5AB1A",
-    args0: [
+    "message0": "%{BKY_ON_MESSAGE} %1 %2",
+    "colour": "#f79400",
+    "args0": [
         {
-            type: "input_dummy"
+            "type": "input_dummy"
         },
         {
-            type: "input_statement",
-            name: "STATEMENTS"
+            "type": "input_statement",
+            "name": "STATEMENTS"
         }
     ]
 };
