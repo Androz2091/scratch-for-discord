@@ -23,6 +23,7 @@ export default {
                     <span style="color:#2aa9bd">frostzzone</span>,
                     <span style="color:#ad6f39">RetroBTW</span>,
                     <span style="color:#73ad39">cat soup</span>,
+                    <span style="color:#e83131">AHQ</span>,
                     <span style="color:#ff7b00">JeremyGamer13</span>,
                     <span style="color:#D276F7">LimeNade</span>,
                     <span style="color:#e3aa24">AlexCdDg</span>,
@@ -34,12 +35,16 @@ export default {
                     <br><br> 
                     <h2><b>Contributors:</b></h2>
                     <span style="color:#26a39d">henpokpok</span>,
+                    <span style="color:#D276F7">LimeNade</span>,
                     <span style="color:#8B48A3">LaserCat</span>,
                     <span style="color:#e83131">AHQ</span>,
                     <span style="color:#ff7b00">Parham</span>,
                     <span style="color:#9419FF">TropicGalxy</span>,
                     <span style="color:#f28a29">ChsyDev</span>
                     </p></b>
+                    <b><p>
+                    <h3><b>Cwheesy Branch:</b></h3>
+                    <span style="color:#ff7b00">Cwheesy</span> <br><br>
                     <h3><b>Original S4D:</b></h3>
                     <b><p>
                     <span style="color:#36915a">Androz</span>,

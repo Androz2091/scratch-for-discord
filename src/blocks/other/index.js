@@ -10,3 +10,6 @@ import "./exec";
 import "./is_a_number_or_string"
 import "./setvalto"
 import "./consoleclear"
+import "./antilink";
+import "./anti_spam";
+import "./start_antispam";

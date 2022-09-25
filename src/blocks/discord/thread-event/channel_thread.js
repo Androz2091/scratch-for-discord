@@ -13,20 +13,20 @@ const blockData = {
         }
     ],
     "colour": "#50a6c9",
-    "output": "Channel",
+    "output": ["Channel", "Thread"],
     "tooltip": "",
     "helpUrl": ""
 };
 
 Blockly.Blocks[blockName] = {
-    init: function() {
+    init: function () {
         this.jsonInit(blockData);
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+Blockly.JavaScript[blockName] = function (block) {
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${channel}.parent`, Blockly.JavaScript.ORDER_NONE ];
+    return [`${channel}.parent`, Blockly.JavaScript.ORDER_NONE];
 };
 
 registerRestrictions(blockName, [

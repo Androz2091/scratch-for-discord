@@ -39,7 +39,7 @@ function valueToDisplayData(value) {
 }
 const s4dDebugEvents = []
 window.s4dDebugEvents = s4dDebugEvents
-window.isInS4DDebugMode = false
+window.isInS4DDebugMode = true
 function runDebugEvents() {
     window.s4dDebugEvents.forEach(event => {
         event()

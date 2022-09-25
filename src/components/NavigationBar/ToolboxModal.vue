@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import Blockly from "blockly";
 
 export default {
     name: "filemenu",

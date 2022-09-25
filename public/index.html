@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="./scratch.png">
     <link rel="stylesheet" href="./themes.css">
-    <title>Scratch For Discord - Make your own bot using blocks</title>
+    <title>NR Scratch For Discord</title>
     <meta name="description" content="Make your own discord bot in 5 minutes
       using blocks with no coding required. Try your bot online and export it on
       your computer or server." />
@@ -43,11 +43,19 @@
     }
     
     .navbar-brand {
+      font-family: sans-serif;
       font-family: uni-sans, sans-serif;
       font-weight: bold;
       font-size: 125% !important;
+      letter-spacing: 0.25px;
     }
-
+html {
+        background-image: url("./background.png") !important;
+        background-color: black;
+      }
+    h1, h2, h3, h4, h5, h6{
+      font-family: uni-sans, sans-serif !important;
+    }
     h1, h2, h3, h4, h5, h6, .swal-title {
       font-family: uni-sans, sans-serif !important;
     }
@@ -176,9 +184,17 @@
 		}
 		
     ::-webkit-scrollbar {
+			width: 1px;
+			height: 1px;
 			width: 0px;
 			height: 0px;
 		}
+
+    .swal2-container {
+        background-image: url("./background.png") !important;
+        opacity: 0.25;
+        background-color: black;
+      }
 			
 		::-webkit-scrollbar-thumb {
 			background: #6b6d70;

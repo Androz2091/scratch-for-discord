@@ -5,14 +5,12 @@ export default (Blockly, value, searching) => {
     var toolbox_xml_contents = (`
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
 
-    <!--
-    <category name="Tests" colour="#ff0000" popoooopp="LINE HIDDEN FROM SEARCH">
-        <block type="jg_tests_doubleDropdown" popoooopp="LINE HIDDEN FROM SEARCH"/>
-        <block type="jg_tests_typeChange" popoooopp="LINE HIDDEN FROM SEARCH"/>
-        <block type="jg_tests_deleteInput" popoooopp="LINE HIDDEN FROM SEARCH"/>
-        <block type="jg_tests_validator" popoooopp="LINE HIDDEN FROM SEARCH"/>
+    <category name="Tests" colour="#ff0000" >
+        <block type="jg_tests_doubleDropdown" />
+        <block type="jg_tests_typeChange" />
+        <block type="jg_tests_deleteInput" />
+        <block type="jg_tests_validator"/>
     </category>
-    -->
 	
     <category name="Search" colour="#42556e" css-icon="customIcon2 fa fa-search">
         <label text="Search category! Version 1.21"></label>
@@ -55,15 +53,13 @@ export default (Blockly, value, searching) => {
             
             <block type="jg_logic_is_equal_to_and_is_the_same_type_as"/>
 
-    	<!--<label text="Pending updates"></label>-->
+    	<label text="Pending updates"></label>
 
                 <block type="s4d_lasercat_switch_switch"></block>
                 <block type="lasercat_jg_case_default"></block>
-                <!--
                     <block type="s4d_lasercat_switch_case"/>
                     <block type="s4d_lasercat_switch_default"/>
                     <block type="s4d_lasercat_switch_break"></block>
-                -->
         <label text="ㅤ" web-class="boldtext"></label>
                 
     </category>
@@ -228,19 +224,16 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_TEXT }}" colour="#5ba58c">
-            <!--
             <block type="text">
                 <field name="TEXT"/>
             </block>
 			<block type="text_multiline">
 				<field name="TEXT"/>
 			</block>
-            -->
 			<block type="jg_text_remake_paragraph_quotes"/>
             <block type="text_join">
                 <mutation items="2" />
             </block>
-            <!--
             <block type="text_replace">
                 <value name="TEXT">
                     <shadow type="text">
@@ -248,7 +241,6 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>               
             </block>
-            -->
 			<block type="jg_text_remake_in_text_replace_with">
                 <value name="ORIGIN">
                     <shadow type="text">
@@ -537,15 +529,22 @@ export default (Blockly, value, searching) => {
 
 <label text="Make global/local variables for functions and other stuff"></label>
 <label text="Compatible with variables category"></label>
-<block type="import_all"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
+<block type="import_all"><value name="VAR"><shadow type="text"><field name="TEXT">hey</field></shadow></value></block>
 
-<block type="express_var"><value name="VAR"><shadow type="text"><field name="TEXT"/>hey</shadow></value></block>
+<block type="express_var">
+    <value name="VAR">
+        <shadow type="text">
+            <field name="TEXT">hey</field>
+        </shadow>
+    </value>
+</block>
 
 <block type="blank"><field name="TEXT"/></block>
 </category>
 
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE"/>
 
+        <category name="Collections" colour="#a354b3" custom="COLLECTIONS"/>
        <category name="Collections" colour="#a354b3">
        
         
@@ -663,6 +662,30 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
+            <block type="gsa_new_object_creator_empty_search_moment_searchMoment">
+                <value name="value">
+                    <shadow type="text">
+                        <field name="TEXT">key</field>
+                    </shadow>
+                </value>
+                <value name="object">
+                    <block type="variables_get">
+                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                    </block>
+                </value>
+            </block>
+            <block type="gsa_new_object_item_creator_empty_search_moment_searchMoment">
+                <value name="value">
+                    <shadow type="text">
+                        <field name="TEXT">key</field>
+                    </shadow>
+                </value>
+                <value name="object">
+                    <block type="variables_get">
+                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                    </block>
+                </value>
+            </block>
 
             <block type="jg_objects_create_new"/>
             <block type="jg_objects_set_key_to_value_in_object">
@@ -715,6 +738,31 @@ export default (Blockly, value, searching) => {
                 </value>
             </block>
 
+
+            <block type="gsa_object_has_value_search_moment">
+                <value name="value">
+                    <shadow type="text">
+                        <field name="TEXT">key</field>
+                    </shadow>
+                </value>
+                <value name="object">
+                    <block type="variables_get">
+                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                    </block>
+                </value>
+            </block>
+            <block type="gsa_delete_object_search_moment_searchMoment">
+                <value name="value">
+                    <shadow type="text">
+                        <field name="TEXT">key</field>
+                    </shadow>
+                </value>
+                <value name="object">
+                    <block type="variables_get">
+                        <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                    </block>
+                </value>
+            </block>
             <label text="For something like getting the amount of keys in an object..." web-class="boldtext"></label>
             <block type="jg_objects_get_objects_key_names_in_list">
                 <value name="OBJECT">
@@ -723,6 +771,9 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
+            <lable text="for working with json" web-class="boldtext"></lable>
+            <block type="frost_json_to_string"/>
+            <block type="gsa_convert_parse_json_so_it_becomes_list_or_object"/>
             <label text="for working with json" web-class="boldtext"></label>
             <block type="frost_json_to_string">
                 <value name="STRING">
@@ -740,7 +791,9 @@ export default (Blockly, value, searching) => {
             </block>
         </category>
 
+        <category name="{{ TOOLBOX_OTHER }}" colour="#D14081"/>
         <category name="{{ TOOLBOX_OTHER }}s" colour="#D14081"> 
+        <block type="gsa_bypass_type"/>
         
         
             <block type="s4d_print">
@@ -763,7 +816,6 @@ export default (Blockly, value, searching) => {
             <block type="s4d_eval"></block>
             <block type="s4d_eval2"></block>
             <block type="s4d_exec"></block>
-            <!--
             <block type="s4d_try_and_catch">
                 <value name="catch">
                     <block type="s4d_print">
@@ -773,7 +825,6 @@ export default (Blockly, value, searching) => {
                     </block>
                 </value>
             </block>
-            -->
             <block type="jg_other_try_catch_finally">
                 <mutation xmlns="http://www.w3.org/1999/xhtml" iferror="true"/>
                 <statement name="IFERROR">
@@ -794,6 +845,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_s4d_other_run_code_inside_file"/>
 	        <block type="is_a_number_or_string"></block>
             <block type="s4d_string_to_number"></block>
+            <block type="frost_json_to_string"/>
             
             <block type="frost_current"/>
             <block type="unix_to_date"/>
@@ -801,11 +853,11 @@ export default (Blockly, value, searching) => {
             <block type="date_to_unix"/>
             <block type="create_qr_then"/>
             <block type="qr"/>
+            <block type="anti_link"/>
             <block type="gsa_bypass_type"/>
         </category>
        
 	  
-<!--
             <category name="V2 Embeds" colour="#cc60db">
             
                 <block type="lime_s4d_embed_create"/>
@@ -831,6 +883,13 @@ export default (Blockly, value, searching) => {
                     </value>
                 </block>
             </category>
+
+        <category name="chatbot" colour="#ff0000">
+        <block type="chat_ahq"/>
+        </category>
+        <category name="mod" colour="#ff0880">
+        <block type="ahq-mod"/>
+        </category>
             
         <category name="Voice" colour="#000099">
         <block type="voice_event"/>
@@ -842,14 +901,12 @@ export default (Blockly, value, searching) => {
         <block type="disconnect_voice"/>
         <block type="act_voice"/>
         </category>
-        </category>
-        -->
 
-        <!--<category name="henpokpok" colour="#64C9FF">
-          <category name="Timeout" colour="#FF6464">-->
-          <!--</category>-->
+        <category name="henpokpok" colour="#64C9FF">
+          <category name="Timeout" colour="#FF6464">
+          </category>
         
-        <!--  <category name="Reactions" colour="#FF6464">
+          <category name="Reactions" colour="#FF6464">
         <label text="Reations event (under construction)" web-class="boldtext"></label>
         <block type="reaction_added"/>
         <block type="reaction_removed"/>
@@ -858,26 +915,25 @@ export default (Blockly, value, searching) => {
         <block type="react_emoji"/>
         <block type="react_messageId"/>
         </category>
-        </category>-->
+        </category>
 	
-	<!--<category name="AlexCdDg" colour="#06cfaa">-->
+	<category name="AlexCdDg" colour="#06cfaa">
         
-        <!--
+        
         <category name="TTS" colour="#1010b5">
         <label text="Connect and use TTS" web-class="boldtext"></label>
         <block type="tts-test"/>
 	<block type="tts_channel"/>
         </category>
-        -->
+        
 
-        <!--
-	<category name="Image Finder" colour="#00c7ad">-->
-        <!--
+        
+	<category name="Image Finder" colour="#00c7ad">
+        
         <block type="get_image"/>
 	    <block type="url_image"/>
-        -->
-    <!--</category>-->
-	<!--
+        
+    </category>
 	<category name="Other" colour="#c70e6d">
         
         <label text="ㅤ" web-class="boldtext"></label>
@@ -890,8 +946,6 @@ export default (Blockly, value, searching) => {
         <block type="vc_kick"/>
        
 	</category>
-    -->
-    <!--
 	<category name="Channel" colour="#0c97f0">
         <label text="ㅤ" web-class="boldtext"></label>
         <block type="category_channel"/>
@@ -905,27 +959,41 @@ export default (Blockly, value, searching) => {
         <block type="new_invite"/>
         <block type="invite_ur"/>
 	</category>
-    -->
- 	<!--</category>-->
+ 	</category>
 
-<!--<category name="frostzzone" colour="#347dfa">-->
+<category name="frostzzone" colour="#347dfa">
 
-<!-- <category name="Useless" colour="#2a46fa" hidden="true">
-<block type="frost_image"/>LINE HIDDEN FROM SEARCH
-<block type="frost_drop1"/>LINE HIDDEN FROM SEARCH
-<block type="poll">LINE HIDDEN FROM SEARCH
-<value name="title">
-<shadow type="text">LINE HIDDEN FROM SEARCH
-<field name="TEXT">Poll time</field>
-</shadow></value>
-<value name="message"><shadow type="text"><field name="TEXT">You like polls?</field></shadow></value><value name="color">
-<block type="colour_picker"> LINE HIDDEN FROM SEARCH 
-</block></value><value name="upvote"><shadow type="text"><field name="TEXT">👍</field></shadow></value><value name="downvote"><shadow type="text">LINE HIDDEN FROM SEARCH 
-<field name="TEXT">👎</field></shadow></value>
-</block>
-</category>-->
+<category name="Useless" colour="#2a46fa" hidden="true">
+    <block type="frost_image"/>
+    <block type="frost_drop1"/>
+    <block type="poll">
+        <value name="title">
+            <shadow type="text">
+                <field name="TEXT">Poll time</field>
+            </shadow>
+        </value>
+        <value name="message">
+            <shadow type="text">
+                <field name="TEXT">You like polls?</field>
+            </shadow>
+        </value>
+        <value name="color">
+            <block type="colour_picker"></block>
+        </value>
+        <value name="upvote">
+            <shadow type="text">
+                <field name="TEXT">👍</field>
+            </shadow>
+        </value>
+        <value name="downvote">
+            <shadow type="text">
+                <field name="TEXT">👎</field>
+            </shadow>
+        </value>
+    </block>
+</category>
 
-<!--<category name="Messages" colour="#2a46fa">
+<category name="Messages" colour="#2a46fa">
 
 <block type="frost_real_reply">
     <value name="CONTENT">
@@ -970,43 +1038,41 @@ export default (Blockly, value, searching) => {
 <label text="For Jose Or Redo Embeds"></label>
 <block type="frost_send_embed_rr"/>
 <label text="ㅤ" web-class="boldtext"></label>
-</category>-->
+</category>
 
 
 
-<!--<category name="Category/Channel" colour="#2f64fa" hidden="false">-->
+<category name="Category/Channel" colour="#2f64fa" hidden="false">
 
 
-<!--<label text="ㅤ" web-class="boldtext"></label>
-</category>-->
+<label text="ㅤ" web-class="boldtext"></label>
+</category>
 
-<!--
+
 <category name="Embed" colour="#40bf4a">
 <label text="For Jose Or Redo Embeds"></label>
 <block type="frost_send_embed_rr"/>
 <label text="ㅤ" web-class="boldtext"></label>
 </category>
--->
 
 
 
 
 
 
-<!--
+
+
 <category name="Other" colour="#5ba58b">
 </category>
--->
-<!--
 <category name="Translate" hidden="true">
-<block name="frost_translate"/>LINE HIDDEN FROM SEARCH
+<block name="frost_translate"/>
 </category>
-</category>-->
+</category>
 
 	            
 					  
 		
-<!--
+
 <category name="Ticketing System" colour="#5b80a5">
 	<label text="You can also type local" web-class="boldtext"></label>
 		<block type="ticket_connect"/>
@@ -1022,15 +1088,15 @@ export default (Blockly, value, searching) => {
 		<block type="slash_unarchieve_ticket"/>
 <block type="slash_message_channel"/>
         </category>
--->
 
-<!--<category name="JeremyGamer13" colour="#FFAA00">-->
-<!--
+
+<category name="JeremyGamer13" colour="#FFAA00">
+
 <label text="Need help? Go to this master document:" web-class="boldtext"></label>
           <label text="shorturl.at/nCFV7" web-class="boldtext"></label>
 <category name="Messaging" colour="210">
--->
-            <!--
+
+            
             <block type="jg_sendImage">
                 <value name="NAME">
                   <block type="text">
@@ -1161,22 +1227,22 @@ export default (Blockly, value, searching) => {
                     <field name="BOOL">FALSE</field>
                   </block>
                 </value>
-            </block>-->
-            <!--</category>-->
+            </block>
+            </category>
             
             
 
 
-<!--
+
 
             <category name="Graphs" colour="90">
             <block type="jg_saveGraph_file"/>
             <block type="jg_saveGraph_convert"/>
             </category>
 
--->
 
-	   <!-- 
+
+	   
 <category name="Public Experiments" colour="120">
     <block type="jg_experiments_xml2json">
         <value name="CONTENT">
@@ -1188,9 +1254,9 @@ export default (Blockly, value, searching) => {
             </shadow>
         </value>
     </block>
-</category>-->
+</category>
 
-        <!--</category>-->
+        </category>
         
         <sep class="bt"/>
         <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
@@ -1222,14 +1288,19 @@ export default (Blockly, value, searching) => {
             <block type="s4d_on_connected"></block>
             <label text="%{BKY_BOT_INFORMATIONS}"></label>
             <block type="jg_base_bot"/>
+            <block type="s4d_bot_ping"></block>
             <block type="s4d_bot_server_count"></block>
             <block type="s4d_bot_startup_time"></block>
             <block type="s4d_get_bot"></block>
 						<block type="s4d_bot_amount"/>
+                        <block type="jg_s4duptime"/>
             <label text="%{BKY_BOT_ACTIONS}"></label>
             <block type="s4d_set_bot_game"></block>
             <block type="s4d_set_bot_stream_text"></block>
             <block type="s4d_bot_shutdown"></block>
+	    <block type="setbot"/>
+<label text="{@user} = user ping . {user_tag} = user tag" web-class="boldtext"></label>
+            <block type="start_antispam"/>
             <label text="Some more advanced features" web-class="boldtext"></label>
             <block type="jg_when_ran"/>
             <block type="jg_rbs_isRunButton"/>
@@ -1239,7 +1310,7 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#4C97FF">
-            <!--
+            
             <category name="Handling" colour="#4C97FF"/>
             <category name="Embeds" colour="#4c8eff">
                 <category name="Constructor" colour="#4c8eff"/>
@@ -1247,7 +1318,7 @@ export default (Blockly, value, searching) => {
             </category>
             <category name="Reactions" colour="#4c82ff"/>
             <category name="Webhooks" colour="#4c76ff"/>
-            -->
+            
 
             <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
 			
@@ -1260,9 +1331,9 @@ export default (Blockly, value, searching) => {
             <block type="s4d_message_channel"></block>
             <block type="frost_message_category"></block>
             <block type="s4d_message_guild"></block>
-            <!--
+            
                 <block type = 'lime_s4d_message_context'/>
-            -->
+            
 
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
 
@@ -1274,9 +1345,9 @@ export default (Blockly, value, searching) => {
             <block type="s4d_mentioned_member"></block>
             <block type="s4d_mentioned_channel"></block>
             <block type="s4d_mentioned_role"></block>
-            <!--
+            
                 <block type= 'lime_s4d_message_attributes_content_author_id_timestamp'/>
-            -->
+            
             <block type='lime_msg_author_attributes'/>
 
             <label text="Attributes of the message"></label>
@@ -1305,9 +1376,9 @@ export default (Blockly, value, searching) => {
                     <shadow type="Message"/>
                 </value>
             </block>
-            <!--
+            
             <block type="ahq_embed_is"/>
-            -->
+            
             <block type="ahq_embed_info">
                 <value name="member">
                     <shadow type="Message"/>
@@ -1324,13 +1395,13 @@ export default (Blockly, value, searching) => {
 
             <label text="Get attachments on the message" web-class="boldtext"></label>
                 
-                    <!--
+                    
                     <block type="att_size">
                         <value name="MESSAGE">
                             <shadow type="Message"/>
                         </value>
                     </block>
-                    -->
+                    
                     <block type="jg_attachment_amount_of_attachments_on_message">
                         <value name="MESSAGE">
                             <shadow type="Message"/>
@@ -1360,11 +1431,9 @@ export default (Blockly, value, searching) => {
                             </block>
                         </value>
                     </block>
-                    <!--
                     <block type="att_name"/>
                     <block type="att_type"/>
                     <block type="att_url"/>
-                    -->
     
 
             <label text="Respond to a recieved message"></label>
@@ -1536,11 +1605,15 @@ export default (Blockly, value, searching) => {
             <block type="s4d_wait_react_emoji_name"></block>
 
             <block type="lime_s4d_pin"/>
+            <block type="s4d_message_embed"/>
+            <block type="frost_create_field"/>
+            <block type="frost_add_field"/>
             <block type="jg_messages_crosspost_message">
                 <value name="MESSAGE">
                     <block type="Message"/>
                 </value>
             </block>    
+            <block type="anti_spam"/>       
             <label text="Simple Embeds! If you want to keep it all simple, use these embeds."></label>
             <block type="gsa_simple_embed"/>
             <block type="gsa_set_simple_embed_author"/>
@@ -1556,6 +1629,53 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <category name="Threads" colour="#478ded">
+        
+            <label text="%{BKY_LABEL_THREAD_MESSAGE}"/>
+            <block type="s4d_on_thread_message"/>
+            <block type="s4d_send_thread"/>
+            <label text="Thread message info"/>
+            <block type="s4d_thread_message_content"/>
+            <block type="s4d_thread_message_id"/>
+            <block type="s4d_thread_message_author"/>
+            <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"/>
+            <block type="s4d_message_thread"/>
+            <block type="s4d_server_thread"/>
+            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"/>
+            <block type="s4d_thread_message_author_raw"/>
+            <block type="s4d_thread_raw"/>
+            <block type="s4d_thread_guild_raw"/>
+            <label text="%{BKY_MESSAGE_ACTIONS}"/>
+            <block type="s4d_message_start_thread"/>
+            <block type="s4d_start_thread"/>
+            <block type="s4d_started_thread"/>
+            <block type="s4d_thread_reply">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+                <value name="MENTION">
+                    <block type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </block>
+                </value>
+            </block>
+            <block type="s4d_thread_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_thread_message_delete"/>
+            <label text="%{BKY_LABEL_THREAD_ARCHIVE}"/>
+            <block type="s4d_on_thread_archive"/>
+            <block type="s4d_on_thread_unarchive"/>
+            <block type="s4d_unarchived_thread"/>
+            <label text="%{BKY_THREAD_CREATE_LABEL}"/>
+            <label text="%{BKY_THREAD_DELETE_LABEL}"/>
+            <label text="%{BKY_THREAD_OTHER_LABEL}"/>
+	        <block type="jg_monaco_threads_add_member_to_from_thread_with_reason"/>
             <label text="Find a thread"/>
             <block type="s4d_thread_get_then">
               <value name="ID">
@@ -1708,11 +1828,9 @@ export default (Blockly, value, searching) => {
                 <block type="on_channelTopicChange"/>
                 <block type="s4d_channel_raw"/>
                 <block type="topic"/>
-                <!--
                 <block type="on_channelPermissionsChange"/>
                 <block type="s4d_channel_raw"/>
                 <block type="permissions"/>
-                -->
             </category>
             <category name="Scheduled events" colour="#AF88E2">
             
@@ -1748,6 +1866,15 @@ export default (Blockly, value, searching) => {
                 <block type="on_stickerupdate"></block>
                 <block type="su_name"></block>
             </category>
+	    
+	    <category name="Stickers" colour="#02a836">
+        <block type="create_sticker"/>
+        <block type="get_sticker"/>  
+        <block type="delete_sticker"/>  
+        <block type="sticker_exist"/> 
+        <block type="send_sticker"/> 
+        <block type="info_of_sticker"/> 
+        </category>
             <category name="Member Roles" colour="#39A9E3">
             
                 <block type="on_roleadd"/>
@@ -1755,12 +1882,10 @@ export default (Blockly, value, searching) => {
                 <block type="event-role"/>
                 <block type="member_raw"/>
                 <block type="member"/>
-                <!--
                 <block type="on_roleremove"/>
                 <block type="event-role"/>
                 <block type="member_raw"/>
                 <block type="member"/>
-                -->
             </category>
             <category name="Bot Added" colour="#a17722">
             
@@ -1818,16 +1943,127 @@ export default (Blockly, value, searching) => {
         </category>
         <sep class="bt"/>
         <category name="Embeds" colour="#fcca03">
-            <!--
             <label text="Want to create an embed quickly?" web-class="boldtext"></label>
             <label text="Try the new Embed Creator Menu!" web-class="boldtext"></label>
             <button text="Simple Embed Creator" callbackKey="EMBED_GUI_POPUP"></button>
+            <label text="(Beta, 1.0)" web-class="boldtext"></label>
             <label text="(Highly work in progress, 0.1)" web-class="boldtext"></label>
             <label text=""></label>
             <label text="Send a generated embed" web-class="boldtext"></label>
             <block type="s4d_embed_send"></block>
-	    -->
             
+            <category name="Non-Nameable" colour="#fc8c03"/>
+            <category name="Nameable" colour="#fc7703"/>
+            <category name="Constructor" colour="#fc8c03">
+            
+                <label text="Create a perfect embed" web-class="boldtext"></label>
+                <block type="s4d_embed_create"></block>
+                <block type="s4d_embed_set_color">
+                <value name="COLOUR">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#6666cc</field>
+                    </shadow>
+                  </value></block>
+                <block type="s4d_embed_set_author">
+                 <value name="AUTHOR">
+                    <block type="s4d_member_username">
+                        <field name="s4d_member_username"></field>
+                    </block>
+                  </value>
+                </block>
+                <block type="s4d_embed_set_title">
+                  <value name="TITLE">
+                    <shadow type="text">
+                        <field name="TEXT">Some title</field>
+                    </shadow>
+                  </value>
+                </block>
+                <block type="s4d_embed_set_desc">
+                  <value name="DESC">
+                    <shadow type="text">
+                        <field name="TEXT">Some desc here...</field>
+                    </shadow>
+                  </value>
+                </block>
+                <block type="s4d_embed_set_thumb">
+                  <value name="THUMB">
+                    <shadow type="text">
+                        <field name="TEXT">https://image.com</field>
+                    </shadow>
+                  </value>
+                </block>
+                <block type="s4d_embed_add_field">
+                  <value name="TITLE">
+                    <shadow type="text">
+                        <field name="TEXT">Some field title</field>
+                    </shadow>
+                  </value>
+                  <value name="DESCRIPTION">
+                    <shadow type="text">
+                        <field name="TEXT">Some desc here...</field>
+                    </shadow>
+                  </value>
+                  <value name="INLINE">
+                    <shadow type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </shadow>
+                  </value>
+                </block>
+                <block type="s4d_embed_set_image">
+                  <value name="IMAGE">
+                    <shadow type="text">
+                        <field name="TEXT">https://image.com</field>
+                    </shadow>
+                  </value>
+                </block>
+                <block type="s4d_embed_set_footer">
+                  <value name="FOOTER">
+                    <shadow type="text">
+                        <field name="TEXT">Some footer text here...</field>
+                    </shadow>
+                  </value></block>
+                <label text="Custom date format: MM-DD-YYYY" web-class="boldtext"></label>
+                <block type="s4d_embed_set_timestamp"></block>
+                <label text="Send a perfect embed (use with reply bl)" web-class="boldtext"></label>
+                <block type="s4d_embed_send"></block>
+            </category>
+            <category name="Objects" colour="#fc7703">
+                
+                <block type="gsa_create_embed"/>
+                <label text="note that you CANNOT put ANYTHING other then these blocks in the create embed block" web-class="boldtext"></label>
+                <block type="gsa_set_embed_color"/>
+
+                <block type="gsa_set_embed_title"/>
+
+                <block type="gsa_set_embed_author"/>
+
+                <block type="gsa_set_embed_description"/>
+
+                <block type="gsa_set_embed_thumbnail"/>
+
+                <block type="gsa_create_fields"/>
+
+                <block type="gsa_add_blank_field"/>
+
+                <block type="gsa_add_field"/>
+
+                <block type="gsa_set_embed_image"/>
+                <label text="leave the date blank for current date" web-class="boldtext"></label>
+                <block type="gsa_set_embed_timestamp"/>
+
+                <block type="gsa_set_embed_footer"/>
+
+                <block type="gsa_send_embed"/>
+
+                <label text="Simple Embeds! If you want to keep it all simple, use these embeds."></label>
+                <label text="But we prefer using the other ones as they may not always work."></label> 
+                <label text="THESE BLOCKS DO NOT WORK WITH OTHER EMBED SETS!" web-class="boldtext"></label>
+                <block type="gsa_simple_embed"/>
+                <block type="gsa_set_simple_embed_author"/>
+                <block type="gsa_set_simple_embed_footer"/>
+                <block type="gsa_create_simple_embed_fields"/>
+                <block type="gsa_simple_field"/>
+            </category>
             <label text="Create a perfect embed" web-class="boldtext" css-container="yourClassName"></label>
             <block type="s4d_embed_create"></block>
             <block type="s4d_embed_set_color">
@@ -1939,7 +2175,6 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
-<!--
             <block type="frost_slash_sub_command_group">
                 <value name="NAME">
                     <shadow type="text">
@@ -1998,7 +2233,6 @@ export default (Blockly, value, searching) => {
                     </shadow>
                 </value>
             </block>
-            -->
             <block type="frost_slash_choices">
                 <value name="NAME">
                     <shadow type="text">
@@ -2047,9 +2281,7 @@ export default (Blockly, value, searching) => {
                     <block type="id_btn_clkr"/>
                     <block type="id_btn_ahq"/>
                     <label text="Embed Information" web-class="boldtext"></label>
-                    <!--
                     <block type="embed_btn_ahq"/>
-                    -->
                     <block type="embed_send_round">
                         <value name="Label">
                             <shadow type="text">
@@ -2180,9 +2412,7 @@ export default (Blockly, value, searching) => {
                         </value>
                     </block>
                     <block type="ahq_ahq_ahq_modal"/>
-                    <!--
                     <block type="ahqq_ahq_modal"/>
-                    -->
                     <label text="Form Info" web-class="boldtext"></label>
                     <block type="id_form_ahq"/>
                     <block type="id_textbox_ahq"/>
@@ -2315,7 +2545,6 @@ export default (Blockly, value, searching) => {
             <label text="%{BKY_LABEL_SERVER_INFOS}"></label>
 
 	        <block type="server_attributes"/>
-            <!--
 	            <block type="set_server_something">
                    <value name="reason">
                        <shadow type ="text">
@@ -2323,7 +2552,6 @@ export default (Blockly, value, searching) => {
                         </shadow>
                    </value>
                 </block>
-            -->
             <block type="s4d_server_name"></block>
             <block type="s4d_member_count"></block>
             <block type="s4d_icon_url"></block>
@@ -2332,9 +2560,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_server_owner"></block>
             <block type="s4d_server_created_at"></block>
             <block type="s4d_number_of__server"></block>
-            <!--
                 <block type="jg_monaco_servers_amount_of_channels_in_server"/>
-            -->
 
             <label text="Bot server actions"></label>
 
@@ -2436,9 +2662,7 @@ export default (Blockly, value, searching) => {
             <block type="monaco_slowmode_of_channel"/>
             <block type="s4d_channel_exist"/>
             <block type="s4d_is_channel_nsfw"/>
-            <!--
             <block type="isdm"/>
-            -->
             <block type="frost_category_id"/>
 
             <label text="Finding content in the channel"></label>
@@ -2512,9 +2736,7 @@ export default (Blockly, value, searching) => {
             <block type="renamec"/>
             <block type="channel_perms"/>
             <block type="set_perms_parent"/>
-            <!--
                 <block type="slowmode"/>
-            -->
             <block type="frost_slowmode">
                 <value name="CHANNEL">
                     <shadow type="s4d_message_channel"/>
@@ -2643,12 +2865,8 @@ export default (Blockly, value, searching) => {
             <block type="jg_roles_get_all_member_roles_then_for_each_do"/>
             <block type="jg_roles_get_all_member_roles_then_for_each_do_role"/>
             <block type="hig_role"/>
-            <!--
             <block type="monaco_members_with_role"/>
-            -->
-            <!--
             <block type="monaco_random_role"/>
-            -->
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
             <block type="fz_role_info_text"/>
             <block type="fz_role_info_num"/>
@@ -2712,9 +2930,7 @@ export default (Blockly, value, searching) => {
             <label text="Information about a Server Member (6 options)"></label>
             <block type="jg_members_member_is_value"/>
             <label text="Blocks for users"></label>
-            <!--
             <block type="jg_members_user_accent_color"/>
-            -->
             <block type="jg_member_is_user_in_server"/>
             <block type="jg_members_user_exactly_equals_user"/>
             <label text="Information about a User (20 options)"></label>
@@ -2763,15 +2979,20 @@ export default (Blockly, value, searching) => {
         </category>
         <category name="Emojis" colour="#347dfa" hidden="false">
         
+            <label text="Welcome to emojis"></label>
             <label text="Create/Fetch Emojis"></label>
             <block type="fz_get_emoji"/>
             <block type="fz_create_emoji"/>
+            <block type="fz_delete_emoji"/>
             <block type="fz_get_all_emoji"/>
             <block type="fz_get_all_emoj"/>
             <label text="Read Emojis"></label>
             <block type="fz_emoji_info"/>
             <block type="fz_emoji_animated"/>
             <block type="fz_emoji_exist"/>
+            <block type="fz_get_all_emoji"/>
+            <block type="fz_get_all_emoj"/>
+            <block type="fz_unlock_emoji"/>
             <label text="Actions on Emojis"></label>
             <block type="fz_lock_emoji"/>
             <block type="fz_unlock_emoji"/>
@@ -2820,41 +3041,52 @@ export default (Blockly, value, searching) => {
                 <block type="get_member_invites"/>
         </category>
         <sep class="bt"/>
+    <category name="Web Requests" colour="#4C97FF"/>
     <category name="Websites" colour="#4C97FF">
           <category name="Dashboard" colour="#7c87f2">
           <label text="Initialize a new dashboard"/>
-              <block type="initialize_dashboard"></block>
+              <block type="initialize_dashboard">
+                    <value name="permissions">
+                        <shadow type="lists_create_with"></shadow>
+                    </value>
+                </block>
           <label text="[OPTIONAL] Cookies"/>
               <block type="new_session_obj">
                 <value name="secure">
-                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                     <block type="logic_boolean">
                         <field name="BOOL">FALSE</field>
                     </block>
                   </value>
                 <value name="httpOnly">
-                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                     <block type="logic_boolean">
                         <field name="BOOL">FALSE</field>
                     </block>
                   </value>
                 <value name="resave">
-                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                     <block type="logic_boolean">
                         <field name="BOOL">FALSE</field>
                     </block>
                   </value>
                 <value name="saveUninitialized">
-                     <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                     <block type="logic_boolean">
                         <field name="BOOL">FALSE</field>
                     </block>
                   </value>
               </block>
            <block type="random_sekret"></block>
           <label text="Add inputs"/>
+          <block type="add_inputs"></block>
               <block type="add_text_input"></block>
               <block type="add_boolean_input"></block>
-              <block type="add_dropdown_input"></block>
+              <block type="add_dropdown_input">
+                    <value name="selector_entries">
+                        <shadow type="lists_create_with"></shadow>
+                    </value>
+                </block>
               <block type="new_couple"></block>
               <block type="add_color_input"></block>
           <label text="[OPTIONAL] Commands page tab"/>
+          <block type="register_commands"></block>
               <block type="add_command_dash">
                     <value name="NAME">
                         <shadow type="text">
@@ -2875,6 +3107,7 @@ export default (Blockly, value, searching) => {
           <label text="Variables"/>
               <block type="dash_guild_id"></block>
               <block type="dash_value"></block>
+              <block type="add_text_input"></block>
           </category>
         <category name="Creation" colour="#4c8eff">
             <block type="jg_express_start_website_then_using_port"/>
@@ -3174,9 +3407,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_roblox_U2_decline_all_friend_requests"/>
             <block type="jg_roblox_U2_block_user"/>
             <block type="jg_roblox_U2_unblock_user"/>
-            <!--
             <block type="jg_roblox_U2_follow_user_id"/>
-            -->
             <block type="jg_roblox_U2_unfollow_user_id"/>
             <block type="jg_roblox_U2_send_message_to_user_id"/>
             <block type="jg_roblox_U2_send_friend_request"/>
@@ -3234,6 +3465,1024 @@ export default (Blockly, value, searching) => {
 			<block type="s4d_snake"/>
             <block type="snake_js"/>
             <block type="s4d_cal"/>
+          <label text="Tic Tac Toe game FROM MESSAGE"/>
+            <label text="Tic Tac Toe game FROM MESSAGE"/>
+              <block type="tictactoe"></block>
+              <block type="tictactoe">
+              
+              <value name="EMB_TITLE">
+                <shadow type="text">
+                    <field name="TEXT">Tic Tac Toe</field>
+                </shadow>
+                </value>
+              </block>
+              <block type="tictactoe">
+                    <value name="emb_title">
+                        <shadow type="text">
+                            <field name="TEXT">Tic Tac Toe</field>
+                        </shadow>
+                    </value>
+                    <value name="gover_title">
+                        <shadow type="text">
+                            <field name="TEXT">Game Over</field>
+                        </shadow>
+                    </value>
+                    <value name="color">
+                        <shadow type="text">
+                            <field name="TEXT">#5865F2</field>
+                        </shadow>
+                    </value>
+                    <value name="oEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">🔵</field>
+                        </shadow>
+                    </value>
+                    <value name="xEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">❌</field>
+                        </shadow>
+                    </value>
+                    <value name="blankEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">➖</field>
+                        </shadow>
+                    </value>
+                    <value name="waitMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Waiting for the opponent...</field>
+                        </shadow>
+                    </value>
+                    <value name="turnMessage">
+                        <shadow type="text">
+                            <field name="TEXT">{emoji} | Its now **{player}** turn!</field>
+                        </shadow>
+                    </value>
+                    <value name="askMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Hey {opponent}, {challenger} challenged you for a game of Tic Tac Toe!</field>
+                        </shadow>
+                    </value>
+                    <value name="cancelMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Looks like they refused to have a game of Tic Tac Toe. \:(</field>
+                        </shadow>
+                    </value>
+                    <value name="timeEndMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Since the opponent didnt answer, i dropped the game!</field>
+                        </shadow>
+                    </value>
+                    <value name="drawMessage">
+                        <shadow type="text">
+                            <field name="TEXT">It was a draw!</field>
+                        </shadow>
+                    </value>
+                    <value name="winMessage">
+                        <shadow type="text">
+                            <field name="TEXT">{emoji} | **{winner}** won the game!</field>
+                        </shadow>
+                    </value>
+                    <value name="gameEndMessage">
+                        <shadow type="text">
+                            <field name="TEXT">The game went unfinished :(</field>
+                        </shadow>
+                    </value>
+              </block>
+            <label text="Tic Tac Toe game FROM SLASH COMMAND"/>
+              <block type="slash_tictactoe"></block>
+              <block type="slash_tictactoe">
+                    <value name="emb_title">
+                        <shadow type="text">
+                            <field name="TEXT">Tic Tac Toe</field>
+                        </shadow>
+                    </value>
+                    <value name="gover_title">
+                        <shadow type="text">
+                            <field name="TEXT">Game Over</field>
+                        </shadow>
+                    </value>
+                    <value name="color">
+                        <shadow type="text">
+                            <field name="TEXT">#5865F2</field>
+                        </shadow>
+                    </value>
+                    <value name="oEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">🔵</field>
+                        </shadow>
+                    </value>
+                    <value name="xEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">❌</field>
+                        </shadow>
+                    </value>
+                    <value name="blankEmoji">
+                        <shadow type="text">
+                            <field name="TEXT">➖</field>
+                        </shadow>
+                    </value>
+                    <value name="waitMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Waiting for the opponent...</field>
+                        </shadow>
+                    </value>
+                    <value name="turnMessage">
+                        <shadow type="text">
+                            <field name="TEXT">{emoji} | Its now **{player}** turn!</field>
+                        </shadow>
+                    </value>
+                    <value name="askMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Hey {opponent}, {challenger} challenged you for a game of Tic Tac Toe!</field>
+                        </shadow>
+                    </value>
+                    <value name="cancelMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Looks like they refused to have a game of Tic Tac Toe. \:(</field>
+                        </shadow>
+                    </value>
+                    <value name="timeEndMessage">
+                        <shadow type="text">
+                            <field name="TEXT">Since the opponent didnt answer, i dropped the game!</field>
+                        </shadow>
+                    </value>
+                    <value name="drawMessage">
+                        <shadow type="text">
+                            <field name="TEXT">It was a draw!</field>
+                        </shadow>
+                    </value>
+                    <value name="winMessage">
+                        <shadow type="text">
+                            <field name="TEXT">{emoji} | **{winner}** won the game!</field>
+                        </shadow>
+                    </value>
+                    <value name="gameEndMessage">
+                        <shadow type="text">
+                            <field name="TEXT">The game went unfinished :(</field>
+                        </shadow>
+                    </value>
+              </block>
+		</category>
+    </category>
+    <category name="Securing" colour="#4c61ff">
+        <label text="Output blocks" web-class="boldtext"></label>
+           <label text="Securing text" web-class="boldtext"></label>
+
+            <block type="catsoup_encryption_sha256">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+            </block>
+            <block type="jg_encryption_encrypt_text">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+                <value name="key">
+                    <shadow type="frost_env">
+                        <value name="VALUE">
+                            <shadow type="text">
+                                <field name="TEXT">encryptionKey</field>
+                            </shadow>
+                        </value>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_encode_hash">
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+                <value name="rounds">
+                    <shadow type="math_number">
+                        <field name="NUM">10</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="jg_encode_checkhash">
+                <value name="hash">
+                    <shadow type="text"/>
+                </value>
+                <value name="test">
+                    <shadow type="text"/>
+                </value>
+            </block>
+	    <block type="create_random_string"/>
+        <label text="Encoding text" web-class="boldtext"></label>
+            <block type="jg_encode_main">
+                <value name="type">
+                    <shadow type="jg_bDI_encodedecodetype"/>
+                </value>
+                <value name="type2">
+                    <shadow type="jg_bDI_encodedecodetype"/>
+                </value>
+                <value name="encode">
+                    <shadow type="text"/>
+                </value>
+            </block>
+        <label text="Functions" web-class="boldtext"></label>
+    </category>
+        <sep class="bt"/>
+            <category name="Files" colour="#faaf00">
+                <category name="Text" colour="#fa9e00">
+                    <category name="File Editing" colour="45">
+                        <block type="jg_file_create"/>
+                        <block type="jg_file_contents"/>
+                        <block type="jg_file_extension"/>
+                        <block type="jg_file_metadata"/>
+                        <block type="jg_file_foreachfile"/>
+                        <block type="jg_file_foreachfileinput"/>
+                    </category>
+                    <category name="filesystem (fs)" colour="#347dfa">
+                        <block type="frost_fs_read">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_append">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_write">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_rename">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <block type="frost_fs_delete">
+                            <statement name="THEN">
+                                <block type="controls_if">
+                                    <value name="IF0">
+                                        <block type="frost_other_err">
+                                        </block>
+                                    </value>
+                                    <statement name="DO0">
+                                        <block type="s4d_print">
+                                            <value name="PRINT">
+                                                <block type="frost_other_err">
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </statement>
+                                </block>
+                            </statement>
+                        </block>
+                        <label text="For open and read (Gives the contents of the file)"></label>
+                        <block type="frost_fs_data"/>
+                        <label text="For if you get an error (is a boolean and string)"></label>
+                        <block type="frost_fs_err"/>
+                        <label text="ㅤ" web-class="boldtext"></label>
+                    </category>
+                </category>
+                <category name="Data" colour="#fa9200">
+                    <category name="Data Blocks" colour="230">
+                        <block type="jg_web_currentdata"/>
+                        <block type="jg_web_valueofkey"/>
+						<block type="jg_web_keywithvalue"/>
+                        <block type="jg_web_valueofflkey"/>
+                        <block type="jg_web_haskey"/>
+                        <block type="jg_web_allkey"/>
+						<block type="jg_web_allval"/>
+                        <block type="jg_web_keycount"/>
+                        <block type="jg_web_keynumber"/>
+                        <label text="Loops" web-class="boldtext"></label>
+                        <block type="jg_web_foreachkey"/>
+                        <block type="jg_web_foreachkeyinput"/>
+                    </category>
+                </category>
+                <category name="Images" colour="#fa8100">
+                    <category name="Image Editing" colour="#e67600">
+                        <label text="Creating / Editing an image" web-class="boldtext"></label>
+                        <label text="Getting started" web-class="boldtext"></label>
+                        <block type="jg_beginJimp"/>
+                        <block type="jg_saveJimpageAs"/>
+                        <label text="Effects and extras" web-class="boldtext"></label>
+                        <block type="jg_jimp_drawtext"/>
+                        <block type="jg_jimp_U2_drawtext"/>
+                        <block type="jg_jimp_brightnesscontrast"/>
+                        <block type="jg_jimp_basicE"/>
+                        <block type="jg_jimp_tpixels"/>
+                        <block type="jg_jimp_opacity"/>
+                        <block type="jg_jimp_width"/>
+                        <block type="jg_jimp_height"/>
+                        <block type="jg_jimp_resize"/>
+                        <block type="jg_jimp_resizeMethods"/>
+                        <block type="jg_jimp_scale"/>
+                        <block type="jg_jimp_crop"/>
+                        <block type="jg_jimp_flip"/>
+                        <block type="jg_jimp_rotate"/>
+                        <block type="jg_jimp_blit"/>
+                        <block type="jg_jimp_composite"/>
+                        <block type="jg_jimp_mask"/>
+                        <block type="jg_jimp_pixelate">
+                            <value name="X">
+                                <block type="math_number">
+                                    <field name="NUM">0</field>
+                                </block>
+                            </value>
+                            <value name="Y">
+                                <block type="math_number">
+                                    <field name="NUM">0</field>
+                                </block>
+                            </value>
+                            <value name="Width">
+                                <block type="jg_jimp_width"/>
+                            </value>
+                            <value name="Height">
+                                <block type="jg_jimp_height"/>
+                            </value>
+                        </block>
+                        <block type="jg_jimp_qblur"/>
+                        <block type="jg_jimp_sblur"/>
+                        <block type="jg_jimp_poster"/>
+                        <block type="jg_jimp_jpgqual"/>
+                        <block type="jg_jimp_convolute"/>
+                        <block type="jg_jimp_kernels"/>
+                        <block type="jg_jimp_setpixel"/>
+                        <block type="jg_jimp_getpixel"/>
+                    </category>
+                    <category name="Simple Effects" colour="#cf6b00">
+                        <label text="Generating simple effects" web-class="boldtext"></label>
+                        <block type="1imagepng">
+                            <mutation divisor_input="true"/>
+                        </block>
+                        <block type="1imagegif"/>
+                        <block type="2imagepng"/>
+                        <block type="load_gif"/>
+                        <block type="load_image"/>
+                        <block type="send_on_channel"/>
+                        <block type="jose_send_image_slash"/>
+                    </category>
+                    <category name="Captchas" colour="#b85f00">
+                        <label text="Captchas" web-class="boldtext"></label>
+                        <block type="create_captcha"/>
+                        <block type="captcha_image"/>
+                        <block type="captcha_value"/>
+                        <block type="send_captcha"/>
+                    </category>
+                    <category name="Member Cards" colour="#a85700">
+                        <label text="Send any created card"></label>
+					    <block type="s4d_send_in_channel"/>
+                        <label text="Welcome card"></label>
+					    <block type="s4d_create_welcome_then"/>
+					    <block type="s4d_set_username"/>
+					    <block type="s4d_set_member_count"/>
+					    <block type="s4d_set_discriminator"/>
+					    <block type="s4d_set_background"/>
+					    <block type="s4d_set_avatar"/>
+					    <block type="s4d_set_guild_name"/>
+					    <block type="s4d_set_color"/>
+                        <label text="Goodbye card"></label>
+						<block type="s4d_create_goodbye_then"/>
+						<block type="s4d_set_username"/>
+						<block type="s4d_set_member_count"/>
+						<block type="s4d_set_discriminator"/>
+						<block type="s4d_set_background"/>
+						<block type="s4d_set_avatar"/>
+						<block type="s4d_set_guild_name"/>
+						<block type="s4d_set_color"/>
+                        <label text="Rank card"></label>
+						<block type="s4d_create_rankcard_then"/>
+						<block type="s4d_set_badge"/>
+						<block type="s4d_set_xp"/>
+						<block type="s4d_set_username"/>
+						<block type="s4d_set_background"/>
+						<block type="s4d_set_avatar"/>
+						<block type="s4d_set_rank_name"/>
+						<block type="s4d_set_rank"/>
+						<block type="s4d_set_level"/>
+						<block type="s4d_set_reputation"/>
+						<block type="s4d_set_color_r"/>
+						<label text="%{BKY_TEXT1}"/>
+						<label text="%{BKY_TEXT2}"/>
+						<label text="%{BKY_TEXT3}"/>
+						<label text="%{BKY_TEXT4}"/>
+						<block type="s4d_set_text"/>
+						<block type="s4d_set_transparency"/>
+						<block type="s4d_set_radius"/>
+						<block type="s4d_set_addon"/>
+				    </category>
+                </category>
+                <category name="Video" colour="#fa7000">
+                    <label text="Warning!"></label>
+                    <label text="Repl.it currently doesn't support FFMPEG, which video blocks need!"></label>
+                    <label text="It should work if your hosting your bot on your PC though."></label>
+                    <button text="How to install FFMPEG" callbackKey="FFMPEG"></button>
+                    <block type="jg_files_ffmpeg_video_get_video_with_file_name_then">
+                        <value name="FILE">
+                            <shadow type="text">
+                                <field name="TEXT">MyVideo.mp4</field>
+                            </shadow>
+                        </value>
+                    </block>
+                </category>
+            </category>
+            <category name="Databases" colour = "#2AC395">
+
+            <category name="Mongo" colour="#0db550">
+        <label text="connect to MongoDB"></label>
+        <block type="mongo_on"></block>
+        <block type="mongo_connect">
+        <value name="URL">
+        <shadow type="text">
+            <field name="TEXT">mongodb url</field>
+        </shadow>
+    </value>
+        </block>
+        <label text="nerd blocks"></label>
+        <block type="mongo_get_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_has_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_set_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="VALUE">
+                <shadow type="text">
+                    <field name="TEXT">world</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_push_data">
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">hello</field>
+            </shadow>
+        </value>
+        <value name="VALUE">
+            <shadow type="text">
+                <field name="TEXT">world</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="mongo_pull_data">
+    <value name="KEY">
+        <shadow type="text">
+            <field name="TEXT">hello</field>
+        </shadow>
+    </value>
+    <value name="VALUE">
+        <shadow type="text">
+            <field name="TEXT">world</field>
+        </shadow>
+    </value>
+</block>
+        <block type="mongo_delete_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_add_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">points</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_subtract_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">points</field>
+                </shadow>
+            </value>
+        </block>
+</category>
+            <category name="{{ TOOLBOX_DATABASE }}" colour="#F1DA54"/>
+
+            
+            
+            <category name="JSON" colour="#F1DA54">
+             <label text="Simplest database"></label>
+             <label text="Create a new database name and file"></label>
+             <block type="gsa_make_db_with_path_x"/>
+             <block type="s4d_database_create_new">
+            <value name="NAME">
+                <shadow type="text">
+                  <field name="TEXT">database1</field>
+                </shadow>
+            </value>
+            <value name="FILE">
+                <shadow type="text">
+                  <field name="TEXT">database</field>
+                </shadow>
+            </value>
+            </block>
+            <label text="%{BKY_LABEL_READ_DB}"></label>
+            <block type="s4d_get_data_new">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
+            </block>
+            <block type="s4d_has_data_new">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                 <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
+            </block>
+            <block type="s4d_get_all_data_new">
+            <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
+            </block>
+            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
+            <block type="s4d_set_data_new">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
+            </block>
+            <block type="s4d_push_data_new">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
+            </block>
+            <block type="s4d_delete_data_new">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
+            </block>
+            <block type="s4d_add_data_new">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
+            </block>
+            <block type="s4d_subtract_data_new">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">points</field>
+                    </shadow>
+                </value>
+                <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+                </value>
+            </block>
+            <block type="s4d_delete_all_data_new">
+              <value name="NAME">
+                  <shadow type="text">
+                    <field name="TEXT">database1</field>
+                  </shadow>
+              </value>
+            </block>
+            <label text="ㅤ" web-class="boldtext"></label>
+        </category>
+
+        <category name="Replit DB" colour="#150b91">
+        
+        <block type="parham_replitdb_setto">
+            <value name="set">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="to">
+                <shadow type="text">
+                    <field name="TEXT">world</field>
+                </shadow>
+            </value>
+        </block>
+        <label text="On These Blocks You Can Use Data Block"/>
+        <block type="parham_replitdb_getall"/>
+        <block type="parham_replitdb_get">
+            <value name="get">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="parham_replitdb_data"/>
+        <label text="You Can't Use Data Block On This Blocks"/>
+        <block type="parham_replitdb_delete">
+            <value name="delete">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        </category>
+
+<category name="MongoDB" colour="#0db550">
+        <label text="connect to MongoDB"></label>
+        <block type="mongo_on"></block>
+        <block type="mongo_connect">
+        <value name="URL">
+        <shadow type="text">
+            <field name="TEXT">mongodb url</field>
+        </shadow>
+    </value>
+        </block>
+        <label text="nerd blocks"></label>
+        <block type="mongo_get_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_has_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_set_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="VALUE">
+                <shadow type="text">
+                    <field name="TEXT">world</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_push_data">
+        <value name="KEY">
+            <shadow type="text">
+                <field name="TEXT">hello</field>
+            </shadow>
+        </value>
+        <value name="VALUE">
+            <shadow type="text">
+                <field name="TEXT">world</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="mongo_pull_data">
+    <value name="KEY">
+        <shadow type="text">
+            <field name="TEXT">hello</field>
+        </shadow>
+    </value>
+    <value name="VALUE">
+        <shadow type="text">
+            <field name="TEXT">world</field>
+        </shadow>
+    </value>
+</block>
+        <block type="mongo_delete_data">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_add_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">points</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mongo_subtract_data">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">points</field>
+                </shadow>
+            </value>
+        </block>
+</category>
+
+
+        <category name="SQLite DB" colour="#A025DE"/>
+        <category name="SQLite" colour="#A025DE">
+            <label text="%{BKY_LABEL_READ_DB}"></label>
+            <block type="qdb_get">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_all"/>
+            <block type="qdb_has_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
+            <block type="qdb_set_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_delete_data">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_add_data">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_subtract">
+                <value name="COUNT">
+                    <shadow type="math_number">
+                        <field name="TEXT">1</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_push">
+                <value name="DATA">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="qdb_pull">
+                <value name="DATA">
+                    <shadow type="text">
+                        <field name="TEXT">hello</field>
+                    </shadow>
+                </value>
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">world</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="Replit" colour="#150b91">
+        
+        <block type="parham_replitdb_setto">
+            <value name="set">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+            <value name="to">
+                <shadow type="text">
+                    <field name="TEXT">world</field>
+                </shadow>
+            </value>
+        </block>
+        <label text="On These Blocks You Can Use Data Block"/>
+        <block type="parham_replitdb_getall"/>
+        <block type="parham_replitdb_get">
+            <value name="get">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="parham_replitdb_data"/>
+        <label text="You Can't Use Data Block On This Blocks"/>
+        <block type="parham_replitdb_delete">
+            <value name="delete">
+                <shadow type="text">
+                    <field name="TEXT">hello</field>
+                </shadow>
+            </value>
+        </block>
+        </category>
+
+        <category name="Firebase" colour="#ffb866"/>
+        <category name="Oracle" colour="#fff266"/>
+        <category name="PostgreSQL" colour="#66ffcf"/>
+        <category name="Microsoft SQL Server" colour="#9c66ff"/>
+        <category name="Redis" colour="#ff6691"/>
+        <category name="Elasticsearch" colour="#b8ff66"/>
+        <category name="Cassandra" colour="#66c9ff"/>
+        <category name="MariaDB" colour="#ff8766"/>
+        <category name="IBM Db2" colour="#ff66e5"/>
+            </category>
+        <sep class="bt"/>
+        
+
+
+
+
+
+        <category name="Comments" colour="#DDAA00">
+            <label text="Comments allow you to explain what your blocks do."></label>
+            <label text="You can add comments onto specific blocks by going on a block, then Right Click > Add Comment"></label>
+            <label text="However, these floating comments allow you to place them anywhere and be always visible!"></label>
+            <block type="jg_unused_floating_comment">
+                <field name="TEXT">This is a floating comment,&amp;#10;with new lines too!</field>
+            </block>
+            <block type="jg_comments_floating_arrow"/>
+            <block type="jg_comments_floating_image">
+                <field name="TEXT">https://media.discordapp.net/attachments/914411539887456296/984121680458829835/ef5d4de4c598bda58c6edc09e9478b2d.png</field>
+            </block>
+            <label text="If you want a connected comment but always visible..."></label>
+            <block type="jg_comments_connected_comment">
+                <field name="TEXT">This is a connected comment,&amp;#10;but it'll always be visible!</field>
+            </block>
+            <block type="jg_comments_connected_arrow"/>
+            <block type="jg_comments_connected_image">
+                <field name="TEXT">https://media.discordapp.net/attachments/914411539887456296/984121680458829835/ef5d4de4c598bda58c6edc09e9478b2d.png</field>
+            </block>
+        </category>
+        <category name="redman13 embed" colour="#ff0000">
+            <block type="gsa_add_blank_field"/>
+            <block type="gsa_add_field"/>
+            <block type="gsa_create_fields"/>
+            <block type="gsa_set_embed_timestamp"/>
+            <block type="gsa_create_embed"/>
+            <block type="gsa_send_embed"/>
+            <block type="gsa_set_embed_author"/>
+            <block type="gsa_set_embed_color"/>
+            <block type="gsa_set_embed_description"/>
+            <block type="gsa_set_embed_image"/>
+            <block type="gsa_set_embed_thumbnail"/>
+            <block type="gsa_set_embed_title"/>
+            <block type="gsa_set_embed_footer"/>
+        </category>
+
+
+        <sep class="bt"/>
+
+        <category name="Experimental" colour="#ff0000">
+          <category name="Charts" colour="#ffa500">
+          <label text="Chart Blocks"/>
+              <block type="create_chart"></block>
+              <block type="send_chart"></block>
+          </category>
+          <category name="Tic Tac Toe" colour="#ffa500">
             <label text="Tic Tac Toe game FROM MESSAGE"/>
               <block type="tictactoe">
                     <value name="emb_title">
@@ -3380,737 +4629,22 @@ export default (Blockly, value, searching) => {
                         </shadow>
                     </value>
               </block>
-		</category>
-    </category>
-    <category name="Securing" colour="#4c61ff">
-        <label text="Output blocks" web-class="boldtext"></label>
-           <label text="Securing text" web-class="boldtext"></label>
-
-            <block type="catsoup_encryption_sha256">
-                <value name="encode">
-                    <shadow type="text"/>
-                </value>
-            </block>
-            <block type="jg_encryption_encrypt_text">
-                <value name="encode">
-                    <shadow type="text"/>
-                </value>
-                <value name="key">
-                    <shadow type="frost_env">
-                        <value name="VALUE">
-                            <shadow type="text">
-                                <field name="TEXT">encryptionKey</field>
-                            </shadow>
-                        </value>
-                    </shadow>
-                </value>
-            </block>
-            <block type="jg_encode_hash">
-                <value name="encode">
-                    <shadow type="text"/>
-                </value>
-                <value name="rounds">
-                    <shadow type="math_number">
-                        <field name="NUM">10</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="jg_encode_checkhash">
-                <value name="hash">
-                    <shadow type="text"/>
-                </value>
-                <value name="test">
-                    <shadow type="text"/>
-                </value>
-            </block>
-	    <block type="create_random_string"/>
-        <label text="Encoding text" web-class="boldtext"></label>
-            <block type="jg_encode_main">
-                <value name="type">
-                    <shadow type="jg_bDI_encodedecodetype"/>
-                </value>
-                <value name="type2">
-                    <shadow type="jg_bDI_encodedecodetype"/>
-                </value>
-                <value name="encode">
-                    <shadow type="text"/>
-                </value>
-            </block>
-        <!--<label text="Functions" web-class="boldtext"></label>-->
-    </category>
-        <sep class="bt"/>
-            <category name="Files" colour="#faaf00">
-                <category name="Text" colour="#fa9e00">
-                    <!--<category name="File Editing" colour="45">-->
-                        <block type="jg_file_create"/>
-                        <block type="jg_file_contents"/>
-                        <block type="jg_file_extension"/>
-                        <block type="jg_file_metadata"/>
-                        <block type="jg_file_foreachfile"/>
-                        <block type="jg_file_foreachfileinput"/>
-                    <!--</category>-->
-                    <!--<category name="filesystem (fs)" colour="#347dfa">-->
-                        <block type="frost_fs_read">
-                            <statement name="THEN">
-                                <block type="controls_if">
-                                    <value name="IF0">
-                                        <block type="frost_other_err">
-                                        </block>
-                                    </value>
-                                    <statement name="DO0">
-                                        <block type="s4d_print">
-                                            <value name="PRINT">
-                                                <block type="frost_other_err">
-                                                </block>
-                                            </value>
-                                        </block>
-                                    </statement>
-                                </block>
-                            </statement>
-                        </block>
-                        <block type="frost_fs_append">
-                            <statement name="THEN">
-                                <block type="controls_if">
-                                    <value name="IF0">
-                                        <block type="frost_other_err">
-                                        </block>
-                                    </value>
-                                    <statement name="DO0">
-                                        <block type="s4d_print">
-                                            <value name="PRINT">
-                                                <block type="frost_other_err">
-                                                </block>
-                                            </value>
-                                        </block>
-                                    </statement>
-                                </block>
-                            </statement>
-                        </block>
-                        <block type="frost_fs_write">
-                            <statement name="THEN">
-                                <block type="controls_if">
-                                    <value name="IF0">
-                                        <block type="frost_other_err">
-                                        </block>
-                                    </value>
-                                    <statement name="DO0">
-                                        <block type="s4d_print">
-                                            <value name="PRINT">
-                                                <block type="frost_other_err">
-                                                </block>
-                                            </value>
-                                        </block>
-                                    </statement>
-                                </block>
-                            </statement>
-                        </block>
-                        <block type="frost_fs_rename">
-                            <statement name="THEN">
-                                <block type="controls_if">
-                                    <value name="IF0">
-                                        <block type="frost_other_err">
-                                        </block>
-                                    </value>
-                                    <statement name="DO0">
-                                        <block type="s4d_print">
-                                            <value name="PRINT">
-                                                <block type="frost_other_err">
-                                                </block>
-                                            </value>
-                                        </block>
-                                    </statement>
-                                </block>
-                            </statement>
-                        </block>
-                        <block type="frost_fs_delete">
-                            <statement name="THEN">
-                                <block type="controls_if">
-                                    <value name="IF0">
-                                        <block type="frost_other_err">
-                                        </block>
-                                    </value>
-                                    <statement name="DO0">
-                                        <block type="s4d_print">
-                                            <value name="PRINT">
-                                                <block type="frost_other_err">
-                                                </block>
-                                            </value>
-                                        </block>
-                                    </statement>
-                                </block>
-                            </statement>
-                        </block>
-                        <label text="For open and read (Gives the contents of the file)"></label>
-                        <block type="frost_fs_data"/>
-                        <!--
-                        <label text="For if you get an error (is a boolean and string)"></label>
-                        <block type="frost_fs_err"/>
-                        -->
-                        <label text="ㅤ" web-class="boldtext"></label>
-                    <!--</category>-->
-                </category>
-                <category name="Data" colour="#fa9200">
-                    <!--<category name="Data Blocks" colour="230">-->
-                        <block type="jg_web_currentdata"/>
-                        <block type="jg_web_valueofkey"/>
-						<block type="jg_web_keywithvalue"/>
-                        <block type="jg_web_valueofflkey"/>
-                        <block type="jg_web_haskey"/>
-                        <block type="jg_web_allkey"/>
-						<block type="jg_web_allval"/>
-                        <block type="jg_web_keycount"/>
-                        <block type="jg_web_keynumber"/>
-                        <label text="Loops" web-class="boldtext"></label>
-                        <block type="jg_web_foreachkey"/>
-                        <block type="jg_web_foreachkeyinput"/>
-                    <!--</category>-->
-                </category>
-                <category name="Images" colour="#fa8100">
-                    <category name="Image Editing" colour="#e67600">
-                        <label text="Creating / Editing an image" web-class="boldtext"></label>
-                        <label text="Getting started" web-class="boldtext"></label>
-                        <block type="jg_beginJimp"/>
-                        <block type="jg_saveJimpageAs"/>
-                        <label text="Effects and extras" web-class="boldtext"></label>
-                        <block type="jg_jimp_drawtext"/>
-                        <!--
-                        <block type="jg_jimp_U2_drawtext"/>
-                        -->
-
-                        <block type="jg_jimp_brightnesscontrast"/>
-                        <block type="jg_jimp_basicE"/>
-                        <block type="jg_jimp_tpixels"/>
-                        <block type="jg_jimp_opacity"/>
-                        <block type="jg_jimp_width"/>
-                        <block type="jg_jimp_height"/>
-                        <block type="jg_jimp_resize"/>
-                        <block type="jg_jimp_resizeMethods"/>
-                        <block type="jg_jimp_scale"/>
-                        <block type="jg_jimp_crop"/>
-                        <block type="jg_jimp_flip"/>
-                        <block type="jg_jimp_rotate"/>
-                        <block type="jg_jimp_blit"/>
-                        <block type="jg_jimp_composite"/>
-                        <block type="jg_jimp_mask"/>
-                        <block type="jg_jimp_pixelate">
-                            <value name="X">
-                                <block type="math_number">
-                                    <field name="NUM">0</field>
-                                </block>
-                            </value>
-                            <value name="Y">
-                                <block type="math_number">
-                                    <field name="NUM">0</field>
-                                </block>
-                            </value>
-                            <value name="Width">
-                                <block type="jg_jimp_width"/>
-                            </value>
-                            <value name="Height">
-                                <block type="jg_jimp_height"/>
-                            </value>
-                        </block>
-                        <block type="jg_jimp_qblur"/>
-                        <block type="jg_jimp_sblur"/>
-                        <block type="jg_jimp_poster"/>
-                        <block type="jg_jimp_jpgqual"/>
-                        <block type="jg_jimp_convolute"/>
-                        <block type="jg_jimp_kernels"/>
-                        <block type="jg_jimp_setpixel"/>
-                        <block type="jg_jimp_getpixel"/>
-                    </category>
-                    <category name="Simple Effects" colour="#cf6b00">
-                        <label text="Generating simple effects" web-class="boldtext"></label>
-                        <block type="1imagepng">
-                            <mutation divisor_input="true"/>
-                        </block>
-                        <block type="1imagegif"/>
-                        <block type="2imagepng"/>
-                        <block type="load_gif"/>
-                        <block type="load_image"/>
-                        <block type="send_on_channel"/>
-                        <block type="jose_send_image_slash"/>
-                    </category>
-                    <category name="Captchas" colour="#b85f00">
-                        <label text="Captchas" web-class="boldtext"></label>
-                        <block type="create_captcha"/>
-                        <block type="captcha_image"/>
-                        <block type="captcha_value"/>
-                        <block type="send_captcha"/>
-                    </category>
-                    <category name="Member Cards" colour="#a85700">
-                        <label text="Send any created card"></label>
-					    <block type="s4d_send_in_channel"/>
-                        <label text="Welcome card"></label>
-					    <block type="s4d_create_welcome_then"/>
-					    <block type="s4d_set_username"/>
-					    <block type="s4d_set_member_count"/>
-					    <block type="s4d_set_discriminator"/>
-					    <block type="s4d_set_background"/>
-					    <block type="s4d_set_avatar"/>
-					    <block type="s4d_set_guild_name"/>
-					    <block type="s4d_set_color"/>
-                        <label text="Goodbye card"></label>
-						<block type="s4d_create_goodbye_then"/>
-						<block type="s4d_set_username"/>
-						<block type="s4d_set_member_count"/>
-						<block type="s4d_set_discriminator"/>
-						<block type="s4d_set_background"/>
-						<block type="s4d_set_avatar"/>
-						<block type="s4d_set_guild_name"/>
-						<block type="s4d_set_color"/>
-                        <label text="Rank card"></label>
-						<block type="s4d_create_rankcard_then"/>
-						<block type="s4d_set_badge"/>
-						<block type="s4d_set_xp"/>
-						<block type="s4d_set_username"/>
-						<block type="s4d_set_background"/>
-						<block type="s4d_set_avatar"/>
-						<block type="s4d_set_rank_name"/>
-						<block type="s4d_set_rank"/>
-						<block type="s4d_set_level"/>
-						<block type="s4d_set_reputation"/>
-						<block type="s4d_set_color_r"/>
-						<label text="%{BKY_TEXT1}"/>
-						<label text="%{BKY_TEXT2}"/>
-						<label text="%{BKY_TEXT3}"/>
-						<label text="%{BKY_TEXT4}"/>
-						<block type="s4d_set_text"/>
-						<block type="s4d_set_transparency"/>
-						<block type="s4d_set_radius"/>
-						<block type="s4d_set_addon"/>
-				    </category>
-                </category>
-                <!--
-                <category name="Video" colour="#fa7000">
-                    <label text="Warning!"></label>
-                    <label text="Repl.it currently doesn't support FFMPEG, which video blocks need!"></label>
-                    <label text="It should work if your hosting your bot on your PC though."></label>
-                    <button text="How to install FFMPEG" callbackKey="FFMPEG"></button>
-                    <block type="jg_files_ffmpeg_video_get_video_with_file_name_then">
-                        <value name="FILE">
-                            <shadow type="text">
-                                <field name="TEXT">MyVideo.mp4</field>
-                            </shadow>
-                        </value>
-                    </block>
-                </category>
-                -->
-            </category>
-            <category name="Databases" colour = "#2AC395">
-
-            
-            
-            <category name="JSON" colour="#F1DA54">
-             <label text="Simplest database"></label>
-             <label text="Create a new database name and file"></label>
-             <block type="gsa_make_db_with_path_x"/>
-             <block type="s4d_database_create_new">
-            <value name="NAME">
-                <shadow type="text">
-                  <field name="TEXT">database1</field>
-                </shadow>
-            </value>
-            <value name="FILE">
-                <shadow type="text">
-                  <field name="TEXT">database</field>
-                </shadow>
-            </value>
-            </block>
-            <label text="%{BKY_LABEL_READ_DB}"></label>
-            <block type="s4d_get_data_new">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="NAME">
-                  <shadow type="text">
-                    <field name="TEXT">database1</field>
-                  </shadow>
-                </value>
-            </block>
-            <block type="s4d_has_data_new">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                 <value name="NAME">
-                  <shadow type="text">
-                    <field name="TEXT">database1</field>
-                  </shadow>
-                </value>
-            </block>
-            <block type="s4d_get_all_data_new">
-            <value name="NAME">
-                  <shadow type="text">
-                    <field name="TEXT">database1</field>
-                  </shadow>
-                </value>
-            </block>
-            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
-            <block type="s4d_set_data_new">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="VALUE">
-                    <shadow type="text">
-                        <field name="TEXT">world</field>
-                    </shadow>
-                </value>
-                <value name="NAME">
-                  <shadow type="text">
-                    <field name="TEXT">database1</field>
-                  </shadow>
-                </value>
-            </block>
-            <block type="s4d_push_data_new">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="VALUE">
-                    <shadow type="text">
-                        <field name="TEXT">world</field>
-                    </shadow>
-                </value>
-                <value name="NAME">
-                  <shadow type="text">
-                    <field name="TEXT">database1</field>
-                  </shadow>
-                </value>
-            </block>
-            <block type="s4d_delete_data_new">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="NAME">
-                  <shadow type="text">
-                    <field name="TEXT">database1</field>
-                  </shadow>
-                </value>
-            </block>
-            <block type="s4d_add_data_new">
-                <value name="COUNT">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">points</field>
-                    </shadow>
-                </value>
-                <value name="NAME">
-                  <shadow type="text">
-                    <field name="TEXT">database1</field>
-                  </shadow>
-                </value>
-            </block>
-            <block type="s4d_subtract_data_new">
-                <value name="COUNT">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">points</field>
-                    </shadow>
-                </value>
-                <value name="NAME">
-                  <shadow type="text">
-                    <field name="TEXT">database1</field>
-                  </shadow>
-                </value>
-            </block>
-            <block type="s4d_delete_all_data_new">
-              <value name="NAME">
-                  <shadow type="text">
-                    <field name="TEXT">database1</field>
-                  </shadow>
-              </value>
-            </block>
-            <label text="ㅤ" web-class="boldtext"></label>
+          </category>
+          <category name="Dashboard" colour="#ffa500">
+          <label text="Initialize a new dashboard"/>
+              <block type="initialize_dashboard"></block>
+          <label text="Add inputs"/>
+              <block type="add_inputs"></block>
+              <block type="add_text_input"></block>
+              <block type="add_boolean_input"></block>
+              <block type="add_dropdown_input"></block>
+              <block type="new_couple"></block>
+              <block type="add_color_input"></block>
+          <label text="Variables"/>
+              <block type="dash_guild_id"></block>
+              <block type="dash_value"></block>
+          </category>
         </category>
-
-<category name="MongoDB" colour="#0db550">
-        <label text="connect to MongoDB"></label>
-        <block type="mongo_on"></block>
-        <block type="mongo_connect">
-        <value name="URL">
-        <shadow type="text">
-            <field name="TEXT">mongodb url</field>
-        </shadow>
-    </value>
-        </block>
-        <label text="nerd blocks"></label>
-        <block type="mongo_get_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_has_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_set_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-            <value name="VALUE">
-                <shadow type="text">
-                    <field name="TEXT">world</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_push_data">
-        <value name="KEY">
-            <shadow type="text">
-                <field name="TEXT">hello</field>
-            </shadow>
-        </value>
-        <value name="VALUE">
-            <shadow type="text">
-                <field name="TEXT">world</field>
-            </shadow>
-        </value>
-    </block>
-    <block type="mongo_pull_data">
-    <value name="KEY">
-        <shadow type="text">
-            <field name="TEXT">hello</field>
-        </shadow>
-    </value>
-    <value name="VALUE">
-        <shadow type="text">
-            <field name="TEXT">world</field>
-        </shadow>
-    </value>
-</block>
-        <block type="mongo_delete_data">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_add_data">
-            <value name="COUNT">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">points</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="mongo_subtract_data">
-            <value name="COUNT">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">points</field>
-                </shadow>
-            </value>
-        </block>
-</category>
-
-        <category name="SQLite" colour="#A025DE">
-            <label text="%{BKY_LABEL_READ_DB}"></label>
-            <block type="qdb_get">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_all"/>
-            <block type="qdb_has_data">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <label text="%{BKY_LABEL_UPDATE_DB}"></label>
-            <block type="qdb_set_data">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="VALUE">
-                    <shadow type="text">
-                        <field name="TEXT">world</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_delete_data">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_add_data">
-                <value name="COUNT">
-                    <shadow type="math_number">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_subtract">
-                <value name="COUNT">
-                    <shadow type="math_number">
-                        <field name="TEXT">1</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_push">
-                <value name="DATA">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">world</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="qdb_pull">
-                <value name="DATA">
-                    <shadow type="text">
-                        <field name="TEXT">hello</field>
-                    </shadow>
-                </value>
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">world</field>
-                    </shadow>
-                </value>
-            </block>
-        </category>
-        <category name="Replit" colour="#150b91">
-        
-        <block type="parham_replitdb_setto">
-            <value name="set">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-            <value name="to">
-                <shadow type="text">
-                    <field name="TEXT">world</field>
-                </shadow>
-            </value>
-        </block>
-        <label text="On These Blocks You Can Use Data Block"/>
-        <block type="parham_replitdb_getall"/>
-        <block type="parham_replitdb_get">
-            <value name="get">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="parham_replitdb_data"/>
-        <label text="You Can't Use Data Block On This Blocks"/>
-        <block type="parham_replitdb_delete">
-            <value name="delete">
-                <shadow type="text">
-                    <field name="TEXT">hello</field>
-                </shadow>
-            </value>
-        </block>
-        </category>
-
-        <!--
-        <category name="Firebase" colour="#ffb866"/>
-        <category name="Oracle" colour="#fff266"/>
-        <category name="PostgreSQL" colour="#66ffcf"/>
-        <category name="Microsoft SQL Server" colour="#9c66ff"/>
-        <category name="Redis" colour="#ff6691"/>
-        <category name="Elasticsearch" colour="#b8ff66"/>
-        <category name="Cassandra" colour="#66c9ff"/>
-        <category name="MariaDB" colour="#ff8766"/>
-        <category name="IBM Db2" colour="#ff66e5"/>
-        -->
-
-            </category>
-        <sep class="bt"/>
-        
-
-
-
-
-
-        <category name="Comments" colour="#DDAA00">
-            <label text="Comments allow you to explain what your blocks do."></label>
-            <label text="You can add comments onto specific blocks by going on a block, then Right Click > Add Comment"></label>
-            <label text="However, these floating comments allow you to place them anywhere and be always visible!"></label>
-            <block type="jg_unused_floating_comment">
-                <field name="TEXT">This is a floating comment,&amp;#10;with new lines too!</field>
-            </block>
-            <block type="jg_comments_floating_arrow"/>
-            <block type="jg_comments_floating_image">
-                <field name="TEXT">https://media.discordapp.net/attachments/914411539887456296/984121680458829835/ef5d4de4c598bda58c6edc09e9478b2d.png</field>
-            </block>
-            <label text="If you want a connected comment but always visible..."></label>
-            <block type="jg_comments_connected_comment">
-                <field name="TEXT">This is a connected comment,&amp;#10;but it'll always be visible!</field>
-            </block>
-            <block type="jg_comments_connected_arrow"/>
-            <block type="jg_comments_connected_image">
-                <field name="TEXT">https://media.discordapp.net/attachments/914411539887456296/984121680458829835/ef5d4de4c598bda58c6edc09e9478b2d.png</field>
-            </block>
-        </category>
-        <!--
-        <category name="redman13 embed" colour="#ff0000">
-            <block type="gsa_add_blank_field"/>
-            <block type="gsa_add_field"/>
-            <block type="gsa_create_fields"/>
-            <block type="gsa_set_embed_timestamp"/>
-            <block type="gsa_create_embed"/>
-            <block type="gsa_send_embed"/>
-            <block type="gsa_set_embed_author"/>
-            <block type="gsa_set_embed_color"/>
-            <block type="gsa_set_embed_description"/>
-            <block type="gsa_set_embed_image"/>
-            <block type="gsa_set_embed_thumbnail"/>
-            <block type="gsa_set_embed_title"/>
-            <block type="gsa_set_embed_footer"/>
-        </category>
-        -->
 
     </xml>
 `.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
