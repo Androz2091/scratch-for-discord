@@ -1,6 +1,6 @@
-# [Scratch For Discord Preview 469](https://deploy-preview-469--scratch-for-discord.netlify.com)
+# [Scratch For Discord Official Release (Latest Version)](https://scratch-for-discord.com)
 
-🐱 Make your Discord bot using Scratch blocks! [Scratch For Discord](https://deploy-preview-469--scratch-for-discord.netlify.com) is an advanced fork of [discord-blocks](https://discordblocks.leondrolio.com/). Thanks to [7coil](https://github.com/7coil) for their great work!
+🐱 Make your Discord bot using Scratch blocks! [Scratch For Discord](https://scratch-for-discord.com) is an advanced fork of [discord-blocks](https://discordblocks.leondrolio.com/). Thanks to [7coil](https://github.com/7coil) for their great work!
 
 S4D 469 is forked from [the original S4D](https://scratch-for-discord.netlify.app) made by Androz2091
 ## Features
