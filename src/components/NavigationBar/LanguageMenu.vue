@@ -10,7 +10,7 @@
 export default {
     name: "languagemenu",
     methods: {
-        changeLanguage(locale) {
+        changeLanguage(locale){
             this.$store.commit("setLocale", {
                 newLocale: locale
             });
@@ -18,5 +18,5 @@ export default {
             this.reloadWorkspace();
         }
     }
-};
+}
 </script>

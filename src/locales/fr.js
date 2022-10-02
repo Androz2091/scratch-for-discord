@@ -3,7 +3,7 @@ import Blockly from "blockly";
 import blocklyMessages from "./fr-FR.json";
 
 export const applyBlocklyLocale = () => {
-    for (let key in blocklyMessages) {
+    for(let key in blocklyMessages){
         Blockly.Msg[key] = blocklyMessages[key];
     }
 };
@@ -31,9 +31,6 @@ export const websiteMessages = {
     lang: {
         title: "Langue"
     },
-    theme: {
-        title: "Theme"
-    },
     examples: {
         title: "Exemples",
         confirm: {
@@ -46,8 +43,15 @@ export const websiteMessages = {
         loaded: "Exemple {example} importé avec succès !",
         ping_pong: "Commande ping-pong",
         command_parsing: "Traitement des commandes",
-        leveling: "Système d'XP et niveaux"
+        leveling: "Système d'XP et niveaux",
+        music: "Système de musique",
+        button: "Boutton et ligne de bouttons",
+	image_gen : "Exemple de générateur d'images",
+      economy : "Exemple d'économie", aki : "Exemple d'Akinator",
+      backup : "Exemple de sauvegarde",
+      random : "Exemple de réponse aléatoire"
     },
+  reddit : "Reddit",
     download: {
         title: "Télécharger votre bot",
         content: {
@@ -72,7 +76,7 @@ export const websiteMessages = {
         }
     },
     warnings: {
-        login_block: 'Le block "Connexion à Discord" de la catégorie "Base" est obligatoire !'
+        login_block: "Le block \"Connexion à Discord\" de la catégorie \"Base\" est obligatoire !"
     },
     run_modal: {
         title: "Appuyez sur démarrer pour tester votre bot!",
@@ -85,16 +89,10 @@ export const websiteMessages = {
     },
     code_modal: {
         title: "Code JavaScript de votre bot"
-    },
-    autosave: {
-        title: "Restorer un projet",
-        text: "Vous n'avez pas sauvegardé votre projet avant de quitter Scratch For Discord ?<br>Pas de problème, vous pouvez choisir le projet que vous voulez restaurer depuis le menu ci-dessous !",
-        restore: "Restorer",
-        cancel: "Annuler"
     }
 };
 
 export default {
-    applyBlocklyLocale,
-    websiteMessages
+	applyBlocklyLocale,
+	websiteMessages
 };

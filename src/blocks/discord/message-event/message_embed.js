@@ -1,35 +1,46 @@
-import BaseBlockly from "blockly";
 import Blockly from "blockly/core";
+import BaseBlockly from "blockly";
+const blockName = "s4d_message_embed"
+const menuName = "s4d_message_embed_mutator"
 
-const BORDER_FIELDS = ["MESSAGE", "COLOR", "TITLE", "IMAGE", "FOOTER", "THUMBNAIL"];
+const BlockColor = "#40BF4A"
+// menu customization
+const menuUsesBlockColor = false
+const menuTooltip = `Click the checkboxes to change the embed's contents.`
 
-const BORDER_TYPES = ["String", "Colour", "String", "String", "String", "String"];
+// border fields is the name of the input when getting it for the exported code.
+// they HAVE to be uppercase currently or it won't work since im too lazy to change the uppercase function uses
+const BORDER_FIELDS = ["MESSAGE", "COLOR", "TITLE", "IMAGE", "FOOTER", "THUMBNAIL", "FIELD"];
+// border types is the input type of every input in the block
+const BORDER_TYPES = ["String", "Colour", "String", "String", "String", "String", "Field"];
+// names is the name of that input in the menu and in the final block
+const names = ["message", "color", "title", "image", "footer", "thumbnail", "field"];
+const amountOfInputs = names.length
 
-const s4d_message_embed = {
-    message0: "%{BKY_MESSAGE_EMBED}",
-    mutator: "s4d_message_embed_mutator",
-    output: "MessageEmbed",
-    helpUrl: "",
-    tooltip: "",
-    colour: "#40BF4A"
+const blockData = {
+    "message0": "Message Embed",
+    "output": ["MessageEmbed", "AndrozS4DEmbed"],
+    "helpUrl": "",
+    "tooltip": "",
+    "colour": BlockColor
 };
-
-Blockly.Blocks["s4d_message_embed"] = {
+Blockly.Blocks[menuName] = {
     init: function () {
-        this.jsonInit(s4d_message_embed);
-    }
-};
-
-Blockly.Blocks["s4d_message_embed_mutator"] = {
-    init: function () {
-        this.setColour("#CECDCE");
-        this.setTooltip("");
+        this.setColour((menuUsesBlockColor ? BlockColor : "#CECDCE"));
+        this.setTooltip(menuTooltip);
         this.setHelpUrl("");
     }
 };
+Blockly.Blocks[blockName] = {
+    init: function () {
+        this.jsonInit(blockData);
+        this.setMutator(new Blockly.Mutator([]));
+        this.inputs_ = []
+        for (let i = 0; i < amountOfInputs; i++) {
+            this.inputs_.push(i == 0)
+        }
+    },
 
-const BORDER_MUTATOR_MIXIN = {
-    inputs_: [true, false, false, false, false, false],
 
     mutationToDom: function () {
         if (!this.inputs_) {
@@ -37,7 +48,7 @@ const BORDER_MUTATOR_MIXIN = {
         }
         const container = document.createElement("mutation");
         for (let i = 0; i < this.inputs_.length; i++) {
-            if (this.inputs_[i]) container.setAttribute(BORDER_FIELDS[i], this.inputs_[i]);
+            if (this.inputs_[i]) container.setAttribute(BORDER_FIELDS[i], this.inputs_[i])
         }
         return container;
     },
@@ -50,12 +61,12 @@ const BORDER_MUTATOR_MIXIN = {
     },
 
     decompose: function (workspace) {
-        const containerBlock = workspace.newBlock("s4d_message_embed_mutator");
+        const containerBlock = workspace.newBlock(menuName);
         for (let i = 0; i < this.inputs_.length; i++) {
-            containerBlock
-                .appendDummyInput()
+            BaseBlockly.Msg[BORDER_FIELDS[i]] = names[i];
+            containerBlock.appendDummyInput()
                 .setAlign(Blockly.ALIGN_RIGHT)
-                .appendField(BaseBlockly.Msg[BORDER_FIELDS[i]])
+                .appendField(names[i])
                 .appendField(new Blockly.FieldCheckbox(this.inputs_[i] ? "TRUE" : "FALSE"), BORDER_FIELDS[i].toUpperCase());
         }
         containerBlock.initSvg();
@@ -65,41 +76,59 @@ const BORDER_MUTATOR_MIXIN = {
     compose: function (containerBlock) {
         // Set states
         for (let i = 0; i < this.inputs_.length; i++) {
-            this.inputs_[i] = containerBlock.getFieldValue(BORDER_FIELDS[i].toUpperCase()) == "TRUE";
+            this.inputs_[i] = (containerBlock.getFieldValue(BORDER_FIELDS[i].toUpperCase()) == "TRUE");
         }
         this.updateShape_();
     },
 
     updateShape_: function () {
         for (let i = 0; i < this.inputs_.length; i++) {
-            if (this.getInput(BORDER_FIELDS[i].toUpperCase())) this.removeInput(BORDER_FIELDS[i].toUpperCase());
+            if ((!this.inputs_[i]) && (this.getInput(BORDER_FIELDS[i].toUpperCase()))) this.removeInput(BORDER_FIELDS[i].toUpperCase());
         }
         for (let i = 0; i < this.inputs_.length; i++) {
-            if (this.inputs_[i]) {
-                this.appendValueInput(BORDER_FIELDS[i].toUpperCase()).setCheck(BORDER_TYPES[i]).setAlign(Blockly.ALIGN_RIGHT).appendField(BaseBlockly.Msg[BORDER_FIELDS[i]]);
+            if ((this.inputs_[i]) && (!(this.getInput(BORDER_FIELDS[i].toUpperCase())))) {
+                BaseBlockly.Msg[BORDER_FIELDS[i]] = names[i];
+                this.appendValueInput(BORDER_FIELDS[i].toUpperCase())
+                    .setCheck(BORDER_TYPES[i])
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(names[i]);
             }
         }
     }
+
 };
 
-Blockly.Extensions.registerMutator("s4d_message_embed_mutator", BORDER_MUTATOR_MIXIN, null, [""]);
-
 Blockly.JavaScript["s4d_message_embed"] = function (block) {
-    return [
-        `
-        {
-            embed: {
-                title: ${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC) || null},
-                color: ${Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC) || null},
-                image: { url: ${Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC) || null} }, 
-
-                description: ${Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC) || null},
-                footer: { text: ${Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC) || null} },
-                thumbnail: { url: ${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC) || null} }
-
-            }
-        }
-    `,
-        Blockly.JavaScript.ORDER_ATOMIC
-    ];
+    let title = "";
+    let color = "";
+    let image = "";
+    let description = "";
+    let footer = "";
+    let thumbnail = "";
+    let field = "";
+    if ((Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
+        title = `\n.setTitle(String(${Blockly.JavaScript.valueToCode(block, "TITLE", Blockly.JavaScript.ORDER_ATOMIC)}))`;
+    }
+    if ((Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
+        color = `\n.setColor(String(${Blockly.JavaScript.valueToCode(block, "COLOR", Blockly.JavaScript.ORDER_ATOMIC)}))`;
+    }
+    if ((Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
+        image = `\n.setImage(String(${Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC)}))`;
+    }
+    if ((Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
+        description = `\n.setDescription(String(${Blockly.JavaScript.valueToCode(block, "MESSAGE", Blockly.JavaScript.ORDER_ATOMIC)}))`;
+    }
+    if ((Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
+        footer = `\n.setFooter(String(${Blockly.JavaScript.valueToCode(block, "FOOTER", Blockly.JavaScript.ORDER_ATOMIC)}))`;
+    }
+    if ((Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
+        thumbnail = `\n.setThumbnail(String(${Blockly.JavaScript.valueToCode(block, "THUMBNAIL", Blockly.JavaScript.ORDER_ATOMIC)}))`;
+    }
+    if ((Blockly.JavaScript.statementToCode(block, "FIELD", Blockly.JavaScript.ORDER_ATOMIC) || null) !== null) {
+        field = `\n.addFields(${Blockly.JavaScript.statementToCode(block, "FIELD")})`;
+    }
+    return [`
+            embeds: [new MessageEmbed()${title}${color}${image}${description}${footer}${thumbnail}${field}
+            ]
+    `, Blockly.JavaScript.ORDER_ATOMIC];
 };
