@@ -47,17 +47,17 @@ Blockly.JavaScript[blockName] = function (block) {
   const value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_ATOMIC);
   const searchType = block.getFieldValue("SEARCH_TYPE");
   const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-  if (server == null) {
+  if (server.length < 1) {
     if (searchType === "NAME") {
       return [`s4d.client.channels.cache.find((category) => category.name === ${value})`, Blockly.JavaScript.ORDER_ATOMIC];
     } else {
-      return [`s4d.client.channels.cache.get((category) => category.id === ${value})`, Blockly.JavaScript.ORDER_ATOMIC];
+      return [`s4d.client.channels.cache.get(${value})`, Blockly.JavaScript.ORDER_ATOMIC];
     }
   } else {
     if (searchType === "NAME") {
       return [`${server}.channels.cache.find((category) => category.name === ${value})`, Blockly.JavaScript.ORDER_ATOMIC];
     } else {
-      return [`${server}.channels.cache.get((category) => category.id === ${value})`, Blockly.JavaScript.ORDER_ATOMIC];
+      return [`${server}.channels.cache.get(${value})`, Blockly.JavaScript.ORDER_ATOMIC];
     }
   }
 };
