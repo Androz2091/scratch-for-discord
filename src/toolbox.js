@@ -1513,6 +1513,13 @@ export default (Blockly, value, searching) => {
             </block>
             <block type="s4d_remove_all_reactions"/>
             <block type="s4d_remove_reactions"/>
+            <block type="reaction_channel"/>
+            <block type="reaction_emoji_id"/>
+            <block type="remove_all_reactions_of_user"/>
+            <block type="remove_reaction_of_user"/>
+            <block type="random_reacting_member_user"/>
+            <block type="reaction_server"/>
+            <block type="get_reaction_member"/>
             <block type="s4d_add_reaction">
                 <value name="REACTION">
                     <shadow type="text">
