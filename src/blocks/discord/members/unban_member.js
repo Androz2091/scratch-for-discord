@@ -13,7 +13,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "MEMBER",
-            "check": ["String","Number"]
+            "check": ["User","Member"]
         }
     ],
     "previousStatement": null,

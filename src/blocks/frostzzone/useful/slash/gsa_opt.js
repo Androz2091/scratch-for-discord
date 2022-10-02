@@ -62,7 +62,7 @@ const blockData = {
                     "5"
                 ],
                 [
-                    "option User",
+                    "option User/Member",
                     "6"
                 ],
                 [
