@@ -807,6 +807,7 @@ export default (Blockly, value, searching) => {
             <block type="create_qr_then"/>
             <block type="qr"/>
             <block type="gsa_bypass_type"/>
+            <block type="gsa_format_time"/>
         </category>
        
 	  
