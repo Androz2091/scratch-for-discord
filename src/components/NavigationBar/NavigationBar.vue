@@ -160,6 +160,52 @@ export default {
                     ok: "I understand"
                 },
             })
+            function preloadImage(url, appendS4dUrl) {
+                if (appendS4dUrl) url = "https://scratch-for-discord.com/spooky/" + url
+                const pl = document.createElement("img")
+                pl.src = url
+                pl.style.width = "1px"
+                pl.style.height = "1px"
+                pl.style.position = "absolute"
+                pl.style.left = "0px"
+                pl.style.top = "0px"
+                pl.style.opacity = 0.2
+                document.body.append(pl)
+            }
+            function preloadAudio(url, appendS4dUrl) {
+                if (appendS4dUrl) url = "https://scratch-for-discord.com/spooky/" + url
+                const pl = document.createElement("audio")
+                pl.preload = "auto"
+                pl.style.width = "1px"
+                pl.style.height = "1px"
+                pl.style.position = "absolute"
+                pl.style.left = "0px"
+                pl.style.top = "0px"
+                pl.style.opacity = 0.1
+                pl.innerHTML = '<source src="' + url + '">'
+                document.body.append(pl)
+            }
+            [
+                "emptyObject_inVent.png",
+                "emptyObject.gif",
+                "glitch1.png",
+                "glitch2.png",
+                "gottenThread_inVent.png",
+                "gottenThread.gif",
+                "history.gif",
+                "night2.png",
+                "office_door_left.png",
+                "office_door_right.png",
+                "office_shine.png",
+                "office_unlit.png",
+                "power.png",
+                "powerMeter_back.png",
+                "powerMeter_filled.png",
+                "static.gif",
+            ].forEach(img => {
+                preloadImage(img, true)
+            })
+            preloadAudio("glitchare.mp3", true)
         }
     },
     methods: {
