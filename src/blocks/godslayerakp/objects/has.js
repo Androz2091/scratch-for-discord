@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "gsa_object_has_value_search_moment";
 
 const blockData = {
-  "message0": "object %1 has %2?",
+  "message0": "object %2 has %1?",
   "args0": [
     {
         "type": "input_value",
