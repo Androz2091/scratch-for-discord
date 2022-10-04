@@ -335,7 +335,7 @@ load()`);
             if (String(window.location.pathname).replace(/\//gmi, "") == "spooky") {
                 const random = Math.floor(Math.random() * 6)
                 if (random != 0) {
-                    const audio = new Audio('button_jam.wav')
+                    const audio = new Audio('https://scratch-for-discord.com/spooky/button_jam.wav')
                     audio.play()
                 } else {
                     function delay(ms) {
@@ -357,13 +357,13 @@ load()`);
                     parentDiv.style.backgroundColor = "black"
                     parentDiv.style.color = "white"
                     // silly little camera sound
-                    const nightStartingSound = new Audio('camera_flip.mp3')
+                    const nightStartingSound = new Audio('https://scratch-for-discord.com/spooky/camera_flip.mp3')
                     nightStartingSound.play()
                     const nightText = document.createElement("img")
                     nightText.style.position = "absolute"
                     nightText.style.left = "40%"
                     nightText.style.top = "calc(50% - 30px)"
-                    nightText.src = "night2.png"
+                    nightText.src = "https://scratch-for-discord.com/spooky/night2.png"
                     nightText.height = 60
                     parentDiv.append(nightText)
                     for (let i = 1; i < 3; i++) {
@@ -373,7 +373,7 @@ load()`);
                         glitch.style.top = "0px"
                         glitch.style.width = "100%"
                         glitch.style.height = "100%"
-                        glitch.src = 'glitch' + i + '.png'
+                        glitch.src = 'https://scratch-for-discord.com/spooky/glitch' + i + '.png'
                         parentDiv.append(glitch)
                         await delay(135)
                         glitch.remove()
@@ -388,7 +388,7 @@ load()`);
                     office.style.top = "0px"
                     office.style.width = "100%"
                     office.style.height = "100%"
-                    office.src = "office_unlit.png"
+                    office.src = "https://scratch-for-discord.com/spooky/office_unlit.png"
                     parentDiv.append(office)
                     const blocks = {}
                     blocks.emptyObject = {
@@ -427,7 +427,7 @@ load()`);
                     blocks.emptyObject.element.style.width = "15%"
                     blocks.emptyObject.element.style.height = "12%"
                     blocks.emptyObject.element.style.display = "none"
-                    blocks.emptyObject.element.src = "emptyObject_inVent.png"
+                    blocks.emptyObject.element.src = "https://scratch-for-discord.com/spooky/emptyObject_inVent.png"
                     parentDiv.append(blocks.emptyObject.element)
                     blocks.gottenThread = {
                         acting: false,
@@ -465,7 +465,7 @@ load()`);
                     blocks.gottenThread.element.style.width = "16%"
                     blocks.gottenThread.element.style.height = "12%"
                     blocks.gottenThread.element.style.display = "none"
-                    blocks.gottenThread.element.src = "gottenThread_inVent.png"
+                    blocks.gottenThread.element.src = "https://scratch-for-discord.com/spooky/gottenThread_inVent.png"
                     parentDiv.append(blocks.gottenThread.element)
                     // lmao what are you talking about all of my code is perfectly readable
                     // i have no idea what you mean by countless objects inside of other objects
@@ -475,7 +475,7 @@ load()`);
                     office.doors = {}
                     office.doors.left = document.createElement("img")
                     office.doors.left.closed = false
-                    office.doors.left.src = "office_door_left.png"
+                    office.doors.left.src = "https://scratch-for-discord.com/spooky/office_door_left.png"
                     office.doors.left.style.display = "none"
                     office.doors.left.style.position = "absolute"
                     office.doors.left.style.left = "0px"
@@ -484,7 +484,7 @@ load()`);
                     office.doors.left.style.height = "100%"
                     office.doors.right = document.createElement("img")
                     office.doors.right.closed = false
-                    office.doors.right.src = "office_door_right.png"
+                    office.doors.right.src = "https://scratch-for-discord.com/spooky/office_door_right.png"
                     office.doors.right.style.display = "none"
                     office.doors.right.style.position = "absolute"
                     office.doors.right.style.left = "0px"
@@ -500,7 +500,7 @@ load()`);
                     officeShine.style.width = "100%"
                     officeShine.style.height = "100%"
                     officeShine.style.opacity = 0.3607
-                    officeShine.src = "office_shine.png"
+                    officeShine.src = "https://scratch-for-discord.com/spooky/office_shine.png"
                     parentDiv.append(officeShine)
                     const officeDarkener = document.createElement("div")
                     officeDarkener.style.backgroundColor = "black"
@@ -528,12 +528,12 @@ load()`);
                     office.doors.updateDoor = (bitSide, closed) => {
                         if (bitSide == 0) {
                             if (office.doors.left.closed != closed) {
-                                const closeSound = new Audio('vent_door_update.mp3')
+                                const closeSound = new Audio('https://scratch-for-discord.com/spooky/vent_door_update.mp3')
                                 closeSound.play()
                             }
                         } else {
                             if (office.doors.right.closed != closed) {
-                                const closeSound = new Audio('vent_door_update.mp3')
+                                const closeSound = new Audio('https://scratch-for-discord.com/spooky/vent_door_update.mp3')
                                 closeSound.play()
                             }
                         }
@@ -553,21 +553,21 @@ load()`);
                     }
                     office.doors.left.clickableButton.onclick = () => {
                         if ((powerLevel <= 0) || generatorEnabled) {
-                            const audio = new Audio('button_jam.wav')
+                            const audio = new Audio('https://scratch-for-discord.com/spooky/button_jam.wav')
                             return audio.play()
                         }
                         office.doors.updateDoor(0, !(office.doors.left.closed))
                     }
                     office.doors.right.clickableButton.onclick = () => {
                         if ((powerLevel <= 0) || generatorEnabled) {
-                            const audio = new Audio('button_jam.wav')
+                            const audio = new Audio('https://scratch-for-discord.com/spooky/button_jam.wav')
                             return audio.play()
                         }
                         office.doors.updateDoor(1, !(office.doors.right.closed))
                     }
                     parentDiv.append(office.doors.left.clickableButton)
                     parentDiv.append(office.doors.right.clickableButton)
-                    const fanSound = new Audio('fan.mp3')
+                    const fanSound = new Audio('https://scratch-for-discord.com/spooky/fan.mp3')
                     fanSound.loop = true
                     fanSound.play()
                     const funnyButton = document.createElement("button")
@@ -579,7 +579,7 @@ load()`);
                     funnyButton.style.opacity = 0
                     parentDiv.append(funnyButton)
                     funnyButton.onclick = () => {
-                        const funny = new Audio('fard.mp3')
+                        const funny = new Audio('https://scratch-for-discord.com/spooky/fard.mp3')
                         funny.play()
                     }
                     const powerMeter = document.createElement("div")
@@ -597,7 +597,7 @@ load()`);
                     powerMeter.filling.style.width = "98%"
                     powerMeter.filling.style.height = "86%"
                     powerMeter.filling.style.zIndex = 500
-                    powerMeter.filling.src = "powerMeter_filled.png"
+                    powerMeter.filling.src = "https://scratch-for-discord.com/spooky/powerMeter_filled.png"
                     powerMeter.append(powerMeter.filling)
                     powerMeter.text = document.createElement("img")
                     powerMeter.text.style.position = "absolute"
@@ -605,7 +605,7 @@ load()`);
                     powerMeter.text.style.top = "24%"
                     powerMeter.text.style.height = "calc(100% - (" + powerMeter.text.style.top + " * 2))"
                     powerMeter.text.style.zIndex = 600
-                    powerMeter.text.src = "power.png"
+                    powerMeter.text.src = "https://scratch-for-discord.com/spooky/power.png"
                     powerMeter.append(powerMeter.text)
                     const generatorButton = document.createElement("button")
                     generatorButton.style.position = "absolute"
@@ -615,19 +615,19 @@ load()`);
                     generatorButton.style.height = "2%"
                     generatorButton.style.opacity = 0
                     parentDiv.append(generatorButton)
-                    const generatorRunningSound = new Audio('generatorPowering.mp3')
+                    const generatorRunningSound = new Audio('https://scratch-for-discord.com/spooky/generatorPowering.mp3')
                     generatorRunningSound.loop = true
                     generatorButton.onclick = () => {
                         office.doors.updateDoor(0, false)
                         office.doors.updateDoor(1, false)
                         if (powerLevel <= 0) {
-                            const audio = new Audio('button_jam.wav')
+                            const audio = new Audio('https://scratch-for-discord.com/spooky/button_jam.wav')
                             return audio.play()
                         }
                         generatorEnabled = !generatorEnabled
                         if (generatorEnabled) generatorRunningSound.play()
                         else generatorRunningSound.pause()
-                        const click = new Audio('click.mp3')
+                        const click = new Audio('https://scratch-for-discord.com/spooky/click.mp3')
                         click.play()
                     }
                     powerMeter.filling.render = () => {
@@ -646,7 +646,7 @@ load()`);
                         fanSound.pause()
                         clearInterval(blocks.emptyObject.actionsInterval)
                         clearInterval(blocks.gottenThread.actionsInterval)
-                        const powerDownsound = new Audio('powerout.mp3')
+                        const powerDownsound = new Audio('https://scratch-for-discord.com/spooky/powerout.mp3')
                         powerDownsound.play()
                         officeDarkener.style.opacity = 0.9672
                         officeDarkener.style.zIndex = 1000000
@@ -681,21 +681,21 @@ load()`);
                         STATICIMAGE.style.left = "0px"
                         STATICIMAGE.style.top = "0px"
                         STATICIMAGE.style.zIndex = 100000002
-                        STATICIMAGE.src = "static.gif"
+                        STATICIMAGE.src = "https://scratch-for-discord.com/spooky/static.gif"
                         parentDiv.append(STATICIMAGE)
                         let gif = ""
                         let lastForMS = 0
                         switch (character) {
                             case 'history':
-                                gif = "history.gif"
+                                gif = "https://scratch-for-discord.com/spooky/history.gif"
                                 lastForMS = 547
                                 break
                             case 'emptyObject':
-                                gif = "emptyObject.gif"
+                                gif = "https://scratch-for-discord.com/spooky/emptyObject.gif"
                                 lastForMS = 426
                                 break
                             case 'gottenThread':
-                                gif = "gottenThread.gif"
+                                gif = "https://scratch-for-discord.com/spooky/gottenThread.gif"
                                 lastForMS = 490
                                 break
                         }
@@ -716,7 +716,7 @@ load()`);
                             jss.pause()
                             STATICIMAGE.style.width = "100%"
                             STATICIMAGE.style.height = "100%"
-                            const staticSound = new Audio("static.wav")
+                            const staticSound = new Audio("https://scratch-for-discord.com/spooky/static.wav")
                             staticSound.loop = true
                             staticSound.play()
                             setTimeout(() => {
@@ -733,11 +733,11 @@ load()`);
                                 scoring.style.zIndex = 100000012
                                 scoring.innerHTML = "FINAL SCORE:"
                                 parentDiv.append(scoring)
-                                const scoreReadingSound = new Audio("scoreReading.mp3")
+                                const scoreReadingSound = new Audio("https://scratch-for-discord.com/spooky/scoreReading.mp3")
                                 scoreReadingSound.play()
                                 setTimeout(() => { // i LOVE call backs!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                                     scoring.innerHTML += " " + String(GAMESCORE).replace(/</gmi, "&lt;")
-                                    const congratulationsSound = new Audio("congratulations.mp3")
+                                    const congratulationsSound = new Audio("https://scratch-for-discord.com/spooky/congratulations.mp3")
                                     congratulationsSound.play()
                                     setTimeout(() => { // bruh
                                         scoring.innerHTML += '<br><button style="background-color:transparent;outline-width:0px;border-width:0px;font-size:50%;color:white;text-align:left" onclick="window.location.reload()">Refresh</button>'
