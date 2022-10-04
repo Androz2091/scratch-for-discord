@@ -186,10 +186,10 @@ export default {
         this.$root.$i18n.locale = this.$store.state.blocklyLocale;
     },
     mounted() {
-        if (window.location.pathname == "/v2") {
+        if (String(window.location.pathname).replace(/\//gmi, "") == "v2") {
             window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0"
         }
-        if (window.location.pathname == "/broken") {
+        if (String(window.location.pathname).replace(/\//gmi, "") == "broken") {
             window.location.href = "https://scratch-for-discord-broken.jeremygamer13.repl.co/"
         }
         if (window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app")) {

@@ -149,6 +149,18 @@ export default {
             document.body.append(showButton)
             Blockly.svgResize(window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e)
         }
+        if (String(window.location.pathname).replace(/\//gmi, "") == "spooky") {
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = 'Flashing Lights and "jumpscares" appear in this S4D secret. Continue if you are fine with this, and feel free to exit the page now if you aren\'t.'
+            this.$swal({
+                title: "Warning!",
+                icon: "warning",
+                content: wrapper,
+                buttons: {
+                    ok: "I understand"
+                },
+            })
+        }
     },
     methods: {
         exportToCode(){
@@ -319,27 +331,422 @@ load()`);
                 }
             });
         },
-        util() {
-            if (window.location.pathname == "/spooky") {
-                var random = Math.floor(Math.random() * 100)
-                if (random == 0) {
-                    let app = document.getElementById("app")
-                    app.remove()
-                    var audio = new Audio('https://cdn.discordapp.com/attachments/931448244725227571/978539713965203536/2022-05-24_08-03-54.mp3')
+        async util() {
+            if (String(window.location.pathname).replace(/\//gmi, "") == "spooky") {
+                const random = Math.floor(Math.random() * 6)
+                if (random != 0) {
+                    const audio = new Audio('button_jam.wav')
                     audio.play()
-                    function imag() {
-                        let div = document.createElement("div")
-                        div.innerHTML = `<img width="676" height="676" src="https://media.discordapp.net/attachments/914411539887456296/978925855071932446/spook.png?width=676&height=676"></img>`
-                    }
-                    function spooky() {
-                        var audio = new Audio('https://cdn.discordapp.com/attachments/914411539887456296/978918581708414976/fnaf_power_beforedie.wav')
-                        audio.play()
-                        setTimeout(() => imag(), (Math.floor(Math.random() * 2) * 1000))
-                    }
-                    setTimeout(() => spooky(), ((Math.floor(Math.random() * 5) + 10) * 1000))
                 } else {
-                    var audio = new Audio('https://cdn.discordapp.com/attachments/914411539887456296/978502828228247562/button_jam.wav')
-                    audio.play()
+                    function delay(ms) {
+                        return new Promise((resolve, _) => {
+                            setTimeout(resolve, ms)
+                        })
+                    }
+                    let GAMESCORE = 0
+                    const parentDiv = document.createElement("div") // set the div responsible for holding all the elements the game uses
+                    document.body.append(parentDiv)
+                    // comment code inbetween this and the next comment to remove div sizing
+                    parentDiv.style.position = "absolute"
+                    parentDiv.style.left = "0px"
+                    parentDiv.style.top = "0px"
+                    parentDiv.style.width = "100%"
+                    parentDiv.style.height = "100%"
+                    parentDiv.style.zIndex = 999999
+                    // div sizing stuff above
+                    parentDiv.style.backgroundColor = "black"
+                    parentDiv.style.color = "white"
+                    // silly little camera sound
+                    const nightStartingSound = new Audio('camera_flip.mp3')
+                    nightStartingSound.play()
+                    const nightText = document.createElement("img")
+                    nightText.style.position = "absolute"
+                    nightText.style.left = "40%"
+                    nightText.style.top = "calc(50% - 30px)"
+                    nightText.src = "night2.png"
+                    nightText.height = 60
+                    parentDiv.append(nightText)
+                    for (let i = 1; i < 3; i++) {
+                        const glitch = document.createElement("img")
+                        glitch.style.position = "absolute"
+                        glitch.style.left = "0px"
+                        glitch.style.top = "0px"
+                        glitch.style.width = "100%"
+                        glitch.style.height = "100%"
+                        glitch.src = 'glitch' + i + '.png'
+                        parentDiv.append(glitch)
+                        await delay(135)
+                        glitch.remove()
+                    }
+                    await delay(3000)
+                    let powerLevel = 100
+                    let generatorEnabled = false
+                    nightText.remove()
+                    const office = document.createElement("img")
+                    office.style.position = "absolute"
+                    office.style.left = "0px"
+                    office.style.top = "0px"
+                    office.style.width = "100%"
+                    office.style.height = "100%"
+                    office.src = "office_unlit.png"
+                    parentDiv.append(office)
+                    const blocks = {}
+                    blocks.emptyObject = {
+                        acting: false,
+                        inVent: false,
+                        anger: 1,
+                        waitingForVentOpen: false,
+                        jumpscare: () => playJumpscare("emptyObject"),
+                        displayMyself: () => {
+                            blocks.emptyObject.element.style.display = "none"
+                            if (blocks.emptyObject.inVent) blocks.emptyObject.element.style.display = "inherit"
+                        },
+                        actionsInterval: setInterval(() => {
+                            if (blocks.emptyObject.acting) return
+                            if (Math.round(Math.random() * (439 / blocks.emptyObject.anger)) == 0) {
+                                blocks.emptyObject.acting = true
+                                blocks.emptyObject.inVent = true
+                                blocks.emptyObject.waitingForVentOpen = true
+                                blocks.emptyObject.displayMyself()
+                                setTimeout(() => {
+                                    if (!office.doors.left.closed) return blocks.emptyObject.jumpscare()
+                                    blocks.emptyObject.waitingForVentOpen = false
+                                    blocks.emptyObject.inVent = false
+                                    blocks.emptyObject.displayMyself()
+                                    setTimeout(() => {
+                                        blocks.emptyObject.acting = false
+                                    }, 2380)
+                                }, 2700)
+                            }
+                        }, 50)
+                    }
+                    blocks.emptyObject.element = document.createElement("img")
+                    blocks.emptyObject.element.style.position = "absolute"
+                    blocks.emptyObject.element.style.left = "6%"
+                    blocks.emptyObject.element.style.top = "70%"
+                    blocks.emptyObject.element.style.width = "15%"
+                    blocks.emptyObject.element.style.height = "12%"
+                    blocks.emptyObject.element.style.display = "none"
+                    blocks.emptyObject.element.src = "emptyObject_inVent.png"
+                    parentDiv.append(blocks.emptyObject.element)
+                    blocks.gottenThread = {
+                        acting: false,
+                        inVent: false,
+                        anger: 1,
+                        waitingForVentOpen: false,
+                        jumpscare: () => playJumpscare("gottenThread"),
+                        displayMyself: () => {
+                            blocks.gottenThread.element.style.display = "none"
+                            if (blocks.gottenThread.inVent) blocks.gottenThread.element.style.display = "inherit"
+                        },
+                        actionsInterval: setInterval(() => {
+                            if (blocks.gottenThread.acting) return
+                            if (Math.round(Math.random() * (560 / blocks.gottenThread.anger)) == 0) {
+                                blocks.gottenThread.acting = true
+                                blocks.gottenThread.inVent = true
+                                blocks.gottenThread.waitingForVentOpen = true
+                                blocks.gottenThread.displayMyself()
+                                setTimeout(() => {
+                                    if (!office.doors.right.closed) return blocks.gottenThread.jumpscare()
+                                    blocks.gottenThread.waitingForVentOpen = false
+                                    blocks.gottenThread.inVent = false
+                                    blocks.gottenThread.displayMyself()
+                                    setTimeout(() => {
+                                        blocks.gottenThread.acting = false
+                                    }, 1450)
+                                }, 4000)
+                            }
+                        }, 50)
+                    }
+                    blocks.gottenThread.element = document.createElement("img")
+                    blocks.gottenThread.element.style.position = "absolute"
+                    blocks.gottenThread.element.style.left = "77%"
+                    blocks.gottenThread.element.style.top = "71%"
+                    blocks.gottenThread.element.style.width = "16%"
+                    blocks.gottenThread.element.style.height = "12%"
+                    blocks.gottenThread.element.style.display = "none"
+                    blocks.gottenThread.element.src = "gottenThread_inVent.png"
+                    parentDiv.append(blocks.gottenThread.element)
+                    // lmao what are you talking about all of my code is perfectly readable
+                    // i have no idea what you mean by countless objects inside of other objects
+                    // literally the same thing over and over again
+                    // and 90% of the code just being me creating html elements
+                    // this is totally just the best way to do things bro
+                    office.doors = {}
+                    office.doors.left = document.createElement("img")
+                    office.doors.left.closed = false
+                    office.doors.left.src = "office_door_left.png"
+                    office.doors.left.style.display = "none"
+                    office.doors.left.style.position = "absolute"
+                    office.doors.left.style.left = "0px"
+                    office.doors.left.style.top = "0px"
+                    office.doors.left.style.width = "100%"
+                    office.doors.left.style.height = "100%"
+                    office.doors.right = document.createElement("img")
+                    office.doors.right.closed = false
+                    office.doors.right.src = "office_door_right.png"
+                    office.doors.right.style.display = "none"
+                    office.doors.right.style.position = "absolute"
+                    office.doors.right.style.left = "0px"
+                    office.doors.right.style.top = "0px"
+                    office.doors.right.style.width = "100%"
+                    office.doors.right.style.height = "100%"
+                    parentDiv.append(office.doors.left)
+                    parentDiv.append(office.doors.right)
+                    const officeShine = document.createElement("img")
+                    officeShine.style.position = "absolute"
+                    officeShine.style.left = "0px"
+                    officeShine.style.top = "0px"
+                    officeShine.style.width = "100%"
+                    officeShine.style.height = "100%"
+                    officeShine.style.opacity = 0.3607
+                    officeShine.src = "office_shine.png"
+                    parentDiv.append(officeShine)
+                    const officeDarkener = document.createElement("div")
+                    officeDarkener.style.backgroundColor = "black"
+                    officeDarkener.style.position = "absolute"
+                    officeDarkener.style.left = "0px"
+                    officeDarkener.style.top = "0px"
+                    officeDarkener.style.width = "100%"
+                    officeDarkener.style.height = "100%"
+                    officeDarkener.style.opacity = 0.6431
+                    parentDiv.append(officeDarkener)
+                    office.doors.left.clickableButton = document.createElement("button")
+                    office.doors.left.clickableButton.style.opacity = 0
+                    office.doors.left.clickableButton.style.position = "absolute"
+                    office.doors.left.clickableButton.style.left = "6%"
+                    office.doors.left.clickableButton.style.top = "62%"
+                    office.doors.left.clickableButton.style.width = "9%"
+                    office.doors.left.clickableButton.style.height = "27%"
+                    office.doors.right.clickableButton = document.createElement("button")
+                    office.doors.right.clickableButton.style.opacity = 0
+                    office.doors.right.clickableButton.style.position = "absolute"
+                    office.doors.right.clickableButton.style.left = "85%"
+                    office.doors.right.clickableButton.style.top = "64%"
+                    office.doors.right.clickableButton.style.width = "9%"
+                    office.doors.right.clickableButton.style.height = "27%"
+                    office.doors.updateDoor = (bitSide, closed) => {
+                        if (bitSide == 0) {
+                            if (office.doors.left.closed != closed) {
+                                const closeSound = new Audio('vent_door_update.mp3')
+                                closeSound.play()
+                            }
+                        } else {
+                            if (office.doors.right.closed != closed) {
+                                const closeSound = new Audio('vent_door_update.mp3')
+                                closeSound.play()
+                            }
+                        }
+                        if (bitSide == 0) {
+                            office.doors.left.closed = closed
+                            office.doors.left.style.display = closed ? "inherit" : "none"
+                            blocks.emptyObject.element.style.display = "none"
+                            if (blocks.emptyObject.inVent && !closed) blocks.emptyObject.element.style.display = "inherit"
+                            if (!closed && blocks.emptyObject.waitingForVentOpen) blocks.emptyObject.jumpscare()
+                        } else {
+                            office.doors.right.closed = closed
+                            office.doors.right.style.display = closed ? "inherit" : "none"
+                            blocks.gottenThread.element.style.display = "none"
+                            if (blocks.gottenThread.inVent && !closed) blocks.gottenThread.element.style.display = "inherit"
+                            if (!closed && blocks.gottenThread.waitingForVentOpen) blocks.gottenThread.jumpscare()
+                        }
+                    }
+                    office.doors.left.clickableButton.onclick = () => {
+                        if ((powerLevel <= 0) || generatorEnabled) {
+                            const audio = new Audio('button_jam.wav')
+                            return audio.play()
+                        }
+                        office.doors.updateDoor(0, !(office.doors.left.closed))
+                    }
+                    office.doors.right.clickableButton.onclick = () => {
+                        if ((powerLevel <= 0) || generatorEnabled) {
+                            const audio = new Audio('button_jam.wav')
+                            return audio.play()
+                        }
+                        office.doors.updateDoor(1, !(office.doors.right.closed))
+                    }
+                    parentDiv.append(office.doors.left.clickableButton)
+                    parentDiv.append(office.doors.right.clickableButton)
+                    const fanSound = new Audio('fan.mp3')
+                    fanSound.loop = true
+                    fanSound.play()
+                    const funnyButton = document.createElement("button")
+                    funnyButton.style.position = "absolute"
+                    funnyButton.style.left = "28%"
+                    funnyButton.style.top = "22%"
+                    funnyButton.style.width = "5%"
+                    funnyButton.style.height = "4%"
+                    funnyButton.style.opacity = 0
+                    parentDiv.append(funnyButton)
+                    funnyButton.onclick = () => {
+                        const funny = new Audio('fard.mp3')
+                        funny.play()
+                    }
+                    const powerMeter = document.createElement("div")
+                    powerMeter.style.position = "absolute"
+                    powerMeter.style.left = "3%"
+                    powerMeter.style.bottom = "3%"
+                    powerMeter.style.width = "30%"
+                    powerMeter.style.height = "8%"
+                    powerMeter.style.backgroundColor = "black"
+                    parentDiv.append(powerMeter)
+                    powerMeter.filling = document.createElement("img")
+                    powerMeter.filling.style.position = "absolute"
+                    powerMeter.filling.style.left = "1%"
+                    powerMeter.filling.style.top = "7%"
+                    powerMeter.filling.style.width = "98%"
+                    powerMeter.filling.style.height = "86%"
+                    powerMeter.filling.style.zIndex = 500
+                    powerMeter.filling.src = "powerMeter_filled.png"
+                    powerMeter.append(powerMeter.filling)
+                    powerMeter.text = document.createElement("img")
+                    powerMeter.text.style.position = "absolute"
+                    powerMeter.text.style.left = "2%"
+                    powerMeter.text.style.top = "24%"
+                    powerMeter.text.style.height = "calc(100% - (" + powerMeter.text.style.top + " * 2))"
+                    powerMeter.text.style.zIndex = 600
+                    powerMeter.text.src = "power.png"
+                    powerMeter.append(powerMeter.text)
+                    const generatorButton = document.createElement("button")
+                    generatorButton.style.position = "absolute"
+                    generatorButton.style.left = "47.28%"
+                    generatorButton.style.top = "67%"
+                    generatorButton.style.width = "4.4%"
+                    generatorButton.style.height = "2%"
+                    generatorButton.style.opacity = 0
+                    parentDiv.append(generatorButton)
+                    const generatorRunningSound = new Audio('generatorPowering.mp3')
+                    generatorRunningSound.loop = true
+                    generatorButton.onclick = () => {
+                        office.doors.updateDoor(0, false)
+                        office.doors.updateDoor(1, false)
+                        if (powerLevel <= 0) {
+                            const audio = new Audio('button_jam.wav')
+                            return audio.play()
+                        }
+                        generatorEnabled = !generatorEnabled
+                        if (generatorEnabled) generatorRunningSound.play()
+                        else generatorRunningSound.pause()
+                        const click = new Audio('click.mp3')
+                        click.play()
+                    }
+                    powerMeter.filling.render = () => {
+                        powerMeter.filling.style.width = ((powerLevel / 100) * 98) + "%"
+                    }
+                    const powerDecreaseInterval = setInterval(() => {
+                        GAMESCORE++
+                        blocks.emptyObject.anger += 0.021
+                        blocks.gottenThread.anger += 0.013
+                        powerLevel -= 1
+                        if (office.doors.left.closed) powerLevel -= 1; GAMESCORE++
+                        if (office.doors.right.closed) powerLevel -= 1; GAMESCORE++
+                        if (powerLevel < 0) powerLevel = 0
+                        powerMeter.filling.render()
+                        if (powerLevel > 0) return
+                        fanSound.pause()
+                        clearInterval(blocks.emptyObject.actionsInterval)
+                        clearInterval(blocks.gottenThread.actionsInterval)
+                        const powerDownsound = new Audio('powerout.mp3')
+                        powerDownsound.play()
+                        officeDarkener.style.opacity = 0.9672
+                        officeDarkener.style.zIndex = 1000000
+                        office.doors.updateDoor(0, false)
+                        office.doors.updateDoor(1, false)
+                        clearInterval(powerDecreaseInterval)
+                        setTimeout(() => {
+                            powerDownsound.pause()
+                            playJumpscare("history")
+                        }, Math.round(Math.random() * 10000))
+                    }, 4000)
+                    setInterval(() => {
+                        if (!generatorEnabled) return
+                        powerLevel += 1
+                        if (powerLevel > 100) powerLevel = 100
+                        powerMeter.filling.render()
+                        GAMESCORE++
+                        blocks.emptyObject.anger += 0.1
+                        blocks.gottenThread.anger += 0.023
+                    }, 500)
+                    let alreadyLosing = false
+                    function playJumpscare(character) {
+                        if (alreadyLosing) return
+                        alreadyLosing = true
+                        clearInterval(blocks.emptyObject.actionsInterval)
+                        clearInterval(blocks.gottenThread.actionsInterval)
+                        GAMESCORE += 20
+                        const STATICIMAGE = document.createElement("img")
+                        STATICIMAGE.style.width = "1px"
+                        STATICIMAGE.style.height = "1px"
+                        STATICIMAGE.style.position = "absolute"
+                        STATICIMAGE.style.left = "0px"
+                        STATICIMAGE.style.top = "0px"
+                        STATICIMAGE.style.zIndex = 100000002
+                        STATICIMAGE.src = "static.gif"
+                        parentDiv.append(STATICIMAGE)
+                        let gif = ""
+                        let lastForMS = 0
+                        switch (character) {
+                            case 'history':
+                                gif = "history.gif"
+                                lastForMS = 547
+                                break
+                            case 'emptyObject':
+                                gif = "emptyObject.gif"
+                                lastForMS = 426
+                                break
+                            case 'gottenThread':
+                                gif = "gottenThread.gif"
+                                lastForMS = 490
+                                break
+                        }
+                        const image = document.createElement("img")
+                        image.src = gif
+                        image.style.position = "absolute"
+                        image.style.left = "0px"
+                        image.style.top = "0px"
+                        image.style.width = "100%"
+                        image.style.height = "100%"
+                        image.style.zIndex = 100000000
+                        parentDiv.append(image)
+                        fanSound.pause()
+                        generatorRunningSound.pause()
+                        const jss = new Audio("glitchare.mp3")
+                        jss.play()
+                        setTimeout(() => {
+                            jss.pause()
+                            STATICIMAGE.style.width = "100%"
+                            STATICIMAGE.style.height = "100%"
+                            const staticSound = new Audio("static.wav")
+                            staticSound.loop = true
+                            staticSound.play()
+                            setTimeout(() => {
+                                const scoring = document.createElement("p")
+                                scoring.style.backgroundColor = "black"
+                                scoring.style.color = "white"
+                                scoring.style.position = "absolute"
+                                scoring.style.left = "30px"
+                                scoring.style.top = "30px"
+                                scoring.style.fontSize = "400%"
+                                scoring.style.fontFamily = "monospace"
+                                scoring.style.textAlign = "center"
+                                scoring.style.marginTop = "30%"
+                                scoring.style.zIndex = 100000012
+                                scoring.innerHTML = "FINAL SCORE:"
+                                parentDiv.append(scoring)
+                                const scoreReadingSound = new Audio("scoreReading.mp3")
+                                scoreReadingSound.play()
+                                setTimeout(() => { // i LOVE call backs!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                    scoring.innerHTML += " " + String(GAMESCORE).replace(/</gmi, "&lt;")
+                                    const congratulationsSound = new Audio("congratulations.mp3")
+                                    congratulationsSound.play()
+                                    setTimeout(() => { // bruh
+                                        scoring.innerHTML += '<br><button style="background-color:transparent;outline-width:0px;border-width:0px;font-size:50%;color:white;text-align:left" onclick="window.location.reload()">Refresh</button>'
+                                        // yes i used inline styling AND non-user defined functions cry about it
+                                    }, 1000)
+                                }, 1000)
+                            }, 1000)
+                        }, lastForMS)
+                    }
                 }
                 return;
             }

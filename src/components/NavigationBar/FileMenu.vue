@@ -78,8 +78,11 @@ function fetchCustomBlocks(dataobj, loadfunc) {
   const bringBack_setTimeout = window.setTimeout;
   const bringBack_setInterval = window.setInterval;
   const bringBack_fetch = window.fetch;
+  if (!window.Worker) window.Worker = null
   const bringBack_Worker = Worker;
+  if (!window.SharedWorker) window.SharedWorker = null
   const bringBack_SharedWorker = SharedWorker;
+  if (!window.ServiceWorker) window.ServiceWorker = null
   const bringBack_ServiceWorker = ServiceWorker;
   window.setTimeout = null;
   window.setInterval = null;

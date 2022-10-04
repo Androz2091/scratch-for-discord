@@ -147,6 +147,101 @@ module.exports.createMutatorBlock = (mutator_type, data, exportCodeCallback) => 
         Blockly.JavaScript[blockName] = exportCodeCallback
     }
 }
+module.exports.setMutatorOnBlock = (block, mutator_type, data) => {
+    if (!supportedMutators.includes(mutator_type) && !experimentalMutators.includes(mutator_type)) throw new Error(mutator_type + " is not a supported mutator type")
+    if (experimentalMutators.includes(mutator_type)) console.warn(mutator_type, "is an experimental mutator type. Behavior & handling of this type may change in the future.")
+    switch (mutator_type) {
+        case "checkbox": {
+            const menuUsesBlockColor = data.menuUsesBlockColor == null ? false : data.menuUsesBlockColor
+            const menuTooltip = data.menuTooltip
+            const alignLeft = data.alignLeft == null ? true : data.alignLeft
+            // border fields is the name of the input when getting it for the exported code.
+            // they HAVE to be uppercase currently or it won't work since im too lazy to change the uppercase function uses
+            const BORDER_FIELDS = []
+            data.fields.forEach(field => {
+                if (BORDER_FIELDS.includes(String(field).toUpperCase())) {
+                    throw new Error("BlocklyModuleMutatorConfig.fields contains a field (" + field + ") with the same value as another field. Rename both fields and ensure they are not the same lowercase or uppercase.")
+                }
+                BORDER_FIELDS.push(String(field).toUpperCase())
+            })
+            // border types is the input type of every input in the block
+            const BORDER_TYPES = data.types
+            // names is the name of that input in the menu and in the final block
+            const names = data.names
+            const amountOfInputs = names.length
+            if (!data.menuId) throw new Error("menuId not specified in BlocklyModuleMutatorConfig object")
+            const menuName = "BLOCKLY_MODULE_setMutator_" + module.exports.generateTextBasedOffOf(data.menuName) + "_checkboxMutatorMenu" + data.menuId
+            if (!(Blockly.Blocks[menuName])) {
+                Blockly.Blocks[menuName] = {
+                    init: function () {
+                        this.setColour((menuUsesBlockColor ? data.colour : "#CECDCE"))
+                        this.setTooltip(menuTooltip)
+                    }
+                }
+            }
+            block.setMutator(new Blockly.Mutator([]))
+            block.inputs_ = []
+            for (let i = 0; i < amountOfInputs; i++) {
+                block.inputs_.push(false)
+            }
+            block.mutationToDom = function () {
+                if (!this.inputs_) {
+                    return null;
+                }
+                const container = document.createElement("mutation");
+                for (let i = 0; i < this.inputs_.length; i++) {
+                    if (this.inputs_[i]) container.setAttribute(BORDER_FIELDS[i], this.inputs_[i])
+                }
+                return container;
+            }
+            block.domToMutation = function (xmlElement) {
+                for (let i = 0; i < this.inputs_.length; i++) {
+                    this.inputs_[i] = xmlElement.getAttribute(BORDER_FIELDS[i].toLowerCase()) == "true";
+                }
+                this.updateShape_();
+            }
+            block.decompose = function (workspace) {
+                const containerBlock = workspace.newBlock(menuName);
+                for (let i = 0; i < this.inputs_.length; i++) {
+                    BaseBlockly.Msg[BORDER_FIELDS[i]] = names[i];
+                    const di = containerBlock.appendDummyInput()
+                    di.setAlign((alignLeft ? Blockly.ALIGN_LEFT : Blockly.ALIGN_RIGHT))
+                    if (alignLeft) {
+                        di.appendField(new Blockly.FieldCheckbox(this.inputs_[i] ? "TRUE" : "FALSE"), BORDER_FIELDS[i].toUpperCase())
+                        di.appendField(names[i])
+                    } else {
+                        di.appendField(names[i])
+                        di.appendField(new Blockly.FieldCheckbox(this.inputs_[i] ? "TRUE" : "FALSE"), BORDER_FIELDS[i].toUpperCase())
+                    }
+                }
+                containerBlock.initSvg();
+                return containerBlock;
+            }
+            block.compose = function (containerBlock) {
+                // Set states
+                for (let i = 0; i < this.inputs_.length; i++) {
+                    this.inputs_[i] = (containerBlock.getFieldValue(BORDER_FIELDS[i].toUpperCase()) == "TRUE");
+                }
+                this.updateShape_();
+            }
+            block.updateShape_ = function () {
+                for (let i = 0; i < this.inputs_.length; i++) {
+                    if ((!this.inputs_[i]) && (this.getInput(BORDER_FIELDS[i].toUpperCase()))) this.removeInput(BORDER_FIELDS[i].toUpperCase());
+                }
+                for (let i = 0; i < this.inputs_.length; i++) {
+                    if ((this.inputs_[i]) && (!(this.getInput(BORDER_FIELDS[i].toUpperCase())))) {
+                        BaseBlockly.Msg[BORDER_FIELDS[i]] = names[i];
+                        this.appendValueInput(BORDER_FIELDS[i].toUpperCase())
+                            .setCheck(BORDER_TYPES[i])
+                            .setAlign(Blockly.ALIGN_RIGHT)
+                            .appendField(names[i]);
+                    }
+                }
+            }
+            break
+        }
+    }
+}
 module.exports.getWorkspace = () => {
     return window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e
 }

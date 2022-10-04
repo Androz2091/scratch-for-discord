@@ -2842,22 +2842,22 @@ export default (Blockly, value, searching) => {
             <label text="[OPTIONAL] Cookies"/>
                 <block type="new_session_obj">
                     <value name="secure">
-                        <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                        <block type="logic_boolean">
                             <field name="BOOL">FALSE</field>
                         </block>
                     </value>
                     <value name="httpOnly">
-                        <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                        <block type="logic_boolean">
                             <field name="BOOL">FALSE</field>
                         </block>
                     </value>
                     <value name="resave">
-                        <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                        <block type="logic_boolean">
                             <field name="BOOL">FALSE</field>
                         </block>
                     </value>
                     <value name="saveUninitialized">
-                        <block type="logic_boolean" id="~TKnK!h6,jeH%aq!1{nA">
+                        <block type="logic_boolean">
                             <field name="BOOL">FALSE</field>
                         </block>
                     </value>

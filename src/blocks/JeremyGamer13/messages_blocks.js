@@ -4491,3 +4491,69 @@ Blockly.Blocks["jg_testing_epic_menu_api_test_pooop_lolo_fard"] = {
     }
 }
 Blockly.JavaScript["jg_testing_epic_menu_api_test_pooop_lolo_fard"] = function () { return '' };
+
+Blockly.Blocks["jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"] = {
+    init: function () {
+        this.jsonInit(
+            {
+                "message0": "poop farda a a wa w %1 %2",
+                "args0": [
+                    {
+                        "type": "field_checkbox",
+                        "name": "A"
+                    },
+                    {
+                        "type": "field_checkbox",
+                        "name": "B"
+                    }
+                ]
+            }
+        )
+    },
+    onchange: function () {
+        let ch1 = false
+        let ch2 = false
+        let ch3 = false
+        if (this.getFieldValue("A") == "TRUE") {
+            ch1 = true
+            this.getField("A").setValue(false)
+        }
+        if (this.getFieldValue("B") == "TRUE") {
+            ch2 = true
+            this.getField("B").setValue(false)
+        }
+        // if (this.getFieldValue("C") == "TRUE") {
+        //     ch3 = true
+        //     this.getField("C").setValue(false)
+        // }
+        if (ch1) {
+            blocklyModule.setMutatorOnBlock(this, "checkbox", {
+                menuId: 1000,
+                menuTooltip: "a1", // optional
+                alignLeft: true, // optional
+                fields: ["a", "b", "c"],
+                types: ["String", "Boolean", "Colour"],
+                names: ["text", "question", "color"]
+            })
+        }
+        if (ch2) {
+            blocklyModule.setMutatorOnBlock(this, "checkbox", {
+                menuId: 1001,
+                menuTooltip: "a2", // optional
+                alignLeft: true, // optional
+                fields: ["a", "b", "c"],
+                types: ["String", "Boolean", "Colour"],
+                names: ["text2", "question2", "color2"]
+            })
+        }
+        if (ch3) {
+            blocklyModule.setMutatorOnBlock(this, "builder", {
+                menuId: 1001,
+                toolbox: ['jg_express_website_set_header_to', 'jg_express_website_set_content_type_to'] // array of block IDs in the toolbox
+            })
+        }
+    }
+}
+Blockly.JavaScript["jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"] = function () {
+    return ''
+};
