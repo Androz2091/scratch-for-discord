@@ -756,7 +756,7 @@ load()`);
                         parentDiv.append(image)
                         fanSound.pause()
                         generatorRunningSound.pause()
-                        const jss = new Audio("glitchare.mp3")
+                        const jss = new Audio("https://scratch-for-discord.com/spooky/glitchare.mp3")
                         jss.play()
                         setTimeout(() => {
                             jss.pause()
