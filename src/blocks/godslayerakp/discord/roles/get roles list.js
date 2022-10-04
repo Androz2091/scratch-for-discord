@@ -21,5 +21,5 @@ Blockly.Blocks["gsa_get_all_roles_on_member"] = {
 };
   
 Blockly.JavaScript["gsa_get_all_roles_on_member"] = function (block) {
-  return [`${Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC)}.roles`, Blockly.JavaScript.ORDER_ATOMIC];
+  return [`${Blockly.JavaScript.valueToCode(block, "member", Blockly.JavaScript.ORDER_ATOMIC)}._roles`, Blockly.JavaScript.ORDER_ATOMIC];
 }
