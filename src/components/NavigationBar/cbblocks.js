@@ -13,7 +13,7 @@ module.exports.load = (Blockly, prefix, color) => {
     require('../../blocks/other')
     require('../../blocks/JeremyGamer13/other_err')
     require('../../blocks/frostzzone/useful/time')
-    require('../../blocks/godslayerakp/single')
+    require('../../blocks/godslayerakp/index')
     Blockly.Blocks[prefix + "exportInit"] = {
         init: function () {
             this.jsonInit({
