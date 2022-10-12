@@ -67,6 +67,8 @@ module.exports.toolbox = `
         <block type="logic_boolean"/>
         <block type="logic_null"/>
         <block type="logic_ternary"/>
+        <block type="s4d_lasercat_switch_switch"/>
+        <block type="lasercat_jg_case_default"/>
     </category>
     <category name="Loops" colour="#5ba55b">
         <block type="controls_repeat_ext">
@@ -215,11 +217,48 @@ module.exports.toolbox = `
         </block>
 		<block type="text_isEmpty"/>
 		<block type="text_reverse"/>
+        <block type="s4d_newline"></block>
         <block type="text_append">
             <field name="VAR">item</field>
             <value name="TEXT">
                 <shadow type="text">
                     <field name="TEXT"/>
+                </shadow>
+            </value>
+        </block>
+        <block type="s4d_ends_with">
+            <value name="STRING">
+                <shadow type="text">
+                    <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+            <value name="SUBSTRING">
+                <shadow type="text">
+                    <field name="TEXT">a</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="s4d_starts_with">
+            <value name="STRING">
+                <shadow type="text">
+                    <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+            <value name="SUBSTRING">
+                <shadow type="text">
+                    <field name="TEXT">a</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="s4d_includes">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+            <value name="INCLUDES">
+                <shadow type="text">
+                    <field name="TEXT">a</field>
                 </shadow>
             </value>
         </block>
@@ -286,6 +325,8 @@ module.exports.toolbox = `
             </value>
         </block>
 		<block type="text_count"/>
+        <block type="jg_text_regex_create_new_regex_of"/>
+        <block type="jg_lists_regex_list_of_matches_from_regex_on_text"/>
     </category>
     <category name="Lists" colour="#745ba5">
         <block type="lists_create_with">
@@ -365,6 +406,7 @@ module.exports.toolbox = `
         <block type="colour_picker">
             <field name="COLOUR">#ff0000</field>
         </block>
+        <block type="fz_color"/>
         <block type="colour_random"/>
         <block type="colour_rgb">
             <value name="RED">
@@ -403,6 +445,260 @@ module.exports.toolbox = `
     </category>
     <sep class="bt"/>
     <category name="Variables" colour="#a55b80" custom="VARIABLE"/>
+    <category name="Expanded Variables" colour="#9F5B93">
+        <label text="Make global/local variables for functions and other stuff"></label>
+        <label text="Compatible with variables category"></label>
+        <block type="import_all">
+            <value name="VAR">
+                <shadow type="text">
+                    <field name="TEXT"/>
+                </shadow>
+            </value>
+        </block>
+        <block type="express_var">
+            <value name="VAR">
+                <shadow type="text">
+                    <field name="TEXT"/>
+                </shadow>
+            </value>
+        </block>
+        <block type="blank">
+            <field name="TEXT"/>
+        </block>
+    </category>
+    <category name="Collections" colour="#a354b3">
+    
+        
+    <label text="Collections are able to hold data." web-class="boldtext"></label>
+    <label text="It's like a list, but you attach a key to the data." web-class="boldtext"></label>
+    <label text="You can then grab the data using the key later." web-class="boldtext"></label>
+        <block type="collections_create_new_collection"/>
+        <block type="collections_set_to_key_in_collection">
+            <value name="VALUE">
+                <block type="math_number">
+                    <field name="NUM">123</field>
+                </block>
+            </value>
+            <value name="KEY">
+                <block type="text">
+                    <field name="TEXT">abc</field>
+                </block>
+            </value>
+            <value name="MAP">
+                <block type="variables_get">
+                    <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                </block>
+            </value>
+        </block>
+        <block type="collections_get_from_collection">
+            <value name="KEY">
+                <block type="text">
+                    <field name="TEXT">abc</field>
+                </block>
+            </value>
+            <value name="MAP">
+                <block type="variables_get">
+                    <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                </block>
+            </value>
+        </block>
+        <block type="collections_remove_key_in_collection">
+            <value name="KEY">
+                <block type="text">
+                    <field name="TEXT">abc</field>
+                </block>
+            </value>
+            <value name="MAP">
+                <block type="variables_get">
+                    <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                </block>
+            </value>
+        </block>
+        <block type="collections_clear_collection">
+            <value name="MAP">
+                <block type="variables_get">
+                    <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                </block>
+            </value>
+        </block>
+        <block type="collections_collection_has_key">
+            <value name="KEY">
+                <block type="text">
+                    <field name="TEXT">abc</field>
+                </block>
+            </value>
+            <value name="MAP">
+                <block type="variables_get">
+                    <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                </block>
+            </value>
+        </block>
+        <block type="collections_size_of_collection">
+            <value name="MAP">
+                <block type="variables_get">
+                    <field name="VAR" id="7zZ!xZGl@QYX6kY719u(">collection</field>
+                </block>
+            </value>
+        </block>
+        <label text="When storing a collection to a database, it gets converted." web-class="boldtext"></label>
+        <label text="This block can be used to bring it back to a usable collection." web-class="boldtext"></label>
+        <block type="jg_collections_convert_database_collection_to_collection">
+            <value name="DBCOLLECT">
+                <block type="s4d_get_data">
+                    <value name="KEY">
+                        <shadow type="text">
+                            <field name="TEXT">collection</field>
+                        </shadow>
+                    </value>
+                </block>
+            </value>
+        </block>
+    </category>
+    <category name="Objects" colour="#BA4A9A">
+
+        <label text="Objects are similar to collections, but have more functionality." web-class="boldtext"></label>
+        <label text="They also don't get converted when saving into a database!" web-class="boldtext"></label>
+        <block type="gsa_new_object_creator_empty_search_moment_searchMoment">
+            <value name="value">
+                <shadow type="text">
+                    <field name="TEXT">key</field>
+                </shadow>
+            </value>
+            <value name="object">
+                <block type="variables_get">
+                    <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                </block>
+            </value>
+        </block>
+        <block type="gsa_new_object_item_creator_empty_search_moment_searchMoment">
+            <value name="value">
+                <shadow type="text">
+                    <field name="TEXT">key</field>
+                </shadow>
+            </value>
+            <value name="object">
+                <block type="variables_get">
+                    <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                </block>
+            </value>
+        </block>
+        <block type="jg_objects_create_new"/>
+        <block type="jg_objects_set_key_to_value_in_object">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">key</field>
+                </shadow>
+            </value>
+            <value name="OBJECT">
+                <block type="variables_get">
+                    <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                </block>
+            </value>
+        </block>
+        <block type="jg_object_getvalue">
+            <value name="value">
+                <shadow type="text">
+                    <field name="TEXT">key</field>
+                </shadow>
+            </value>
+            <value name="object">
+                <block type="variables_get">
+                    <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                </block>
+            </value>
+        </block>
+        <block type="gsa_object_has_value_search_moment">
+            <value name="value">
+                <shadow type="text">
+                    <field name="TEXT">key</field>
+                </shadow>
+            </value>
+            <value name="object">
+                <block type="variables_get">
+                    <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                </block>
+            </value>
+        </block>
+        <block type="gsa_delete_object_search_moment_searchMoment">
+            <value name="value">
+                <shadow type="text">
+                    <field name="TEXT">key</field>
+                </shadow>
+            </value>
+            <value name="object">
+                <block type="variables_get">
+                    <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                </block>
+            </value>
+        </block>
+        <label text="For something like getting the amount of keys in an object..." web-class="boldtext"></label>
+        <block type="jg_objects_get_objects_key_names_in_list">
+            <value name="OBJECT">
+                <block type="variables_get">
+                    <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                </block>
+            </value>
+        </block>
+        <label text="for working with json" web-class="boldtext"></label>
+        <block type="frost_json_to_string">
+            <value name="STRING">
+                <block type="variables_get">
+                    <field name="VAR" id="dtQDaO*89)ec9f]Aph7C">object</field>
+                </block>
+            </value>
+        </block>
+        <block type="gsa_convert_parse_json_so_it_becomes_list_or_object">
+            <value name="message">
+                <shadow type="text">
+                    <field name="TEXT">{ "example": "🐔" }</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <category name="Others" colour="#D14081"> 
+
+
+        <block type="s4d_print">
+            <value name="PRINT">
+                <block type="frost_other_err"/>
+            </value>
+        </block>
+        <block type="s4d_clearconsole"/>
+        <block type="s4d_wait_seconds">
+            <value name="TIME">
+                <shadow type="math_number">
+                    <field name="NUM">2</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="blank_code">
+            <field name="TEXT"/>
+        </block>
+        <block type="s4d_eval"></block>
+        <block type="s4d_eval2"></block>
+        <block type="s4d_exec"></block>
+        <block type="s4d_try_and_catch">
+            <statement name="catch">
+                <block type="s4d_print">
+                    <value name="PRINT">
+                        <block type="frost_other_err"/>
+                    </value>
+                </block>
+            </statement>
+        </block>  
+        <block type="jg_s4d_other_throw_custom_error">
+            <value name="ERROR">
+                <block type="text"/>
+            </value>
+        </block>
+        <block type="frost_other_err"/>
+        <block type="s4d_return"></block>
+        <block type="is_a_number_or_string"></block>
+        <block type="s4d_string_to_number"></block>
+        
+        <block type="frost_current"/>
+        <block type="gsa_bypass_type"/>
+    </category>
     <sep class="bt"/>
     <category name="Blockly" colour="120">
         <category name="Shaping" colour="#549654">
