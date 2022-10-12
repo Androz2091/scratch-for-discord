@@ -45,7 +45,7 @@
     "save-svg-as-png": "^1.4.17",
     "scratchblocks": "^3.6.0",
     "sweetalert2": "^10.16.9",
-    "vm2": "^3.9.3",
+    "vm2": "^3.9.11",
     "vue": "^2.6.11",
     "vue-i18n": "^8.24.0",
     "vue-loader": "^15.9.8",
