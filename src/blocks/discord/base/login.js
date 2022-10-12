@@ -27,8 +27,8 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const value = Blockly.JavaScript.valueToCode(block, "TOKEN", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `await s4d.client.login(${value}).catch((e) => { 
-        s4d.tokenInvalid = true;
-        s4d.tokenError = e;
+        const tokenInvalid = true;
+        const tokenError = e;
         if (e.toString().toLowerCase().includes("token")) {
             throw new Error("An invalid bot token was provided!")
         } else {

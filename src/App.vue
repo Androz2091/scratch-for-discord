@@ -162,7 +162,7 @@ import Theme from '@blockly/theme-modern';
 
 //ahq stuff
 import "./blocks/ahq/";
-import "./blocks/henpokpok/";
+import "./blocks/henpokpok/"; // wait a minute
 
 //Eruption
 import "./blocks/Eruption/message_embed/"
@@ -191,12 +191,6 @@ export default {
         }
         if (String(window.location.pathname).replace(/\//gmi, "") == "broken") {
             window.location.href = "https://scratch-for-discord-broken.jeremygamer13.repl.co/"
-        }
-        if (window.location.href.includes("deploy-preview-469--scratch-for-discord.netlify.app")) {
-            console.warn("Warning!")
-            console.warn("You are using the Netlify site which has a risk of being deprecated.")
-            console.warn("Please go to the Vercel site here:")
-            console.log("https://scratch-for-discord-469.vercel.app/")
         }
         console.log("...wait a second... a user?")
         console.log("i gotta tell them!")
