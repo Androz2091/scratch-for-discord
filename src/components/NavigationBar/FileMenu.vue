@@ -8,9 +8,7 @@
       type="file"
       accept=".s4d,.zip,.xml"
     />
-    <b-dropdown-item v-b-modal.code-modal>{{
-      $t("file.javascript")
-    }}</b-dropdown-item>
+    <b-dropdown-item v-b-modal.code-modal>{{ $t("file.javascript") }}</b-dropdown-item>
     <b-dropdown-item @click="copy">{{ $t("file.copy") }}</b-dropdown-item>
     <b-dropdown-item @click="save">{{ $t("file.save") }}</b-dropdown-item>
     <b-dropdown-item @click="saveas">Replace</b-dropdown-item>

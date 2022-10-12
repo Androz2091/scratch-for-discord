@@ -1134,6 +1134,33 @@ window.openS4DDebugMenu = () => {
         apisDetails.append(apisDetailsSummary)
         menu.content.append(apisDetails)
     }, 0)
+    setTimeout(() => {// ebal
+        const evalTool = document.createElement("details")
+        const evalToolSummary = document.createElement("summary")
+        evalToolSummary.innerHTML = "evalTool"
+        evalTool.append(evalToolSummary)
+        menu.content.append(evalTool)
+        const evalToolWarning = document.createElement("h1")
+        evalToolWarning.innerHTML = "Warning!<br><h5>do not use if you dont know what your doing as anything put here might aswell be inside of s4d's source code</h5>"
+        evalToolWarning.style.color = "#f60000"
+        evalTool.append(evalToolWarning)
+        const evalToolTextarea = document.createElement("textarea")
+        evalToolTextarea.style.width = "100%"
+        evalToolTextarea.style.height = "10em"
+        evalToolTextarea.placeholder = "JS Code"
+        const Eval = menu.createDecoratedButton()
+        Eval.innerHTML = "Run"
+        Eval.onclick = () => {
+            try {
+                evalToolTextarea.placeholder = String(eval(evalToolTextarea.value))
+            } catch (err) {
+                evalToolTextarea.placeholder = err
+            }
+            evalToolTextarea.value = ''
+        }
+        evalTool.append(Eval)
+        evalTool.append(evalToolTextarea)
+    }, 0)
 }
 window.addEventListener("keypress", (e) => {
     if (!(e.key == "\u0015" && e.shiftKey && e.ctrlKey)) return
