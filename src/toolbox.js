@@ -1238,7 +1238,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_bot_shutdown"></block>
             <label text="Some more advanced features" web-class="boldtext"></label>
             <block type="jg_when_ran"/>
-            <block type="gsa_async_async_troll"/>
+            <block type="gsa_async"/>
             <block type="jg_rbs_isRunButton"/>
             <block type="ps_os_stats"/>
 		    <block type="get_cpu_uptime"/>
