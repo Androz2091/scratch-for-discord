@@ -86,7 +86,7 @@ Blockly.JavaScript["gsa_format_time"] = function (block) {
 
 
 
-Blockly.Blocks["gsa_async_async_troll"] = {
+Blockly.Blocks["gsa_async"] = {
   init: function () {
     this.jsonInit({
       "type": "block_type",
@@ -109,7 +109,7 @@ Blockly.Blocks["gsa_async_async_troll"] = {
   }
 };
 
-Blockly.JavaScript['gsa_async_async_troll'] = function(block) {
+Blockly.JavaScript['gsa_async'] = function(block) {
   var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
   var code = `
 (async () => {
