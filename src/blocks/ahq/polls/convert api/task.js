@@ -1,6 +1,5 @@
 import * as Blockly from "blockly";
 const blockName = "convert_api_task";
-const ahqcolor = ['#0EB22B', '#0EB22B', '#0EB22B', '#0EB22B'];
 import { registerRestrictions } from "../../../../restrictions";
 
 const blockData = {
