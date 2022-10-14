@@ -1,13 +1,5 @@
 import * as Blockly from "blockly/core";
-const ahqcolor = ['#993399', '#993399', '#993399', '#993399'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockName = "simple_host_auth";
 //block working now working
 const blockData = {
@@ -21,7 +13,7 @@ const blockData = {
             "name": "member",
             "check": "String"
         },],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#993399',
     "tooltip": "Login to access Simple Host Auth",
     "helpUrl": "https://discord.gg/nJhYCSddVy"
 };

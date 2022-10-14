@@ -1,14 +1,6 @@
 import * as Blockly from "blockly";
 const blockName = "rply_ahq_button";
-const ahqcolor = ['#33cc00', '#33cc00', '#33cc00', '#33cc00'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockData = {
     "message0": "reply %1 %2 %3 ephemeral %4 %5 button %6 %7 embed %8",
     "args0": [
@@ -45,7 +37,7 @@ const blockData = {
             "check": ""
         },
     ],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#33cc00',
     "previousStatement": null,
     "nextStatement": null,
 };

@@ -1,15 +1,6 @@
 import * as Blockly from "blockly/core";
-const ahqcolor = ['#0EB22B', '#0EB22B', '#0EB22B', '#0EB22B'];
 import { registerRestrictions } from "../../../../restrictions";
 
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
 const blockName = "add_text_dash";
 //block working now working
 const blockData = {
@@ -55,7 +46,7 @@ const blockData = {
         "name": "getter",
         "check": "String"
     }],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#0EB22B',
     "tooltip": "Returns Text",
     "helpUrl": ""
 };

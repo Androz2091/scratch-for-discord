@@ -1,15 +1,7 @@
 import * as Blockly from "blockly";
 import { registerRestrictions } from "../../../restrictions";
 const blockName = "snd_ahq_modal";
-const ahqcolor = ['#33cc00', '#33cc00', '#33cc00', '#33cc00'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockData = {
     "message0": "Send forms on reply type %1 %2 %3 form %4",
     "args0": [
@@ -40,7 +32,7 @@ const blockData = {
         },
 
     ],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#33cc00',
     "previousStatement": null,
     "nextStatement": null,
 };
