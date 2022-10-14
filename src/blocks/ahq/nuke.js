@@ -1,14 +1,6 @@
 import * as Blockly from "blockly";
 const blockName = "ahq-mod";
-const ahqcolor = ['#ff0000', '#ff0000', '#ff0000', '#ff0000'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockData = {
     "type": "block_type",
     "message0": "Create an all in one mod bot %1 Anti-nsfw %2 anti-nsfw (deepai) api token %3",
@@ -26,7 +18,7 @@ const blockData = {
         "name": "deepai",
         "check": "String"
     }],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#ff0000',
     "tooltip": "If you want to get anti-nsfw (deepai) api key go to https://deepai.org/ and register an account for api key",
     "helpUrl": "https://deepai.org/"
 };

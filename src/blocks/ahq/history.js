@@ -1,18 +1,10 @@
 import * as Blockly from "blockly/core";
-const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockName = "s4d_history";
 //block working now working
 const blockData = {
     "message0": "History of s4d!",
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#40BF4A',
     "output": "String",
     "tooltip": ":troll:",
     "helpUrl": ""

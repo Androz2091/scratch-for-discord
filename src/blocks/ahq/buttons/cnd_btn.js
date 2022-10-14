@@ -1,14 +1,6 @@
 import * as Blockly from "blockly";
 const blockName = "snd_ahq_button";
-const ahqcolor = ['#33cc00', '#33cc00', '#33cc00', '#33cc00'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockData = {
     "message0": "send button on channel %1 %2 text %3 %4 button %5 %6 embed %7",
     "args0": [
@@ -43,7 +35,7 @@ const blockData = {
         },
 
     ],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#33cc00',
     "previousStatement": null,
     "nextStatement": null,
 };

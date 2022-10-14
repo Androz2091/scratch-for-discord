@@ -1,15 +1,6 @@
 import * as Blockly from "blockly/core";
-const ahqcolor = ['#0EB22B', '#0EB22B', '#0EB22B', '#0EB22B'];
 import { registerRestrictions } from "../../../restrictions";
 
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
 const blockName = "make_cookie";
 //block working now working
 const blockData = {
@@ -23,7 +14,7 @@ const blockData = {
         "name": "api",
         "check": "String"
     }],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#0EB22B',
     "tooltip": "Add cookies to dash using mongodb",
     "helpUrl": ""
 };

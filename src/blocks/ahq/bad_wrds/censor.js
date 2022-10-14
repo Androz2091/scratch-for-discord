@@ -1,13 +1,5 @@
 import * as Blockly from "blockly/core";
-const ahqcolor = ['#3366ff', '#3366ff', '#3366ff', '#3366ff'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockName = "ahq_bdwrd_cn";
 //block working now working
 const blockData = {
@@ -17,7 +9,7 @@ const blockData = {
         "name": "BAD",
         "check": ["String"]
     }],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#3366ff',
     "output": "String",
     "tooltip": "A filtered version of the text.",
     "helpUrl": ""
