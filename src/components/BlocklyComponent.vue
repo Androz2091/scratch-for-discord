@@ -217,7 +217,7 @@ export default {
         }
       } else {
         const lessthan_350 = blocks.length < default_max_length;
-        let newblocks = (lessthan_350 ? blocks : blocks.slice(0, default_max_length)).filter(x => !HIDDEN_BLOCKS.includes(x))
+        let newblocks = (lessthan_350 ? blocks : blocks.slice(0, default_max_length)).filter(x => !HIDEN_BLOCKS.includes(x))
         if (newblocks.length > 0) {
           CATEGORYCONTENT = `
             <label text="ㅤ" web-class="boldtext"></label>
