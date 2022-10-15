@@ -18,7 +18,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "cross-env GENERATE_SOURCEMAP=false BUILD_PATH='./dist' react-scripts build",
     "test": "cross-env GENERATE_SOURCEMAP=false react-scripts test",
     "eject": "cross-env GENERATE_SOURCEMAP=false react-scripts eject",
     "serve": "serve -s build",
