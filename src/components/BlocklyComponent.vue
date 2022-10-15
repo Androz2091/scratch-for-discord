@@ -70,8 +70,9 @@ export default {
     ) {
       // preparing variables for searching
 
+      const BlocklyB = Object.getOwnPropertyNames(Blockly.Blocks)
       const default_max_length = 250;
-      const HIDEN_BLOCKS = [
+      let HIDEN_BLOCKS = [
         "text_create_join_container",
         "text_create_join_item",
         "procedures_mutatorcontainer",
@@ -140,18 +141,16 @@ export default {
         "jg_testing_urmother_epic_block_test_deez_mf_nuts",
         "jg_testing_epic_menu_api_test_pooop_lolo_fard",
         "jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"
-      ]
+      ];
+      BlocklyB.filter(x => {
+        if (Blockly.Blocks[x].isHiden) {
+          HIDEN_BLOCKS.push(x)
+        }
+      })
 
       // set default blocks from BlocklyComponent function code
 
-      const BlocklyB = Object.getOwnPropertyNames(Blockly.Blocks)
-      let blocks = []
-      
-      for(let i = 0; i < BlocklyB.length; i++) {
-        if (Blockly.Blocks[BlocklyB[i]].init && !HIDEN_BLOCKS.includes(BlocklyB[i])) {
-          blocks.push(BlocklyB[i])
-        }
-      }
+      const blocks = BlocklyB.filter(x => Blockly.Blocks[x].init)
 
       let CATEGORYCONTENT = `
         <label text="Error failed to get block(s)..." web-class="boldtext"></label>
@@ -196,25 +195,16 @@ export default {
         return;
       }
       if (searching) { // search category controler
-        let search_res = []
         searchparameter = searchparameter.replaceAll(/[^qwertyuiopasdfghjklzxcvbnm1234567890_QWERTYUIOPASDFGHJKLZXCVBNM]/gm, "_").toLowerCase(); // long boi lmao
-        
-        for (let i = 0; i < blocks.length; i++) {
-          if (blocks[i].includes(searchparameter)) {
-            search_res.push(`
-              <label text="${blocks[i].replace(searchparameter, `${searchparameter.toUpperCase()}`)}" web-class="boldtext"></label>
-              <block type="${blocks[i]}"/>
-            `);
+        let search_res = blocks.filter(x => {
+          if (searchparameter == "hidden") {
+            return x.includes(searchparameter)
           }
-        }
+          return x.includes(searchparameter) && !HIDDEN_BLOCKS.includes(x)
+        })
 
         if (searchparameter == "hidden") {
-          for (let i = 0; i < HIDEN_BLOCKS.length; i++) {
-            search_res.push(`
-              <label text="${HIDEN_BLOCKS[i]}" web-class="boldtext"></label>
-              <block type="${HIDEN_BLOCKS[i]}"/>
-            `);
-          }
+          HIDEN_BLOCKS.forEach(x => search_res.push(x))
         }
 
         if (search_res.length < 1) {
