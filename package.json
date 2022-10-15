@@ -18,11 +18,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "serve": "serve -s build"
+    "build": "cross-env GENERATE_SOURCEMAP=false BUILD_PATH='./dist' react-scripts build",
+    "test": "cross-env GENERATE_SOURCEMAP=false react-scripts test",
+    "eject": "cross-env GENERATE_SOURCEMAP=false react-scripts eject",
+    "serve": "serve -s build",
+    "start": "cross-env GENERATE_SOURCEMAP=false react-scripts start"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
+    "cross-env": "^7.0.3",
     "postcss": "^8.4.14",
     "serve": "^13.0.2",
     "tailwindcss": "^3.1.4"

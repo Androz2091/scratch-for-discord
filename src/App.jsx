@@ -3,9 +3,7 @@ import { useCallback, useRef } from 'react'
 import 'prismjs/themes/prism-tomorrow.css'
 import toolbox from './toolbox'
 import DarkTheme from "@blockly/theme-dark"
-// import ModernTheme from '@blockly/theme-modern'
-import * as Blockly from 'blockly/core'
-// import Navbar from './components/Navbar'
+import * as Blockly from "blockly"
 import * as Prism from 'prismjs'
 import javascript from 'blockly/javascript'
 import Swal from 'sweetalert2'
