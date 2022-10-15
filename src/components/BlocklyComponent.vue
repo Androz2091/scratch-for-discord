@@ -198,9 +198,9 @@ export default {
         searchparameter = searchparameter.replaceAll(/[^qwertyuiopasdfghjklzxcvbnm1234567890_QWERTYUIOPASDFGHJKLZXCVBNM]/gm, "_").toLowerCase(); // long boi lmao
         let search_res = blocks.filter(x => {
           if (searchparameter == "hidden") {
-            return x.includes(searchparameter) || HIDDEN_BLOCKS.includes(x)
+            return x.includes(searchparameter) || HIDEN_BLOCKS.includes(x)
           }
-          return x.includes(searchparameter) && !HIDDEN_BLOCKS.includes(x)
+          return x.includes(searchparameter) && !HIDEN_BLOCKS.includes(x)
         })
 
         if (search_res.length < 1) {
