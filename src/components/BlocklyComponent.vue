@@ -37,6 +37,115 @@ import theme from "@blockly/theme-dark";
 import customBlockBuilderTheme from "@blockly/theme-dark";
 import Load from "../backpack-save-load.js";
 import localforage from "localforage";
+
+// pre-define a bunch of stuff so the search load times are better
+let coolbox = toolbox(Blockly, null, false).split('\n')
+let resbox = {}
+let working = []
+let commented = false
+coolbox.forEach(line => {
+  if (line.includes('<!--')) commented = true
+  if (line.includes('-->')) commented = false
+  if (line.includes('<category name="') && !line.includes('"/>')) {
+    let temp = line
+      .replaceAll(' ', '%20')
+      .replaceAll('"', '" ')
+      .replaceAll('=" ', '"')
+      .match(/(?<=\")\S*(?=\")/gm)[0]
+      .replaceAll('%20', ' ')
+    working.push(temp)
+    console.log(working.join('>'), commented)
+  }
+  if (line.includes('<block') && working.length > 0 && !commented) {
+    console.log(line, working.join('>'), commented)
+    try { // i really do not give a crap that you dont like null vue
+      resbox[line.match(/(?<=\")\S*(?=\")/gm)[0]] = working.join('>')
+    } catch {}
+  }
+  if (line.includes('</category>')) {
+    working.pop()
+  }
+})
+console.log(resbox)
+const BlocklyB = Object.getOwnPropertyNames(Blockly.Blocks)
+const blocks = BlocklyB.filter(x => Blockly.Blocks[x].init)
+const default_max_length = 250;
+let HIDEN_BLOCKS = [ // can someone else go through and set isHiden to true in the block definitions for these
+  "text_create_join_container",
+  "text_create_join_item",
+  "procedures_mutatorcontainer",
+  "procedures_mutatorarg",
+  "controls_if_if",
+  "controls_if_elseif",
+  "controls_if_else",
+  "lists_create_with_container",
+  "lists_create_with_item",
+  "BLOCKLY_MODULE_setMutator_187217601600161616321680176016161600_checkboxMutatorMenu",
+  "gsa_simple_embed_checkboxMutatorMenu",
+  "s4d_message_embed_mutator",
+  "validator_test",
+  "s4d_message_row_block_mutator",
+  "s4d_message_menu_block_mutator",
+  "s4d_thread_archive_mutator",
+  "s4d_thread_member_add_mutator",
+  "s4d_message_2row_block_mutator",
+  "jg_tests_checkbox_mutator_checkboxMutatorMenu",
+  "jg_copy_checkbox_left_mutator_checkboxMutatorMenu",
+  "yournamehere_blocknamehere_plusminus_plusminusMutatorMenu",
+  "jg_messages_new_message_payload_checkboxMutatorMenu",
+  "jg_other_try_catch_finally_checkboxMutatorMenu",
+  "lasercat_jg_case_plus_minus_plusminusMutatorMenu",
+  "jg_express_start_website_then_using_port_checkboxMutatorMenu",
+  "event_set_options_mutator",
+  "s4d_message_embed_mutator_lime",
+  "lime_s4d_embed_create",
+  "lime_s4d_embed_send",
+  "s4d_ahq_mutator",
+  "s4d_ahq_mutator_t",
+  "ahq_send_mutator",
+  "dash_setup",
+  "s4d_embed_set_author_mutator",
+  "s4d_embed_set_title_mutator",
+  "s4d_embed_set_footer_mutator",
+  "s4d_embed_send_mutator",
+  "monaco_invites_channels",
+  "jg_tests_doubleDropdown",
+  "jg_tests_typeChange",
+  "jg_tests_deleteInput",
+  "jg_tests_validator",
+  "frost_image",
+  "frost_drop1",
+  "colour_picker",
+  "frost_translate",
+  "variables_get",
+  "procedures_callnoreturn",
+  "procedures_callreturn",
+  "variables_get_dynamic",
+  "variables_set_dynamic",
+  "variables_set",
+  "math_change",
+  "procedures_ifreturn",
+  "procedures_defreturn",
+  "procedures_defnoreturn",
+  "controls_ifelse",
+  "jg_blocklyfp_load_workspace",
+  "jg_blocklyfp_load_workspace_website",
+  "lasercat_jg_case_default_INTERNAL_default",
+  "lasercat_jg_case_default_INTERNAL_case4",
+  "lasercat_jg_case_default_INTERNAL_case3",
+  "lasercat_jg_case_default_INTERNAL_case2",
+  "lasercat_jg_case_default_INTERNAL_case1",
+  "jg_events_all_label",
+  "jg_testing_urmother_epic_block_test_deez_mf_nuts",
+  "jg_testing_epic_menu_api_test_pooop_lolo_fard",
+  "jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"
+];
+BlocklyB.filter(x => {
+  if (Blockly.Blocks[x].isHiden) {
+    HIDEN_BLOCKS.push(x)
+  }
+})
+
 export default {
   name: "BlocklyComponent",
   props: ["options"],
@@ -68,137 +177,34 @@ export default {
       pooopewwweewwww,
       searchparameter
     ) {
-      // preparing variables for searching
-
-      const BlocklyB = Object.getOwnPropertyNames(Blockly.Blocks)
-      const default_max_length = 250;
-      let HIDEN_BLOCKS = [
-        "text_create_join_container",
-        "text_create_join_item",
-        "procedures_mutatorcontainer",
-        "procedures_mutatorarg",
-        "controls_if_if",
-        "controls_if_elseif",
-        "controls_if_else",
-        "lists_create_with_container",
-        "lists_create_with_item",
-        "BLOCKLY_MODULE_setMutator_187217601600161616321680176016161600_checkboxMutatorMenu",
-        "gsa_simple_embed_checkboxMutatorMenu",
-        "s4d_message_embed_mutator",
-        "validator_test",
-        "s4d_message_row_block_mutator",
-        "s4d_message_menu_block_mutator",
-        "s4d_thread_archive_mutator",
-        "s4d_thread_member_add_mutator",
-        "s4d_message_2row_block_mutator",
-        "jg_tests_checkbox_mutator_checkboxMutatorMenu",
-        "jg_copy_checkbox_left_mutator_checkboxMutatorMenu",
-        "yournamehere_blocknamehere_plusminus_plusminusMutatorMenu",
-        "jg_messages_new_message_payload_checkboxMutatorMenu",
-        "jg_other_try_catch_finally_checkboxMutatorMenu",
-        "lasercat_jg_case_plus_minus_plusminusMutatorMenu",
-        "jg_express_start_website_then_using_port_checkboxMutatorMenu",
-        "event_set_options_mutator",
-        "s4d_message_embed_mutator_lime",
-        "lime_s4d_embed_create",
-        "lime_s4d_embed_send",
-        "s4d_ahq_mutator",
-        "s4d_ahq_mutator_t",
-        "ahq_send_mutator",
-        "dash_setup",
-        "s4d_embed_set_author_mutator",
-        "s4d_embed_set_title_mutator",
-        "s4d_embed_set_footer_mutator",
-        "s4d_embed_send_mutator",
-        "monaco_invites_channels",
-        "jg_tests_doubleDropdown",
-        "jg_tests_typeChange",
-        "jg_tests_deleteInput",
-        "jg_tests_validator",
-        "frost_image",
-        "frost_drop1",
-        "colour_picker",
-        "frost_translate",
-        "variables_get",
-        "procedures_callnoreturn",
-        "procedures_callreturn",
-        "variables_get_dynamic",
-        "variables_set_dynamic",
-        "variables_set",
-        "math_change",
-        "procedures_ifreturn",
-        "procedures_defreturn",
-        "procedures_defnoreturn",
-        "controls_ifelse",
-        "jg_blocklyfp_load_workspace",
-        "jg_blocklyfp_load_workspace_website",
-        "lasercat_jg_case_default_INTERNAL_default",
-        "lasercat_jg_case_default_INTERNAL_case4",
-        "lasercat_jg_case_default_INTERNAL_case3",
-        "lasercat_jg_case_default_INTERNAL_case2",
-        "lasercat_jg_case_default_INTERNAL_case1",
-        "jg_events_all_label",
-        "jg_testing_urmother_epic_block_test_deez_mf_nuts",
-        "jg_testing_epic_menu_api_test_pooop_lolo_fard",
-        "jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"
-      ];
-      BlocklyB.filter(x => {
-        if (Blockly.Blocks[x].isHiden) {
-          HIDEN_BLOCKS.push(x)
-        }
-      })
-
-      // set default blocks from BlocklyComponent function code
-
-      const blocks = BlocklyB.filter(x => Blockly.Blocks[x].init)
 
       let CATEGORYCONTENT = `
         <label text="Error failed to get block(s)..." web-class="boldtext"></label>
       `
 
       if (searching == "baiuyfg8iu4ewf643o8ir") {
-        let newblocks = [];
-        let check;
-        if (prompt("u sure bro? (ye/na)") != "ye") return;
-        for (let count = 0; count < defaultblocks.length; count++) {
-          check = defaultblocks[count];
-          if (!String(check).includes("LINE HIDDEN FROM SEARCH")) {
-            newblocks.push(check);
-          }
-        }
-        for (let i = 0; i < newblocks.length; i++) {
-          let xml = Blockly.Xml.textToDom(`<block type="${newblocks[i]}"/>`);
+        blocks.forEach(x => {
+          let xml = Blockly.Xml.textToDom(`<block type="${x}"/>`);
           let block = Blockly.Xml.domToBlock(xml, pooopewwweewwww);
           block.moveBy(
             Math.round(Math.random() * 5000),
             Math.round(Math.random() * 5000)
           );
-        }
         return;
+        })
       }
       if (searching == "f9u42r8hg329rehsfhoiewgf37") {
-        let newblocks = [];
-        let check;
-        if (prompt("u sure bro? (ye/na)") != "ye") return;
-        for (let count = 0; count < defaultblocks.length; count++) {
-          check = defaultblocks[count];
-          if (!String(check).includes("LINE HIDDEN FROM SEARCH")) {
-            newblocks.push(check);
-          }
-        }
-        for (let i = 0; i < newblocks.length; i++) {
-          let xml = Blockly.Xml.textToDom(
-            `<xml><block type="${newblocks[i]}"/></xml>`
-          );
+        blocks.forEach(x => {
+          const xml = Blockly.Xml.textToDom(`<xml><block type="${x}"/></xml>`);
           Blockly.Xml.appendDomToWorkspace(xml, pooopewwweewwww);
-        }
+        })
         return;
       }
       if (searching) { // search category controler
         searchparameter = searchparameter.replaceAll(/[^qwertyuiopasdfghjklzxcvbnm1234567890_QWERTYUIOPASDFGHJKLZXCVBNM]/gm, "_").toLowerCase(); // long boi lmao
         let search_res = blocks.map(x => {
           return x.includes(searchparameter) && !HIDEN_BLOCKS.includes(x) || searchparameter == "hidden" && HIDEN_BLOCKS.includes(x) ? `
-            <label text="${x.replace(searchparameter, `${searchparameter.toUpperCase()}`)}" web-class="boldtext"></label>
+            <label text="${x.replace(searchparameter, `${searchparameter.toUpperCase()}`)} ${resbox[x] == null ? ' isnt in the toolbox' : 'is at ' + resbox[x]}" web-class="boldtext"></label>
             <block type="${x}"/>
           ` : ''
         })
@@ -221,7 +227,7 @@ export default {
         if (newblocks.length > 0) {
           CATEGORYCONTENT = `
             <label text="ㅤ" web-class="boldtext"></label>
-            <block type="${newblocks.join('"/>\n<block type="')}"/>
+            ${newblocks.map(x => `<block type="${x}"/>`).join('\n')}
             ${!lessthan_350 
             ? `
               <label text="${blocks.length - default_max_length} blocks left..." web-class="boldtext"></label>

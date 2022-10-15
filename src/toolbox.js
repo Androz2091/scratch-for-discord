@@ -1,8 +1,6 @@
 /* eslint-disable */
-export default (Blockly, value, searching) => {
-    /* eslint-disable */
-
-    var toolbox_xml_contents = (`
+export default () => {
+    return `
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
 
     <!--
@@ -38,7 +36,7 @@ export default (Blockly, value, searching) => {
 
     <sep class="bt"/>
 
-	<category name="{{ TOOLBOX_LOGIC }}" colour="#5b80a5">
+	<category name="Logic" colour="#5b80a5">
             <block type="controls_if" />
             <block type="logic_compare">
                 <field name="OP">EQ</field>
@@ -67,7 +65,7 @@ export default (Blockly, value, searching) => {
         <label text="ㅤ" web-class="boldtext"></label>
                 
     </category>
-    <category name="{{ TOOLBOX_LOOPS }}" colour="#5ba55b">
+    <category name="Loops" colour="#5ba55b">
             <block type="s4d_forever">
             </block>
             <block type="controls_repeat_ext">
@@ -126,7 +124,7 @@ export default (Blockly, value, searching) => {
             </block>
         <label text="ㅤ" web-class="boldtext"></label>
     </category>
-    <category name="{{ TOOLBOX_MATH }}" colour="#5b67a5">
+    <category name="Math" colour="#5b67a5">
             <block type="math_number">
                 <field name="NUM">0</field>
             </block>
@@ -227,7 +225,7 @@ export default (Blockly, value, searching) => {
             <block type="math_random_float" />
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-        <category name="{{ TOOLBOX_TEXT }}" colour="#5ba58c">
+        <category name="Text" colour="#5ba58c">
             <!--
             <block type="text">
                 <field name="TEXT"/>
@@ -411,7 +409,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_text_regex_create_new_regex_of"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-        <category name="{{ TOOLBOX_LISTS }}" colour="#745ba5">
+        <category name="Lists" colour="#745ba5">
         
             <block type="lists_create_with">
                 <mutation items="0" />
@@ -488,7 +486,7 @@ export default (Blockly, value, searching) => {
             <block type="jg_lists_regex_list_of_matches_from_regex_on_text"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-        <category name="{{ TOOLBOX_COLORS }}" colour="#a5745b">
+        <category name="Colors" colour="#a5745b">
         
             <block type="colour_picker">
                 <field name="COLOUR">#ff0000</field>
@@ -532,8 +530,8 @@ export default (Blockly, value, searching) => {
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
         <sep class="bt" />
-        <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE"/>
-<category name="Expanded {{ TOOLBOX_VARIABLES }}" colour="#9F5B93">
+        <category name="Variables" colour="#a55b80" custom="VARIABLE"/>
+<category name="Expanded Variables" colour="#9F5B93">
 
 <label text="Make global/local variables for functions and other stuff"></label>
 <label text="Compatible with variables category"></label>
@@ -544,7 +542,7 @@ export default (Blockly, value, searching) => {
 <block type="blank"><field name="TEXT"/></block>
 </category>
 
-        <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE"/>
+        <category name="Functions" colour="#995ba5" custom="PROCEDURE"/>
 
        <category name="Collections" colour="#a354b3">
        
@@ -1199,7 +1197,7 @@ export default (Blockly, value, searching) => {
         <!--</category>-->
         
         <sep class="bt"/>
-        <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
+        <category name="Base" colour="#F46580">
         
         <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
             <block type="s4d_login">
@@ -1245,7 +1243,7 @@ export default (Blockly, value, searching) => {
 			<block type="cpu"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category>
-        <category name="{{ TOOLBOX_E_MESSAGES }}" colour="#4C97FF">
+        <category name="Messages" colour="#4C97FF">
             <!--
             <category name="Handling" colour="#4C97FF"/>
             <category name="Embeds" colour="#4c8eff">
@@ -1400,7 +1398,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_reply_then"> 
                 <value name="CONTENT">
                     <shadow type="text">
-                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                        <field name="TEXT">Hey!</field>
                     </shadow>
                 </value>
             </block>
@@ -1408,7 +1406,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_edit">
                 <value name="CONTENT">
                     <shadow type="text">
-                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                        <field name="TEXT">Hey!</field>
                     </shadow>
                 </value>
             </block>
@@ -2319,7 +2317,7 @@ export default (Blockly, value, searching) => {
             </category>
         </category>
         <sep class="bt"/>
-        <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
+        <category name="Servers" colour="#D85E47">
         
             <label text="%{BKY_FIND_SERVER}"></label>
 
@@ -2478,7 +2476,7 @@ export default (Blockly, value, searching) => {
             <block type="s4d_send_wait_reply">
                 <value name="CONTENT">
                     <shadow type="text">
-                        <field name="TEXT">{{ SEND_WAIT_REPLY_EXAMPLE }}</field>
+                        <field name="TEXT">What is your name?</field>
                     </shadow>
                 </value>
                 <value name="TIME">
@@ -2693,7 +2691,7 @@ export default (Blockly, value, searching) => {
 			<block type="jg_roles_fetch_all_roles_in_server_then_do"/>
             <label text="ㅤ" web-class="boldtext"></label>
         </category> 
-        <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
+        <category name="Members" colour="#187795">
         
             <label text="%{BKY_FIND_MEMBER}"></label>
             <block type="s4d_get_member"></block>
@@ -4129,9 +4127,5 @@ export default (Blockly, value, searching) => {
         -->
 
     </xml>
-`.replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
-        return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
-    }))
-
-    return toolbox_xml_contents
+`
 }
