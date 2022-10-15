@@ -196,11 +196,11 @@ export default {
       }
       if (searching) { // search category controler
         searchparameter = searchparameter.replaceAll(/[^qwertyuiopasdfghjklzxcvbnm1234567890_QWERTYUIOPASDFGHJKLZXCVBNM]/gm, "_").toLowerCase(); // long boi lmao
-        let search_res = blocks.filter(x => {
-          if (searchparameter == "hidden") {
-            return x.includes(searchparameter) || HIDDEN_BLOCKS.includes(x)
-          }
-          return x.includes(searchparameter) && !HIDDEN_BLOCKS.includes(x)
+        let search_res = blocks.map(x => {
+          return x.includes(searchparameter) && !HIDEN_BLOCKS.includes(x) || searchparameter == "hidden" && HIDEN_BLOCKS.includes(x) ? `
+            <label text="${x.replace(searchparameter, `${searchparameter.toUpperCase()}`)}" web-class="boldtext"></label>
+            <block type="${x}"/>
+          ` : ''
         })
 
         if (search_res.length < 1) {
