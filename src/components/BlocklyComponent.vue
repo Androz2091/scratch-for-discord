@@ -68,42 +68,95 @@ export default {
       pooopewwweewwww,
       searchparameter
     ) {
-      // console.log(toolbox_content)
-
       // preparing variables for searching
 
       const default_max_length = 250;
-      var CATEGORYCONTENT;
+      const HIDEN_BLOCKS = [
+        "text_create_join_container",
+        "text_create_join_item",
+        "procedures_mutatorcontainer",
+        "procedures_mutatorarg",
+        "controls_if_if",
+        "controls_if_elseif",
+        "controls_if_else",
+        "lists_create_with_container",
+        "lists_create_with_item",
+        "BLOCKLY_MODULE_setMutator_187217601600161616321680176016161600_checkboxMutatorMenu",
+        "gsa_simple_embed_checkboxMutatorMenu",
+        "s4d_message_embed_mutator",
+        "validator_test",
+        "s4d_message_row_block_mutator",
+        "s4d_message_menu_block_mutator",
+        "s4d_thread_archive_mutator",
+        "s4d_thread_member_add_mutator",
+        "s4d_message_2row_block_mutator",
+        "jg_tests_checkbox_mutator_checkboxMutatorMenu",
+        "jg_copy_checkbox_left_mutator_checkboxMutatorMenu",
+        "yournamehere_blocknamehere_plusminus_plusminusMutatorMenu",
+        "jg_messages_new_message_payload_checkboxMutatorMenu",
+        "jg_other_try_catch_finally_checkboxMutatorMenu",
+        "lasercat_jg_case_plus_minus_plusminusMutatorMenu",
+        "jg_express_start_website_then_using_port_checkboxMutatorMenu",
+        "event_set_options_mutator",
+        "s4d_message_embed_mutator_lime",
+        "lime_s4d_embed_create",
+        "lime_s4d_embed_send",
+        "s4d_ahq_mutator",
+        "s4d_ahq_mutator_t",
+        "ahq_send_mutator",
+        "dash_setup",
+        "s4d_embed_set_author_mutator",
+        "s4d_embed_set_title_mutator",
+        "s4d_embed_set_footer_mutator",
+        "s4d_embed_send_mutator",
+        "monaco_invites_channels",
+        "jg_tests_doubleDropdown",
+        "jg_tests_typeChange",
+        "jg_tests_deleteInput",
+        "jg_tests_validator",
+        "frost_image",
+        "frost_drop1",
+        "colour_picker",
+        "frost_translate",
+        "variables_get",
+        "procedures_callnoreturn",
+        "procedures_callreturn",
+        "variables_get_dynamic",
+        "variables_set_dynamic",
+        "variables_set",
+        "math_change",
+        "procedures_ifreturn",
+        "procedures_defreturn",
+        "procedures_defnoreturn",
+        "controls_ifelse",
+        "jg_blocklyfp_load_workspace",
+        "jg_blocklyfp_load_workspace_website",
+        "lasercat_jg_case_default_INTERNAL_default",
+        "lasercat_jg_case_default_INTERNAL_case4",
+        "lasercat_jg_case_default_INTERNAL_case3",
+        "lasercat_jg_case_default_INTERNAL_case2",
+        "lasercat_jg_case_default_INTERNAL_case1",
+        "jg_events_all_label",
+        "jg_testing_urmother_epic_block_test_deez_mf_nuts",
+        "jg_testing_epic_menu_api_test_pooop_lolo_fard",
+        "jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"
+      ]
 
       // set default blocks from BlocklyComponent function code
 
-      const toolboxArray = toolbox_content.split("\n");
-      var blocks = [];
-      var pushed;
-      var repeat_end = toolboxArray.length;
-      for (var count = 0; count < repeat_end; count++) {
-        if (
-          toolboxArray[count].includes('<block type="') &&
-          !toolboxArray[count].includes("LINE HIDDEN FROM SEARCH")
-        ) {
-          pushed = toolboxArray[count]
-            .replaceAll(" ", "")
-            .replaceAll('blocktype="', "")
-            .replaceAll("/", "")
-            .replaceAll("<", "")
-            .replaceAll('"', "")
-            .replaceAll("'", "")
-            .replaceAll("\t", "");
-          pushed = pushed.slice(0, pushed.indexOf(">"));
-          if (!blocks.includes(pushed)) {
-            blocks.push(pushed);
-          }
+      const BlocklyB = Object.getOwnPropertyNames(Blockly.Blocks)
+      let blocks = []
+      
+      for(let i = 0; i < BlocklyB.length; i++) {
+        if (Blockly.Blocks[BlocklyB[i]].init && !HIDEN_BLOCKS.includes(BlocklyB[i])) {
+          blocks.push(BlocklyB[i])
         }
       }
 
-      // set the default blocks and run the searching code
+      let CATEGORYCONTENT = `
+        <label text="Error failed to get block(s)..." web-class="boldtext"></label>
+      `
 
-      const defaultblocks = blocks;
       if (searching == "baiuyfg8iu4ewf643o8ir") {
         let newblocks = [];
         let check;
@@ -142,86 +195,62 @@ export default {
         }
         return;
       }
-      if (searching) {
-        var newblocks = [];
-        var check;
-        // var searchparam = prompt("Search for a block with:")
-        let searchparam = searchparameter;
-        if (!searchparam) {
-          searchparam = "";
-        }
-        var searchparamFiltered = searchparam
-          .replaceAll("<", "_")
-          .replaceAll(">", "_")
-          .replaceAll("\\", "_")
-          .replaceAll('"', "_");
-        if (searchparam == "") searchparamFiltered = "nothing (aka, no filter)";
-        searchparam = searchparam.replaceAll(" ", "_").toLowerCase();
-        let repeat_end = defaultblocks.length;
-        for (let count = 0; count < repeat_end; count++) {
-          check = defaultblocks[count];
-          if (
-            String(check).includes(String(searchparam)) &&
-            !String(check).includes("LINE HIDDEN FROM SEARCH")
-          ) {
-            newblocks.push(check);
+      if (searching) { // search category controler
+        let search_res = []
+        searchparameter = searchparameter.replaceAll(/[^qwertyuiopasdfghjklzxcvbnm1234567890_QWERTYUIOPASDFGHJKLZXCVBNM]/gm, "_").toLowerCase(); // long boi lmao
+        
+        for (let i = 0; i < blocks.length; i++) {
+          if (blocks[i].includes(searchparameter)) {
+            search_res.push(`
+              <label text="${blocks[i].replace(searchparameter, `${searchparameter.toUpperCase()}`)}" web-class="boldtext"></label>
+              <block type="${blocks[i]}"/>
+            `);
           }
         }
-        // labels (bruhf mnvm :skull:)
-        /*
-        let labels = []
-        let pushed
-        for (let count = 0; count < toolboxArray.length; count++) {
-            if (toolboxArray[count].includes('<searchcategory label="')) {
-                pushed = `<label text="${toolboxArray[count].match(/(?<=")\S*(?=")/gmi)[0]}"></label>`
-                labels.push(pushed)
-            }
+
+        if (searchparameter == "hidden") {
+          for (let i = 0; i < HIDEN_BLOCKS.length; i++) {
+            search_res.push(`
+              <label text="${HIDEN_BLOCKS[i]}" web-class="boldtext"></label>
+              <block type="${HIDEN_BLOCKS[i]}"/>
+            `);
+          }
         }
-        */
-        // end of labels
-        if (newblocks.length > 1) {
-          var s = "s";
-        } else {
-          var s = "";
+
+        if (search_res.length < 1) {
+          CATEGORYCONTENT = `
+            <label text="No blocks where found with ${searchparameter} in the name..." web-class="boldtext"></label>
+          `
         }
-        if (newblocks.length > 0) {
-          var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}, found ${
-            newblocks.length
-          } block${s} that matched" web-class="boldtext"></label><block type="${newblocks.join(
-            '"/>\n<block type="'
-          )}"/>`;
-        } else {
-          var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`;
+        if (search_res.length > 0) {
+          CATEGORYCONTENT = `
+            <label text="Found ${search_res.length} blocks with ${searchparameter} in there name" web-class="boldtext"></label>
+            <label text="ㅤ" web-class="boldtext"></label>
+            ${search_res.join('\n')}
+          `
         }
       } else {
-        var length_lessthan_350 = true;
-        if (defaultblocks.length < default_max_length) {
-          var newblocks = defaultblocks;
-        } else {
-          length_lessthan_350 = false;
-          var newblocks = defaultblocks.slice(0, default_max_length);
-        }
+        const lessthan_350 = blocks.length < default_max_length;
+        let newblocks = lessthan_350 ? blocks : blocks.slice(0, default_max_length)
         if (newblocks.length > 0) {
-          var CATEGORYCONTENT =
-            '<block type="' + newblocks.join('"/>\n<block type="') + '"/>';
-          if (length_lessthan_350 == false) {
-            CATEGORYCONTENT =
-              CATEGORYCONTENT +
-              `<label text="${
-                defaultblocks.length - default_max_length
-              } blocks left..." web-class="boldtext"></label>`;
-          }
-        } else {
-          var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`;
+          CATEGORYCONTENT = `
+            <label text="ㅤ" web-class="boldtext"></label>
+            <block type="${newblocks.join('"/>\n<block type="')}"/>
+            ${!lessthan_350 
+            ? `
+              <label text="${blocks.length - default_max_length} blocks left..." web-class="boldtext"></label>
+            ` 
+            : ''}
+          `
         }
       }
-
-      let count_of_blocks = defaultblocks.length;
       var returned_stuff = toolbox_content.replace(
         "<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->",
-        `<label text="There are currently ${String(
-          count_of_blocks
-        )} blocks in S4D." web-class="boldtext"></label>` + CATEGORYCONTENT
+        `
+          <label text="There are currently ${blocks.length} blocks in S4D." web-class="boldtext"></label>
+          <label text="ㅤ" web-class="boldtext"></label>
+          ${CATEGORYCONTENT}
+        `
       );
 
       // for custom categories
@@ -261,12 +290,6 @@ export default {
           );
         }
       }
-      // .replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
-      //   return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
-      // })
-      // console.log(returned_stuff)
-
-      // favorites category gets filled in using the value stored in the 3rd input
 
       returned_stuff = returned_stuff.replace(
         "<!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->",
@@ -657,7 +680,6 @@ export default {
           return "enabled";
         },
         callback: function () {
-          //    reloadWorkspace(workspace, true)
           var new_toolbox_xml = prepToolbox(
             toolbox(Blockly, val, false),
             true,
