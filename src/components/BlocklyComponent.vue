@@ -198,14 +198,10 @@ export default {
         searchparameter = searchparameter.replaceAll(/[^qwertyuiopasdfghjklzxcvbnm1234567890_QWERTYUIOPASDFGHJKLZXCVBNM]/gm, "_").toLowerCase(); // long boi lmao
         let search_res = blocks.filter(x => {
           if (searchparameter == "hidden") {
-            return x.includes(searchparameter)
+            return x.includes(searchparameter) || HIDDEN_BLOCKS.includes(x)
           }
           return x.includes(searchparameter) && !HIDDEN_BLOCKS.includes(x)
         })
-
-        if (searchparameter == "hidden") {
-          HIDEN_BLOCKS.forEach(x => search_res.push(x))
-        }
 
         if (search_res.length < 1) {
           CATEGORYCONTENT = `
@@ -221,7 +217,7 @@ export default {
         }
       } else {
         const lessthan_350 = blocks.length < default_max_length;
-        let newblocks = lessthan_350 ? blocks : blocks.slice(0, default_max_length)
+        let newblocks = (lessthan_350 ? blocks : blocks.slice(0, default_max_length)).filter(x => !HIDDEN_BLOCKS.includes(x))
         if (newblocks.length > 0) {
           CATEGORYCONTENT = `
             <label text="ㅤ" web-class="boldtext"></label>
