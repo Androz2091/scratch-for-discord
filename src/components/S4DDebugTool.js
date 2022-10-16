@@ -1148,7 +1148,7 @@ window.openS4DDebugMenu = () => {
         submit.onclick = () => {
             const pass = psw.value
             psw.value = ''
-            if (pass == process.env.VUE_APP_EVALKEY || String(window.location).includes('localhost')) {
+            if (pass == process.env.VUE_APP_EVALKEY || String(window.location).includes('localhost') || String(window.location).includes('replit')) {
                 psw.placeholder = 'Success!, scroll down for the eval tool'
                 const evalToolWarning = document.createElement("h1")
                 evalToolWarning.innerHTML = "Warning!<br><h5>do not use if you dont know what your doing as anything put here might aswell be inside of s4d's source code</h5>"

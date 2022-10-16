@@ -194,7 +194,7 @@ Vue.mixin({
         console.log(err);
     });
 
-    // idfk
+    // give the new client to discord-logs
     logs(s4d.client);
 
     // pre blockly code
