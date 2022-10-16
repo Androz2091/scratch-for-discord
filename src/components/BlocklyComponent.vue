@@ -42,73 +42,51 @@ import localforage from "localforage";
 let coolbox = toolbox(Blockly, null, false).split('\n')
 let resbox = {}
 let working = []
-let commented = false
+let commented = 0
 coolbox.forEach(line => {
-  if (line.includes('<!--')) commented = true
-  if (line.includes('-->')) commented = false
-  if (line.includes('<category name="') && !line.includes('"/>')) {
-    let temp = line
-      .replaceAll(' ', '%20')
-      .replaceAll('"', '" ')
-      .replaceAll('=" ', '"')
-      .match(/(?<=\")\S*(?=\")/gm)[0]
-      .replaceAll('%20', ' ')
-    working.push(temp)
-    console.log(working.join('>'), commented)
+  if (line.includes('<!--')) commented++
+  if (line.includes('-->')) commented--
+  if (line.includes('-->') && line.includes('<!--')) commented++
+  if (commented < 0) commented = 0
+  if (commented < 1) {
+    if (line.includes('<category name="') && !line.includes('"/>')) {
+      let temp = line
+        .replaceAll(' ', '%20')
+        .replaceAll('"', '" ')
+        .replaceAll('=" ', '"')
+        .match(/(?<=\")\S*(?=\")/gm)[0]
+        .replaceAll('%20', ' ')
+      working.push(temp)
+    }
+    if (line.includes('<block') && working.length > 0 && commented < 1) {
+      let block = line.match(/(?<=\")\S*(?=\")/gm)
+      const path = '\'' + working.join('>') + '\''
+      if (block == null) return
+      block = block[0] 
+      
+      if (block == 'text') {
+        resbox[block] = ['Text']
+        return
+      }
+      if (block == 'math_number') {
+        resbox[block] = ['Math']
+        return
+      }
+
+      if (!resbox[block]) resbox[block] = []
+      if (resbox[block].includes(path)) return
+      resbox[block].push(path)
+    }
+    if (line.includes('</category>') && commented < 1) {
+      working.pop()
+    }
   }
-  if (line.includes('<block') && working.length > 0 && !commented) {
-    console.log(line, working.join('>'), commented)
-    try { // i really do not give a crap that you dont like null vue
-      resbox[line.match(/(?<=\")\S*(?=\")/gm)[0]] = working.join('>')
-    } catch {}
-  }
-  if (line.includes('</category>')) {
-    working.pop()
-  }
+  if (line.includes('-->') && line.includes('<!--')) commented--
 })
-console.log(resbox)
+
 const BlocklyB = Object.getOwnPropertyNames(Blockly.Blocks)
-const blocks = BlocklyB.filter(x => Blockly.Blocks[x].init)
-const default_max_length = 250;
+let blocks = Object.getOwnPropertyNames(resbox) // define blocks so pre search works imediatly
 let HIDEN_BLOCKS = [ // can someone else go through and set isHiden to true in the block definitions for these
-  "text_create_join_container",
-  "text_create_join_item",
-  "procedures_mutatorcontainer",
-  "procedures_mutatorarg",
-  "controls_if_if",
-  "controls_if_elseif",
-  "controls_if_else",
-  "lists_create_with_container",
-  "lists_create_with_item",
-  "BLOCKLY_MODULE_setMutator_187217601600161616321680176016161600_checkboxMutatorMenu",
-  "gsa_simple_embed_checkboxMutatorMenu",
-  "s4d_message_embed_mutator",
-  "validator_test",
-  "s4d_message_row_block_mutator",
-  "s4d_message_menu_block_mutator",
-  "s4d_thread_archive_mutator",
-  "s4d_thread_member_add_mutator",
-  "s4d_message_2row_block_mutator",
-  "jg_tests_checkbox_mutator_checkboxMutatorMenu",
-  "jg_copy_checkbox_left_mutator_checkboxMutatorMenu",
-  "yournamehere_blocknamehere_plusminus_plusminusMutatorMenu",
-  "jg_messages_new_message_payload_checkboxMutatorMenu",
-  "jg_other_try_catch_finally_checkboxMutatorMenu",
-  "lasercat_jg_case_plus_minus_plusminusMutatorMenu",
-  "jg_express_start_website_then_using_port_checkboxMutatorMenu",
-  "event_set_options_mutator",
-  "s4d_message_embed_mutator_lime",
-  "lime_s4d_embed_create",
-  "lime_s4d_embed_send",
-  "s4d_ahq_mutator",
-  "s4d_ahq_mutator_t",
-  "ahq_send_mutator",
-  "dash_setup",
-  "s4d_embed_set_author_mutator",
-  "s4d_embed_set_title_mutator",
-  "s4d_embed_set_footer_mutator",
-  "s4d_embed_send_mutator",
-  "monaco_invites_channels",
   "jg_tests_doubleDropdown",
   "jg_tests_typeChange",
   "jg_tests_deleteInput",
@@ -141,7 +119,7 @@ let HIDEN_BLOCKS = [ // can someone else go through and set isHiden to true in t
   "jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"
 ];
 BlocklyB.filter(x => {
-  if (Blockly.Blocks[x].isHiden) {
+  if (Blockly.Blocks[x].isHiden || Blockly.JavaScript[x] == null) {
     HIDEN_BLOCKS.push(x)
   }
 })
@@ -177,7 +155,7 @@ export default {
       pooopewwweewwww,
       searchparameter
     ) {
-
+      const default_max_length = 250;
       let CATEGORYCONTENT = `
         <label text="Error failed to get block(s)..." web-class="boldtext"></label>
       `
@@ -201,13 +179,18 @@ export default {
         return;
       }
       if (searching) { // search category controler
-        searchparameter = searchparameter.replaceAll(/[^qwertyuiopasdfghjklzxcvbnm1234567890_QWERTYUIOPASDFGHJKLZXCVBNM]/gm, "_").toLowerCase(); // long boi lmao
-        let search_res = blocks.map(x => {
-          return x.includes(searchparameter) && !HIDEN_BLOCKS.includes(x) || searchparameter == "hidden" && HIDEN_BLOCKS.includes(x) ? `
-            <label text="${x.replace(searchparameter, `${searchparameter.toUpperCase()}`)} ${resbox[x] == null ? ' isnt in the toolbox' : 'is at ' + resbox[x]}" web-class="boldtext"></label>
-            <block type="${x}"/>
-          ` : ''
+        // why are so many blocks not defined before this all runs 😭
+        const BlocklyB = Object.getOwnPropertyNames(Blockly.Blocks)
+        blocks = BlocklyB.filter(x => Blockly.Blocks[x].init != null)
+
+        BlocklyB.filter(x => {
+          if ((Blockly.Blocks[x].isHiden || Blockly.JavaScript[x] == null) && !HIDEN_BLOCKS.includes(x)) {
+            HIDEN_BLOCKS.push(x)
+          }
         })
+
+        searchparameter = searchparameter.replaceAll(/[^qwertyuiopasdfghjklzxcvbnm1234567890_QWERTYUIOPASDFGHJKLZXCVBNM]/gm, "_").toLowerCase(); // long boi lmao
+        let search_res = blocks.filter(x => x.includes(searchparameter) && !HIDEN_BLOCKS.includes(x) || searchparameter == "hidden" && HIDEN_BLOCKS.includes(x))
 
         if (search_res.length < 1) {
           CATEGORYCONTENT = `
@@ -218,7 +201,12 @@ export default {
           CATEGORYCONTENT = `
             <label text="Found ${search_res.length} blocks with ${searchparameter} in there name" web-class="boldtext"></label>
             <label text="ㅤ" web-class="boldtext"></label>
-            ${search_res.join('\n')}
+            ${search_res.map(x => {
+            return `
+              <label text="${x.replace(searchparameter, `${searchparameter.toUpperCase()}`)} ${resbox[x] == null ? ' isnt in the toolbox' : 'is in ' + resbox[x].join(' and ')}" web-class="boldtext"></label>
+              <block type="${x}"/>
+            `
+            }).join('\n')}
           `
         }
       } else {
