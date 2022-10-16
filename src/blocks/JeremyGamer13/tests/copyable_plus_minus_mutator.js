@@ -97,7 +97,8 @@ Blockly.Blocks[blockName] = {
                     .appendField(APPEND_NAME);
             }
         }
-    }
+    },
+    isHiden: true // remove this from your block if you dont want it hidden
 
 };
 
