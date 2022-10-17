@@ -8,11 +8,11 @@ const blockData = {
   "args0": [
     {
       "type": "field_input",
-      "name": "NAME"
+      "name": "value"
     },
     {
       "type": "input_value",
-      "name": "message"
+      "name": "object"
     }
   ],
   "previousStatement": "object",

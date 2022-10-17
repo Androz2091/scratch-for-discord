@@ -3069,7 +3069,8 @@ Blockly.Blocks["jg_unused_any_color"] = {
     onchange: function () {
         let color = this.getFieldValue("COLOR")
         this.setColour(color)
-    }
+    },
+    isHiden: true
 }
 Blockly.JavaScript["jg_unused_any_color"] = function () {
     return '';
@@ -3095,7 +3096,8 @@ Blockly.Blocks["jg_unused_any_color2"] = {
     onchange: function () {
         let color = this.getFieldValue("COLOR")
         this.setColour(color)
-    }
+    },
+    isHiden: true
 }
 Blockly.JavaScript["jg_unused_any_color2"] = function () {
     return '';
@@ -4488,7 +4490,8 @@ Blockly.Blocks["jg_testing_epic_menu_api_test_pooop_lolo_fard"] = {
         } else if (!bool) {
             this.canLoadMenu = true
         }
-    }
+    },
+    isHiden: true
 }
 Blockly.JavaScript["jg_testing_epic_menu_api_test_pooop_lolo_fard"] = function () { return '' };
 
@@ -4552,7 +4555,8 @@ Blockly.Blocks["jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"] 
                 toolbox: ['jg_express_website_set_header_to', 'jg_express_website_set_content_type_to'] // array of block IDs in the toolbox
             })
         }
-    }
+    },
+    isHiden: true
 }
 Blockly.JavaScript["jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"] = function () {
     return ''

@@ -44,7 +44,8 @@ Blockly.Blocks[blockName] = {
             ];
             this.appendDummyInput().appendField(new Blockly.FieldDropdown(options), 'C');
         }
-    }
+    },
+    isHiden: true
 };
 
 Blockly.JavaScript[blockName] = function (block) {
