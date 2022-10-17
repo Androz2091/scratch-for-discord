@@ -337,14 +337,28 @@ const toolbox = `
     </category>
     <category name="Functions" colour="#995ba5" custom="PROCEDURE">
     </category>
-    <category name="base" colour="#F46580">
+    <category name="Base" colour="#F46580">
+             <label text="Mandatory Block"></label>
         <block type="s4d_login">
-        <value name="TOKEN">
-            <block type="text">
-                <field name="TEXT">Your bot token</field>
+                <value name="TOKEN">
+                    <shadow type="text">
+                        <field name="TEXT">Your bot token</field>
+                    </shadow>
+                </value>
             </block>
-        </value>
-    </block>
+            <label text="Base Blocks"></label>
+            <block type="s4d_on_connected"></block>
+            <label text="Information about the bot"></label>
+            <block type="s4d_bot_server_count"></block>
+            <block type="s4d_bot_startup_time"></block>
+            <block type="s4d_get_bot"></block>
+						<block type="s4d_bot_amount"/>
+            <label text="Actions on the bot"></label>
+            <block type="s4d_set_bot_game"></block>
+            <block type="s4d_set_bot_stream_text"></block>
+            <block type="s4d_bot_shutdown"></block>
+            <label text="ㅤ" web-class="boldtext"></label>
+            <label text="ㅤ" web-class="boldtext"></label>
     </category>
     <category name="Database" colour="#2AC395">
         <block type="s4d_get_data" />
