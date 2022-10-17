@@ -112,7 +112,7 @@ Blockly.JavaScript[blockName] = function (block) {
     const josh = Blockly.JavaScript.valueToCode(block, 'function', Blockly.JavaScript.ORDER_ATOMIC)
     let ecport = []
     for (let i = 0; i < this.inputs.length; i++) {
-        ecport.push(Blockly.JavaScript.valueToCode(block, i, Blockly.JavaScript.ORDER_ATOMIC))
+        ecport.push(Blockly.JavaScript.valueToCode(block, String(i), Blockly.JavaScript.ORDER_ATOMIC))
     }
     let code = `${josh}(${ecport.join(', ')})`
     if (this.return) code = [code, Blockly.JavaScript.ORDER_ATOMIC]
