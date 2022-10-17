@@ -12,7 +12,7 @@ const blockData = {
             check: "String"
         }
     ],
-    colour: "#F46580",
+    colour: "#3333ff",
     tooltip: "",
     helpUrl: ""
 };
