@@ -86,11 +86,7 @@ coolbox.forEach(line => {
 
 const BlocklyB = Object.getOwnPropertyNames(Blockly.Blocks)
 let blocks = Object.getOwnPropertyNames(resbox) // define blocks so pre search works imediatly
-let HIDEN_BLOCKS = [ // can someone else go through and set isHiden to true in the block definitions for these
-  "jg_tests_doubleDropdown",
-  "jg_tests_typeChange",
-  "jg_tests_deleteInput",
-  "jg_tests_validator",
+let HIDEN_BLOCKS = [
   "frost_image",
   "frost_drop1",
   "colour_picker",
@@ -114,13 +110,14 @@ let HIDEN_BLOCKS = [ // can someone else go through and set isHiden to true in t
   "lasercat_jg_case_default_INTERNAL_case2",
   "lasercat_jg_case_default_INTERNAL_case1",
   "jg_events_all_label",
-  "jg_testing_urmother_epic_block_test_deez_mf_nuts",
-  "jg_testing_epic_menu_api_test_pooop_lolo_fard",
-  "jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"
+  "jg_testing_urmother_epic_block_test_deez_mf_nuts"
 ];
+
+let preadded = []
 BlocklyB.filter(x => {
   if (Blockly.Blocks[x].isHiden || Blockly.JavaScript[x] == null) {
     HIDEN_BLOCKS.push(x)
+    preadded.push(x)
   }
 })
 
@@ -183,11 +180,33 @@ export default {
         const BlocklyB = Object.getOwnPropertyNames(Blockly.Blocks)
         blocks = BlocklyB.filter(x => Blockly.Blocks[x].init != null)
 
+        let warnings = []
+
         BlocklyB.filter(x => {
+          if (Blockly.Blocks[x].isHiden && !preadded.includes(x) && HIDEN_BLOCKS.includes(x)) {
+            console.warn(`${x} is already registerd as hiden! either remove ${x} from "src/components/BlocklyComponent.vue > HIDEN_BLOCKS" or remove the "isHiden" tag from the block defnintion`)
+            warnings.push(x)
+          }
+          if (Blockly.JavaScript[x] == null && !preadded.includes(x) && HIDEN_BLOCKS.includes(x)) {
+            console.warn(`${x} doesnt have a export! and thus doesnt need to be in "src/components/BlocklyComponent.vue > HIDEN_BLOCKS"! please remove ${x} from "src/components/BlocklyComponent.vue > HIDEN_BLOCKS"!`)
+            warnings.push(x)
+          }
           if ((Blockly.Blocks[x].isHiden || Blockly.JavaScript[x] == null) && !HIDEN_BLOCKS.includes(x)) {
             HIDEN_BLOCKS.push(x)
+            preadded.push(x)
           }
         })
+        if (warnings.length > 0) {
+          console.log(`please adress all warnings created!`)
+          console.log(`warnings: [${warnings.map(x => {
+              return `
+              ${x}`
+            })}
+          ]`)
+          console.log(`resulting hiden list: [
+            "${HIDEN_BLOCKS.filter(x => !preadded.includes(x) && !warnings.includes(x)).join('",\n            "')}"
+          ]`)
+        }
 
         searchparameter = searchparameter.replaceAll(/[^qwertyuiopasdfghjklzxcvbnm1234567890_QWERTYUIOPASDFGHJKLZXCVBNM]/gm, "_").toLowerCase(); // long boi lmao
         let search_res = blocks.filter(x => x.includes(searchparameter) && !HIDEN_BLOCKS.includes(x) || searchparameter == "hidden" && HIDEN_BLOCKS.includes(x))

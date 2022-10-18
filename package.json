@@ -6,7 +6,8 @@
     {"your mom": "https://discord.gg/8Eteb7Pp3j"}, 
     {"s4d": "https://scratch-for-discord.netlify.app/"}, 
     {"this is a joke writen by": "redman13"}, 
-    {"jeremy happy": "https://cdn.discordapp.com/emojis/1011199683537948722.png"}
+    {"jeremy happy": "https://cdn.discordapp.com/emojis/1011199683537948722.png"},
+    {"bruh": "there is infact a license field yarn"}
   ],
   "scripts": {
     "audit": "npm audit fix",
