@@ -3664,6 +3664,7 @@ export default () => {
                     <category name="Image Editing" colour="#e67600">
                         <label text="Creating / Editing an image" web-class="boldtext"></label>
                         <label text="Getting started" web-class="boldtext"></label>
+                        <block type="gsa_create_new_jimp_image"/>
                         <block type="jg_beginJimp"/>
                         <block type="jg_saveJimpageAs"/>
                         <block type="gsa_get_jimp_image_buffer"/>
