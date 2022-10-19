@@ -1,6 +1,7 @@
 import "./ytdl"
 import "./discord"
 import "./objects"
+import "./buffers"
 
 /* folderless blocks */
 import Blockly from "blockly/core";

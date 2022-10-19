@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "jg_beginJimp";
 
 const blockData = {
-    "message0": "Begin image edits on URL or File %2 using effects %3 %1",
+    "message0": "Begin image edits on URL, buffer or File %2 using effects %3 %1",
     "args0": [
         {
             "type": "input_statement",
@@ -12,7 +12,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "JimpURL",
-            "check": ["String", "var"]
+            "check": ["String", "var", "buffer"]
         },
         {
             "type": "input_dummy"
@@ -36,7 +36,7 @@ Blockly.JavaScript[blockName] = function (block) {
     const JimpURL = Blockly.JavaScript.valueToCode(block, "JimpURL", Blockly.JavaScript.ORDER_ATOMIC);
     const JimpCode = Blockly.JavaScript.statementToCode(block, "beginJimp");
     const code = `var JimpImageBlock = ` + JimpURL + `;
-await jimp.read(` + JimpURL + `, async (err, image) => {
+await jimp.read(${JimpURL}, async (err, image) => {
     if (err) throw err;
     ${JimpCode}
 });

@@ -633,6 +633,90 @@ export default () => {
             </block>
         </category>
 
+        <category name="Buffers" colour="#AE4FA7">
+            <label text="creating a buffer" web-class="boldtext"></label>
+            <block type="gsa_buffer_from_string">
+                <value name="string">
+                    <block type="text">
+                        <field name="TEXT">Hey!</field>
+                    </block>
+                </value>
+            </block>
+            <block type="gsa_buffer_empty">
+                <value name="number">
+                    <block type="math_number">
+                        <field name="NUM">5</field>
+                    </block>
+                </value>
+                <value name="fill">
+                    <block type="math_number">
+                        <field name="NUM">255</field>
+                    </block>
+                </value>
+            </block>
+            <label text="interacting with a buffer" web-class="boldtext"></label>
+            <block type="gsa_buffer_index_of_string_number_or_buffer">
+                <value name="buffer">
+                    <block type="variables_get" id="{b=P+v5fS/$g}b+*p|(Q">
+                        <field name="VAR" id="/Z^RT(;uS$ADtFZ[?W]-">buffer</field>
+                    </block>
+                </value>
+                <value name="index">
+                    <block type="math_number">
+                        <field name="NUM">255</field>
+                    </block>
+                </value>
+            </block>
+            <block type="gsa_buffer_includes_string_or_buffer">
+                <value name="buffer">
+                    <block type="variables_get" id="{b=P+v5fS/$g}b+*p|(Q">
+                        <field name="VAR" id="/Z^RT(;uS$ADtFZ[?W]-">buffer</field>
+                    </block>
+                </value>
+                <value name="index">
+                    <block type="math_number">
+                        <field name="NUM">255</field>
+                    </block>
+                </value>
+            </block>
+            <block type="gsa_buffer_get_length">
+                <value name="buffer">
+                    <block type="variables_get" id="{b=P+v5fS/$g}b+*p|(Q">
+                        <field name="VAR" id="/Z^RT(;uS$ADtFZ[?W]-">buffer</field>
+                    </block>
+                </value>
+            </block>
+            <block type="gsa_buffer_get_from_index">
+                <value name="buffer">
+                    <block type="variables_get" id="{b=P+v5fS/$g}b+*p|(Q">
+                        <field name="VAR" id="/Z^RT(;uS$ADtFZ[?W]-">buffer</field>
+                    </block>
+                </value>
+                <value name="index">
+                    <block type="math_number">
+                        <field name="NUM">255</field>
+                    </block>
+                </value>
+            </block>
+            <block type="gsa_buffer_set_from_index">
+                <value name="buffer">
+                    <block type="variables_get" id="{b=P+v5fS/$g}b+*p|(Q">
+                        <field name="VAR" id="/Z^RT(;uS$ADtFZ[?W]-">buffer</field>
+                    </block>
+                </value>
+                <value name="index">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+                <value name="value">
+                    <block type="math_number">
+                        <field name="NUM">255</field>
+                    </block>
+                </value>
+            </block>
+        </category>
+
         <category name="Objects" colour="#BA4A9A">
         
             <label text="Objects are similar to collections, but have more functionality." web-class="boldtext"></label>
@@ -1350,6 +1434,7 @@ export default () => {
                             </block>
                         </value>
                     </block>
+                    <block type="gsa_send_new_attachment_in_channel"/>
                     <!--
                     <block type="att_name"/>
                     <block type="att_type"/>
@@ -2900,6 +2985,13 @@ export default () => {
                     </shadow>
                 </value>
             </block>
+            <block type="gsa_express_website_respond_with_buffer">
+                <value name="buffer">
+                    <block type="variables_get" id="{b=P+v5fS/$g}b+*p|(Q">
+                        <field name="VAR" id="/Z^RT(;uS$ADtFZ[?W]-">buffer</field>
+                    </block>
+                </value>
+            </block>
             <block type="jg_express_website_respond_with_file">
                 <value name="TEXT">
                     <shadow type="text">
@@ -2946,6 +3038,9 @@ export default () => {
                 <block type="s4d_http_get_then"/>
                 <block type="s4d_get_string_of_data"/>
                 <block type="jg_imghttps"/>
+            <label text="For geting buffer data from a website" web-class="boldtext"></label>
+                <block type="gsa_http_get_buffer_then"/>
+                <block type="gsa_get_https_response_buffer"/>
             </category>
             <category name="Advanced" colour="#4c6aff">
                 <block type="jg_web_request_advanced_new2_send_request_to_url_using_method_with_result_giving_request_headers_with_data_sections_then_if_error">
@@ -3447,6 +3542,7 @@ export default () => {
                         <block type="jg_file_metadata"/>
                         <block type="jg_file_foreachfile"/>
                         <block type="jg_file_foreachfileinput"/>
+                        <block type="gsa_fs_write_buffer"/>
                     <!--</category>-->
                     <!--<category name="filesystem (fs)" colour="#347dfa">-->
                         <block type="frost_fs_read">
@@ -3570,6 +3666,8 @@ export default () => {
                         <label text="Getting started" web-class="boldtext"></label>
                         <block type="jg_beginJimp"/>
                         <block type="jg_saveJimpageAs"/>
+                        <block type="gsa_get_jimp_image_buffer"/>
+                        <block type="gsa_get_jimp_image_buffer_value"/>
                         <label text="Effects and extras" web-class="boldtext"></label>
                         <block type="jg_jimp_drawtext"/>
                         <!--
