@@ -1,5 +1,6 @@
 import Blockly from "blockly/core";
 import blocklyModule from "../blocklyModule"
+import JBlock from "../jblock1"
 import { registerRestrictions } from "../../restrictions";
 import '@blockly/field-grid-dropdown';
 const restrictToParent = function (parents, name, msg) {
@@ -4561,3 +4562,126 @@ Blockly.Blocks["jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"] 
 Blockly.JavaScript["jg_tests_u98ewhg87fuinweo_googogjoooj_dynamic_mutator_time_mf"] = function () {
     return ''
 };
+
+// jblock testing
+
+JBlock.createBlock({
+    id: "jg_tests_hfi87ewiugkjbo83q2yfoheiefop432ug_gorpjgrejgo_dietznut_jblock_api_test_mapoapoowip",
+    text: "epic radical test [input_one] and then [input_two]",
+    color: "#ac9f76",
+    tooltip: "ttrolol",
+    output: JBlock.OutputType.TEXT,
+    hidden: true,
+    inputs: {
+        input_one: { type: "input_value", check: JBlock.OutputType.BOOL },
+        input_two: { type: "input_value", check: JBlock.OutputType.LIST }
+    },
+    export: (_, args) => {
+        return `trolol ${args.input_one}\namogu ${args.input_two}`
+    }
+})
+
+//
+//
+//
+//
+//
+
+// Jimp Update 2
+
+//
+//
+//
+//
+//
+
+function ezBlock(name, json, jsCallback) {
+    Blockly.Blocks[name] = {
+        init: function () {
+            this.jsonInit(json)
+        }
+    }
+    Blockly.JavaScript[name] = jsCallback
+}
+
+const JimpBlockColor = "#9951f0"
+
+ezBlock("jg_jimp_update2rd_createNewImage", {
+    "message0": "create jimp image with url/buffer/file %1 then %2 if image cannot be used %3 do %4",
+    "args0": [
+        {
+            "type": "input_value",
+            "name": "FILE",
+            "check": ["String", "Buffer", "buffer"]
+        },
+        {
+            "type": "input_statement",
+            "name": "THEN"
+        },
+        {
+            "type": "input_dummy"
+        },
+        {
+            "type": "input_statement",
+            "name": "ERROR"
+        }
+    ],
+    "colour": JimpBlockColor,
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "tooltip": `Creates a new "Jimp" type image using the provided buffer, url to an image, or file containing an image. When created, the first statements will run. If the image cannot be used or another error occurs, the second statements will run.`
+}, (block) => {
+    const file = Blockly.JavaScript.valueToCode(block, "FILE", Blockly.JavaScript.ORDER_ATOMIC)
+    const main_Statements = Blockly.JavaScript.statementToCode(block, "THEN")
+    const errorStatements = Blockly.JavaScript.statementToCode(block, "ERROR")
+    const code = `jimp.read(${file}).then(async S4D_APP_JIMP__JIMPIMAGE_CREATED_821926501243i => {
+    ${main_Statements}
+}).catch(async err => {
+    ${errorStatements}
+})
+`
+    return code
+})
+ezBlock("jg_jimp_update2rd_created_image", {
+    "message0": "created jimp image",
+    "args0": [],
+    "colour": JimpBlockColor,
+    "output": "JimpImage",
+    "tooltip": `Creates a new "Jimp" type image using the provided buffer, url to an image, or file containing an image. When created, the first statements will run. If the image cannot be used or another error occurs, the second statements will run.`
+}, () => {
+    const code = `S4D_APP_JIMP__JIMPIMAGE_CREATED_821926501243i`
+    return [code, Blockly.JavaScript.ORDER_NONE]
+})
+restrictToParent(
+    ["jg_jimp_update2rd_createNewImage"],
+    "jg_jimp_update2rd_created_image",
+    `This block can only be used in "create jimp image" blocks!`
+)
+//
+ezBlock("jg_jimp_update2rd_saveImage", {
+    "message0": "save jimp image %1 as %2",
+    "args0": [
+        {
+            "type": "input_value",
+            "name": "IMAGE",
+            "check": ["JimpImage"]
+        },
+        {
+            "type": "input_value",
+            "name": "FILE",
+            "check": ["String"]
+        }
+    ],
+    "colour": JimpBlockColor,
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "tooltip": `Saves the specified image as the file name.`
+}, (block) => {
+    const image = Blockly.JavaScript.valueToCode(block, "IMAGE", Blockly.JavaScript.ORDER_ATOMIC)
+    const name = Blockly.JavaScript.valueToCode(block, "FILE", Blockly.JavaScript.ORDER_ATOMIC)
+    const code = `await ${image}.writeAsync(String(${name}))
+`
+    return code
+})
