@@ -163,11 +163,8 @@ Blockly.Blocks["gsa_create_new_jimp_image"] = {
     this.isFilled = false 
   },
   mutationToDom: function () {
-    if (!this.inputs) {
-      return null;
-    }
     const container = document.createElement("mutation");
-    container.setAttribute('return', this.idFilled ? 'true' : 'false')
+    container.setAttribute('return', this.isFilled ? 'true' : 'false')
     return container;
   },
   domToMutation: function (xmlElement) {
