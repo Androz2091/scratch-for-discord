@@ -39,7 +39,7 @@ import Load from "../backpack-save-load.js";
 import localforage from "localforage";
 
 // pre-define a bunch of stuff so the search load times are better
-let coolbox = toolbox(Blockly, null, false).split('\n')
+let coolbox = toolbox([]).split('\n')
 let resbox = {}
 let working = []
 let commented = 0
@@ -290,11 +290,6 @@ export default {
         }
       }
 
-      returned_stuff = returned_stuff.replace(
-        "<!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->",
-        favorites === null ? "" : favorites.map((c) => `<block type="${c}"/>`)
-      );
-
       return String(returned_stuff);
     }
     window.loadtoolltovobocaopjsd9fuw4fpoewjoiphgf9ewpojndsfoihgew8ninjagoLOllioolo =
@@ -340,7 +335,7 @@ export default {
             drag: true,
             wheel: true,
           },
-          toolbox: prepToolbox(toolbox(Blockly, val, false), false, val),
+          toolbox: prepToolbox(toolbox(val), false, val),
         }
       );
       Blockly.ContextMenuRegistry.registry.register({
@@ -367,7 +362,7 @@ export default {
                 : await localforage.getItem("fav");
 
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -381,7 +376,7 @@ export default {
                 : await localforage.getItem("fav");
 
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -421,7 +416,7 @@ export default {
                 ? null
                 : await localforage.getItem("fav");
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -436,7 +431,7 @@ export default {
                 ? null
                 : await localforage.getItem("fav");
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -460,7 +455,7 @@ export default {
             callback: function () {
               //    reloadWorkspace2(newWorkspace, true)
               var new_toolbox_xml = prepToolbox(
-                toolbox(Blockly, val, false),
+                toolbox(val),
                 true,
                 val
               );
@@ -474,7 +469,7 @@ export default {
       }
     }
     async function logtoolblocks(remove_underscore) {
-      const toolxml = toolbox(Blockly, null, false);
+      const toolxml = toolbox([]);
       const toolboxArray = toolxml.split("\n");
       var blocks = [];
       var loop = 0;
@@ -539,7 +534,7 @@ export default {
             drag: true,
             wheel: true,
           },
-          toolbox: prepToolbox(toolbox(Blockly, val, false), false, val),
+          toolbox: prepToolbox(toolbox(val), false, val),
         }
       );
       Blockly.ContextMenuRegistry.registry.register({
@@ -566,7 +561,7 @@ export default {
                 : await localforage.getItem("fav");
 
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -580,7 +575,7 @@ export default {
                 : await localforage.getItem("fav");
 
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -620,7 +615,7 @@ export default {
                 ? null
                 : await localforage.getItem("fav");
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -635,7 +630,7 @@ export default {
                 ? null
                 : await localforage.getItem("fav");
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -658,7 +653,7 @@ export default {
             callback: function () {
               //    reloadWorkspace2(newWorkspace, true)
               var new_toolbox_xml = prepToolbox(
-                toolbox(Blockly, val, false),
+                toolbox(val),
                 true,
                 val
               );
@@ -680,7 +675,7 @@ export default {
         },
         callback: function () {
           var new_toolbox_xml = prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             true,
             val
           );
@@ -863,7 +858,7 @@ Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
         },
         callback: function () {
           prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             "baiuyfg8iu4ewf643o8ir",
             null,
             workspace
@@ -880,7 +875,7 @@ Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
         },
         callback: function () {
           prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             "f9u42r8hg329rehsfhoiewgf37",
             null,
             workspace
@@ -1230,7 +1225,7 @@ Blockly.getMaainWorkspace().addChangeListener(blockCounter(Blockly.getMaainWorks
           drag: true,
           wheel: true,
         },
-        toolbox: prepToolbox(toolbox(Blockly, val, false), false, val),
+        toolbox: prepToolbox(toolbox(val), false, val),
       },
     });
     window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e =
@@ -1530,7 +1525,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
     window.loadtoolltovobocaopjsd9fuw4fpoewjoiphgf9ewpojndsfoihgew8ninjagoLOllioolo2222222222222 =
       () => {
         let new_toolbox_xml = prepToolbox(
-          toolbox(Blockly, val, false),
+          toolbox(val),
           false,
           val,
           workspace,
@@ -1548,7 +1543,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
           .replaceAll("<", "_")
           .replaceAll(">", "_")
           .replaceAll("/", "_");
-        let new_toolbox_xml = prepToolbox(toolbox(Blockly, val, false), true, val, workspace, block);
+        let new_toolbox_xml = prepToolbox(toolbox(val), true, val, workspace, block);
         workspace.toolbox_.clearSelection()
         workspace.updateToolbox(new_toolbox_xml);
         workspace.toolbox_.clearSelection()
@@ -1571,7 +1566,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
               .replaceAll("<", "_")
               .replaceAll(">", "_")
               .replaceAll("/", "_");
-            let new_toolbox_xml = prepToolbox(toolbox(Blockly, val, false), true, val, workspace, block);
+            let new_toolbox_xml = prepToolbox(toolbox(val), true, val, workspace, block);
             workspace.toolbox_.clearSelection()
             workspace.updateToolbox(new_toolbox_xml);
             workspace.toolbox_.clearSelection()
@@ -2015,7 +2010,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
               : await localforage.getItem("fav");
 
           var new_toolbox_xml = prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             false,
             val
           );
@@ -2029,7 +2024,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
               : await localforage.getItem("fav");
 
           var new_toolbox_xml = prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             false,
             val
           );
@@ -2084,7 +2079,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
               ? null
               : await localforage.getItem("fav");
           var new_toolbox_xml = prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             false,
             val
           );
@@ -2099,7 +2094,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
               ? null
               : await localforage.getItem("fav");
           var new_toolbox_xml = prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             false,
             val
           );

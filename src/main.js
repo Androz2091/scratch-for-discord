@@ -80,7 +80,7 @@ Vue.mixin({
                     drag: true,
                     wheel: true
                 },
-                toolbox: toolbox(Blockly, val)
+                toolbox: toolbox(val)
             });
 
             Blockly.Xml.domToWorkspace(dom, newWorkspace);

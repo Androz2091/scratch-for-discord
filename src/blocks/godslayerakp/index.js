@@ -2,6 +2,7 @@ import "./ytdl"
 import "./discord"
 import "./objects"
 import "./buffers"
+import "./tests"
 
 /* folderless blocks */
 import Blockly from "blockly/core";
@@ -163,11 +164,8 @@ Blockly.Blocks["gsa_create_new_jimp_image"] = {
     this.isFilled = false 
   },
   mutationToDom: function () {
-    if (!this.inputs) {
-      return null;
-    }
     const container = document.createElement("mutation");
-    container.setAttribute('return', this.idFilled ? 'true' : 'false')
+    container.setAttribute('return', this.isFilled ? 'true' : 'false')
     return container;
   },
   domToMutation: function (xmlElement) {
@@ -201,7 +199,7 @@ Blockly.Blocks["gsa_create_new_jimp_image"] = {
   }
 };
 
-Blockly.JavaScript['gsa_async'] = function(block) {
+Blockly.JavaScript['gsa_create_new_jimp_image'] = function(block) {
   var sizex = Blockly.JavaScript.valueToCode(block, 'sx', Blockly.JavaScript.ORDER_ATOMIC);
   var sizey = Blockly.JavaScript.valueToCode(block, 'sy' ,Blockly.JavaScript.ORDER_ATOMIC);
   var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
