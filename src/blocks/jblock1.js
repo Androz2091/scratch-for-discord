@@ -49,12 +49,22 @@ module.exports.createBlock = (data) => {
     Blockly.Blocks[data.id] = {
         init: function () {
             this.jsonInit(
-                {
+                data.floating == true ? {
                     "message0": message,
                     "args0": argumentss,
                     "inputsInline": data.inline,
                     "colour": data.color,
                     "output": data.output,
+                    "tooltip": data.tooltip ? data.tooltip : "",
+                    "helpUrl": data.url ? data.url : ""
+                } : {
+                    "message0": message,
+                    "args0": argumentss,
+                    "inputsInline": data.inline,
+                    "colour": data.color,
+                    "output": data.output,
+                    "previousStatement": null,
+                    "nextStatement": null,
                     "tooltip": data.tooltip ? data.tooltip : "",
                     "helpUrl": data.url ? data.url : ""
                 }
@@ -65,9 +75,23 @@ module.exports.createBlock = (data) => {
     Blockly.JavaScript[data.id] = function (block) {
         const args = {}
         inputNames.forEach(input => {
-            args[input] = block.getFieldValue(input)
-                || Blockly.JavaScript.valueToCode(block, input, Blockly.JavaScript.ORDER_ATOMIC)
-                || Blockly.JavaScript.statementToCode(block, input)
+            switch (data.inputs[input].type) {
+                case 'input_value':
+                    args[input] = Blockly.JavaScript.valueToCode(block, input, Blockly.JavaScript.ORDER_ATOMIC)
+                    break
+                case 'input_statement':
+                    args[input] = Blockly.JavaScript.statementToCode(block, input)
+                    break
+                case 'input_dummy':
+                    args[input] = ""
+                    break
+                case 'input_space':
+                    args[input] = ""
+                    break
+                default:
+                    args[input] = block.getFieldValue(input)
+                    break
+            }
         })
         if (data.output == null)
             return data.export(block, args)
