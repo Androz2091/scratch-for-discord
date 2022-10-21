@@ -2,6 +2,7 @@ import "./ytdl"
 import "./discord"
 import "./objects"
 import "./buffers"
+import "./tests"
 
 /* folderless blocks */
 import Blockly from "blockly/core";
@@ -198,7 +199,7 @@ Blockly.Blocks["gsa_create_new_jimp_image"] = {
   }
 };
 
-Blockly.JavaScript['gsa_async'] = function(block) {
+Blockly.JavaScript['gsa_create_new_jimp_image'] = function(block) {
   var sizex = Blockly.JavaScript.valueToCode(block, 'sx', Blockly.JavaScript.ORDER_ATOMIC);
   var sizey = Blockly.JavaScript.valueToCode(block, 'sy' ,Blockly.JavaScript.ORDER_ATOMIC);
   var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
