@@ -1,5 +1,5 @@
 import './App.css'
-import { useCallback, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import 'prismjs/themes/prism-tomorrow.css'
 import toolbox from './toolbox'
 import DarkTheme from "@blockly/theme-dark"
@@ -7,6 +7,7 @@ import * as Blockly from "blockly"
 import * as Prism from 'prismjs'
 import javascript from 'blockly/javascript'
 import Swal from 'sweetalert2'
+import ModernTheme from "@blockly/theme-modern"
 
 // React Icons
 import { FaFolder, FaPencilAlt, FaToolbox } from 'react-icons/fa';
@@ -17,14 +18,12 @@ import './blocks/database'
 
 function App() {
   let workspace = useRef()
-  const blocklyParent = useCallback((e) => {
-    const blocklyDiv = document.createElement('div')
-    blocklyDiv.classList.add('h-full')
-    blocklyDiv.classList.add('w-full')
-    e.append(blocklyDiv)
-    workspace.current = Blockly.inject(blocklyDiv, {
+  const [dark, setDark] = useState(false)
+  const blocklyParent = useRef(undefined)
+  useEffect(() => {
+    workspace.current = Blockly.inject(blocklyParent.current, {
       toolbox: toolbox,
-      theme: DarkTheme,
+      theme: dark ? DarkTheme : ModernTheme,
       renderer: 'zelos',
       grid: {
         spacing: 20,
@@ -47,7 +46,8 @@ function App() {
       },
       CSS: false,
     })
-  }, [workspace])
+    window.blocklyWorkspace = workspace.current
+  }, [workspace, dark])
   return (
     <>
       <nav className="flex items-center justify-between flex-wrap bg-gray-1000 p-5">
@@ -110,6 +110,10 @@ function App() {
                     }
                   })
                 }}>Generate Code</button>
+                <button onClick={() => {
+                  setDark(!dark)
+                  console.log(dark)
+                }}>Dark</button>
             </div>
         </div>
       </nav>
