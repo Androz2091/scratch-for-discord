@@ -8,11 +8,11 @@ const blockData = {
   "args0": [
     {
       "type": "field_input",
-      "name": "value"
+      "name": "name"
     },
     {
       "type": "input_value",
-      "name": "object"
+      "name": "value"
     }
   ],
   "previousStatement": "object",
@@ -30,7 +30,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-  const message = Blockly.JavaScript.valueToCode(block, "message", Blockly.JavaScript.ORDER_ATOMIC)
-  const color = block.getFieldValue("NAME")
+  const message = Blockly.JavaScript.valueToCode(block, "value", Blockly.JavaScript.ORDER_ATOMIC)
+  const color = block.getFieldValue("name")
   return `"${color}": ${message},`;
 }
