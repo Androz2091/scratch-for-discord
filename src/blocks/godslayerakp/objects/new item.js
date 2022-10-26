@@ -1,4 +1,4 @@
-/* eslint-disable */
+// for the love of god vercel DO SOMETHING
 import Blockly from "blockly/core";
 
 const blockName = "gsa_new_object_item_creator_empty_search_moment_searchMoment";
