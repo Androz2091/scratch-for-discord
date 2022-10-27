@@ -65,11 +65,11 @@ coolbox.forEach(line => {
       block = block[0] 
       
       if (block == 'text') {
-        resbox[block] = ['Text']
+        resbox[block] = ['\'Text\'']
         return
       }
       if (block == 'math_number') {
-        resbox[block] = ['Math']
+        resbox[block] = ['\'Math\'']
         return
       }
 

@@ -2094,6 +2094,7 @@ export default (favorites) => {
         <block type="jg_members_member_has_nickname"/>
         <block type="jg_members_member_s_nickname"/>
         <block type="s4d_member_icon"/>
+        <block type="gsa_get_user_banner_but_member_is_user_rn"/>
         <block type="s4d_member_dynamic_icon"/>
         <block type="s4d_joined_at"/>
         <block type="s4d_created_at"/>
@@ -2109,9 +2110,6 @@ export default (favorites) => {
         <block type="jg_members_user_exactly_equals_user"/>
         <label text="Information about a User (20 options)"/>
         <block type="jg_members_user_has_value"/>
-        <label text="fetch members banner" web-class="boldtext"/>
-        <block type="s4d_get_user_banner"/>
-        <block type="s4d_member_banner"/>
         <label text="Server info about a member"/>
         <block type="s4d_member_has_permission"/>
         <block type="member_channel_perms"/>
