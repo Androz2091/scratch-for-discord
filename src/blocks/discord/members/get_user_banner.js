@@ -26,26 +26,28 @@ const blockData = {
 Blockly.Blocks[blockName] = {
     init: function() {
         this.jsonInit(blockData);
-    }
+    },
+    isHiden: true
 };
 
+// patched by gsa bc though it is dumb it is used kinda
 Blockly.JavaScript[blockName] = function(block) {
     const id = Blockly.JavaScript.valueToCode(block, "ID", Blockly.JavaScript.ORDER_ATOMIC);
     const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    let code = `await S4D_APP_PKG_axios('https://discord.com/api/users/' + ${id}, {
-        headers: {
-          Authorization: "Bot " + s4d.client.token,
-        },
-      }).then(async (res) => {
+    let code = `
+await S4D_APP_PKG_axios('https://discord.com/api/users/' + ${id}, {
+    headers: {
+        Authorization: "Bot " + s4d.client.token,
+    },
+}).then(async (res) => {
     if (res.data.banner != null) {
-    let format = 'png'
-    if(res.data.banner.substring(0,2) === 'a_') {
-    format = 'gif'
+        let format = 'png'
+        if (res.data.banner.substring(0,2) === 'a_') {
+            format = 'gif'
+        }
+        banner = 'https://cdn.discordapp.com/banners/' + ${id} + '/' + res.data.banner + '.' +format + '?size=512'
+        ${statementThen}
     }
-    banner = 'https://cdn.discordapp.com/banners/' + id + '/' + res.data.banner + '.' +format + '?size=512'
-    ${statementThen}
-    }
-      })
-    `;
+})\n`;
     return code;
 };
