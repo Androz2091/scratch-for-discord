@@ -83,7 +83,7 @@ Blockly.JavaScript[blockName] = function(block){
   var choices = Blockly.JavaScript.statementToCode(block, 'CHOICES');
     const code = `{
       type: ${type},
-			name: ${name},
+			name: ${name.toLowerCase()},
 			description: ${desc},
 			required: ${required||false},
       choices: [
