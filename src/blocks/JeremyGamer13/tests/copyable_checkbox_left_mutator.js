@@ -36,7 +36,8 @@ Blockly.Blocks[menuName] = {
         this.setColour((menuUsesBlockColor ? BlockColor : "#CECDCE"));
         this.setTooltip(menuTooltip);
         this.setHelpUrl("");
-    }
+    },
+    isHiden: true
 };
 Blockly.Blocks[blockName] = {
     init: function () {
@@ -101,7 +102,8 @@ Blockly.Blocks[blockName] = {
                     .appendField(names[i]);
             }
         }
-    }
+    },
+    isHiden: true // remove this from your block if you dont want it hidden
 
 };
 

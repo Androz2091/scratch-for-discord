@@ -1,4 +1,19 @@
 module.exports.load = (Blockly, prefix, color) => {
+    require('../../blocks/JeremyGamer13/Objects')
+    require('../../blocks/godslayerakp/objects')
+    require('../../blocks/frostzzone/useful/jsontostring')
+    require('../../blocks/collections')
+    require('../../blocks/frostzzone/useful/var')
+    require('../../blocks/frostzzone/useful/color')
+    require('../../blocks/regex')
+    require('../../blocks/LaserCat/switch/switch_switch')
+    require('../../blocks/text')
+    require('../../blocks/JeremyGamer13/miscblocks')
+    require('../../blocks/JeremyGamer13/messages_blocks.js')
+    require('../../blocks/other')
+    require('../../blocks/JeremyGamer13/other_err')
+    require('../../blocks/frostzzone/useful/time')
+    require('../../blocks/godslayerakp/index')
     Blockly.Blocks[prefix + "exportInit"] = {
         init: function () {
             this.jsonInit({

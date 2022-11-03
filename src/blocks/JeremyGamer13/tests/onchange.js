@@ -36,7 +36,8 @@ Blockly.Blocks[blockName] = {
     onchange: function () {
         console.log("something");
         this.setColour(Math.floor(Math.random() * 360))
-    }
+    },
+    isHiden: true
 };
 
 Blockly.JavaScript[blockName] = function (block) {

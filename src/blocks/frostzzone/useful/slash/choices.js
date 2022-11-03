@@ -36,7 +36,7 @@ Blockly.JavaScript[blockName] = function(block){
     const option_name = Blockly.JavaScript.valueToCode(block, "OPTION_NAME", Blockly.JavaScript.ORDER_ATOMIC);
     const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `{
-    name: String(${name}),
+    name: String(${name.toLowerCase()}),
     value: String(${option_name})
 },`;
     return code;

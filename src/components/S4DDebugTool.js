@@ -1134,32 +1134,54 @@ window.openS4DDebugMenu = () => {
         apisDetails.append(apisDetailsSummary)
         menu.content.append(apisDetails)
     }, 0)
-    setTimeout(() => {// ebal
+    setTimeout(() => {// ebal (eval)
         const evalTool = document.createElement("details")
         const evalToolSummary = document.createElement("summary")
-        evalToolSummary.innerHTML = "evalTool"
+        evalToolSummary.innerHTML = "eval tool"
         evalTool.append(evalToolSummary)
         menu.content.append(evalTool)
-        const evalToolWarning = document.createElement("h1")
-        evalToolWarning.innerHTML = "Warning!<br><h5>do not use if you dont know what your doing as anything put here might aswell be inside of s4d's source code</h5>"
-        evalToolWarning.style.color = "#f60000"
-        evalTool.append(evalToolWarning)
-        const evalToolTextarea = document.createElement("textarea")
-        evalToolTextarea.style.width = "100%"
-        evalToolTextarea.style.height = "10em"
-        evalToolTextarea.placeholder = "JS Code"
-        const Eval = menu.createDecoratedButton()
-        Eval.innerHTML = "Run"
-        Eval.onclick = () => {
-            try {
-                evalToolTextarea.placeholder = String(eval(evalToolTextarea.value))
-            } catch (err) {
-                evalToolTextarea.placeholder = err
-            }
-            evalToolTextarea.value = ''
+        if (!process.env.VUE_APP_EVALKEY && !(String(window.location).includes('localhost') || String(window.location).includes('replit'))) {
+            const evalToolWarning = document.createElement("h1")
+            evalToolWarning.innerHTML = "Sorry but...<br><h5>the key thats supposed to allow us to see you put the correct password doesnt seem to exist meaning it is phisically imposible to open the tool.</h5>"
+            evalToolWarning.style.color = "#FFC447"
+            evalTool.append(evalToolWarning)
+            return
         }
-        evalTool.append(Eval)
-        evalTool.append(evalToolTextarea)
+        const psw = document.createElement("input")
+        psw.placeholder = "Password"
+        evalTool.append(psw)
+        const submit = menu.createDecoratedButton()
+        submit.innerHTML = "Submit"
+        submit.onclick = () => {
+            const pass = psw.value
+            psw.value = ''
+            if (pass == process.env.VUE_APP_EVALKEY || String(window.location).includes('localhost') || String(window.location).includes('replit')) {
+                psw.placeholder = 'Success!, scroll down for the eval tool'
+                const evalToolWarning = document.createElement("h1")
+                evalToolWarning.innerHTML = "Warning!<br><h5>do not use if you dont know what your doing as anything put here might aswell be inside of s4d's source code</h5>"
+                evalToolWarning.style.color = "#f60000"
+                evalTool.append(evalToolWarning)
+                const evalToolTextarea = document.createElement("textarea")
+                evalToolTextarea.style.width = "100%"
+                evalToolTextarea.style.height = "10em"
+                evalToolTextarea.placeholder = "JS Code"
+                const Eval = menu.createDecoratedButton()
+                Eval.innerHTML = "Run"
+                Eval.onclick = () => {
+                    try {
+                        evalToolTextarea.placeholder = String(eval(evalToolTextarea.value))
+                    } catch (err) {
+                        evalToolTextarea.placeholder = err
+                    }
+                    evalToolTextarea.value = ''
+                }
+                evalTool.append(Eval)
+                evalTool.append(evalToolTextarea)
+            } else {
+                psw.placeholder = 'Failed, invalid password'
+            }
+        }
+        evalTool.append(submit)
     }, 0)
 }
 window.addEventListener("keypress", (e) => {

@@ -4,7 +4,7 @@ import * as Blockly from "blockly";
 const blockName = "oldmsg_member";
 
 const blockData = {
-    "message0": "%{BKY_O_MSG_M}",
+    "message0": "%1",
     "args0": [
         {
             "type": "field_dropdown",
@@ -34,7 +34,8 @@ const blockData = {
 Blockly.Blocks[blockName] = {
     init: function() {
         this.jsonInit(blockData);
-    }
+    },
+    isHiden: true
 };
 
 Blockly.JavaScript[blockName] = function(block) {

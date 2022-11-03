@@ -1,15 +1,7 @@
 import * as Blockly from "blockly";
 import { registerRestrictions } from "../../../restrictions";
 const blockName = "make_ahq_modal";
-const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockData = {
     "message0": "Make A Form with name %1 %2 %3 Title %4 %5 %6 Id %7 %8 %9 Then %10",
     "args0": [
@@ -51,7 +43,7 @@ const blockData = {
             "name": "STATEMENTS"
         }
     ],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#40BF4A',
     "previousStatement": null,
     "nextStatement": null,
 };

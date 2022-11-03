@@ -38,3 +38,6 @@ import "./composite"
 import "./setpixel"
 import "./getpixel"
 import "./update2"
+
+// by me gsa :)
+import "./get buffer"

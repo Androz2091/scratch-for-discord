@@ -80,7 +80,7 @@ Vue.mixin({
                     drag: true,
                     wheel: true
                 },
-                toolbox: toolbox(Blockly, val)
+                toolbox: toolbox(val)
             });
 
             Blockly.Xml.domToWorkspace(dom, newWorkspace);
@@ -172,6 +172,9 @@ Vue.mixin({
         }
     };
 
+    // check if d.js is v13
+    if(!require('./package.json').dependencies['discord.js'].includes("13.")) console.log("Seems you arent using v13 please run \`npm i discord.js@13.12.0\`");
+
     // create a new discord client
     s4d.client = new s4d.Discord.Client({
         intents: [
@@ -194,7 +197,7 @@ Vue.mixin({
         console.log(err);
     });
 
-    // idfk
+    // give the new client to discord-logs
     logs(s4d.client);
 
     // pre blockly code

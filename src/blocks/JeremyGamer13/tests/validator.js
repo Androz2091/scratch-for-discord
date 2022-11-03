@@ -41,7 +41,8 @@ Blockly.Blocks[blockName] = {
             return;
         }
         this.setColour(90);
-    }
+    },
+    isHiden: true
 };
 
 Blockly.JavaScript[blockName] = function (block) {

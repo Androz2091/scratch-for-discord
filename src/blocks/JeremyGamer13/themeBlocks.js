@@ -31,7 +31,8 @@ Blockly.Blocks["jg_s4d_themes_top_name_block"] = {
                 "tooltip": "The theme's name if it was added."
             }
         );
-    }
+    },
+    isHiden: true
 }
 Blockly.Blocks["jg_s4d_themes_set_navigation_bar_color_to"] = {
     init: function () {
@@ -63,7 +64,8 @@ Blockly.Blocks["jg_s4d_themes_set_navigation_bar_color_to"] = {
             if (current.getAttribute("style") == null) continue
             current.setAttribute("style", String(current.getAttribute("style")).replace(/border-right-color: rgb\([0-9]{1,3}, [0-9]{1,3}, [0-9]{1,3}\)/mi, `border-right-color: ${color}`))
         }
-    }
+    },
+    isHiden: true
 }
 Blockly.Blocks["jg_s4d_themes_set_connect_to_discord_warning_color_to"] = {
     init: function () {
@@ -91,7 +93,8 @@ Blockly.Blocks["jg_s4d_themes_set_connect_to_discord_warning_color_to"] = {
         const modal = document.getElementsByClassName("v-toast__item v-toast__item--warning v-toast__item--bottom-right").item(0)
         if (modal == null) return
         modal.style = `background-color: ${color} !important;`
-    }
+    },
+    isHiden: true
 }
 Blockly.Blocks["jg_s4d_themes_set_navigation_bar_button_color_to"] = {
     init: function () {
@@ -161,7 +164,8 @@ Blockly.Blocks["jg_s4d_themes_set_navigation_bar_button_color_to"] = {
         const col = (grayColor / 100) * 255
         const textpar = document.getElementById("block-counter")
         if (textpar != null && textpar.style != null) textpar.style.color = `rgb(${col}, ${col}, ${col})`
-    }
+    },
+    isHiden: true
 }
 Blockly.Blocks["jg_s4d_themes_with_background_style_set_back_color_to_set_style_color_to"] = {
     init: function () {
@@ -223,7 +227,8 @@ Blockly.Blocks["jg_s4d_themes_with_background_style_set_back_color_to_set_style_
         } else if (STYLE == "dot") {
             bg.setAttribute("style", `fill: url(#defaultBlocklyGridPattern);`)
         }
-    }
+    },
+    isHiden: true
 }
 Blockly.JavaScript["jg_s4d_themes_top_name_block"] = function () { return '' };
 Blockly.JavaScript["jg_s4d_themes_set_navigation_bar_color_to"] = function () { return '' };

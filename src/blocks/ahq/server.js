@@ -1,19 +1,11 @@
 import * as Blockly from "blockly";
 const blockName = "server_file";
-const ahqcolor = ['#3366ff', '#3366ff', '#3366ff', '#3366ff'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockData = {
     "type": "block_type",
     "message0": "Load Server.js in your project!",
     "args0": [],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#3366ff',
     "previousStatement": null,
     "nextStatement": null,
 };

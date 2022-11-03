@@ -1,14 +1,6 @@
 import * as Blockly from "blockly";
 const blockName = "make_ahq_button";
-const ahqcolor = ['#33cc00', '#33cc00', '#33cc00', '#33cc00'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockData = {
     "message0": "make a button with name %1 %2 then %3",
     "args0": [
@@ -25,7 +17,7 @@ const blockData = {
             "name": "STATEMENTS"
         }
     ],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#33cc00',
     "previousStatement": null,
     "nextStatement": null,
 };

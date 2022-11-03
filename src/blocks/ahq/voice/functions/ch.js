@@ -1,13 +1,5 @@
 import * as Blockly from "blockly";
-const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockName = "act_voice";
 //block working now working
 const blockData = {
@@ -49,7 +41,7 @@ const blockData = {
         "name": "r",
         "check": ["VoiceChannel", "Boolean"]
     }],
-    "colour": listsGetRandomItem(ahqcolor, false),
+    "colour": '#40BF4A',
     "tooltip": "Only Works with channel join & channel switch",
     "helpUrl": "",
     "previousStatement": null,
