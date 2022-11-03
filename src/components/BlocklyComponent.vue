@@ -37,6 +37,90 @@ import theme from "@blockly/theme-dark";
 import customBlockBuilderTheme from "@blockly/theme-dark";
 import Load from "../backpack-save-load.js";
 import localforage from "localforage";
+
+// pre-define a bunch of stuff so the search load times are better
+let coolbox = toolbox([]).split('\n')
+let resbox = {}
+let working = []
+let commented = 0
+coolbox.forEach(line => {
+  if (line.includes('<!--')) commented++
+  if (line.includes('-->')) commented--
+  if (line.includes('-->') && line.includes('<!--')) commented++
+  if (commented < 0) commented = 0
+  if (commented < 1) {
+    if (line.includes('<category name="') && !line.includes('"/>')) {
+      let temp = line
+        .replaceAll(' ', '%20')
+        .replaceAll('"', '" ')
+        .replaceAll('=" ', '"')
+        .match(/(?<=\")\S*(?=\")/gm)[0]
+        .replaceAll('%20', ' ')
+      working.push(temp)
+    }
+    if (line.includes('<block') && working.length > 0 && commented < 1) {
+      let block = line.match(/(?<=\")\S*(?=\")/gm)
+      const path = '\'' + working.join('>') + '\''
+      if (block == null) return
+      block = block[0] 
+      
+      if (block == 'text') {
+        resbox[block] = ['\'Text\'']
+        return
+      }
+      if (block == 'math_number') {
+        resbox[block] = ['\'Math\'']
+        return
+      }
+
+      if (!resbox[block]) resbox[block] = []
+      if (resbox[block].includes(path)) return
+      resbox[block].push(path)
+    }
+    if (line.includes('</category>') && commented < 1) {
+      working.pop()
+    }
+  }
+  if (line.includes('-->') && line.includes('<!--')) commented--
+})
+
+const BlocklyB = Object.getOwnPropertyNames(Blockly.Blocks)
+let blocks = Object.getOwnPropertyNames(resbox) // define blocks so pre search works imediatly
+let HIDEN_BLOCKS = [
+  "frost_image",
+  "frost_drop1",
+  "colour_picker",
+  "frost_translate",
+  "variables_get",
+  "procedures_callnoreturn",
+  "procedures_callreturn",
+  "variables_get_dynamic",
+  "variables_set_dynamic",
+  "variables_set",
+  "math_change",
+  "procedures_ifreturn",
+  "procedures_defreturn",
+  "procedures_defnoreturn",
+  "controls_ifelse",
+  "jg_blocklyfp_load_workspace",
+  "jg_blocklyfp_load_workspace_website",
+  "lasercat_jg_case_default_INTERNAL_default",
+  "lasercat_jg_case_default_INTERNAL_case4",
+  "lasercat_jg_case_default_INTERNAL_case3",
+  "lasercat_jg_case_default_INTERNAL_case2",
+  "lasercat_jg_case_default_INTERNAL_case1",
+  "jg_events_all_label",
+  "jg_testing_urmother_epic_block_test_deez_mf_nuts"
+];
+
+let preadded = []
+BlocklyB.filter(x => {
+  if (Blockly.Blocks[x].isHiden || Blockly.JavaScript[x] == null) {
+    HIDEN_BLOCKS.push(x)
+    preadded.push(x)
+  }
+})
+
 export default {
   name: "BlocklyComponent",
   props: ["options"],
@@ -68,160 +152,104 @@ export default {
       pooopewwweewwww,
       searchparameter
     ) {
-      // console.log(toolbox_content)
-
-      // preparing variables for searching
-
       const default_max_length = 250;
-      var CATEGORYCONTENT;
+      let CATEGORYCONTENT = `
+        <label text="Error failed to get block(s)..." web-class="boldtext"></label>
+      `
 
-      // set default blocks from BlocklyComponent function code
-
-      const toolboxArray = toolbox_content.split("\n");
-      var blocks = [];
-      var pushed;
-      var repeat_end = toolboxArray.length;
-      for (var count = 0; count < repeat_end; count++) {
-        if (
-          toolboxArray[count].includes('<block type="') &&
-          !toolboxArray[count].includes("LINE HIDDEN FROM SEARCH")
-        ) {
-          pushed = toolboxArray[count]
-            .replaceAll(" ", "")
-            .replaceAll('blocktype="', "")
-            .replaceAll("/", "")
-            .replaceAll("<", "")
-            .replaceAll('"', "")
-            .replaceAll("'", "")
-            .replaceAll("\t", "");
-          pushed = pushed.slice(0, pushed.indexOf(">"));
-          if (!blocks.includes(pushed)) {
-            blocks.push(pushed);
-          }
-        }
-      }
-
-      // set the default blocks and run the searching code
-
-      const defaultblocks = blocks;
       if (searching == "baiuyfg8iu4ewf643o8ir") {
-        let newblocks = [];
-        let check;
-        if (prompt("u sure bro? (ye/na)") != "ye") return;
-        for (let count = 0; count < defaultblocks.length; count++) {
-          check = defaultblocks[count];
-          if (!String(check).includes("LINE HIDDEN FROM SEARCH")) {
-            newblocks.push(check);
-          }
-        }
-        for (let i = 0; i < newblocks.length; i++) {
-          let xml = Blockly.Xml.textToDom(`<block type="${newblocks[i]}"/>`);
+        blocks.forEach(x => {
+          let xml = Blockly.Xml.textToDom(`<block type="${x}"/>`);
           let block = Blockly.Xml.domToBlock(xml, pooopewwweewwww);
           block.moveBy(
             Math.round(Math.random() * 5000),
             Math.round(Math.random() * 5000)
           );
-        }
         return;
+        })
       }
       if (searching == "f9u42r8hg329rehsfhoiewgf37") {
-        let newblocks = [];
-        let check;
-        if (prompt("u sure bro? (ye/na)") != "ye") return;
-        for (let count = 0; count < defaultblocks.length; count++) {
-          check = defaultblocks[count];
-          if (!String(check).includes("LINE HIDDEN FROM SEARCH")) {
-            newblocks.push(check);
-          }
-        }
-        for (let i = 0; i < newblocks.length; i++) {
-          let xml = Blockly.Xml.textToDom(
-            `<xml><block type="${newblocks[i]}"/></xml>`
-          );
+        blocks.forEach(x => {
+          const xml = Blockly.Xml.textToDom(`<xml><block type="${x}"/></xml>`);
           Blockly.Xml.appendDomToWorkspace(xml, pooopewwweewwww);
-        }
+        })
         return;
       }
-      if (searching) {
-        var newblocks = [];
-        var check;
-        // var searchparam = prompt("Search for a block with:")
-        let searchparam = searchparameter;
-        if (!searchparam) {
-          searchparam = "";
-        }
-        var searchparamFiltered = searchparam
-          .replaceAll("<", "_")
-          .replaceAll(">", "_")
-          .replaceAll("\\", "_")
-          .replaceAll('"', "_");
-        if (searchparam == "") searchparamFiltered = "nothing (aka, no filter)";
-        searchparam = searchparam.replaceAll(" ", "_").toLowerCase();
-        let repeat_end = defaultblocks.length;
-        for (let count = 0; count < repeat_end; count++) {
-          check = defaultblocks[count];
-          if (
-            String(check).includes(String(searchparam)) &&
-            !String(check).includes("LINE HIDDEN FROM SEARCH")
-          ) {
-            newblocks.push(check);
+      if (searching) { // search category controler
+        // why are so many blocks not defined before this all runs 😭
+        const BlocklyB = Object.getOwnPropertyNames(Blockly.Blocks)
+        blocks = BlocklyB.filter(x => Blockly.Blocks[x].init != null)
+
+        let warnings = []
+
+        BlocklyB.filter(x => {
+          if (Blockly.Blocks[x].isHiden && !preadded.includes(x) && HIDEN_BLOCKS.includes(x)) {
+            console.warn(`${x} is already registerd as hiden! either remove ${x} from "src/components/BlocklyComponent.vue > HIDEN_BLOCKS" or remove the "isHiden" tag from the block defnintion`)
+            warnings.push(x)
           }
+          if (Blockly.JavaScript[x] == null && !preadded.includes(x) && HIDEN_BLOCKS.includes(x)) {
+            console.warn(`${x} doesnt have a export! and thus doesnt need to be in "src/components/BlocklyComponent.vue > HIDEN_BLOCKS"! please remove ${x} from "src/components/BlocklyComponent.vue > HIDEN_BLOCKS"!`)
+            warnings.push(x)
+          }
+          if ((Blockly.Blocks[x].isHiden || Blockly.JavaScript[x] == null) && !HIDEN_BLOCKS.includes(x)) {
+            HIDEN_BLOCKS.push(x)
+            preadded.push(x)
+          }
+        })
+        if (warnings.length > 0) {
+          console.log(`please adress all warnings created!`)
+          console.log(`warnings: [${warnings.map(x => {
+              return `
+              ${x}`
+            })}
+          ]`)
+          console.log(`resulting hiden list: [
+            "${HIDEN_BLOCKS.filter(x => !preadded.includes(x) && !warnings.includes(x)).join('",\n            "')}"
+          ]`)
         }
-        // labels (bruhf mnvm :skull:)
-        /*
-        let labels = []
-        let pushed
-        for (let count = 0; count < toolboxArray.length; count++) {
-            if (toolboxArray[count].includes('<searchcategory label="')) {
-                pushed = `<label text="${toolboxArray[count].match(/(?<=")\S*(?=")/gmi)[0]}"></label>`
-                labels.push(pushed)
-            }
+
+        searchparameter = searchparameter.replaceAll(/[^qwertyuiopasdfghjklzxcvbnm1234567890_QWERTYUIOPASDFGHJKLZXCVBNM]/gm, "_").toLowerCase(); // long boi lmao
+        let search_res = blocks.filter(x => x.includes(searchparameter) && !HIDEN_BLOCKS.includes(x) || searchparameter == "hidden" && HIDEN_BLOCKS.includes(x))
+
+        if (search_res.length < 1) {
+          CATEGORYCONTENT = `
+            <label text="No blocks where found with ${searchparameter} in the name..." web-class="boldtext"></label>
+          `
         }
-        */
-        // end of labels
-        if (newblocks.length > 1) {
-          var s = "s";
-        } else {
-          var s = "";
-        }
-        if (newblocks.length > 0) {
-          var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}, found ${
-            newblocks.length
-          } block${s} that matched" web-class="boldtext"></label><block type="${newblocks.join(
-            '"/>\n<block type="'
-          )}"/>`;
-        } else {
-          var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="You searched for: ${searchparamFiltered}" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`;
+        if (search_res.length > 0) {
+          CATEGORYCONTENT = `
+            <label text="Found ${search_res.length} blocks with ${searchparameter} in there name" web-class="boldtext"></label>
+            <label text="ㅤ" web-class="boldtext"></label>
+            ${search_res.map(x => {
+            return `
+              <label text="${x.replace(searchparameter, `${searchparameter.toUpperCase()}`)} ${resbox[x] == null ? ' isnt in the toolbox' : 'is in ' + resbox[x].join(' and ')}" web-class="boldtext"></label>
+              <block type="${x}"/>
+            `
+            }).join('\n')}
+          `
         }
       } else {
-        var length_lessthan_350 = true;
-        if (defaultblocks.length < default_max_length) {
-          var newblocks = defaultblocks;
-        } else {
-          length_lessthan_350 = false;
-          var newblocks = defaultblocks.slice(0, default_max_length);
-        }
+        const lessthan_350 = blocks.length < default_max_length;
+        let newblocks = (lessthan_350 ? blocks : blocks.slice(0, default_max_length)).filter(x => !HIDEN_BLOCKS.includes(x))
         if (newblocks.length > 0) {
-          var CATEGORYCONTENT =
-            '<block type="' + newblocks.join('"/>\n<block type="') + '"/>';
-          if (length_lessthan_350 == false) {
-            CATEGORYCONTENT =
-              CATEGORYCONTENT +
-              `<label text="${
-                defaultblocks.length - default_max_length
-              } blocks left..." web-class="boldtext"></label>`;
-          }
-        } else {
-          var CATEGORYCONTENT = `<label text="ㅤ" web-class="boldtext"></label><label text="ㅤ" web-class="boldtext"></label><label text="Hmm, nothing was found..." web-class="boldtext"></label>`;
+          CATEGORYCONTENT = `
+            <label text="ㅤ" web-class="boldtext"></label>
+            ${newblocks.map(x => `<block type="${x}"/>`).join('\n')}
+            ${!lessthan_350 
+            ? `
+              <label text="${blocks.length - default_max_length} blocks left..." web-class="boldtext"></label>
+            ` 
+            : ''}
+          `
         }
       }
-
-      let count_of_blocks = defaultblocks.length;
       var returned_stuff = toolbox_content.replace(
         "<!-- CATEGORY_CONTENT_VARIABLE_GOES_HERE_897489712470376894703168263487623 -->",
-        `<label text="There are currently ${String(
-          count_of_blocks
-        )} blocks in S4D." web-class="boldtext"></label>` + CATEGORYCONTENT
+        `
+          <label text="There are currently ${blocks.length} blocks in S4D." web-class="boldtext"></label>
+          <label text="ㅤ" web-class="boldtext"></label>
+          ${CATEGORYCONTENT}
+        `
       );
 
       // for custom categories
@@ -261,17 +289,6 @@ export default {
           );
         }
       }
-      // .replace(/{{\s([A-z]{3,})\s}}/g, (x) => {
-      //   return Blockly.Msg[x.replace("{{ ", "").replace(" }}", "")];
-      // })
-      // console.log(returned_stuff)
-
-      // favorites category gets filled in using the value stored in the 3rd input
-
-      returned_stuff = returned_stuff.replace(
-        "<!-- FAVORITES_CATEGORY_CONTENT_GOES_HERE_89476138947230470923750327973490 -->",
-        favorites === null ? "" : favorites.map((c) => `<block type="${c}"/>`)
-      );
 
       return String(returned_stuff);
     }
@@ -318,7 +335,7 @@ export default {
             drag: true,
             wheel: true,
           },
-          toolbox: prepToolbox(toolbox(Blockly, val, false), false, val),
+          toolbox: prepToolbox(toolbox(val), false, val),
         }
       );
       Blockly.ContextMenuRegistry.registry.register({
@@ -345,7 +362,7 @@ export default {
                 : await localforage.getItem("fav");
 
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -359,7 +376,7 @@ export default {
                 : await localforage.getItem("fav");
 
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -399,7 +416,7 @@ export default {
                 ? null
                 : await localforage.getItem("fav");
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -414,7 +431,7 @@ export default {
                 ? null
                 : await localforage.getItem("fav");
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -438,7 +455,7 @@ export default {
             callback: function () {
               //    reloadWorkspace2(newWorkspace, true)
               var new_toolbox_xml = prepToolbox(
-                toolbox(Blockly, val, false),
+                toolbox(val),
                 true,
                 val
               );
@@ -452,7 +469,7 @@ export default {
       }
     }
     async function logtoolblocks(remove_underscore) {
-      const toolxml = toolbox(Blockly, null, false);
+      const toolxml = toolbox([]);
       const toolboxArray = toolxml.split("\n");
       var blocks = [];
       var loop = 0;
@@ -517,7 +534,7 @@ export default {
             drag: true,
             wheel: true,
           },
-          toolbox: prepToolbox(toolbox(Blockly, val, false), false, val),
+          toolbox: prepToolbox(toolbox(val), false, val),
         }
       );
       Blockly.ContextMenuRegistry.registry.register({
@@ -544,7 +561,7 @@ export default {
                 : await localforage.getItem("fav");
 
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -558,7 +575,7 @@ export default {
                 : await localforage.getItem("fav");
 
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -598,7 +615,7 @@ export default {
                 ? null
                 : await localforage.getItem("fav");
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -613,7 +630,7 @@ export default {
                 ? null
                 : await localforage.getItem("fav");
             var new_toolbox_xml = prepToolbox(
-              toolbox(Blockly, val, false),
+              toolbox(val),
               false,
               val
             );
@@ -636,7 +653,7 @@ export default {
             callback: function () {
               //    reloadWorkspace2(newWorkspace, true)
               var new_toolbox_xml = prepToolbox(
-                toolbox(Blockly, val, false),
+                toolbox(val),
                 true,
                 val
               );
@@ -657,9 +674,8 @@ export default {
           return "enabled";
         },
         callback: function () {
-          //    reloadWorkspace(workspace, true)
           var new_toolbox_xml = prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             true,
             val
           );
@@ -842,7 +858,7 @@ Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
         },
         callback: function () {
           prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             "baiuyfg8iu4ewf643o8ir",
             null,
             workspace
@@ -859,7 +875,7 @@ Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
         },
         callback: function () {
           prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             "f9u42r8hg329rehsfhoiewgf37",
             null,
             workspace
@@ -1209,7 +1225,7 @@ Blockly.getMaainWorkspace().addChangeListener(blockCounter(Blockly.getMaainWorks
           drag: true,
           wheel: true,
         },
-        toolbox: prepToolbox(toolbox(Blockly, val, false), false, val),
+        toolbox: prepToolbox(toolbox(val), false, val),
       },
     });
     window.blocklyWorkspaceThatIneedtoUseForThingsLaigwef9o8wifnwp4e =
@@ -1509,7 +1525,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
     window.loadtoolltovobocaopjsd9fuw4fpoewjoiphgf9ewpojndsfoihgew8ninjagoLOllioolo2222222222222 =
       () => {
         let new_toolbox_xml = prepToolbox(
-          toolbox(Blockly, val, false),
+          toolbox(val),
           false,
           val,
           workspace,
@@ -1527,7 +1543,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
           .replaceAll("<", "_")
           .replaceAll(">", "_")
           .replaceAll("/", "_");
-        let new_toolbox_xml = prepToolbox(toolbox(Blockly, val, false), true, val, workspace, block);
+        let new_toolbox_xml = prepToolbox(toolbox(val), true, val, workspace, block);
         workspace.toolbox_.clearSelection()
         workspace.updateToolbox(new_toolbox_xml);
         workspace.toolbox_.clearSelection()
@@ -1550,7 +1566,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
               .replaceAll("<", "_")
               .replaceAll(">", "_")
               .replaceAll("/", "_");
-            let new_toolbox_xml = prepToolbox(toolbox(Blockly, val, false), true, val, workspace, block);
+            let new_toolbox_xml = prepToolbox(toolbox(val), true, val, workspace, block);
             workspace.toolbox_.clearSelection()
             workspace.updateToolbox(new_toolbox_xml);
             workspace.toolbox_.clearSelection()
@@ -1994,7 +2010,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
               : await localforage.getItem("fav");
 
           var new_toolbox_xml = prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             false,
             val
           );
@@ -2008,7 +2024,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
               : await localforage.getItem("fav");
 
           var new_toolbox_xml = prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             false,
             val
           );
@@ -2063,7 +2079,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
               ? null
               : await localforage.getItem("fav");
           var new_toolbox_xml = prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             false,
             val
           );
@@ -2078,7 +2094,7 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
               ? null
               : await localforage.getItem("fav");
           var new_toolbox_xml = prepToolbox(
-            toolbox(Blockly, val, false),
+            toolbox(val),
             false,
             val
           );

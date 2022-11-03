@@ -220,13 +220,6 @@ export default {
             });
             this.setLanguage(blocklyLocale);
         }
-
-        if (!this.$store.state.tourDone) {
-            this.$tours["start-tour"].start();
-            this.$store.commit('setTour', {
-                status: true
-            });
-        }
     },
     data() {
         //month starts at 0 day starts at 1
@@ -258,40 +251,6 @@ export default {
                     drag: true,
                     wheel: true
                 }
-                /*
-                ,
-                    vueTourOptions: {
-                        labels: {
-                            buttonSkip: this.$t('tour.skip'),
-                            buttonPrevious: this.$t('tour.previous'),
-                            buttonNext: this.$t('tour.next'),
-                            buttonStop: this.$t('tour.finish')
-                        },
-                        steps: [
-                            {
-                                target: '#v-step-0',
-                                content: this.$t('tour.steps.load_examples'),
-                                params: {
-                                    enableScrolling: false
-                                }
-                            },
-                            {
-                                target: '#v-step-1',
-                                content: this.$t('tour.steps.run_test'),
-                                params: {
-                                    enableScrolling: false
-                                }
-                            },
-                            {
-                                target: '#v-step-2',
-                                content: this.$t('tour.steps.export_code'),
-                                params: {
-                                    enableScrolling: false
-                                }
-                            }
-                        ]
-                    }
-                    */
             }
         } else {
             return {
@@ -314,40 +273,6 @@ export default {
                     drag: true,
                     wheel: true
                 }
-                /*
-                ,
-                    vueTourOptions: {
-                        labels: {
-                            buttonSkip: this.$t('tour.skip'),
-                            buttonPrevious: this.$t('tour.previous'),
-                            buttonNext: this.$t('tour.next'),
-                            buttonStop: this.$t('tour.finish')
-                        },
-                        steps: [
-                            {
-                                target: '#v-step-0',
-                                content: this.$t('tour.steps.load_examples'),
-                                params: {
-                                    enableScrolling: false
-                                }
-                            },
-                            {
-                                target: '#v-step-1',
-                                content: this.$t('tour.steps.run_test'),
-                                params: {
-                                    enableScrolling: false
-                                }
-                            },
-                            {
-                                target: '#v-step-2',
-                                content: this.$t('tour.steps.export_code'),
-                                params: {
-                                    enableScrolling: false
-                                }
-                            }
-                        ]
-                    }
-                    */
             }
         }
     }

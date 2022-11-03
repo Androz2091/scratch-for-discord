@@ -1,16 +1,7 @@
 import * as Blockly from "blockly";
 const blockName = "convert_api_task";
-const ahqcolor = ['#0EB22B', '#0EB22B', '#0EB22B', '#0EB22B'];
 import { registerRestrictions } from "../../../../restrictions";
 
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
 const blockData = {
     "message0": "Make a convert task %1 File URL %2 %3 Name (with .gif, .pdf etc) %4 %5 Convert To %6 %7 then %8",
     "args0": [{
@@ -105,7 +96,7 @@ const blockData = {
         "type": "input_statement",
         "name": "statement"
     }],
-    "colour":  (listsGetRandomItem(ahqcolor, false)),
+    "colour": '#0EB22B',
     "previousStatement": null,
     "nextStatement": null,
 };

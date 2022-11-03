@@ -28,5 +28,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-  return [`{${Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC)}}`, Blockly.JavaScript.ORDER_ATOMIC];
+  return [`
+{
+  ${Blockly.JavaScript.statementToCode(block, "STATEMENTS", Blockly.JavaScript.ORDER_ATOMIC)}
+}`, Blockly.JavaScript.ORDER_ATOMIC];
 }

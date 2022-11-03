@@ -1,14 +1,6 @@
 import * as Blockly from "blockly";
 const blockName = "fld_ahq_embed";
-const ahqcolor = ['#40BF4A', '#40BF4A', '#40BF4A', '#40BF4A'];
-function listsGetRandomItem(list, remove) {
-    var x = Math.floor(Math.random() * list.length);
-    if (remove) {
-        return list.splice(x, 1)[0];
-    } else {
-        return list[x];
-    }
-}
+
 const blockData = {
     "message0": "Add Field name %1 description %2 inline %3 %4 Embed %5",
     "args0": [
@@ -36,7 +28,7 @@ const blockData = {
             "check": "String"
         },
     ],
-    "colour":  (listsGetRandomItem(ahqcolor, false)),
+    "colour": '#40BF4A',
     "previousStatement": null,
     "nextStatement": null,
 };
