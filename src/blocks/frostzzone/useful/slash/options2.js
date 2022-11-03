@@ -90,7 +90,7 @@ Blockly.JavaScript[blockName] = function(block){
   const type = block.getFieldValue("TYPE");
     const code = `{
       type: ${type},
-			name: ${name},
+			name: ${name.toLowerCase()},
 			description: ${desc},
 			required: ${required||false}
 },`;
