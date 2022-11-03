@@ -172,6 +172,9 @@ Vue.mixin({
         }
     };
 
+    // check if d.js is v13
+    if(!require('./package.json').dependencies['discord.js'].includes("13.")) console.log("Seems you arent using v13 please run \`npm i discord.js@13.12.0\`");
+
     // create a new discord client
     s4d.client = new s4d.Discord.Client({
         intents: [
