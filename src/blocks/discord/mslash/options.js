@@ -141,7 +141,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH");
-    const string = searchType == "String" ? Blockly.JavaScript.valueToCode(block, "BOOLEAN", Blockly.JavaScript.ORDER_ATOMIC).toLowerCase() : Blockly.JavaScript.valueToCode(block, "BOOLEAN", Blockly.JavaScript.ORDER_ATOMIC);
+    const string = Blockly.JavaScript.valueToCode(block, "BOOLEAN", Blockly.JavaScript.ORDER_ATOMIC).toLowerCase()
 console.log("return "+string + "\n" + searchType)
         const code = [`interaction.options.get${searchType}(${string})`, Blockly.JavaScript.ORDER_NONE];
         return code;
