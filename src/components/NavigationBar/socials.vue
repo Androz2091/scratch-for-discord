@@ -1,7 +1,7 @@
 <template>
-  <b-nav-item-dropdown :text="`Important Links`" right>
+  <b-nav-item-dropdown :text="`Links`" right>
     <!--<b-dropdown-item href="https://slash-commands-gui.androz2091.fr/settings" target="_blank">{{$t('Slash Register')}}</b-dropdown-item>-->
-    <b-dropdown-item href="https://slash-commands-gui.androz2091.fr/settings" target="_blank"><img src="https://cdn.discordapp.com/attachments/985187932774203464/1018119800398024824/unknown.png" width="20" height="20"><b><i>Slash Register</i></b></b-dropdown-item>
+    <b-dropdown-item href="https://slash-commands-gui.androz2091.fr/settings" target="_blank"><img src="https://cdn.discordapp.com/attachments/985187932774203464/1018119800398024824/unknown.png" width="20" height="20"><b><i>Register Slash Commands</i></b></b-dropdown-item>
     <b-dropdown-divider></b-dropdown-divider>
     <b-dropdown-item href="https://discord.gg/ucDhJVdTPz" target="_blank"><img src ="https://cdn.discordapp.com/attachments/985187932774203464/1011649193523294338/unknown.png" width="20" height="20"> <b><i>Discord Server</i></b></b-dropdown-item>
     <b-dropdown-divider></b-dropdown-divider>
