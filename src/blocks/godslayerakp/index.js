@@ -210,3 +210,29 @@ new jimp(${sizex}, ${sizey}, ${this.isFilled ? `${Blockly.JavaScript.valueToCode
 `;
   return code;
 };
+
+
+
+Blockly.Blocks["gsa_typeof"] = {
+  init: function () {
+    this.jsonInit({
+      "message0": "type of %1",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "thing"
+        }
+      ],
+      "output": "String",
+      "inputsInline": true,
+      "colour": '#D14081',
+      "tooltip": "gets the type of a value",
+      "helpUrl": ""
+    });
+  }
+};
+
+Blockly.JavaScript["gsa_typeof"] = function (block) {
+  const thing = Blockly.JavaScript.valueToCode(block, "time", Blockly.JavaScript.ORDER_ATOMIC)
+  return [`typeof ${thing}`, Blockly.JavaScript.ORDER_ATOMIC];
+}
