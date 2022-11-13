@@ -572,7 +572,6 @@
   "VOICE_CHANNEL_ID": "voice channel id",
   "VOICE_CHANNEL_C": "voice channel",
   "BUTTON_EVENT": "event",
-  "ON_CLICK": "when a button is clicked by member %3 %1 %2",
   "SEND_BLOCK_LIST_MSG": "with blocks",
   "SEND_BLOCK_LIST_MSG_EMPTY": "empty",
   "CUSTOM_ID": "button id",
