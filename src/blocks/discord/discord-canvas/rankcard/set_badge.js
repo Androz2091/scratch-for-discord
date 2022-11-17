@@ -38,7 +38,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
-    const number = Blockly.JavaScript.valueToCode(block, "SLIDER", Blockly.JavaScript.ORDER_ATOMIC) || null;
+    const number = Blockly.JavaScript.valueToCode(block, "SLIDER", Blockly.JavaScript.ORDER_ATOMIC) || blockdate.args0[1].value;
 		const type = block.getFieldValue("TYPE");
-		return `.setAddon(${number}, "${type}")`
+		return `.setBadge(${number}, "${type}")`
 };
