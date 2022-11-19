@@ -2772,6 +2772,17 @@ export default (favorites) => {
                 </value>
             </block>
         </category>
+        <category name="OpenAI" colour="#a85700">
+                <label text="OpenAI"/>
+                <block type="login_openai">
+            <value name="KEY">
+                <shadow type="text">
+                    <field name="TEXT">Your bot key</field>
+                </shadow>
+            </value>
+        </block>
+                <block type="generate_image_openai"/>
+        </category>
     </category>
     <category name="Securing" colour="#4c61ff">
         <label text="Output blocks" web-class="boldtext"/>
@@ -3049,6 +3060,8 @@ export default (favorites) => {
                 <block type="s4d_set_radius"/>
                 <block type="s4d_set_addon"/>
             </category>
+            
+
         </category>
     </category>
     <category name="Databases" colour="#2AC395">
