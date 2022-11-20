@@ -172,7 +172,8 @@ import "./blocks/Parham"
 
 // Monaco
 import "./blocks/Monaco"
-
+// OpenAI 
+import "./blocks/emidblol/openai/index.js"
 
 import "./blocks/quickdb"
 
