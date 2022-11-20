@@ -40,11 +40,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
-<<<<<<< HEAD
-    const number = Blockly.JavaScript.valueToCode(block, "SLIDER", Blockly.JavaScript.ORDER_ATOMIC) || blockData.args0[1].value;
-=======
     const number = block.getFieldValue("SLIDER");
->>>>>>> 3dbfbfa6dea72e0c70b855a059b883304a4d75bf
 		const type = block.getFieldValue("TYPE");
 		return `.setBadge(${number}, "${type}")`
 };
