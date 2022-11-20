@@ -2773,15 +2773,16 @@ export default (favorites) => {
             </block>
         </category>
         <category name="OpenAI" colour="#a85700">
-                <label text="OpenAI"/>
-                <block type="login_openai">
-            <value name="KEY">
-                <shadow type="text">
-                    <field name="TEXT">Your bot key</field>
-                </shadow>
-            </value>
-        </block>
-                <block type="generate_image_openai"/>
+            <label text="OpenAI"/>
+            <block type="login_openai">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">Your bot key</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="generate_image_openai"/>
+            <block type="text_completion_openai" />
         </category>
     </category>
     <category name="Securing" colour="#4c61ff">
