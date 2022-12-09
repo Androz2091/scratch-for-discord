@@ -22,7 +22,7 @@ Blockly.Blocks[blockName + '_mutator_block_input'] = {
         this.appendDummyInput('text')
             .appendField("input")
             .appendField(new Blockly.FieldTextInput("", function(state) {
-                return state.replaceAll(/[^A-z]/g, '_')
+                return state.replaceAll(/[^A-Za-z]/g, '_')
             }), "name")
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -40,7 +40,7 @@ Blockly.Blocks[blockName] = {
         this.appendStatementInput("value")
             .setCheck(null);
         this.setColour("#D14081");
-        this.setTooltip("used in \"create new object with\" block add functions to it");
+        this.setTooltip("outputs a new function");
         this.setHelpUrl("");
         this.setMutator(new Blockly.Mutator([blockName + '_mutator_block_input']))
         this.setOutput(true, "Function");
