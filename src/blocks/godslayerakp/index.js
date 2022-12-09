@@ -3,6 +3,7 @@ import "./discord"
 import "./objects"
 import "./buffers"
 import "./tests"
+import "./functions"
 
 /* folderless blocks */
 import Blockly from "blockly/core";

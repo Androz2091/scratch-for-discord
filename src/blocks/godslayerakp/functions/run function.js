@@ -1,7 +1,7 @@
 /* eslint-disable */
 import Blockly from "blockly/core";
 
-const blockName = "gsa_new_object_function_item_runer";
+const blockName = "gsa_function_item_runer";
 
 Blockly.Blocks[blockName + '_mutator_block_hat'] = {
     init: function() {
@@ -13,7 +13,7 @@ Blockly.Blocks[blockName + '_mutator_block_hat'] = {
             .appendField("return")
             .appendField(new Blockly.FieldCheckbox("FALSE"), "return");
         this.setInputsInline(false);
-        this.setColour("#BA4A9A");
+        this.setColour("#D14081");
     }
 }
 
@@ -24,7 +24,7 @@ Blockly.Blocks[blockName + '_mutator_block_input'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setInputsInline(false);
-        this.setColour("#BA4A9A");
+        this.setColour("#D14081");
         this.setTooltip("use the variable block in \"Expainded Variables\"");
     }
 }
@@ -32,9 +32,10 @@ Blockly.Blocks[blockName + '_mutator_block_input'] = {
 Blockly.Blocks[blockName] = {
     init: function() {
         this.appendValueInput("function")
+            .setCheck('Function')
             .appendField("run function")
         this.setInputsInline(true);
-        this.setColour("#BA4A9A");
+        this.setColour("#D14081");
         this.setTooltip("");
         this.setHelpUrl("");
         this.setMutator(new Blockly.Mutator([blockName + '_mutator_block_input']))

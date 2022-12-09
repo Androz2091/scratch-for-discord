@@ -1,7 +1,7 @@
 /* eslint-disable */
 import Blockly from "blockly/core";
 
-const blockName = "gsa_new_object_function_item_creator_empty_search_moment_searchMoment";
+const blockName = "gsa_function_item_creator_empty_search_moment_searchMoment";
 
 Blockly.Blocks[blockName + '_mutator_block_hat'] = {
     init: function() {
@@ -13,7 +13,7 @@ Blockly.Blocks[blockName + '_mutator_block_hat'] = {
             .appendField("return")
             .appendField(new Blockly.FieldCheckbox("FALSE"), "return");
         this.setInputsInline(false);
-        this.setColour("#BA4A9A");
+        this.setColour("#D14081");
     }
 }
 
@@ -27,7 +27,7 @@ Blockly.Blocks[blockName + '_mutator_block_input'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setInputsInline(false);
-        this.setColour("#BA4A9A");
+        this.setColour("#D14081");
         this.setTooltip("use the variable block in \"Expainded Variables\"");
     }
 }
@@ -35,17 +35,15 @@ Blockly.Blocks[blockName + '_mutator_block_input'] = {
 Blockly.Blocks[blockName] = {
     init: function() {
         this.appendDummyInput("func")
-            .appendField("to")
-            .appendField(new Blockly.FieldTextInput("do something"), "name")
+            .appendField("function")
             .appendField(new Blockly.FieldLabelSerializable(''), 'vars')
         this.appendStatementInput("value")
             .setCheck(null);
-        this.setPreviousStatement(true, "object");
-        this.setNextStatement(true, "object");
-        this.setColour("#BA4A9A");
+        this.setColour("#D14081");
         this.setTooltip("used in \"create new object with\" block add functions to it");
         this.setHelpUrl("");
         this.setMutator(new Blockly.Mutator([blockName + '_mutator_block_input']))
+        this.setOutput(true, "Function");
         this.inputs = []
         this.return = false
     },
@@ -115,9 +113,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
   const value = Blockly.JavaScript.statementToCode(block, "value", Blockly.JavaScript.ORDER_ATOMIC)
-  const name = block.getFieldValue("NAME")
-  return `
-"${name}": (${this.inputs.join(', ')}) => {
+  return [`function(${this.inputs.join(', ')}) {
   ${value}
-},`;
+}`, Blockly.JavaScript.ORDER_ATOMIC];
 }
