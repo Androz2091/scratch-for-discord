@@ -31,7 +31,8 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    const memberr = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+    let member = memberr.replace(".user","")
     const newName = Blockly.JavaScript.valueToCode(block, "NEW_NICKNAME", Blockly.JavaScript.ORDER_ATOMIC);
     const code = `${member}.setNickname(${newName});\n`;
     return code;
@@ -47,7 +48,7 @@ registerRestrictions(blockName, [
     },
     {
         type: "notempty",
-        message: "RES_SET_MEMBER_NICKNAME_NEW_NICKNAME",
+        message: "RES_SET_MEMBER_NICKNAME_NEW_NAME",
         types: [
             "NEW_NICKNAME"
         ]

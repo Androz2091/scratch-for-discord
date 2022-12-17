@@ -10,14 +10,14 @@ export default new Vuex.Store({
         tourDone: false
     },
     mutations: {
-        setWorkspace (state, { workspace }) {
+        setWorkspace(state, { workspace }) {
             state.workspace = workspace;
         },
-        setLocale (state, { newLocale }) {
+        setLocale(state, { newLocale }) {
             state.blocklyLocale = newLocale;
             localStorage.setItem('blocklyLocale', newLocale);
         },
-        setTour (state, { status }){
+        setTour(state, { status }) {
             state.tourDone = status;
             localStorage.setItem('tourDone', status);
         }

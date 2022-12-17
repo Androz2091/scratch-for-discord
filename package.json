@@ -1,7 +1,24 @@
 {
   "name": "scratch-for-discord",
-  "version": "1.13.0",
+  "version": "469.13.0",
   "private": true,
+  "licenses": [
+    {
+      "your mom": "https://discord.gg/8Eteb7Pp3j"
+    },
+    {
+      "s4d": "https://scratch-for-discord.netlify.app/"
+    },
+    {
+      "this is a joke writen by": "redman13"
+    },
+    {
+      "jeremy happy": "https://cdn.discordapp.com/emojis/1011199683537948722.png"
+    },
+    {
+      "bruh": "there is infact a license field yarn"
+    }
+  ],
   "scripts": {
     "audit": "npm audit fix",
     "update": "npm update",
@@ -11,22 +28,44 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@blockly/block-test": "^1.1.5",
+    "@blockly/continuous-toolbox": "^1.0.18",
+    "@blockly/field-grid-dropdown": "^1.0.25",
+    "@blockly/field-slider": "^2.1.29",
+    "@blockly/plugin-workspace-search": "^5.0.3",
+    "@blockly/theme-dark": "^2.0.6",
     "@blockly/theme-modern": "^2.1.10",
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@fortawesome/vue-fontawesome": "^2.0.2",
-    "blockly": "^4.20201217.0",
+    "@blockly/workspace-backpack": "^1.0.9",
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/vue-fontawesome": "^2.0.8",
+    "@jaames/iro": "^5.5.2",
+    "@sweetalert2/theme-dark": "^5.0.5",
+    "blockly": "^8.0.2",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
+    "discord-logs": "^2.2.1",
     "easy-json-database-browser": "^2.1.0",
+    "fs": "^0.0.1-security",
     "js-beautify": "^1.13.5",
     "jszip": "^3.6.0",
     "localforage": "^1.10.0",
-    "sweetalert2": "^10.15.5",
-    "vue": "^2.6.12",
+    "node": "^16.10.0",
+    "npm": "^7.24.1",
+    "promises": "^0.2.5",
+    "sass-loader": "^10",
+    "save-svg-as-png": "^1.4.17",
+    "scratchblocks": "^3.6.0",
+    "sweetalert2": "^10.16.9",
+    "vm2": "^3.9.3",
+    "vue": "^2.6.11",
     "vue-i18n": "^8.24.0",
+    "vue-loader": "^15.9.8",
     "vue-swal": "^1.0.0",
+    "vue-switches": "^2.0.1",
+    "vue-template-compiler": "^2.6.11",
     "vue-toast-notification": "^0.6.1",
+    "vue-toggle-btn": "^0.1.2",
     "vue-tour": "^1.5.0",
     "vuex": "^3.6.2"
   },
@@ -39,7 +78,10 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.21.0",
     "eslint-plugin-vue": "^7.7.0",
-    "vue-template-compiler": "^2.6.12"
+    "events": "^3.3.0",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "webpack": "^4.0.0"
   },
   "eslintConfig": {
     "root": true,
@@ -63,5 +105,20 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "description": "🐱 Make your Discord bot using Scratch blocks! [Scratch For Discord](https://scratch-for-discord.netlify.com) is an advanced fork of [discord-blocks](https://discordblocks.leondrolio.com/). Thanks to [7coil](https://github.com/7coil) for their great work!",
+  "main": "babel.config.js",
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrredo-and-josetrindade1/scratch-for-discord.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrredo-and-josetrindade1/scratch-for-discord/issues"
+  },
+  "homepage": "https://github.com/mrredo-and-josetrindade1/scratch-for-discord#readme"
 }
