@@ -12,6 +12,9 @@ Blockly.Blocks[blockName + '_mutator_block_hat'] = {
         this.appendDummyInput()
             .appendField("return")
             .appendField(new Blockly.FieldCheckbox("FALSE"), "return");
+        this.appendDummyInput()
+            .appendField("async")
+            .appendField(new Blockly.FieldCheckbox("FALSE"), "async");
         this.setInputsInline(false);
         this.setColour("#D14081");
     }
@@ -35,6 +38,7 @@ Blockly.Blocks[blockName + '_mutator_block_input'] = {
 Blockly.Blocks[blockName] = {
     init: function() {
         this.appendDummyInput("func")
+            .appendField(new Blockly.FieldLabelSerializable(''), 'async')
             .appendField("function")
             .appendField(new Blockly.FieldLabelSerializable(''), 'vars')
         this.appendStatementInput("value")
@@ -46,6 +50,7 @@ Blockly.Blocks[blockName] = {
         this.setOutput(true, "Function");
         this.inputs = []
         this.return = false
+        this.async = false
     },
     mutationToDom: function () {
         if (!this.inputs) {
@@ -54,11 +59,13 @@ Blockly.Blocks[blockName] = {
         const container = document.createElement("mutation");
         container.setAttribute('inputs', this.inputs.join(', '))
         container.setAttribute('return', this.return ? 'true' : 'false')
+        container.setAttribute('async', this.async ? 'true' : 'false')
         return container;
     },
     domToMutation: function (xmlElement) {
         this.inputs = xmlElement.getAttribute('inputs').split(', ')
         this.return = xmlElement.getAttribute('return') == 'true'
+        this.async = xmlElement.getAttribute('async') == 'true'
         this.updateShape_();
     },
     decompose: function (workspace) {
@@ -91,15 +98,14 @@ Blockly.Blocks[blockName] = {
         }
 
         this.return = containerBlock.getFieldValue('return') == 'TRUE'
+        this.async = containerBlock.getFieldValue('async') == 'TRUE'
 
         this.updateShape_();
     },
     updateShape_: function () {
-        let vars = this.getInput("func")
         this.inputs = this.inputs.filter(x => !this.inputs[0] == '')
 
-        vars.removeField('vars')
-        vars.appendField(new Blockly.FieldLabelSerializable(this.inputs.length > 0 ? "with " + this.inputs.join(', ') : ''), 'vars')
+        this.setFieldValue('vars', this.inputs.length > 0 ? "with " + this.inputs.join(', ') : '')
 
         if (this.return && !this.getInput("return")) {
             this.appendValueInput("return")
@@ -108,12 +114,17 @@ Blockly.Blocks[blockName] = {
         } else if (!this.return && this.getInput("return")) {
             this.removeInput("return")
         }
+
+        this.setFieldValue('async', this.async ? 'async' : '')
     }
 };
 
 Blockly.JavaScript[blockName] = function (block) {
   const value = Blockly.JavaScript.statementToCode(block, "value", Blockly.JavaScript.ORDER_ATOMIC)
-  return [`function(${this.inputs.join(', ')}) {
+  const return_ = block.return ? Blockly.JavaScript.statementToCode(block, "return", Blockly.JavaScript.ORDER_ATOMIC) : ''
+  const async_ = block.async ? 'async ' : ''
+  return [`${async_}(${block.inputs.join(', ')}) => {
   ${value}
+  ${return_}
 }`, Blockly.JavaScript.ORDER_ATOMIC];
 }
