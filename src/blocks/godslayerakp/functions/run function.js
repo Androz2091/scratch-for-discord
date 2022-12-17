@@ -10,8 +10,11 @@ Blockly.Blocks[blockName + '_mutator_block_hat'] = {
         this.appendStatementInput("value")
             .setCheck(null);
         this.appendDummyInput()
-            .appendField("return")
+            .appendField("return?")
             .appendField(new Blockly.FieldCheckbox("FALSE"), "return");
+        this.appendDummyInput()
+            .appendField("await?")
+            .appendField(new Blockly.FieldCheckbox("FALSE"), "await");
         this.setInputsInline(false);
         this.setColour("#D14081");
     }
@@ -32,6 +35,7 @@ Blockly.Blocks[blockName + '_mutator_block_input'] = {
 Blockly.Blocks[blockName] = {
     init: function() {
         this.appendValueInput("function")
+            .appendField(new Blockly.FieldLabelSerializable(''), 'await')
             .setCheck('Function')
             .appendField("run function")
         this.setInputsInline(true);
@@ -41,6 +45,7 @@ Blockly.Blocks[blockName] = {
         this.setMutator(new Blockly.Mutator([blockName + '_mutator_block_input']))
         this.inputs = []
         this.return = false
+        this.await = false
     },
     mutationToDom: function () {
         if (!this.inputs) {
@@ -49,11 +54,13 @@ Blockly.Blocks[blockName] = {
         const container = document.createElement("mutation");
         container.setAttribute('inputs', this.inputs.join(', '))
         container.setAttribute('return', this.return ? 'true' : 'false')
+        container.setAttribute('await', this.await ? 'true' : 'false')
         return container;
     },
     domToMutation: function (xmlElement) {
         this.inputs = xmlElement.getAttribute('inputs').split(', ')
         this.return = xmlElement.getAttribute('return') == 'true'
+        this.await = xmlElement.getAttribute('await') == 'true'
 
         this.updateShape_();
     },
@@ -86,6 +93,7 @@ Blockly.Blocks[blockName] = {
         }
 
         this.return = containerBlock.getFieldValue('return') == 'TRUE'
+        this.await = containerBlock.getFieldValue('await') == 'TRUE'
 
         this.updateShape_();
     },
@@ -103,6 +111,7 @@ Blockly.Blocks[blockName] = {
             i++
         }
 
+        this.setFieldValue('await', this.await ? 'await' : '')
         this.setOutput(this.return, null);
         this.setPreviousStatement(!this.return, null);
         this.setNextStatement(!this.return, null);
@@ -111,11 +120,12 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function (block) {
     const josh = Blockly.JavaScript.valueToCode(block, 'function', Blockly.JavaScript.ORDER_ATOMIC)
+    const await_ = block.await ? 'await ' : ''
     let ecport = []
-    for (let i = 0; i < this.inputs.length; i++) {
+    for (let i = 0; i < block.inputs.length; i++) {
         ecport.push(Blockly.JavaScript.valueToCode(block, String(i), Blockly.JavaScript.ORDER_ATOMIC))
     }
-    let code = `${josh}(${ecport.join(', ')})`
-    if (this.return) code = [code, Blockly.JavaScript.ORDER_ATOMIC]
+    let code = `${await_}${josh}(${ecport.join(', ')})`
+    if (block.return) code = [code, Blockly.JavaScript.ORDER_ATOMIC]
     return code;
 }
