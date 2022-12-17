@@ -111,7 +111,7 @@ Blockly.Blocks[blockName] = {
             i++
         }
 
-        this.setFieldValue('await', this.await ? 'await' : '')
+        this.setFieldValue(this.await ? 'await' : '', 'await')
         this.setOutput(this.return, null);
         this.setPreviousStatement(!this.return, null);
         this.setNextStatement(!this.return, null);

@@ -105,7 +105,7 @@ Blockly.Blocks[blockName] = {
     updateShape_: function () {
         this.inputs = this.inputs.filter(x => !this.inputs[0] == '')
 
-        this.setFieldValue('vars', this.inputs.length > 0 ? "with " + this.inputs.join(', ') : '')
+        this.setFieldValue(this.inputs.length > 0 ? "with " + this.inputs.join(', ') : '', 'vars')
 
         if (this.return && !this.getInput("return")) {
             this.appendValueInput("return")
@@ -115,7 +115,7 @@ Blockly.Blocks[blockName] = {
             this.removeInput("return")
         }
 
-        this.setFieldValue('async', this.async ? 'async' : '')
+        this.setFieldValue(this.async ? 'async' : '', 'async')
     }
 };
 
