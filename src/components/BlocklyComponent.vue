@@ -54,12 +54,12 @@ coolbox.forEach(line => {
         .replaceAll(' ', '%20')
         .replaceAll('"', '" ')
         .replaceAll('=" ', '"')
-        .match(/(?<=\")\S*(?=\")/gm)[0]
+        .split(/\"(.*)\"/g)[1]
         .replaceAll('%20', ' ')
       working.push(temp)
     }
     if (line.includes('<block') && working.length > 0 && commented < 1) {
-      let block = line.match(/(?<=\")\S*(?=\")/gm)
+      let block = line.split(/\"(.*)\"/g)
       const path = '\'' + working.join('>') + '\''
       if (block == null) return
       block = block[0] 
