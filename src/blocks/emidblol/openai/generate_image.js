@@ -57,7 +57,7 @@ blockly.JavaScript[blockName] = function(block) {
     const prompt = blockly.JavaScript.valueToCode(block, "PROMPT", blockly.JavaScript.ORDER_ATOMIC);
     const size = block.getFieldValue("SIZE");
     const code = `await openai.createImage({
-        prompt: "${prompt}",
+        prompt: ${prompt},
         n: 1,
         size: "${size}",
         response_format: "b64_json"

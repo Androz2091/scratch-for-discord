@@ -684,10 +684,6 @@ export default (favorites) => {
         <label text="Object creation" web-class="boldtext"/>
         <block type="gsa_new_object_creator_empty_search_moment_searchMoment"/>
         <block type="gsa_new_object_item_creator_empty_search_moment_searchMoment"/>
-        <block type="gsa_new_object_function_item_creator_empty_search_moment_searchMoment"/>
-        <block type="gsa_new_object_function_item_runer">
-            <mutation xmlns="http://www.w3.org/1999/xhtml" inputs="null" return="false"/>
-        </block>
         <sep gap="32"/>
         <block type="jg_objects_create_new"/>
         <label text="Object stuff" web-class="boldtext"/>
@@ -777,6 +773,10 @@ export default (favorites) => {
                     <field name="NUM">2</field>
                 </shadow>
             </value>
+        </block>
+        <block type="gsa_function_item_creator_empty_search_moment_searchMoment"/>
+        <block type="gsa_function_item_runer">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" inputs="null" return="false"/>
         </block>
         <block type="blank_code">
             <field name="TEXT"/>
