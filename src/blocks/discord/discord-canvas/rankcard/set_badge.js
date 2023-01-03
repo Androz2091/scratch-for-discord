@@ -6,7 +6,9 @@ const blockName = "s4d_set_badge";
 
 const blockData = {
     "message0": "%{BKY_SET_BADGE}",
-    "args0": [{"type": "field_grid_dropdown",
+    "args0": [
+      {
+        "type": "field_grid_dropdown",
         "name": "TYPE",
         "options": [
           ["diamond", "diamond"], 
@@ -15,13 +17,13 @@ const blockData = {
 					["bronze", "bronze"], 
         ]
 			},
-		{
-			"type": "field_slider",
-			"name": "SLIDER",
-			"max":9,
-			"min":1,
-			"value": 9
-		}
+      {
+        "type": "field_slider",
+        "name": "SLIDER",
+        "max": 9,
+        "min": 1,
+        "value": 9
+      }
     ],
     "colour": "#4C97FF",
     "previousStatement": null,
@@ -38,7 +40,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block){
-    const number = Blockly.JavaScript.valueToCode(block, "SLIDER", Blockly.JavaScript.ORDER_ATOMIC) || null;
+    const number = block.getFieldValue("SLIDER");
 		const type = block.getFieldValue("TYPE");
-		return `.setAddon(${number}, "${type}")`
+		return `.setBadge(${number}, "${type}")`
 };

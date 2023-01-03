@@ -3,6 +3,7 @@ import "./discord"
 import "./objects"
 import "./buffers"
 import "./tests"
+import "./functions"
 
 /* folderless blocks */
 import Blockly from "blockly/core";
@@ -114,9 +115,9 @@ Blockly.Blocks["gsa_async"] = {
 Blockly.JavaScript['gsa_async'] = function(block) {
   var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
   var code = `
-async () => {
+(async () => {
   ${statements_code}
-}
+})()
 `;
   return code;
 };
@@ -210,3 +211,29 @@ new jimp(${sizex}, ${sizey}, ${this.isFilled ? `${Blockly.JavaScript.valueToCode
 `;
   return code;
 };
+
+
+
+Blockly.Blocks["gsa_typeof"] = {
+  init: function () {
+    this.jsonInit({
+      "message0": "type of %1",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "thing"
+        }
+      ],
+      "output": "String",
+      "inputsInline": true,
+      "colour": '#D14081',
+      "tooltip": "gets the type of a value",
+      "helpUrl": ""
+    });
+  }
+};
+
+Blockly.JavaScript["gsa_typeof"] = function (block) {
+  const thing = Blockly.JavaScript.valueToCode(block, "time", Blockly.JavaScript.ORDER_ATOMIC)
+  return [`typeof ${thing}`, Blockly.JavaScript.ORDER_ATOMIC];
+}

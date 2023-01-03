@@ -684,10 +684,6 @@ export default (favorites) => {
         <label text="Object creation" web-class="boldtext"/>
         <block type="gsa_new_object_creator_empty_search_moment_searchMoment"/>
         <block type="gsa_new_object_item_creator_empty_search_moment_searchMoment"/>
-        <block type="gsa_new_object_function_item_creator_empty_search_moment_searchMoment"/>
-        <block type="gsa_new_object_function_item_runer">
-            <mutation xmlns="http://www.w3.org/1999/xhtml" inputs="null" return="false"/>
-        </block>
         <sep gap="32"/>
         <block type="jg_objects_create_new"/>
         <label text="Object stuff" web-class="boldtext"/>
@@ -778,6 +774,10 @@ export default (favorites) => {
                 </shadow>
             </value>
         </block>
+        <block type="gsa_function_item_creator_empty_search_moment_searchMoment"/>
+        <block type="gsa_function_item_runer">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" inputs="null" return="false"/>
+        </block>
         <block type="blank_code">
             <field name="TEXT"/>
         </block>
@@ -811,6 +811,7 @@ export default (favorites) => {
         <block type="create_qr_then"/>
         <block type="qr"/>
         <block type="gsa_bypass_type"/>
+        <block type="gsa_typeof"/>
         <block type="gsa_format_time"/>
     </category>
     <sep class="bt"/>
@@ -2771,6 +2772,18 @@ export default (favorites) => {
                 </value>
             </block>
         </category>
+        <category name="OpenAI" colour="#a85700">
+            <label text="OpenAI"/>
+            <block type="login_openai">
+                <value name="KEY">
+                    <shadow type="text">
+                        <field name="TEXT">Your bot key</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="generate_image_openai"/>
+            <block type="text_completion_openai" />
+        </category>
     </category>
     <category name="Securing" colour="#4c61ff">
         <label text="Output blocks" web-class="boldtext"/>
@@ -3048,6 +3061,8 @@ export default (favorites) => {
                 <block type="s4d_set_radius"/>
                 <block type="s4d_set_addon"/>
             </category>
+            
+
         </category>
     </category>
     <category name="Databases" colour="#2AC395">
