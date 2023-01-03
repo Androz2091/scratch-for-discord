@@ -3,11 +3,21 @@
   "version": "469.13.0",
   "private": true,
   "licenses": [
-    {"your mom": "https://discord.gg/8Eteb7Pp3j"}, 
-    {"s4d": "https://scratch-for-discord.netlify.app/"}, 
-    {"this is a joke writen by": "redman13"}, 
-    {"jeremy happy": "https://cdn.discordapp.com/emojis/1011199683537948722.png"},
-    {"bruh": "there is infact a license field yarn"}
+    {
+      "your mom": "https://discord.gg/8Eteb7Pp3j"
+    },
+    {
+      "s4d": "https://scratch-for-discord.netlify.app/"
+    },
+    {
+      "this is a joke writen by": "redman13"
+    },
+    {
+      "jeremy happy": "https://cdn.discordapp.com/emojis/1011199683537948722.png"
+    },
+    {
+      "bruh": "there is infact a license field yarn"
+    }
   ],
   "scripts": {
     "audit": "npm audit fix",
@@ -34,6 +44,7 @@
     "blockly": "^8.0.2",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
+    "discord-logs": "^2.2.1",
     "easy-json-database-browser": "^2.1.0",
     "fs": "^0.0.1-security",
     "js-beautify": "^1.13.5",
