@@ -18,6 +18,6 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["channel.channel", Blockly.JavaScript.ORDER_NONE];
+    const code = ["channel", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
