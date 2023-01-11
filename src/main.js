@@ -177,7 +177,7 @@ Vue.mixin({
       let file = JSON.parse(fs.readFileSync('package.json'))
       file.dependencies['discord.js'] = '^13.12.0'
       fs.writeFileSync('package.json', JSON.stringify(file))
-      exec('mpm i')
+      exec('npm i')
       throw new Error("Seems you arent using v13 please re-run or run \`npm i discord.js@13.12.0\`");
     }
 
@@ -186,7 +186,7 @@ Vue.mixin({
       let file = JSON.parse(fs.readFileSync('package.json'))
       file.dependencies['discord-logs'] = '^2.0.0'
       fs.writeFileSync('package.json', JSON.stringify(file))
-      exec('mpm i')
+      exec('npm i')
       throw new Error("discord-logs must be 2.0.0. please re-run or if that fails run \`npm i discord-logs@2.0.0\` then re-run");
     }
 
