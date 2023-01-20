@@ -22,7 +22,7 @@ export default {
                     <h2><b>Developers:</b></h2>
                     <span style="color:#2aa9bd">frostzzone</span>,
                     <span style="color:#ad6f39">RetroBTW</span>,
-                    <span style="color:#73ad39">cat soup</span>,
+                    <span style="color:#73ad39">nekoify</span>,
                     <span style="color:#ff7b00">JeremyGamer13</span>,
                     <span style="color:#D276F7">LimeNade</span>,
                     <span style="color:#e3aa24">AlexCdDg</span>,
