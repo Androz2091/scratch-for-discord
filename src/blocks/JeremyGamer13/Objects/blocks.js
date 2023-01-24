@@ -36,7 +36,7 @@ Blockly.Blocks["jg_objects_set_key_to_value_in_object"] = {
                     {
                         "type": "input_value",
                         "name": "OBJECT",
-                        "check": "Object"
+                        "check": ["Object", null]
                     }
                 ],
                 "inputsInline": true,
@@ -67,7 +67,7 @@ Blockly.Blocks["jg_objects_get_objects_key_names_in_list"] = {
                     {
                         "type": "input_value",
                         "name": "OBJECT",
-                        "check": "Object"
+                        "check": ["Object", null]
                     }
                 ],
                 "tooltip": "Put an objects key names into a list.",
