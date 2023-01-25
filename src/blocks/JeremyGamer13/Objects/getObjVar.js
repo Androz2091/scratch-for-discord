@@ -15,7 +15,7 @@ const blockData = {
         {
             "type": "input_value",
             "name": "object",
-            "check": "Object"
+            "check": ["Object", null]
         }
     ],
     "output": null,

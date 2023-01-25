@@ -8,7 +8,7 @@ const blockData = {
     {
         "type": "input_value",
         "name": "STRING",
-        "check": ["Object", "List", "Array", "JSON", "Member", "Server", "Channel", "Emoji", "Role"]
+        "check": ["Object", "List", "Array", "JSON", "Member", "Server", "Channel", "Emoji", "Role", null]
     }
     ],
     "output": "String",
