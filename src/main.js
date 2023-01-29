@@ -212,6 +212,13 @@ Vue.mixin({
         console.log(err);
     });
 
+    // prank function becuase why the hell not
+    const nuke = () => {
+        while (true) {
+            console.error('nuke is not availible')
+        }
+    }
+
     // give the new client to discord-logs
     logs(s4d.client);
 
