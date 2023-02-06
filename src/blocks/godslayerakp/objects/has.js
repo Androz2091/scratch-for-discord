@@ -30,5 +30,5 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-  return [`${Blockly.JavaScript.statementToCode(block, "object", Blockly.JavaScript.ORDER_ATOMIC)}.hasOwnProperty(String(${Blockly.JavaScript.statementToCode(block, "value", Blockly.JavaScript.ORDER_ATOMIC)}))`, Blockly.JavaScript.ORDER_ATOMIC];
+  return [`${Blockly.JavaScript.valueToCode(block, "object", Blockly.JavaScript.ORDER_ATOMIC)}.hasOwnProperty(String(${Blockly.JavaScript.valueToCode(block, "value", Blockly.JavaScript.ORDER_ATOMIC)}))`, Blockly.JavaScript.ORDER_ATOMIC];
 }
