@@ -234,6 +234,6 @@ Blockly.Blocks["gsa_typeof"] = {
 };
 
 Blockly.JavaScript["gsa_typeof"] = function (block) {
-  const thing = Blockly.JavaScript.valueToCode(block, "time", Blockly.JavaScript.ORDER_ATOMIC)
+  const thing = Blockly.JavaScript.valueToCode(block, "thing", Blockly.JavaScript.ORDER_ATOMIC)
   return [`typeof ${thing}`, Blockly.JavaScript.ORDER_ATOMIC];
 }
