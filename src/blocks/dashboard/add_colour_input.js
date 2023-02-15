@@ -65,7 +65,9 @@ Blockly.JavaScript['add_color_input'] = function (block) {
     // TODO: Assemble JavaScript into code variable.
     var code = `
     const setter_${text_name} = (discordClient, guild, value) => ${statements_setter}
-    const getter_${text_name} = (discordClient, guild) => ${value_getter} || ${value_gett_def};
+    const getter_${text_name} = async(discordClient, guild) => {
+        return ${value_getter} || ${value_gett_def}
+    };
 
     s4d.client.dashboard.addColorInput(${value_name}, ${value_description}, setter_${text_name}, getter_${text_name});
 `;

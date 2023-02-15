@@ -72,7 +72,7 @@ Blockly.JavaScript['add_dropdown_input'] = function (block) {
     var code = `
     const ${text_name}_getSelectorEntries = (client, guild) => ${value_selector_entries};
     const setter_${text_name} = (client, guild, value) => ${statements_setter}
-    const getter_${text_name} = (client, guild) => {
+    const getter_${text_name} = async(client, guild) => {
         const getter_${text_name}_ID = ${value_getter_id};
         const getter_${text_name}_NAME = ${value_getter_name};
         return [getter_${text_name}_ID, getter_${text_name}_NAME];

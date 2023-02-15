@@ -60,7 +60,9 @@ Blockly.JavaScript['add_boolean_input'] = function (block) {
     // TODO: Assemble JavaScript into code variable.
     var code = `
     const setter_${text_name} = (discordClient, guild, value) => ${statements_setter}
-    const getter_${text_name} = (discordClient, guild) => ${value_getter} || false;
+    const getter_${text_name} = async(discordClient, guild) => {
+        return ${value_getter||false}
+    };
 
     s4d.client.dashboard.addBooleanInput(${value_name}, ${value_description}, setter_${text_name}, getter_${text_name});
 `;

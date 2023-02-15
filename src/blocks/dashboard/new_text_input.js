@@ -78,7 +78,9 @@ Blockly.JavaScript['add_text_input'] = function (block) {
     var code = `
     const validator_${text_name} = value => ${value_validator};
     const setter_${text_name} = (discordClient, guild, value) => ${statements_setter}
-    const getter_${text_name} = (discordClient, guild) => ${value_getter} || ${value_gett_def};
+    const getter_${text_name} = async(discordClient, guild) => {
+        ${value_getter} || ${value_gett_def};
+    }
 
     s4d.client.dashboard.addTextInput(${value_name}, ${value_description}, validator_${text_name}, setter_${text_name}, getter_${text_name});
 `;
