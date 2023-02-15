@@ -4,7 +4,7 @@ const blockName = "express_var";
 
 const blockData = {
     "type": "block_type",
-    "message0": "Create variable %1 %2 = %3 %4",
+    "message0": "Variable %1 %2 = %3 %4",
     "args0": [
         {
             "type": "field_dropdown",
@@ -21,6 +21,10 @@ const blockData = {
               [
                 "let",
                 'let'
+              ],
+              [
+                "set",
+                'set'
               ]
             ],
         },
@@ -62,7 +66,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function(block) {
-    const type = block.getFieldValue("TYPE");
+    const type = block.getFieldValue("TYPE") == 'set' ? '' : block.getFieldValue("TYPE");
     const vab = Blockly.JavaScript.valueToCode(block, "VAR", Blockly.JavaScript.ORDER_ATOMIC);
     const vab2 = vab.substring(1, (vab.length - 1));
     const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);

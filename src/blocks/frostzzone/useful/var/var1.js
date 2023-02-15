@@ -21,6 +21,10 @@ const blockData = {
         [
           "let",
           'let'
+        ],
+        [
+          "set",
+          'set'
         ]
       ],
     },
@@ -60,7 +64,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function (block) {
-  const type = block.getFieldValue("TYPE");
+  const type = block.getFieldValue("TYPE") == 'set' ? '' : block.getFieldValue("TYPE");
   const vab = Blockly.JavaScript.valueToCode(block, "VAR", Blockly.JavaScript.ORDER_ATOMIC);
   const vab2 = vab.substring(1, (vab.length - 1));
   const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
