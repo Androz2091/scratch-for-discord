@@ -128,6 +128,7 @@ export default {
     return {
       toastLogin: false,
       toastDB: false,
+      toastRegister: false,
       workspace: this.$store.state.workspace,
     };
   },
@@ -2162,6 +2163,10 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
         const db9 = getAllBlocksInWorkspace.some(
           (block) => block.type == "s4d_subtract_data_new"
         );
+        let registerBlockCount = 0;
+        getAllBlocksInWorkspace.some((block) => {
+          if(block.type === "frost_slash_register") registerBlockCount++;
+        });
         if (!loginBlock) {
           if (!this.toastLogin) {
             this.toastLogin = true;
@@ -2188,8 +2193,22 @@ Author: <input type="text" id="EmbedAuthor"> PFP: <input type="text" id="EmbedAu
             this.toastDB = false;
             this.$toast.clear();
           }
+        } else if (registerBlockCount > 1) {
+          if (!this.toastRegister) {
+              this.toastRegister = true;
+              this.$toast.open({
+                message:
+                  'You may only use one "Create Slash Commands" block.',
+                type: "error",
+                dismissible: false,
+                duration: 1000000000,
+              });
+            }
         } else if (this.toastLogin) {
           this.toastLogin = false;
+          this.$toast.clear();
+        } else if (this.toastRegister) {
+          this.toastRegister = false;
           this.$toast.clear();
         } else {
           this.toastDB = false;
