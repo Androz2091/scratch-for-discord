@@ -1,6 +1,6 @@
 import Blockly from "blockly/core";
 
-const blockName = "gsa_buffer_from_string";
+const blockName = "gsa_string_from_buffer";
 
 const blockData = {
   "message0": "string from buffer %1 with encoding %2",
