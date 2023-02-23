@@ -788,6 +788,12 @@ export default (favorites) => {
         <block type="blank_code">
             <field name="TEXT"/>
         </block>
+        <block type="blank_code_output">
+            <field name="TEXT"/>
+        </block>
+        <block type="blank_code_float">
+            <field name="TEXT"/>
+        </block>
         <block type="s4d_eval"/>
         <block type="s4d_eval2"/>
         <block type="s4d_exec"/>

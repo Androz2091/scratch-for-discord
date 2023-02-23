@@ -1,6 +1,6 @@
 import Blockly from "blockly/core";
 
-const blockName = "blank_code";
+const blockName = "blank_code_float";
 
 const blockData = {
     "message0": "insert code⠀ %1 ⠀",
@@ -11,8 +11,6 @@ const blockData = {
       "spellcheck": false
     }],
     "colour": "#d14081",
-    "previousStatement": null,
-    "nextStatement": null,
     "tooltip": "Insert code to run without eval"
 };
 
