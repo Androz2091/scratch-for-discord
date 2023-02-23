@@ -25,5 +25,5 @@ Blockly.JavaScript[blockName] = function(block) {
     var text = block.getFieldValue('TEXT');
   if ((text == null)||(text == undefined)) return ``
     var code = `${text}\n`;
-    return code;
+    return [code, Blockly.JavaScript.ORDER_NONE];
 };
