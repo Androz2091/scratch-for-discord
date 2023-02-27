@@ -168,9 +168,6 @@ export default async function require(array, code, js) {
         },1000)
     }`)
     }
-    if (js.includes("Regex")) {
-        array.push(`var Regex = require("regex");`)
-    }
     if (js.includes("progressbar")) {
         array.push(`let progressbar = require('string-progressbar')`)
     }
