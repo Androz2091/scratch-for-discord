@@ -10,6 +10,7 @@ import "./code"
 import "./code_float"
 import "./code_output"
 import "./color"
+import "./await"
 
 //role
 import "./role_info_text"
