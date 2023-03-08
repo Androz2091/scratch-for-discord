@@ -3603,7 +3603,8 @@ Blockly.Blocks["jg_member_is_user_in_server"] = {
 Blockly.JavaScript["jg_member_is_user_in_server"] = function (block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = [`await ${server}.members.fetch(${member}.id) != null`, Blockly.JavaScript.ORDER_NONE];
+    // i know this is probably not the best way of doing it but i couldnt think of anything else that wouldnt break the original way this block was used
+    const code = [`await (() => { return new Promise((resolve, reject) => { ${server}.members.fetch(${member}.id).then(() => resolve(true)).catch(() => resolve(false)) } ) })()`, Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 Blockly.Blocks["jg_members_roles_fetch_with_id_from_server_then_do"] = {
