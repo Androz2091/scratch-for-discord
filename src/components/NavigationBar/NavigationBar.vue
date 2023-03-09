@@ -367,7 +367,7 @@ load()`);
                         window.URL.revokeObjectURL(url);
                         document.body.removeChild(a);
                     });
-            console.log("barry: well we are done, lets get back to managing the blocks")
+            console.log("barry: well we are done, let's get back to managing the blocks")
             console.log("johnathan: ok")
                 }
                 else
