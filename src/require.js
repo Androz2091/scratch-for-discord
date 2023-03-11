@@ -204,7 +204,7 @@ export default async function require(array, code, js) {
     if (js.includes("xml2json({")) {
         array.push(`const xml2json = require('xml-to-json')`)
     }
-    if (js.includes("S4D_APP_PKG_axios")||js.includes("inventionVeryLongFunctionSoThenAUserDoesntAcidentallyUseThisName")) {
+    if (js.includes("S4D_APP_PKG_axios")||js.includes("_S4D_inventionFSHapiAnimal")||js.includes("_S4D_inventionFSHapiCraiyon")) {
         array.push(`const S4D_APP_PKG_axios = require('axios')`)
     }
     if (js.includes("S4D_APP_MC_GET")) {
@@ -274,23 +274,38 @@ const S4D_WEBSITECREATION_EXPRESS_app = S4D_WEBSITECREATION_EXPRESS();`)
     if (js.includes("s4d.database")) {
         array.push('const Database  = require("easy-json-database")')
         code.push('s4d.database = new Database(\'./database.json\')')
-    } if (js.includes("OpenAIApi")) {
+    }
+    if (js.includes("OpenAIApi")) {
         array.push('const { Configuration, OpenAIApi } = require("openai");')
     }
-    if(js.includes("inventionVeryLongFunctionSoThenAUserDoesntAcidentallyUseThisName")) {
-        code.push(`async function inventionVeryLongFunctionSoThenAUserDoesntAcidentallyUseThisName(n0ConFlictinputVerryReal) {
-            let inventionVeryLongVarSoThenAUserDoesntAcidentallyUseThisName;
-            console.log('running')
+    if(js.includes("_S4D_inventionFSHapiAnimal")) {
+        code.push(`async function _S4D_inventionFSHapiAnimal(_S4D_image_anfsh) {
+            let _S4D_inventionFSHapiAnimal;
             try {
-                const response = await S4D_APP_PKG_axios.get('https://fsh-bot.frostzzone.repl.co/api/animal?animal=' + n0ConFlictinputVerryReal)
-                inventionVeryLongVarSoThenAUserDoesntAcidentallyUseThisName = response.data.image;
+                const response = await S4D_APP_PKG_axios.get('https://fsh-bot.frostzzone.repl.co/api/animal?animal=' + _S4D_image_anfsh)
+                _S4D_inventionFSHapiAnimal = response.data.image;
             } catch (error) {
                 //return discord image failed loading if there was and error
-                inventionVeryLongVarSoThenAUserDoesntAcidentallyUseThisName = "https://i.ibb.co/N1xhDTD/image.png"
+                _S4D_inventionFSHapiAnimal = "https://i.ibb.co/N1xhDTD/image.png"
                 //also log
-                console.log('An error occured when fetching animal')
+                console.error('An error occured when fetching animal')
             }
-            return inventionVeryLongVarSoThenAUserDoesntAcidentallyUseThisName;
+            return _S4D_inventionFSHapiAnimal;
+        }`)
+    }
+    if(js.includes("_S4D_inventionFSHapiCraiyon")) {
+        code.push(`async function _S4D_inventionFSHapiCraiyon(_S4D_image_crfsh) {
+            let _S4D_inventionFSHapiCraiyon;
+            try {
+                const response = await S4D_APP_PKG_axios.get('https://fsh-bot.frostzzone.repl.co/api/imagine?text=' + _S4D_image_crfsh)
+                _S4D_inventionFSHapiCraiyon = response.data.image;
+            } catch (error) {
+                //return discord image failed loading if there was and error
+                _S4D_inventionFSHapiCraiyon = "https://i.ibb.co/N1xhDTD/image.png"
+                //also log
+                console.error('An error occured when fetching craiyon')
+            }
+            return _S4D_inventionFSHapiCraiyon;
         }`)
     }
 }

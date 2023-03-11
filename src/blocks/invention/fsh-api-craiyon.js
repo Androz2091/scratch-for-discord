@@ -1,20 +1,20 @@
 import Blockly from "blockly/core";
 
-const blockName = "inv_fsh_api_animal";
+const blockName = "inv_fsh_api_craiyon";
 
 const blockData = {
-  "message0": "get a random image of %1 from the fsh api",
+  "message0": "generate craiyon image with prompt %1",
   "args0": [
     {
       "type": "field_input",
-      "name": "TYPE",
-      "text": "cat"
+      "name": "type",
+      "text": "fsh"
     }
   ],
   "output": "String",
   "colour": '#50494e',
-  "tooltip": "Gets a random animal picture (link) from the fsh api",
-  "helpUrl": "https://fsh-bot.frostzzone.repl.co/api/animal"
+  "tooltip": "Generates ai image (link) using fsh api (may take up to 2 minutes)",
+  "helpUrl": ""
 };
 
 Blockly.Blocks[blockName] = {
@@ -26,8 +26,8 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
   var text_type = block.getFieldValue('TYPE');
   text_type = encodeURIComponent(text_type.toLowerCase());
-
-  var code = `await _S4D_inventionFSHapiAnimal('${text_type}')`;
-
+  
+  var code = `await _S4D_inventionFSHapiCraiyon('${text_type}')`;
+  
   return [code, Blockly.JavaScript.ORDER_NONE];
 };

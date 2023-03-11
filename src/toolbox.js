@@ -2797,6 +2797,12 @@ export default (favorites) => {
             <block type="generate_image_openai"/>
             <block type="text_completion_openai" />
         </category>
+        <category name="Fsh API" colour="#50494e">
+            <label text="Fsh api"/>
+            <label text="Image api"/>
+            <block type="inv_fsh_api_animal"/>
+            
+        </category>
     </category>
     <category name="Securing" colour="#4c61ff">
         <label text="Output blocks" web-class="boldtext"/>

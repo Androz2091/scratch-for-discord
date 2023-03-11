@@ -132,8 +132,9 @@ import "./blocks/frostzzone/useless/"
 import "./blocks/frostzzone/useful/"
 import "./blocks/frostzzone/scratch/"
 import "./blocks/frostzzone/github/"
-
+//invention
 import "./blocks/invention"
+import "./blocks/invention/index.js"
 
 import "./blocks/better_music/"
 import "./blocks/weky/"
