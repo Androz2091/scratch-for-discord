@@ -280,7 +280,6 @@ const S4D_WEBSITECREATION_EXPRESS_app = S4D_WEBSITECREATION_EXPRESS();`)
     if(js.includes("inventionVeryLongFunctionSoThenAUserDoesntAcidentallyUseThisName")) {
         code.push(`async function inventionVeryLongFunctionSoThenAUserDoesntAcidentallyUseThisName(n0ConFlictinputVerryReal) {
             let inventionVeryLongVarSoThenAUserDoesntAcidentallyUseThisName;
-            console.log('running')
             try {
                 const response = await S4D_APP_PKG_axios.get('https://fsh-bot.frostzzone.repl.co/api/animal?animal=' + n0ConFlictinputVerryReal)
                 inventionVeryLongVarSoThenAUserDoesntAcidentallyUseThisName = response.data.image;
@@ -288,7 +287,7 @@ const S4D_WEBSITECREATION_EXPRESS_app = S4D_WEBSITECREATION_EXPRESS();`)
                 //return discord image failed loading if there was and error
                 inventionVeryLongVarSoThenAUserDoesntAcidentallyUseThisName = "https://i.ibb.co/N1xhDTD/image.png"
                 //also log
-                console.log('An error occured when fetching animal')
+                console.error('An error occured when fetching animal')
             }
             return inventionVeryLongVarSoThenAUserDoesntAcidentallyUseThisName;
         }`)
