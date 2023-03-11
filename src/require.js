@@ -204,7 +204,7 @@ export default async function require(array, code, js) {
     if (js.includes("xml2json({")) {
         array.push(`const xml2json = require('xml-to-json')`)
     }
-    if (js.includes("S4D_APP_PKG_axios")||js.includes("inventionVeryLongFunctionSoThenAUserDoesntAcidentallyUseThisName")) {
+    if (js.includes("S4D_APP_PKG_axios")||js.includes("_S4D_inventionFSHapiAnimal")||js.includes("_S4D_inventionFSHapiCraiyon")) {
         array.push(`const S4D_APP_PKG_axios = require('axios')`)
     }
     if (js.includes("S4D_APP_MC_GET")) {
