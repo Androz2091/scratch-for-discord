@@ -27,7 +27,7 @@ Blockly.JavaScript[blockName] = function(block) {
   var text_type = block.getFieldValue('TYPE');
   text_type = encodeURIComponent(text_type.toLowerCase());
 
-  var code = `await inventionVeryLongFunctionSoThenAUserDoesntAcidentallyUseThisName('${text_type}')`;
+  var code = `await invantionFSHapiAnimal('${text_type}')`;
 
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
