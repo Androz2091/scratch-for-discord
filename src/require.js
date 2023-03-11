@@ -277,19 +277,19 @@ const S4D_WEBSITECREATION_EXPRESS_app = S4D_WEBSITECREATION_EXPRESS();`)
     } if (js.includes("OpenAIApi")) {
         array.push('const { Configuration, OpenAIApi } = require("openai");')
     }
-    if(js.includes("inventionFSHapiAnimal")) {
-        code.push(`async function inventionFSHapiAnimal(n0ConFlictinputVerryReal) {
-            let inventionFSHapiAnimal;
+    if(js.includes("_S4D_inventionFSHapiAnimal")) {
+        code.push(`async function _S4D_inventionFSHapiAnimal(n0ConFlictinputVerryReal) {
+            let _S4D_inventionFSHapiAnimal;
             try {
                 const response = await S4D_APP_PKG_axios.get('https://fsh-bot.frostzzone.repl.co/api/animal?animal=' + n0ConFlictinputVerryReal)
-                inventionFSHapiAnimal = response.data.image;
+                _S4D_inventionFSHapiAnimal = response.data.image;
             } catch (error) {
                 //return discord image failed loading if there was and error
-                inventionFSHapiAnimal = "https://i.ibb.co/N1xhDTD/image.png"
+                _S4D_inventionFSHapiAnimal = "https://i.ibb.co/N1xhDTD/image.png"
                 //also log
                 console.error('An error occured when fetching animal')
             }
-            return inventionFSHapiAnimal;
+            return _S4D_inventionFSHapiAnimal;
         }`)
     }
 }
