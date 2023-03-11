@@ -3,7 +3,7 @@ import Blockly from "blockly/core";
 const blockName = "inv_fsh_api_animal";
 
 const blockData = {
-  "message0": "get %1 image from the fsh api",
+  "message0": "get a random image of %1 from the fsh api",
   "args0": [
     {
       "type": "field_input",
