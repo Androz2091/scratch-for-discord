@@ -2801,7 +2801,7 @@ export default (favorites) => {
             <label text="Fsh api"/>
             <label text="Image api"/>
             <block type="inv_fsh_api_animal"/>
-            <block type="inv_fsh_api_craiyon"/>
+            
         </category>
     </category>
     <category name="Securing" colour="#4c61ff">
