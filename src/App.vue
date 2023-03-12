@@ -128,13 +128,17 @@ import "./blocks/p-s_stats/"
 import "./blocks/ticket_system/"
 import "./blocks/Alex/"
 import "./blocks/Lyric_finder/"
-import "./blocks/frostzzone/useless/"
+import "./blocks/frostzzone/useless/" //wait a second
 import "./blocks/frostzzone/useful/"
 import "./blocks/frostzzone/scratch/"
 import "./blocks/frostzzone/github/"
 //invention
 import "./blocks/invention"
 import "./blocks/invention/index.js"
+//fir
+import "./blocks/fir"
+import "./blocks/fir/index.js"
+
 
 import "./blocks/better_music/"
 import "./blocks/weky/"
