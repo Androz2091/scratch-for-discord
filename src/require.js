@@ -311,11 +311,13 @@ const S4D_WEBSITECREATION_EXPRESS_app = S4D_WEBSITECREATION_EXPRESS();`)
 
 
     if(js.includes("_S4D_firAPIcatfacts")) {
+        //thanks invention pro for this code
         code.push(`async function _S4D_firAPIcatfacts() {
             let _S4D_firAPIcatfact;
             try {
-                const response = await S4D_APP_PKG_axios.get('https://s4d-apis.fakefurry.repl.co/api/animals/catfacts')
-                _S4D_firAPIcatfact = response.data.data[0];
+                await require('axios').get('https://s4d-apis.fakefurry.repl.co/api/animals/catfacts/ ')
+                _S4D_firAPIcatfact = r.data.slice(r.data.indexOf(':["')+3, r.data.length-3)
+                //test of some random code
             } catch (error) {
                 //return error if there was and error
                 _S4D_firAPIcatfact = "**ERROR**"
