@@ -770,7 +770,7 @@ export default (favorites) => {
     
         <category name="Fir's fork" colour="#50494e">
             <label text="Fir's fork blocks"/>
-            <block type="fir_do_not_use_this_block_you_poop_bruh_fard_lolololol_haha_poopoo"/>
+            <block type="fir_floppa"/>
             
         </category>
  
