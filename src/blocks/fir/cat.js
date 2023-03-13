@@ -17,7 +17,7 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+Blockly.JavaScript[blockName] = function() {
 
   var code = `await _S4D_firAPIcatfacts()`;
 
