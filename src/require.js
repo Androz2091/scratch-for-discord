@@ -308,7 +308,7 @@ const S4D_WEBSITECREATION_EXPRESS_app = S4D_WEBSITECREATION_EXPRESS();`)
             return _S4D_inventionFSHapiCraiyon;
         }`)
     }
-}
+
 
     if(js.includes("_S4D_firAPIcatfacts")) {
         code.push(`async function _S4D_firAPIcatfacts() {
@@ -325,3 +325,4 @@ const S4D_WEBSITECREATION_EXPRESS_app = S4D_WEBSITECREATION_EXPRESS();`)
             return _S4D_firAPIcatfact;
         }`)
     }
+}
