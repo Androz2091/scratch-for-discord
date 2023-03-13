@@ -1,6 +1,6 @@
-# [Scratch For Discord Fir's fork](https://scratch4discord-firs-fork.vercel.app)
+# [Scratch For Discord Community fork](https://s4d-community-fork-wlodekm.vercel.app/)
 
-🐱 Make your Discord bot using Scratch blocks! [Scratch For Discord](https://scratch4discord-firs-fork.vercel.app) is an advanced fork of [discord-blocks](https://scratch-for-discord.com/).
+🐱 Make your Discord bot using Scratch blocks! [Scratch For Discord Community](https://s4d-community-fork-wlodekm.vercel.app/) is an advanced fork of [Scratch For Discord](https://scratch-for-discord.com/).
 
 S4D Fir's fork is forked from [the original S4D](https://github.com/scratch-for-discord/Web-Application_Frontend) made by Malix (?)
 ## Features
@@ -24,7 +24,7 @@ And you're done!
 
 To run Scratch For Discord, follow these steps:
 
-* Clone the project. Run `git clone https://github.com/WlodekM/s4d-firs-fork/`.
+* Clone the project. Run `git clone https://github.com/WlodekM/s4d-community-fork/`.
 * Run `yarn install` to install project dependencies.
 * Run `yarn start` to start the development server.
 * Go to `http://localhost:3000`!
