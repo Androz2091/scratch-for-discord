@@ -315,7 +315,7 @@ const S4D_WEBSITECREATION_EXPRESS_app = S4D_WEBSITECREATION_EXPRESS();`)
             let _S4D_firAPIcatfact;
             try {
                 const response = await S4D_APP_PKG_axios.get('https://s4d-apis.fakefurry.repl.co/api/animals/catfacts')
-                _S4D_firAPIcatfact = response.data;
+                _S4D_firAPIcatfact = response.data.data[0];
             } catch (error) {
                 //return error if there was and error
                 _S4D_firAPIcatfact = "**ERROR**"
