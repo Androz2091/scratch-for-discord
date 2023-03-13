@@ -315,12 +315,12 @@ const S4D_WEBSITECREATION_EXPRESS_app = S4D_WEBSITECREATION_EXPRESS();`)
         code.push(`async function _S4D_firAPIcatfacts() {
             let _S4D_firAPIcatfact;
             try {
-                await require('axios').get('https://s4d-apis.fakefurry.repl.co/api/animals/catfacts/ ')
+                let r  = await require('axios').get('https://s4d-apis.fakefurry.repl.co/api/animals/catfacts/ ')
                 _S4D_firAPIcatfact = r.data.slice(r.data.indexOf(':["')+3, r.data.length-3)
                 //test of some random code
             } catch (error) {
                 //return error if there was and error
-                _S4D_firAPIcatfact = "**ERROR**"
+                _S4D_firAPIcatfact = error
                 //also log
                 console.error('An error occured when fetching cat fact')
             }
