@@ -768,12 +768,6 @@ export default (favorites) => {
     </category>
     <category name="Others" colour="#D14081">
     
-        <category name="Fir's fork" colour="#50494e">
-            <label text="Fir's fork blocks"/>
-            <block type="fir_floppa"/>
-            
-        </category>
- 
         <category name="Others" colour="#D14081">
         <block type="s4d_print">
             <value name="PRINT">
@@ -835,6 +829,13 @@ export default (favorites) => {
         <block type="gsa_typeof"/>
         <block type="gsa_format_time"/>
     </category>
+    
+        <category name="Fir's fork" colour="#50494e">
+            <label text="Fir's fork blocks"/>
+            <block type="fir_floppa"/>
+            
+        </category>
+ 
     </category>
     <sep class="bt"/>
     <category name="Base" colour="#F46580">
