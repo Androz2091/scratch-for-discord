@@ -23,7 +23,7 @@ Vue.config.productionTip = false;
 Vue.config.ignoredElements = ["field", "block", "category", "xml", "mutation", "value", "sep"];
 
 import r from "./require";
-
+window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0"
 import blocklyLocaleEN from "blockly/msg/en";
 import blocklyLocaleFR from "blockly/msg/fr";
 import blocklyLocalePT from "blockly/msg/pt";
