@@ -13,8 +13,8 @@ const blockData = {
     "colour": "#D14081",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "",
-    "helpUrl": ""
+    "tooltip": "Use S4D APIs' animal pictue feature",
+    "helpUrl": "https://s4d-apis.fakefurry.repl.co/api"
 };
 
 Blockly.Blocks[blockName] = {
