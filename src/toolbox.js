@@ -831,8 +831,8 @@ export default (favorites) => {
         <block type="gsa_typeof"/>
         <block type="gsa_format_time"/>
     </category>
-        <category name="Fir's fork" colour="#D14081">
-            <label text="Fir's fork blocks"/>
+        <category name="Fir's blocks" colour="#D14081">
+            <label text="Fir's blocks"/>
             <block type="fir_floppa"/>
             <block type="fir_api"/>
             <block type="fir_api_catfact"/>
