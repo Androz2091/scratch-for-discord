@@ -24,6 +24,10 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
+    
+    var text_type = block.getFieldValue('TYPE');
+    text_type = encodeURIComponent(text_type.toLowerCase());
+    
     const code = `
     https.get('https://s4d-apis.fakefurry.repl.co/api/animal/${text_type}', async resp => {
             let data2 = "";
