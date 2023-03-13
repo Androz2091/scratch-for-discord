@@ -9,7 +9,7 @@ import VueToast from 'vue-toast-notification';
 import VueTour from 'vue-tour';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import savenload from './save-load';
-
+//
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(VueTour);
