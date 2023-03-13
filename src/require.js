@@ -309,3 +309,19 @@ const S4D_WEBSITECREATION_EXPRESS_app = S4D_WEBSITECREATION_EXPRESS();`)
         }`)
     }
 }
+
+    if(js.includes("_S4D_firAPIcatfacts")) {
+        code.push(`async function _S4D_firAPIcatfacts() {
+            let _S4D_firAPIcatfact;
+            try {
+                const response = await S4D_APP_PKG_axios.get('https://s4d-apis.fakefurry.repl.co/api/animals/catfacts')
+                _S4D_firAPIcatfact = response.data.data[1];
+            } catch (error) {
+                //return error if there was and error
+                _S4D_firAPIcatfact = "**ERROR**"
+                //also log
+                console.error('An error occured when fetching cat fact')
+            }
+            return _S4D_firAPIcatfact;
+        }`)
+    }
