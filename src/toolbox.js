@@ -766,6 +766,8 @@ export default (favorites) => {
             </value>
         </block>
     </category>
+    
+    
     <category name="Others" colour="#D14081">
     
         <category name="Others" colour="#D14081">
@@ -829,14 +831,14 @@ export default (favorites) => {
         <block type="gsa_typeof"/>
         <block type="gsa_format_time"/>
     </category>
-    
-        <category name="Fir's fork" colour="#50494e">
+        <category name="Fir's fork" colour="#D14081">
             <label text="Fir's fork blocks"/>
             <block type="fir_floppa"/>
-            
+            <block type="fir_api"/>
         </category>
- 
     </category>
+    
+    
     <sep class="bt"/>
     <category name="Base" colour="#F46580">
         <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"/>
