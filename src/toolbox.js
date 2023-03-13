@@ -835,6 +835,7 @@ export default (favorites) => {
             <label text="Fir's fork blocks"/>
             <block type="fir_floppa"/>
             <block type="fir_api"/>
+            <block type="fir_api_catfact"/>
         </category>
     </category>
     
