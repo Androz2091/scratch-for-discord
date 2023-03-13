@@ -767,6 +767,15 @@ export default (favorites) => {
         </block>
     </category>
     <category name="Others" colour="#D14081">
+    
+        <category name="Fsh API" colour="#50494e">
+            <label text="Fsh api"/>
+            <label text="Image api"/>
+            <block type="inv_fsh_api_animal"/>
+            
+        </category>
+ 
+        <category name="others" colour="#D14081">
         <block type="s4d_print">
             <value name="PRINT">
                 <block type="frost_other_err"/>
@@ -826,6 +835,7 @@ export default (favorites) => {
         <block type="gsa_bypass_type"/>
         <block type="gsa_typeof"/>
         <block type="gsa_format_time"/>
+    </category>
     </category>
     <sep class="bt"/>
     <category name="Base" colour="#F46580">
