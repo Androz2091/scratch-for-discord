@@ -23,7 +23,7 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
+Blockly.JavaScript[blockName] = function(block) {
     
     var text_type = block.getFieldValue('TYPE');
     text_type = encodeURIComponent(text_type.toLowerCase());
