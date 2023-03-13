@@ -17,8 +17,10 @@ export default {
                 <h1><span>Developers of </span><span style="color:#15a9e8">Scratch For Discord!</span></h1>
                     <h2><b>Fir's Fork:</b></h2>
                     <p></p>
+                    <h2><b>Management:</b></h2>
+                    <span style="color:#f03506"><b>Fir</b></span>
                     <h2><b>Developers:</b></h2>
-                    <span style="color:#f03506">Fir</span>
+                    <span style="color:#f03506"><b>Fir</b></span>, 
                     
                     
                     <h2><b>Preview 469:</b></h2>
