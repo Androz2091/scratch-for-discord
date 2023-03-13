@@ -24,3 +24,4 @@ Blockly.JavaScript[blockName] = function(block) {
   var code = `await _S4D_firAPIcatfacts()`;
 
   return [code, Blockly.JavaScript.ORDER_NONE];
+}
