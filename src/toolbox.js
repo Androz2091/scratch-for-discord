@@ -768,14 +768,13 @@ export default (favorites) => {
     </category>
     <category name="Others" colour="#D14081">
     
-        <category name="Fsh API" colour="#50494e">
-            <label text="Fsh api"/>
-            <label text="Image api"/>
-            <block type="inv_fsh_api_animal"/>
+        <category name="Fir's fork" colour="#50494e">
+            <label text="Fir's fork blocks"/>
+            <block type="fir_do_not_use_this_block_you_poop_bruh_fard_lolololol_haha_poopoo"/>
             
         </category>
  
-        <category name="others" colour="#D14081">
+        <category name="Others" colour="#D14081">
         <block type="s4d_print">
             <value name="PRINT">
                 <block type="frost_other_err"/>
