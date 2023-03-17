@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_message_start_thread";
 
 const blockData = {
-    "message0": "start thread on message %7 with name%1 auto archive after%2%4then%6%3if not enough server boost level%8%5",
+    "message0": "start thread on message %7 with name%1 auto archive after%2%9 of type%10 %4then%6%3if not enough server boost level%8%5",
     "args0": [
         {
             "type": "input_value",
@@ -52,7 +52,24 @@ const blockData = {
         },
         {
             "type": "input_dummy"
-        }
+        },
+									{
+            "type": "input_dummy"
+        },
+			{
+            "type": "field_dropdown",
+            "name": "THREADTYPE",
+            "options": [
+                [
+                    "Public",
+                    "GUILD_PUBLIC_THREAD"
+                ],
+                [
+                    "Private",
+                    "GUILD_PRIVATE_THREAD"
+                ]
+            ]
+        },
     ],
     "colour": "#4C97FF",
     "inputsInline": false,
@@ -71,9 +88,10 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function (block) {
     const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
     const archiveAfter = block.getFieldValue("ARCHIVE");
+	const threadType = block.getFieldValue("THREADTYPE");
     const code = Blockly.JavaScript.statementToCode(block, "CODE");
     const catchd = Blockly.JavaScript.statementToCode(block, "NOTENOUGH");
-    return (`s4dmessage.startThread({name: ${name}, autoArchiveDuration: ${archiveAfter}})\n.then(async s4dCreatedThread => {\n${code}\n})\n.catch(async s4dThreadErr => {if (String(s4dThreadErr) === 'DiscordAPIError: Guild premium subscription level too low'){\n${catchd}\n}});\n`)
+    return (`s4dmessage.startThread({name: ${name}, autoArchiveDuration: ${archiveAfter}, type: '${threadType}'})\n.then(async s4dCreatedThread => {\n${code}\n})\n.catch(async s4dThreadErr => {if (String(s4dThreadErr) === 'DiscordAPIError: Guild premium subscription level too low'){\n${catchd}\n}});\n`)
 }
 
 registerRestrictions(blockName, [

@@ -54,7 +54,24 @@ const blockData = {
         },
         {
             "type": "input_dummy"
-        }
+        },
+			{
+            "type": "input_dummy"
+        },
+			{
+            "type": "field_dropdown",
+            "name": "THREADTYPE",
+            "options": [
+                [
+                    "Public",
+                    "GUILD_PUBLIC_THREAD"
+                ],
+                [
+                    "Private",
+                    "GUILD_PRIVATE_THREAD"
+                ]
+            ]
+        },
     ],
     "colour": "#4C97FF",
     "inputsInline": false,
@@ -74,9 +91,10 @@ Blockly.JavaScript[blockName] = function (block) {
     const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
     const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
     const archiveAfter = block.getFieldValue("ARCHIVE");
+	const threadType = block.getFieldValue("THREADTYPE");
     const code = Blockly.JavaScript.statementToCode(block, "CODE");
     const catchd = Blockly.JavaScript.statementToCode(block, "NOTENOUGH");
-    return (`${channel}.threads.create({name: ${name}, autoArchiveDuration: ${archiveAfter}})
+    return (`${channel}.threads.create({name: ${name}, autoArchiveDuration: ${archiveAfter}, type: '${threadType}'})
     .then(async s4dCreatedThread => {
         ${code}
     })
