@@ -48,9 +48,9 @@ Blockly.JavaScript[blockName] = function(block){
     const searchType = block.getFieldValue("SEARCH_TYPE");
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
     if(searchType === "USERNAME"){
-        return [ `${server}.members.cache.find((m) => m.user.username === ${value}).user`, Blockly.JavaScript.ORDER_NONE ];
+        return [ `${server}.members.cache.find((m) => m.user.username === String(${value}))`, Blockly.JavaScript.ORDER_NONE ];
     } else {
-        return [ `(${server}.members.cache.get(${value}) || await ${server}.members.fetch(${value})).user`, Blockly.JavaScript.ORDER_NONE ];
+        return [ `${server}.members.cache.get(String(${value}))`, Blockly.JavaScript.ORDER_NONE ];
     }
 };
 
