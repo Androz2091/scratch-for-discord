@@ -50,7 +50,7 @@ Blockly.JavaScript[blockName] = function(block){
     if(searchType === "USERNAME"){
         return [ `${server}.members.cache.find((m) => m.user.username === String(${value}))`, Blockly.JavaScript.ORDER_NONE ];
     } else {
-        return [ `${server}.members.cache.get(String(${value}))`, Blockly.JavaScript.ORDER_NONE ];
+        return [ `${server}.members.cache.get(String(${value})) || await ${server}.members.fetch(String(${value}))`, Blockly.JavaScript.ORDER_NONE ];
     }
 };
 
