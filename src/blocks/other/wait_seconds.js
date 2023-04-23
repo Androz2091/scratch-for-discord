@@ -14,7 +14,7 @@ const blockData = {
     "colour": "#D14081",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "",
+    "tooltip": "Wait an amount of seconds before doing other event.",
     "helpUrl": ""
 };
 

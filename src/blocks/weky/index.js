@@ -1,0 +1,2 @@
+import "./snake";
+import "./calculator";
