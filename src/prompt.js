@@ -26,11 +26,19 @@
 import * as Blockly from 'blockly/core';
 import Swal from "sweetalert2";
 
-var renameVar = function(name) {
-  return name;
+var renameVar = function (name) {
+	return name;
 };
 
-Blockly.prompt = function(msg, defaultValue, callback) {
+const isMobile = function () {
+	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+}
+
+Blockly.dialog.prompt = function (msg, defaultValue, callback) {
+	if (isMobile()) {
+		callback(renameVar(prompt("Variable:")))
+		return
+	}
 	Swal.fire({
 		title: "Variable:",
 		input: "text",
@@ -38,7 +46,7 @@ Blockly.prompt = function(msg, defaultValue, callback) {
 			autocapitalize: "off"
 		},
 		showCancelButton: true,
-		confirmButtonText: "Look up",
+		confirmButtonText: "Confirm",
 		showLoaderOnConfirm: true,
 		allowOutsideClick: () => !Swal.isLoading()
 	}).then(result => {

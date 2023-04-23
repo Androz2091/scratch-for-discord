@@ -1,0 +1,2 @@
+import "./badword";
+import "./censor";

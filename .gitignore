@@ -3,3 +3,9 @@ node_modules
 
 # Compiled files
 dist/
+package-lock.json
+yarn.lock
+
+# ur mom
+yarn-error.log
+.env.local

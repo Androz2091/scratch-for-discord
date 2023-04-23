@@ -4,7 +4,7 @@ import { registerRestrictions } from "../../../restrictions";
 const blockName = "s4d_server_owner";
 
 const blockData = {
-    "message0": "%{BKY_SERVER_OWNER}",
+    "message0": "Owner Id of server %1",
     "args0": [
         {
             "type": "input_value",
@@ -13,7 +13,7 @@ const blockData = {
         }
     ],
     "colour": "#e07e6c",
-    "output": "Member",
+    "output": "String",
     "tooltip": "",
     "helpUrl": ""
 };
@@ -26,7 +26,7 @@ Blockly.Blocks[blockName] = {
 
 Blockly.JavaScript[blockName] = function(block){
     const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${server}.owner || await ${server}.members.fetch(${server}.ownerID)`, Blockly.JavaScript.ORDER_NONE ];
+    return [ `String(${server}.ownerId)`, Blockly.JavaScript.ORDER_NONE ];
 };
 
 registerRestrictions(blockName, [
