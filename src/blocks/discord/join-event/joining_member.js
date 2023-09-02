@@ -18,7 +18,7 @@ Blockly.Blocks[blockName] = {
 };
 
 Blockly.JavaScript[blockName] = function() {
-    const code = ["s4d.joiningMember", Blockly.JavaScript.ORDER_NONE];
+    const code = ["s4dJoiningMember", Blockly.JavaScript.ORDER_NONE];
     return code;
 };
 

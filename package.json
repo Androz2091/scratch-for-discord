@@ -11,8 +11,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@blockly/theme-modern": "^2.1.10",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@blockly/theme-modern": "^2.1.10",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "blockly": "^4.20201217.0",
@@ -21,7 +21,6 @@
     "easy-json-database-browser": "^2.1.0",
     "js-beautify": "^1.13.5",
     "jszip": "^3.6.0",
-    "localforage": "^1.10.0",
     "sweetalert2": "^10.15.5",
     "vue": "^2.6.12",
     "vue-i18n": "^8.24.0",

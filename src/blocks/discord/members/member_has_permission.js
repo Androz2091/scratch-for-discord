@@ -157,7 +157,7 @@ Blockly.Blocks[blockName] = {
 Blockly.JavaScript[blockName] = function(block) {
     const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
     const permission = block.getFieldValue("PERMISSION");
-    const code = [ `${member}.hasPermission('${permission}')`, Blockly.JavaScript.ORDER_FUNCTION_CALL ];
+    const code = [ `${member}.permissions.has('${permission}')`, Blockly.JavaScript.ORDER_FUNCTION_CALL ];
     return code;
 };
 

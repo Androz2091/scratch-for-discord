@@ -389,9 +389,13 @@ export default (Blockly) => {
         <sep />
         <category name="{{ TOOLBOX_VARIABLES }}" colour="#a55b80" custom="VARIABLE" />
         <category name="{{ TOOLBOX_FUNCTIONS }}" colour="#995ba5" custom="PROCEDURE" />
+        
         <category name="{{ TOOLBOX_OTHER }}" colour="#D14081">
             <block type="s4d_current"></block>
             <block type="s4d_run_save_output"></block>
+            <block type="s4d_cpu_model"></block>
+            <block type="s4d_cpu_get_usage"/>
+            <block type="s4d_cpu_usage"/>
             <block type="s4d_wait_seconds">
                 <value name="TIME">
                     <shadow type="math_number">
@@ -399,9 +403,12 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_eval_output"></block>
+            <block type="s4d_eval"></block>
+            <block type="s4d_log"></block>
         </category>
         <sep />
-        <category name="{{ TOOLBOX_BASE }}" colour="#F46580">
+        <category name="{{ TOOLBOX_BASE }}" colour="#7282ba"> #F46580
         <label text="%{BKY_MANDATORY_BLOCKS}" web-class="boldtext"></label>
             <block type="s4d_login">
                 <value name="TOKEN">
@@ -425,6 +432,7 @@ export default (Blockly) => {
             <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
             <block type="s4d_message_content"></block>
             <block type="s4d_message_id"></block>
+            <block type="s4d_message_timestamp"/>
             <block type="s4d_message_author"></block>
             <block type="s4d_mentioned_member"></block>
             <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
@@ -436,6 +444,19 @@ export default (Blockly) => {
             <block type="s4d_message_guild_raw"></block>
             <label text="%{BKY_MESSAGE_ACTIONS}"></label>
             <block type="s4d_reply">
+                <value name="MENTION">
+                    <block type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </block>
+                </value>
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+
+            </block>
+            <block type="s4d_reference_reply">
                 <value name="CONTENT">
                     <shadow type="text">
                         <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
@@ -450,10 +471,165 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_message_start_thread"/>
+            <block type="s4d_started_message_thread"/>
             <label text="%{BKY_TOOLS}"></label>
             <block type="s4d_message_embed"></block>
         </category>
-        <category name="{{ TOOLBOX_E_JOINS }}" colour="#EABB11">
+        <category name="{{ TOOLBOX_DIRECT }}" colour="#00BBE6">
+            <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
+            <block type="s4d_send_member"></block>
+            <label text="{{ DETECT_MESSAGES }}"></label>
+            <block type="s4d_on_direct"></block>
+            <label text="{{ MESSAGE_INFORMATIONS }}"></label>
+            <block type="s4d_direct_content"></block>
+            <block type="s4d_direct_id"></block>
+            <label text="{{ DIRECT_AUTHOR_INFO }}"></label>
+            <block type="s4d_direct_author_raw"></block>
+            <block type="s4d_direct_bot"></block>
+            <label text="{{ MESSAGE_ACTIONS }}"></label>
+            <block type="s4d_direct_reply">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+                <value name="MENTION">
+                    <block type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </block>
+                </value>
+            </block>
+            <block type="s4d_direct_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_direct_delete"></block>
+        </category>
+        <category name="Threads" colour="#AA97D8">
+            <label text="%{BKY_LABEL_THREAD_MESSAGE}"/>
+            <block type="s4d_on_thread_message"/>
+            <block type="s4d_send_thread"/>
+            <label text="{{ MESSAGE_INFORMATIONS }}"/>
+            <block type="s4d_thread_message_content"/>
+            <block type="s4d_thread_message_id"/>
+            <block type="s4d_thread_message_author"/>
+            <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"/>
+            <block type="s4d_message_thread"/>
+            <block type="s4d_server_thread"/>
+            <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"/>
+            <block type="s4d_thread_message_author_raw"/>
+            <block type="s4d_thread_raw"/>
+            <block type="s4d_thread_guild_raw"/>
+            <label text="%{BKY_MESSAGE_ACTIONS}"/>
+            <block type="s4d_start_thread"/>
+            <block type="s4d_started_thread"/>
+            <block type="s4d_thread_reply">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+                <value name="MENTION">
+                    <block type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </block>
+                </value>
+            </block>
+            <block type="s4d_thread_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_thread_message_delete"/>
+            <label text="%{BKY_LABEL_THREAD_ARCHIVE}"/>
+            <block type="s4d_on_thread_archive"/>
+            <block type="s4d_on_thread_unarchive"/>
+            <block type="s4d_unarchived_thread"/>
+            <label text="%{BKY_THREAD_CREATE_LABEL}"/>
+            <block type="s4d_on_thread_create"/>
+            <block type="s4d_created_thread_on"/>
+            <label text="%{BKY_THREAD_DELETE_LABEL}"/>
+            <block type="s4d_on_thread_delete"/>
+            <block type="s4d_deleted_thread"/>
+            <label text="%{BKY_THREAD_OTHER_LABEL}"/>
+            <block type="s4d_thread_channel"/>
+            <block type="s4d_thread_name"/>
+            <block type="s4d_thread_server"/>
+            <block type="s4d_thread_archive"/>
+        </category>
+        <category name="{{ TOOLBOX_SLASH }}" colour="#D088D1">
+        <label text="{{ DETECT_SLASH }}"></label>
+        <block type="s4d_on_slash"></block>
+        <block type="s4d_slash_name"></block>
+        <block type="s4d_slash_author"></block>
+        <block type="s4d_slash_channel"></block>
+        <block type="s4d_slash_server"></block>
+        <block type="s4d_slash_value"></block>
+        <block type="s4d_slash_reply">
+            <value name="EPHEMERAL">
+                <block type="logic_boolean">
+                    <field name="BOOL">FALSE</field>
+                </block>
+            </value>
+            <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+        </block>
+        </category>
+        <category name="{{ TOOLBOX_EDITED }}" colour="#18c847">
+        <label text="%{BKY_DETECT_EDITED}"></label>
+        <block type="s4d_on_edited"></block>
+        <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
+        <block type="s4d_new_content"></block>
+        <block type="s4d_old_content"></block>
+        <block type="s4d_edited_id"></block>
+        <block type="s4d_edited_author"></block>
+        <block type="s4d_edited_old_mentioned_member"></block>
+        <block type="s4d_edited_new_mentioned_member"></block>
+        <label text="%{BKY_LABEL_MESSAGE_CONTEXT}"></label>
+        <block type="s4d_edited_channel"></block>
+        <block type="s4d_edited_server"></block>
+        <label text="%{BKY_RELATED_TO_MESSAGE_STRINGS}"></label>
+        <block type="s4d_edited_author_raw"></block>
+        <block type="s4d_edited_channel_raw"></block>
+        <block type="s4d_edited_guild_raw"></block>
+        <label text="%{BKY_LABEL_EDITED_INTERACTION}"></label>
+        <block type="s4d_edited_reply">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+            </block>
+        <block type="s4d_edited_delete"></block>
+        <block type="s4d_add_edited_reaction">
+                <value name="REACTION">
+                    <shadow type="text">
+                        <field name="TEXT">👍</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="{{ TOOLBOX_TYPING }}" colour="#9acd32">
+            <label text="%{BKY_LABEL_TYPING_EVENT}"/>
+            <block type="s4d_on_start_typing"/>
+            <label text="%{BKY_LABEL_TYPING_BLOCKS}"/>
+            <block type="s4d_start_typing"/>
+            <block type="s4d_typing_author"/>
+            <block type="s4d_typing_channel"/>
+            <block type="s4d_typing_server"/>
+            <block type="s4d_typing_channel_raw"/>
+            <block type="s4d_typing_time"/>
+        </category>
+        <category name="{{ TOOLBOX_E_JOINS }}" colour="#c2e000">
             <label text="%{BKY_JOINS_RELATED_BLOCKS}" web-class="boldtext"></label>
             <label text="%{BKY_DETECT_JOINS}"></label>
             <block type="s4d_on_member_join"></block>
@@ -463,6 +639,21 @@ export default (Blockly) => {
             <label text="%{BKY_RELATED_TO_JOIN_STRINGS}"></label>
             <block type="s4d_joining_member_raw"></block>
             <block type="s4d_joining_guild_raw"></block>
+        </category>
+        <category name="{{ TOOLBOX_INVITES }}" colour="#fdd9b5">
+            <label text="{{ LABEL_INVITE_EVENTS }}"/>
+            <block type="s4d_on_create_invite"/>
+            <block type="s4d_on_invite_delete"/>
+            <label text="{{ LABEL_INVITE_BLOCKS }}"/>
+            <block type="s4d_inv_channel"/>
+            <block type="s4d_inv_guild"/>
+            <block type="s4d_inviter"/>
+            <block type="s4d_invite_code"/>
+            <block type="s4d_inv_url"/>
+            <block type="s4d_inv_uses"/>
+            <block type="s4d_inv_date"/>
+            <block type="s4d_inv_channel_raw"/>
+            <block type="s4d_inv_max"/>
         </category>
         <category name="{{ TOOLBOX_E_LEAVES }}" colour="#778899">
             <label text="%{BKY_LEAVES_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -484,6 +675,38 @@ export default (Blockly) => {
             <block type="s4d_react_emoji"></block>
             <block type="s4d_react_member"></block>
         </category>
+        <category name="Events" colour="#ffc269">
+            <category name="User" colour="#d3fd6d">
+                <block type="s4d_on_useru"></block>
+                <block type="s4d_update_user"></block>
+                <block type="s4d_av_url_update"></block>
+                <block type="s4d_username_update"></block>
+                <block type="s4d_discrim_update"></block>
+            </category>
+            <category name="Voice" colour="#518cee"><block type="s4d_on_vc"></block>
+                <block type="s4d_on_vc_um"></block>
+                <block type="s4d_on_vc_ud"></block>
+                <block type="s4d_on_vc_sss"></block>
+                <block type="s4d_on_vc_switch"></block>
+                <block type="s4d_update_member"></block>
+                <label text="Join/Leave" web-class="boldtext"></label>
+                <block type="s4d_join/leave_channel"></block>
+                <block type="s4d_join/leave_channel_raw"></block>
+                <label text="Mute" web-class="boldtext"></label>
+                <block type="s4d_mute_type"></block>
+                <label text="Unmute" web-class="boldtext"></label>
+                <block type="s4d_oldmute_type"></block>
+                <label text="Deaf/Undeaf" web-class="boldtext"></label>
+                <block type="s4d_deaf_type"></block>
+                <label text="Streaming Start/Stop" web-class="boldtext"></label>
+                <block type="s4d_streaming_channel"></block>
+                <block type="s4d_stream_channel_raw"></block>
+                <label text="VC switch" web-class="boldtext"></label>
+                <block type="s4d_switch_chnl"></block>
+                <block type="s4d_old_channel_raw"></block>
+                <block type="s4d_new_channel_raw"></block>
+            </category>
+        </category>
         <sep />
         <category name="{{ TOOLBOX_SERVER }}" colour="#D85E47">
             <label text="%{BKY_FIND_SERVER}"></label>
@@ -501,7 +724,15 @@ export default (Blockly) => {
             <label text="%{BKY_FIND_CHANNEL}"></label>
             <block type="s4d_get_channel"></block>
             <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
-            <block type="s4d_send_channel"></block>
+            <block type="s4d_send_channel">
+                <value name="CONTENT">
+                    <shadow type="text">
+                        <field name="TEXT">{{ REPLY_EXAMPLE }}</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="s4d_channel_category"></block>
+            <block type="s4d_chnl_exist"></block>
             <label text="%{BKY_FORMS}"></label>
             <block type="s4d_send_wait_reply">
                 <value name="CONTENT">
@@ -528,6 +759,7 @@ export default (Blockly) => {
 
             <label text="%{BKY_CHANNEL_ACTIONS}"></label>
             <block type="s4d_create_channel"></block>
+            <block type="s4d_start_typing"></block>
         </category>
         <category name="{{ TOOLBOX_ROLES }}" colour="#2EB66B">
             <label text="%{BKY_FIND_ROLE}"></label>
@@ -535,6 +767,8 @@ export default (Blockly) => {
             <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
             <block type="s4d_add_role"></block>
             <block type="s4d_remove_role"></block>
+            <block type="s4d_has_role"></block>
+            <block type="s4d_role_exist"></block>
         </category>
         <category name="{{ TOOLBOX_MEMBERS }}" colour="#187795">
             <label text="%{BKY_FIND_MEMBER}"></label>
@@ -544,6 +778,8 @@ export default (Blockly) => {
             <block type="s4d_member_discriminator"></block>
             <block type="s4d_member_tag"></block>
             <block type="s4d_member_username"></block>
+            <block type="s4d_member_status"></block>
+            <block type="s4d_member_streaming"></block>
             <block type="s4d_member_has_permission"></block>
             <block type="s4d_member_is_bot"></block>
             <label text="%{BKY_LABEL_MEMBER_ACTIONS}"></label>
@@ -555,6 +791,18 @@ export default (Blockly) => {
             <block type="s4d_set_member_nickname"></block>
         </category>
         <sep />
+        <category name="Time" colour="#4d7198">
+            <block type="s4d_date_now"/>
+            <block type="s4d_date_discord_string"/>
+            <block type="s4d_date_string"/>
+            <block type="s4d_date_value"/>
+        </category>
+        <category name="{{ TOOLBOX_REQUESTS }}" colour="#9e639f">
+            <block type="s4d_request_then"/>
+            <block type="s4d_request_value"/>
+            <block type="s4d_get_object_value"/>
+            <block type="s4d_requested_object"/>
+        </category>
         <category name="{{ TOOLBOX_DATABASE }}" colour="#FF0000">
             <label text="%{BKY_LABEL_READ_DB}"></label>
             <block type="s4d_get_data">
@@ -571,6 +819,7 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_db_length"/>
             <label text="%{BKY_LABEL_UPDATE_DB}"></label>
             <block type="s4d_set_data">
                 <value name="KEY">
@@ -591,6 +840,7 @@ export default (Blockly) => {
                     </shadow>
                 </value>
             </block>
+            <block type="s4d_clear_all_data"/>
             <block type="s4d_add_data">
                 <value name="COUNT">
                     <shadow type="math_number">
