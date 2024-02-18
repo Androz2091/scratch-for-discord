@@ -15,12 +15,13 @@ import BlocklyComponent from "./components/BlocklyComponent.vue";
 Blockly.Tooltip.HOVER_MS = 100;
 
 // Load blocks
-
 import "./blocks/discord/base/";
 import "./blocks/discord/message-event/";
 import "./blocks/discord/join-event/";
 import "./blocks/discord/leave-event/";
 import "./blocks/discord/reaction-event/";
+import "./blocks/discord/wmise/";
+
 
 import "./blocks/discord/channels/";
 import "./blocks/discord/servers/";
