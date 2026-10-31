@@ -191,7 +191,6 @@
   "BOT_INFORMATIONS": "Informace o botovi",
   "BOT_ACTIONS": "Akce na botovi",
   "RES_MISSING_GAME": "Musíte pro bota specifikovat hru!",
-  "SET_BOT_GAME": "nastavit hru bota na %1",
   "BOT_SERVER_COUNT": "počet serverů, na kterých bot je",
   "TOOLBOX_E_JOINS": "Připojení",
   "TOOLBOX_E_MESSAGES": "Zprávy",

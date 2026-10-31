@@ -29,6 +29,14 @@ const blockData = {
                 [
                     "%{BKY_DAY_OF_WEEK}",
                     "DAY_OF_WEEK"
+                ],
+                [
+                    "%{BKY_MONTH}",
+                    "MONTH"
+                ],
+                [
+                    "%{BKY_YEAR}",
+                    "YEAR"
                 ]
             ]
         }
@@ -57,5 +65,9 @@ javascriptGenerator.forBlock[blockName] = function(block) {
         return ["(new Date().getDate())", Order.NONE];
     } else if(dataType === "DAY_OF_WEEK"){
         return ["(new Date().getDay())", Order.NONE];
+    } else if(dataType === "MONTH"){
+        return ["(new Date().getMonth() + 1)", Order.NONE];
+    } else if(dataType === "YEAR"){
+        return ["(new Date().getFullYear())", Order.NONE];
     }
 };

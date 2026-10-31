@@ -17,6 +17,13 @@
     <category name="%{BKY_TOOLBOX_LOOPS}" colour="#5ba55b">
         <block type="s4d_forever">
         </block>
+        <block type="s4d_every_seconds">
+            <value name="TIME">
+                <shadow type="math_number">
+                    <field name="NUM">60</field>
+                </shadow>
+            </value>
+        </block>
         <block type="controls_repeat_ext">
             <value name="TIMES">
                 <shadow type="math_number">
@@ -397,6 +404,13 @@
                 </shadow>
             </value>
         </block>
+        <block type="s4d_console_log">
+            <value name="VALUE">
+                <shadow type="text">
+                    <field name="TEXT">Hello!</field>
+                </shadow>
+            </value>
+        </block>
     </category>
     <sep />
     <category name="%{BKY_TOOLBOX_BASE}" colour="#F46580">
@@ -415,6 +429,7 @@
         <block type="s4d_bot_server_count"></block>
         <label text="%{BKY_BOT_ACTIONS}"></label>
         <block type="s4d_set_bot_game"></block>
+        <block type="s4d_set_bot_status"></block>
     </category>
     <category name="%{BKY_TOOLBOX_E_MESSAGES}" colour="#41AAC0">
         <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
@@ -500,8 +515,12 @@
     <category name="%{BKY_TOOLBOX_SERVER}" colour="#D85E47">
         <label text="%{BKY_FIND_SERVER}"></label>
         <block type="s4d_get_server"></block>
+        <label text="%{BKY_DETECT_BOT_JOINS}"></label>
+        <block type="s4d_on_bot_join_server"></block>
+        <block type="s4d_joined_server"></block>
         <label text="%{BKY_LABEL_SERVER_INFOS}"></label>
         <block type="s4d_server_name"></block>
+        <block type="s4d_server_id"></block>
         <block type="s4d_member_count"></block>
         <block type="s4d_icon_url"></block>
         <block type="s4d_boost_level"></block>
@@ -512,6 +531,7 @@
     <category name="%{BKY_TOOLBOX_CHANNELS}" colour="#a55b80">
         <label text="%{BKY_FIND_CHANNEL}"></label>
         <block type="s4d_get_channel"></block>
+        <block type="s4d_first_channel"></block>
         <label text="%{BKY_SEND_CHANNEL_LABEL}"></label>
         <block type="s4d_send_channel"></block>
         <label text="%{BKY_FORMS}"></label>
@@ -540,6 +560,8 @@
 
         <label text="%{BKY_CHANNEL_ACTIONS}"></label>
         <block type="s4d_create_channel"></block>
+        <block type="s4d_set_channel_name"></block>
+        <block type="s4d_delete_channel"></block>
     </category>
     <category name="%{BKY_TOOLBOX_ROLES}" colour="#2EB66B">
         <label text="%{BKY_FIND_ROLE}"></label>
@@ -547,10 +569,14 @@
         <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
         <block type="s4d_add_role"></block>
         <block type="s4d_remove_role"></block>
+        <label text="%{BKY_ROLE_ACTIONS}"></label>
+        <block type="s4d_create_role"></block>
+        <block type="s4d_delete_role"></block>
     </category>
     <category name="%{BKY_TOOLBOX_MEMBERS}" colour="#187795">
         <label text="%{BKY_FIND_MEMBER}"></label>
         <block type="s4d_get_member"></block>
+        <block type="s4d_random_member"></block>
         <label text="%{BKY_MEMBER_INFORMATIONS}"></label>
         <block type="s4d_member_id"></block>
         <block type="s4d_member_discriminator"></block>
