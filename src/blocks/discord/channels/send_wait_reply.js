@@ -57,13 +57,18 @@ javascriptGenerator.forBlock[blockName] = function(block){
     const time = javascriptGenerator.valueToCode(block, "TIME", Order.ATOMIC) || 5;
     const statementThen = javascriptGenerator.statementToCode(block, "THEN");
     const statementCatch = javascriptGenerator.statementToCode(block, "CATCH");
-    return `await ${channel}.send(${messageContent(block, content)});
-${channel}.awaitMessages({ filter: (m) => m.author.id === ${member}.id, time: (${time}*60*1000), max: 1, errors: ["time"] }).then(async (collected) => {
+    // Channel and member are read once, here: the filter can't await (member blocks like "slash command member" do)
+    return `{
+const s4dwaitChannel = ${channel};
+const s4dwaitMember = ${member};
+await s4dwaitChannel.send(${messageContent(block, content)});
+s4dwaitChannel.awaitMessages({ filter: (m) => m.author.id === s4dwaitMember.id, time: (${time}*60*1000), max: 1, errors: ["time"] }).then(async (collected) => {
 s4d.reply = collected.first().content;
 ${statementThen}s4d.reply = null;
 }).catch(async (e) => {
 console.error(e);
 ${statementCatch}});
+}
 `;
 };
 

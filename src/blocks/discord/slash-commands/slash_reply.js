@@ -50,9 +50,10 @@ registerRestrictions(blockName, [
     },
     {
         type: "toplevelparent",
-        message: "RES_MUST_BE_IN_ON_SLASH_COMMAND",
+        message: "RES_MUST_BE_IN_INTERACTION",
         types: [
-            "s4d_on_slash_command"
+            "s4d_on_slash_command",
+            "s4d_on_button_click"
         ]
     }
 ]);
