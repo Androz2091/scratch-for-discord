@@ -11,6 +11,15 @@
         <meta name="author" content="Androz2091" />
         <meta name="theme-color" content="#f6bc34" />
         <meta name="google-site-verification" content="cpALYx5PHSXOgLtp-1pxqyELC6zIekO0RDQnWmFvhXI" />
+        <script>
+            // Follow the system light or dark setting (Bootstrap color modes), before the first paint
+            {
+                const darkMode = matchMedia("(prefers-color-scheme: dark)");
+                const applyTheme = () => document.documentElement.setAttribute("data-bs-theme", darkMode.matches ? "dark" : "light");
+                applyTheme();
+                darkMode.addEventListener("change", applyTheme);
+            }
+        </script>
         <style>
             ::-webkit-scrollbar {
                 width: 1px;

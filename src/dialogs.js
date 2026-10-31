@@ -1,7 +1,10 @@
 import * as Blockly from "blockly/core";
 import Swal from "sweetalert2";
 
-export const toast = Swal.mixin({
+// Dialogs follow the system light or dark setting
+export const dialog = Swal.mixin({ theme: "auto" });
+
+export const toast = dialog.mixin({
     toast: true,
     position: "bottom",
     showConfirmButton: false,
@@ -12,7 +15,7 @@ export const toast = Swal.mixin({
 
 // Blockly asks for variable names with window.prompt by default
 Blockly.dialog.setPrompt((message, defaultValue, callback) => {
-    Swal.fire({
+    dialog.fire({
         title: message,
         input: "text",
         inputValue: defaultValue,

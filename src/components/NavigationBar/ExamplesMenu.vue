@@ -11,8 +11,7 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-import Swal from "sweetalert2";
-import { toast } from "../../dialogs";
+import { dialog, toast } from "../../dialogs";
 import { loadXml } from "../../workspace";
 import pingPong from "../../examples/ping-pong.xml?raw";
 import commandParsing from "../../examples/command-parsing.xml?raw";
@@ -27,7 +26,7 @@ const examples = {
 const { t } = useI18n();
 
 async function load(example) {
-    const result = await Swal.fire({
+    const result = await dialog.fire({
         title: t("examples.confirm.title"),
         text: t("examples.confirm.text"),
         showCancelButton: true,

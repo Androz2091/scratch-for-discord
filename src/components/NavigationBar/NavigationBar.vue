@@ -38,7 +38,7 @@
 import { ref, useTemplateRef, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import JSZip from "jszip";
-import Swal from "sweetalert2";
+import { dialog } from "../../dialogs";
 import store from "../../store";
 import { getWorkspaceCode, getWorkspaceXml } from "../../workspace";
 import { downloadBlob } from "./download";
@@ -65,7 +65,7 @@ function rename(event) {
 
 async function exportToCode() {
     const steps = ["unzipFile", "node", "intents", "start", "done"].map((step) => `<li>${t(`download.content.${step}`)}</li>`).join("");
-    const result = await Swal.fire({
+    const result = await dialog.fire({
         title: t("download.title"),
         html: `<h6>${t("download.content.title")}</h6><ul class="text-start">${steps}</ul>`,
         showCancelButton: true,

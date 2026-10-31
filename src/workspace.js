@@ -12,9 +12,30 @@ import "./blocks";
 
 installColourBlocks({ javascript: javascriptGenerator });
 
+// Follows the system light or dark setting, like the rest of the page
+const darkMode = matchMedia("(prefers-color-scheme: dark)");
+const DarkTheme = Blockly.Theme.defineTheme("s4d-dark", {
+    name: "s4d-dark",
+    base: Theme,
+    componentStyles: {
+        workspaceBackgroundColour: "#1e1e1e",
+        toolboxBackgroundColour: "#333",
+        toolboxForegroundColour: "#fff",
+        flyoutBackgroundColour: "#252526",
+        flyoutForegroundColour: "#ccc",
+        flyoutOpacity: 1,
+        scrollbarColour: "#797979",
+        scrollbarOpacity: 0.4,
+        insertionMarkerColour: "#fff",
+        insertionMarkerOpacity: 0.3,
+        cursorColour: "#d0d0d0"
+    }
+});
+const currentTheme = () => (darkMode.matches ? DarkTheme : Theme);
+darkMode.addEventListener("change", () => store.workspace?.setTheme(currentTheme()));
+
 const options = {
     renderer: "zelos",
-    theme: Theme,
     zoom: {
         controls: true,
         startScale: 0.9,
@@ -44,7 +65,7 @@ function onChange(event) {
 
 export function createWorkspace(element, state) {
     container = element;
-    const workspace = Blockly.inject(element, { ...options, toolbox: translatedToolbox() });
+    const workspace = Blockly.inject(element, { ...options, theme: currentTheme(), toolbox: translatedToolbox() });
     if (state) Blockly.Xml.domToWorkspace(state, workspace);
     workspace.addChangeListener(Blockly.Events.disableOrphans);
     workspace.addChangeListener(onChange);

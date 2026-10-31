@@ -1,6 +1,6 @@
 import * as Blockly from "blockly/core";
 import localforage from "localforage";
-import Swal from "sweetalert2";
+import { dialog } from "./dialogs";
 import store from "./store";
 
 export async function restoreAutosave(t) {
@@ -11,7 +11,7 @@ export async function restoreAutosave(t) {
     select.append(...keys.map((key) => new Option(key, key)));
     const html = document.createElement("div");
     html.append(t("autosave.text"), select);
-    const result = await Swal.fire({
+    const result = await dialog.fire({
         title: t("autosave.title"),
         html,
         showCancelButton: true,
