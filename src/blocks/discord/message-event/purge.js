@@ -22,7 +22,7 @@ const blockData = {
     "nextStatement": null,
     "inputsInline": true,
     "colour": "#1a75ff",
-    "tooltip": "",
+    "tooltip": "%{BKY_PURGE_TOOLTIP}",
     "helpUrl": ""
 };
 

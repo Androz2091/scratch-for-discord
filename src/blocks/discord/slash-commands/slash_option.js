@@ -15,7 +15,7 @@ const blockData = {
     ],
     "colour": "#5865F2",
     "output": "String",
-    "tooltip": "",
+    "tooltip": "%{BKY_SLASH_OPTION_TOOLTIP}",
     "helpUrl": ""
 };
 

@@ -5,6 +5,7 @@ const blockName = "s4d_on_react_removed";
 
 const blockData = {
     "message0": "%{BKY_ON_REACT_REMOVED} %1 %2",
+    "tooltip": "%{BKY_ON_REACT_REMOVED_TOOLTIP}",
     "colour": "#F5AB1A",
     "args0": [
         {

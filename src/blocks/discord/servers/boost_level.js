@@ -15,7 +15,7 @@ const blockData = {
     ],
     "colour": "#e07e6c",
     "output": "Number",
-    "tooltip": "",
+    "tooltip": "%{BKY_BOOST_LEVEL_TOOLTIP}",
     "helpUrl": ""
 };
 

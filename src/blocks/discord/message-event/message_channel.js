@@ -8,7 +8,7 @@ const blockData = {
     "message0": "%{BKY_MESSAGE_CHANNEL}",
     "colour": "#a55b80",
     "output": "Channel",
-    "tooltip": "",
+    "tooltip": "%{BKY_MESSAGE_CHANNEL_TOOLTIP}",
     "helpUrl": ""
 };
 

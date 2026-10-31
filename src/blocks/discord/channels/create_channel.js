@@ -39,7 +39,7 @@ const blockData = {
     "previousStatement": null,
     "nextStatement": null,
     "inputsInline": false,
-    "tooltip": "",
+    "tooltip": "%{BKY_CREATE_CHANNEL_TOOLTIP}",
     "helpUrl": ""
 };
 

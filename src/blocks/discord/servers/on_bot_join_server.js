@@ -5,6 +5,7 @@ const blockName = "s4d_on_bot_join_server";
 
 const blockData = {
     "message0": "%{BKY_ON_BOT_JOIN_SERVER} %1 %2",
+    "tooltip": "%{BKY_ON_BOT_JOIN_SERVER_TOOLTIP}",
     "colour": "#F5AB1A",
     "args0": [
         {

@@ -8,7 +8,7 @@ const blockData = {
     "message0": "%{BKY_SEND_WAIT_REPLY_VALUE}",
     "colour": "#5BA58C",
     "output": "String",
-    "tooltip": "",
+    "tooltip": "%{BKY_SEND_WAIT_REPLY_VALUE_TOOLTIP}",
     "helpUrl": ""
 };
 

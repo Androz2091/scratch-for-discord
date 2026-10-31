@@ -29,7 +29,7 @@ const blockData = {
     ],
     "colour": "#D85E47",
     "output": "Server",
-    "tooltip": "",
+    "tooltip": "%{BKY_GET_SERVER_TOOLTIP}",
     "helpUrl": ""
 };
 

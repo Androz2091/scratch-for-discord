@@ -11,7 +11,7 @@ const s4d_message_embed = {
     "mutator": "s4d_message_embed_mutator",
     "output": "MessageEmbed",
     "helpUrl": "",
-    "tooltip": "",
+    "tooltip": "%{BKY_MESSAGE_EMBED_TOOLTIP}",
     "colour": "#40BF4A"
 };
 

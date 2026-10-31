@@ -163,7 +163,7 @@
   "REPLY_EXAMPLE": "Hej!",
   "ON_REACT_ADDED": "Gdy reakcja jest dodana",
   "REACT_RELATED_BLOCKS": "Bloki powiazane z reakcjami",
-  "DETECT_REACT": "Piszę Piszę",
+  "DETECT_REACT": "Wykrywaj reakcje",
   "REACT_INFORMATIONS": "Informacje o dodanej/usuniętej reakcji",
   "REACT_MESSAGE_ID": "ID Wiadomości Reakcji",
   "RES_MUST_BE_IN_ON_REACT": "Ten blok może być użyty tylko w blokach \"Dodanie reakcji\" i \"Usunięcie reakcji\"!",

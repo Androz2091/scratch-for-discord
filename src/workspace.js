@@ -117,6 +117,7 @@ export function getWorkspaceCode() {
                 Discord.GatewayIntentBits.GuildMembers,
                 Discord.GatewayIntentBits.GuildMessages,
                 Discord.GatewayIntentBits.GuildMessageReactions,
+                Discord.GatewayIntentBits.GuildVoiceStates,
                 Discord.GatewayIntentBits.DirectMessages,
                 Discord.GatewayIntentBits.MessageContent
             ],

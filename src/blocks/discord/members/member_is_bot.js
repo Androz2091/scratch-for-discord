@@ -15,7 +15,7 @@ const blockData = {
     ],
     "colour": "#5B80A5",
     "output": "Boolean",
-    "tooltip": "",
+    "tooltip": "%{BKY_MEMBER_IS_BOT_TOOLTIP}",
     "helpUrl": ""
 };
 

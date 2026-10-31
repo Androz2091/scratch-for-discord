@@ -5,6 +5,7 @@ const blockName = "s4d_add_data";
 
 const blockData = {
     "message0": "%{BKY_ADD_DATA}",
+    "tooltip": "%{BKY_ADD_DATA_TOOLTIP}",
     "args0": [
         {
             "type": "input_value",

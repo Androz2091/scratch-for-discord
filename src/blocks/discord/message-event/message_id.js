@@ -7,7 +7,7 @@ const blockName = "s4d_message_id";
 const blockData = {
     "message0": "%{BKY_MESSAGE_ID}",
     "colour": "#5BA58C",
-    "tooltip": "",
+    "tooltip": "%{BKY_MESSAGE_ID_TOOLTIP}",
     "output": "String",
     "helpUrl": ""
 };

@@ -6,6 +6,7 @@ const blockName = "s4d_react_emoji";
 
 const blockData = {
     "message0": "%{BKY_REACT_EMOJI}",
+    "tooltip": "%{BKY_REACT_EMOJI_TOOLTIP}",
     "colour": "#5BA58C",
     "output": "String"
 };

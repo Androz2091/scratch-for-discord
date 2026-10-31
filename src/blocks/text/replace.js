@@ -25,7 +25,7 @@ const blockData = {
     ],
     "output": "String",
     "colour": "#5ba58b",
-    "tooltip": "",
+    "tooltip": "%{BKY_REPLACE_TOOLTIP}",
     "helpUrl": ""
 };
 

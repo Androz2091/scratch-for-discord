@@ -688,6 +688,7 @@
     <category name="%{BKY_TOOLBOX_ROLES}" colour="#2EB66B">
         <label text="%{BKY_FIND_ROLE}"></label>
         <block type="s4d_get_role"></block>
+        <block type="s4d_everyone_role"></block>
         <label text="%{BKY_ROLE_ASSIGNMENT}"></label>
         <block type="s4d_add_role"></block>
         <block type="s4d_remove_role"></block>
@@ -722,6 +723,11 @@
         <block type="s4d_unban_member"></block>
         <block type="s4d_send_member"></block>
         <block type="s4d_set_member_nickname"></block>
+        <label text="%{BKY_LABEL_VOICE}"></label>
+        <block type="s4d_member_voice_channel"></block>
+        <block type="s4d_move_member"></block>
+        <block type="s4d_disconnect_member"></block>
+        <block type="s4d_voice_mute_member"></block>
     </category>
     <sep />
     <category name="%{BKY_TOOLBOX_DATABASE}" colour="#FF0000">

@@ -5,6 +5,7 @@ const blockName = "s4d_delete_data";
 
 const blockData = {
     "message0": "%{BKY_DELETE_DATA}",
+    "tooltip": "%{BKY_DELETE_DATA_TOOLTIP}",
     "args0": [
         {
             "type": "input_value",

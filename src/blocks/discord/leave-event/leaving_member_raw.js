@@ -28,7 +28,7 @@ const blockData = {
     ],
     "output": "String",
     "colour": "#5BA58C",
-    "tooltip": "",
+    "tooltip": "%{BKY_LEAVING_MEMBER_RAW_TOOLTIP}",
     "helpUrl": ""
 };
 

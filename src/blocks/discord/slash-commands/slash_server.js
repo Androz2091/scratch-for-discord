@@ -6,6 +6,7 @@ const blockName = "s4d_slash_server";
 
 const blockData = {
     "message0": "%{BKY_SLASH_SERVER}",
+    "tooltip": "%{BKY_SLASH_SERVER_TOOLTIP}",
     "colour": "#5865F2",
     "output": "Server"
 };

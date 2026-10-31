@@ -1,7 +1,7 @@
 {
   "REPLY_EXAMPLE": "này!",
   "REACT_RELATED_BLOCKS": "Các khối lệnh liên quan đến phản ứng",
-  "DETECT_REACT": "Tôi đang viết tôi đang viết",
+  "DETECT_REACT": "Phát hiện phản ứng",
   "REACT_INFORMATIONS": "Thông tin về phản ứng được thêm vào / loại bỏ",
   "REACT_MESSAGE_ID": "ID tin nhắn phản ứng",
   "RES_MUST_BE_IN_ON_REACT": "Khối lệnh này chỉ có thể được sử dụng trong khối lệnh \"reaction added\" hoặc khối lệnh  \"reaction removed\"!",

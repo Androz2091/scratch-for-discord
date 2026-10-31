@@ -21,7 +21,7 @@ const blockData = {
     "previousStatement": null,
     "nextStatement": null,
     "colour": "#4C97FF",
-    "tooltip": "",
+    "tooltip": "%{BKY_SET_SERVER_NAME_TOOLTIP}",
     "helpUrl": ""
 };
 

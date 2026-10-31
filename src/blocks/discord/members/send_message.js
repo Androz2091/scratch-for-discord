@@ -22,7 +22,7 @@ const blockData = {
     "previousStatement": null,
     "nextStatement": null,
     "colour": "#4C97FF",
-    "tooltip": "",
+    "tooltip": "%{BKY_SEND_MEMBER_TOOLTIP}",
     "helpUrl": ""
 };
 

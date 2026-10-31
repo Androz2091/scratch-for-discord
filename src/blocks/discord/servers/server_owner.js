@@ -15,7 +15,7 @@ const blockData = {
     ],
     "colour": "#e07e6c",
     "output": "Member",
-    "tooltip": "",
+    "tooltip": "%{BKY_SERVER_OWNER_TOOLTIP}",
     "helpUrl": ""
 };
 
