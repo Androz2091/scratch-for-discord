@@ -86,7 +86,6 @@
   "REASON": "powód",
   "DURING_HOURS": "podczas",
   "WITH_REASON": "z powodu",
-  "RES_MUST_BE_IN_ON_MESSAGE": "Ten blo może zostać użyty tylko \"Wiadomość o received\" event",
   "RES_MISSING_CONTENT": "Podaj prawidłowyą cenę !",
   "RES_MISSING_MEMBER_HAS_PERMISSION": "Musisz podac odpowiedni numer by sprawdzić uprawnienia!",
   "RES_MUST_BE_IN_ON_MEMBER_JOIN": "Ten blok może zostać użyty tylko w wydarzeniu \"Gdy nowy członek przychodzi \" event",

@@ -1,9 +1,10 @@
 import * as Blockly from "blockly/core";
 import { javascriptGenerator, Order } from "blockly/javascript";
 
-const BORDER_FIELDS = [ "MESSAGE", "COLOR", "TITLE", "IMAGE","FOOTER", "THUMBNAIL"];
+const BORDER_FIELDS = [ "MESSAGE", "COLOR", "TITLE", "IMAGE","FOOTER", "THUMBNAIL", "AUTHOR", "FIELDS" ];
 
-const BORDER_TYPES = [ "String", "Colour", "String", "String","String", "String" ];
+// FIELDS takes a list of "embed field" blocks
+const BORDER_TYPES = [ "String", "Colour", "String", "String","String", "String", "String", "Array" ];
 
 const s4d_message_embed = {
     "message0": "%{BKY_MESSAGE_EMBED}",
@@ -18,7 +19,7 @@ Blockly.Blocks["s4d_message_embed"] = {
     init: function() {
         this.jsonInit(s4d_message_embed);
         // Each block needs its own copy, the mixin would share one array between all embeds
-        this.inputs_ = [ true, false, false, false, false, false ];
+        this.inputs_ = [ true, false, false, false, false, false, false, false ];
         this.updateShape_();
     }
 };
@@ -89,7 +90,9 @@ const EMBED_SETTERS = {
     MESSAGE: (value) => `.setDescription(String(${value}))`,
     IMAGE: (value) => `.setImage(String(${value}))`,
     THUMBNAIL: (value) => `.setThumbnail(String(${value}))`,
-    FOOTER: (value) => `.setFooter({ text: String(${value}) })`
+    FOOTER: (value) => `.setFooter({ text: String(${value}) })`,
+    AUTHOR: (value) => `.setAuthor({ name: String(${value}) })`,
+    FIELDS: (value) => `.addFields(...${value})`
 };
 
 javascriptGenerator.forBlock["s4d_message_embed"] = function(block){

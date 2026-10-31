@@ -35,7 +35,7 @@ Blockly.Blocks[blockName] = {
 javascriptGenerator.forBlock[blockName] = function(block){
     const channel = javascriptGenerator.valueToCode(block, "CHANNEL", Order.ATOMIC);
     const content = javascriptGenerator.valueToCode(block, "CONTENT", Order.ATOMIC);
-    return `await ${channel}.send(${messageContent(block, content)});\n`;
+    return `s4d.lastMessage = await ${channel}.send(${messageContent(block, content)});\n`;
 };
 
 registerRestrictions(blockName, [

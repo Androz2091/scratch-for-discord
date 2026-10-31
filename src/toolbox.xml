@@ -435,8 +435,10 @@
         <label text="%{BKY_MESSAGE_RELATED_BLOCKS}" web-class="boldtext"></label>
         <label text="%{BKY_DETECT_MESSAGES}"></label>
         <block type="s4d_on_message"></block>
+        <block type="s4d_on_message_edit"></block>
         <label text="%{BKY_MESSAGE_INFORMATIONS}"></label>
         <block type="s4d_message_content"></block>
+        <block type="s4d_old_message_content"></block>
         <block type="s4d_message_id"></block>
         <block type="s4d_message_author"></block>
         <block type="s4d_mentioned_member"></block>
@@ -463,8 +465,31 @@
                 </shadow>
             </value>
         </block>
+        <label text="%{BKY_FIND_MESSAGE}"></label>
+        <block type="s4d_last_sent_message"></block>
+        <block type="s4d_get_message"></block>
+        <block type="s4d_get_message_from_link"></block>
+        <label text="%{BKY_OTHER_MESSAGE_ACTIONS}"></label>
+        <block type="s4d_message_edit"></block>
+        <block type="s4d_message_delete"></block>
+        <block type="s4d_message_react">
+            <value name="REACTION">
+                <shadow type="text">
+                    <field name="TEXT">👍</field>
+                </shadow>
+            </value>
+        </block>
         <label text="%{BKY_TOOLS}"></label>
         <block type="s4d_message_embed"></block>
+        <block type="lists_create_with">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+                <block type="s4d_embed_field"></block>
+            </value>
+            <value name="ADD1">
+                <block type="s4d_embed_field"></block>
+            </value>
+        </block>
     </category>
     <category name="%{BKY_TOOLBOX_SLASH_COMMANDS}" colour="#5865F2">
         <block type="s4d_on_slash_command"></block>
@@ -562,6 +587,7 @@
         <block type="s4d_create_channel"></block>
         <block type="s4d_set_channel_name"></block>
         <block type="s4d_delete_channel"></block>
+        <block type="s4d_set_channel_permission"></block>
     </category>
     <category name="%{BKY_TOOLBOX_ROLES}" colour="#2EB66B">
         <label text="%{BKY_FIND_ROLE}"></label>

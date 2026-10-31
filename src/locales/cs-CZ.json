@@ -90,7 +90,6 @@
   "REASON": "důvod",
   "DURING_HOURS": "během",
   "WITH_REASON": "s důvodem",
-  "RES_MUST_BE_IN_ON_MESSAGE": "Tenhle blok může být použit pouze v \"Když je přijata zpráva\" případu",
   "RES_MISSING_CONTENT": "Pro odpověď musíte specifikovat platný obsah !",
   "RES_MISSING_MEMBER_HAS_PERMISSION": "Pro zkontrolování oprávnění musíte specifikovat platného člena!",
   "RES_MUST_BE_IN_ON_MEMBER_JOIN": "Tenhle blok může být použit pouze v \"Když se člen připojí na server\" případu",
