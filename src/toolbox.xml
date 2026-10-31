@@ -560,8 +560,38 @@
                 </shadow>
             </value>
         </block>
+        <block type="s4d_message_with_menu">
+            <value name="CONTENT">
+                <shadow type="text">
+                    <field name="TEXT">%{BKY_MENU_EXAMPLE_MESSAGE}</field>
+                </shadow>
+            </value>
+            <value name="MENU">
+                <block type="s4d_select_menu">
+                    <value name="ID">
+                        <shadow type="text">
+                            <field name="TEXT">my-menu</field>
+                        </shadow>
+                    </value>
+                    <value name="PLACEHOLDER">
+                        <shadow type="text">
+                            <field name="TEXT">%{BKY_MENU_EXAMPLE_PLACEHOLDER}</field>
+                        </shadow>
+                    </value>
+                    <value name="OPTIONS">
+                        <block type="lists_create_with">
+                            <mutation items="3"></mutation>
+                            <value name="ADD0"><block type="text"><field name="TEXT">🔴</field></block></value>
+                            <value name="ADD1"><block type="text"><field name="TEXT">🟢</field></block></value>
+                            <value name="ADD2"><block type="text"><field name="TEXT">🔵</field></block></value>
+                        </block>
+                    </value>
+                </block>
+            </value>
+        </block>
         <block type="s4d_on_button_click"></block>
         <block type="s4d_button_member"></block>
+        <block type="s4d_selected_option"></block>
         <block type="s4d_slash_reply">
             <value name="CONTENT">
                 <shadow type="text">

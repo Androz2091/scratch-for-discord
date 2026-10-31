@@ -29,8 +29,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
+// Buttons and select menus share this event: both are found by their id
 javascriptGenerator.forBlock[blockName] = function(block) {
     const id = block.getFieldValue("ID");
     const statements = javascriptGenerator.statementToCode(block, "STATEMENTS");
-    return `s4d.client.on(Discord.Events.InteractionCreate, async (s4dinteraction) => {\nif (!s4dinteraction.isButton() || s4dinteraction.customId !== ${JSON.stringify(id)}) return;\n${statements}});\n`;
+    return `s4d.client.on(Discord.Events.InteractionCreate, async (s4dinteraction) => {\nif (!(s4dinteraction.isButton() || s4dinteraction.isStringSelectMenu()) || s4dinteraction.customId !== ${JSON.stringify(id)}) return;\n${statements}});\n`;
 };
