@@ -51,3 +51,7 @@ The discord.js guide has [instructions for setting up a bot application](https:/
 * Discord.js ([discordjs/discord.js](https://github.com/discordjs/discord.js))
 * Blockly ([google/blockly](https://github.com/google/blockly))
 * And, of course, Discordblocks ([7coil/discordblocks](https://github.com/7coil/discord-blocks))
+
+## License
+
+[MIT](LICENSE.md). Versions up to 2.0.0 were released under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for discord-blocks.
