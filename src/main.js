@@ -12,6 +12,9 @@ const i18n = createI18n({
     legacy: false,
     locale: store.locale,
     fallbackLocale: "en",
+    // Translations can be partial: missing strings fall back to English
+    missingWarn: false,
+    fallbackWarn: false,
     messages: Object.fromEntries(Object.entries(locales).map(([code, locale]) => [code, locale.website]))
 });
 
