@@ -7,7 +7,7 @@
 * 🖥️ No code knowledge required!  
 * ⏩ Make a bot in less than 2 minutes!  
 * 🧪 Start and test your bot directly on the site!
-* 🌐 Available in English, Czech, French, Italian, Polish, Portuguese and Vietnamese!
+* 🌐 Available in English, Chinese (Traditional), Czech, French, Italian, Polish, Portuguese, Russian and Vietnamese!
 * 📦 Android, MacOS, Windows and Linux apps
 
 ## Example
