@@ -19,7 +19,7 @@ const blockData = {
         }
     ],
     "colour": "#D14081",
-    "tooltip": "",
+    "tooltip": "%{BKY_RUN_SAVE_OUTPUT_TOOLTIP}",
     "helpUrl": "",
     "inputsInline": false,
     "previousStatement": null,
@@ -35,7 +35,12 @@ Blockly.Blocks[blockName] = {
 javascriptGenerator.forBlock[blockName] = function(block){
     const statement = javascriptGenerator.statementToCode(block, 'STATEMENT').trim();
     if (!statement) return "";
-    const code = `${javascriptGenerator.getVariableName(block.getFieldValue('VAR'))} = await ${statement}\n`;
+    const variable = javascriptGenerator.getVariableName(block.getFieldValue('VAR'));
+    // One-line actions give their result (the sent message, the created channel…), in parentheses since
+    // they can be assignments themselves; longer code only runs
+    const code = statement.includes("\n")
+        ? `${variable} = await (async () => {\n${statement}\n})();\n`
+        : `${variable} = await (${statement.replace(/;$/, "")});\n`;
     return code;
 };
 
