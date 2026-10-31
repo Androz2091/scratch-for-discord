@@ -1,4 +1,5 @@
-import * as Blockly from "blockly";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator } from "blockly/javascript";
 
 const blockName = "s4d_on_react_removed";
 
@@ -22,8 +23,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.client.on('MESSAGE_REACTION_REMOVED', async (rGuild, rChannel, rMessage, rMember, rEmoji) => {\n${statements}\n});\n`;
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const statements = javascriptGenerator.statementToCode(block, "STATEMENTS");
+    const code = `s4d.client.on(Discord.Events.MessageReactionRemove, async (reaction, user) => {\nif (reaction.partial) await reaction.fetch();\nconst rMessage = reaction.message;\nconst rMember = await rMessage.guild?.members.fetch(user.id);\nconst rEmoji = reaction.emoji.name;\n${statements}});\n`;
     return code;
 };

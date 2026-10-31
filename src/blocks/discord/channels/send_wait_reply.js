@@ -1,4 +1,6 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
+import { messageContent } from "../../utils";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_send_wait_reply";
@@ -48,28 +50,21 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
-    const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    const time = Blockly.JavaScript.valueToCode(block, "TIME", Blockly.JavaScript.ORDER_ATOMIC) || 5;
-    const statementThen = Blockly.JavaScript.statementToCode(block, "THEN");
-    const statementCatch = Blockly.JavaScript.statementToCode(block, "CATCH");
-    let code = "";
-    if(block.getInput("CONTENT").connection.targetConnection){
-        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
-        block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
-        null;
-        if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            code = `${channel}.send(${content});\n`;
-        } else {
-            code = `${channel}.send(String(${content}));\n`;
-        }
-    } else {
-        code = `${channel}.send(String(${content}));\n`;
-    }
-    code += `${channel}.awaitMessages((m) => m.author.id === ${member}.id, { time: (${time}*60*1000), max: 1 }).then(async (collected) => { s4d.reply = collected.first().content; \n ${statementThen} \n s4d.reply = null; }).catch(async (e) => { console.error(e); ${statementCatch} });`;
-    return code;
+javascriptGenerator.forBlock[blockName] = function(block){
+    const channel = javascriptGenerator.valueToCode(block, "CHANNEL", Order.ATOMIC);
+    const content = javascriptGenerator.valueToCode(block, "CONTENT", Order.ATOMIC);
+    const member = javascriptGenerator.valueToCode(block, "MEMBER", Order.ATOMIC);
+    const time = javascriptGenerator.valueToCode(block, "TIME", Order.ATOMIC) || 5;
+    const statementThen = javascriptGenerator.statementToCode(block, "THEN");
+    const statementCatch = javascriptGenerator.statementToCode(block, "CATCH");
+    return `await ${channel}.send(${messageContent(block, content)});
+${channel}.awaitMessages({ filter: (m) => m.author.id === ${member}.id, time: (${time}*60*1000), max: 1, errors: ["time"] }).then(async (collected) => {
+s4d.reply = collected.first().content;
+${statementThen}s4d.reply = null;
+}).catch(async (e) => {
+console.error(e);
+${statementCatch}});
+`;
 };
 
 registerRestrictions(blockName, [

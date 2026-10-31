@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_boost_level";
@@ -24,9 +25,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${server}.premiumTier`, Blockly.JavaScript.ORDER_NONE ];
+javascriptGenerator.forBlock[blockName] = function(block){
+    const server = javascriptGenerator.valueToCode(block, "SERVER", Order.ATOMIC);
+    return [ `${server}.premiumTier`, Order.NONE ];
 };
 
 registerRestrictions(blockName, [

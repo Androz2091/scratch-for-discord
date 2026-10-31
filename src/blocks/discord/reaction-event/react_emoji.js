@@ -1,4 +1,5 @@
-import * as Blockly from "blockly";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_react_emoji";
@@ -15,8 +16,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
-    const code = ["rEmoji", Blockly.JavaScript.ORDER_NONE];
+javascriptGenerator.forBlock[blockName] = function() {
+    const code = ["rEmoji", Order.NONE];
     return code;
 };
 

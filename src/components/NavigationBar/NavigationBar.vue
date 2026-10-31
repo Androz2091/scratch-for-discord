@@ -1,123 +1,97 @@
 <template>
-    <b-navbar toggleable="lg" type="dark" style="background-color:#161719;user-select:none;" id="navbar nav-main">
-        <b-navbar-brand>
-            <img src="scratch.png" width="40" draggable="false">
+    <nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color:#161719;user-select:none;">
+        <a class="navbar-brand d-flex align-items-center gap-2">
+            <img src="/scratch.png" width="40" draggable="false" alt="">
             Scratch For Discord
-        </b-navbar-brand>
+        </a>
 
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-        
-        <b-collapse id="nav-collapse" is-nav>
-            <b-navbar-nav>
-                <CodeModal></CodeModal>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-collapse" aria-controls="nav-collapse" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav-collapse">
+            <ul class="navbar-nav">
                 <FileMenu></FileMenu>
                 <EditMenu></EditMenu>
                 <LanguageMenu></LanguageMenu>
                 <ExamplesMenu></ExamplesMenu>
-                <b-nav-item href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t('help') }}</b-nav-item>
-            </b-navbar-nav>
-            <b-navbar-nav class="ml-auto">
-                <RunModal></RunModal>
-                <b-button style="border-right-color: #161719; border-radius: 0em; border-top-left-radius: 0.25em; border-bottom-left-radius: 0.25em">
-                <span contenteditable="true" id="docName">{{ $t("untitled") }}</span>
-                </b-button>
-                <b-button id="v-step-1" :disabled="!configurationValidated" style="border-right-color: #161719; border-radius: 0em;" v-b-modal.run-modal>
-                    <b-icon-play></b-icon-play>
-                </b-button>
-                <b-button id="v-step-2" :disabled="!configurationValidated" style="border-radius: 0em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em" @click="exportToCode">
-                    <b-icon-download></b-icon-download>
-                </b-button>
-            </b-navbar-nav>
-        </b-collapse>
-    </b-navbar>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://androz2091.gitbook.io/scratch-for-discord/" target="_blank">{{ $t("help") }}</a>
+                </li>
+            </ul>
+            <div class="btn-group ms-auto">
+                <span class="btn btn-secondary" contenteditable="true" spellcheck="false" id="docName" ref="docNameElement" @input="rename">{{ docName }}</span>
+                <button id="v-step-1" class="btn btn-secondary" :disabled="!store.valid" data-bs-toggle="modal" data-bs-target="#run-modal" :title="$t('run_modal.start')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>
+                </button>
+                <button id="v-step-2" class="btn btn-secondary" :disabled="!store.valid" @click="exportToCode" :title="$t('download.title')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <CodeModal></CodeModal>
+    <RunModal></RunModal>
 </template>
 
-<script>
-import Blockly from "blockly";
+<script setup>
+import { ref, useTemplateRef, watch } from "vue";
+import { useI18n } from "vue-i18n";
 import JSZip from "jszip";
-
+import Swal from "sweetalert2";
+import store from "../../store";
+import { getWorkspaceCode, getWorkspaceXml } from "../../workspace";
+import { downloadBlob } from "./download";
 import FileMenu from "./FileMenu.vue";
 import EditMenu from "./EditMenu.vue";
 import LanguageMenu from "./LanguageMenu.vue";
-import RunModal from "./RunModal.vue";
 import ExamplesMenu from "./ExamplesMenu.vue";
-import CodeModal from "./CodeModal";
+import CodeModal from "./CodeModal.vue";
+import RunModal from "./RunModal.vue";
 
-export default {
-    name: "navbar",
-    components: {
-        FileMenu,
-        EditMenu,
-        LanguageMenu,
-        RunModal,
-        ExamplesMenu,
-        CodeModal
-    },
-    computed: {
-        configurationValidated: function () {
-            return  this.$store.state.workspace &&
-                    this.$store.state.workspace.getAllBlocks().some((block) => block.type === "s4d_login") &&
-                    this.$store.state.workspace.getAllBlocks().every((block) => !block.disabled && !block.warning);
+const { t } = useI18n();
+
+// The name is only rendered when it changes from outside, so typing doesn't move the cursor
+const docName = ref(store.docName);
+const docNameElement = useTemplateRef("docNameElement");
+watch(() => store.docName, (name) => {
+    if (docNameElement.value?.textContent !== name) docName.value = name;
+    document.title = `Scratch For Discord - ${name}`;
+}, { immediate: true });
+
+function rename(event) {
+    store.docName = event.target.textContent;
+}
+
+async function exportToCode() {
+    const steps = ["unzipFile", "node", "intents", "start", "done"].map((step) => `<li>${t(`download.content.${step}`)}</li>`).join("");
+    const result = await Swal.fire({
+        title: t("download.title"),
+        html: `<h6>${t("download.content.title")}</h6><ul class="text-start">${steps}</ul>`,
+        showCancelButton: true,
+        cancelButtonText: t("download.cancel"),
+        confirmButtonText: t("download.confirm")
+    });
+    if (!result.isConfirmed) return;
+    const zip = new JSZip();
+    zip.file("blocks.xml", getWorkspaceXml());
+    zip.file("bot.js", getWorkspaceCode());
+    zip.file(".replit", "run = \"npm start\"");
+    zip.file("package.json", JSON.stringify({
+        name: "scratch-for-discord-bot",
+        version: "1.0.0",
+        main: "bot.js",
+        scripts: {
+            start: "node ."
+        },
+        engines: {
+            node: ">=18"
+        },
+        dependencies: {
+            "discord.js": "^14.28.0",
+            "easy-json-database": "^1.5.1"
         }
-    },
-    mounted(){
-        document.getElementById("docName").addEventListener("input", function() {
-            document.title = `Scratch For Discord - ${document.querySelector("#docName").textContent}`;
-        }, false);
-        const element = document.querySelector("#docName");
-        element.spellcheck = false;
-        element.focus();
-        element.blur();
-    },
-    methods: {
-        exportToCode(){
-            const wrapper = document.createElement('div');
-            wrapper.innerHTML = `<h6>${this.$t('download.content.title')}</h6><ul><li style='text-align:left'>${this.$t('download.content.unzipFile')}</li><li style='text-align:left'>${this.$t('download.content.node')}</li><li style='text-align:left'>${this.$t('download.content.start')}</li><li style='text-align:left'>${this.$t('download.content.done')}</li></ul>`;
-            this.$swal({
-                title: this.$t('download.title'),
-                content: wrapper,
-                buttons: {
-                    cancel: this.$t('download.cancel'),
-                    confirm: this.$t('download.confirm')
-                },
-            }).then(result => {
-                if(result){
-                    const zip = new JSZip();
-                    const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
-                    const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, " ")}.zip`;
-                    zip.file("blocks.xml", xmlContent);
-                    const javascriptContent = this.getWorkspaceCode();
-                    zip.file("bot.js", javascriptContent);
-                    zip.file(".replit", 'run = "node bot.js"');
-                    zip.file("package.json", JSON.stringify({
-                        name: 'scratch-for-discord-bot',
-                        version: '1.0.0',
-                        main: 'bot.js',
-                        scripts: {
-                            start: 'node .'
-                        },
-                        dependencies: {
-                            'discord.js': '^13.1.0',
-                            'easy-json-database': '^1.5.0'
-                        }
-                    }));
-                    zip.generateAsync({
-                        type: "blob"
-                    })
-                    .then((blob) => {
-                        const a = document.createElement("a");
-                        a.style = "display: none";
-                        document.body.appendChild(a);
-                        const url = window.URL.createObjectURL(blob);
-                        a.href = url;
-                        a.download = fileName;
-                        a.click();
-                        window.URL.revokeObjectURL(url);
-                        document.body.removeChild(a);
-                    });
-                }
-            });
-        }
-    }
+    }, null, 4));
+    downloadBlob(await zip.generateAsync({ type: "blob" }), `${store.docName}.zip`);
 }
 </script>

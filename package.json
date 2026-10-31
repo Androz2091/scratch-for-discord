@@ -1,67 +1,31 @@
 {
   "name": "scratch-for-discord",
-  "version": "1.13.0",
+  "version": "2.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "audit": "npm audit fix",
-    "update": "npm update",
-    "start": "npm run serve",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@blockly/theme-modern": "^2.1.10",
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@fortawesome/vue-fontawesome": "^2.0.2",
-    "blockly": "^4.20201217.0",
-    "bootstrap": "^4.6.0",
-    "bootstrap-vue": "^2.21.2",
-    "easy-json-database-browser": "^2.1.0",
-    "js-beautify": "^1.13.5",
-    "jszip": "^3.6.0",
+    "@blockly/field-colour": "^13.4.0",
+    "@blockly/theme-modern": "^13.4.0",
+    "blockly": "^13.4.0",
+    "bootstrap": "^5.3.8",
+    "jszip": "^3.10.2",
     "localforage": "^1.10.0",
-    "sweetalert2": "^10.15.5",
-    "vue": "^2.6.12",
-    "vue-i18n": "^8.24.0",
-    "vue-swal": "^1.0.0",
-    "vue-toast-notification": "^0.6.1",
-    "vue-tour": "^1.5.0",
-    "vuex": "^3.6.2"
+    "sweetalert2": "^11.26.25",
+    "vue": "^3.5.44",
+    "vue-i18n": "^11.4.16"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-import-meta": "^7.10.4",
-    "@babel/preset-env": "^7.13.10",
-    "@vue/cli-plugin-babel": "^4.5.11",
-    "@vue/cli-plugin-eslint": "^4.5.7",
-    "@vue/cli-service": "^4.5.11",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.21.0",
-    "eslint-plugin-vue": "^7.7.0",
-    "vue-template-compiler": "^2.6.12"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "@eslint/js": "^10.0.1",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "eslint": "^10.14.0",
+    "eslint-plugin-vue": "^10.12.0",
+    "globals": "^17.13.0",
+    "vite": "^8.3.5"
+  }
 }

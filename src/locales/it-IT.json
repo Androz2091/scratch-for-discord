@@ -239,5 +239,19 @@
   "CHANNEL_ACTIONS": "Azioni per il canale",
   "TEXT": "testo",
   "VOICE": "voce",
-  "CATEGORY": "categoria"
+  "CATEGORY": "categoria",
+  "TOOLBOX_SLASH_COMMANDS": "Comandi slash",
+  "ON_SLASH_COMMAND": "Quando viene usato il comando slash /%1 %2 descrizione %3 %4 opzioni %5 %6 %7",
+  "ON_SLASH_COMMAND_TOOLTIP": "Le opzioni sono testi facoltativi che l'utente può compilare, separati da virgole (ad esempio: utente, motivo)",
+  "SLASH_REPLY": "rispondi %1 visibile solo all'utente %2",
+  "SLASH_OPTION": "opzione %1",
+  "SLASH_MEMBER": "membro del comando slash",
+  "SLASH_CHANNEL": "canale del comando slash",
+  "SLASH_SERVER": "server del comando slash",
+  "RES_MUST_BE_IN_ON_SLASH_COMMAND": "Questo blocco può essere usato solo in un evento \"Quando viene usato il comando slash\"",
+  "MEMBER_AVATAR": "URL dell'avatar del membro %1",
+  "MEMBER_HAS_ROLE": "il membro %1 ha il ruolo %2",
+  "TIMEOUT_MEMBER": "metti in timeout il membro %1 per %2 minuti",
+  "TIMEOUT_MEMBER_TOOLTIP": "0 minuti rimuove il timeout",
+  "UNBAN_MEMBER": "revoca il ban dell'utente con ID %1 dal server %2"
 }

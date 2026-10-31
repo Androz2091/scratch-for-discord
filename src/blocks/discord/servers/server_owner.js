@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_server_owner";
@@ -24,9 +25,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${server}.owner || await ${server}.members.fetch(${server}.ownerID)`, Blockly.JavaScript.ORDER_NONE ];
+javascriptGenerator.forBlock[blockName] = function(block){
+    const server = javascriptGenerator.valueToCode(block, "SERVER", Order.ATOMIC);
+    return [ `(await ${server}.fetchOwner())`, Order.ATOMIC ];
 };
 
 registerRestrictions(blockName, [

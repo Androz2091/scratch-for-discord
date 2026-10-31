@@ -1,78 +1,45 @@
 <template>
-     <b-nav-item-dropdown :text="$t('file.title')" right>
-        <b-dropdown-item @click="askForFile">{{ $t('file.open') }}</b-dropdown-item>
-        <input hidden @change="load" id="load-code" type="file" accept=".s4d">
-        <b-dropdown-item v-b-modal.code-modal>{{ $t('file.javascript') }}</b-dropdown-item>
-        <b-dropdown-item @click="save">{{ $t('file.save') }}</b-dropdown-item>
-    </b-nav-item-dropdown>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $t("file.title") }}</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" @click.prevent="fileInput.click()">{{ $t("file.open") }}</a></li>
+            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#code-modal">{{ $t("file.javascript") }}</a></li>
+            <li><a class="dropdown-item" href="#" @click.prevent="save">{{ $t("file.save") }}</a></li>
+        </ul>
+        <input hidden ref="fileInput" @change="load" type="file" accept=".s4d">
+    </li>
 </template>
 
-<script>
-import Blockly from "blockly";
+<script setup>
+import { useTemplateRef } from "vue";
+import { useI18n } from "vue-i18n";
 import JSZip from "jszip";
-import localforage from "localforage"
+import store from "../../store";
+import { toast } from "../../dialogs";
+import { getWorkspaceXml, loadXml } from "../../workspace";
+import { removeAutosave } from "../../autosave";
+import { downloadBlob } from "./download";
 
-export default {
-    name: "filemenu",
-    methods: {
-        viewCode() {
-			alert(this.getWorkspaceCode());
-        },
-        askForFile(){
-            document.querySelector("#load-code").click();
-        },
-        load(){
-            const file = document.getElementById("load-code").files[0];
-            const documentName = file.name.split(".").slice(0, file.name.split(".").length-1);
-            document.querySelector("#docName").textContent = documentName;
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                JSZip.loadAsync(e.target.result)
-                    .then((data) => {
-                    if (data.file("blocks.xml")) {
-                        return data.file("blocks.xml").async("string")
-                    }
-                })
-                .then((text) => {
-                    const xml = Blockly.Xml.textToDom(text);
-                    Blockly.Xml.domToWorkspace(xml, this.$store.state.workspace);
-                }).catch(() => {
-                    this.$toast.open({
-                        message: this.$t('load.error'),
-                        type: "error",
-                        dismissible: true,
-                        duration: 10000
-                    });
-                });
-            };
-            if (file) {
-                reader.readAsArrayBuffer(file);
-                document.getElementById("load-code").setAttribute("value", "");
-            }
-        },
-        save(){
-            const zip = new JSZip();
-            const xmlContent = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(this.$store.state.workspace));
-            const fileName = `${encodeURIComponent(document.querySelector("#docName").textContent).replace(/%20/g, ' ')}.s4d`;
-            zip.file("blocks.xml", xmlContent);
-            zip.generateAsync({
-                type: "blob"
-            })
-            .then(async (blob) => {
-                const a = document.createElement("a");
-                a.style = "display: none";
-                document.body.appendChild(a);
+const { t } = useI18n();
+const fileInput = useTemplateRef("fileInput");
 
-                const url = window.URL.createObjectURL(blob);
-                a.href = url;
-                a.download = fileName;
-                a.click();
-
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
-                await localforage.removeItem(fileName.replace('.s4d', ''));
-            });
-        }
+async function load() {
+    const file = fileInput.value.files[0];
+    if (!file) return;
+    fileInput.value.value = "";
+    store.docName = file.name.replace(/\.s4d$/, "");
+    try {
+        const zip = await JSZip.loadAsync(file);
+        loadXml(await zip.file("blocks.xml").async("string"));
+    } catch {
+        toast.fire({ icon: "error", title: t("load.error") });
     }
+}
+
+async function save() {
+    const zip = new JSZip();
+    zip.file("blocks.xml", getWorkspaceXml());
+    downloadBlob(await zip.generateAsync({ type: "blob" }), `${store.docName}.s4d`);
+    await removeAutosave(store.docName);
 }
 </script>

@@ -1,4 +1,6 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
+import { getInputType } from "../../utils";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_add_role";
@@ -30,24 +32,13 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const role = Blockly.JavaScript.valueToCode(block, "ROLE", Blockly.JavaScript.ORDER_ATOMIC);
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    if(block.getInput("ROLE").connection.targetConnection){
-        const roleType = block.getInput("ROLE").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
-        block.getInput("ROLE").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
-        null;
-        if(roleType === "String"){
-            const code = `${member}.roles.add(${member}.guild.roles.cache.find((role) => role.id === ${role} || role.name === ${role} || '@'+role.name === ${role}));\n`;
-            return code;
-        } else {
-            const code = `${member}.roles.add(${role});\n`;
-            return code;
-        }
-    } else {
-        const code = `${member}.roles.add(${role});\n`;
-        return code;
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const role = javascriptGenerator.valueToCode(block, "ROLE", Order.ATOMIC);
+    const member = javascriptGenerator.valueToCode(block, "MEMBER", Order.ATOMIC);
+    if (getInputType(block, "ROLE") === "String") {
+        return `await ${member}.roles.add(${member}.guild.roles.cache.find((role) => role.id === ${role} || role.name === ${role} || "@" + role.name === ${role}));\n`;
     }
+    return `await ${member}.roles.add(${role});\n`;
 };
 
 registerRestrictions(blockName, [

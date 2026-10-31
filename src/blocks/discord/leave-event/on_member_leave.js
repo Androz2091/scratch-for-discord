@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator } from "blockly/javascript";
 
 const blockName = "s4d_on_member_leave";
 
@@ -22,8 +23,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const statements = javascriptGenerator.statementToCode(block, "STATEMENTS");
     const code = `s4d.client.on('guildMemberRemove', async (param1) => {\ns4d.leavingMember = param1;\n${statements}s4d.leavingMember = null\n});\n`;
     return code;
 };

@@ -1,66 +1,44 @@
 <template>
-    <b-nav-item-dropdown id="v-step-0" :text="$t('examples.title')" right>
-        <b-dropdown-item @click="load('ping-pong')">{{ $t('examples.ping_pong') }}</b-dropdown-item>
-        <b-dropdown-item @click="load('command-parsing')">{{ $t('examples.command_parsing') }}</b-dropdown-item>
-        <b-dropdown-item @click="load('leveling')">{{ $t('examples.leveling') }}</b-dropdown-item>
-    </b-nav-item-dropdown>
+    <li class="nav-item dropdown" id="v-step-0">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $t("examples.title") }}</a>
+        <ul class="dropdown-menu">
+            <li v-for="example in Object.keys(examples)" :key="example">
+                <a class="dropdown-item" href="#" @click.prevent="load(example)">{{ $t(`examples.${example.replace("-", "_")}`) }}</a>
+            </li>
+        </ul>
+    </li>
 </template>
 
-<script>
-import Blockly from "blockly";
-
-import PingPongExample from "../../examples/ping-pong";
-import CommandParsingExample from "../../examples/command-parsing";
-import LevelingExample from "../../examples/leveling";
+<script setup>
+import { useI18n } from "vue-i18n";
+import Swal from "sweetalert2";
+import { toast } from "../../dialogs";
+import { loadXml } from "../../workspace";
+import pingPong from "../../examples/ping-pong.xml?raw";
+import commandParsing from "../../examples/command-parsing.xml?raw";
+import leveling from "../../examples/leveling.xml?raw";
 
 const examples = {
-    "ping-pong": PingPongExample,
-    "command-parsing": CommandParsingExample,
-    "leveling": LevelingExample
+    "ping-pong": pingPong,
+    "command-parsing": commandParsing,
+    "leveling": leveling
 };
 
-export default {
-    name: "editmenu",
-    computed: {
-    },
-    methods: {
-        load(example){
-            this.$swal({
-                title: this.$t('examples.confirm.title'),
-                text: this.$t('examples.confirm.text'),
-                buttons: {
-                    cancel: this.$t('examples.confirm.cancel'),
-                    no: {
-                        text: this.$t('examples.confirm.no'),
-                        value: false,
-                        className: "red-button"
-                    },
-                    yes: {
-                        text: this.$t('examples.confirm.yes'),
-                        value: true
-                    }
-                },
-                closeOnClickOutside: false
-            }).then(result => {
-                if(typeof result === "object"){
-                    return;
-                } else if (result) {
-                    this.$store.state.workspace.getAllBlocks().forEach((block) => block.dispose());
-                }
-                const exampleXml = examples[example];
-                Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(exampleXml), this.$store.state.workspace);
-                setTimeout(() => {
-                    this.$toast.open({
-                        message: this.$t('examples.loaded', {
-                            example
-                        }),
-                        type: "success",
-                        dismissible: true,
-                        duration: 10000
-                    });
-                }, (200));
-            });
-        }
-    }
+const { t } = useI18n();
+
+async function load(example) {
+    const result = await Swal.fire({
+        title: t("examples.confirm.title"),
+        text: t("examples.confirm.text"),
+        showCancelButton: true,
+        showDenyButton: true,
+        cancelButtonText: t("examples.confirm.cancel"),
+        denyButtonText: t("examples.confirm.no"),
+        confirmButtonText: t("examples.confirm.yes"),
+        allowOutsideClick: false
+    });
+    if (result.isDismissed) return;
+    loadXml(examples[example], { clear: result.isConfirmed });
+    toast.fire({ icon: "success", title: t("examples.loaded", { example }) });
 }
 </script>

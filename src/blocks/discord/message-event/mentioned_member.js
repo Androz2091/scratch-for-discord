@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_mentioned_member";
@@ -17,8 +18,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
-    const code = [`s4dmessage.mentions.members.first()`, Blockly.JavaScript.ORDER_NONE];
+javascriptGenerator.forBlock[blockName] = function() {
+    const code = [`s4dmessage.mentions.members.first()`, Order.NONE];
     return code;
 };
 

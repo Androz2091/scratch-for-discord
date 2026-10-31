@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_purge";
@@ -31,10 +32,10 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const channel = Blockly.JavaScript.valueToCode(block, "CHANNEL", Blockly.JavaScript.ORDER_ATOMIC);
-    const amount = Blockly.JavaScript.valueToCode(block, "AMOUNT", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${channel}.bulkDelete((${amount}|1))`;
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const channel = javascriptGenerator.valueToCode(block, "CHANNEL", Order.ATOMIC);
+    const amount = javascriptGenerator.valueToCode(block, "AMOUNT", Order.ATOMIC);
+    const code = `await ${channel}.bulkDelete(Number(${amount}) || 1, true);\n`;
     return code;
 };
 

@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 
 const blockName = "s4d_wait_seconds";
 
@@ -24,7 +25,7 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-    const time = Blockly.JavaScript.valueToCode(block, "TIME", Blockly.JavaScript.ORDER_ATOMIC);
+javascriptGenerator.forBlock[blockName] = function(block){
+    const time = javascriptGenerator.valueToCode(block, "TIME", Order.ATOMIC);
     return `await delay(Number(${time})*1000);\n`;
 };

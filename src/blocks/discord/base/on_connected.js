@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator } from "blockly/javascript";
 
 const blockName = "s4d_on_connected";
 
@@ -23,8 +24,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const statements = Blockly.JavaScript.statementToCode(block, "STATEMENTS");
-    const code = `s4d.client.on('ready', async () => {\n${statements}\n});\n`;
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const statements = javascriptGenerator.statementToCode(block, "STATEMENTS");
+    const code = `s4d.client.on(Discord.Events.ClientReady, async () => {\n${statements}\n});\n`;
     return code;
 };

@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_send_wait_reply_value";
@@ -17,8 +18,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(){
-    const code = ["s4d.reply", Blockly.JavaScript.ORDER_NONE];
+javascriptGenerator.forBlock[blockName] = function(){
+    const code = ["s4d.reply", Order.NONE];
     return code;
 };
 

@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 
 const blockName = "s4d_set_data";
 
@@ -27,8 +28,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const key = Blockly.JavaScript.valueToCode(block, "KEY", Blockly.JavaScript.ORDER_ATOMIC);
-    const value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_ATOMIC);
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const key = javascriptGenerator.valueToCode(block, "KEY", Order.ATOMIC);
+    const value = javascriptGenerator.valueToCode(block, "VALUE", Order.ATOMIC);
     return `s4d.database.set(String(${key}), ${value});\n`;
 };

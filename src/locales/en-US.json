@@ -239,5 +239,19 @@
   "CHANNEL_ACTIONS": "Actions for the channel",
   "TEXT": "text",
   "VOICE": "voice",
-  "CATEGORY": "category"
+  "CATEGORY": "category",
+  "TOOLBOX_SLASH_COMMANDS": "Slash commands",
+  "ON_SLASH_COMMAND": "When slash command /%1 is used %2 description %3 %4 options %5 %6 %7",
+  "ON_SLASH_COMMAND_TOOLTIP": "Options are optional texts the user can fill in, separated by commas (for example: user, reason)",
+  "SLASH_REPLY": "reply %1 only visible to the user %2",
+  "SLASH_OPTION": "option %1",
+  "SLASH_MEMBER": "slash command member",
+  "SLASH_CHANNEL": "slash command channel",
+  "SLASH_SERVER": "slash command server",
+  "RES_MUST_BE_IN_ON_SLASH_COMMAND": "This block may only be used in a \"When slash command is used\" event",
+  "MEMBER_AVATAR": "avatar URL of member %1",
+  "MEMBER_HAS_ROLE": "member %1 has role %2",
+  "TIMEOUT_MEMBER": "timeout member %1 for %2 minutes",
+  "TIMEOUT_MEMBER_TOOLTIP": "0 minutes removes the timeout",
+  "UNBAN_MEMBER": "unban user with ID %1 from server %2"
 }

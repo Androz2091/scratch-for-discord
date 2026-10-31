@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_member_has_permission";
@@ -154,10 +155,45 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
+// Dropdown values keep their discord.js v12 names so saved projects still load
+const permissionFlags = {
+    CREATE_INSTANT_INVITE: "CreateInstantInvite",
+    KICK_MEMBERS: "KickMembers",
+    BAN_MEMBERS: "BanMembers",
+    ADMINISTRATOR: "Administrator",
+    MANAGE_CHANNELS: "ManageChannels",
+    MANAGE_GUILD: "ManageGuild",
+    ADD_REACTIONS: "AddReactions",
+    VIEW_AUDIT_LOG: "ViewAuditLog",
+    PRIORITY_SPEAKER: "PrioritySpeaker",
+    VIEW_CHANNEL: "ViewChannel",
+    READ_MESSAGES: "ViewChannel",
+    SEND_MESSAGES: "SendMessages",
+    SEND_TTS_MESSAGES: "SendTTSMessages",
+    MANAGE_MESSAGES: "ManageMessages",
+    EMBED_LINKS: "EmbedLinks",
+    ATTACH_FILES: "AttachFiles",
+    READ_MESSAGE_HISTORY: "ReadMessageHistory",
+    MENTION_EVERYONE: "MentionEveryone",
+    EXTERNAL_EMOJIS: "UseExternalEmojis",
+    USE_EXTERNAL_EMOJIS: "UseExternalEmojis",
+    CONNECT: "Connect",
+    SPEAK: "Speak",
+    MUTE_MEMBERS: "MuteMembers",
+    DEAFEN_MEMBERS: "DeafenMembers",
+    MOVE_MEMBERS: "MoveMembers",
+    USE_VAD: "UseVAD",
+    CHANGE_NICKNAME: "ChangeNickname",
+    MANAGE_NICKNAMES: "ManageNicknames",
+    MANAGE_ROLES: "ManageRoles",
+    MANAGE_WEBHOOKS: "ManageWebhooks",
+    MANAGE_EMOJIS: "ManageGuildExpressions"
+};
+
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const member = javascriptGenerator.valueToCode(block, "MEMBER", Order.ATOMIC);
     const permission = block.getFieldValue("PERMISSION");
-    const code = [ `${member}.hasPermission('${permission}')`, Blockly.JavaScript.ORDER_FUNCTION_CALL ];
+    const code = [ `${member}.permissions.has(Discord.PermissionFlagsBits.${permissionFlags[permission]})`, Order.FUNCTION_CALL ];
     return code;
 };
 

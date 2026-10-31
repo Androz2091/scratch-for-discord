@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_set_server_name";
@@ -30,10 +31,10 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    const newName = Blockly.JavaScript.valueToCode(block, "NEW_NICKNAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${server}.setName(${newName});\n`;
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const server = javascriptGenerator.valueToCode(block, "SERVER", Order.ATOMIC);
+    const newName = javascriptGenerator.valueToCode(block, "NEW_NICKNAME", Order.ATOMIC);
+    const code = `await ${server}.setName(String(${newName}));\n`;
     return code;
 };
 

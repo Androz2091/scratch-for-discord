@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_delete";
@@ -18,8 +19,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(){
-    const code = `s4dmessage.delete();\n`;
+javascriptGenerator.forBlock[blockName] = function(){
+    const code = `await s4dmessage.delete();\n`;
     return code;
 };
 

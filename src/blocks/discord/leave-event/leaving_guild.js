@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_leaving_guild";
@@ -17,8 +18,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
-    const code = ["s4d.leavingMember.guild", Blockly.JavaScript.ORDER_NONE];
+javascriptGenerator.forBlock[blockName] = function() {
+    const code = ["s4d.leavingMember.guild", Order.NONE];
     return code;
 };
 

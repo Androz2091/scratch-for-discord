@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator } from "blockly/javascript";
 import { registerRestrictions } from "../../restrictions";
 
 const blockName = "s4d_run_save_output";
@@ -31,8 +32,10 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-    const code = `${Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)} = await ${Blockly.JavaScript.statementToCode(block, 'STATEMENT')}`
+javascriptGenerator.forBlock[blockName] = function(block){
+    const statement = javascriptGenerator.statementToCode(block, 'STATEMENT').trim();
+    if (!statement) return "";
+    const code = `${javascriptGenerator.getVariableName(block.getFieldValue('VAR'))} = await ${statement}\n`;
     return code;
 };
 

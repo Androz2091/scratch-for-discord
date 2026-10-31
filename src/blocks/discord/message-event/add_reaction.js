@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_add_reaction";
@@ -25,9 +26,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const reaction = Blockly.JavaScript.valueToCode(block, "REACTION", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `s4dmessage.react(${reaction});`;
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const reaction = javascriptGenerator.valueToCode(block, "REACTION", Order.ATOMIC);
+    const code = `await s4dmessage.react(${reaction});\n`;
     return code;
 };
 
@@ -37,6 +38,13 @@ registerRestrictions(blockName, [
         message: "RES_ADD_REACTION_MISSING_REACTION",
         types: [
             "REACTION"
+        ]
+    },
+    {
+        type: "toplevelparent",
+        message: "RES_MUST_BE_IN_ON_MESSAGE",
+        types: [
+            "s4d_on_message"
         ]
     }
 ]);

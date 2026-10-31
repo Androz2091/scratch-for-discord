@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_get_channel";
@@ -38,13 +39,16 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-    const value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_ATOMIC);
+// Channel blocks send, read and delete messages: only server text channels can do all of that
+const TEXT_CHANNELS = "s4d.client.channels.cache.filter((channel) => channel.isTextBased() && !channel.isDMBased())";
+
+javascriptGenerator.forBlock[blockName] = function(block){
+    const value = javascriptGenerator.valueToCode(block, "VALUE", Order.ATOMIC);
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "NAME"){
-        return [ `s4d.client.channels.cache.find((channel) => channel.name === ${value})`, Blockly.JavaScript.ORDER_ATOMIC ];
+        return [ `${TEXT_CHANNELS}.find((channel) => channel.name === ${value})`, Order.ATOMIC ];
     } else {
-        return [ `s4d.client.channels.cache.get(${value})`, Blockly.JavaScript.ORDER_ATOMIC ];
+        return [ `${TEXT_CHANNELS}.get(${value})`, Order.ATOMIC ];
     }
 };
 
