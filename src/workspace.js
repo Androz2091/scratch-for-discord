@@ -124,6 +124,7 @@ export function getWorkspaceCode() {
         }),
         database: new Database(\`\${devMode ? S4D_NATIVE_GET_PATH : "."}/db.json\`),
         joiningMember: null,
+        lastMessage: null,
         leavingMember: null,
         reply: null,
         slashCommands: [],

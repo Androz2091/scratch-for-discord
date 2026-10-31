@@ -29,7 +29,7 @@ Blockly.Blocks[blockName] = {
 
 javascriptGenerator.forBlock[blockName] = function(block){
     const content = javascriptGenerator.valueToCode(block, "CONTENT", Order.ATOMIC);
-    return `await s4dmessage.channel.send(${messageContent(block, content)});\n`;
+    return `s4d.lastMessage = await s4dmessage.channel.send(${messageContent(block, content)});\n`;
 };
 
 registerRestrictions(blockName, [
@@ -44,7 +44,8 @@ registerRestrictions(blockName, [
         type: "toplevelparent",
         message: "RES_MUST_BE_IN_ON_MESSAGE",
         types: [
-            "s4d_on_message"
+            "s4d_on_message",
+            "s4d_on_message_edit"
         ]
     }
 ]);

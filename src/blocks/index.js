@@ -2,6 +2,7 @@ import "./procedures";
 
 import "./discord/base/";
 import "./discord/message-event/";
+import "./discord/messages/";
 import "./discord/join-event/";
 import "./discord/leave-event/";
 import "./discord/reaction-event/";
