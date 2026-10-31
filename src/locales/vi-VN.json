@@ -12,7 +12,6 @@
   "BOT_INFORMATIONS": "thông tin của Bot",
   "BOT_ACTIONS": "hành động trên con bot",
   "RES_MISSING_GAME": "Bạn phải chỉ định một trò chơi cho bot!",
-  "SET_BOT_GAME": "đã đặt bot đang chơi %1",
   "BOT_SERVER_COUNT": "số lượng máy chủ bot",
   "TOOLBOX_E_JOINS": "Tham gia",
   "TOOLBOX_E_MESSAGES": "Tin nhắn",

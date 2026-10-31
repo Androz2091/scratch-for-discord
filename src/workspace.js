@@ -21,9 +21,13 @@ const options = {
         maxScale: 3,
         minScale: 0.3,
         scaleSpeed: 1.2
-    },
-    toolbox
+    }
 };
+
+const escapeXml = (text) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+// Blockly translates category names and labels itself, but not the example texts of blocks
+const translatedToolbox = () => toolbox.replace(/%\{BKY_(\w+)\}/g, (reference, key) => (key in Blockly.Msg ? escapeXml(Blockly.Msg[key]) : reference));
 
 let container = null;
 
@@ -40,7 +44,7 @@ function onChange(event) {
 
 export function createWorkspace(element, state) {
     container = element;
-    const workspace = Blockly.inject(element, options);
+    const workspace = Blockly.inject(element, { ...options, toolbox: translatedToolbox() });
     if (state) Blockly.Xml.domToWorkspace(state, workspace);
     workspace.addChangeListener(Blockly.Events.disableOrphans);
     workspace.addChangeListener(onChange);

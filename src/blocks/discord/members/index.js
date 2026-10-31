@@ -9,6 +9,7 @@ import "./member_id";
 import "./member_is_bot";
 import "./member_tag";
 import "./member_username";
+import "./random_member";
 import "./send_message";
 import "./set_member_nickname";
 import "./timeout_member";
