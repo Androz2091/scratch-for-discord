@@ -239,5 +239,19 @@
   "CHANNEL_ACTIONS": "Actions sur le salon",
   "TEXT": "textuel",
   "VOICE": "vocal",
-  "CATEGORY": "catégorie"
+  "CATEGORY": "catégorie",
+  "TOOLBOX_SLASH_COMMANDS": "Commandes slash",
+  "ON_SLASH_COMMAND": "Quand la commande slash /%1 est utilisée %2 description %3 %4 options %5 %6 %7",
+  "ON_SLASH_COMMAND_TOOLTIP": "Les options sont des textes facultatifs que l'utilisateur peut remplir, séparés par des virgules (par exemple : membre, raison)",
+  "SLASH_REPLY": "répondre %1 visible uniquement par l'utilisateur %2",
+  "SLASH_OPTION": "option %1",
+  "SLASH_MEMBER": "membre de la commande slash",
+  "SLASH_CHANNEL": "salon de la commande slash",
+  "SLASH_SERVER": "serveur de la commande slash",
+  "RES_MUST_BE_IN_ON_SLASH_COMMAND": "Ce bloc ne peut être utilisé que dans un événement \"Quand la commande slash est utilisée\"",
+  "MEMBER_AVATAR": "URL de l'avatar du membre %1",
+  "MEMBER_HAS_ROLE": "le membre %1 a le rôle %2",
+  "TIMEOUT_MEMBER": "exclure temporairement le membre %1 pendant %2 minutes",
+  "TIMEOUT_MEMBER_TOOLTIP": "0 minute retire l'exclusion",
+  "UNBAN_MEMBER": "débannir l'utilisateur avec l'ID %1 du serveur %2"
 }

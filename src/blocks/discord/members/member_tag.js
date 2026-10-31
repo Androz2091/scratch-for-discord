@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_member_tag";
@@ -24,9 +25,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${member}.user.tag`, Blockly.JavaScript.ORDER_NONE ];
+javascriptGenerator.forBlock[blockName] = function(block){
+    const member = javascriptGenerator.valueToCode(block, "MEMBER", Order.ATOMIC);
+    return [ `${member}.user.tag`, Order.NONE ];
 };
 
 registerRestrictions(blockName, [

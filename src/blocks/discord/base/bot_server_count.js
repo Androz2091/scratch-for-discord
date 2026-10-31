@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 
 const blockName = "s4d_bot_server_count";
 
@@ -16,7 +17,7 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function() {
-    const code = ["s4d.client.guilds.cache.size", Blockly.JavaScript.ORDER_NONE];
+javascriptGenerator.forBlock[blockName] = function() {
+    const code = ["s4d.client.guilds.cache.size", Order.NONE];
     return code;
 };

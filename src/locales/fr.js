@@ -1,13 +1,3 @@
-import Blockly from "blockly";
-
-import blocklyMessages from "./fr-FR.json";
-
-export const applyBlocklyLocale = () => {
-    for(let key in blocklyMessages){
-        Blockly.Msg[key] = blocklyMessages[key];
-    }
-};
-
 export const websiteMessages = {
     untitled: "Document sans titre",
     help: "Aide",
@@ -50,7 +40,8 @@ export const websiteMessages = {
         content: {
             title: "Comment lancer votre bot une fois le bot téléchargé ?",
             unzipFile: "Dézippez le fichier obtenu.",
-            node: "Installez NPM et Node.js (cherchez des tutos sur google)",
+            node: "Installez Node.js 18 ou plus récent (cherchez des tutos sur google)",
+            intents: "Activez les intents \"Server Members\" et \"Message Content\" de votre bot dans le Discord Developer Portal",
             start: "Tapez 'npm install' et 'npm start' dans votre terminal",
             done: "Votre bot est lancé!"
         },
@@ -85,13 +76,8 @@ export const websiteMessages = {
     },
     autosave: {
         title: "Restorer un projet",
-        text: "Vous n'avez pas sauvegardé votre projet avant de quitter Scratch For Discord ?<br>Pas de problème, vous pouvez choisir le projet que vous voulez restaurer depuis le menu ci-dessous !",
+        text: "Vous n'avez pas sauvegardé votre projet avant de quitter Scratch For Discord ? Pas de problème, vous pouvez choisir le projet que vous voulez restaurer depuis le menu ci-dessous !",
         restore: "Restorer",
         cancel: "Annuler"
     }
-};
-
-export default {
-	applyBlocklyLocale,
-	websiteMessages
 };

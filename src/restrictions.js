@@ -1,4 +1,4 @@
-import Blockly from "blockly";
+import * as Blockly from "blockly/core";
 
 export const restrictions = {};
 
@@ -74,7 +74,7 @@ function validateRestriction(block, blocks, restriction) {
             for (let type of restriction.types){
                 try {
                     if (!block.getInput(type).connection.targetBlock()) return false;
-                } catch(e){
+                } catch {
                     console.log(block.type);
                 }
             }

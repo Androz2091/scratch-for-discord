@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 
 const blockName = "s4d_delete_data";
 
@@ -23,7 +24,7 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const key = Blockly.JavaScript.valueToCode(block, "KEY", Blockly.JavaScript.ORDER_ATOMIC);
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const key = javascriptGenerator.valueToCode(block, "KEY", Order.ATOMIC);
     return `s4d.database.delete(String(${key}));\n`;
 };

@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 
 const blockName = "s4d_current";
 
@@ -44,17 +45,17 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+javascriptGenerator.forBlock[blockName] = function(block) {
     const dataType = block.getFieldValue("DATA_TYPE");
     if(dataType === "SECOND"){
-        return ["(new Date().getSeconds())", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().getSeconds())", Order.NONE];
     } else if(dataType === "MINUTE"){
-        return ["(new Date().getMinutes())", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().getMinutes())", Order.NONE];
     } else if(dataType === "HOUR"){
-        return ["(new Date().getHours())", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().getHours())", Order.NONE];
     } else if(dataType === "DATE"){
-        return ["(new Date().getDate())", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().getDate())", Order.NONE];
     } else if(dataType === "DAY_OF_WEEK"){
-        return ["(new Date().getDay())", Blockly.JavaScript.ORDER_NONE];
+        return ["(new Date().getDay())", Order.NONE];
     }
 };

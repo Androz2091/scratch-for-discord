@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_kick_member";
@@ -25,9 +26,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${member}.kick();\n`;
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const member = javascriptGenerator.valueToCode(block, "MEMBER", Order.ATOMIC);
+    const code = `await ${member}.kick();\n`;
     return code;
 };
 

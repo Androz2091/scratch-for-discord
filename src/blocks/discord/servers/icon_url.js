@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_icon_url";
@@ -24,9 +25,9 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
-    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    return [ `${server}.iconURL({ dynamic: true })`, Blockly.JavaScript.ORDER_NONE ];
+javascriptGenerator.forBlock[blockName] = function(block){
+    const server = javascriptGenerator.valueToCode(block, "SERVER", Order.ATOMIC);
+    return [ `${server}.iconURL()`, Order.NONE ];
 };
 
 registerRestrictions(blockName, [

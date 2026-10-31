@@ -1,4 +1,5 @@
 import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 
 const blockName = "s4d_create_channel";
 
@@ -48,12 +49,10 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block){
+javascriptGenerator.forBlock[blockName] = function(block){
     const type = block.getFieldValue("TYPE");
-    const name = Blockly.JavaScript.valueToCode(block, "NAME", Blockly.JavaScript.ORDER_ATOMIC);
-    const server = Blockly.JavaScript.valueToCode(block, "SERVER", Blockly.JavaScript.ORDER_ATOMIC);
-    const code = `${server}.channels.create(${name}, {
-        type: '${type.toLowerCase()}'
-    });\n`;
-    return code;
+    const name = javascriptGenerator.valueToCode(block, "NAME", Order.ATOMIC);
+    const server = javascriptGenerator.valueToCode(block, "SERVER", Order.ATOMIC);
+    const channelType = { TEXT: "GuildText", VOICE: "GuildVoice", CATEGORY: "GuildCategory" }[type];
+    return `await ${server}.channels.create({ name: String(${name}), type: Discord.ChannelType.${channelType} });\n`;
 };

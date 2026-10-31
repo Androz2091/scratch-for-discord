@@ -1,4 +1,5 @@
-import * as Blockly from "blockly";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_message_author_raw";
@@ -37,16 +38,16 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+javascriptGenerator.forBlock[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "ID"){
-        const code = ["s4dmessage.author.id", Blockly.JavaScript.ORDER_NONE];
+        const code = ["s4dmessage.author.id", Order.NONE];
         return code;
     } else if(searchType === "USERNAME"){
-        const code = ["s4dmessage.author.username", Blockly.JavaScript.ORDER_NONE];
+        const code = ["s4dmessage.author.username", Order.NONE];
         return code;
     } else if(searchType === "NICKNAME"){
-        const code = ["(s4dmessage.member || await s4dmessage.guild.members.fetch(s4dmessage.author.id)).nickname", Blockly.JavaScript.ORDER_NONE];
+        const code = ["(s4dmessage.member || await s4dmessage.guild.members.fetch(s4dmessage.author.id)).nickname", Order.NONE];
         return code;
     }
 };

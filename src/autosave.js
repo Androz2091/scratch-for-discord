@@ -1,58 +1,34 @@
-import Blockly from "blockly";
+import * as Blockly from "blockly/core";
 import localforage from "localforage";
 import Swal from "sweetalert2";
+import store from "./store";
 
-const DISABLED_EVENTS = [
-  Blockly.Events.BUBBLE_OPEN,
-  Blockly.Events.BUMP_EVENTS,
-  Blockly.Events.CLICK,
-  Blockly.Events.BLOCK_DRAG,
-  Blockly.Events.FINISHED_LOADING,
-  Blockly.Events.SELECTED,
-  Blockly.Events.THEME_CHANGE,
-  Blockly.Events.TOOLBOX_ITEM_SELECT,
-  Blockly.Events.TRASHCAN_OPEN,
-  Blockly.Events.UI,
-  Blockly.Events.VIEWPORT_CHANGE,
-];
-
-export default async function register(self) {
-  const workspace = self.$store.state.workspace;
-  const keys = await localforage.keys();
-
-  if (keys?.length) {
-    Swal.fire({
-      title: self.$t("autosave.title"),
-      html: `
-        ${self.$t("autosave.text")}<br><br>
-        <select class="custom-select" id="restore-select">
-            ${keys.map((key) => `<option><b>${key}</b></option>`)}
-        </select>
-      `,
-      showCancelButton: true,
-      cancelButtonText: self.$t("autosave.cancel"),
-      confirmButtonText: self.$t("autosave.restore"),
-      preConfirm: async () => {
-        const select = document.getElementById("restore-select");
-        const xml = await localforage.getItem(select.value);
-        Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(xml), workspace);
-      },
-    })
-  }
-
-  workspace.addChangeListener((event) => {
-    if (DISABLED_EVENTS.includes(event.type)) return;
-    handle(workspace);
-  });
+export async function restoreAutosave(t) {
+    const keys = await localforage.keys();
+    if (!keys.length) return;
+    const select = document.createElement("select");
+    select.className = "form-select mt-3";
+    select.append(...keys.map((key) => new Option(key, key)));
+    const html = document.createElement("div");
+    html.append(t("autosave.text"), select);
+    const result = await Swal.fire({
+        title: t("autosave.title"),
+        html,
+        showCancelButton: true,
+        cancelButtonText: t("autosave.cancel"),
+        confirmButtonText: t("autosave.restore")
+    });
+    if (!result.isConfirmed) return;
+    const xml = await localforage.getItem(select.value);
+    Blockly.Xml.domToWorkspace(Blockly.utils.xml.textToDom(xml), store.workspace);
+    store.docName = select.value;
 }
 
-async function handle(workspace) {
-  const content = Blockly.Xml.domToPrettyText(
-    Blockly.Xml.workspaceToDom(workspace)
-  );
-  const fileName = `${encodeURIComponent(
-    document.querySelector("#docName").textContent
-  ).replace(/%20/g, " ")}`;
+export function autosave(workspace) {
+    const content = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(workspace));
+    return localforage.setItem(store.docName, content);
+}
 
-  await localforage.setItem(fileName, content);
+export function removeAutosave(docName) {
+    return localforage.removeItem(docName);
 }

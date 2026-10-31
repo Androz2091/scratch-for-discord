@@ -1,4 +1,5 @@
-import * as Blockly from "blockly";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_leaving_guild_raw";
@@ -33,13 +34,13 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
+javascriptGenerator.forBlock[blockName] = function(block) {
     const searchType = block.getFieldValue("SEARCH_TYPE");
     if(searchType === "ID"){
-        const code = ["s4d.leavingMember.guild.id", Blockly.JavaScript.ORDER_NONE];
+        const code = ["s4d.leavingMember.guild.id", Order.NONE];
         return code;
     } else if(searchType === "NAME"){
-        const code = ["s4d.leavingMember.guild.name", Blockly.JavaScript.ORDER_NONE];
+        const code = ["s4d.leavingMember.guild.name", Order.NONE];
         return code;
     }
 };

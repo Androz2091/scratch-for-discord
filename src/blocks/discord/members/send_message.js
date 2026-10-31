@@ -1,4 +1,6 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
+import { messageContent } from "../../utils";
 import { registerRestrictions } from "../../../restrictions";
 
 const blockName = "s4d_send_member";
@@ -30,24 +32,10 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const member = Blockly.JavaScript.valueToCode(block, "MEMBER", Blockly.JavaScript.ORDER_ATOMIC);
-    const content = Blockly.JavaScript.valueToCode(block, "CONTENT", Blockly.JavaScript.ORDER_ATOMIC);
-    if(block.getInput("CONTENT").connection.targetConnection){
-        const contentType = block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_ ?
-        block.getInput("CONTENT").connection.targetConnection.getSourceBlock().outputConnection.check_[0] :
-        null;
-        if((contentType === "MessageEmbed") || (!contentType && typeof contentType === "object")){
-            const code = `${member}.send(${content});\n`;
-            return code;
-        } else {
-            const code = `${member}.send(String(${content}));\n`;
-            return code;
-        }
-    } else {
-        const code = `${member}.send(String(${content}));\n`;
-        return code;
-    }
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const member = javascriptGenerator.valueToCode(block, "MEMBER", Order.ATOMIC);
+    const content = javascriptGenerator.valueToCode(block, "CONTENT", Order.ATOMIC);
+    return `await ${member}.send(${messageContent(block, content)});\n`;
 };
 
 registerRestrictions(blockName, [

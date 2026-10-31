@@ -1,0 +1,3 @@
+src/blocks/** linguist-detectable=false
+src/locales/** linguist-detectable=false
+src/examples/** linguist-detectable=false

@@ -1,13 +1,3 @@
-import Blockly from "blockly";
-
-import blocklyMessages from "./en-US.json";
-
-export const applyBlocklyLocale = () => {
-    for (let key in blocklyMessages) {
-        Blockly.Msg[key] = blocklyMessages[key];
-    }
-};
-
 export const websiteMessages = {
     untitled: "Documento senza titolo",
     help: "Aiuto",
@@ -50,7 +40,8 @@ export const websiteMessages = {
         content: {
             title: "Come avviare il bot dopo il download?",
             unzipFile: "Estrai il file scaricato.",
-            node: "Installa NPM e Node.js (cerca tutorial su Google)",
+            node: "Installa Node.js 18 o più recente (cerca tutorial su Google)",
+            intents: "Attiva gli intent \"Server Members\" e \"Message Content\" del tuo bot nel Discord Developer Portal",
             start: "Esegui 'npm install' e 'npm start' in un terminale",
             done: "Il tuo bot è avviato!"
         },
@@ -89,9 +80,4 @@ export const websiteMessages = {
         restore: "Ripristina",
         cancel: "Annulla"
     }
-};
-
-export default {
-    applyBlocklyLocale,
-    websiteMessages
 };

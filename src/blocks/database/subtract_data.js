@@ -1,4 +1,5 @@
-import Blockly from "blockly/core";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator, Order } from "blockly/javascript";
 
 const blockName = "s4d_subtract_data";
 
@@ -28,8 +29,8 @@ Blockly.Blocks[blockName] = {
     }
 };
 
-Blockly.JavaScript[blockName] = function(block) {
-    const key = Blockly.JavaScript.valueToCode(block, "KEY", Blockly.JavaScript.ORDER_ATOMIC);
-    const count = Blockly.JavaScript.valueToCode(block, "COUNT", Blockly.JavaScript.ORDER_ATOMIC);
-    return `s4d.database.subtract(String(${key}), parseInt(${count}));\n`;
+javascriptGenerator.forBlock[blockName] = function(block) {
+    const key = javascriptGenerator.valueToCode(block, "KEY", Order.ATOMIC);
+    const count = javascriptGenerator.valueToCode(block, "COUNT", Order.ATOMIC);
+    return `s4d.database.subtract(String(${key}), Number(${count}));\n`;
 };

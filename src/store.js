@@ -1,25 +1,14 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { shallowReactive } from "vue";
+import locales from "./locales";
 
-Vue.use(Vuex);
+const browserLocale = navigator.language.split("-")[0];
 
-export default new Vuex.Store({
-    state: {
-        workspace: 0,
-        blocklyLocale: (["en", "fr"].includes(navigator.language.split("-")[0]) ? navigator.language.split("-")[0] : "en"),
-        tourDone: false
-    },
-    mutations: {
-        setWorkspace (state, { workspace }) {
-            state.workspace = workspace;
-        },
-        setLocale (state, { newLocale }) {
-            state.blocklyLocale = newLocale;
-            localStorage.setItem('blocklyLocale', newLocale);
-        },
-        setTour (state, { status }){
-            state.tourDone = status;
-            localStorage.setItem('tourDone', status);
-        }
-    }
+export default shallowReactive({
+    workspace: null,
+    locale: localStorage.getItem("blocklyLocale") || (locales[browserLocale] ? browserLocale : "en"),
+    docName: "",
+    // Kept in sync with the workspace by its change listener
+    blockCount: 0,
+    hasLogin: false,
+    valid: false
 });
