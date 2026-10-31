@@ -5,6 +5,7 @@ const blockName = "s4d_on_message_edit";
 
 const blockData = {
     "message0": "%{BKY_ON_MESSAGE_EDIT} %1 %2",
+    "tooltip": "%{BKY_ON_MESSAGE_EDIT_TOOLTIP}",
     "colour": "#F5AB1A",
     "args0": [
         {

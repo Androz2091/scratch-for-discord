@@ -20,7 +20,7 @@ const blockData = {
         }
     ],
     "colour": "#5B80A5",
-    "tooltip": "",
+    "tooltip": "%{BKY_MEMBER_HAS_PERMISSION_TOOLTIP}",
     "output": "Boolean",
     "helpUrl": ""
 };

@@ -34,7 +34,7 @@ const blockData = {
     "colour": "#2EB66B",
     "output": "Role",
     "mutator": "s4d_get_role_mutator",
-    "tooltip": "",
+    "tooltip": "%{BKY_GET_ROLE_TOOLTIP}",
     "helpUrl": ""
 };
 

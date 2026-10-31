@@ -15,7 +15,7 @@ const blockData = {
     "colour": "#D14081",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "",
+    "tooltip": "%{BKY_WAIT_SECONDS_TOOLTIP}",
     "helpUrl": ""
 };
 

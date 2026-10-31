@@ -5,6 +5,7 @@ const blockName = "s4d_newline";
 
 const blockData = {
     "message0": "%{BKY_NEWLINE}",
+    "tooltip": "%{BKY_NEWLINE_TOOLTIP}",
     "output": "String",
     "colour": "#5ba58b",
     "helpUrl": ""

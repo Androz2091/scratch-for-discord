@@ -24,7 +24,7 @@ const blockData = {
     ],
     "output": "String",
     "colour": "#5BA58C",
-    "tooltip": "",
+    "tooltip": "%{BKY_MESSAGE_CHANNEL_RAW_TOOLTIP}",
     "helpUrl": ""
 };
 

@@ -6,6 +6,7 @@ const blockName = "s4d_react_message_id";
 
 const blockData = {
     "message0": "%{BKY_REACT_MESSAGE_ID}",
+    "tooltip": "%{BKY_REACT_MESSAGE_ID_TOOLTIP}",
     "colour": "#5BA58C",
     "output": "String"
 };

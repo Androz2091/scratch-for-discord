@@ -5,6 +5,7 @@ const blockName = "s4d_on_member_join";
 
 const blockData = {
     "message0": "%{BKY_ON_MEMBER_JOIN} %1 %2",
+    "tooltip": "%{BKY_ON_MEMBER_JOIN_TOOLTIP}",
     "colour": "#F5AB1A",
     "args0": [
         {

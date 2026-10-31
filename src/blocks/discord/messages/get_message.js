@@ -21,7 +21,7 @@ const blockData = {
     "colour": "#41AAC0",
     "output": "Message",
     "inputsInline": true,
-    "tooltip": "",
+    "tooltip": "%{BKY_GET_MESSAGE_TOOLTIP}",
     "helpUrl": ""
 };
 

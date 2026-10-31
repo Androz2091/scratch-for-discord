@@ -8,7 +8,7 @@ const blockData = {
     "message0": "%{BKY_JOINING_MEMBER}",
     "colour": "#187795",
     "output": "Member",
-    "tooltip": "",
+    "tooltip": "%{BKY_JOINING_MEMBER_TOOLTIP}",
     "helpUrl": ""
 };
 

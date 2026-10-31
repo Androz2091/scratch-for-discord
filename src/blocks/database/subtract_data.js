@@ -5,6 +5,7 @@ const blockName = "s4d_subtract_data";
 
 const blockData = {
     "message0": "%{BKY_SUBTRACT_DATA}",
+    "tooltip": "%{BKY_SUBTRACT_DATA_TOOLTIP}",
     "args0": [
         {
             "type": "input_value",

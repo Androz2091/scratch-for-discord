@@ -6,7 +6,7 @@ const blockName = "s4d_bot_ping";
 const blockData = {
     "message0": "%{BKY_BOT_PING}",
     "colour": "#5b67a5",
-    "tooltip": "",
+    "tooltip": "%{BKY_BOT_PING_TOOLTIP}",
     "output": "Number",
     "helpUrl": ""
 };

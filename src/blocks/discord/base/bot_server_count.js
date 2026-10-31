@@ -6,7 +6,7 @@ const blockName = "s4d_bot_server_count";
 const blockData = {
     "message0": "%{BKY_BOT_SERVER_COUNT}",
     "colour": "#5b67a5",
-    "tooltip": "",
+    "tooltip": "%{BKY_BOT_SERVER_COUNT_TOOLTIP}",
     "output": "Number",
     "helpUrl": ""
 };

@@ -29,7 +29,7 @@ const blockData = {
     ],
     "colour": "#a55b80",
     "output": "Channel",
-    "tooltip": "",
+    "tooltip": "%{BKY_GET_CHANNEL_TOOLTIP}",
     "helpUrl": ""
 };
 

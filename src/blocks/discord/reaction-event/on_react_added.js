@@ -5,6 +5,7 @@ const blockName = "s4d_on_react_added";
 
 const blockData = {
     "message0": "%{BKY_ON_REACT_ADDED} %1 %2",
+    "tooltip": "%{BKY_ON_REACT_ADDED_TOOLTIP}",
     "colour": "#F5AB1A",
     "args0": [
         {

@@ -43,7 +43,7 @@ const blockData = {
     ],
     "output": "Number",
     "colour": "#D14081",
-    "tooltip": "",
+    "tooltip": "%{BKY_CURRENT_TOOLTIP}",
     "helpUrl": ""
 };
 

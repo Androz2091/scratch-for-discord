@@ -8,7 +8,7 @@ const blockData = {
     "message0": "%{BKY_MESSAGE_GUILD}",
     "colour": "#D85E47",
     "output": "Server",
-    "tooltip": "",
+    "tooltip": "%{BKY_MESSAGE_GUILD_TOOLTIP}",
     "helpUrl": ""
 };
 

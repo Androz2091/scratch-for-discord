@@ -13,6 +13,7 @@ import "./discord/channels/";
 import "./discord/servers/";
 import "./discord/roles/";
 import "./discord/members/";
+import "./discord/voice/";
 
 import "./database/";
 import "./text/";

@@ -6,6 +6,7 @@ const blockName = "s4d_slash_member";
 
 const blockData = {
     "message0": "%{BKY_SLASH_MEMBER}",
+    "tooltip": "%{BKY_SLASH_MEMBER_TOOLTIP}",
     "colour": "#5865F2",
     "output": "Member"
 };

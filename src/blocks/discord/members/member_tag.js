@@ -15,7 +15,7 @@ const blockData = {
     ],
     "colour": "#50a6c9",
     "output": "String",
-    "tooltip": "",
+    "tooltip": "%{BKY_MEMBER_TAG_TOOLTIP}",
     "helpUrl": ""
 };
 

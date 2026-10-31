@@ -5,6 +5,7 @@ const blockName = "s4d_on_member_leave";
 
 const blockData = {
     "message0": "%{BKY_ON_MEMBER_LEAVE} %1 %2",
+    "tooltip": "%{BKY_ON_MEMBER_LEAVE_TOOLTIP}",
     "colour": "#F5AB1A",
     "args0": [
         {

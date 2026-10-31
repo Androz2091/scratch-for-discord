@@ -39,7 +39,7 @@ const blockData = {
     "colour": "#4C97FF",
     "previousStatement": null,
     "nextStatement": null,
-    "tooltip": "",
+    "tooltip": "%{BKY_SET_BOT_GAME_TOOLTIP}",
     "helpUrl": ""
 };
 
