@@ -1,5 +1,6 @@
 import * as blocklyCS from "blockly/msg/cs";
 import * as blocklyEN from "blockly/msg/en";
+import * as blocklyES from "blockly/msg/es";
 import * as blocklyFR from "blockly/msg/fr";
 import * as blocklyIT from "blockly/msg/it";
 import * as blocklyPL from "blockly/msg/pl";
@@ -10,6 +11,7 @@ import * as blocklyZH from "blockly/msg/zh-hant";
 
 import blocksCS from "./cs-CZ.json";
 import blocksEN from "./en-US.json";
+import blocksES from "./es-ES.json";
 import blocksFR from "./fr-FR.json";
 import blocksIT from "./it-IT.json";
 import blocksPL from "./pl-PL.json";
@@ -20,6 +22,7 @@ import blocksZH from "./zh-TW.json";
 
 import { websiteMessages as websiteCS } from "./cs";
 import { websiteMessages as websiteEN } from "./en";
+import { websiteMessages as websiteES } from "./es";
 import { websiteMessages as websiteFR } from "./fr";
 import { websiteMessages as websiteIT } from "./it";
 import { websiteMessages as websitePL } from "./pl";
@@ -32,6 +35,7 @@ import { websiteMessages as websiteZH } from "./zh-TW";
 export default {
     cs: { name: "Čeština (CS)", blockly: blocklyCS, blocks: blocksCS, website: websiteCS },
     en: { name: "English (EN)", blockly: blocklyEN, blocks: blocksEN, website: websiteEN },
+    es: { name: "Español (ES)", blockly: blocklyES, blocks: blocksES, website: websiteES },
     fr: { name: "Français (FR)", blockly: blocklyFR, blocks: blocksFR, website: websiteFR },
     it: { name: "Italiano (IT)", blockly: blocklyIT, blocks: blocksIT, website: websiteIT },
     pl: { name: "Polski (PL)", blockly: blocklyPL, blocks: blocksPL, website: websitePL },
